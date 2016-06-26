@@ -1,0 +1,13 @@
+require('./array-flatten');
+require('./array-intersect');
+require('./array-last');
+require('./array-remove');
+require('./array-union');
+require('./array-unique');
+require('./function-context');
+require('./function-curry');
+require('./function-partial');
+require('./object-clone');
+require('./object-compare');
+require('./object-filter');
+require('./object-pluck');
