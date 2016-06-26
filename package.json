@@ -1,0 +1,30 @@
+{
+  "name": "just",
+  "version": "1.0.0",
+  "description": "A library of simple dependency-free utilities that do just do one thing",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angus-c/just.git"
+  },
+  "keywords": [
+    "node",
+    "array",
+    "object",
+    "function"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  },
+  "homepage": "https://github.com/angus-c/just#readme"
+}
