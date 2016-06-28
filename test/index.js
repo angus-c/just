@@ -7,7 +7,7 @@ require('./array-unique');
 require('./function-context');
 require('./function-curry');
 require('./function-partial');
-require('./object-clone');
+require('./object-extend');
 require('./object-compare');
 require('./object-filter');
 require('./object-pluck');
