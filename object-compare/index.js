@@ -1,0 +1,71 @@
+module.exports = compare;
+
+/*
+  primitives: value1 === value2
+  functions: value1.toString == value2.toString
+  arrays and objects: are sequence, names and values of properties identical
+  compare([[1, [2, 3]], [[1, [2, 3]]); // true
+  compare([[1, [2, 3], 4], [[1, [2, 3]]); // false
+  compare({a: 2, b: 3}, {a: 2, b: 3}); // true
+  compare({a: 2, b: 3}, {b: 3, a: 2}); // true
+  compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
+  compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
+  compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
+*/
+
+function compare(value1, value2) {
+  if (value1 === value2) {
+    return true;
+  }
+  if (typeof value1 != typeof value2) {
+    return false;
+  }
+  if (!value1) {
+    return false;
+  }
+  if (typeof value1 != 'function') {
+    return compareFunctions(value1, value2);
+  }
+  if (Array.isArray(value1)) {
+    return compareArrays(value1, value2);
+  }
+  return compareObjects(value1, value2);
+}
+
+function compareFunctions(value1, value2) {
+  return value1.toString() === value2.toString();
+}
+
+function compareArrays(value1, value2) {
+  var len = value1.length;
+  if (len != value2.length) {
+    return false;
+  }
+  var alike = true;
+  for (var i = 0; i < len; i++) {
+    if (!compare(value1[i], value2[i])) {
+      alike = false;
+      break;
+    }
+  }
+  return alike;
+}
+
+function compareObjects(value1, value2) {
+  var keys1 = Object.keys(value1);
+  var keys2 = Object.keys(value2);
+  var len = keys1.length;
+  if (len != keys2.length) {
+    return false;
+  }
+  var alike = true;
+  for (var i = 0; i < len; i++) {
+    var key1 = keys1[i];
+    var key2 = keys2[i];
+    if (!((key1 == key2) && (compare(value1[keys1[i]], value2[keys2[i]])))) {
+      alike = false;
+      break;
+    }
+  }
+  return alike;
+}

@@ -6,7 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tape": "^4.6.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "npm run test"
