@@ -20,15 +20,20 @@ function compare(value1, value2) {
   if (typeof value1 != typeof value2) {
     return false;
   }
+  if (value1 !== Object(value1)) {
+    // non equal primitives
+    return false;
+  }
   if (!value1) {
     return false;
   }
-  if (typeof value1 != 'function') {
+  if (typeof value1 == 'function') {
     return compareFunctions(value1, value2);
   }
   if (Array.isArray(value1)) {
     return compareArrays(value1, value2);
   }
+  // TODO: compare regexes etc.
   return compareObjects(value1, value2);
 }
 
@@ -52,20 +57,18 @@ function compareArrays(value1, value2) {
 }
 
 function compareObjects(value1, value2) {
-  var keys1 = Object.keys(value1);
-  var keys2 = Object.keys(value2);
+  var keys1 = Object.keys(value1).sort();
+  var keys2 = Object.keys(value2).sort();
   var len = keys1.length;
   if (len != keys2.length) {
     return false;
   }
-  var alike = true;
   for (var i = 0; i < len; i++) {
     var key1 = keys1[i];
     var key2 = keys2[i];
-    if (!((key1 == key2) && (compare(value1[keys1[i]], value2[keys2[i]])))) {
-      alike = false;
-      break;
+    if (!((key1 == key2) && (compare(value1[key1], value2[key2])))) {
+      return false;
     }
   }
-  return alike;
+  return true;
 }
