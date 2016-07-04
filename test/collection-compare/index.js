@@ -21,33 +21,6 @@ test('not strictly equal primitives return true', function (t) {
   t.end();
 });
 
-test('alike function return true', function (t) {
-  t.plan(3);
-  t.ok(compare(function () {}, function () {}));
-  t.ok(compare(function (a, b) {return a + b;}, function (a, b) {return a + b;}));
-  t.ok(compare([].slice, [].slice));
-  t.end();
-});
-
-test('alike function return true', function (t) {
-  t.plan(3);
-  t.notOk(compare(function () {}, function (a) {}));
-  t.notOk(compare(function (a, b) {return a + b;}, function (a, b) {return a - b;}));
-  t.notOk(compare([].slice, [].splice));
-  t.end();
-});
-
-test('unalike arrays return false', function (t) {
-  t.plan(2);
-  var value1 = [1, 2, 3, 4];
-  var value2 = [1, 2, 3];
-  t.notOk(compare(value1, value2));
-  var value3 = [1, 2, [3, 4], 5];
-  var value4 = [1, 2, [3, 3], 5];
-  t.notOk(compare(value3, value4));
-  t.end();
-});
-
 test('alike arrays return true', function (t) {
   t.plan(2);
   var value1 = [1, 2, 3, 4];
@@ -106,8 +79,8 @@ test('alike complex objects return true', function (t) {
   var value1 = {a: [4, 2], b: 3};
   var value2 = {a: [4, 2], b: 3};
   t.ok(compare(value1, value2));
-  var value3 = {a: {c: 5, d: [1, 2, 3]}, b: 3};
-  var value4 = {a: {c: 5, d: [1, 4 / 2, 3]}, b: 2 + 1};
+  var value3 = {a: {c: 5, d: [1, 2, 3]}, b: /44/};
+  var value4 = {a: {c: 5, d: [1, 4 / 2, 3]}, b: /44/};
   t.ok(compare(value3, value4));
   var value5 = [1, 2, [{a: 5, b: '*', c: 9}], false, [1, [2, 3]]];
   var value6 = [1, 2, [{b: '*', c: 9, a: 5}], false, [1, [2, 3]]];
@@ -120,11 +93,51 @@ test('unalike complex objects return false', function (t) {
   var value1 = {a: [4, 2], b: 3};
   var value2 = {a: [4, 2], c: 3};
   t.notOk(compare(value1, value2));
-  var value3 = {a: {c: 5, d: [1, 2, 3]}, b: 3};
-  var value4 = {a: {c: 5, d: [1, 4 / 2, 3]}, b: 2 + 1, e: 5};
+  var value3 = {a: {c: 5, d: [1, 2, 3]}, b: /44/};
+  var value4 = {a: {c: 5, d: [1, 4 / 2, 3]}, b: /44/, e: 5};
   t.notOk(compare(value3, value4));
   var value5 = [1, 2, [{a: 5, b: '*', c: 9}], false, [1, [2, 3]]];
   var value6 = [1, 2, [{b: '?', c: 9, a: 5}], false, [1, [2, 3]]];
   t.notOk(compare(value5, value6));
+  t.end();
+});
+
+test('alike functions return true', function (t) {
+  t.plan(3);
+  t.ok(compare(function () {}, function () {}));
+  t.ok(compare(function (a, b) {return a + b;}, function (a, b) {return a + b;}));
+  t.ok(compare([].slice, [].slice));
+  t.end();
+});
+
+test('unalike functions return true', function (t) {
+  t.plan(3);
+  t.notOk(compare(function () {}, function (a) {}));
+  t.notOk(compare(function (a, b) {return a + b;}, function (a, b) {return a - b;}));
+  t.notOk(compare([].slice, [].splice));
+  t.end();
+});
+
+test('alike regexps return true', function (t) {
+  t.plan(1);
+  t.ok(compare(/hello/, /hello/));
+  t.end();
+});
+
+test('unalike regexps return true', function (t) {
+  t.plan(1);
+  t.notOk(compare(/hello/, /hello/g));
+  t.end();
+});
+
+test('alike dates return true', function (t) {
+  t.plan(1);
+  t.ok(compare(new Date(2016, 8, 3), new Date(2016, 8, 3)));
+  t.end();
+});
+
+test('alike dates return true', function (t) {
+  t.plan(1);
+  t.notOk(compare(new Date(2016, 8, 3), new Date(2016, 8, 3, 16)));
   t.end();
 });

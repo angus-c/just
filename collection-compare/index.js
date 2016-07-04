@@ -28,17 +28,18 @@ function compare(value1, value2) {
   if (!value1) {
     return false;
   }
-  if (typeof value1 == 'function') {
-    return compareFunctions(value1, value2);
-  }
   if (Array.isArray(value1)) {
     return compareArrays(value1, value2);
   }
-  // TODO: compare regexes etc.
-  return compareObjects(value1, value2);
+  if (({}).toString.call(value1) == '[object Object]') {
+    return compareObjects(value1, value2);
+  } else {
+    return compareNativeSubtypes(value1, value2);
+  }
 }
 
-function compareFunctions(value1, value2) {
+function compareNativeSubtypes(value1, value2) {
+  // e.g. Function, RegExp, Date
   return value1.toString() === value2.toString();
 }
 
