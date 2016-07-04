@@ -4,7 +4,6 @@ require('./array-last');
 require('./array-remove');
 require('./array-union');
 require('./array-unique');
-require('./function-context');
 require('./function-curry');
 require('./function-partial');
 require('./collection-compare');

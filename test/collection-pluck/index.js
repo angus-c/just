@@ -1,4 +1,3 @@
-
 var test = require('tape');
 var pluck = require('../../collection-pluck');
 var compare = require('../../collection-compare');
