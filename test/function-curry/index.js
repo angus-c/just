@@ -1,7 +1,7 @@
 var test = require('tape');
 var curry = require('../../function-curry');
 
-test('binds curried functions to supplied functions', function (t) {
+test('binds curried arguments to supplied arguments', function (t) {
   t.plan(4);
   function converter(ratio, input) {
     return (input * ratio).toFixed(1);
