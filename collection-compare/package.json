@@ -1,29 +1,22 @@
 {
-  "name": "just",
+  "name": "just-collection-compare",
   "version": "1.0.0",
-  "description": "A library of simple dependency-free utilities that do just do one thing",
+  "description": "compare two collections",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "tape": "^4.6.0"
-  },
-  "devDependencies": {
-    "lerna": "2.0.0-beta.23"
-  },
   "scripts": {
-    "test": "npm run test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/angus-c/just.git"
   },
   "keywords": [
-    "node",
-    "array",
     "object",
-    "function"
+    "array",
+    "compare",
+    "no",
+    "dependencies",
+    "just"
   ],
   "author": "Angus Croll",
   "license": "MIT",
