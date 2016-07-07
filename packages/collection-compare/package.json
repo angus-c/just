@@ -1,0 +1,27 @@
+{
+  "name": "just-collection-compare",
+  "version": "1.0.1",
+  "description": "compare two collections",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angus-c/just.git"
+  },
+  "keywords": [
+    "object",
+    "array",
+    "compare",
+    "no",
+    "dependencies",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  },
+  "homepage": "https://github.com/angus-c/just#readme"
+}
