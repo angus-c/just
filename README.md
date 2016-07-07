@@ -1,7 +1,7 @@
 ## Just
 
-Guilt-free utilities for the byte conscious developer
-A library of zero-dependency npm modules that do just do one thing.
+Guilt-free utilities for the byte conscious developer.  
+A library of zero-dependency npm modules that do just do one thing.  
 
 [just-array-flatten](https://www.npmjs.com/package/just-array-flatten)
 [just-array-intersect](https://www.npmjs.com/package/just-array-intersect)
