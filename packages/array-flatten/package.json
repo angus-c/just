@@ -1,5 +1,5 @@
 {
-  "name": "just-flatten",
+  "name": "just-array-flatten",
   "version": "1.0.0",
   "description": "return an flattened array",
   "main": "index.js",
