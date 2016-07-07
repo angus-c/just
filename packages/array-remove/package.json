@@ -1,6 +1,6 @@
 {
   "name": "just-array-remove",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "removes one array from another",
   "main": "index.js",
   "scripts": {
