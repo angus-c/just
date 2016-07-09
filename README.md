@@ -64,7 +64,7 @@ compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
   
 [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
 
-```
+```js
 var arr = [{a:1, b:2}, {a:4, b:3}, {a:2, b:5}];
 pluck(arr, 'a'); // [1, 4, 2]
 var obj = {x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}];
