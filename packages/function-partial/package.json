@@ -1,6 +1,6 @@
 {
   "name": "just-function-partial",
-  "version": "1.1.1",
+  "version": "1.1.5",
   "description": "return a partial function",
   "main": "index.js",
   "scripts": {
