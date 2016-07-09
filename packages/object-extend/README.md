@@ -1,9 +1,11 @@
 ## just-extend
 
-Part of a [library]('../README.md') of zero-dependency npm modules that do just do one thing.  
+Part of a [library]('../../README.md') of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for the bloat conscious developer.
 
 ```js
+import extend from 'just-extend';
+
 var obj = {a: 3, b: 5};
 extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
 obj; // {a: 4, b: 5, c: 8}

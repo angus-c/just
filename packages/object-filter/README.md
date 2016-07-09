@@ -4,6 +4,8 @@ Part of a [library]('../../README.md') of zero-dependency npm modules that do ju
 Guilt-free utilities for the bloat conscious developer.
 
 ```js
+import filter from 'just-filter';
+
 var obj = {a: 3, b: 5, c: 9};
 filter(obj, function(key, value) {
   return value < 6;

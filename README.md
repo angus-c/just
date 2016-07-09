@@ -6,6 +6,8 @@ Guilt-free utilities for the bloat conscious developer.
 [just-extend](https://www.npmjs.com/package/just-extend)
 
 ```js
+import extend from 'just-extend';
+
 var obj = {a: 3, b: 5};
 extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
 obj; // {a: 4, b: 5, c: 8}
@@ -30,6 +32,8 @@ obj; // {a: 3, b: 5, c: [1, 2, 3]}
 [just-filter](https://www.npmjs.com/package/just-filter)
 
 ```js
+import filter from 'just-filter';
+
 var obj = {a: 3, b: 5, c: 9};
 filter(obj, function(key, value) {
   return value < 6;
@@ -49,6 +53,8 @@ filter(obj, function(key, value) {
 [just-compare](https://www.npmjs.com/package/just-compare)
 
 ```js
+import compare from 'just-compare';
+
 primitives: value1 === value2
 functions: value1.toString == value2.toString
 arrays: if length, sequence and values of properties are identical
@@ -65,6 +71,8 @@ compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
 
 ```js
+import pluck from 'just-pluck-it';
+
 var arr = [{a:1, b:2}, {a:4, b:3}, {a:2, b:5}];
 pluck(arr, 'a'); // [1, 4, 2]
 var obj = {x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}];
@@ -74,6 +82,8 @@ pluck(obj, 'a'); // {x: 1, y: 4, z: 2}
 [just-array-flatten](https://www.npmjs.com/package/just-array-flatten)
 
 ```js
+import flatten from 'just-array-flatten';
+
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
@@ -81,12 +91,16 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 [just-array-intersect](https://www.npmjs.com/package/just-array-intersect)
 
 ```js
-  intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
+import intersect from 'just-array-intersect';
+
+intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 ```
    
 [just-array-last](https://www.npmjs.com/package/just-array-last)  
 
 ```js
+import last from 'just-array-last';
+
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
 last([true, false, [true, false]]); // [true, false]
@@ -94,18 +108,24 @@ last([true, false, [true, false]]); // [true, false]
 [just-array-remove](https://www.npmjs.com/package/just-array-remove)
 
 ```js
-  remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
+import remove from 'just-array-remove';
+
+remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 ```  
 
 [just-array-union](https://www.npmjs.com/package/just-array-remove)  
 
 ```js
-  union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
+import union from 'just-array-union';
+
+union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
   
 [just-array-unique](https://www.npmjs.com/package/just-array-unique)  
 
 ```js
+import unique from 'just-array-unique';
+
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
 var a = {a: 3};
 var b = {b: 4};
@@ -118,6 +138,8 @@ unique([1, '1', 2, '2', 3, 2], fuction(a, b) {return a === b}; // [1, '1', 2, '2
 [just-function-curry](https://www.npmjs.com/package/just-function-curry)
 
 ```js
+import curry from 'just-function-curry';
+
 function converter(ratio, input) {
   return (input*ratio).toFixed(1);
 }
@@ -129,6 +151,8 @@ milesToKm(10); // 16.2
 [just-function-partial](https://www.npmjs.com/package/just-function-partial)
 
 ```js
+import partial from 'just-function-partial';
+
 var cubedRoot = partial(Math.pow, _, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
 cubedRoot(35).toFixed(1); // 16.2

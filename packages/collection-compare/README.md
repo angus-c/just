@@ -1,9 +1,11 @@
 ## just-compare
 
-Part of a [library]('../README.md') of zero-dependency npm modules that do just do one thing.  
+Part of a [library]('../../README.md') of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for the bloat conscious developer.
 
 ```js
+import compare from 'just-compare';
+
 primitives: value1 === value2
 functions: value1.toString == value2.toString
 arrays: if length, sequence and values of properties are identical

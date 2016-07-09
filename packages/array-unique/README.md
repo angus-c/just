@@ -1,9 +1,11 @@
 ## just-array-unique
 
-Part of a [library]('../README.md') of zero-dependency npm modules that do just do one thing.  
+Part of a [library]('../../README.md') of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for the bloat conscious developer.
 
 ```js
+import unique from 'just-array-unique';
+
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
 var a = {a: 3};
 var b = {b: 4};
