@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/angus-c/just/tree/master/packages/object-extend",
+  "repository": "https://github.com/angus-c/just",
   "keywords": [
     "object",
     "extend",
