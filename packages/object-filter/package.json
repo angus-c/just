@@ -1,6 +1,6 @@
 {
   "name": "just-filter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "filter an object",
   "main": "index.js",
   "scripts": {
