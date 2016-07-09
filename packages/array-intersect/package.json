@@ -1,6 +1,6 @@
 {
   "name": "just-array-intersect",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "return the intersect of two arrays",
   "main": "index.js",
   "scripts": {
