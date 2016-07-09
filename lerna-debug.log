@@ -4,57 +4,32 @@ lerna(debug)   Attempting running PublishCommand.initialize
 lerna(info)    Checking for updated packages...
 lerna(info)    
 lerna(info)    Changes:
-lerna(info)    - just-flatten: 1.0.1 => 1.0.0
-- just-compare: 1.0.1 => 1.0.0
-- just-pluck-it: 1.0.1 => 1.0.0
-- just-extend: 1.0.0 => 1.0.0
+lerna(info)    - just-array-flatten: 1.0.0 => 1.0.1
+- just-array-intersect: 1.0.1 => 1.0.2
+- just-array-last: 1.0.1 => 1.0.2
+- just-array-remove: 1.0.1 => 1.0.2
+- just-array-union: 1.0.1 => 1.0.2
+- just-array-unique: 1.0.1 => 1.0.2
+- just-compare: 1.0.0 => 1.0.1
+- just-pluck-it: 1.0.0 => 1.0.1
+- just-function-curry: 1.0.2 => 1.0.3
+- just-function-partial: 1.0.2 => 1.0.3
+- just-extend: 1.0.0 => 1.0.1
+- just-filter: 1.0.0 => 1.0.1
 lerna(info)    
 lerna(debug)   Successfully ran PublishCommand.initialize
 lerna(debug)   Attempting running PublishCommand.execute
-lerna(info)    
-lerna(info)    Publishing packages to npm...
-lerna(debug)   No prepublish script found at /Users/anguscroll/Documents/github/just/packages/array-flatten/scripts/prepublish.js
-lerna(debug)   No prepublish script found at /Users/anguscroll/Documents/github/just/packages/collection-compare/scripts/prepublish.js
-lerna(debug)   No prepublish script found at /Users/anguscroll/Documents/github/just/packages/collection-pluck/scripts/prepublish.js
-lerna(debug)   No prepublish script found at /Users/anguscroll/Documents/github/just/packages/object-extend/scripts/prepublish.js
-lerna(debug)   Publishing just-flatten...
-lerna(debug)   Publishing just-compare...
-lerna(debug)   Publishing just-pluck-it...
-lerna(debug)   Publishing just-extend...
-lerna(error)   Attempting to retry publishing just-flatten...
-    Error: Command failed: /bin/sh -c cd /Users/anguscroll/Documents/github/just/packages/array-flatten && npm publish --tag lerna-temp
-    npm ERR! publish Failed PUT 403
-    npm ERR! Darwin 14.5.0
-    npm ERR! argv "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/node" "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/npm" "publish" "--tag" "lerna-temp"
-    npm ERR! node v4.2.1
-    npm ERR! npm  v3.7.2
-    npm ERR! code E403
-    
-    npm ERR! you do not have permission to publish "just-flatten". Are you logged in as the correct user? : just-flatten
-    npm ERR! 
-    npm ERR! If you need help, you may report this error at:
-    npm ERR!     <https://github.com/npm/npm/issues>
-    
-    npm ERR! Please include the following file with any support request:
-    npm ERR!     /Users/anguscroll/Documents/github/just/packages/array-flatten/npm-debug.log
-    
-        at ChildProcess.exithandler (child_process.js:203:12)
-        at emitTwo (events.js:87:13)
-        at ChildProcess.emit (events.js:172:7)
-        at maybeClose (internal/child_process.js:818:16)
-        at Socket.<anonymous> (internal/child_process.js:319:11)
-        at emitOne (events.js:77:13)
-        at Socket.emit (events.js:169:7)
-        at Pipe._onclose (net.js:469:12)
-lerna(debug)   Publishing just-flatten...
-lerna(error)   Attempting to retry publishing just-flatten...
-lerna(debug)   Publishing just-flatten...
-lerna(debug)   No postpublish script found at /Users/anguscroll/Documents/github/just/packages/collection-compare/scripts/postpublish.js
-lerna(debug)   No postpublish script found at /Users/anguscroll/Documents/github/just/packages/collection-pluck/scripts/postpublish.js
-lerna(debug)   No postpublish script found at /Users/anguscroll/Documents/github/just/packages/object-extend/scripts/postpublish.js
-lerna(error)   Attempting to retry publishing just-flatten...
-lerna(debug)   Publishing just-flatten...
-lerna(error)   Attempting to retry publishing just-flatten...
-lerna(debug)   Publishing just-flatten...
-lerna(error)   Ran out of retries while publishing just-flatten
 lerna(error)   Errored while running PublishCommand.execute
+    Error: Command failed: git tag just-array-flatten@1.0.1
+    fatal: tag 'just-array-flatten@1.0.1' already exists
+    
+        at checkExecSyncError (child_process.js:441:13)
+        at Object.execSync (child_process.js:481:13)
+        at Function.execSync (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/ChildProcessUtilities.js:57:40)
+        at addTag (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/GitUtilities.js:82:39)
+        at Array.forEach (native)
+        at PublishCommand.gitCommitAndTagVersionForUpdates (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/commands/PublishCommand.js:387:12)
+        at PublishCommand.commitAndTagUpdates (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/commands/PublishCommand.js:367:28)
+        at PublishCommand.execute (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/commands/PublishCommand.js:136:16)
+        at PublishCommand._attempt (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/Command.js:157:21)
+        at /Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/lerna/lib/Command.js:142:15
