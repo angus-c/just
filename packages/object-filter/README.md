@@ -6,18 +6,7 @@ Guilt-free utilities for the bloat conscious developer.
 ```js
 import filter from 'just-filter';
 
-var obj = {a: 3, b: 5, c: 9};
-filter(obj, function(key, value) {
-  return value < 6;
-}); // {a: 3, b: 5}
-
-var obj = {a1: 3, b1: 5, a2: 9};
-filter(obj, function(key, value) {
-  return key[0] == 'a';
-}); // {a1: 3, a2: 9}
-
-var obj = {a: 3, b: 5, c: null};
-filter(obj, function(key, value) {
-  return value;
-}); // {a: 3, b: 5}
+filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
+filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
+filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
