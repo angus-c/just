@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angus-c/just.git"
+  "repository": "https://github.com/angus-c/just/tree/master/packages/array-flatten"
   },
   "keywords": [
     "array",
@@ -22,5 +20,5 @@
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
   },
-  "homepage": "https://github.com/angus-c/just/packages/array-flatten#readme"
+  "homepage": "https://github.com/angus-c/just"
 }
