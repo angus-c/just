@@ -1,5 +1,5 @@
 var test = require('tape');
-var curry = require('../../function-curry');
+var curry = require('../../packages/function-curry');
 
 test('binds curried arguments to supplied arguments', function (t) {
   t.plan(4);

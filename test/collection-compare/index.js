@@ -1,5 +1,5 @@
 var test = require('tape');
-var compare = require('../../collection-compare');
+var compare = require('../../packages/collection-compare');
 
 test('strictly equal primitives return true', function (t) {
   t.plan(5);

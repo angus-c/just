@@ -1,5 +1,5 @@
 var test = require('tape');
-var last = require('../../array-last');
+var last = require('../../packages/array-last');
 
 test('non empty arrays return last', function (t) {
   t.plan(4);

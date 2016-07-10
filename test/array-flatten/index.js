@@ -1,5 +1,5 @@
 var test = require('tape');
-var flatten = require('../../array-flatten');
+var flatten = require('../../packages/array-flatten');
 
 test('flattened arrays are unchanged', function (t) {
   t.plan(1);

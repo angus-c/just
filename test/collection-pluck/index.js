@@ -1,6 +1,6 @@
 var test = require('tape');
-var pluck = require('../../collection-pluck');
-var compare = require('../../collection-compare');
+var pluck = require('../../packages/collection-pluck');
+var compare = require('../../packages/collection-compare');
 
 test('arrays return array of values at propertyName', function (t) {
   t.plan(2);

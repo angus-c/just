@@ -1,6 +1,6 @@
 var test = require('tape');
-var filter = require('../../object-filter');
-var compare = require('../../collection-compare');
+var filter = require('../../packages/object-filter');
+var compare = require('../../packages/collection-compare');
 
 test('filter by key', function (t) {
   t.plan(1);

@@ -1,5 +1,5 @@
 var test = require('tape');
-var extend = require('../../object-extend');
+var extend = require('../../packages/object-extend');
 
 test('shallow extend merges properties', function (t) {
   t.plan(1);

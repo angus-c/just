@@ -1,5 +1,5 @@
 var test = require('tape');
-var unique = require('../../array-unique');
+var unique = require('../../packages/array-unique');
 
 test('primitives', function (t) {
   t.plan(3);

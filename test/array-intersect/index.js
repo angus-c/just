@@ -1,5 +1,5 @@
 var test = require('tape');
-var intersect = require('../../array-intersect');
+var intersect = require('../../packages/array-intersect');
 
 test('intersecting arrays return intersect', function (t) {
   t.plan(1);

@@ -1,5 +1,5 @@
 var test = require('tape');
-var partial = require('../../function-partial');
+var partial = require('../../packages/function-partial');
 
 var _ = global.___;
 
