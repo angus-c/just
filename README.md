@@ -122,6 +122,16 @@ unique([1, '1', 2, '2', 3, 2]); // [1, 2, 3]
 unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
 ```
 
+[just-compose](https://www.npmjs.com/package/just-compose)
+
+```js
+import compose from 'just-compose';
+
+const sqRootBiggest = compose(Math.trunc, Math.sqrt, Math.max);
+sqRootBiggest(10, 5); // 3
+sqRootBiggest(7, 0, 16); // 4
+```
+
 [just-function-curry](https://www.npmjs.com/package/just-function-curry)
 
 ```js
