@@ -6,6 +6,7 @@ require('./array-union');
 require('./array-unique');
 require('./function-curry');
 require('./function-partial');
+require('./function-compose');
 require('./collection-compare');
 require('./collection-pluck');
 require('./object-extend');
