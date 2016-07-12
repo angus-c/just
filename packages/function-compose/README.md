@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```js
-import compose from 'just-function-compose';
+import compose from 'just-compose';
 
 const sqRootBiggest = compose(Math.trunc, Math.sqrt, Math.max);
 sqRootBiggest(10, 5); // 3
