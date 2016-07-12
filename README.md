@@ -127,7 +127,7 @@ unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
 ```js
 import compose from 'just-compose';
 
-const sqRootBiggest = compose(Math.trunc, Math.sqrt, Math.max);
+const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
 sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```
