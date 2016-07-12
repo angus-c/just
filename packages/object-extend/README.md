@@ -1,7 +1,7 @@
 ## just-extend
 
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
-Guilt-free utilities for the bloat conscious developer.
+Guilt-free utilities for every occasion.
 
 ```js
 import extend from 'just-extend';
