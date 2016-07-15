@@ -1,6 +1,6 @@
 {
   "name": "just-compose",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "return a function composed of 2 or more functions",
   "main": "index.js",
   "scripts": {
