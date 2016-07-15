@@ -11,3 +11,4 @@ require('./collection-compare');
 require('./collection-pluck');
 require('./object-extend');
 require('./object-filter');
+require('./string-template');
