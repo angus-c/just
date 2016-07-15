@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```js
-import curry from 'just-function-curry';
+import curry from 'just-curry-it';
 
 function converter(ratio, input) {
   return (input*ratio).toFixed(1);

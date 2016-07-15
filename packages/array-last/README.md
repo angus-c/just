@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```js
-import last from 'just-array-last';
+import last from 'just-last';
 
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}

@@ -66,52 +66,52 @@ pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
  
-[just-array-flatten](https://www.npmjs.com/package/just-array-flatten)
+[just-flatten-it](https://www.npmjs.com/package/just-array-flatten)
 
 ```js
-import flatten from 'just-array-flatten';
+import flatten from 'just-flatten-it';
 
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
   
-[just-array-intersect](https://www.npmjs.com/package/just-array-intersect)
+[just-intersect](https://www.npmjs.com/package/just-array-intersect)
 
 ```js
-import intersect from 'just-array-intersect';
+import intersect from 'just-intersect';
 
 intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 ```
    
-[just-array-last](https://www.npmjs.com/package/just-array-last)  
+[just-last](https://www.npmjs.com/package/just-array-last)  
 
 ```js
-import last from 'just-array-last';
+import last from 'just-last';
 
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
 last([true, false, [true, false]]); // [true, false]
 ```  
-[just-array-remove](https://www.npmjs.com/package/just-array-remove)
+[just-remove](https://www.npmjs.com/package/just-array-remove)
 
 ```js
-import remove from 'just-array-remove';
+import remove from 'just-remove';
 
 remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 ```  
 
-[just-array-union](https://www.npmjs.com/package/just-array-remove)  
+[just-union](https://www.npmjs.com/package/just-array-remove)  
 
 ```js
-import union from 'just-array-union';
+import union from 'just-union';
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
   
-[just-array-unique](https://www.npmjs.com/package/just-array-unique)  
+[just-unique](https://www.npmjs.com/package/just-array-unique)  
 
 ```js
-import unique from 'just-array-unique';
+import unique from 'just-unique';
 
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
 const a = {a: 3};
@@ -132,10 +132,10 @@ sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```
 
-[just-function-curry](https://www.npmjs.com/package/just-function-curry)
+[just-curry-it](https://www.npmjs.com/package/just-function-curry)
 
 ```js
-import curry from 'just-function-curry';
+import curry from 'just-curry-it';
 
 function converter(ratio, input) {
   return (input*ratio).toFixed(1);
@@ -145,10 +145,10 @@ milesToKm(35); // 56.7
 milesToKm(10); // 16.2
 ```
   
-[just-function-partial](https://www.npmjs.com/package/just-function-partial)
+[just-partial-it](https://www.npmjs.com/package/just-function-partial)
 
 ```js
-import partial from 'just-function-partial';
+import partial from 'just-partial-it';
 
 const cubedRoot = partial(Math.pow, _, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
