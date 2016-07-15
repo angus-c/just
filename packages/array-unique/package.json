@@ -1,5 +1,5 @@
 {
-  "name": "just-array-unique",
+  "name": "just-unique",
   "version": "1.1.16",
   "description": "dedupes an array",
   "main": "index.js",
