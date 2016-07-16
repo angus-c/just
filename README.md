@@ -5,9 +5,10 @@ Guilt-free utilities for every occasion.
 
 * [The Modules](#the-modules)
   * [just-extend](#just-extend)
-  * [just-filter](#just-extend)
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
+  * [just-map](#just-map)
+  * [just-filter](#just-filter)    
   * [just-template](#just-template)
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
@@ -51,18 +52,6 @@ arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
 
-### [just-filter](https://www.npmjs.com/package/just-filter)
-
-`npm install just-filter`
-
-```js
-import filter from 'just-filter';
-
-filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
-filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
-filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
-```
-
 ### [just-compare](https://www.npmjs.com/package/just-compare)
 
 `npm install just-compare`
@@ -92,6 +81,32 @@ import pluck from 'just-pluck-it';
 
 pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
+```
+
+### [just-filter](https://www.npmjs.com/package/just-filter)
+
+`npm install just-filter`
+
+```js
+import filter from 'just-filter';
+
+// returns a new object containing those original properties for which the predicate returns truthy
+filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
+filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
+filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
+```
+
+### [just-map](https://www.npmjs.com/package/just-map)
+
+`npm install just-map`
+
+```js
+import map from 'just-map';
+
+// returns a new object with the predicate applied to each value
+map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
+map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
+map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
 ```
 
 ### [just-template](https://www.npmjs.com/package/just-template)
@@ -238,6 +253,6 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * favor for loops over high order functions
   * don't repeatedly access the same property, assign to a var
   * write es5
-* write thorough tests 
+* write thorough tests
   
   
