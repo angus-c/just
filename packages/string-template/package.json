@@ -1,7 +1,7 @@
 {
-  "name": "just-flatten-it",
+  "name": "just-template",
   "version": "1.1.18",
-  "description": "return an flattened array",
+  "description": "interpolate a string with variables",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "repository": "https://github.com/angus-c/just",
   "keywords": [
     "array",
-    "flatten",
+    "template",
+    "interpolate",
     "no",
     "dependencies",
     "just"

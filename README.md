@@ -1,6 +1,6 @@
 ## Just
 
-A library of zero-dependency npm modules that do just do one thing.  
+A library of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 [just-extend](https://www.npmjs.com/package/just-extend)
@@ -28,7 +28,7 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
-  
+
 [just-filter](https://www.npmjs.com/package/just-filter)
 
 ```js
@@ -38,7 +38,7 @@ filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
 filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
 filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
- 
+
 [just-compare](https://www.npmjs.com/package/just-compare)
 
 ```js
@@ -56,7 +56,7 @@ compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
 compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
 compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 ```
-  
+
 [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
 
 ```js
@@ -65,7 +65,26 @@ import pluck from 'just-pluck-it';
 pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
- 
+
+[just-template](https://www.npmjs.com/package/just-template)
+```
+
+import template from 'just-template';
+
+var data = {
+  a: {
+    aa: {
+      aaa: 'apple',
+      bbb: 'pear'
+    },
+    bb: 'orange'
+  },
+  b: 'plum'
+};
+template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
+// '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+```
+
 [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
 
 ```js
@@ -74,7 +93,7 @@ import flatten from 'just-flatten-it';
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-  
+
 [just-intersect](https://www.npmjs.com/package/just-intersect)
 
 ```js
@@ -82,8 +101,8 @@ import intersect from 'just-intersect';
 
 intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 ```
-   
-[just-last](https://www.npmjs.com/package/just-last)  
+
+[just-last](https://www.npmjs.com/package/just-last)
 
 ```js
 import last from 'just-last';
@@ -91,24 +110,24 @@ import last from 'just-last';
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
 last([true, false, [true, false]]); // [true, false]
-```  
+```
 [just-remove](https://www.npmjs.com/package/just-remove)
 
 ```js
 import remove from 'just-remove';
 
 remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
-```  
+```
 
-[just-union](https://www.npmjs.com/package/just-union)  
+[just-union](https://www.npmjs.com/package/just-union)
 
 ```js
 import union from 'just-union';
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
-  
-[just-unique](https://www.npmjs.com/package/just-unique)  
+
+[just-unique](https://www.npmjs.com/package/just-unique)
 
 ```js
 import unique from 'just-unique';
@@ -144,7 +163,7 @@ const milesToKm = curry(converter, 1.62);
 milesToKm(35); // 56.7
 milesToKm(10); // 16.2
 ```
-  
+
 [just-partial-it](https://www.npmjs.com/package/just-partial-it)
 
 ```js
@@ -153,4 +172,4 @@ import partial from 'just-partial-it';
 const cubedRoot = partial(Math.pow, _, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
 cubedRoot(35).toFixed(1); // 16.2
-```  
+```

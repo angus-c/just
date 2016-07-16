@@ -1,11 +1,21 @@
-## just-array-flatten
+## just-template
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-```js
-import flatten from 'just-flatten-it';
+```
+import template from 'just-template';
 
-flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
-// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+var data = {
+  a: {
+    aa: {
+      aaa: 'apple',
+      bbb: 'pear'
+    },
+    bb: 'orange'
+  },
+  b: 'plum'
+};
+template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
+// '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
 ```
