@@ -1,6 +1,6 @@
 ## Just
 
-A library of zero-dependency npm modules that do just do one thing.  
+A library of **zero-dependency** npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
 * [The Modules](#the-modules)
@@ -233,7 +233,7 @@ Run all tests as a single test suite with
 I welcome pull requests for additional utilities (and corrections to existing ones).
 
 ## New Module Guidelines
-* must have zero dependencies
+* must not depend on any other npm modules
 * assume this is hot code and code accordingly
   * favor for loops over high order functions
   * don't repeatedly access the same property, assign to a var
