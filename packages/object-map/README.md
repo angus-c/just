@@ -1,4 +1,4 @@
-## just-map
+## just-map-object
 
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
