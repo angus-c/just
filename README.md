@@ -230,7 +230,7 @@ Run all tests as a single test suite with
 
 ## Contribute!
 
-I welcome pull requests for additional utilities.
+I welcome pull requests for additional utilities (and corrections to existing ones).
 
 ## New Module Guidelines
 * must have zero dependencies
