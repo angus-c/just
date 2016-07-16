@@ -3,7 +3,11 @@
 A library of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+## The Modules
+
 [just-extend](https://www.npmjs.com/package/just-extend)
+
+`npm install just-extend`
 
 ```js
 import extend from 'just-extend';
@@ -31,6 +35,8 @@ obj; // {a: 3, b: 5, c: [1, 2, 3]}
 
 [just-filter](https://www.npmjs.com/package/just-filter)
 
+`npm install just-filter`
+
 ```js
 import filter from 'just-filter';
 
@@ -40,6 +46,8 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
 [just-compare](https://www.npmjs.com/package/just-compare)
+
+`npm install just-compare`
 
 ```js
 import compare from 'just-compare';
@@ -59,6 +67,8 @@ compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 
 [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
 
+`npm install just-pluck-it`
+
 ```js
 import pluck from 'just-pluck-it';
 
@@ -67,8 +77,10 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
 [just-template](https://www.npmjs.com/package/just-template)
-```
 
+`npm install just-template`
+
+```js
 import template from 'just-template';
 
 var data = {
@@ -87,6 +99,8 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 
 [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
 
+`npm install just-flatten-it`
+
 ```js
 import flatten from 'just-flatten-it';
 
@@ -96,6 +110,8 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 
 [just-intersect](https://www.npmjs.com/package/just-intersect)
 
+`npm install just-intersect`
+
 ```js
 import intersect from 'just-intersect';
 
@@ -103,6 +119,8 @@ intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 ```
 
 [just-last](https://www.npmjs.com/package/just-last)
+
+`npm install just-last`
 
 ```js
 import last from 'just-last';
@@ -113,6 +131,8 @@ last([true, false, [true, false]]); // [true, false]
 ```
 [just-remove](https://www.npmjs.com/package/just-remove)
 
+`npm install just-remove`
+
 ```js
 import remove from 'just-remove';
 
@@ -121,6 +141,8 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 
 [just-union](https://www.npmjs.com/package/just-union)
 
+`npm install just-union`
+
 ```js
 import union from 'just-union';
 
@@ -128,6 +150,8 @@ union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
 
 [just-unique](https://www.npmjs.com/package/just-unique)
+
+`npm install just-unique`
 
 ```js
 import unique from 'just-unique';
@@ -143,6 +167,8 @@ unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
 
 [just-compose](https://www.npmjs.com/package/just-compose)
 
+`npm install just-compose`
+
 ```js
 import compose from 'just-compose';
 
@@ -152,6 +178,8 @@ sqRootBiggest(7, 0, 16); // 4
 ```
 
 [just-curry-it](https://www.npmjs.com/package/just-curry-it)
+
+`npm install just-curry-it`
 
 ```js
 import curry from 'just-curry-it';
@@ -165,6 +193,8 @@ milesToKm(10); // 16.2
 ```
 
 [just-partial-it](https://www.npmjs.com/package/just-partial-it)
+
+`npm install just-partial-it`
 
 ```js
 import partial from 'just-partial-it';
