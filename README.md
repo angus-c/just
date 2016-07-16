@@ -83,12 +83,12 @@ pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
-### [just-filter](https://www.npmjs.com/package/just-filter)
+### [just-filter-object](https://www.npmjs.com/package/just-filter)
 
-`npm install just-filter`
+`npm install just-filter-object`
 
 ```js
-import filter from 'just-filter';
+import filter from 'just-filter-object';
 
 // returns a new object containing those original properties for which the predicate returns truthy
 filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
@@ -96,12 +96,12 @@ filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
 filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
-### [just-map](https://www.npmjs.com/package/just-map)
+### [just-map-object](https://www.npmjs.com/package/just-object-map)
 
-`npm install just-map`
+`npm install just-map-object`
 
 ```js
-import map from 'just-map';
+import map from 'just-map-object';
 
 // returns a new object with the predicate applied to each value
 map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
