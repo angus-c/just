@@ -6,7 +6,7 @@ test('composes two or more functions', function (t) {
   t.plan(3);
   var splitBy2s = compose(String, function (str) {return str.split(2);});
   t.ok(compare(splitBy2s(52423), ['5', '4', '3']));
-  var sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
+  var sqRootBiggest = compose(Math.max, Math.sqrt, Math.round);
   t.equal(sqRootBiggest(10, 5), 3);
   t.equal(sqRootBiggest(7, 0, 16), 4);
   t.end();
