@@ -1,9 +1,31 @@
 ## Just
 
-A library of zero-dependency npm modules that do just do one thing.
+A library of **zero-dependency** npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
-[just-extend](https://www.npmjs.com/package/just-extend)
+* [The Modules](#the-modules)
+  * [just-extend](#just-extend)
+  * [just-filter](#just-extend)
+  * [just-compare](#just-compare)
+  * [just-pluck-it](#just-pluck-it)
+  * [just-template](#just-template)
+  * [just-unique](#just-unique)
+  * [just-flatten-it](#just-flatten-it)
+  * [just-intersect](#just-intersect)
+  * [just-last](#just-last)
+  * [just-remove](#just-remove)
+  * [just-union](#just-union)
+  * [just-curry-it](#just-curry-it)
+  * [just-partial-it](#just-partial-it)
+* [Testing](#testing)
+* [Contribute!](#contribute)
+  * [New Module Guidelines](#new-module-guidelines)   
+
+## The Modules
+
+### [just-extend](https://www.npmjs.com/package/just-extend)
+
+`npm install just-extend`
 
 ```js
 import extend from 'just-extend';
@@ -29,7 +51,9 @@ arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
 
-[just-filter](https://www.npmjs.com/package/just-filter)
+### [just-filter](https://www.npmjs.com/package/just-filter)
+
+`npm install just-filter`
 
 ```js
 import filter from 'just-filter';
@@ -39,7 +63,9 @@ filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
 filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
-[just-compare](https://www.npmjs.com/package/just-compare)
+### [just-compare](https://www.npmjs.com/package/just-compare)
+
+`npm install just-compare`
 
 ```js
 import compare from 'just-compare';
@@ -57,7 +83,9 @@ compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
 compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 ```
 
-[just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
+### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
+
+`npm install just-pluck-it`
 
 ```js
 import pluck from 'just-pluck-it';
@@ -66,9 +94,11 @@ pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
-[just-template](https://www.npmjs.com/package/just-template)
-```
+### [just-template](https://www.npmjs.com/package/just-template)
 
+`npm install just-template`
+
+```js
 import template from 'just-template';
 
 var data = {
@@ -85,49 +115,9 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
 ```
 
-[just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
+### [just-unique](https://www.npmjs.com/package/just-unique)
 
-```js
-import flatten from 'just-flatten-it';
-
-flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
-// [1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
-
-[just-intersect](https://www.npmjs.com/package/just-intersect)
-
-```js
-import intersect from 'just-intersect';
-
-intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
-```
-
-[just-last](https://www.npmjs.com/package/just-last)
-
-```js
-import last from 'just-last';
-
-last([1, 2, 3, 4, 5]); // 5
-last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
-last([true, false, [true, false]]); // [true, false]
-```
-[just-remove](https://www.npmjs.com/package/just-remove)
-
-```js
-import remove from 'just-remove';
-
-remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
-```
-
-[just-union](https://www.npmjs.com/package/just-union)
-
-```js
-import union from 'just-union';
-
-union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
-```
-
-[just-unique](https://www.npmjs.com/package/just-unique)
+`npm install just-unique`
 
 ```js
 import unique from 'just-unique';
@@ -141,7 +131,61 @@ unique([1, '1', 2, '2', 3, 2]); // [1, 2, 3]
 unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
 ```
 
-[just-compose](https://www.npmjs.com/package/just-compose)
+### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
+
+`npm install just-flatten-it`
+
+```js
+import flatten from 'just-flatten-it';
+
+flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+### [just-intersect](https://www.npmjs.com/package/just-intersect)
+
+`npm install just-intersect`
+
+```js
+import intersect from 'just-intersect';
+
+intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
+```
+
+### [just-last](https://www.npmjs.com/package/just-last)
+
+`npm install just-last`
+
+```js
+import last from 'just-last';
+
+last([1, 2, 3, 4, 5]); // 5
+last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
+last([true, false, [true, false]]); // [true, false]
+```
+### [just-remove](https://www.npmjs.com/package/just-remove)
+
+`npm install just-remove`
+
+```js
+import remove from 'just-remove';
+
+remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
+```
+
+### [just-union](https://www.npmjs.com/package/just-union)
+
+`npm install just-union`
+
+```js
+import union from 'just-union';
+
+union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
+```
+
+### [just-compose](https://www.npmjs.com/package/just-compose)
+
+`npm install just-compose`
 
 ```js
 import compose from 'just-compose';
@@ -151,7 +195,9 @@ sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```
 
-[just-curry-it](https://www.npmjs.com/package/just-curry-it)
+### [just-curry-it](https://www.npmjs.com/package/just-curry-it)
+
+`npm install just-curry-it`
 
 ```js
 import curry from 'just-curry-it';
@@ -164,7 +210,9 @@ milesToKm(35); // 56.7
 milesToKm(10); // 16.2
 ```
 
-[just-partial-it](https://www.npmjs.com/package/just-partial-it)
+### [just-partial-it](https://www.npmjs.com/package/just-partial-it)
+
+`npm install just-partial-it`
 
 ```js
 import partial from 'just-partial-it';
@@ -173,3 +221,23 @@ const cubedRoot = partial(Math.pow, _, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
 cubedRoot(35).toFixed(1); // 16.2
 ```
+
+## Testing
+
+Run all tests as a single test suite with
+
+```npm run test```
+
+## Contribute!
+
+I welcome pull requests for additional utilities (and corrections to existing ones).
+
+## New Module Guidelines
+* must not depend on any other npm modules
+* assume this is hot code and code accordingly
+  * favor for loops over high order functions
+  * don't repeatedly access the same property, assign to a var
+  * write es5
+* write thorough tests 
+  
+  
