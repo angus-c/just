@@ -4,7 +4,19 @@ A library of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 * [The Modules](#the-modules)
-  * [just-extend](#just-extend)  
+  * [just-extend](#just-extend)
+  * [just-filter](#just-extend)
+  * [just-compare](#just-compare)
+  * [just-pluck-it](#just-pluck-it)
+  * [just-template](#just-template)
+  * [just-unique](#just-unique)
+  * [just-flatten-it](#just-flatten-it)
+  * [just-intersect](#just-intersect)
+  * [just-last](#just-last)
+  * [just-remove](#just-remove)
+  * [just-union](#just-union)
+  * [just-curry-it](#just-curry-it)
+  * [just-partial-it](#just-partial-it)
 * [Testing](#testing)
 * [Contribute!](#contribute)
   * [New Module Guidelines](#new-module-guidelines)   
@@ -103,6 +115,22 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
 ```
 
+### [just-unique](https://www.npmjs.com/package/just-unique)
+
+`npm install just-unique`
+
+```js
+import unique from 'just-unique';
+
+unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
+const a = {a: 3};
+const b = {b: 4};
+const c = {c: 5};
+unique([a, a, b, c, b]); // [a, b, c]
+unique([1, '1', 2, '2', 3, 2]); // [1, 2, 3]
+unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
+```
+
 ### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
 
 `npm install just-flatten-it`
@@ -153,22 +181,6 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 import union from 'just-union';
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
-```
-
-### [just-unique](https://www.npmjs.com/package/just-unique)
-
-`npm install just-unique`
-
-```js
-import unique from 'just-unique';
-
-unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
-const a = {a: 3};
-const b = {b: 4};
-const c = {c: 5};
-unique([a, a, b, c, b]); // [a, b, c]
-unique([1, '1', 2, '2', 3, 2]); // [1, 2, 3]
-unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
 ```
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)
