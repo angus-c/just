@@ -140,12 +140,19 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 import unique from 'just-unique';
 
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
-const a = {a: 3};
-const b = {b: 4};
-const c = {c: 5};
+
+var a = {a: 3};
+var b = {b: 4};
+var c = {c: 5};
 unique([a, a, b, c, b]); // [a, b, c]
-unique([1, '1', 2, '2', 3, 2]); // [1, 2, 3]
-unique([1, '1', 2, '2', 3, 2], (a, b) => a === b); // [1, '1', 2, '2', 3]
+
+unique([1, '1', 2, '2', 3, 2]); // [1, '1', 2, '2', 3]
+
+// declaring sorted array for performance
+unique([1, 1, '1', 2, 2, 5, '5', '5'], true); // [1, '1', 2, 5, '6']
+
+// declaring strings array for performance
+unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
 ```
 
 ### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
