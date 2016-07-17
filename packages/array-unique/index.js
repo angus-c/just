@@ -11,25 +11,6 @@ module.exports = unique;
 */
 
 function unique(arr, comparator) {
-  // if no comparator, assume all elements are of the same type
-  // if elements are not strings, or there's a comparator, use strictUnique
-  if (typeof arr[0] != 'string' || comparator) {
-    return strictUnique(arr, comparator);
-  } else {
-    return fastUnique(arr);
-  }
-}
-
-function fastUnique(arr) {
-  var lookup = {};
-  var len = arr.length;
-  for (var i = 0; i < len; i++) {
-    lookup[arr[i]] = true;
-  }
-  return Object.keys(lookup);
-}
-
-function strictUnique(arr, comparator) {
   var result = [];
   var len = arr.length;
   for (var i = 0; i < len; i++) {
