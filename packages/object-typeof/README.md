@@ -15,4 +15,5 @@ typeOf(null); // 'null'
 typeOf(undefined); // 'undefined'
 typeOf('a'); // 'string'
 typeOf(1); // 'number'
-typeOf(true); // 'boolean'```
+typeOf(true); // 'boolean'
+```
