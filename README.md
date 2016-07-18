@@ -19,6 +19,7 @@ Guilt-free utilities for every occasion.
   * [just-last](#just-last)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
+  * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
   * [just-partial-it](#just-partial-it)
 * [Testing](#testing)
