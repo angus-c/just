@@ -1,8 +1,6 @@
 var test = require('tape');
 var partial = require('../../packages/function-partial');
 
-// var _ = global.___;
-
 test('binds to supplied arguments placeholders', function (t) {
   t.plan(2);
   var cubeRoot = partial(Math.pow, undefined, 1 / 3);
