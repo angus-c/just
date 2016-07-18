@@ -6,9 +6,6 @@ module.exports = partial;
   cubedRoot(35).toFixed(1); // 16.2
 */
 
-var globalObj = global || self;
-globalObj.___ = {};
-
 function partial(fn /*, arg1, arg2 etc */) {
   var partialArgs = [].slice.call(arguments, 1);
   if (!partialArgs.length) {
@@ -18,7 +15,7 @@ function partial(fn /*, arg1, arg2 etc */) {
     var argIndex = 0, derivedArgs = [];
     for (var i = 0; i < partialArgs.length; i++) {
       var thisPartialArg = partialArgs[i];
-      derivedArgs[i] = thisPartialArg === globalObj.___ ? arguments[argIndex++] : thisPartialArg;
+      derivedArgs[i] = thisPartialArg === undefined ? arguments[argIndex++] : thisPartialArg;
     }
     return fn.apply(this, derivedArgs);
   };

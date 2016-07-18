@@ -283,7 +283,7 @@ milesToKm(10); // 16.2
 ```js
 import partial from 'just-partial-it';
 
-const cubedRoot = partial(Math.pow, _, 1/3);
+const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
 cubedRoot(35).toFixed(1); // 16.2
 ```
@@ -304,15 +304,14 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * favor for loops over high order functions
   * don't repeatedly access the same property, assign to a var
   * write es5
-* api 
+* api
   * keep the api it simple and intuitive
   * avoid edge case arguments whenever possible
 * README
   * limit README to examples of each use case
   * if you must explain the api (see api section) add a comment in the README example code
   * add a section in the general README that matches the README for your module
-    * don't forget to add a reference in the table of contents 
+    * don't forget to add a reference in the table of contents
 * tests
   * write a test for each use case
   * include tests for all README examples
-
