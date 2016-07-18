@@ -12,4 +12,5 @@ require('./collection-pluck');
 require('./object-extend');
 require('./object-filter');
 require('./object-map');
+require('./object-typeof');
 require('./string-template');

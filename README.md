@@ -118,7 +118,7 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```js
 import template from 'just-template';
 
-var data = {
+const data = {
   a: {
     aa: {
       aaa: 'apple',
@@ -130,6 +130,25 @@ var data = {
 };
 template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+```
+
+### [just-typeof](https://www.npmjs.com/package/just-typeof)
+
+`npm install just-typeof`
+
+```js
+import typeof from 'just-typeof';
+
+typeOf({}); // 'object'
+typeOf([]); // 'array'
+typeOf(function() {}); // 'function'
+typeOf(/a/); // 'regexp'
+typeOf(new Date()); // 'date'
+typeOf(null); // 'null'
+typeOf(undefined); // 'undefined'
+typeOf('a'); // 'string'
+typeOf(1); // 'number'
+typeOf(true); // 'boolean'
 ```
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)

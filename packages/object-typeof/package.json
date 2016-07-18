@@ -1,16 +1,15 @@
 {
-  "name": "just-unique",
-  "version": "2.0.1",
-  "description": "dedupes an array",
+  "name": "just-typeof",
+  "version": "1.0.0",
+  "description": "type inferer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "array",
-    "unique",
-    "dedupe",
+    "typeof",
+    "type",
     "no",
     "dependencies",
     "just"
