@@ -12,6 +12,7 @@ Guilt-free utilities for every occasion.
   * [just-map-object](#just-map-object)
   * [just-filter-object](#just-filter-object)    
   * [just-template](#just-template)
+  * [just-typeof](#just-typeof)  
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
   * [just-intersect](#just-intersect)
