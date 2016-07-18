@@ -304,6 +304,15 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * favor for loops over high order functions
   * don't repeatedly access the same property, assign to a var
   * write es5
-* write thorough tests
-  
-  
+* api 
+  * keep the api it simple and intuitive
+  * avoid edge case arguments whenever possible
+* README
+  * limit README to examples of each use case
+  * if you must explain the api (see api section) add a comment in the README example code
+  * add a section in the general README that matches the README for your module
+    * don't forget to add a reference in the table of contents 
+* tests
+  * write a test for each use case
+  * include tests for all README examples
+
