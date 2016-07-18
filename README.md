@@ -10,7 +10,8 @@ Guilt-free utilities for every occasion.
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
   * [just-map-object](#just-map-object)
-  * [just-filter-object](#just-filter-object)    
+  * [just-filter-object](#just-filter-object)
+  * [just-reduce-object](#just-reduce-object)
   * [just-template](#just-template)
   * [just-typeof](#just-typeof)  
   * [just-unique](#just-unique)
@@ -98,6 +99,26 @@ import filter from 'just-filter-object';
 filter({a: 3, b: 5, c: 9}, (key, value) => value < 6); // {a: 3, b: 5}
 filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
 filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
+```
+
+### [just-reduce-object](https://www.npmjs.com/package/just-reduce)
+
+`npm install just-reduce-object`
+
+```js
+import reduce from 'just-reduce-object';
+
+// applies a function against an accumulator and each key-value pairs of the object
+// to reduce it to a single value
+reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
+  acc[value] = key;
+  return acc;
+}, {}); // {3: 'a', 5: 'b', 9: 'c'}
+
+reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
+  acc += value;
+  return acc;
+}); // 17
 ```
 
 ### [just-map-object](https://www.npmjs.com/package/just-object-map)

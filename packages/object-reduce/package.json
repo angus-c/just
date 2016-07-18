@@ -1,0 +1,21 @@
+{
+  "name": "just-reduce-object",
+  "version": "1.0.0",
+  "description": "reduce an object",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just.git",
+  "keywords": [
+    "object",
+    "reduce",
+    "dependencies free",
+    "just"
+  ],
+  "author": "Giuseppe Gurgone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
