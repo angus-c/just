@@ -17,11 +17,11 @@ test('unflattened arrays are flattened', function (t) {
   t.end();
 });
 
-test('non arrays retrun an empty array'), function (t) {
+test('non arrays retrun an empty array', function (t) {
   t.plan(2);
   var obj = {n: 4};
   t.deepEqual(flatten(obj), []);
   var number = 9;
   t.deepEqual(flatten(number), []);
   t.end();
-}
+});
