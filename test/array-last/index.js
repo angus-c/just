@@ -9,12 +9,14 @@ test('non empty arrays return last', function (t) {
     [{a: 1}, {b: 2}, {c: 3}, {d: 4}],
     ['a', 1, true, /r/g]
   ];
-  testArrays.forEach(function(arr) {
+  testArrays.forEach(function (arr) {
     t.equal(last(arr), arr[arr.length - 1]);
   });
+  t.end();
 });
 
 test('empty arrays return undefined', function (t) {
   t.plan(1);
   t.equal(last([]), undefined);
+  t.end();
 });

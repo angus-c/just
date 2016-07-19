@@ -26,6 +26,7 @@ test('initialValue', function (t) {
   // With initialValue
   var result2 = reduce(obj, getArgsInitialIndex(0), []);
   t.ok(compare(result2, [[], 'a', 3, 0, expectedKeys]));
+  t.end();
 });
 
 test('use value', function (t) {
@@ -48,6 +49,7 @@ test('use value', function (t) {
     return target;
   });
   t.ok(compare(result3, 17));
+  t.end();
 });
 
 test('use key', function (t) {
@@ -70,6 +72,7 @@ test('use key', function (t) {
     return target;
   });
   t.ok(compare(result3, '3bcde'));
+  t.end();
 });
 
 test('use key and value', function (t) {
@@ -93,6 +96,7 @@ test('use key and value', function (t) {
     return target;
   }, {});
   t.ok(compare(result2, { 3: 'a', 5: 'b', 9: 'c', 'null': 'd', 'function () {}': 'e'}));
+  t.end();
 });
 
 test('invalid usage', function (t) {
@@ -105,4 +109,5 @@ test('invalid usage', function (t) {
   t.throws(function () {
     reduce({}, noop);
   });
+  t.end();
 });

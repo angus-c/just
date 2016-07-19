@@ -14,6 +14,7 @@ test('use value', function (t) {
     return Boolean(value);
   });
   t.ok(compare(result2, {a: true, b: true, c: false}));
+  t.end();
 });
 
 test('use key', function (t) {
@@ -26,6 +27,7 @@ test('use key', function (t) {
   var obj2 = {'1': 3, '2': 5, '3': 9};
   var result2 = map(obj2, Number);
   t.ok(compare(result2, {'1': 1, '2': 2, '3': 3}));
+  t.end();
 });
 
 test('use key and value', function (t) {
@@ -40,4 +42,5 @@ test('use key and value', function (t) {
     return value - key;
   });
   t.ok(compare(result2, {'1': 2, '2': 3, '3': 6}));
+  t.end();
 });

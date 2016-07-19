@@ -1,17 +1,16 @@
 {
-  "name": "just-partial-it",
-  "version": "1.1.20",
-  "description": "return a partial function",
+  "name": "just-flip-object",
+  "version": "1.0.0",
+  "description": "flip the keys and values",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "function",
-    "partial",
-    "no",
-    "dependencies",
+    "object",
+    "flip",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

@@ -9,9 +9,10 @@ Guilt-free utilities for every occasion.
   * [just-extend](#just-extend)
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
-  * [just-map-object](#just-map-object)
   * [just-filter-object](#just-filter-object)
+  * [just-map-object](#just-map-object)  
   * [just-reduce-object](#just-reduce-object)
+  * [just-flip-object](#just-flip-object)  
   * [just-template](#just-template)
   * [just-typeof](#just-typeof)  
   * [just-unique](#just-unique)
@@ -88,7 +89,7 @@ pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
-### [just-filter-object](https://www.npmjs.com/package/just-filter)
+### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 
 `npm install just-filter-object`
 
@@ -101,7 +102,20 @@ filter({a1: 3, b1: 5, a2: 9}, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
 filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
-### [just-reduce-object](https://www.npmjs.com/package/just-reduce)
+### [just-map-object](https://www.npmjs.com/package/just-map-object)
+
+`npm install just-map-object`
+
+```js
+import map from 'just-map-object';
+
+// returns a new object with the predicate applied to each value
+map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
+map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
+map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
+```
+
+### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
 
 `npm install just-reduce-object`
 
@@ -121,17 +135,17 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 }); // 17
 ```
 
-### [just-map-object](https://www.npmjs.com/package/just-object-map)
+### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
 
-`npm install just-map-object`
+`npm install just-flip-object`
 
 ```js
-import map from 'just-map-object';
+import flip from 'just-flip-object';
 
-// returns a new object with the predicate applied to each value
-map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
-map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
-map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
+// flip the key and value
+flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}
+flip({a: 1, b: 2, c: 3}); // {'1': 'a', '2': 'b', '3': 'c'}
+flip({a: false, b: true}); // {false: 'a', true: 'b'}
 ```
 
 ### [just-template](https://www.npmjs.com/package/just-template)

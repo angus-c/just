@@ -6,6 +6,7 @@ test('primitives', function (t) {
   t.deepEqual(unique([1, 2, 3, 2, 3, 4, 1]), [1, 2, 3, 4]);
   t.deepEqual(unique(['a', 'c', 'a', 'b', 'a', 'b', 'c']), ['a', 'c', 'b']);
   t.deepEqual(unique([true, true, false, false, true]), [true, false]);
+  t.end();
 });
 
 // test('perf', function (t) {

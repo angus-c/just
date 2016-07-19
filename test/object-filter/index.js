@@ -9,6 +9,7 @@ test('filter by key', function (t) {
     return key[0] == 'a';
   });
   t.ok(compare(result, {a1: 3, a2: 9}));
+  t.end();
 });
 
 test('filter by value', function (t) {
@@ -23,4 +24,5 @@ test('filter by value', function (t) {
     return value;
   });
   t.ok(compare(result2, {a: 3, b: 5}));
+  t.end();
 });
