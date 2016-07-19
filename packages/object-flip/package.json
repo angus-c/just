@@ -1,6 +1,6 @@
 {
   "name": "just-flip-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "flip the keys and values",
   "main": "index.js",
   "scripts": {

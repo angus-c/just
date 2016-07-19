@@ -1,6 +1,6 @@
 {
   "name": "just-map-object",
-  "version": "1.1.18",
+  "version": "1.1.19",
   "description": "map an object",
   "main": "index.js",
   "scripts": {

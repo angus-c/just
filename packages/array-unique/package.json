@@ -1,6 +1,6 @@
 {
   "name": "just-unique",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "dedupes an array",
   "main": "index.js",
   "scripts": {

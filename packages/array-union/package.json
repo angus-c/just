@@ -1,6 +1,6 @@
 {
   "name": "just-union",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "description": "returns the union of two arrays",
   "main": "index.js",
   "scripts": {
