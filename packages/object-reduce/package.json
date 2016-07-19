@@ -10,7 +10,7 @@
   "keywords": [
     "object",
     "reduce",
-    "dependencies free",
+    "no-dependencies",
     "just"
   ],
   "author": "Giuseppe Gurgone",

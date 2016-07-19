@@ -10,8 +10,7 @@
   "keywords": [
     "array",
     "intersect",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

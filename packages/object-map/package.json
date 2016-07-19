@@ -10,8 +10,7 @@
   "keywords": [
     "object",
     "map",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

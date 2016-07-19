@@ -10,8 +10,7 @@
   "keywords": [
     "object",
     "filter",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

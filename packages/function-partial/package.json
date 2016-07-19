@@ -10,8 +10,7 @@
   "keywords": [
     "function",
     "partial",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

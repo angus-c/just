@@ -8,11 +8,9 @@
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "array",
     "template",
     "interpolate",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

@@ -10,8 +10,7 @@
   "keywords": [
     "array",
     "flatten",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",

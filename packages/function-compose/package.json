@@ -10,8 +10,7 @@
   "keywords": [
     "function",
     "compose",
-    "no",
-    "dependencies",
+    "no-dependencies",
     "just"
   ],
   "author": "Angus Croll",
