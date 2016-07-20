@@ -1,4 +1,4 @@
-## Just :cherries:
+## Just
 
 [![Build Status](https://travis-ci.org/angus-c/just.png?branch=master)](http://travis-ci.org/angus-c/just.js)
 
@@ -6,57 +6,36 @@ A library of **zero-dependency** npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 * [The Modules](#the-modules)
-  * [just-extend](#just-extend)
-  * [just-compare](#just-compare)
-  * [just-pluck-it](#just-pluck-it)
-  * [just-filter-object](#just-filter-object)
-  * [just-map-object](#just-map-object)  
-  * [just-reduce-object](#just-reduce-object)
-  * [just-flip-object](#just-flip-object)  
-  * [just-template](#just-template)
-  * [just-typeof](#just-typeof)  
-  * [just-unique](#just-unique)
-  * [just-flatten-it](#just-flatten-it)
-  * [just-intersect](#just-intersect)
-  * [just-last](#just-last)
-  * [just-remove](#just-remove)
-  * [just-union](#just-union)
-  * [just-compose](#just-compose)
-  * [just-curry-it](#just-curry-it)
-  * [just-partial-it](#just-partial-it)
+  * [Collections](#collections)
+    * [just-compare](#just-compare)
+    * [just-pluck-it](#just-pluck-it)
+  * [Objects](#objects) 
+    * [just-extend](#just-extend)
+    * [just-filter-object](#just-filter-object)
+    * [just-map-object](#just-map-object)  
+    * [just-reduce-object](#just-reduce-object)
+    * [just-typeof](#just-typeof)  
+    * [just-flip-object](#just-flip-object)  
+  * [Arrays](#arrays)
+    * [just-unique](#just-unique)
+    * [just-flatten-it](#just-flatten-it)
+    * [just-intersect](#just-intersect)
+    * [just-last](#just-last)
+    * [just-remove](#just-remove)
+    * [just-union](#just-union) 
+  * [Strings](#strings)  
+    * [just-template](#just-template)
+  * [Functions](#functions)  
+    * [just-compose](#just-compose)
+    * [just-curry-it](#just-curry-it)
+    * [just-partial-it](#just-partial-it)
 * [Testing](#testing)
 * [Contribute!](#contribute)
   * [New Module Guidelines](#new-module-guidelines)   
 
 ## The Modules
 
-### [just-extend](https://www.npmjs.com/package/just-extend)
-
-`npm install just-extend`
-
-```js
-import extend from 'just-extend';
-
-let obj = {a: 3, b: 5};
-extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
-obj; // {a: 4, b: 5, c: 8}
-
-let obj = {a: 3, b: 5};
-extend({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
-obj; // {a: 3, b: 5}
-
-let arr = [1, 2, 3];
-let obj = {a: 3, b: 5};
-extend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
-arr.push[4];
-obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
-
-let arr = [1, 2, 3];
-let obj = {a: 3, b: 5};
-extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
-arr.push[4];
-obj; // {a: 3, b: 5, c: [1, 2, 3]}
-```
+### Collections  
 
 ### [just-compare](https://www.npmjs.com/package/just-compare)
 
@@ -89,6 +68,35 @@ pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
+### Objects
+
+### [just-extend](https://www.npmjs.com/package/just-extend)
+
+`npm install just-extend`
+
+```js
+import extend from 'just-extend';
+
+let obj = {a: 3, b: 5};
+extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+obj; // {a: 4, b: 5, c: 8}
+
+let obj = {a: 3, b: 5};
+extend({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+obj; // {a: 3, b: 5}
+
+let arr = [1, 2, 3];
+let obj = {a: 3, b: 5};
+extend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+arr.push[4];
+obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
+
+let arr = [1, 2, 3];
+let obj = {a: 3, b: 5};
+extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+arr.push[4];
+obj; // {a: 3, b: 5, c: [1, 2, 3]}
+```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 
 `npm install just-filter-object`
@@ -135,40 +143,6 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 }); // 17
 ```
 
-### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
-
-`npm install just-flip-object`
-
-```js
-import flip from 'just-flip-object';
-
-// flip the key and value
-flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}
-flip({a: 1, b: 2, c: 3}); // {'1': 'a', '2': 'b', '3': 'c'}
-flip({a: false, b: true}); // {false: 'a', true: 'b'}
-```
-
-### [just-template](https://www.npmjs.com/package/just-template)
-
-`npm install just-template`
-
-```js
-import template from 'just-template';
-
-const data = {
-  a: {
-    aa: {
-      aaa: 'apple',
-      bbb: 'pear'
-    },
-    bb: 'orange'
-  },
-  b: 'plum'
-};
-template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
-// '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
-```
-
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
 
 `npm install just-typeof`
@@ -187,6 +161,21 @@ typeOf('a'); // 'string'
 typeOf(1); // 'number'
 typeOf(true); // 'boolean'
 ```
+
+### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
+
+`npm install just-flip-object`
+
+```js
+import flip from 'just-flip-object';
+
+// flip the key and value
+flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}
+flip({a: 1, b: 2, c: 3}); // {'1': 'a', '2': 'b', '3': 'c'}
+flip({a: false, b: true}); // {false: 'a', true: 'b'}
+```
+
+### Arrays
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
 
@@ -262,6 +251,31 @@ import union from 'just-union';
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
+
+### Strings
+
+### [just-template](https://www.npmjs.com/package/just-template)
+
+`npm install just-template`
+
+```js
+import template from 'just-template';
+
+const data = {
+  a: {
+    aa: {
+      aaa: 'apple',
+      bbb: 'pear'
+    },
+    bb: 'orange'
+  },
+  b: 'plum'
+};
+template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
+// '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+```
+
+### Functions
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)
 
