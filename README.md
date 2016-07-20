@@ -1,4 +1,4 @@
-## Just
+## Just :cherries:
 
 [![Build Status](https://travis-ci.org/angus-c/just.png?branch=master)](http://travis-ci.org/angus-c/just.js)
 
