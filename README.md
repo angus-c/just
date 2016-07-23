@@ -11,7 +11,7 @@ If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https:
   * [Collections](#collections)
     * [just-compare](#just-compare)
     * [just-pluck-it](#just-pluck-it)
-  * [Objects](#objects) 
+  * [Objects](#objects)
     * [just-extend](#just-extend)
     * [just-filter-object](#just-filter-object)
     * [just-map-object](#just-map-object)  
@@ -24,7 +24,7 @@ If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https:
     * [just-intersect](#just-intersect)
     * [just-last](#just-last)
     * [just-remove](#just-remove)
-    * [just-union](#just-union) 
+    * [just-union](#just-union)
   * [Strings](#strings)  
     * [just-template](#just-template)
   * [Functions](#functions)  
@@ -233,6 +233,10 @@ import last from 'just-last';
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
 last([true, false, [true, false]]); // [true, false]
+last(); // undefined
+last([]); // undefined
+last(null); // undefined
+last(undefined); // undefined
 ```
 ### [just-remove](https://www.npmjs.com/package/just-remove)
 
