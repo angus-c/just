@@ -5,7 +5,7 @@ module.exports = union;
 */
 
 function union(arr1, arr2) {
-  var result = arr1;
+  var result = arr1.concat([]);
   var len = arr2.length;
   for (var i = 0; i < len; i++) {
     var elem = arr2[i];
