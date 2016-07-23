@@ -20,3 +20,11 @@ test('empty arrays return undefined', function (t) {
   t.equal(last([]), undefined);
   t.end();
 });
+
+test('undefined inputs don\'t throw and return undefined', function (t) {
+  t.plan(3);
+  t.equal(last(), undefined);
+  t.equal(last(undefined), undefined);
+  t.equal(last(null), undefined);
+  t.end();
+});
