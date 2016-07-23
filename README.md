@@ -16,6 +16,7 @@ If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https:
     * [just-filter-object](#just-filter-object)
     * [just-map-object](#just-map-object)  
     * [just-reduce-object](#just-reduce-object)
+    * [just-pick](#just-pick)     
     * [just-typeof](#just-typeof)  
     * [just-flip-object](#just-flip-object)  
   * [Arrays](#arrays)
@@ -143,6 +144,26 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
   acc += value;
   return acc;
 }); // 17
+```
+
+### [just-pick](https://www.npmjs.com/package/just-pick)
+
+`npm install just-pick`
+
+```js
+import typeof from 'just-pick';
+
+var obj = {a: 3, b: 5, c: 9};
+pick(obj, ['a', 'c']); // {a: 3, c: 9}
+
+var obj = {a: 3, b: 5, c: 9};
+pick(obj, 'a', 'c'); // {a: 3, c: 9}
+
+var obj = {a: 3, b: 5, c: 9};
+pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5, d: undefined}
+
+var obj = {a: 3, b: 5, c: 9};
+pick(obj, ['a', 'a']); // {a: 3}
 ```
 
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)

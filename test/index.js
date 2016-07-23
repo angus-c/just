@@ -13,6 +13,7 @@ require('./object-extend');
 require('./object-filter');
 require('./object-map');
 require('./object-flip');
+require('./object-pick');
 require('./object-reduce');
 require('./object-typeof');
 require('./string-template');
