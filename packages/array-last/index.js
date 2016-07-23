@@ -7,5 +7,5 @@ module.exports = last;
 */
 
 function last(arr) {
-  return arr[arr.length - 1];
+  return arr != null ? arr[arr.length - 1] : undefined;
 }
