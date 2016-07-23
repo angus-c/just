@@ -5,6 +5,8 @@
 A library of **zero-dependency** npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
+If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
+
 * [The Modules](#the-modules)
   * [Collections](#collections)
     * [just-compare](#just-compare)
