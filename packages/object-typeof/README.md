@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```js
-import typeof from 'just-typeof';
+import typeOf from 'just-typeof';
 
 typeOf({}); // 'object'
 typeOf([]); // 'array'

@@ -165,7 +165,7 @@ pick(obj, ['a', 'a']); // {a: 3}
 `npm install just-typeof`
 
 ```js
-import typeof from 'just-typeof';
+import typeOf from 'just-typeof';
 
 typeOf({}); // 'object'
 typeOf([]); // 'array'
