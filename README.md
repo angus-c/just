@@ -151,7 +151,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 `npm install just-pick`
 
 ```js
-import typeof from 'just-pick';
+import pick from 'just-pick';
 
 var obj = {a: 3, b: 5, c: 9};
 pick(obj, ['a', 'c']); // {a: 3, c: 9}
