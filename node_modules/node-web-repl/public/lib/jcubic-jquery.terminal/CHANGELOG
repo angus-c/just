@@ -1,0 +1,82 @@
+0.4.17    fix IE formatting issue by adding cross-browser split
+0.4.16    add reverse history search on CTRL+R
+
+          fix cancel ajax call on CTRL+D
+0.4.15    only one command from multiply commands is added to history
+          CTRL+D is handled even if exit is false
+0.4.14    terminal don't add space after prompt (prompt need to add this space)
+          fix historyFilter
+          remove livequery
+0.4.12    history return history object
+          add historyFilter
+          new event onCommandChange that execute scroll_to_bottom
+          add event onBeforeLogin
+0.4.11    fix blank lines when echo longer strings
+0.4.10    fix long line formatting and linebreak in the middle of formatting
+0.4.9     fix wrap first line when prompt contain formatting
+0.4.8     fix alt+d and ctrl+u
+0.4.7     fix inserting special characters in Webkit on Windows
+0.4.6     remove undocumented pipe operator
+          refreash prompt on resume
+0.4.5     fix line wrapping when text contains tabulations
+0.4.4     fix line wrapping with scrollbars
+0.4.3     fix JSON-RPC when use without login
+0.4.2     fix formatting when text contain empty lines
+0.4.1     fix formatting when text contains newline characters
+0.4       fix text formating when text splited into more then one line
+          you can pass nested objects as first argument
+          add tab completion with object passed as first argument
+0.3.8     fix cursor manipulation when command contain new line characters
+0.3.7     fix function terminal.login_name
+0.3.6     fix switch between terminals - when terminal is not visible scroll to current terminal
+0.3.5     fix scrolling in jQuery 1.6
+0.3.3     fixing PAGE UP/DOWN
+0.3.2     fixing cursor in long lines
+0.3.1     fixing small bugs, speed up resizing
+0.3       fix resizing on start and issue with greetings
+          add formating strings to set style of text.
+          add to echo a function which will be called when terminal
+          is resized
+0.3-RC2   fix manipulation of long line commands
+0.3-RC1   add callbacks and new functions
+          you can now overwrite keyboard shortcuts
+          resizing recalculates lines lenght and redraw content
+          if you create plugin for elements that are not in the DOM
+          and then append it to DOM it's display corectly
+          put all dependencies in one file
+          Default greetings show terminal signature depending on
+          width of terminal
+          use Local Sorage for command line history if posible
+          remove access to command line (cmd plugin) and add interface
+          to allow interact with it
+
+0.2.3.9   fix append enter character (0x0D) to the command (thanks to marat
+          for reporting the bug)
+
+0.2.3.8   update mousewheel plugin which fix scrolling in Opera (Thanks for
+          Alexey Dubovtsev for reporting the bug)
+
+0.2.3.7   fix cursor in IE in tilda example
+
+0.2.3.6   fix json serialization in IE
+
+0.2.3.5   fix demos and clipboard textarea transparency in IE
+
+0.2.3.4   fix long lines in command line issue
+
+0.2.3.3   fix Terminal in Internet Exporer
+
+0.2.3.2   fix blank line issue (thanks to Chris Janicki for finding the
+          bug) and fix CTRL + Arrows scroll on CTRL+V
+
+0.2.3.1   allow CTRL+W CTRL+T
+
+0.2.3     fix for "(#$%.{" characters on Opera/Chrome, add cursor move
+          with CTRL+P, CTRL+N, CTRL+F, CTRL+B which also work in Chrome.
+          Fix Arrow Keys on Chrome (for cursor move and command line
+          history). Change License to LGPL3.
+
+0.2.2     fix down-arrow/open parentises issue in Opera and Chrome
+
+0.2.1     add support for paste from clipboard with CTRL+V (Copy to
+          clipboard is alway enabled on websites)
