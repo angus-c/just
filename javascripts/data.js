@@ -8,7 +8,7 @@ extend(obj, {a: 4, c: 8});`
   },
   "just-filter-object": {
     "code": [
-      `var extend = require('just-filter-object')\n
+      `var filter = require('just-filter-object')\n
 filter({a: 3, b: 5, c: 9}, (key, value) => value < 6);`
     ],
   },

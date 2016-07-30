@@ -120,7 +120,6 @@ var Evaluate = function (_React$Component) {
     key: 'componentWillUpdate',
     value: function componentWillUpdate(props) {
       notebook.setSource(props.script);
-      this.forceUpdate();
     }
   }, {
     key: 'render',
@@ -230,7 +229,7 @@ exports.default = {
     "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
   },
   "just-filter-object": {
-    "code": ["var extend = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+    "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
   },
   "just-flip-object": {
     "code": []
