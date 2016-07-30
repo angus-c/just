@@ -1,19 +1,25 @@
 import React from 'react';
 import Menu from './Menu';
 import Page from './Page';
-
-var onSelect = () => console.log('selected');
+import data from '../data';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {selectedFn: 'just-extend'};
+  }
+  
   render() {
     return (
       <section style={{display: 'flex'}}>
-        <Menu onSelect={onSelect} />
-        <Page moduleName={'just-extend'} script={`const extend = require('just-extend')\n
-let obj = {a: 3, b: 5}
-extend(obj, {a: 4, c: 8});
-obj; // {a: 4, b: 5, c: 8}`} />
+        <Menu onSelect={this.onSelect.bind(this)} />
+        <Page moduleName={this.state.selectedFn} script={data[this.state.selectedFn].code[0]} />
       </section>
     );
   }
+  
+  onSelect({target: {innerText}}) {
+    console.log('*****', this)
+    this.setState({selectedFn: innerText});
+  };
 }
