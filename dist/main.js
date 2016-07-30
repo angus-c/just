@@ -146,6 +146,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _data = require('../data');
+
+var _data2 = _interopRequireDefault(_data);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (_ref) {
@@ -157,34 +161,47 @@ exports.default = function (_ref) {
     _react2.default.createElement(
       'ul',
       null,
-      _react2.default.createElement(
-        'li',
-        { style: { listStyle: 'none' } },
-        'Objects'
-      ),
-      _react2.default.createElement(
-        'ul',
-        null,
+      _data2.default.map(function (category) {
         _react2.default.createElement(
           'li',
-          { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
-          'just-extend'
-        )
-      ),
-      _react2.default.createElement(
-        'ul',
-        null,
-        _react2.default.createElement(
-          'li',
-          { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
-          'just-filter-object'
-        )
-      )
+          { style: { listStyle: 'none' } },
+          'Objects'
+        );
+        {
+          category.map(function (fn) {
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
+                'just-extend'
+              )
+            );
+          });
+        }
+      })
     )
   );
 };
 
-},{"react":177}],4:[function(require,module,exports){
+// export default ({onSelect}) => {
+//   return (
+//     <section style={{flex: 1}} className="main-content">
+//       <ul>
+//         <li style={{listStyle: 'none'}}>Objects</li>
+//         <ul>
+//           <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>just-extend</li>
+//         </ul>
+//         <ul>
+//           <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>just-filter-object</li>
+//         </ul>
+//       </ul>
+//     </section>
+//   );
+// }
+
+},{"../data":5,"react":177}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -227,26 +244,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  "just-extend": {
-    "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
-  },
-  "just-filter-object": {
-    "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
-  },
-  "just-flip-object": {
-    "code": []
-  },
-  "just-map-object": {
-    "code": []
-  },
-  "just-pick": {
-    "code": []
-  },
-  "just-reduce-object": {
-    "code": []
-  },
-  "just-typeof": {
-    "code": []
+  "object": {
+    "just-extend": {
+      "code": ["var extend = require('just-extend')\n\n  let obj = {a: 3, b: 5};\n  extend(obj, {a: 4, c: 8});"]
+    },
+    "just-filter-object": {
+      "code": ["var filter = require('just-filter-object')\n\n  filter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+    },
+    "just-flip-object": {
+      "code": []
+    },
+    "just-map-object": {
+      "code": []
+    },
+    "just-pick": {
+      "code": []
+    },
+    "just-reduce-object": {
+      "code": []
+    },
+    "just-typeof": {
+      "code": []
+    }
   }
 };
 
