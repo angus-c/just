@@ -4,113 +4,224 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var React = require('react');
-var Menu = require('./Menu');
-var Page = require('./Page');
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Menu = require('./Menu');
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+var _Page = require('./Page');
+
+var _Page2 = _interopRequireDefault(_Page);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var onSelect = function onSelect() {
   return console.log('selected');
 };
 
-exports.default = function (_ref) {
-  var moduleName = _ref.moduleName;
-  var script = _ref.script;
-  return React.createElement(
-    'section',
-    { style: 'display: flex' },
-    React.createElement(Menu, { onSelect: onSelect }),
-    React.createElement(Page, { moduleName: moduleName, script: script })
-  );
-};
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
 
-},{"./Menu":2,"./Page":3,"react":176}],2:[function(require,module,exports){
-"use strict";
+  function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { style: { display: 'flex' } },
+        _react2.default.createElement(_Menu2.default, { onSelect: onSelect }),
+        _react2.default.createElement(_Page2.default, { moduleName: 'just-extend', script: 'const extend = require(\'just-extend\')\n\nlet obj = {a: 3, b: 5}\nextend(obj, {a: 4, c: 8});\nobj; // {a: 4, b: 5, c: 8}' })
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+
+exports.default = App;
+
+},{"./Menu":3,"./Page":4,"react":176}],2:[function(require,module,exports){
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var React = require('react');
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Menu = require('./Menu');
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+var _Page = require('./Page');
+
+var _Page2 = _interopRequireDefault(_Page);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Evaluate = function (_React$Component) {
+  _inherits(Evaluate, _React$Component);
+
+  function Evaluate() {
+    _classCallCheck(this, Evaluate);
+
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Evaluate).apply(this, arguments));
+  }
+
+  _createClass(Evaluate, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var notebook = Tonic.createNotebook({
+        // the parent element for the new notebook
+        element: document.querySelector('#tonic'),
+        source: this.props.script,
+        onEvaluate: function onEvaluate() {
+          console.log('*******');
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { id: 'tonic' });
+    }
+  }]);
+
+  return Evaluate;
+}(_react2.default.Component);
+
+exports.default = Evaluate;
+
+},{"./Menu":3,"./Page":4,"react":176}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (_ref) {
   var onClick = _ref.onClick;
 
-  return React.createElement(
-    "section",
-    { style: "flex: 1", "class": "main-content" },
-    React.createElement(
-      "ul",
+  return _react2.default.createElement(
+    'section',
+    { style: { flex: 1 }, className: 'main-content' },
+    _react2.default.createElement(
+      'ul',
       null,
-      React.createElement(
-        "li",
-        { style: "list-style: none" },
-        "Objects"
+      _react2.default.createElement(
+        'li',
+        { style: { listStyle: 'none' } },
+        'Objects'
       ),
-      React.createElement(
-        "ul",
+      _react2.default.createElement(
+        'ul',
         null,
-        React.createElement(
-          "li",
-          { style: "list-style: none" },
-          "just-extend"
+        _react2.default.createElement(
+          'li',
+          { style: { listStyle: 'none' } },
+          'just-extend'
         )
       )
     )
   );
 };
 
-},{"react":176}],3:[function(require,module,exports){
+},{"react":176}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var React = require('react');
-var Tonic = require('./Tonic');
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Evaluate = require('./Evaluate');
+
+var _Evaluate2 = _interopRequireDefault(_Evaluate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (_ref) {
   var moduleName = _ref.moduleName;
   var script = _ref.script;
-  return React.createElement(
+  return _react2.default.createElement(
     'section',
-    { id: 'react-root', style: 'flex: 3', 'class': 'main-content' },
-    React.createElement(
+    { id: 'react-root', style: { flex: 3 }, className: 'main-content' },
+    _react2.default.createElement(
       'div',
       null,
-      React.createElement(
+      _react2.default.createElement(
         'span',
         null,
         moduleName
       ),
-      React.createElement(Tonic, { script: script })
+      _react2.default.createElement(_Evaluate2.default, { script: script })
     )
   );
 };
 
-},{"./Tonic":4,"react":176}],4:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var React = require('react');
-
-exports.default = function (_ref) {
-  var script = _ref.script;
-  return React.createElement(
-    "div",
-    { id: "tonic" },
-    script
-  );
-};
-
-},{"react":176}],5:[function(require,module,exports){
+},{"./Evaluate":2,"react":176}],5:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var App = require('./components/App');
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-ReactDOM.render(React.createElement(App, null), document.querySelector('.react-root'));
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _App = require('./components/App');
+
+var _App2 = _interopRequireDefault(_App);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+console.log('type of ', typeof _App2.default === 'undefined' ? 'undefined' : _typeof(_App2.default));
+console.log('type of Class', _typeof(new function Hello() {
+  _classCallCheck(this, Hello);
+}()));
+
+_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.querySelector('#react-root'));
 
 },{"./components/App":1,"react":176,"react-dom":34}],6:[function(require,module,exports){
 (function (process){

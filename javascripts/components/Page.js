@@ -1,11 +1,11 @@
-var React = require('react');
-var Tonic = require('./Tonic');
+import React from 'react';
+import Evaluate from './Evaluate';
 
 export default ({moduleName, script}) => (
-  <section id="react-root" style="flex: 3" class="main-content">
+  <section id="react-root" style={{flex: 3}} className="main-content">
     <div>
       <span>{moduleName}</span>
-      <Tonic script={script}/>
+      <Evaluate script={script}/>
     </div>
   </section>
 );

@@ -1,0 +1,26 @@
+{
+  "object-extend": {
+    "code": [
+      "let obj = {a: 3, b: 5};\n
+      extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}\n
+      obj; // {a: 4, b: 5, c: 8}"
+    ],
+  },
+  "object-filter": {
+    "code": [],
+  },
+  "object-flip": {
+    "code": [],
+  },
+  "object-map": {
+    "code": [],
+  },
+  "object-pick": {
+    "code": [],
+  },
+  "object-reduce": {
+    "code": [],
+  },
+  "object-typeof": {
+    "code": [],
+  },

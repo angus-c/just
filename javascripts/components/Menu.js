@@ -1,12 +1,12 @@
-var React = require('react');
+import React from 'react';
 
 export default ({onClick}) => {
   return (
-    <section style="flex: 1" class="main-content">
+    <section style={{flex: 1}} className="main-content">
       <ul>
-        <li style="list-style: none">Objects</li>
+        <li style={{listStyle: 'none'}}>Objects</li>
         <ul>
-          <li style="list-style: none">just-extend</li>
+          <li style={{listStyle: 'none'}}>just-extend</li>
         </ul>
       </ul>
     </section>

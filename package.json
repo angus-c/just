@@ -13,6 +13,7 @@
     "browserify": "^13.1.0"
   },
   "dependencies": {
+    "just-extend": "^1.1.19",
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
   }
