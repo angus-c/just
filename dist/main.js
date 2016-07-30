@@ -39,9 +39,9 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
-    debugger;
     var lastPath = location.href.split('/').pop();
-    _this.state = { selectedFn: lastPath == 'index.html' ? 'just-extend' : lastPath };
+    var fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
+    _this.state = { selectedFn: fn };
     return _this;
   }
 
@@ -60,7 +60,6 @@ var App = function (_React$Component) {
     value: function onSelect(_ref) {
       var innerText = _ref.target.innerText;
 
-      debugger;
       window.history.pushState({}, null, innerText);
       this.setState({ selectedFn: innerText });
     }
@@ -168,7 +167,7 @@ exports.default = function (_ref) {
         null,
         _react2.default.createElement(
           'li',
-          { style: { listStyle: 'none' }, onClick: onSelect },
+          { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
           'just-extend'
         )
       ),
@@ -177,7 +176,7 @@ exports.default = function (_ref) {
         null,
         _react2.default.createElement(
           'li',
-          { style: { listStyle: 'none' }, onClick: onSelect },
+          { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
           'just-filter-object'
         )
       )
