@@ -8,7 +8,7 @@ export default class App extends React.Component {
     super(props);
     const lastPath = location.href.split('/').pop();
     const fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
-    console.log('*****' fn);
+    console.log('*****', fn);
     this.state = {selectedFn: fn};
   }
   
