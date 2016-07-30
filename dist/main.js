@@ -39,7 +39,9 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
-    _this.state = { selectedFn: 'just-extend' };
+    debugger;
+    var lastPath = location.href.split('/').pop();
+    _this.state = { selectedFn: lastPath == 'index.html' ? 'just-extend' : lastPath };
     return _this;
   }
 
@@ -58,7 +60,8 @@ var App = function (_React$Component) {
     value: function onSelect(_ref) {
       var innerText = _ref.target.innerText;
 
-      console.log('*****', this);
+      debugger;
+      window.history.pushState({}, null, innerText);
       this.setState({ selectedFn: innerText });
     }
   }]);

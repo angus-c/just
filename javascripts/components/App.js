@@ -6,7 +6,9 @@ import data from '../data';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedFn: 'just-extend'};
+    debugger;
+    var lastPath = location.href.split('/').pop();
+    this.state = {selectedFn: (lastPath == 'index.html' ? 'just-extend' : lastPath)};
   }
   
   render() {
@@ -19,7 +21,8 @@ export default class App extends React.Component {
   }
   
   onSelect({target: {innerText}}) {
-    console.log('*****', this)
+    debugger;
+    window.history.pushState({}, null, innerText)
     this.setState({selectedFn: innerText});
   };
 }
