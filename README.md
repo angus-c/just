@@ -8,7 +8,7 @@ Guilt-free utilities for every occasion.
 ## Try 
 [Just Interactive](http://anguscroll.com/just) (powered by [Tonic](https://tonicdev.com/))  
 ## Read 
-[The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
+[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## The Modules
 
@@ -353,7 +353,8 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * limit README to examples of each use case
   * if you must explain the api (see api section) add a comment in the README example code
   * add a section in the general README that matches the README for your module
-    * don't forget to add a reference in the table of contents
 * tests
   * write a test for each use case
   * include tests for all README examples
+* Interactive gh-page (anguscroll.com/just)
+  * I can update this afterwards   
