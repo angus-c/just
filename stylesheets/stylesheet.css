@@ -231,7 +231,7 @@ li.link:hover {
   text-decoration: underline;
 }
 
-li.link:selected {
+li.link.selected {
   color: blue;
 }
 

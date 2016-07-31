@@ -65,7 +65,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         { className: 'container' },
-        _react2.default.createElement(_Menu2.default, { onSelect: this.onSelect.bind(this) }),
+        _react2.default.createElement(_Menu2.default, { selected: this.state.selectedFn, onSelect: this.onSelect.bind(this) }),
         _react2.default.createElement(_Page2.default, { moduleName: this.state.selectedFn, script: codeLookup[this.state.selectedFn].code[0] })
       );
     }
@@ -181,6 +181,7 @@ var categoriesArr = [];
 });
 
 exports.default = function (_ref) {
+  var selected = _ref.selected;
   var onSelect = _ref.onSelect;
 
   return _react2.default.createElement(
@@ -202,9 +203,11 @@ exports.default = function (_ref) {
             'ul',
             null,
             category.fns.map(function (fn) {
+              debugger;
+              var className = fn == selected ? 'link selected' : 'link';
               return _react2.default.createElement(
                 'li',
-                { className: 'link', style: { listStyle: 'none' }, onClick: onSelect },
+                { className: className, style: { listStyle: 'none' }, onClick: onSelect },
                 fn
               );
             })

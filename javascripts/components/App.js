@@ -22,7 +22,7 @@ export default class App extends React.Component {
   render() {
     return (
       <section className='container'>
-        <Menu onSelect={this.onSelect.bind(this)} />
+        <Menu selected={this.state.selectedFn} onSelect={this.onSelect.bind(this)} />
         <Page moduleName={this.state.selectedFn} script={codeLookup[this.state.selectedFn].code[0]} />
       </section>
     );
