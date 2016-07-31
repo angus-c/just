@@ -5,9 +5,9 @@
 A library of **zero-dependency** npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
-## Try 
+## Try :icecream: 
 [Just Interactive](http://anguscroll.com/just) (powered by [Tonic](https://tonicdev.com/))  
-## Read 
+## Read :book:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## The Modules
