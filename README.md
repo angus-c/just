@@ -12,6 +12,31 @@ Guilt-free utilities for every occasion.
 
 ## The Modules :package:
 
+* [Collections](#collections)		
+  * [just-compare](#just-compare)		
+  * [just-pluck-it](#just-pluck-it)		
+* [Objects](#objects)		
+  * [just-extend](#just-extend)		
+  * [just-filter-object](#just-filter-object)		
+  * [just-map-object](#just-map-object)  		
+  * [just-reduce-object](#just-reduce-object)		
+  * [just-pick](#just-pick)     		
+  * [just-typeof](#just-typeof)  		
+  * [just-flip-object](#just-flip-object)  		
+* [Arrays](#arrays)		
+  * [just-unique](#just-unique)		
+  * [just-flatten-it](#just-flatten-it)		
+  * [just-intersect](#just-intersect)		
+  * [just-last](#just-last)		
+  * [just-remove](#just-remove)		
+  * [just-union](#just-union)		
+* [Strings](#strings)  		
+  * [just-template](#just-template)		
+* [Functions](#functions)  		
+  * [just-compose](#just-compose)		
+  * [just-curry-it](#just-curry-it)		
+  * [just-partial-it](#just-partial-it)
+
 ### Collections  
 
 ### [just-compare](https://www.npmjs.com/package/just-compare)
