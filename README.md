@@ -41,7 +41,7 @@ Guilt-free utilities for every occasion.
 
 ### Collections  
 
-### [just-compare](https://www.npmjs.com/package/just-compare) 
+### [just-compare](https://www.npmjs.com/package/just-compare)
 :icecream:[`Try It`](http://anguscroll.com/just/just-compare)
 
 `npm install just-compare`
