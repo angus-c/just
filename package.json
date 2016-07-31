@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "just-extend": "^1.1.19",
+    "just-map-object": "^1.1.19",
+    "just-reduce-object": "^1.0.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
   }

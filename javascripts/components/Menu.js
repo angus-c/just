@@ -1,18 +1,31 @@
 import React from 'react';
 import data from '../data';
+import objectMap from 'just-map-object';
+
+var categoriesArr = [];
+
+objectMap(data, (categoryName, fns) => {
+  var fnsArr = [];
+  objectMap(fns, fn => {
+    fnsArr.push(fn);
+  });
+  categoriesArr.push({name: categoryName, fns: fnsArr});
+})
 
 export default ({onSelect}) => {
   return (
-    <section style={{flex: 1}} className="main-content">
+    <section style={{flex: 1}} className="main-content left-col">
       <ul>
-      {data.map(category => {
-        <li style={{listStyle: 'none'}}>Objects</li>
-        {category.map(fn => {
+      {categoriesArr.map(category => (
+        <div>
+          <li style={{listStyle: 'none'}}>{category.name}</li>
           <ul>
-            <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>just-extend</li>
+          {category.fns.map(fn => (
+            <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>{fn}</li>
+          ))}
           </ul>
-        })}
-      })}
+        </div>
+      ))}
       </ul>
     </section>
   );
