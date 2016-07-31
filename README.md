@@ -7,10 +7,10 @@ Guilt-free utilities for every occasion.
 
 ## Try :icecream: 
 [Just Interactive](http://anguscroll.com/just) (powered by [Tonic](https://tonicdev.com/))  
-## Read :book:
+## Read :blue_book:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
-## The Modules
+## The Modules :package:
 
 ### Collections  
 
