@@ -18,7 +18,7 @@ export default class Evaluate extends React.Component {
   
   render() {
     return (
-      <div id="tonic"></div>
+      <div style={{paddingTop: 20}} id="tonic"></div>
     );
   }
 }

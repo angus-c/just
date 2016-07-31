@@ -43,6 +43,8 @@ var codeLookup = (0, _justReduceObject2.default)(_data2.default, function (acc, 
   return (0, _justExtend2.default)(acc, value);
 }, {});
 
+console.log('codeLookup', codeLookup);
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -52,7 +54,7 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
     var lastPath = location.href.split('/').pop();
-    var fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
+    var fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
     _this.state = { selectedFn: fn };
     return _this;
   }
@@ -138,7 +140,7 @@ var Evaluate = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { id: 'tonic' });
+      return _react2.default.createElement('div', { style: { paddingTop: 20 }, id: 'tonic' });
     }
   }]);
 
@@ -256,8 +258,9 @@ exports.default = function (_ref) {
       'div',
       null,
       _react2.default.createElement(
-        'span',
-        null,
+        'a',
+        { href: 'https://www.npmjs.com/package/{moduleName}' },
+        'npm install ',
         moduleName
       ),
       _react2.default.createElement(_Evaluate2.default, { script: script })
@@ -274,69 +277,69 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   "Collections": {
     "just-compare": {
-      "code": ["var compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
+      "code": ["const compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
     },
     "just-pluck-it": {
-      "code": ["var pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
+      "code": ["const pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
     }
   },
   "Object": {
     "just-extend": {
-      "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+      "code": ["const extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
     },
     "just-filter-object": {
-      "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+      "code": ["const filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
     },
     "just-flip-object": {
-      "code": ["var flip = require('just-flip-object')\n\nflip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}"]
+      "code": ["const flip = require('just-flip-object')\n\nflip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}"]
     },
     "just-map-object": {
-      "code": ["var map = require('just-map-object')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);"]
+      "code": ["const map = require('just-map-object')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);"]
     },
     "just-pick": {
-      "code": ["var pick = require('just-pick')\n\nvar obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
+      "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
     },
     "just-reduce-object": {
-      "code": ["var reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
+      "code": ["const reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
     },
     "just-typeof": {
-      "code": ["var typeOf = require('just-typeof')\n\ntypeOf({});\ntypeOf([]);\ntypeOf(function() {});\ntypeOf(/a/);\ntypeOf(new Date());\ntypeOf(null);\ntypeOf(undefined);\ntypeOf('a');\ntypeOf(1);\ntypeOf(true);"]
+      "code": ["const typeOf = require('just-typeof')\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
     }
   },
   "Array": {
     "just-unique": {
-      "code": ["var unique = require('just-unique')\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
+      "code": ["const unique = require('just-unique')\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
     },
     "just-flatten-it": {
-      "code": ["var flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
+      "code": ["const flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
     },
     "just-intersect": {
-      "code": ["var intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
+      "code": ["const intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
     },
     "just-last": {
-      "code": ["var last = require('just-last')\n\nlast([true, false, [true, false]]);"]
+      "code": ["const last = require('just-last')\n\nlast([true, false, [true, false]]);"]
     },
     "just-remove": {
-      "code": ["var remove = require('just-remove')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);"]
+      "code": ["const remove = require('just-remove')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);"]
     },
     "just-union": {
-      "code": ["var union = require('just-union')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);"]
+      "code": ["const union = require('just-union')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);"]
     }
   },
   "Strings": {
     "just-template": {
-      "code": ["var template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);"]
+      "code": ["const template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);"]
     }
   },
   "Functions": {
     "just-compose": {
-      "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+      "code": ["const compose = require('just-compose')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);"]
     },
     "just-curry-it": {
-      "code": ["var extend = require('just-extend')\n\n  let obj = {a: 3, b: 5};\n  extend(obj, {a: 4, c: 8});"]
+      "code": ["const curry = require('just-curry-it')\n\nfunction converter(ratio, input) {\n  return (input*ratio).toFixed(1);\n}\nconst milesToKm = curry(converter, 1.62);\nmilesToKm(35);"]
     },
     "just-partial-it": {
-      "code": ["var extend = require('just-extend')\n\n  let obj = {a: 3, b: 5};\n  extend(obj, {a: 4, c: 8});"]
+      "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
     }
   }
 };

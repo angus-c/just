@@ -9,11 +9,13 @@ const codeLookup = objectReduce(data, (acc, key, value) => {
   return extend(acc, value)
 }, {});
 
+console.log('codeLookup', codeLookup)
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     const lastPath = location.href.split('/').pop();
-    const fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
+    const fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
     this.state = {selectedFn: fn};
   }
   
