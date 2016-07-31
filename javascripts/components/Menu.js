@@ -14,7 +14,7 @@ objectMap(data, (categoryName, fns) => {
 
 export default ({onSelect}) => {
   return (
-    <section style={{flex: 1}} className="main-content left-col">
+    <section style={{flex: 2}} className="main-content left-col">
       <ul>
       {categoriesArr.map(category => (
         <div>

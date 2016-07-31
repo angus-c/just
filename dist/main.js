@@ -183,7 +183,7 @@ exports.default = function (_ref) {
 
   return _react2.default.createElement(
     'section',
-    { style: { flex: 1 }, className: 'main-content left-col' },
+    { style: { flex: 2 }, className: 'main-content left-col' },
     _react2.default.createElement(
       'ul',
       null,
@@ -274,10 +274,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   "Collections": {
     "just-compare": {
-      "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+      "code": ["var compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
     },
     "just-pluck-it": {
-      "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+      "code": ["var pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
     }
   },
   "Object": {
@@ -288,44 +288,44 @@ exports.default = {
       "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
     },
     "just-flip-object": {
-      "code": []
+      "code": ["var flip = require('just-flip-object')\n\nflip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}"]
     },
     "just-map-object": {
-      "code": []
+      "code": ["var map = require('just-map-object')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);"]
     },
     "just-pick": {
-      "code": []
+      "code": ["var pick = require('just-pick')\n\nvar obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
     },
     "just-reduce-object": {
-      "code": []
+      "code": ["var reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
     },
     "just-typeof": {
-      "code": []
+      "code": ["var typeOf = require('just-typeof')\n\ntypeOf({});\ntypeOf([]);\ntypeOf(function() {});\ntypeOf(/a/);\ntypeOf(new Date());\ntypeOf(null);\ntypeOf(undefined);\ntypeOf('a');\ntypeOf(1);\ntypeOf(true);"]
     }
   },
   "Array": {
     "just-unique": {
-      "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+      "code": ["var unique = require('just-unique')\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
     },
     "just-flatten-it": {
-      "code": ["var filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+      "code": ["var flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
     },
     "just-intersect": {
-      "code": []
+      "code": ["var intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
     },
     "just-last": {
-      "code": []
+      "code": ["var last = require('just-last')\n\nlast([true, false, [true, false]]);"]
     },
     "just-remove": {
-      "code": []
+      "code": ["var remove = require('just-remove')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);"]
     },
     "just-union": {
-      "code": []
+      "code": ["var union = require('just-union')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);"]
     }
   },
   "Strings": {
     "just-template": {
-      "code": ["var extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+      "code": ["var template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);"]
     }
   },
   "Functions": {
