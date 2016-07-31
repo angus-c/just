@@ -189,7 +189,7 @@ typeOf(true); // 'boolean'
 ```
 
 ### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
-:icecream:[`Try It`](http://anguscroll.com/just/just-flip)
+:icecream:[`Try It`](http://anguscroll.com/just/just-flip-object)
 
 `npm install just-flip-object`
 
