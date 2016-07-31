@@ -41,7 +41,7 @@ If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https:
 ### Collections  
 
 ### [just-compare](https://www.npmjs.com/package/just-compare) 
-([:icecream:Try It](anguscroll.com/just/just-compare))
+([:icecream:Try It](http://anguscroll.com/just/just-compare))
 
 `npm install just-compare`
 
@@ -62,6 +62,7 @@ compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 ```
 
 ### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
+([:icecream:Try It](http://anguscroll.com/just/just-pluck-it))
 
 `npm install just-pluck-it`
 
@@ -75,6 +76,7 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ### Objects
 
 ### [just-extend](https://www.npmjs.com/package/just-extend)
+([:icecream:Try It](http://anguscroll.com/just/just-extend))
 
 `npm install just-extend`
 
@@ -102,6 +104,7 @@ arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
+([:icecream:Try It](http://anguscroll.com/just/just-filter-object))
 
 `npm install just-filter-object`
 
@@ -115,6 +118,7 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
 ### [just-map-object](https://www.npmjs.com/package/just-map-object)
+([:icecream:Try It](http://anguscroll.com/just/just-map-object))
 
 `npm install just-map-object`
 
@@ -128,6 +132,7 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
+([:icecream:Try It](http://anguscroll.com/just/just-reduce-object))
 
 `npm install just-reduce-object`
 
@@ -148,6 +153,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 ```
 
 ### [just-pick](https://www.npmjs.com/package/just-pick)
+([:icecream:Try It](http://anguscroll.com/just/just-pick))
 
 `npm install just-pick`
 
@@ -162,6 +168,7 @@ pick(obj, ['a', 'a']); // {a: 3}
 ```
 
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
+([:icecream:Try It](http://anguscroll.com/just/just-typeof))
 
 `npm install just-typeof`
 
@@ -181,6 +188,7 @@ typeOf(true); // 'boolean'
 ```
 
 ### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
+([:icecream:Try It](http://anguscroll.com/just/just-flip))
 
 `npm install just-flip-object`
 
@@ -196,6 +204,7 @@ flip({a: false, b: true}); // {false: 'a', true: 'b'}
 ### Arrays
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
+([:icecream:Try It](http://anguscroll.com/just/just-unique))
 
 `npm install just-unique`
 
