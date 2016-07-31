@@ -16,14 +16,14 @@ export default ({selected, onSelect}) => {
   return (
     <section style={{flex: 2}} className="main-content left-col">
       <ul>
-      {categoriesArr.map(category => (
+      {categoriesArr.map((category, i) => (
         <div>
-          <li style={{listStyle: 'none'}}>{category.name}</li>
+          <li key={i} style={{listStyle: 'none'}}>{category.name}</li>
           <ul>
-          {category.fns.map(fn => {
+          {category.fns.map((fn, j) => {
             const className = (fn == selected) ? 'link selected' : 'link';
             return (
-              <li className={className} style={{listStyle: 'none'}} onClick={onSelect}>{fn}</li>
+              <li key={j} className={className} style={{listStyle: 'none'}} onClick={onSelect}>{fn}</li>
             );
           })}
           </ul>

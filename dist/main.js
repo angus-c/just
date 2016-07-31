@@ -190,24 +190,23 @@ exports.default = function (_ref) {
     _react2.default.createElement(
       'ul',
       null,
-      categoriesArr.map(function (category) {
+      categoriesArr.map(function (category, i) {
         return _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
             'li',
-            { style: { listStyle: 'none' } },
+            { key: i, style: { listStyle: 'none' } },
             category.name
           ),
           _react2.default.createElement(
             'ul',
             null,
-            category.fns.map(function (fn) {
-              debugger;
+            category.fns.map(function (fn, j) {
               var className = fn == selected ? 'link selected' : 'link';
               return _react2.default.createElement(
                 'li',
-                { className: className, style: { listStyle: 'none' }, onClick: onSelect },
+                { key: j, className: className, style: { listStyle: 'none' }, onClick: onSelect },
                 fn
               );
             })
