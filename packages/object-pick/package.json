@@ -1,6 +1,6 @@
 {
   "name": "just-pick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "copy an object but with only the specified keys",
   "main": "index.js",
   "scripts": {
