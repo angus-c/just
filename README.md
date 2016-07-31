@@ -40,7 +40,8 @@ If you've got a couple of minutes read [Just: The Zen of Dependency-Free](https:
 
 ### Collections  
 
-### [just-compare](https://www.npmjs.com/package/just-compare)
+### [just-compare](https://www.npmjs.com/package/just-compare) 
+([:icecream:Try It](anguscroll.com/just/just-compare))
 
 `npm install just-compare`
 
