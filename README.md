@@ -63,7 +63,7 @@ compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
 ```
 
 ### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
-:icecream:[`Try It`](http://anguscroll.com/just/just-pluck-it))
+:icecream:[`Try It`](http://anguscroll.com/just/just-pluck-it)
 
 `npm install just-pluck-it`
 
@@ -77,7 +77,7 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ### Objects
 
 ### [just-extend](https://www.npmjs.com/package/just-extend)  
-:icecream:[`Try It`](http://anguscroll.com/just/just-extend))
+:icecream:[`Try It`](http://anguscroll.com/just/just-extend)
 
 `npm install just-extend`
 
@@ -105,7 +105,7 @@ arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
-:icecream:[`Try It`](http://anguscroll.com/just/just-filter-object))
+:icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
 
 `npm install just-filter-object`
 
@@ -119,7 +119,7 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
 ### [just-map-object](https://www.npmjs.com/package/just-map-object)
-:icecream:[`Try It`](http://anguscroll.com/just/just-map-object))
+:icecream:[`Try It`](http://anguscroll.com/just/just-map-object)
 
 `npm install just-map-object`
 
@@ -133,7 +133,7 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
-:icecream:[`Try It`](http://anguscroll.com/just/just-reduce-object))
+:icecream:[`Try It`](http://anguscroll.com/just/just-reduce-object)
 
 `npm install just-reduce-object`
 
@@ -154,7 +154,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 ```
 
 ### [just-pick](https://www.npmjs.com/package/just-pick)
-:icecream:[`Try It`](http://anguscroll.com/just/just-pick))
+:icecream:[`Try It`](http://anguscroll.com/just/just-pick)
 
 `npm install just-pick`
 
@@ -169,7 +169,7 @@ pick(obj, ['a', 'a']); // {a: 3}
 ```
 
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
-:icecream:[`Try It`](http://anguscroll.com/just/just-typeof))
+:icecream:[`Try It`](http://anguscroll.com/just/just-typeof)
 
 `npm install just-typeof`
 
@@ -189,7 +189,7 @@ typeOf(true); // 'boolean'
 ```
 
 ### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
-:icecream:[`Try It`](http://anguscroll.com/just/just-flip))
+:icecream:[`Try It`](http://anguscroll.com/just/just-flip)
 
 `npm install just-flip-object`
 
@@ -205,7 +205,7 @@ flip({a: false, b: true}); // {false: 'a', true: 'b'}
 ### Arrays
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
-:icecream:[`Try It`](http://anguscroll.com/just/just-unique))
+:icecream:[`Try It`](http://anguscroll.com/just/just-unique)
 
 `npm install just-unique`
 
@@ -229,7 +229,7 @@ unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
 ```
 
 ### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
-:icecream:[`Try It`](http://anguscroll.com/just/just-flatten-it))
+:icecream:[`Try It`](http://anguscroll.com/just/just-flatten-it)
 
 `npm install just-flatten-it`
 
@@ -241,7 +241,7 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 ```
 
 ### [just-intersect](https://www.npmjs.com/package/just-intersect)
-:icecream:[`Try It`](http://anguscroll.com/just/just-intersect))
+:icecream:[`Try It`](http://anguscroll.com/just/just-intersect)
 
 `npm install just-intersect`
 
@@ -252,7 +252,7 @@ intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 ```
 
 ### [just-last](https://www.npmjs.com/package/just-last)
-:icecream:[`Try It`](http://anguscroll.com/just/just-last))
+:icecream:[`Try It`](http://anguscroll.com/just/just-last)
 
 `npm install just-last`
 
@@ -268,7 +268,7 @@ last(null); // undefined
 last(undefined); // undefined
 ```
 ### [just-remove](https://www.npmjs.com/package/just-remove)
-:icecream:[`Try It`](http://anguscroll.com/just/just-remove))
+:icecream:[`Try It`](http://anguscroll.com/just/just-remove)
 
 `npm install just-remove`
 
@@ -279,7 +279,7 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 ```
 
 ### [just-union](https://www.npmjs.com/package/just-union)
-:icecream:[`Try It`](http://anguscroll.com/just/just-union))
+:icecream:[`Try It`](http://anguscroll.com/just/just-union)
 
 `npm install just-union`
 
@@ -292,7 +292,7 @@ union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ### Strings
 
 ### [just-template](https://www.npmjs.com/package/just-template)
-:icecream:[`Try It`](http://anguscroll.com/just/just-template))
+:icecream:[`Try It`](http://anguscroll.com/just/just-template)
 
 `npm install just-template`
 
@@ -316,7 +316,7 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 ### Functions
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)
-:icecream:[`Try It`](http://anguscroll.com/just/just-compose))
+:icecream:[`Try It`](http://anguscroll.com/just/just-compose)
 
 `npm install just-compose`
 
@@ -329,7 +329,7 @@ sqRootBiggest(7, 0, 16); // 4
 ```
 
 ### [just-curry-it](https://www.npmjs.com/package/just-curry-it)
-:icecream:[`Try It`](http://anguscroll.com/just/just-curry-it))
+:icecream:[`Try It`](http://anguscroll.com/just/just-curry-it)
 
 `npm install just-curry-it`
 
@@ -345,7 +345,7 @@ milesToKm(10); // 16.2
 ```
 
 ### [just-partial-it](https://www.npmjs.com/package/just-partial-it)
-:icecream:[`Try It`](http://anguscroll.com/just/just-partial-it))
+:icecream:[`Try It`](http://anguscroll.com/just/just-partial-it)
 
 `npm install just-partial-it`
 
