@@ -9,14 +9,17 @@ const codeLookup = objectReduce(data, (acc, key, value) => {
   return extend(acc, value)
 }, {});
 
-console.log('codeLookup', codeLookup)
+// window.onpopstate = function() {
+//   alert("location: " + document.location);
+//   // this.setState({selectedFn: location.href.split('/').pop()});
+// }
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    const lastPath = location.href.split('/').pop();
-    const fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
-    this.state = {selectedFn: fn};
+    this.state = {selectedFn: this.fnFromUrl(location.href)};
+    window.onpopstate = () =>
+      this.setState({selectedFn: this.fnFromUrl(location.href)})
   }
   
   render() {
@@ -26,6 +29,11 @@ export default class App extends React.Component {
         <Page moduleName={this.state.selectedFn} script={codeLookup[this.state.selectedFn].code[0]} />
       </section>
     );
+  }
+  
+  fnFromUrl() {
+    const lastPath = location.href.split('/').pop();
+    return lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
   }
   
   onSelect({target: {innerText}}) {

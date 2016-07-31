@@ -15,11 +15,11 @@ objectMap(data, (categoryName, fns) => {
 export default ({selected, onSelect}) => {
   return (
     <section style={{flex: 2}} className="main-content left-col">
-      <ul>
+      <ul key={'u1-x-' + 0}>
       {categoriesArr.map((category, i) => (
         <div>
-          <li key={i} style={{listStyle: 'none'}}>{category.name}</li>
-          <ul>
+          <li key={'li-x-' + i} style={{listStyle: 'none'}}>{category.name}</li>
+          <ul key={'ul-y-' + i}>
           {category.fns.map((fn, j) => {
             const className = (fn == selected) ? 'link selected' : 'link';
             return (

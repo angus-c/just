@@ -43,7 +43,10 @@ var codeLookup = (0, _justReduceObject2.default)(_data2.default, function (acc, 
   return (0, _justExtend2.default)(acc, value);
 }, {});
 
-console.log('codeLookup', codeLookup);
+// window.onpopstate = function() {
+//   alert("location: " + document.location);
+//   // this.setState({selectedFn: location.href.split('/').pop()});
+// }
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -53,9 +56,10 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
-    var lastPath = location.href.split('/').pop();
-    var fn = lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
-    _this.state = { selectedFn: fn };
+    _this.state = { selectedFn: _this.fnFromUrl(location.href) };
+    window.onpopstate = function () {
+      return _this.setState({ selectedFn: _this.fnFromUrl(location.href) });
+    };
     return _this;
   }
 
@@ -68,6 +72,12 @@ var App = function (_React$Component) {
         _react2.default.createElement(_Menu2.default, { selected: this.state.selectedFn, onSelect: this.onSelect.bind(this) }),
         _react2.default.createElement(_Page2.default, { moduleName: this.state.selectedFn, script: codeLookup[this.state.selectedFn].code[0] })
       );
+    }
+  }, {
+    key: 'fnFromUrl',
+    value: function fnFromUrl() {
+      var lastPath = location.href.split('/').pop();
+      return lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
     }
   }, {
     key: 'onSelect',
@@ -189,19 +199,19 @@ exports.default = function (_ref) {
     { style: { flex: 2 }, className: 'main-content left-col' },
     _react2.default.createElement(
       'ul',
-      null,
+      { key: 'u1-x-' + 0 },
       categoriesArr.map(function (category, i) {
         return _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
             'li',
-            { key: i, style: { listStyle: 'none' } },
+            { key: 'li-x-' + i, style: { listStyle: 'none' } },
             category.name
           ),
           _react2.default.createElement(
             'ul',
-            null,
+            { key: 'ul-y-' + i },
             category.fns.map(function (fn, j) {
               var className = fn == selected ? 'link selected' : 'link';
               return _react2.default.createElement(
