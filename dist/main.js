@@ -259,7 +259,7 @@ exports.default = function (_ref) {
       null,
       _react2.default.createElement(
         'a',
-        { href: 'https://www.npmjs.com/package/{moduleName}' },
+        { href: 'https://www.npmjs.com/package/' + moduleName },
         'npm install ',
         moduleName
       ),
