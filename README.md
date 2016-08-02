@@ -6,7 +6,7 @@ A library of **zero-dependency** npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 ## Try :icecream: 
-<img src="images/just-interactive.png" width="500"/> 
+<img src="images/just-interactive.png" width="500"/>   
 [Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [Tonic](https://tonicdev.com/))  
 ## Read :blue_book:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
