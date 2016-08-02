@@ -270,10 +270,14 @@ exports.default = function (_ref) {
       'div',
       null,
       _react2.default.createElement(
-        'a',
-        { href: 'https://www.npmjs.com/package/' + moduleName },
+        'span',
+        { style: { fontFamily: 'consolas' } },
         'npm install ',
-        moduleName
+        _react2.default.createElement(
+          'a',
+          { href: 'https://www.npmjs.com/package/' + moduleName },
+          moduleName
+        )
       ),
       _react2.default.createElement(_Evaluate2.default, { script: script })
     )
