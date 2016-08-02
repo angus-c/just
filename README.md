@@ -5,39 +5,38 @@
 A library of **zero-dependency** npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
-**Try:** [Just Interactive](http://anguscroll.com/just) (powered by [Tonic](https://tonicdev.com/))  
-**Read:** [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
+## Try :icecream: 
+![Try Just](images/just-interactive.jpg)  
+[Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [Tonic](https://tonicdev.com/))  
+## Read :blue_book:
+[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
-* [The Modules](#the-modules)
-  * [Collections](#collections)
-    * [just-compare](#just-compare)
-    * [just-pluck-it](#just-pluck-it)
-  * [Objects](#objects)
-    * [just-extend](#just-extend)
-    * [just-filter-object](#just-filter-object)
-    * [just-map-object](#just-map-object)  
-    * [just-reduce-object](#just-reduce-object)
-    * [just-pick](#just-pick)     
-    * [just-typeof](#just-typeof)  
-    * [just-flip-object](#just-flip-object)  
-  * [Arrays](#arrays)
-    * [just-unique](#just-unique)
-    * [just-flatten-it](#just-flatten-it)
-    * [just-intersect](#just-intersect)
-    * [just-last](#just-last)
-    * [just-remove](#just-remove)
-    * [just-union](#just-union)
-  * [Strings](#strings)  
-    * [just-template](#just-template)
-  * [Functions](#functions)  
-    * [just-compose](#just-compose)
-    * [just-curry-it](#just-curry-it)
-    * [just-partial-it](#just-partial-it)
-* [Testing](#testing)
-* [Contribute!](#contribute)
-  * [New Module Guidelines](#new-module-guidelines)   
+## The Modules :package:
 
-## The Modules
+* [Collections](#collections)		
+  * [just-compare](#just-compare)		
+  * [just-pluck-it](#just-pluck-it)		
+* [Objects](#objects)		
+  * [just-extend](#just-extend)		
+  * [just-filter-object](#just-filter-object)		
+  * [just-map-object](#just-map-object)  		
+  * [just-reduce-object](#just-reduce-object)		
+  * [just-pick](#just-pick)     		
+  * [just-typeof](#just-typeof)  		
+  * [just-flip-object](#just-flip-object)  		
+* [Arrays](#arrays)		
+  * [just-unique](#just-unique)		
+  * [just-flatten-it](#just-flatten-it)		
+  * [just-intersect](#just-intersect)		
+  * [just-last](#just-last)		
+  * [just-remove](#just-remove)		
+  * [just-union](#just-union)		
+* [Strings](#strings)  		
+  * [just-template](#just-template)		
+* [Functions](#functions)  		
+  * [just-compose](#just-compose)		
+  * [just-curry-it](#just-curry-it)		
+  * [just-partial-it](#just-partial-it)
 
 ### Collections  
 
@@ -380,7 +379,8 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * limit README to examples of each use case
   * if you must explain the api (see api section) add a comment in the README example code
   * add a section in the general README that matches the README for your module
-    * don't forget to add a reference in the table of contents
 * tests
   * write a test for each use case
   * include tests for all README examples
+* Interactive gh-page (anguscroll.com/just)
+  * I can update this afterwards   
