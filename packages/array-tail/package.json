@@ -1,5 +1,5 @@
 {
-  "name": "just-array",
+  "name": "just-tail",
   "version": "1.0.0",
   "description": "return all but the first element of an array",
   "main": "index.js",
