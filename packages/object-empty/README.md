@@ -6,14 +6,14 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-object-empty)
 
 ```js
-import objectEmpty from 'just-object-empty';
+import isObjectEmpty from 'just-object-empty';
 
 let obj = {a: 3, b: 5};
-objectEmpty(obj} // false
+isObjectEmpty(obj} // false
 
 let obj = {};
-objectEmpty(obj} // true
+isObjectEmpty(obj} // true
 
 let obj = null;
-objectEmpty(obj} // true
+isObjectEmpty(obj} // true
 ```

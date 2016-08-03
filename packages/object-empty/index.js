@@ -1,4 +1,4 @@
-module.exports = objectEmpty;
+module.exports = isObjectEmpty;
 
 /*
  var obj = {a: 3, b: 5};
@@ -11,7 +11,7 @@ module.exports = objectEmpty;
  objectEmpty(obj} // true
 */
 
-function objectEmpty(obj) {
+function isObjectEmpty(obj) {
   if (obj == null) {
     return true;
   }
