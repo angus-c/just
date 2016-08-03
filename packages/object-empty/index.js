@@ -11,12 +11,12 @@ module.exports = objectEmpty;
  objectEmpty(obj} // true
 */
 
-function objectEmpty(obj1, obj2 /*, [objn]*/) {
+function objectEmpty(obj) {
   if (obj == null) {
     return true;
   }
 
-  for(var prop in obj) {
+  for (var prop in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       return false;
     }
