@@ -18,6 +18,7 @@ Guilt-free utilities for every occasion.
   * [just-pluck-it](#just-pluck-it)		
 * [Objects](#objects)		
   * [just-extend](#just-extend)		
+  * [just-object-empty](#just-object-empty)		
   * [just-filter-object](#just-filter-object)		
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
@@ -104,6 +105,25 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
+
+### [just-object-empty](https://www.npmjs.com/package/just-object-empty)  
+:icecream:[`Try It`](http://anguscroll.com/just/just-object-empty)
+
+`npm install just-object-empty`
+
+```js
+import objectEmpty from 'just-object-empty';
+
+let obj = {a: 3, b: 5};
+objectEmpty(obj} // false
+
+let obj = {};
+objectEmpty(obj} // true
+
+let obj = null;
+objectEmpty(obj} // true
+```
+
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
 
