@@ -28,7 +28,8 @@ Guilt-free utilities for every occasion.
   * [just-unique](#just-unique)		
   * [just-flatten-it](#just-flatten-it)		
   * [just-intersect](#just-intersect)		
-  * [just-last](#just-last)		
+  * [just-last](#just-last)
+  * [just-tail](#just-tail)	  	
   * [just-remove](#just-remove)		
   * [just-union](#just-union)		
 * [Strings](#strings)  		
@@ -266,6 +267,24 @@ last([]); // undefined
 last(null); // undefined
 last(undefined); // undefined
 ```
+
+### [just-tail](https://www.npmjs.com/package/just-tail)
+:icecream:[`Try It`](http://anguscroll.com/just/just-tail)
+
+`npm install just-tail`
+
+```js
+import tail from 'just-tail';
+
+tail([1, 2, 3, 4, 5]); // [2, 3, 4, 5]
+tail([{a: 1}, {b: 1}, {c: 1}]); // [{b: 1}, {c: 1}]
+tail([true, false, [true, false]]); // [false, [true, false]]
+tail([]); // []
+tail(); // undefined
+tail(null); // undefined
+tail(undefined); // undefined
+```
+
 ### [just-remove](https://www.npmjs.com/package/just-remove)
 :icecream:[`Try It`](http://anguscroll.com/just/just-remove)
 
