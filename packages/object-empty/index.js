@@ -16,11 +16,5 @@ function isObjectEmpty(obj) {
     return true;
   }
 
-  for (var prop in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-      return false;
-    }
-  }
-
-  return true;
+  return !Object.keys(obj).length;
 }
