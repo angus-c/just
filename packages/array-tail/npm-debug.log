@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/node',
+1 verbose cli   '/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'just-tail' ]
+2 info using npm@3.7.2
+3 info using node@v4.2.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData just-tail
+8 silly fetchNamedPackageData just-tail
+9 silly mapToRegistry name just-tail
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/just-tail
+13 verbose request uri https://registry.npmjs.org/just-tail
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 9:34:00 PM
+16 verbose request using bearer token for auth
+17 verbose request id d54a46b4b688667b
+18 verbose etag "12W41SPMTEH0J2TFZOIP8SMVI"
+19 http request GET https://registry.npmjs.org/just-tail
+20 http 304 https://registry.npmjs.org/just-tail
+21 verbose headers { 'cache-control': 'max-age=300',
+21 verbose headers   'accept-ranges': 'bytes',
+21 verbose headers   date: 'Wed, 03 Aug 2016 04:34:01 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-dfw1835-DFW',
+21 verbose headers   'x-cache': 'MISS',
+21 verbose headers   'x-cache-hits': '0',
+21 verbose headers   'x-timer': 'S1470198841.731775,VS0,VE186',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { 'cache-control': 'max-age=300',
+22 silly get     'accept-ranges': 'bytes',
+22 silly get     date: 'Wed, 03 Aug 2016 04:34:01 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-dfw1835-DFW',
+22 silly get     'x-cache': 'MISS',
+22 silly get     'x-cache-hits': '0',
+22 silly get     'x-timer': 'S1470198841.731775,VS0,VE186',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/just-tail from cache
+24 verbose get saving just-tail to /Users/anguscroll/.npm/registry.npmjs.org/just-tail/.cache.json
+25 verbose correctMkdir /Users/anguscroll/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly rollbackFailedOptional Starting
+39 silly rollbackFailedOptional Finishing
+40 silly runTopLevelLifecycles Starting
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Refusing to install just-tail as a dependency of itself
+43 verbose stack     at checkSelf (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/lib/install/validate-args.js:53:14)
+43 verbose stack     at Array.<anonymous> (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+43 verbose stack     at LOOP (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+43 verbose stack     at chain (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+43 verbose stack     at /Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/lib/install/validate-args.js:16:5
+43 verbose stack     at /Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at /Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at asyncMap (/Users/anguscroll/.nvm/versions/node/v4.2.1/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
+44 verbose cwd /Users/anguscroll/Documents/github/just/packages/array-tail
+45 error Darwin 14.5.0
+46 error argv "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/node" "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/npm" "i" "just-tail"
+47 error node v4.2.1
+48 error npm  v3.7.2
+49 error code ENOSELF
+50 error Refusing to install just-tail as a dependency of itself
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]

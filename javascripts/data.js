@@ -96,6 +96,12 @@ intersect([1, 2, 5, 6], [2, 3, 5, 6]);`
 last([true, false, [true, false]]);`
       ]
     },
+    "just-tail": {
+      "code": [
+        `const tail = require('just-tail')\n
+tail([0, 1, 2, 3, 4, 5]);`
+      ]
+    },
     "just-remove": {
       "code": [
         `const remove = require('just-remove')\n
