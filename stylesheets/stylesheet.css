@@ -229,6 +229,7 @@ a {
     
 li.link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 li.link.selected {
