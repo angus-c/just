@@ -20,7 +20,7 @@ Guilt-free utilities for every occasion.
   * [just-extend](#just-extend)		
   * [just-values](#just-values)	  	  
   * [just-filter-object](#just-filter-object)		
-  * [just-object-empty](#just-object-empty)
+  * [just-is-empty](#just-is-empty)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-pick](#just-pick)     		
@@ -113,7 +113,7 @@ obj; // {a: 3, b: 5, c: [1, 2, 3]}
 `npm install just-object-empty`
 
 ```js
-import objectEmpty from 'just-object-empty';
+import isEmpty from 'just-is-empty';
 
 let obj = {a: 3, b: 5};
 objectEmpty(obj} // false
