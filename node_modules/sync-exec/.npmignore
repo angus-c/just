@@ -1,0 +1,4 @@
+*.kdev4
+*.log*
+*.kate-swp
+node_modules/

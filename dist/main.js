@@ -303,6 +303,9 @@ exports.default = {
     "just-extend": {
       "code": ["const extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
     },
+    "just-values": {
+      "code": ["const values = require('just-values')\n\nvalues({a: 4, b: 9, c: 8});"]
+    },
     "just-filter-object": {
       "code": ["const filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
     },

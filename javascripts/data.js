@@ -21,6 +21,12 @@ let obj = {a: 3, b: 5};
 extend(obj, {a: 4, c: 8});`
       ]
     },
+    "just-values": {
+      "code": [
+        `const values = require('just-values')\n
+values({a: 4, b: 9, c: 8});`
+      ]
+    },
     "just-filter-object": {
       "code": [
         `const filter = require('just-filter-object')\n
