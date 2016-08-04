@@ -18,7 +18,8 @@ Guilt-free utilities for every occasion.
   * [just-pluck-it](#just-pluck-it)		
 * [Objects](#objects)		
   * [just-extend](#just-extend)		
-  * [just-filter-object](#just-filter-object)		
+  * [just-values](#just-values)	  	  
+  * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-pick](#just-pick)     		
@@ -103,6 +104,25 @@ let obj = {a: 3, b: 5};
 extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
+```
+### [just-values](https://www.npmjs.com/package/just-values)  
+:icecream:[`Try It`](http://anguscroll.com/just/just-values)
+
+`npm install just-values`
+
+```js
+import extend from 'just-values';
+
+values({a: 4, c: 8}); // [4, 8]
+values({a: {aa: 2}, b: {bb: 4}}); // [{aa: 2}, {bb: 4}]
+values({}); // []
+values([1, 2, 3]); // [1, 2, 3]
+values(function(a, b) {return a + b;}); // []
+values(String('hello')); // []
+values(1); // throw exception
+values(true); // throw exception
+values(undefined); // throw exception
+values(null); // throw exception
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
