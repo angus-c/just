@@ -26,7 +26,7 @@
     "indent": [2, 2],
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     "max-depth": 0,
-    "max-len": [2, 120, 4],
+    "max-len": [2, 100, 4],
     "max-nested-callbacks": 0,
     "max-params": 0,
     "max-statements": 0,

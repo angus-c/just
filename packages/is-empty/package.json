@@ -1,5 +1,5 @@
 {
-  "name": "just-object-empty",
+  "name": "just-is-empty",
   "version": "1.0.0",
   "description": "determine if an object is empty",
   "main": "index.js",

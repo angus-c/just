@@ -21,3 +21,24 @@ test('find that an object is not empty', function (t) {
   t.equal(obj, false);
   t.end();
 });
+
+test('find that an array is empty', function (t) {
+  t.plan(1);
+  var obj = isObjectEmpty([]);
+  t.equal(obj, true);
+  t.end();
+});
+
+test('find that an array is not empty', function (t) {
+  t.plan(1);
+  var obj = isObjectEmpty(['bar']);
+  t.equal(obj, false);
+  t.end();
+});
+
+test('find that undefined is empty', function (t) {
+  t.plan(1);
+  var obj = isObjectEmpty(undefined);
+  t.equal(obj, true);
+  t.end();
+});
