@@ -106,22 +106,23 @@ arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
 
-### [just-object-empty](https://www.npmjs.com/package/just-object-empty)  
-:icecream:[`Try It`](http://anguscroll.com/just/just-object-empty)
+### [just-is-empty](https://www.npmjs.com/package/just-is-empty)  
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-empty)
 
-`npm install just-object-empty`
+`npm install just-is-empty`
 
 ```js
 import objectEmpty from 'just-object-empty';
 
-let obj = {a: 3, b: 5};
-objectEmpty(obj} // false
+isEmpty({a: 3, b: 5}) // false
 
-let obj = {};
-objectEmpty(obj} // true
+isEmpty(['a','b']) // false
 
-let obj = null;
-objectEmpty(obj} // true
+isEmpty({}) // true
+
+isEmpty([]) // true
+
+isEmpty(null) // true
 ```
 
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
