@@ -106,25 +106,25 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
+### [just-values](https://www.npmjs.com/package/just-values)  
+:icecream:[`Try It`](http://anguscroll.com/just/just-values)
 
-### [just-object-empty](https://www.npmjs.com/package/just-object-empty)  
-:icecream:[`Try It`](http://anguscroll.com/just/just-object-empty)
-
-`npm install just-object-empty`
+`npm install just-values`
 
 ```js
-import isEmpty from 'just-is-empty';
+import extend from 'just-values';
 
-let obj = {a: 3, b: 5};
-objectEmpty(obj} // false
-
-let obj = {};
-objectEmpty(obj} // true
-
-let obj = null;
-objectEmpty(obj} // true
+values({a: 4, c: 8}); // [4, 8]
+values({a: {aa: 2}, b: {bb: 4}}); // [{aa: 2}, {bb: 4}]
+values({}); // []
+values([1, 2, 3]); // [1, 2, 3]
+values(function(a, b) {return a + b;}); // []
+values(String('hello')); // []
+values(1); // throw exception
+values(true); // throw exception
+values(undefined); // throw exception
+values(null); // throw exception
 ```
-
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
 
