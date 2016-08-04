@@ -20,6 +20,7 @@ Guilt-free utilities for every occasion.
   * [just-extend](#just-extend)		
   * [just-object-empty](#just-object-empty)		
   * [just-filter-object](#just-filter-object)		
+  * [just-values](#just-values)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-pick](#just-pick)     		
@@ -105,26 +106,25 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
+### [just-values](https://www.npmjs.com/package/just-values)  
+:icecream:[`Try It`](http://anguscroll.com/just/just-values)
 
-### [just-is-empty](https://www.npmjs.com/package/just-is-empty)  
-:icecream:[`Try It`](http://anguscroll.com/just/just-is-empty)
-
-`npm install just-is-empty`
+`npm install just-values`
 
 ```js
-import objectEmpty from 'just-object-empty';
+import extend from 'just-values';
 
-isEmpty({a: 3, b: 5}) // false
-
-isEmpty(['a','b']) // false
-
-isEmpty({}) // true
-
-isEmpty([]) // true
-
-isEmpty(null) // true
+values({a: 4, c: 8}); // [4, 8]
+values({a: {aa: 2}, b: {bb: 4}}); // [{aa: 2}, {bb: 4}]
+values({}); // []
+values([1, 2, 3]); // [1, 2, 3]
+values(function(a, b) {return a + b;}); // []
+values(String('hello')); // []
+values(1); // throw exception
+values(true); // throw exception
+values(undefined); // throw exception
+values(null); // throw exception
 ```
-
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
 

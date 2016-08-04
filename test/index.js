@@ -17,5 +17,6 @@ require('./object-map');
 require('./object-flip');
 require('./object-pick');
 require('./object-reduce');
+require('./object-values');
 require('./object-typeof');
 require('./string-template');
