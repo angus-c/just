@@ -10,7 +10,7 @@ module.exports = isEmpty;
 */
 
 function isEmpty(obj) {
-  if (obj === null || obj === undefined) {
+  if (obj == null) {
     return true;
   }
 
