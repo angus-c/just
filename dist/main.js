@@ -306,6 +306,9 @@ exports.default = {
     "just-values": {
       "code": ["const values = require('just-values')\n\nvalues({a: 4, b: 9, c: 8});"]
     },
+    "just-pick": {
+      "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
+    },
     "just-filter-object": {
       "code": ["const filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
     },
@@ -315,11 +318,11 @@ exports.default = {
     "just-map-object": {
       "code": ["const map = require('just-map-object')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);"]
     },
-    "just-pick": {
-      "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
-    },
     "just-reduce-object": {
       "code": ["const reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
+    },
+    "just-is-empty": {
+      "code": ["const pick = require('just-is-empty')\n\nisEmpty({a: 3, b: 5});"]
     },
     "just-typeof": {
       "code": ["const typeOf = require('just-typeof')\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]

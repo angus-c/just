@@ -27,6 +27,13 @@ extend(obj, {a: 4, c: 8});`
 values({a: 4, b: 9, c: 8});`
       ]
     },
+    "just-pick": {
+      "code": [
+        `const pick = require('just-pick')\n
+const obj = {a: 3, b: 5, c: 9};
+pick(obj, ['a', 'c']);`
+      ]
+    },
     "just-filter-object": {
       "code": [
         `const filter = require('just-filter-object')\n
@@ -45,13 +52,6 @@ flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}`
 map({a: 3, b: 5, c: 9}, (key, value) => key + value);`
       ]
     },
-    "just-pick": {
-      "code": [
-        `const pick = require('just-pick')\n
-const obj = {a: 3, b: 5, c: 9};
-pick(obj, ['a', 'c']);`
-      ]
-    },
     "just-reduce-object": {
       "code": [
         `const reduce = require('just-reduce-object')\n
@@ -59,6 +59,12 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
   acc[value] = key;
   return acc;
 }, {});`
+      ]
+    },
+    "just-is-empty": {
+      "code": [
+        `const pick = require('just-is-empty')\n
+isEmpty({a: 3, b: 5});`
       ]
     },
     "just-typeof": {
