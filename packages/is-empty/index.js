@@ -6,6 +6,7 @@ module.exports = isEmpty;
  isEmpty({}) // true
  isEmpty([]) // true
  isEmpty(null) // true
+ isEmpty(undefined) // true
 */
 
 function isEmpty(obj) {

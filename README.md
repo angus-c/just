@@ -18,12 +18,12 @@ Guilt-free utilities for every occasion.
   * [just-pluck-it](#just-pluck-it)		
 * [Objects](#objects)		
   * [just-extend](#just-extend)		
-  * [just-values](#just-values)	  	  
+  * [just-values](#just-values)
+  * [just-pick](#just-pick)     		    	  
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-is-empty](#just-is-empty)
-  * [just-pick](#just-pick)     		
   * [just-typeof](#just-typeof)  		
   * [just-flip-object](#just-flip-object)  		
 * [Arrays](#arrays)		
@@ -125,6 +125,20 @@ values(true); // throw exception
 values(undefined); // throw exception
 values(null); // throw exception
 ```
+### [just-pick](https://www.npmjs.com/package/just-pick)
+:icecream:[`Try It`](http://anguscroll.com/just/just-pick)
+
+`npm install just-pick`
+
+```js
+import pick from 'just-pick';
+
+var obj = {a: 3, b: 5, c: 9};
+pick(obj, ['a', 'c']); // {a: 3, c: 9}
+pick(obj, 'a', 'c'); // {a: 3, c: 9}
+pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5, d: undefined}
+pick(obj, ['a', 'a']); // {a: 3}
+```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
 
@@ -173,22 +187,21 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
   return acc;
 }); // 17
 ```
+### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-emptys)
 
-### [just-pick](https://www.npmjs.com/package/just-pick)
-:icecream:[`Try It`](http://anguscroll.com/just/just-pick)
-
-`npm install just-pick`
+`npm install just-is-empty`
 
 ```js
-import pick from 'just-pick';
+import isEmpty from 'just-is-empty';
 
-var obj = {a: 3, b: 5, c: 9};
-pick(obj, ['a', 'c']); // {a: 3, c: 9}
-pick(obj, 'a', 'c'); // {a: 3, c: 9}
-pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5, d: undefined}
-pick(obj, ['a', 'a']); // {a: 3}
+isEmpty({a: 3, b: 5}) // false
+isEmpty(['a','b']) // false
+isEmpty({}) // true
+isEmpty([]) // true
+isEmpty(null) // true
+isEmpty(undefined) // true
 ```
-
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
 :icecream:[`Try It`](http://anguscroll.com/just/just-typeof)
 
