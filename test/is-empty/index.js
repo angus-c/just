@@ -1,5 +1,5 @@
 var test = require('tape');
-var isObjectEmpty = require('../../packages/is-empty');
+var isObjectEmpty = require('../../packages/object-is-empty');
 
 test('find that an object is empty', function (t) {
   t.plan(1);
