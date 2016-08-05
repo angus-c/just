@@ -22,6 +22,7 @@ Guilt-free utilities for every occasion.
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
+  * [just-is-empty](#just-is-empty)
   * [just-pick](#just-pick)     		
   * [just-typeof](#just-typeof)  		
   * [just-flip-object](#just-flip-object)  		

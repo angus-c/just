@@ -10,6 +10,7 @@ require('./function-partial');
 require('./function-compose');
 require('./collection-compare');
 require('./collection-pluck');
+require('./is-empty');
 require('./object-extend');
 require('./object-filter');
 require('./object-map');
