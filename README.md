@@ -188,7 +188,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 }); // 17
 ```
 ### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
-:icecream:[`Try It`](http://anguscroll.com/just/just-is-emptys)
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-empty)
 
 `npm install just-is-empty`
 
