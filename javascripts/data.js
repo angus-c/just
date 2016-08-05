@@ -63,7 +63,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
     },
     "just-is-empty": {
       "code": [
-        `const isEmptyy = require('just-is-empty')\n
+        `const isEmpty = require('just-is-empty')\n
 isEmpty({a: 3, b: 5});`
       ]
     },
