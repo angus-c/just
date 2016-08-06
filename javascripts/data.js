@@ -67,6 +67,13 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 isEmpty({a: 3, b: 5});`
       ]
     },
+    "just-safe-get": {
+      "code": [
+        `const get = require('just-safe-get')\n
+const obj = {a: {aa: {aaa: 2}}, b: 4};
+get(obj, 'b.bb.bbb');`
+      ]
+    },
     "just-typeof": {
       "code": [
         `const typeOf = require('just-typeof')\n
