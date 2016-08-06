@@ -8,7 +8,7 @@ Guilt-free utilities for every occasion.
 ```js
 import get from 'just-safe-get';
 
-var obj = {a: {aa: {aaa: 2}}, b: 4};
+const obj = {a: {aa: {aaa: 2}}, b: 4};
 
 get(obj, 'a.aa.aaa'); // 2
 get(obj, ['a', 'aa', 'aaa']); // 2
