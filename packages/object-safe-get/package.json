@@ -1,6 +1,6 @@
 {
   "name": "just-safe-get",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get value at property, don't throw if parent is undefined",
   "main": "index.js",
   "scripts": {
