@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../dataNew';
+import data from '../data';
 import objectMap from 'just-map-object';
 
 var categoriesArr = [];
