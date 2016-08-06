@@ -24,6 +24,7 @@ Guilt-free utilities for every occasion.
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-is-empty](#just-is-empty)
+  * [just-safe-get](#just-safe-get)  
   * [just-typeof](#just-typeof)  		
   * [just-flip-object](#just-flip-object)  		
 * [Arrays](#arrays)		
@@ -201,6 +202,28 @@ isEmpty({}) // true
 isEmpty([]) // true
 isEmpty(null) // true
 isEmpty(undefined) // true
+```
+### [just-safe-get](https://www.npmjs.com/package/just-safe-get)
+:icecream:[`Try It`](http://anguscroll.com/just/just-safe-get)
+
+`npm install just-safe-get`
+
+```js
+import get from 'just-safe-get';
+
+var obj = {a: {aa: {aaa: 2}}, b: 4};
+
+get(obj, 'a.aa.aaa'); // 2
+get(obj, ['a', 'aa', 'aaa']); // 2
+
+get(obj, 'b.bb.bbb'); // undefined
+get(obj, ['b', 'bb', 'bbb']); // undefined
+
+get(obj.a, 'aa.aaa'); // 2
+get(obj.a, ['aa', 'aaa']); // 2
+
+get(obj.b, 'bb.bbb'); // undefined
+get(obj.b, ['bb', 'bbb']); // undefined
 ```
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
 :icecream:[`Try It`](http://anguscroll.com/just/just-typeof)

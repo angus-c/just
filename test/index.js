@@ -19,4 +19,5 @@ require('./object-pick');
 require('./object-reduce');
 require('./object-values');
 require('./object-typeof');
+require('./object-safe-get');
 require('./string-template');
