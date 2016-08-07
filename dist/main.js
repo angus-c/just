@@ -322,7 +322,10 @@ exports.default = {
       "code": ["const reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
     },
     "just-is-empty": {
-      "code": ["const pick = require('just-is-empty')\n\nisEmpty({a: 3, b: 5});"]
+      "code": ["const isEmpty = require('just-is-empty')\n\nisEmpty({a: 3, b: 5});"]
+    },
+    "just-safe-get": {
+      "code": ["const get = require('just-safe-get')\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
     },
     "just-typeof": {
       "code": ["const typeOf = require('just-typeof')\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
