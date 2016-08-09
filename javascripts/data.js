@@ -74,6 +74,13 @@ const obj = {a: {aa: {aaa: 2}}, b: 4};
 get(obj, 'b.bb.bbb');`
       ]
     },
+    "just-safe-set": {
+      "code": [
+        `const get = require('just-safe-set')\n
+const obj = {};
+set(obj, 'a.aa.aaa', {aaaa: 4});`
+      ]
+    },
     "just-typeof": {
       "code": [
         `const typeOf = require('just-typeof')\n

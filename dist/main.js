@@ -327,6 +327,9 @@ exports.default = {
     "just-safe-get": {
       "code": ["const get = require('just-safe-get')\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
     },
+    "just-safe-set": {
+      "code": ["const get = require('just-safe-set')\n\nconst obj = {};\nset(obj, 'a.aa.aaa', {aaaa: 4});"]
+    },
     "just-typeof": {
       "code": ["const typeOf = require('just-typeof')\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
     }
