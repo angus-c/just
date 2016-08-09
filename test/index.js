@@ -20,4 +20,5 @@ require('./object-reduce');
 require('./object-values');
 require('./object-typeof');
 require('./object-safe-get');
+require('./object-safe-set');
 require('./string-template');

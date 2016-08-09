@@ -24,7 +24,8 @@ Guilt-free utilities for every occasion.
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
   * [just-is-empty](#just-is-empty)
-  * [just-safe-get](#just-safe-get)  
+  * [just-safe-get](#just-safe-get)
+  * [just-safe-set](#just-safe-set)    
   * [just-typeof](#just-typeof)  		
   * [just-flip-object](#just-flip-object)  		
 * [Arrays](#arrays)		
@@ -225,6 +226,32 @@ get(obj.a, ['aa', 'aaa']); // 2
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
 ```
+
+### [just-safe-set](https://www.npmjs.com/package/just-safe-set)
+:icecream:[`Try It`](http://anguscroll.com/just/just-safe-set)
+
+`npm install just-safe-set`
+
+```js
+import set from 'just-safe-set';
+
+const obj1 = {};
+set(obj1, 'a.aa.aaa', 4}); // true
+obj1; // {a: {aa: {aaa: 4}}}
+
+const obj2 = {};
+set(obj2, [a, aa, aaa], 4}); // true
+obj2; // {a: {aa: {aaa: 4}}}
+
+const obj3 = {a: {aa: {aaa: 2}}};
+set(obj3, 'a.aa.aaa', 3); // true
+obj3; // {a: {aa: {aaa: 3}}}
+
+const obj4 = {a: {aa: {aaa: 2}}};
+set(obj4, 'a.aa', {bbb: 7}); // true
+obj4; // {a: {aa: {bbb: 7}}}
+```
+
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
 :icecream:[`Try It`](http://anguscroll.com/just/just-typeof)
 
