@@ -110,6 +110,12 @@ unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);`
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);`
       ]
     },
+    "just-insert": {
+      "code": [
+        `const insert = require('just-insert')\n
+        insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);
+      ]
+    },
     "just-intersect": {
       "code": [
         `const intersect = require('just-intersect')\n
