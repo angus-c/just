@@ -1,5 +1,6 @@
 require('./array-flatten');
 require('./array-intersect');
+require('./array-insert');
 require('./array-last');
 require('./array-tail');
 require('./array-remove');

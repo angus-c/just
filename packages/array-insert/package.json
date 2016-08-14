@@ -1,0 +1,22 @@
+{
+  "name": "just-insert",
+  "version": "1.0.0",
+  "description": "Inserts a sub-array into an array starting at the given index. Returns a copy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "insert",
+    "splice",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

@@ -31,6 +31,7 @@ Guilt-free utilities for every occasion.
 * [Arrays](#arrays)		
   * [just-unique](#just-unique)		
   * [just-flatten-it](#just-flatten-it)		
+  * [just-insert](#just-insert)		  
   * [just-intersect](#just-intersect)		
   * [just-last](#just-last)
   * [just-tail](#just-tail)	  	
@@ -322,6 +323,20 @@ import flatten from 'just-flatten-it';
 
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+### [just-insert](https://www.npmjs.com/package/just-insert)
+:icecream:[`Try It`](http://anguscroll.com/just/just-insert)
+
+`npm install just-insert`
+
+```js
+import insert from 'just-insert';
+
+insert([1, 2, 5, 6], ['a', 'c', 'e'], 2); // [1, 2, 'a', 'c', 'e', 5, 6]
+insert([1, 2, 5, 6], 'a', 2); // [1, 2, 'a', 5, 6]
+insert([1, 2, 5, 6], ['a', 'c', 'e'], 0); // ['a', 'c', 'e', 1, 2, 5, 6]
+insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
 ```
 
 ### [just-intersect](https://www.npmjs.com/package/just-intersect)
