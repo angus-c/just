@@ -341,6 +341,9 @@ exports.default = {
     "just-flatten-it": {
       "code": ["const flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
     },
+    "just-insert": {
+      "code": ["const insert = require('just-insert')\n\ninsert([1, 2, 5, 6], ['a', 'c', 'e'], 2);"]
+    },
     "just-intersect": {
       "code": ["const intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
     },

@@ -113,7 +113,7 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);`
     "just-insert": {
       "code": [
         `const insert = require('just-insert')\n
-        insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);
+insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);`
       ]
     },
     "just-intersect": {
