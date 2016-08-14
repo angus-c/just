@@ -79,7 +79,7 @@ get(obj, 'b.bb.bbb');`
         `const set = require('just-safe-set')\n
 const obj = {};
 set(obj, 'a.aa.aaa', {aaaa: 4});
-obj;
+obj;`
       ]
     },
     "just-typeof": {
