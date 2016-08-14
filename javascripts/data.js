@@ -76,9 +76,10 @@ get(obj, 'b.bb.bbb');`
     },
     "just-safe-set": {
       "code": [
-        `const get = require('just-safe-set')\n
+        `const set = require('just-safe-set')\n
 const obj = {};
-set(obj, 'a.aa.aaa', {aaaa: 4});`
+set(obj, 'a.aa.aaa', {aaaa: 4});
+obj;
       ]
     },
     "just-typeof": {
