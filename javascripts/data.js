@@ -162,7 +162,7 @@ const data = {
   },
   b: 'plum'
 };
-template('2 \${a.aa.aaa}s, a \${a.aa.bbb}, 3 \${a.bb}s and a \${b}. Yes 1 \${a.aa.bbb}.', data);`
+template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);`
       ]
     }
   },
