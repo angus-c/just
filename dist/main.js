@@ -362,7 +362,7 @@ exports.default = {
   },
   "Strings": {
     "just-template": {
-      "code": ["const template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);"]
+      "code": ["const template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);"]
     }
   },
   "Functions": {
