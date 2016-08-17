@@ -9,14 +9,14 @@ module.exports = omit;
 */
 
 function omit(obj, remove) {
+  var result = {};
   if (typeof remove === 'string') {
     remove = [].slice.call(arguments, 1);
   }
-  var len = remove.length;
-  for (var i = 0; i < len; i++) {
-    if (obj.hasOwnProperty(remove[i])) {
-      delete obj[remove[i]];
+  for (var attr in obj) {
+    if (remove.indexOf(attr) === -1) {
+      result[attr] = obj[attr];
     }
   }
-  return obj;
+  return result;
 }
