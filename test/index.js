@@ -17,6 +17,7 @@ require('./object-filter');
 require('./object-map');
 require('./object-flip');
 require('./object-pick');
+require('./object-omit');
 require('./object-reduce');
 require('./object-values');
 require('./object-typeof');
