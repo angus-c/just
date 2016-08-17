@@ -116,7 +116,7 @@ obj; // {a: 3, b: 5, c: [1, 2, 3]}
 `npm install just-values`
 
 ```js
-import extend from 'just-values';
+import values from 'just-values';
 
 values({a: 4, c: 8}); // [4, 8]
 values({a: {aa: 2}, b: {bb: 4}}); // [{aa: 2}, {bb: 4}]
