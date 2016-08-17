@@ -34,6 +34,13 @@ const obj = {a: 3, b: 5, c: 9};
 pick(obj, ['a', 'c']);`
       ]
     },
+    "just-omit": {
+      "code": [
+        `const omit = require('just-omit')\n
+var obj = {a: 3, b: 5, c: 9};
+omit(obj, ['a', 'c']);`
+      ]
+    },    
     "just-filter-object": {
       "code": [
         `const filter = require('just-filter-object')\n
