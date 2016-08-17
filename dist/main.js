@@ -309,6 +309,9 @@ exports.default = {
     "just-pick": {
       "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
     },
+    "just-omit": {
+      "code": ["const omit = require('just-omit')\n\nvar obj = {a: 3, b: 5, c: 9};\nomit(obj, ['a', 'c']);"]
+    },
     "just-filter-object": {
       "code": ["const filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
     },
