@@ -45,3 +45,10 @@ test('pick using a duplicate key', function (t) {
   t.ok(compare(pick(obj, ['a', 'a']), {a: 3}));
   t.end();
 });
+
+test('pick where obj has a function value', function (t) {
+  t.plan(1);
+  var obj = {a: 3, b: function () {return true;}};
+  t.ok(compare(pick(obj, 'b'), {b: function () {return true;}}));
+  t.end();
+});
