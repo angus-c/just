@@ -20,6 +20,7 @@ Guilt-free utilities for every occasion.
   * [just-extend](#just-extend)		
   * [just-values](#just-values)
   * [just-pick](#just-pick)     		    	  
+  * [just-omit](#just-omit)                 
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)  		
   * [just-reduce-object](#just-reduce-object)		
@@ -141,6 +142,20 @@ pick(obj, ['a', 'c']); // {a: 3, c: 9}
 pick(obj, 'a', 'c'); // {a: 3, c: 9}
 pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5, d: undefined}
 pick(obj, ['a', 'a']); // {a: 3}
+```
+### [just-omit](https://www.npmjs.com/package/just-omit)
+:icecream:[`Try It`](http://anguscroll.com/just/just-omit)
+
+`npm install just-omit`
+
+```js
+import omit from 'just-omit';
+
+var obj = {a: 3, b: 5, c: 9};
+omit(obj, ['a', 'c']); // {b: 5}
+omit(obj, 'a', 'c'); // {b: 5}
+omit(obj, ['a', 'b', 'd']); // {c: 9}
+omit(obj, ['a', 'a']); // {b: 5, c: 9}
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
@@ -491,7 +506,7 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * don't repeatedly access the same property, assign to a var
   * write es5
 * api
-  * keep the api it simple and intuitive
+  * keep the api simple and intuitive
   * avoid edge case arguments whenever possible
 * README
   * limit README to examples of each use case
