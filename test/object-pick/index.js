@@ -11,6 +11,13 @@ var compare = require('../../packages/collection-compare');
 // var obj = {a: 3, b: 5, c: 9};
 // pick(obj, ['a', 'a']); // {a: 3}
 
+test('pick returns new object', function (t) {
+  t.plan(1);
+  var obj = {a: 3, b: 5, c: 9};
+  t.ok(pick(obj, []) !== obj);
+  t.end();
+});
+
 test('pick using array', function (t) {
   t.plan(1);
   var obj = {a: 3, b: 5, c: 9};
@@ -36,5 +43,12 @@ test('pick using a duplicate key', function (t) {
   t.plan(1);
   var obj = {a: 3, b: 5, c: 9};
   t.ok(compare(pick(obj, ['a', 'a']), {a: 3}));
+  t.end();
+});
+
+test('pick where obj has a function value', function (t) {
+  t.plan(1);
+  var obj = {a: 3, b: function () {return true;}};
+  t.ok(compare(pick(obj, 'b'), {b: function () {return true;}}));
   t.end();
 });
