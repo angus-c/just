@@ -13,9 +13,11 @@ function omit(obj, remove) {
   if (typeof remove === 'string') {
     remove = [].slice.call(arguments, 1);
   }
-  for (var attr in obj) {
-    if (remove.indexOf(attr) === -1) {
-      result[attr] = obj[attr];
+  for (var prop in obj) {
+    if (!obj.hasOwnProperty || obj.hasOwnProperty(prop)) {
+      if (remove.indexOf(prop) === -1) {
+        result[prop] = obj[prop];
+      }
     }
   }
   return result;
