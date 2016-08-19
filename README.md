@@ -8,7 +8,7 @@ Guilt-free utilities for every occasion.
 ## Try :icecream:
 [Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [Tonic](https://tonicdev.com/))  
 <a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>   
-## Read :blue_book:
+## Read :books:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## The Modules :package:
