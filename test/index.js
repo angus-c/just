@@ -1,3 +1,4 @@
+require('./array-choice');
 require('./array-flatten');
 require('./array-intersect');
 require('./array-insert');
