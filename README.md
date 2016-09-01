@@ -36,6 +36,7 @@ Guilt-free utilities for every occasion.
   * [just-intersect](#just-intersect)		
   * [just-last](#just-last)
   * [just-tail](#just-tail)	  	
+  - [just-random](#just-random)
   * [just-remove](#just-remove)		
   * [just-union](#just-union)		
 * [Strings](#strings)  		
@@ -397,6 +398,17 @@ tail([]); // []
 tail(); // undefined
 tail(null); // undefined
 tail(undefined); // undefined
+```
+
+### [just-random](https://www.npmjs.com/package/just-random)
+:icecream:[`Try It`](http://anguscroll.com/just/just-random)
+
+`npm install just-random`
+
+```js
+import random from 'just-random';
+
+random([1, 2, 3]); // one of [1, 2, 3], at random
 ```
 
 ### [just-remove](https://www.npmjs.com/package/just-remove)
