@@ -40,7 +40,7 @@ pick(obj, ['a', 'c']);`
 var obj = {a: 3, b: 5, c: 9};
 omit(obj, ['a', 'c']);`
       ]
-    },    
+    },
     "just-filter-object": {
       "code": [
         `const filter = require('just-filter-object')\n
@@ -140,6 +140,12 @@ last([true, false, [true, false]]);`
       "code": [
         `const tail = require('just-tail')\n
 tail([0, 1, 2, 3, 4, 5]);`
+      ]
+    },
+    "just-random": {
+      "code": [
+        `const random = require('just-random');\n
+random([1, 2, 3]);`
       ]
     },
     "just-remove": {
