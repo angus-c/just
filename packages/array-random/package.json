@@ -1,5 +1,5 @@
 {
-  "name": "just-choice",
+  "name": "just-random",
   "version": "1.0.0",
   "description": "return a randomly selected element in an array",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "repository": "https://github.com/angus-c/just",
   "keywords": [
     "array",
-    "choice",
+    "random",
     "no-dependencies",
     "just"
   ],
