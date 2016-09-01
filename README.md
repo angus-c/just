@@ -2,51 +2,51 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.png?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.  
+A library of **zero-dependency** npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 ## Try :icecream:
-[Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [Tonic](https://tonicdev.com/))  
-<a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>   
+[Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [Tonic](https://tonicdev.com/))
+<a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
 ## Read :books:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## The Modules :package:
 
-* [Collections](#collections)		
-  * [just-compare](#just-compare)		
-  * [just-pluck-it](#just-pluck-it)		
-* [Objects](#objects)		
-  * [just-extend](#just-extend)		
+* [Collections](#collections)
+  * [just-compare](#just-compare)
+  * [just-pluck-it](#just-pluck-it)
+* [Objects](#objects)
+  * [just-extend](#just-extend)
   * [just-values](#just-values)
-  * [just-pick](#just-pick)     		    	  
-  * [just-omit](#just-omit)                 
+  * [just-pick](#just-pick)
+  * [just-omit](#just-omit)
   * [just-filter-object](#just-filter-object)
-  * [just-map-object](#just-map-object)  		
-  * [just-reduce-object](#just-reduce-object)		
+  * [just-map-object](#just-map-object)
+  * [just-reduce-object](#just-reduce-object)
   * [just-is-empty](#just-is-empty)
   * [just-safe-get](#just-safe-get)
-  * [just-safe-set](#just-safe-set)    
-  * [just-typeof](#just-typeof)  		
-  * [just-flip-object](#just-flip-object)  		
-* [Arrays](#arrays)		
-  * [just-unique](#just-unique)		
-  * [just-flatten-it](#just-flatten-it)		
-  * [just-insert](#just-insert)		  
-  * [just-intersect](#just-intersect)		
+  * [just-safe-set](#just-safe-set)
+  * [just-typeof](#just-typeof)
+  * [just-flip-object](#just-flip-object)
+* [Arrays](#arrays)
+  * [just-unique](#just-unique)
+  * [just-flatten-it](#just-flatten-it)
+  * [just-insert](#just-insert)
+  * [just-intersect](#just-intersect)
   * [just-last](#just-last)
-  * [just-tail](#just-tail)	  	
+  * [just-tail](#just-tail)
   - [just-random](#just-random)
-  * [just-remove](#just-remove)		
-  * [just-union](#just-union)		
-* [Strings](#strings)  		
-  * [just-template](#just-template)		
-* [Functions](#functions)  		
-  * [just-compose](#just-compose)		
-  * [just-curry-it](#just-curry-it)		
+  * [just-remove](#just-remove)
+  * [just-union](#just-union)
+* [Strings](#strings)
+  * [just-template](#just-template)
+* [Functions](#functions)
+  * [just-compose](#just-compose)
+  * [just-curry-it](#just-curry-it)
   * [just-partial-it](#just-partial-it)
 
-### Collections  
+### Collections
 
 ### [just-compare](https://www.npmjs.com/package/just-compare)
 :icecream:[`Try It`](http://anguscroll.com/just/just-compare)
@@ -83,7 +83,7 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 
 ### Objects
 
-### [just-extend](https://www.npmjs.com/package/just-extend)  
+### [just-extend](https://www.npmjs.com/package/just-extend)
 :icecream:[`Try It`](http://anguscroll.com/just/just-extend)
 
 `npm install just-extend`
@@ -111,7 +111,7 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
-### [just-values](https://www.npmjs.com/package/just-values)  
+### [just-values](https://www.npmjs.com/package/just-values)
 :icecream:[`Try It`](http://anguscroll.com/just/just-values)
 
 `npm install just-values`
@@ -528,4 +528,4 @@ I welcome pull requests for additional utilities (and corrections to existing on
   * write a test for each use case
   * include tests for all README examples
 * Interactive gh-page (anguscroll.com/just)
-  * I can update this afterwards   
+  * I can update this afterwards
