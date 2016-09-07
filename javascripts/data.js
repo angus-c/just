@@ -184,7 +184,7 @@ template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.
       "code": [
         `const clamp = require('just-clamp');\n
 var n = 5;
-clamp(1, n, 12); // 5`
+clamp(1, n, 3); // 3`
       ]
     }
   },
