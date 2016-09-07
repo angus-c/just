@@ -371,6 +371,11 @@ exports.default = {
       "code": ["const template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);"]
     }
   },
+  "Number": {
+    "just-clamp": {
+      "code": ["import clamp from 'just-clamp'\n;\nvar n = 5;\nclamp(1, n, 12); // 5"]
+    }
+  },
   "Functions": {
     "just-compose": {
       "code": ["const compose = require('just-compose')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);"]
