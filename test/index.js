@@ -7,6 +7,7 @@ require('./array-random');
 require('./array-remove');
 require('./array-union');
 require('./array-unique');
+require('./number-clamp');
 require('./function-curry');
 require('./function-partial');
 require('./function-compose');

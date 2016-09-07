@@ -41,6 +41,8 @@ Guilt-free utilities for every occasion.
   * [just-union](#just-union)
 * [Strings](#strings)
   * [just-template](#just-template)
+* [Numbers](#numbers)
+  * [just-clamp](#just-clamp)  
 * [Functions](#functions)
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
@@ -455,6 +457,29 @@ const data = {
 };
 template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+```
+
+### Numbers
+
+### [just-clamp](https://www.npmjs.com/package/just-clamp)
+:icecream:[`Try It`](http://anguscroll.com/just/just-clamp)
+
+`npm install just-clamp`
+
+```js
+import clamp from 'just-clamp';
+
+var n = 5;
+clamp(1, n, 12); // 5
+clamp(1, n, 3); // 3
+clamp(8, n, 9); // 8
+clamp(0, n, 0); // 0
+n = undefined;
+clamp(3, n, 8); // 3
+n = null;
+clamp(3, n, 8); // 3
+n = NaN;
+clamp(3, n, 8); // 3
 ```
 
 ### Functions
