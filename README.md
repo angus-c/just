@@ -37,6 +37,7 @@ Guilt-free utilities for every occasion.
   * [just-last](#just-last)
   * [just-tail](#just-tail)
   - [just-random](#just-random)
+  - [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
 * [Strings](#strings)
@@ -411,6 +412,17 @@ tail(undefined); // undefined
 import random from 'just-random';
 
 random([1, 2, 3]); // one of [1, 2, 3], at random
+```
+
+### [just-range](https://www.npmjs.com/package/just-range)
+:icecream:[`Try It`](http://anguscroll.com/just/just-range)
+
+`npm install just-range`
+
+```js
+import range from 'just-range';
+
+range(0, 5); //  [0, 1, 2, 3, 4]
 ```
 
 ### [just-remove](https://www.npmjs.com/package/just-remove)
