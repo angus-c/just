@@ -422,7 +422,10 @@ random([1, 2, 3]); // one of [1, 2, 3], at random
 ```js
 import range from 'just-range';
 
-range(0, 5); //  [0, 1, 2, 3, 4]
+range(1, 5); // [1, 2, 3, 4]
+range(5); // [0, 1, 2, 3, 4]
+range(-5); // [0, -1, -2, -3, -4]
+range(0, 20, 5) // [0, 5, 10, 15]
 ```
 
 ### [just-remove](https://www.npmjs.com/package/just-remove)

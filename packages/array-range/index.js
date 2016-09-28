@@ -9,11 +9,11 @@ module.exports = range;
 */
 
 function range(start, stop, step) {
-  if (typeof stop === 'undefined') {
+  if (stop == null) {
     stop = start || 0;
     start = 0;
   }
-  if (typeof step === 'undefined') {
+  if (step == null) {
     step = stop > start ? 1 : -1;
   }
   var toReturn = [];

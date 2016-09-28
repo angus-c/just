@@ -1,16 +1,6 @@
 var test = require('tape');
 var range = require('../../packages/array-range');
 
-test('array range with default step', function (t) {
-  t.plan(2);
-  var start = 0;
-  var stop = 5;
-  var negativeStop = -5;
-  t.deepEqual(range(start, stop), [0, 1, 2, 3, 4]);
-  t.deepEqual(range(start, negativeStop), [0, -1, -2, -3, -4]);
-  t.end();
-});
-
 test('array range with one argument', function (t) {
   t.plan(2);
   var stop = 5;
@@ -20,7 +10,7 @@ test('array range with one argument', function (t) {
   t.end();
 });
 
-test('array range with default step', function (t) {
+test('array range with two arguments', function (t) {
   t.plan(2);
   var start = 0;
   var stop = 5;
@@ -30,7 +20,7 @@ test('array range with default step', function (t) {
   t.end();
 });
 
-test('array range with step', function (t) {
+test('array range with three arguments', function (t) {
   t.plan(2);
   var start = 0;
   var stop = 20;
