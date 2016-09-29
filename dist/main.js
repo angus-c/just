@@ -359,6 +359,9 @@ exports.default = {
     "just-random": {
       "code": ["const random = require('just-random');\n\nrandom([1, 2, 3]);"]
     },
+    "just-range": {
+      "code": ["const remove = require('just-range')\n\nrange(0, 20, 5);"]
+    },
     "just-remove": {
       "code": ["const remove = require('just-remove')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);"]
     },

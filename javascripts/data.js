@@ -148,6 +148,12 @@ tail([0, 1, 2, 3, 4, 5]);`
 random([1, 2, 3]);`
       ]
     },
+    "just-range": {
+      "code": [
+        `const range = require('just-range')\n
+range(0, 20, 5);`
+      ]
+    },
     "just-remove": {
       "code": [
         `const remove = require('just-remove')\n
