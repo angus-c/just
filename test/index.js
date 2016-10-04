@@ -4,6 +4,7 @@ require('./array-insert');
 require('./array-last');
 require('./array-tail');
 require('./array-random');
+require('./array-shuffle');
 require('./array-range');
 require('./array-remove');
 require('./array-union');
