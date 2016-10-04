@@ -148,6 +148,12 @@ tail([0, 1, 2, 3, 4, 5]);`
 random([1, 2, 3]);`
       ]
     },
+    "just-shuffle": {
+      "code": [
+        `const shuffle = require('just-shuffle');\n
+shuffle([1, 2, 3, 4, 5]);`
+      ]
+    },
     "just-range": {
       "code": [
         `const range = require('just-range')\n

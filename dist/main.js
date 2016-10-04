@@ -359,6 +359,9 @@ exports.default = {
     "just-random": {
       "code": ["const random = require('just-random');\n\nrandom([1, 2, 3]);"]
     },
+    "just-shuffle": {
+      "code": ["const shuffle = require('just-shuffle');\n\nshuffle([1, 2, 3, 4, 5]);"]
+    },
     "just-range": {
       "code": ["const range = require('just-range')\n\nrange(0, 20, 5);"]
     },
