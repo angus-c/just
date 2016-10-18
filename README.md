@@ -34,6 +34,7 @@ Guilt-free utilities for every occasion.
   * [just-flatten-it](#just-flatten-it)
   * [just-insert](#just-insert)
   * [just-intersect](#just-intersect)
+  * [just-compact](#just-compact)  
   * [just-last](#just-last)
   * [just-tail](#just-tail)
   * [just-random](#just-random)
@@ -368,6 +369,20 @@ insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
 import intersect from 'just-intersect';
 
 intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
+```
+
+### [just-compact](https://www.npmjs.com/package/just-compact)
+:icecream:[`Try It`](http://anguscroll.com/just/just-compact)
+
+`npm install just-compact`
+
+```js
+import compact from 'just-compact';
+
+compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
+compact([1, 2, [], 4, {}]); // [1, 2, [], 4, {}]
+compact([]); // []
+compact({}); // undefined
 ```
 
 ### [just-last](https://www.npmjs.com/package/just-last)
