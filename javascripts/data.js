@@ -130,6 +130,12 @@ insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);`
 intersect([1, 2, 5, 6], [2, 3, 5, 6]);`
       ]
     },
+    "just-compact": {
+      "code": [
+        `const compact = require('just-compact')\n
+compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);`
+      ]
+    },
     "just-last": {
       "code": [
         `const last = require('just-last')\n

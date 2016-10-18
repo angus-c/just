@@ -350,6 +350,9 @@ exports.default = {
     "just-intersect": {
       "code": ["const intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
     },
+    "just-compact": {
+      "code": ["const compact = require('just-compact')\n\ncompact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);"]
+    },
     "just-last": {
       "code": ["const last = require('just-last')\n\nlast([true, false, [true, false]]);"]
     },
