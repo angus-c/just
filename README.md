@@ -16,6 +16,7 @@ Guilt-free utilities for every occasion.
 * [Collections](#collections)
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
+  * [just-flush](#just-flush)  
 * [Objects](#objects)
   * [just-extend](#just-extend)
   * [just-values](#just-values)
@@ -84,6 +85,21 @@ import pluck from 'just-pluck-it';
 
 pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
+```
+
+### [just-flush](https://www.npmjs.com/package/just-flush)
+:icecream:[`Try It`](http://anguscroll.com/just/just-flush)
+
+`npm install just-flush`
+
+```js
+import flush from 'just-flush';
+
+flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
+flush([true, null, false, true, [null], undefined]); // [true, false, [null], true]
+flush({a: 2, b: null, c: 4, d: undefined}); // {a: 2, c: 4}
+flush('something'); // undefined
+flush(); // undefined
 ```
 
 ### Objects

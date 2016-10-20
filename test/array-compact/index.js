@@ -30,4 +30,5 @@ test('returns undefined if argument is not an array', function (t) {
   t.equal(compact(null), undefined);
   t.equal(compact(undefined), undefined);
   t.equal(compact(), undefined);
+  t.end();
 });
