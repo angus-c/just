@@ -297,6 +297,9 @@ exports.default = {
     },
     "just-pluck-it": {
       "code": ["const pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
+    },
+    "just-flush": {
+      "code": ["const flush = require('just-flush')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\nflush({a: 2, b: null, c: 4, d: undefined})"]
     }
   },
   "Object": {
