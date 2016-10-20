@@ -38,7 +38,7 @@ function extend(obj1, obj2 /*, [objn]*/) {
       var value = extender[key];
       if (deep && value && (typeof value == 'object')) {
         var base = Array.isArray(value) ? [] : {};
-        result[key] = extend(true, base, value);
+        result[key] = extend(true, result[key] || base, value);
       } else {
         result[key] = value;
       }

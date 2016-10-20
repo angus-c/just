@@ -33,6 +33,14 @@ test('shallow extend does not clone child objects', function (t) {
   t.equal(arrInner, src1.c[2]);
 });
 
+test('deep extend merges child objects', function (t) {
+  t.plan(1);
+  var obj = {a: {b: 'c'}};
+  var obj2 = {a: {c: 'd'}};
+  var obj3 = extend(true, obj, obj2);
+  t.deepEqual(obj3, {a: {b: 'c', c: 'd'}});
+});
+
 test('deep extend clones child objects', function (t) {
   t.plan(3);
   var obj = {p: 4};
