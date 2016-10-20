@@ -16,7 +16,7 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')`
       "code": [
         `const flush = require('just-flush')\n
 flush([1, undefined, 2, null, 3, NaN, 0])
-flush({a: 2, b: null, c: 4, d: undefined})`
+// flush({a: 2, b: null, c: 4, d: undefined})`
       ]
     }
   },
