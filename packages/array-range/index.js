@@ -17,7 +17,7 @@ function range(start, stop, step) {
     step = stop > start ? 1 : -1;
   }
   var toReturn = [];
-  for (; start !== stop; start += step) {
+  for (; start < stop; start += step) {
     toReturn.push(start);
   }
   return toReturn;
