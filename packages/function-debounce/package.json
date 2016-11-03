@@ -1,0 +1,22 @@
+{
+  "name": "just-debounce-it",
+  "version": "1.0.0",
+  "description": "return a debounced function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "function",
+    "debounce",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Eric Nolte",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
+

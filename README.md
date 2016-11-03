@@ -51,6 +51,7 @@ Guilt-free utilities for every occasion.
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
   * [just-partial-it](#just-partial-it)
+  * [just-debounce-it](#just-debounce-it)
 
 ### Collections
 
@@ -587,6 +588,27 @@ import partial from 'just-partial-it';
 const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(10).toFixed(1); // 56.7
 cubedRoot(35).toFixed(1); // 16.2
+```
+### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
+:icecream:[`Try It`](http://anguscroll.com/just/just-debounce-it)
+
+`npm install just-debounce-it`
+
+```js
+import debounce from 'just-debounce-it';
+
+const debouncedFunc = debounce(function () {
+    console.log('Hello World');
+}, 500);
+
+for (const i = 0; i < 5; i++) { debouncedFunc(); } // 500ms later - Hello World
+debounceFunc();
+debounceFunc(); 
+debounceFunc(); 
+debounceFunc(); 
+// 500ms later
+// Hello World
+
 ```
 
 ## Testing

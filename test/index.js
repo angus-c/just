@@ -14,6 +14,7 @@ require('./number-clamp');
 require('./function-curry');
 require('./function-partial');
 require('./function-compose');
+require('./function-debounce');
 require('./collection-compare');
 require('./collection-pluck');
 require('./collection-flush');
