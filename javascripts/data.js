@@ -202,6 +202,12 @@ const data = {
 };
 template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);`
       ]
+    },
+    "just-truncate": {
+      "code": [
+        `const truncate = require('just-truncate')\n
+truncate('when shall we three meet again', 10, ' (etc)');`
+      ]
     }
   },
   "Number": {
