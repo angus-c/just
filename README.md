@@ -45,6 +45,7 @@ Guilt-free utilities for every occasion.
   * [just-union](#just-union)
 * [Strings](#strings)
   * [just-template](#just-template)
+  * [just-truncate](#just-truncate)  
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -520,6 +521,19 @@ const data = {
 };
 template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.', data);
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+```
+
+### [just-truncate](https://www.npmjs.com/package/just-truncate)
+:icecream:[`Try It`](http://anguscroll.com/just/just-truncate)
+
+`npm install just-truncate`
+
+```js
+  truncate('when shall we three meet again', 9); // 'when s...'
+  truncate('when shall we three meet again', 10, ' (etc)'); // 'when (etc)'
+  truncate('when shall we', 15,); // 'when shall we'
+  truncate('when shall we', 15, '(more)'); // 'when shall we'
+  truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'
 ```
 
 ### Numbers
