@@ -1,7 +1,7 @@
 var test = require('tape');
 var range = require('../../packages/array-range');
 
-test('array range with one argument', function (t) {
+test('array range with one integer argument', function (t) {
   t.plan(2);
   var stop = 5;
   var negativeStop = -5;
@@ -10,7 +10,7 @@ test('array range with one argument', function (t) {
   t.end();
 });
 
-test('array range with two arguments', function (t) {
+test('array range with two integer arguments', function (t) {
   t.plan(2);
   var start = 0;
   var stop = 5;
@@ -20,7 +20,7 @@ test('array range with two arguments', function (t) {
   t.end();
 });
 
-test('array range with three arguments', function (t) {
+test('array range with three integer arguments', function (t) {
   t.plan(2);
   var start = 0;
   var stop = 20;
@@ -29,5 +29,17 @@ test('array range with three arguments', function (t) {
   var negativeStep = -5;
   t.deepEqual(range(start, stop, step), [0, 5, 10, 15]);
   t.deepEqual(range(start, negativeStop, negativeStep), [0, -5, -10, -15]);
+  t.end();
+});
+
+test('array range with three decimal arguments', function (t) {
+  t.plan(2);
+  var start = 0;
+  var stop = 1.9;
+  var negativeStop = -1.9;
+  var step = 0.5;
+  var negativeStep = -0.5;
+  t.deepEqual(range(start, stop, step), [0, 0.5, 1, 1.5]);
+  t.deepEqual(range(start, negativeStop, negativeStep), [0, -0.5, -1, -1.5]);
   t.end();
 });
