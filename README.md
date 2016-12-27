@@ -1,6 +1,6 @@
 ## Just :cherries:
 
-[![Build Status](https://travis-ci.org/angus-c/just.png?branch=master)](http://travis-ci.org/angus-c/just.js)
+[![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
