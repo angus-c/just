@@ -45,7 +45,8 @@ Guilt-free utilities for every occasion.
   * [just-union](#just-union)
 * [Strings](#strings)
   * [just-template](#just-template)
-  * [just-truncate](#just-truncate)  
+  * [just-truncate](#just-truncate)
+  * [just-prune](#just-prune)      
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -530,10 +531,23 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
 
 ```js
   truncate('when shall we three meet again', 9); // 'when s...'
-  truncate('when shall we three meet again', 10, ' (etc)'); // 'when (etc)'
+  truncate('when shall we three meet again', 12, ' (etc)'); // 'when s (etc)'
   truncate('when shall we', 15,); // 'when shall we'
   truncate('when shall we', 15, '(more)'); // 'when shall we'
   truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'
+```
+
+### [just-prune](https://www.npmjs.com/package/just-prune)
+:icecream:[`Try It`](http://anguscroll.com/just/just-prune)
+
+`npm install just-prune`
+
+```js
+  prune('when shall we three meet again', 7); // 'when...'
+  prune('when shall we three meet again', 7, ' (more)'; // 'when (more)'
+  prune('when shall we', 15,); // 'when shall we'
+  prune('when shall we', 15, ' (etc)'); // 'when shall we'
+  prune('when shall we', 7, ' (more)'); // ' (more)'
 ```
 
 ### Numbers

@@ -31,3 +31,4 @@ require('./object-safe-get');
 require('./object-safe-set');
 require('./string-template');
 require('./string-truncate');
+require('./string-prune');
