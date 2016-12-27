@@ -29,6 +29,14 @@ test('no length specified', function (t) {
   t.end();
 });
 
+test('truncation length minus suffix length is shorter than first word', function (t) {
+  t.plan(1);
+  var str = 'when shall we three meet again';
+  var result = prune(str, 6);
+  t.equal(result, '...');
+  t.end();
+});
+
 test('string is shorter than truncation length', function (t) {
   t.plan(2);
   var str = 'when shall we';

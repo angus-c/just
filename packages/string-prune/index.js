@@ -16,5 +16,6 @@ function prune(str, length, end) {
     end = '...';
   }
   var remnantPlusOne = str.slice(0, Math.max(0, length - end.length) + 1);
-  return remnantPlusOne.slice(0, remnantPlusOne.lastIndexOf(' ') || 0) + end;
+  var lastSpace = Math.max(0, remnantPlusOne.lastIndexOf(' '));
+  return remnantPlusOne.slice(0, lastSpace) + end;
 }
