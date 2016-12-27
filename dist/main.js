@@ -384,6 +384,9 @@ exports.default = {
     },
     "just-truncate": {
       "code": ["const truncate = require('just-truncate')\n\ntruncate('when shall we three meet again', 10, ' (etc)');"]
+    },
+    "just-prune": {
+      "code": ["const prune = require('just-prune')\n\nprune('when shall we three meet again', 12, ' (etc)');"]
     }
   },
   "Number": {
