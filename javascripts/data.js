@@ -214,6 +214,12 @@ truncate('when shall we three meet again', 10, ' (etc)');`
         `const prune = require('just-prune')\n
 prune('when shall we three meet again', 12, ' (etc)');`
       ]
+    },
+    "just-squash": {
+      "code": [
+        `const squash = require('just-squash')\n
+squash(\`\tthe cat\n sat \fon \vthe \rmat \`, true);`
+      ]
     }
   },
   "Number": {

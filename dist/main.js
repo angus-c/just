@@ -387,6 +387,9 @@ exports.default = {
     },
     "just-prune": {
       "code": ["const prune = require('just-prune')\n\nprune('when shall we three meet again', 12, ' (etc)');"]
+    },
+    "just-squash": {
+      "code": ["const squash = require('just-squash')\n\nsquash(`\tthe cat\n sat \fon \u000bthe \rmat `, true);"]
     }
   },
   "Number": {
