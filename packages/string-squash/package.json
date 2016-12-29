@@ -1,0 +1,25 @@
+{
+  "name": "just-compress",
+  "version": "1.0.0",
+  "description": "remove all spaces from a string, optionally remove escape sequences too",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "squash",
+    "trim",
+    "space",
+    "spaces",
+    "escape",
+    "string",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
