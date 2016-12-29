@@ -47,6 +47,7 @@ Guilt-free utilities for every occasion.
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
   * [just-prune](#just-prune)      
+  * [just-squash](#just-squash)        
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -548,6 +549,20 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
   prune('when shall we', 15,); // 'when shall we'
   prune('when shall we', 15, ' (etc)'); // 'when shall we'
   prune('when shall we', 7, ' (more)'); // ' (more)'
+```
+
+### [just-squash](https://www.npmjs.com/package/just-squash)
+:icecream:[`Try It`](http://anguscroll.com/just/just-squash)
+
+`npm install just-squash`
+
+```js
+  squash('the cat sat on the mat'); // 'thecatsatonthemat'
+  squash(' the cat sat on the mat '); // 'thecatsatonthemat'
+  squash('\tthe cat\n sat \fon \vthe \rmat '); // '\tthecat\nsat\fon\vthe\rmat'
+  squash('\tthe cat\n sat \fon \vthe \rmat ', true); // 'thecatsatonthemat'
+  squash(`the cat
+sat on the mat`, true); // thecatsatonthemat
 ```
 
 ### Numbers

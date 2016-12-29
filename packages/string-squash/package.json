@@ -1,5 +1,5 @@
 {
-  "name": "just-compress",
+  "name": "just-squash",
   "version": "1.0.0",
   "description": "remove all spaces from a string, optionally remove escape sequences too",
   "main": "index.js",

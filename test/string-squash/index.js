@@ -2,12 +2,12 @@ var test = require('tape');
 var squash = require('../../packages/string-squash');
 
 /*
-  remove spaces, optionally remove escape sequences \b, \t, \n, \f, \r, \", \', and \\
+  remove spaces, optionally remove escape sequences \t, \n, \f, \r and \v
 
-  squash('the cat sat on the mat'); // thecatsatonthemat
-  squash(' the cat sat on the mat '); // thecatsatonthemat
-  squash(' the \'cat\'\n sat on the mat '); // the\'cat\'\nsatonthemat
-  squash(' the \'cat\'\n sat on the mat ', true); // thecatsatonthemat
+  squash('the cat sat on the mat'); // 'thecatsatonthemat'
+  squash(' the cat sat on the mat '); // 'thecatsatonthemat'
+  squash('\tthe cat\n sat \fon \vthe \rmat '); // '\tthecat\nsat\fon\vthe\rmat'
+  squash(' the \'cat\'\n sat on the mat ', true); // 'thecatsatonthemat'
   squash(`the cat
 sat on the mat`, true); // thecatsatonthemat
 */
@@ -30,13 +30,10 @@ test('without escapeSequence flag', function (t1) {
   });
 
   test('escape sequences are not removed', function (t) {
-    t.plan(2);
-    var str = ' the \'cat\'\n sat on the mat ';
+    t.plan(1);
+    var str = '\tthe cat\n sat \fon \vthe \rmat ';
     var result = squash(str);
-    t.equal(result, 'the\'cat\'\n satonthemat');
-    str = '\t\t\thello';
-    result = squash(str);
-    t.equal(result, '\t\t\thello');
+    t.equal(result, '\tthecat\nsat\fon\vthe\rmat');
     t.end();
   });
   t1.end();
@@ -60,13 +57,10 @@ test('with escapeSequence flag', function (t2) {
   });
 
   test('escape sequences are removed', function (t) {
-    t.plan(2);
-    var str = ' the \'cat\'\n sat on the mat ';
+    t.plan(1);
+    var str = '\tthe cat\n sat \fon \vthe \rmat ';
     var result = squash(str, true);
     t.equal(result, 'thecatsatonthemat');
-    str = '\t\t\thello';
-    result = squash(str, true);
-    t.equal(result, 'hello');
     t.end();
   });
   t2.end();

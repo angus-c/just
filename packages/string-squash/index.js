@@ -1,18 +1,18 @@
 module.exports = squash;
 
 /*
-  remove spaces, optionally remove escape sequences \b, \t, \n, \f, \r, \", \', and \\
+  remove spaces, optionally remove escape sequences \t, \n, \f, \r and \v
 
-  squash('the cat sat on the mat'); // thecatsatonthemat
-  squash(' the cat sat on the mat '); // thecatsatonthemat
-  squash(' the \'cat\'\n sat on the mat '); // the\'cat\'\nsatonthemat
-  squash(' the \'cat\'\n sat on the mat ', true); // thecatsatonthemat
+  squash('the cat sat on the mat'); // 'thecatsatonthemat'
+  squash(' the cat sat on the mat '); // 'thecatsatonthemat'
+  squash('\tthe cat\n sat \fon \vthe \rmat '); // '\tthecat\nsat\fon\vthe\rmat'
+  squash('\tthe cat\n sat \fon \vthe \rmat ', true); // 'thecatsatonthemat'
   squash(`the cat
 sat on the mat`, true); // thecatsatonthemat
 */
 
-var escapeSequencesRegex = /[\s\b\t\n\f\r\"\'\\]/g;
-var spacesRegex = /\s/g;
+var escapeSequencesRegex = /\s/g;
+var spacesRegex = / /g;
 
 function squash(str, squashEscapeSequences) {
   if (squashEscapeSequences) {
