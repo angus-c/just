@@ -47,7 +47,9 @@ Guilt-free utilities for every occasion.
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
   * [just-prune](#just-prune)      
-  * [just-squash](#just-squash)        
+  * [just-squash](#just-squash)  
+  * [just-left-pad](#just-left-pad)
+  * [just-right-pad](#just-right-pad)            
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -563,6 +565,32 @@ template('2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb
   squash('\tthe cat\n sat \fon \vthe \rmat ', true); // 'thecatsatonthemat'
   squash(`the cat
 sat on the mat`, true); // thecatsatonthemat
+```
+
+### [just-left-pad](https://www.npmjs.com/package/just-left-pad)
+:icecream:[`Try It`](http://anguscroll.com/just/just-left-pad)
+
+`npm install just-left-pad`
+
+```js
+  leftPad('hello', 9); // '    hello'
+  leftPad('hello', 3); 'hello'
+  leftPad('hello', 9, '.'); '....hello'
+  leftPad(['hello'], 7, '_'); '__hello'
+  leftPad(null, 7); '   null'
+```
+
+### [just-right-pad](https://www.npmjs.com/package/just-right-pad)
+:icecream:[`Try It`](http://anguscroll.com/just/just-right-pad)
+
+`npm install just-right-pad`
+
+```js
+  rightPad('hello', 9); // 'hello    '
+  rightPad('hello', 3); 'hello'
+  rightPad('hello', 9, '.'); 'hello....'
+  rightPad(['hello'], 7, '_'); 'hello__'
+  rightPad(null, 7); 'null '
 ```
 
 ### Numbers
