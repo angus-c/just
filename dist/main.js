@@ -390,6 +390,12 @@ exports.default = {
     },
     "just-squash": {
       "code": ["const squash = require('just-squash')\n\nsquash(`\tthe cat\n sat \fon \u000bthe \rmat `, true);"]
+    },
+    "just-left-pad": {
+      "code": ["const leftPad = require('just-left-pad')\n\nleftPad('hello', 9, '.');"]
+    },
+    "just-right-pad": {
+      "code": ["const rightPad = require('just-right-pad')\n\nrightPad('hello', 9, '.');"]
     }
   },
   "Number": {

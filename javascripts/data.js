@@ -220,6 +220,18 @@ prune('when shall we three meet again', 12, ' (etc)');`
         `const squash = require('just-squash')\n
 squash(\`\tthe cat\n sat \fon \vthe \rmat \`, true);`
       ]
+    },
+    "just-left-pad": {
+      "code": [
+        `const leftPad = require('just-left-pad')\n
+leftPad('hello', 9, '.');`
+      ]
+    },
+    "just-right-pad": {
+      "code": [
+        `const rightPad = require('just-right-pad')\n
+rightPad('hello', 9, '.');`
+      ]
     }
   },
   "Number": {
