@@ -396,6 +396,9 @@ exports.default = {
     },
     "just-right-pad": {
       "code": ["const rightPad = require('just-right-pad')\n\nrightPad('hello', 9, '.');"]
+    },
+    "just-camel-case": {
+      "code": ["const camelCase = require('just-camel-case')\n\ncamelCase('the-quick-brown _fox');"]
     }
   },
   "Number": {

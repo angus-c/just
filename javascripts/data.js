@@ -232,6 +232,12 @@ leftPad('hello', 9, '.');`
         `const rightPad = require('just-right-pad')\n
 rightPad('hello', 9, '.');`
       ]
+    },
+    "just-camel-case": {
+      "code": [
+        `const camelCase = require('just-camel-case')\n
+camelCase('the-quick-brown _fox');`
+      ]
     }
   },
   "Number": {
