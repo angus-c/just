@@ -49,7 +49,8 @@ Guilt-free utilities for every occasion.
   * [just-prune](#just-prune)      
   * [just-squash](#just-squash)  
   * [just-left-pad](#just-left-pad)
-  * [just-right-pad](#just-right-pad)            
+  * [just-right-pad](#just-right-pad)
+  * [just-camel-case](#just-camel-case)              
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -591,6 +592,21 @@ sat on the mat`, true); // thecatsatonthemat
   rightPad('hello', 9, '.'); 'hello....'
   rightPad(['hello'], 7, '_'); 'hello__'
   rightPad(null, 7); 'null '
+```
+
+### [just-camel-case](https://www.npmjs.com/package/just-camel-case)
+:icecream:[`Try It`](http://anguscroll.com/just/just-camel-case)
+
+`npm install just-camel-case`
+
+```js
+  camelCase('the quick brown fox'); // 'theQuickBrownFox'
+  camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
+  camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
+  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
+  camelCase('thequickbrownfox'); // 'thequickbrownfox'
+  camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
+  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
 ```
 
 ### Numbers
