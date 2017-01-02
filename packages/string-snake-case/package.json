@@ -1,14 +1,15 @@
 {
-  "name": "just-camel-case",
+  "name": "just-snake-case",
   "version": "1.0.0",
-  "description": "convert a string to camel case",
+  "description": "convert a string to snake case",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "camelCase",
+    "snake",
+    "snake_case",
     "string",
     "no-dependencies",
     "just"

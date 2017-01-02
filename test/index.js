@@ -36,3 +36,4 @@ require('./string-squash');
 require('./string-left-pad');
 require('./string-right-pad');
 require('./string-camel-case');
+require('./string-snake-case');

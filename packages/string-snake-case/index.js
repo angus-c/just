@@ -5,6 +5,7 @@ module.exports = snakeCase;
   snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'
   snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'
   snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'
+  snakeCase('theQuickBrown Fox'); // 'the_quick_brown_Fox'
   snakeCase('thequickbrownfox'); // 'thequickbrownfox'
   snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'
   snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
@@ -20,5 +21,5 @@ function snakeCase(str) {
   str = str.replace(capitals, function (match) {
     return ' ' + (match.toLowerCase() || match);
   });
-  str.trim().split(wordSeparators).join('_');
+  return str.trim().split(wordSeparators).join('_');
 }

@@ -4,13 +4,13 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```
-  import camelCase from 'just-camel-case';
+  import snakeCase from 'just-snake-case';
 
-  camelCase('the quick brown fox'); // 'theQuickBrownFox'
-  camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
-  camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
-  camelCase('thequickbrownfox'); // 'thequickbrownfox'
-  camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
+  snakeCase('the quick brown fox'); // 'the_quick_brown_fox'
+  snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'
+  snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'
+  snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'
+  snakeCase('thequickbrownfox'); // 'thequickbrownfox'
+  snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'
+  snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
 ```
