@@ -17,8 +17,8 @@ var capitals = /[A-Z\u00C0-\u00D6\u00D9-\u00DD]/g;
 
 function snakeCase(str) {
   //replace capitals with space + lower case equivalent for later parsing
-   str = str.replace(capitals, function(match) {
-     return ' '  + (match.toLowerCase() || match);
-   })
-  return words = str.trim().split(wordSeparators).join('_');
+  str = str.replace(capitals, function (match) {
+    return ' ' + (match.toLowerCase() || match);
+  });
+  str.trim().split(wordSeparators).join('_');
 }

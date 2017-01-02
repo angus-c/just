@@ -15,11 +15,14 @@ module.exports = camelCase;
 var wordSeparators = /[\s\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]+/;
 
 function camelCase(str) {
-  var words = str.trim().split(wordSeparators);
+  var words = str.split(wordSeparators);
   var len = words.length;
   var mappedWords = new Array(len);
   for (var i = 0; i < len; i++) {
     var word = words[i];
+    if (word === '') {
+      continue;
+    }
     var firstLetter = word[0];
     if (i > 0) {
       firstLetter = firstLetter.toUpperCase();
