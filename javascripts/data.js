@@ -244,6 +244,12 @@ camelCase('the-quick-brown _fox');`
         `const snakeCase = require('just-snake-case')\n
 snakeCase('theQuickBrownFox');`
       ]
+    },
+    "just-kebab-case": {
+      "code": [
+        `const kebabCase = require('just-kebab-case')\n
+kebabCase('theQuickBrownFox');`
+      ]
     }
   },
   "Number": {

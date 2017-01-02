@@ -402,6 +402,9 @@ exports.default = {
     },
     "just-snake-case": {
       "code": ["const snakeCase = require('just-snake-case')\n\nsnakeCase('theQuickBrownFox');"]
+    },
+    "just-kebab-case": {
+      "code": ["const kebabCase = require('just-kebab-case')\n\nkebabCase('theQuickBrownFox');"]
     }
   },
   "Number": {
