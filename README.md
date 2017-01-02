@@ -51,6 +51,8 @@ Guilt-free utilities for every occasion.
   * [just-left-pad](#just-left-pad)
   * [just-right-pad](#just-right-pad)
   * [just-camel-case](#just-camel-case)              
+  * [just-kebab-case](#just-kebab-case)              
+  * [just-snake-case](#just-snake-case)                  
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
 * [Functions](#functions)
@@ -607,6 +609,38 @@ sat on the mat`, true); // thecatsatonthemat
   camelCase('thequickbrownfox'); // 'thequickbrownfox'
   camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
   camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
+```
+
+### [just-kebab-case](https://www.npmjs.com/package/just-kebab-case)
+:icecream:[`Try It`](http://anguscroll.com/just/just-kebab-case)
+
+`npm install just-kebab-case`
+
+```js
+  kebabCase('the quick brown fox'); // 'the-quick-brown-fox'
+  kebabCase('the-quick-brown-fox'); // 'the-quick-brown-fox'
+  kebabCase('the_quick_brown_fox'); // 'the-quick-brown-fox'
+  kebabCase('theQuickBrownFox'); // 'the-quick-brown-fox'
+  kebabCase('theQuickBrown Fox'); // 'the-quick-brown-fox'
+  kebabCase('thequickbrownfox'); // 'thequickbrownfox'
+  kebabCase('the - quick * brown# fox'); // 'the-quick-brown-fox'
+  kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'
+```
+
+### [just-snake-case](https://www.npmjs.com/package/just-snake-case)
+:icecream:[`Try It`](http://anguscroll.com/just/just-snake-case)
+
+`npm install just-snake-case`
+
+```js
+  snakeCase('the quick brown fox'); // 'the_quick_brown_fox'
+  snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'
+  snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'
+  snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'
+  snakeCase('theQuickBrown Fox'); // 'the_quick_brown_Fox'
+  snakeCase('thequickbrownfox'); // 'thequickbrownfox'
+  snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'
+  snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
 ```
 
 ### Numbers
