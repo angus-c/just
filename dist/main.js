@@ -399,6 +399,9 @@ exports.default = {
     },
     "just-camel-case": {
       "code": ["const camelCase = require('just-camel-case')\n\ncamelCase('the-quick-brown _fox');"]
+    },
+    "just-snake-case": {
+      "code": ["const snakeCase = require('just-snake-case')\n\nsnakeCase('theQuickBrownFox');"]
     }
   },
   "Number": {

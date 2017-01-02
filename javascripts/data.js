@@ -238,6 +238,12 @@ rightPad('hello', 9, '.');`
         `const camelCase = require('just-camel-case')\n
 camelCase('the-quick-brown _fox');`
       ]
+    },
+    "just-snake-case": {
+      "code": [
+        `const snakeCase = require('just-snake-case')\n
+snakeCase('theQuickBrownFox');`
+      ]
     }
   },
   "Number": {
