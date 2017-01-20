@@ -13,7 +13,7 @@ function index(arr, key) {
     return undefined;
   }
 
-  if (!key || typeof key !== 'string') {
+  if (typeof key !== 'string') {
     return undefined;
   }
 
