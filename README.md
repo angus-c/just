@@ -33,6 +33,7 @@ Guilt-free utilities for every occasion.
 * [Arrays](#arrays)
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
+  * [just-index](#just-index)
   * [just-insert](#just-insert)
   * [just-intersect](#just-intersect)
   * [just-compact](#just-compact)  
@@ -369,6 +370,22 @@ import flatten from 'just-flatten-it';
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+### [just-index](https://www.npmjs.com/package/just-index)
+:icecream:[`Try It`](http://anguscroll.com/just/just-index)
+
+`npm install just-index`
+
+```js
+import index from 'just-index';
+
+index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id'); // {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
+index([{id: 'first', val: 1}, null], 'id'); // {first: {id: 'first', val: 1}}
+index([], 'id'); // {}
+index([], null); // undefined
+index({}, 'id'); // undefined
+```
+
 
 ### [just-insert](https://www.npmjs.com/package/just-insert)
 :icecream:[`Try It`](http://anguscroll.com/just/just-insert)

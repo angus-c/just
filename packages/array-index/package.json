@@ -1,0 +1,21 @@
+{
+  "name": "just-index",
+  "version": "1.0.0",
+  "description": "returns an object keyed from array of objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "index",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Cam Pedersen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
