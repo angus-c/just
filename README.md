@@ -379,7 +379,8 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 ```js
 import index from 'just-index';
 
-index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id'); // {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
+index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');
+// {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
 index([{id: 'first', val: 1}, null], 'id'); // {first: {id: 'first', val: 1}}
 index([], 'id'); // {}
 index([], null); // undefined
