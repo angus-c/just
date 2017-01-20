@@ -386,7 +386,6 @@ index([], null); // undefined
 index({}, 'id'); // undefined
 ```
 
-
 ### [just-insert](https://www.npmjs.com/package/just-insert)
 :icecream:[`Try It`](http://anguscroll.com/just/just-insert)
 
