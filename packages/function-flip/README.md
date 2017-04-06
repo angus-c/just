@@ -7,10 +7,11 @@ Guilt-free utilities for every occasion.
 
 ```js
 import flip from 'just-flip';
-import map from 'just-map';
+import map from 'just-map-object';
+import curry from 'just-curry';
 
+const numbers = {x: 5, y: 10};
 const flippedMap = flip(map);
-const objects = [{node: 'x', node: 'y'}];
-const getNodes = flippedMap(({node}) => node);
-getNodes(objects) // ['x', 'y'];
+const double = curry(flippedMap, (_, number) => number * 2);
+double(numbers) // {x: 10, y: 20];
 ```
