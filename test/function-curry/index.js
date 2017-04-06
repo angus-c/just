@@ -36,3 +36,14 @@ test('executes in the correct context', function (t) {
   t.equal(milesToKm.call({dps: 2}, 35), '56.70');
   t.end();
 });
+
+test('converts n-ary function to a sequence of nested unary functions', function (t) {
+  t.plan(2);
+  function addThree(x, y, z) {
+    return x + y + z;
+  }
+  var addTwoTo2 = curry(addThree, 2);
+  t.equal(typeof addTwoTo2(3), 'function');
+  t.equal(addTwoTo2(5)(8), 16);
+  t.end();
+})
