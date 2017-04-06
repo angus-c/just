@@ -11,17 +11,17 @@ module.exports = curry;
 
 function curry(fn /* arg1, arg2 etc */) {
   var fnArgs = [].slice.call(arguments, 1);
-  if (fnArgs.length >= fn.length) {
+  if (fn.length && fnArgs.length >= fn.length) {
     return fn.apply(this, fnArgs);
   }
-  return function currier() {
+  return function curried() {
     var curriedArgs = [].slice.call(arguments);
     var args = fnArgs.concat(curriedArgs);
     if (args.length >= fn.length) {
       return fn.apply(this, args);
     } else {
       return function () {
-        return currier.apply(this, curriedArgs.concat([].slice.call(arguments)));
+        return curried.apply(this, curriedArgs.concat([].slice.call(arguments)));
       };
     }
   };

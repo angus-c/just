@@ -13,6 +13,24 @@ test('binds curried arguments to supplied arguments', function (t) {
   t.end();
 });
 
+test('returns a curried function even if zero currying args are passed', function (t) {
+  t.plan(2);
+  function converter(ratio, input) {
+    return (input * ratio).toFixed(1);
+  }
+  var milesToKm = curry(converter);
+  t.equal(milesToKm(1.62, 35), '56.7');
+  t.equal(milesToKm(1.62)(35), '56.7');
+  t.end();
+});
+
+test('still returns a function for zero-arity functions', function (t) {
+  t.plan(2);
+  function nothing() {}
+  t.equal(typeof curry(nothing), 'function');
+  t.equal(typeof curry(nothing, 1, 2, 3), 'function');
+});
+
 test('executes in the correct context', function (t) {
   t.plan(2);
   function converter(ratio, input) {
