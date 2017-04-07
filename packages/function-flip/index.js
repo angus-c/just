@@ -1,7 +1,8 @@
 module.exports = flip;
 
 /*
-  flip(Array)('a', 'b') //=> ['b', 'a'];
+  flip(Array)('a', 'b') // ['b', 'a'];
+  flip(console.log)(1, 2, 3) // 2, 1, 3
 */
 
 function flip(fn) {

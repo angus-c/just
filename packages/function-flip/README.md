@@ -7,6 +7,9 @@ Guilt-free utilities for every occasion.
 
 ```js
 import flip from 'just-flip';
+
+flip(console.log)(1, 2, 3) // 2, 1, 3
+
 import map from 'just-map-object';
 import curry from 'just-curry';
 
