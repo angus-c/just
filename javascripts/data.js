@@ -281,7 +281,7 @@ sqRootBiggest(7, 0, 16);`
 function converter(ratio, input) {
   return (input*ratio).toFixed(1);
 }
-const milesToKm = curry(converter, 1.62);
+const milesToKm = curry(converter)(1.62);
 milesToKm(35);`
       ]
     },
