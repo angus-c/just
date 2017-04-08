@@ -424,6 +424,9 @@ exports.default = {
     },
     "just-partial-it": {
       "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
+    },
+    "just-flip-it": {
+      "code": ["import flip from 'just-flip';\nimport map from 'just-map-object';\nimport curry from 'just-curry';\n \nconst numbers = {x: 5, y: 10};\nconst flippedMap = flip(map);\nconst double = curry(flippedMap, (_, number) => number * 2);\ndouble(numbers);"]
     }
   }
 };
