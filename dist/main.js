@@ -425,7 +425,7 @@ exports.default = {
     "just-partial-it": {
       "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
     },
-    "just-flip-it": {
+    "just-flip": {
       "code": ["const flip = require('just-flip');\n \nflip(console.log)(1, 2, 3);"]
     }
   }

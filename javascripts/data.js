@@ -291,7 +291,7 @@ const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(35).toFixed(1);`
       ]
     },
-    "just-flip-it": {
+    "just-flip": {
       "code": [
         `const flip = require('just-flip');
  
