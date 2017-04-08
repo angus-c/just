@@ -284,6 +284,18 @@ function add(a, b, c) {
 curry(add)(1)(2)(3);`
       ]
     },
+    "just-demethodize": {
+      "code": [
+        `const demethodize = require('just-demethodize');
+
+const circle = {
+  volumeOfCylinder(height) {
+    return this.radius * this.radius * Math.PI * height;
+  }
+};
+const volume = demethodize(circle.volumeOfCylinder)({radius: 3}, 4);`
+      ]
+    },
     "just-partial-it": {
       "code": [
         `const partial = require('just-partial')\n
