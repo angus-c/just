@@ -1,0 +1,23 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/node',
+1 verbose cli   '/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'compile' ]
+2 info using npm@3.7.2
+3 info using node@v4.2.1
+4 verbose stack Error: ENOENT: no such file or directory, open '/Users/anguscroll/Documents/github/just/packages/function-curry/package.json'
+4 verbose stack     at Error (native)
+5 verbose cwd /Users/anguscroll/Documents/github/just/packages/function-curry
+6 error Darwin 15.6.0
+7 error argv "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/node" "/Users/anguscroll/.nvm/versions/node/v4.2.1/bin/npm" "run" "compile"
+8 error node v4.2.1
+9 error npm  v3.7.2
+10 error path /Users/anguscroll/Documents/github/just/packages/function-curry/package.json
+11 error code ENOENT
+12 error errno -2
+13 error syscall open
+14 error enoent ENOENT: no such file or directory, open '/Users/anguscroll/Documents/github/just/packages/function-curry/package.json'
+15 error enoent ENOENT: no such file or directory, open '/Users/anguscroll/Documents/github/just/packages/function-curry/package.json'
+15 error enoent This is most likely not a problem with npm itself
+15 error enoent and is related to npm not being able to find a file.
+16 verbose exit [ -2, true ]

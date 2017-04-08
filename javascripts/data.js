@@ -278,11 +278,10 @@ sqRootBiggest(7, 0, 16);`
     "just-curry-it": {
       "code": [
         `const curry = require('just-curry-it')\n
-function converter(ratio, input) {
-  return (input*ratio).toFixed(1);
+function add(a, b, c) {
+  return a + b + c;
 }
-const milesToKm = curry(converter)(1.62);
-milesToKm(35);`
+curry(add)(1)(2)(3);`
       ]
     },
     "just-partial-it": {

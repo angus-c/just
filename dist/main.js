@@ -420,7 +420,7 @@ exports.default = {
       "code": ["const compose = require('just-compose')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);"]
     },
     "just-curry-it": {
-      "code": ["const curry = require('just-curry-it')\n\nfunction converter(ratio, input) {\n  return (input*ratio).toFixed(1);\n}\nconst milesToKm = curry(converter)(1.62);\nmilesToKm(35);"]
+      "code": ["const curry = require('just-curry-it')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);"]
     },
     "just-partial-it": {
       "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
