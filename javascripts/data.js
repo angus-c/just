@@ -293,14 +293,9 @@ cubedRoot(35).toFixed(1);`
     },
     "just-flip-it": {
       "code": [
-        `import flip from 'just-flip';
-import map from 'just-map-object';
-import curry from 'just-curry';
+        `const flip = require('just-flip');
  
-const numbers = {x: 5, y: 10};
-const flippedMap = flip(map);
-const double = curry(flippedMap, (_, number) => number * 2);
-double(numbers);`
+flip(console.log)(1, 2, 3);`
       ]
     }
   }
