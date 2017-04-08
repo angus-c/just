@@ -288,12 +288,8 @@ curry(add)(1)(2)(3);`
       "code": [
         `const demethodize = require('just-demethodize');
 
-const circle = {
-  volumeOfCylinder(height) {
-    return this.radius * this.radius * Math.PI * height;
-  }
-};
-const volume = demethodize(circle.volumeOfCylinder)({radius: 3}, 4);`
+const trimFn = demethodize(''.trim);
+['hello ', ' goodbye', 'hello again']`
       ]
     },
     "just-partial-it": {
