@@ -45,7 +45,6 @@ test('resulting function throws when no args', function (t) {
   t.end();
 });
 
-
 test('returns undefined for non-functions', function (t) {
   t.plan(2);
   t.equal(demethodize({}), undefined);
