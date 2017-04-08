@@ -722,14 +722,10 @@ milesToKm(10); // 16.2
 `npm install just-demethodize`
 
 ```js
-import demethodize from 'just-demethodize';
+const demethodize = require('just-demethodize');
 
-const circle = {
-  volumeOfCylinder(height) {
-    return this.radius * this.radius * Math.PI * height;
-  }
-};
-const volume = demethodize(circle.volumeOfCylinder)({radius: 3}, 4); // 113.1
+const trimFn = demethodize(''.trim);
+['hello ', ' goodbye', 'hello again'].map(trimFn)
 ```
 
 ### [just-flip](https://www.npmjs.com/package/just-flip)
