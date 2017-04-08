@@ -289,7 +289,7 @@ curry(add)(1)(2)(3);`
         `const demethodize = require('just-demethodize');
 
 const trimFn = demethodize(''.trim);
-['hello ', ' goodbye', 'hello again']`
+['hello ', ' goodbye', 'hello again'].map(trimFn)`
       ]
     },
     "just-partial-it": {

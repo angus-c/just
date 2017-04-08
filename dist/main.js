@@ -423,7 +423,7 @@ exports.default = {
       "code": ["const curry = require('just-curry-it')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);"]
     },
     "just-demethodize": {
-      "code": ["const demethodize = require('just-demethodize');\n\nconst trimFn = demethodize(''.trim);\n['hello ', ' goodbye', 'hello again']"]
+      "code": ["const demethodize = require('just-demethodize');\n\nconst trimFn = demethodize(''.trim);\n['hello ', ' goodbye', 'hello again'].map(trimFn)"]
     },
     "just-partial-it": {
       "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
