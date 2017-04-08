@@ -1,6 +1,6 @@
 {
   "name": "just-values",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "return property values as an array",
   "main": "index.js",
   "scripts": {
