@@ -59,6 +59,7 @@ Guilt-free utilities for every occasion.
 * [Functions](#functions)
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
+  * [just-flip](#just-flip)
   * [just-partial-it](#just-partial-it)
 
 ### Collections
@@ -712,6 +713,17 @@ function converter(ratio, input) {
 const milesToKm = curry(converter)(1.62);
 milesToKm(35); // 56.7
 milesToKm(10); // 16.2
+```
+
+### [just-flip](https://www.npmjs.com/package/just-flip)
+:icecream:[`Try It`](http://anguscroll.com/just/just-flip)
+
+`npm install just-flip`
+
+```js
+import flip from 'just-flip';
+
+flip(console.log)(1, 2, 3) // 2, 1, 3
 ```
 
 ### [just-partial-it](https://www.npmjs.com/package/just-partial-it)

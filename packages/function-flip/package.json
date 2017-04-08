@@ -1,0 +1,24 @@
+{
+  "name": "just-flip",
+  "version": "1.0.0",
+  "description": "flip first two arguments of a function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angus-c/just.git"
+  },
+  "keywords": [
+    "function",
+    "no-dependencies",
+    "just",
+    "flip"
+  ],
+  "author": "chee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
