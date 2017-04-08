@@ -12,6 +12,8 @@ require('./array-union');
 require('./array-unique');
 require('./number-clamp');
 require('./function-curry');
+require('./function-flip');
+require('./function-demethodize');
 require('./function-partial');
 require('./function-compose');
 require('./collection-compare');

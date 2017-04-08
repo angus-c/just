@@ -59,6 +59,7 @@ Guilt-free utilities for every occasion.
 * [Functions](#functions)
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
+  * [just-demethodize](#just-demethodize)
   * [just-flip](#just-flip)
   * [just-partial-it](#just-partial-it)
 
@@ -713,6 +714,22 @@ function converter(ratio, input) {
 const milesToKm = curry(converter)(1.62);
 milesToKm(35); // 56.7
 milesToKm(10); // 16.2
+```
+
+### [just-demethodize](https://www.npmjs.com/package/just-demethodize)
+:icecream:[`Try It`](http://anguscroll.com/just/just-demethodize)
+
+`npm install just-demethodize`
+
+```js
+import demethodize from 'just-demethodize';
+
+const circle = {
+  volumeOfCylinder(height) {
+    return this.radius * this.radius * Math.PI * height;
+  }
+};
+const volume = demethodize(circle.volumeOfCylinder)({radius: 3}, 4); // 113.1
 ```
 
 ### [just-flip](https://www.npmjs.com/package/just-flip)
