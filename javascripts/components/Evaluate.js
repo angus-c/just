@@ -6,7 +6,7 @@ let notebook;
 
 export default class Evaluate extends React.Component {
   componentDidMount() {
-    notebook = Tonic.createNotebook({
+    notebook = RunKit.createNotebook({
       element: document.querySelector('#tonic'),
       source: this.props.script
     })
