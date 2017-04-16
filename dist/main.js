@@ -137,7 +137,7 @@ var Evaluate = function (_React$Component) {
   _createClass(Evaluate, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      notebook = Tonic.createNotebook({
+      notebook = RunKit.createNotebook({
         element: document.querySelector('#tonic'),
         source: this.props.script
       });
