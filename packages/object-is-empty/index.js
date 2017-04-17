@@ -5,6 +5,8 @@ module.exports = isEmpty;
  isEmpty(['a','b']) // false
  isEmpty({}) // true
  isEmpty([]) // true
+ isEmpty(0) // true
+ isEmpty(1) // false
  isEmpty(null) // true
  isEmpty(undefined) // true
 */
@@ -21,4 +23,6 @@ function isEmpty(obj) {
   if (typeof obj == 'object') {
     return !Object.keys(obj).length;
   }
+ 
+  return !obj;
 }
