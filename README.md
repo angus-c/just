@@ -685,6 +685,29 @@ n = NaN;
 clamp(3, n, 8); // 3
 ```
 
+### [just-modulo](https://www.npmjs.com/package/just-modulo)
+:icecream:[`Try It`](http://anguscroll.com/just/just-modulo)
+
+`npm install just-modulo`
+
+```js
+import modulo from 'just-modulo';
+
+modulo(7, 5); // 2
+modulo(17, 23); // 17
+modulo(16.2, 3.8); // 17
+modulo(5.8, 3.4); //2.4
+modulo(4, 0); // 4
+modulo(-7, 5); // 3
+modulo(-2, 15); // 13
+modulo(-5.8, 3.4); // 1
+modulo(12, -1); // NaN
+modulo(-3, -8); // NaN
+modulo(12, 'apple'); // NaN
+modulo('bee', 9); // NaN
+modulo(null, undefined); // NaN
+```
+
 ### Functions
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)

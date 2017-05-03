@@ -11,6 +11,7 @@ require('./array-remove');
 require('./array-union');
 require('./array-unique');
 require('./number-clamp');
+require('./number-modulo');
 require('./function-curry');
 require('./function-flip');
 require('./function-demethodize');
