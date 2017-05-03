@@ -56,6 +56,7 @@ Guilt-free utilities for every occasion.
   * [just-snake-case](#just-snake-case)                  
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)  
+  * [just-modulo](#just-modulo)  
 * [Functions](#functions)
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
