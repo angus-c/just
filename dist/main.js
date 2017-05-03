@@ -413,6 +413,9 @@ exports.default = {
   "Number": {
     "just-clamp": {
       "code": ["const clamp = require('just-clamp');\n\nvar n = 5;\nclamp(1, n, 3); // 3"]
+    },
+    "just-modulo": {
+      "code": ["const modulo = require('just-modulo');\n\nmodulo(-4, 13);"]
     }
   },
   "Functions": {

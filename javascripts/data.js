@@ -265,6 +265,12 @@ kebabCase('theQuickBrownFox');`
 var n = 5;
 clamp(1, n, 3); // 3`
       ]
+    },
+    "just-modulo": {
+      "code": [
+        `const modulo = require('just-modulo');\n
+modulo(-4, 13);`
+      ]
     }
   },
   "Functions": {
