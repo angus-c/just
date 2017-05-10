@@ -22,6 +22,7 @@ Guilt-free utilities for every occasion.
   * [just-values](#just-values)
   * [just-pick](#just-pick)
   * [just-omit](#just-omit)
+  * [just-is-circular](#just-is-circular)  
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)
   * [just-reduce-object](#just-reduce-object)
@@ -190,6 +191,34 @@ omit(obj, ['a', 'c']); // {b: 5}
 omit(obj, 'a', 'c'); // {b: 5}
 omit(obj, ['a', 'b', 'd']); // {c: 9}
 omit(obj, ['a', 'a']); // {b: 5, c: 9}
+```
+### [just-is-circular](https://www.npmjs.com/package/just-is-circular)
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-circular)
+
+`npm install just-is-circular`
+
+```js
+import isCircular from 'just-is-circular';
+
+const a = {};
+a.b = a;
+isCircular(a) // true
+
+const a = {};
+a.b = {c: a}
+isCircular(a) // true
+
+const a = {};
+a.b = {c: 4}
+isCircular(a) // false
+
+const a = [];
+a.push(a);
+isCircular(a) // true
+
+isCircular({}) // false
+isCircular('hi') // false
+isCircular(undefined) // false
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
