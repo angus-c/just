@@ -330,6 +330,9 @@ exports.default = {
     "just-is-empty": {
       "code": ["const isEmpty = require('just-is-empty')\n\nisEmpty({a: 3, b: 5});"]
     },
+    "just-is-circular": {
+      "code": ["const obj = {};\nobj.x = {y: obj};\nconst isCircular = require('just-is-circular')\n\nisCircular(obj);"]
+    },
     "just-safe-get": {
       "code": ["const get = require('just-safe-get')\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
     },

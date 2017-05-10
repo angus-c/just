@@ -81,6 +81,14 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 isEmpty({a: 3, b: 5});`
       ]
     },
+    "just-is-circular": {
+      "code": [
+        `const obj = {};
+obj.x = {y: obj};
+const isCircular = require('just-is-circular')\n
+isCircular(obj);`
+      ]
+    },
     "just-safe-get": {
       "code": [
         `const get = require('just-safe-get')\n
