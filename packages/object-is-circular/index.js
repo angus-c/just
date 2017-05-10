@@ -16,7 +16,7 @@ module.exports = isCircular;
    c: 4
  }
  isCircular(a) // false
- 
+
  const a = [];
  a.push(a);
  isCircular(a) // true
@@ -27,10 +27,12 @@ module.exports = isCircular;
 */
 
 // safari, ff, chrome/opera
-var errorKeywords = ["circular", "cyclic"];
+var errorKeywords = ['circular', 'cyclic'];
 
 function isCircular(obj) {
-  var result = false;
+  if (typeof obj === 'function') {
+    throw new Error('cannot determine if function is circular');
+  }
   try {
     JSON.stringify(obj);
   } catch(err) {
@@ -40,6 +42,7 @@ function isCircular(obj) {
         return true;
       }
     }
+    throw err;
   }
   return false;
 }
