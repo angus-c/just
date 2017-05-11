@@ -20,7 +20,7 @@ require('./function-compose');
 require('./collection-compare');
 require('./collection-pluck');
 require('./collection-flush');
-require('./is-empty');
+require('./object-is-empty');
 require('./object-extend');
 require('./object-filter');
 require('./object-is-circular');
