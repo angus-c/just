@@ -77,7 +77,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
     },
     "just-is-empty": {
       "code": [
-        `const isEmpty = require('just-is-empty')\n
+        `const isEmpty = require('just-is-empty');\n
 isEmpty({a: 3, b: 5});`
       ]
     },
@@ -85,20 +85,26 @@ isEmpty({a: 3, b: 5});`
       "code": [
         `const obj = {};
 obj.x = {y: obj};
-const isCircular = require('just-is-circular')\n
+const isCircular = require('just-is-circular');\n
 isCircular(obj);`
+      ]
+    },
+    "just-is-primitive": {
+      "code": [
+        `const isPrimitive = require('just-is-primitive');\n
+isPrimitive(new Date());`
       ]
     },
     "just-safe-get": {
       "code": [
-        `const get = require('just-safe-get')\n
+        `const get = require('just-safe-get');\n
 const obj = {a: {aa: {aaa: 2}}, b: 4};
 get(obj, 'b.bb.bbb');`
       ]
     },
     "just-safe-set": {
       "code": [
-        `const set = require('just-safe-set')\n
+        `const set = require('just-safe-set');\n
 const obj = {};
 set(obj, 'a.aa.aaa', {aaaa: 4});
 obj;`
@@ -106,7 +112,7 @@ obj;`
     },
     "just-typeof": {
       "code": [
-        `const typeOf = require('just-typeof')\n
+        `const typeOf = require('just-typeof');\n
 typeOf({});
 // typeOf([]);
 // typeOf(function() {});
@@ -123,7 +129,7 @@ typeOf({});
   "Array": {
     "just-unique": {
       "code": [
-        `const unique = require('just-unique')\n
+        `const unique = require('just-unique');\n
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);`
       ]
     },

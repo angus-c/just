@@ -328,24 +328,27 @@ exports.default = {
       "code": ["const reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
     },
     "just-is-empty": {
-      "code": ["const isEmpty = require('just-is-empty')\n\nisEmpty({a: 3, b: 5});"]
+      "code": ["const isEmpty = require('just-is-empty');\n\nisEmpty({a: 3, b: 5});"]
     },
     "just-is-circular": {
-      "code": ["const obj = {};\nobj.x = {y: obj};\nconst isCircular = require('just-is-circular')\n\nisCircular(obj);"]
+      "code": ["const obj = {};\nobj.x = {y: obj};\nconst isCircular = require('just-is-circular');\n\nisCircular(obj);"]
+    },
+    "just-is-primitive": {
+      "code": ["const isPrimitive = require('just-is-primitive');\n\nisPrimitive(new Date());"]
     },
     "just-safe-get": {
-      "code": ["const get = require('just-safe-get')\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
+      "code": ["const get = require('just-safe-get');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
     },
     "just-safe-set": {
-      "code": ["const set = require('just-safe-set')\n\nconst obj = {};\nset(obj, 'a.aa.aaa', {aaaa: 4});\nobj;"]
+      "code": ["const set = require('just-safe-set');\n\nconst obj = {};\nset(obj, 'a.aa.aaa', {aaaa: 4});\nobj;"]
     },
     "just-typeof": {
-      "code": ["const typeOf = require('just-typeof')\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
+      "code": ["const typeOf = require('just-typeof');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
     }
   },
   "Array": {
     "just-unique": {
-      "code": ["const unique = require('just-unique')\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
+      "code": ["const unique = require('just-unique');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
     },
     "just-flatten-it": {
       "code": ["const flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
