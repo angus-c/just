@@ -22,11 +22,12 @@ Guilt-free utilities for every occasion.
   * [just-values](#just-values)
   * [just-pick](#just-pick)
   * [just-omit](#just-omit)
-  * [just-is-circular](#just-is-circular)  
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)
   * [just-reduce-object](#just-reduce-object)
   * [just-is-empty](#just-is-empty)
+  * [just-is-circular](#just-is-circular)  
+  * [just-is-primitive](#just-is-primitive)      
   * [just-safe-get](#just-safe-get)
   * [just-safe-set](#just-safe-set)
   * [just-typeof](#just-typeof)
@@ -192,6 +193,21 @@ omit(obj, 'a', 'c'); // {b: 5}
 omit(obj, ['a', 'b', 'd']); // {c: 9}
 omit(obj, ['a', 'a']); // {b: 5, c: 9}
 ```
+### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-empty)
+
+`npm install just-is-empty`
+
+```js
+import isEmpty from 'just-is-empty';
+
+isEmpty({a: 3, b: 5}) // false
+isEmpty(['a','b']) // false
+isEmpty({}) // true
+isEmpty([]) // true
+isEmpty(null) // true
+isEmpty(undefined) // true
+```
 ### [just-is-circular](https://www.npmjs.com/package/just-is-circular)
 :icecream:[`Try It`](http://anguscroll.com/just/just-is-circular)
 
@@ -219,6 +235,26 @@ isCircular(a) // true
 isCircular({}) // false
 isCircular('hi') // false
 isCircular(undefined) // false
+```
+### [just-is-primitive](https://www.npmjs.com/package/just-is-primitive)
+:icecream:[`Try It`](http://anguscroll.com/just/just-is-primitive)
+
+`npm install just-is-primitive`
+
+```js
+import isPrimitive from 'just-is-primitive';
+isPrimitive('hi') // true
+isPrimitive(3) // true
+isPrimitive(true) // true
+isPrimitive(false) // true
+isPrimitive(null) // true
+isPrimitive(undefined) // true
+isPrimitive(Symbol()) // true
+isPrimitive({}) // false
+isPrimitive([]) // false
+isPrimitive(function() {}) // false
+isPrimitive(new Date()) // false
+isPrimitive(/a/) // false
 ```
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
 :icecream:[`Try It`](http://anguscroll.com/just/just-filter-object)
@@ -267,21 +303,6 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
   acc += value;
   return acc;
 }); // 17
-```
-### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
-:icecream:[`Try It`](http://anguscroll.com/just/just-is-empty)
-
-`npm install just-is-empty`
-
-```js
-import isEmpty from 'just-is-empty';
-
-isEmpty({a: 3, b: 5}) // false
-isEmpty(['a','b']) // false
-isEmpty({}) // true
-isEmpty([]) // true
-isEmpty(null) // true
-isEmpty(undefined) // true
 ```
 ### [just-safe-get](https://www.npmjs.com/package/just-safe-get)
 :icecream:[`Try It`](http://anguscroll.com/just/just-safe-get)
