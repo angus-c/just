@@ -23,6 +23,7 @@ require('./collection-flush');
 require('./object-is-empty');
 require('./object-is-circular');
 require('./object-is-primitive');
+require('./object-entries');
 require('./object-extend');
 require('./object-filter');
 require('./object-map');
