@@ -309,6 +309,9 @@ exports.default = {
     "just-values": {
       "code": ["const values = require('just-values')\n\nvalues({a: 4, b: 9, c: 8});"]
     },
+    "just-entries": {
+      "code": ["const entries = require('just-entries')\n\nentries({a: 4, b: 9, c: 8});"]
+    },
     "just-pick": {
       "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
     },

@@ -34,6 +34,12 @@ extend(obj, {a: 4, c: 8});`
 values({a: 4, b: 9, c: 8});`
       ]
     },
+    "just-entries": {
+      "code": [
+        `const entries = require('just-entries')\n
+entries({a: 4, b: 9, c: 8});`
+      ]
+    },
     "just-pick": {
       "code": [
         `const pick = require('just-pick')\n
