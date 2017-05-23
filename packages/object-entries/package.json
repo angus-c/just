@@ -1,0 +1,21 @@
+{
+  "name": "just-entries",
+  "version": "1.0.0",
+  "description": "return object entries as an array of [key, value] pairs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "object",
+    "entries",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Johnny Megahan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
