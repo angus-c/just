@@ -6,7 +6,7 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-entries)
 
 ```js
-const entries = require('just-entries');
+import entries from 'just-entries';
 
 // Object:
 entries({c: 8, a: 4}); // [['c', 8], ['a', 4]]

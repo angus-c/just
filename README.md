@@ -20,6 +20,7 @@ Guilt-free utilities for every occasion.
 * [Objects](#objects)
   * [just-extend](#just-extend)
   * [just-values](#just-values)
+  * [just-entries](#just-entries)  
   * [just-pick](#just-pick)
   * [just-omit](#just-omit)
   * [just-filter-object](#just-filter-object)
@@ -164,6 +165,25 @@ values(1); // throw exception
 values(true); // throw exception
 values(undefined); // throw exception
 values(null); // throw exception
+```
+### [just-entries](https://www.npmjs.com/package/just-entries)
+:icecream:[`Try It`](http://anguscroll.com/just/just-entries)
+
+`npm install just-entries`
+
+```js
+import entries from 'just-entries';
+
+// Object:
+entries({c: 8, a: 4}); // [['c', 8], ['a', 4]]
+entries({b: {bb: 4}, a: {aa: 2}}); // [['b', {bb: 4}], ['a', {aa: 2}]]
+entries({}); // []
+
+// Array:
+entries([{c: 8}, {a: 4}]); // [[0, {c: 8}], [1, {a: 4}]]
+entries(['À', 'mauvais', 'ouvrier', 'point', 'de', 'bon', 'outil'])
+// [[0, 'À'], [1, 'mauvais'] ... [6, 'outil']]
+entries([]); // []
 ```
 ### [just-pick](https://www.npmjs.com/package/just-pick)
 :icecream:[`Try It`](http://anguscroll.com/just/just-pick)
