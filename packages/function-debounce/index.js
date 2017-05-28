@@ -1,23 +1,22 @@
-module.exports = debounce;
-
 function debounce(func, wait, immediate) {
   var timeout;
   return function () {
-    if (wait === 0) {
-      return func.apply(context, args);
+    if (!wait) {
+      return func.apply(this, arguments);
     }
-    var context = this, args = arguments;
-    var later = function () {
-      timeout = null;
-      if (!immediate) {
-        func.apply(context, args);
-      }
-    };
+    var context = this;
+    var args = arguments;
     var callNow = immediate && !timeout;
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+    timeout = setTimeout(function() {
+      timeout = null;
+      if (!callNow) {
+        func.apply(context, args);
+      }
+    }, wait);
+
     if (callNow) {
-      func.apply(context, args);
+      return func.apply(this, arguments);
     }
   };
 };
