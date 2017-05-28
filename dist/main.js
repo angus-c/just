@@ -442,6 +442,9 @@ exports.default = {
     },
     "just-flip": {
       "code": ["const flip = require('just-flip');\n \nflip(console.log)(1, 2, 3);"]
+    },
+    "just-debounce-it": {
+      "code": ["const debounce = require('just-debounce-it');\n \nconst fn1 = debounce(() => console.log('Hello'), 500);\nfn1();\nfn1();\nfn1();"]
     }
   }
 };

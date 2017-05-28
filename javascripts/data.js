@@ -331,6 +331,16 @@ cubedRoot(35).toFixed(1);`
  
 flip(console.log)(1, 2, 3);`
       ]
+    },
+    "just-debounce-it": {
+      "code": [
+        `const debounce = require('just-debounce-it');
+ 
+const fn1 = debounce(() => console.log('Hello'), 500);
+fn1();
+fn1();
+fn1();`
+      ]
     }
   }
 };
