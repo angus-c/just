@@ -336,7 +336,8 @@ flip(console.log)(1, 2, 3);`
       "code": [
         `const debounce = require('just-debounce-it');
  
-const fn1 = debounce(() => console.log('Hello'), 500);
+const fn1 = debounce(() => console.log('Hello'), 1000, true);
+fn1();
 fn1();
 fn1();
 fn1();`
