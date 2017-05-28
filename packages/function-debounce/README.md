@@ -8,16 +8,15 @@ Guilt-free utilities for every occasion.
 ```js
 import debounce from 'just-debounce-it';
 
-const debouncedFunc = debounce(function () {
-    console.log('Hello World');
-}, 500);
+const fn1 = debounce(() => console.log('Hello'), 500);
+fn1();
+fn1();
+fn1();
+// 500ms later logs 'hello' once
 
-for (const i = 0; i < 5; i++) { debouncedFunc(); } // 500ms later - Hello World
-debounceFunc();
-debounceFunc(); 
-// 500ms later
-// Hello World
+const fn2 = debounce(() => console.log('Hello'), 500, true);
+fn2(); // logs hello immediately
+fn2();
+fn2();
+// 500ms later logs 'hello' once
 ```
-
-
-

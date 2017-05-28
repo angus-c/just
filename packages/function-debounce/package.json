@@ -1,6 +1,6 @@
 {
   "name": "just-debounce-it",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "return a debounced function",
   "main": "index.js",
   "scripts": {
@@ -13,10 +13,9 @@
     "no-dependencies",
     "just"
   ],
-  "author": "Eric Nolte",
+  "author": "Eric Nolte and Angus Croll",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
   }
 }
-
