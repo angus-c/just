@@ -17,6 +17,7 @@ require('./function-flip');
 require('./function-demethodize');
 require('./function-partial');
 require('./function-compose');
+require('./function-debounce');
 require('./collection-compare');
 require('./collection-pluck');
 require('./collection-flush');
