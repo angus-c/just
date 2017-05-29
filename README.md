@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just do one thing.
-Guilt-free utilities for every occasion.
+Guilt-free utilities for every occasion. Perfect for the Mobile Web.
 
 ## Try :icecream:
 [Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [RunKit](https://runkit.com))
