@@ -1,10 +1,10 @@
 module.exports = debounce;
 
-function debounce(func, wait, immediate) {
+function debounce(fn, wait, immediate) {
   var timeout;
   return function () {
     if (!wait) {
-      return func.apply(this, arguments);
+      return fn.apply(this, arguments);
     }
     var context = this;
     var args = arguments;
@@ -13,12 +13,12 @@ function debounce(func, wait, immediate) {
     timeout = setTimeout(function () {
       timeout = null;
       if (!callNow) {
-        func.apply(context, args);
+        return fn.apply(context, args);
       }
     }, wait);
 
     if (callNow) {
-      return func.apply(this, arguments);
+      return fn.apply(this, arguments);
     }
   };
 };
