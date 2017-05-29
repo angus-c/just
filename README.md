@@ -68,6 +68,7 @@ Perfect for the Mobile Web.
   * [just-flip](#just-flip)
   * [just-partial-it](#just-partial-it)
   * [just-debounce-it](#just-debounce-it)
+  * [just-throttle](#just-throttle)  
 
 ### Collections
 
@@ -868,7 +869,22 @@ fn2();
 // 500ms later logs 'hello' once
 
 ```
+### [just-throttle](https://www.npmjs.com/package/just-throttle)
+:icecream:[`Try It`](http://anguscroll.com/just/just-throttle)
 
+`npm install just-throttle`
+
+```js
+import throttle from 'just-throttle';
+
+const fn1 = throttle(() => console.log('hello'), 500, true);
+setInterval(fn1, 400);
+// logs 'hello' immediately and then every 500ms
+
+const fn2 = throttle(() => console.log('hello'), 500);
+setInterval(fn2, 400);
+// logs 'hello' after 500ms and then every 500ms
+```
 ## Testing
 
 Run all tests as a single test suite with
