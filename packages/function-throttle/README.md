@@ -8,15 +8,11 @@ Guilt-free utilities for every occasion.
 ```js
 import throttle from 'just-throttle';
 
-const fn1 = throttle(() => console.log('Hello'), 500);
+const fn1 = throttle(() => console.log('hello'), 500, true);
 setInterval(fn1, 400);
 // logs 'hello' immediately and then every 500ms
 
-const fn2 = throttle(() => console.log('Hello'), 500, {leading: false});
+const fn2 = throttle(() => console.log('hello'), 500);
 setInterval(fn2, 400);
 // logs 'hello' after 500ms and then every 500ms
-
-const fn3 = throttle(() => console.log('Hello'), 500, {trailing: false});
-setInterval(fn3, 400);
-// logs 'hello' immediately and then every 500ms, but not after final interval
 ```
