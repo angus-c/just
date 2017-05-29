@@ -342,6 +342,14 @@ fn1();
 fn1();
 fn1();`
       ]
+    },
+    "just-throttle": {
+      "code": [
+        `const throttle = require('just-throttle');
+ 
+const fn1 = throttle(() => console.log('hello'), 2000, true);
+setInterval(fn1, 400);`
+      ]
     }
   }
 };

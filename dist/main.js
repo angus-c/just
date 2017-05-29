@@ -444,7 +444,10 @@ exports.default = {
       "code": ["const flip = require('just-flip');\n \nflip(console.log)(1, 2, 3);"]
     },
     "just-debounce-it": {
-      "code": ["const debounce = require('just-debounce-it');\n \nconst fn1 = debounce(() => console.log('Hello'), 500);\nfn1();\nfn1();\nfn1();"]
+      "code": ["const debounce = require('just-debounce-it');\n \nconst fn1 = debounce(() => console.log('Hello'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();"]
+    },
+    "just-throttle": {
+      "code": ["const throttle = require('just-throttle');\n \nconst fn1 = throttle(() => console.log('hello'), 2000, true);\nsetInterval(fn1, 400);"]
     }
   }
 };
