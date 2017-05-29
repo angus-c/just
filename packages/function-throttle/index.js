@@ -11,10 +11,13 @@ function throttle (fn, interval, immediate) {
       wait = true;
       setTimeout(function () {
         wait = false;
-        return fn.apply(context, args);
+        if (!callNow) {
+          return fn.apply(context, args);
+        }
       }, interval);
     }
     if (callNow) {
+      callNow = false;
       return fn.apply(this, arguments);
     }
   }
