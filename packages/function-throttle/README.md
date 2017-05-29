@@ -6,7 +6,7 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-throttle)
 
 ```js
-import throttle from 'just-throttle-it';
+import throttle from 'just-throttle';
 
 const fn1 = throttle(() => console.log('Hello'), 500);
 setInterval(fn1, 400);
