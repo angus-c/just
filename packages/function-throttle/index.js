@@ -1,10 +1,10 @@
 module.exports = throttle;
 
-function throttle (fn, interval, immediate) {
+function throttle(fn, interval, immediate) {
   var wait = false;
   var callNow = false;
   return function () {
-    var callNow = immediate && !wait;
+    callNow = immediate && !wait;
     var context = this;
     var args = arguments;
     if (!wait) {
