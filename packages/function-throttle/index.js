@@ -1,17 +1,17 @@
 module.exports = throttle;
 
-function throttle(fn, interval, immediate) {
+function throttle(fn, interval, callFirst) {
   var wait = false;
   var callNow = false;
   return function () {
-    callNow = immediate && !wait;
+    callNow = callFirst && !wait;
     var context = this;
     var args = arguments;
     if (!wait) {
       wait = true;
       setTimeout(function () {
         wait = false;
-        if (!callNow) {
+        if (!callFirst) {
           return fn.apply(context, args);
         }
       }, interval);
@@ -20,5 +20,5 @@ function throttle(fn, interval, immediate) {
       callNow = false;
       return fn.apply(this, arguments);
     }
-  }
+  };
 }

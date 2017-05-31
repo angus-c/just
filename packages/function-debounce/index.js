@@ -1,6 +1,6 @@
 module.exports = debounce;
 
-function debounce(fn, wait, immediate) {
+function debounce(fn, wait, callFirst) {
   var timeout;
   return function () {
     if (!wait) {
@@ -8,7 +8,7 @@ function debounce(fn, wait, immediate) {
     }
     var context = this;
     var args = arguments;
-    var callNow = immediate && !timeout;
+    var callNow = callFirst && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(function () {
       timeout = null;

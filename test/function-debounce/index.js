@@ -19,7 +19,7 @@ test('waits for n ms then runs once', function (t) {
   }, 300);
 });
 
-test('when immediate is true, runs once, waits for n ms then runs again', function (t) {
+test('when callFirst is true, runs once, waits for n ms then runs again', function (t) {
   t.plan(2);
   var callCounter = 0;
   var fn = debounce(
@@ -41,7 +41,7 @@ test('when immediate is true, runs once, waits for n ms then runs again', functi
   }, 300);
 });
 
-test('when invoked less frequently than wait time, runs immediately each time', function (t) {
+test('invokes repeatedly when call intervals > than wait time', function (t) {
   t.plan(4);
   var callCounter = 0;
   var fn = debounce(
@@ -69,7 +69,7 @@ test('when invoked less frequently than wait time, runs immediately each time', 
   }, 200);
 });
 
-test('will invoke immediately and repeatedly when wait is 0', function (t) {
+test('invokes repeatedly when wait is 0', function (t) {
   t.plan(3);
   var callCounter = 0;
   var fn1 = debounce(function () {
@@ -84,7 +84,7 @@ test('will invoke immediately and repeatedly when wait is 0', function (t) {
   t.equal(callCounter, 3);
 });
 
-test('will invoke repeatively when wait is falsey', function (t) {
+test('invokes repeatedly when wait is falsey', function (t) {
   t.plan(1);
   var callCounter = 0;
   var fn1 = debounce(function () {
