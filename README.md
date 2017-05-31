@@ -893,23 +893,24 @@ Run all tests as a single test suite with
 
 ## Contribute!
 
-I welcome pull requests for additional utilities (and corrections to existing ones).
+We welcome pull requests for additional utilities (and corrections to existing ones).
 
 ## New Module Guidelines
-* must not depend on any other npm modules
-* assume this is hot code and code accordingly
+* Must not depend on any other npm modules
+* Always assume this is hot code and code accordingly
   * favor for loops over high order functions
   * don't repeatedly access the same property, assign to a var
   * write es5
-* api
+* API
   * keep the api simple and intuitive
-  * avoid edge case arguments whenever possible
+  * avoid option arguments whenever possible - make it just do one thing
 * README
   * limit README to examples of each use case
   * if you must explain the api (see api section) add a comment in the README example code
-  * add a section in the general README that matches the README for your module
-* tests
+  * add a section in the general README that duplicates the individual README for your module
+* Tests
   * write a test for each use case
   * include tests for all README examples
-* Interactive gh-page (anguscroll.com/just)
+  * over-thorough is better than not thorough enough
+* Interactive gh-pages (anguscroll.com/just)
   * I can update this afterwards
