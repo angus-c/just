@@ -6,6 +6,8 @@ A library of **zero-dependency** npm modules that do just do one thing.
 Guilt-free utilities for every occasion.  
 Perfect for the Mobile Web.
 
+We welcome contributions. Please follow the [contribution guidelines](New-Module-Guidelines) below.
+
 ## Try :icecream:
 [Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [RunKit](https://runkit.com))
 <a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
