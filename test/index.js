@@ -18,6 +18,7 @@ require('./function-demethodize');
 require('./function-partial');
 require('./function-compose');
 require('./function-debounce');
+require('./function-throttle');
 require('./collection-compare');
 require('./collection-pluck');
 require('./collection-flush');
