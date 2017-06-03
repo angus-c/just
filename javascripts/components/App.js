@@ -33,7 +33,7 @@ export default class App extends React.Component {
   
   fnFromUrl() {
     const lastPath = location.href.split('/').pop();
-    return lastPath.indexOf('just-') == 0 ? lastPath : 'just-compare';
+    return lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
   }
   
   onSelect({target: {innerText}}) {
