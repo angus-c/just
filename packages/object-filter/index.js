@@ -18,14 +18,10 @@ module.exports = filter;
 */
 
 function filter(obj, predicate) {
-  var result = {};
-  var keys = Object.keys(obj);
-  var len = keys.length;
-  for (var i = 0; i < len; i++) {
-    var key = keys[i];
+  return Object.keys(obj).reduce(function filterObj(result, key) {
     if (predicate(key, obj[key])) {
       result[key] = obj[key];
     }
-  }
-  return result;
+    return result;
+  }, {});
 }
