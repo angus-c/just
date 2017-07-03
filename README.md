@@ -47,6 +47,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-tail](#just-tail)
   * [just-random](#just-random)
   * [just-shuffle](#just-shuffle)
+  * [just-split-at](#just-split-at)
   * [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
@@ -563,6 +564,21 @@ shuffle(); // undefined
 shuffle(undefined); // undefined
 shuffle(null); // undefined
 shuffle({}); // undefined
+```
+
+### [just-split-at](https://www.npmjs.com/package/just-split-at)
+:icecream:[`Try It`](http://anguscroll.com/just/just-split-at)
+
+`npm install just-split-at`
+
+```js
+import splitAt from 'just-split-at';
+
+splitAt([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4, 5]]
+splitAt([{a: 1}, {b: 1}, {c: 1}], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
+splitAt([], 2); // [[], []]
+splitAt(null, 1); // undefined
+splitAt(undefined, 1); // undefined
 ```
 
 ### [just-range](https://www.npmjs.com/package/just-range)
