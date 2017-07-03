@@ -50,7 +50,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
-  * [just-zip](#just-zip)
+  * [just-zip-it](#just-zip-it)
 * [Strings](#strings)
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
@@ -602,13 +602,13 @@ import union from 'just-union';
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
 
-### [just-zip](https://www.npmjs.com/package/just-zip)
-:icecream:[`Try It`](http://anguscroll.com/just/just-zip)
+### [just-zip-it](https://www.npmjs.com/package/just-zip-it)
+:icecream:[`Try It`](http://anguscroll.com/just/just-zip-it)
 
-`npm install just-zip`
+`npm install just-zip-it`
 
 ```js
-import zip from 'just-zip';
+import zip from 'just-zip-it';
 
 zip([1, 2, 3]); // [[1], [2], [3]]
 zip([1, 2, 3], ['a', 'b', 'c']); // [[1, 'a'], [2, 'b'], [3, 'c']]

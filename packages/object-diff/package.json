@@ -1,19 +1,19 @@
 {
-  "name": "just-zip-it",
+  "name": "just-diff",
   "version": "1.0.0",
-  "description": "returns an array of grouped elements, taking n-th element from every given array",
+  "description": "return an object representing the diffs between two other objects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "array",
-    "zip",
+    "object",
+    "diff",
     "no-dependencies",
     "just"
   ],
-  "author": "Kamil Ogórek",
+  "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
