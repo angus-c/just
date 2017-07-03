@@ -1,0 +1,21 @@
+{
+  "name": "just-zip",
+  "version": "1.0.0",
+  "description": "returns an array of grouped elements, taking n-th element from every given array",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "zip",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Kamil Ogórek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
