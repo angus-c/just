@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = diff;
 
 /*
@@ -24,6 +26,23 @@ module.exports = diff;
     { "op": "remove", "path": "/b" },
     { "op": "add", "path": "/c", "value": 5 }
   ]
+  
+  const obj4 = {a: 4, b: [1, 2, 3]};
+  const obj5 = {a: 3, b: [1, 2, 4]};
+  const obj6 = {a: 3, b: [1, 2, 4, 5]};
+  
+  diff(obj4, obj5);
+  [
+    { "op": "replace", "path": "/a", "value": 3 }
+    { "op": "replace", "path": "/b/2", "value": 4 }
+  ]
+  
+  diff(obj4, obj5);
+  [
+    { "op": "replace", "path": "/a", "value": 3 }
+    { "op": "replace", "path": "/b/2", "value": 4 }
+  ]
+  
 */
 
 function map(obj, predicate) {
