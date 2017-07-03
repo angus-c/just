@@ -5,7 +5,7 @@ test('waits for n ms then runs once', function (t) {
   t.plan(1);
   var callCounter = 0;
   var fn = debounce(
-    function () {callCounter++;},
+    function () {callCounter++},
     100
   );
 
@@ -23,7 +23,7 @@ test('when callFirst is true, runs once, waits for n ms then runs again', functi
   t.plan(2);
   var callCounter = 0;
   var fn = debounce(
-    function () {callCounter++;},
+    function () {callCounter++},
     100,
     true
   );
