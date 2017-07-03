@@ -50,6 +50,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
+  * [just-zip](#just-zip)
 * [Strings](#strings)
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
@@ -599,6 +600,24 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 import union from 'just-union';
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
+```
+
+### [just-zip](https://www.npmjs.com/package/just-zip)
+:icecream:[`Try It`](http://anguscroll.com/just/just-zip)
+
+`npm install just-zip`
+
+```js
+import zip from 'just-zip';
+
+zip([1, 2, 3]); // [[1], [2], [3]]
+zip([1, 2, 3], ['a', 'b', 'c']); // [[1, 'a'], [2, 'b'], [3, 'c']]
+zip([1, 2], ['a', 'b'], [true, false]); //[[1, 'a', true], [2, 'b', false]]
+
+zip(undefined, {}, false, 1, 'foo'); // []
+zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // [[1, 'a'], [2, 'b']]
+
+zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
 ```
 
 ### Strings

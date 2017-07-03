@@ -10,6 +10,7 @@ require('./array-range');
 require('./array-remove');
 require('./array-union');
 require('./array-unique');
+require('./array-zip');
 require('./number-clamp');
 require('./number-modulo');
 require('./function-curry');
