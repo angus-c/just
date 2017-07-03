@@ -210,6 +210,12 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]);`
         `const union = require('just-union')\n
 union([1, 2, 5, 6], [2, 3, 4, 6]);`
       ]
+    },
+    "just-zip-it": {
+      "code": [
+        `const zip = require('just-zip-it')\n
+zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`
+      ]
     }
   },
   "Strings": {

@@ -388,6 +388,9 @@ exports.default = {
     },
     "just-union": {
       "code": ["const union = require('just-union')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);"]
+    },
+    "just-zip-it": {
+      "code": ["const zip = require('just-zip-it')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);"]
     }
   },
   "Strings": {
