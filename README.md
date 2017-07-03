@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.  
-Guilt-free utilities for every occasion.  
+A library of **zero-dependency** npm modules that do just do one thing.
+Guilt-free utilities for every occasion.
 Perfect for the Mobile Web.
 
 We welcome contributions. Please follow the [contribution guidelines](#new-module-guidelines) below.
@@ -15,19 +15,19 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## The Modules :package:
-  
+
 * [Objects](#objects)
   * [just-extend](#just-extend)
   * [just-values](#just-values)
-  * [just-entries](#just-entries)  
+  * [just-entries](#just-entries)
   * [just-pick](#just-pick)
   * [just-omit](#just-omit)
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)
   * [just-reduce-object](#just-reduce-object)
   * [just-is-empty](#just-is-empty)
-  * [just-is-circular](#just-is-circular)  
-  * [just-is-primitive](#just-is-primitive)      
+  * [just-is-circular](#just-is-circular)
+  * [just-is-primitive](#just-is-primitive)
   * [just-safe-get](#just-safe-get)
   * [just-safe-set](#just-safe-set)
   * [just-typeof](#just-typeof)
@@ -35,34 +35,34 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 * [Collections](#collections)
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
-  * [just-flush](#just-flush)  
+  * [just-flush](#just-flush)
 * [Arrays](#arrays)
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
   * [just-index](#just-index)
   * [just-insert](#just-insert)
   * [just-intersect](#just-intersect)
-  * [just-compact](#just-compact)  
+  * [just-compact](#just-compact)
   * [just-last](#just-last)
   * [just-tail](#just-tail)
   * [just-random](#just-random)
-  * [just-shuffle](#just-shuffle)  
+  * [just-shuffle](#just-shuffle)
   * [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
 * [Strings](#strings)
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
-  * [just-prune](#just-prune)      
-  * [just-squash](#just-squash)  
+  * [just-prune](#just-prune)
+  * [just-squash](#just-squash)
   * [just-left-pad](#just-left-pad)
   * [just-right-pad](#just-right-pad)
-  * [just-camel-case](#just-camel-case)              
-  * [just-kebab-case](#just-kebab-case)              
-  * [just-snake-case](#just-snake-case)                  
+  * [just-camel-case](#just-camel-case)
+  * [just-kebab-case](#just-kebab-case)
+  * [just-snake-case](#just-snake-case)
 * [Numbers](#numbers)
-  * [just-clamp](#just-clamp)  
-  * [just-modulo](#just-modulo)  
+  * [just-clamp](#just-clamp)
+  * [just-modulo](#just-modulo)
 * [Functions](#functions)
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
@@ -70,7 +70,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-flip](#just-flip)
   * [just-partial-it](#just-partial-it)
   * [just-debounce-it](#just-debounce-it)
-  * [just-throttle](#just-throttle)  
+  * [just-throttle](#just-throttle)
 
 ### Objects
 
