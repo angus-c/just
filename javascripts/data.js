@@ -199,6 +199,12 @@ shuffle([1, 2, 3, 4, 5]);`
 range(0, 20, 5);`
       ]
     },
+    "just-split-at": {
+      "code": [
+        `const splitAt = require('just-split-at');\n
+splitAt([1, 2, 3, 4, 5], 2);`
+      ]
+    },
     "just-remove": {
       "code": [
         `const remove = require('just-remove')\n
