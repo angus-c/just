@@ -1,0 +1,21 @@
+{
+  "name": "just-split-at",
+  "version": "1.0.0",
+  "description": "splits an array into two at a given position",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/split-at",
+  "keywords": [
+    "array",
+    "split-at",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Cameron Hunter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
