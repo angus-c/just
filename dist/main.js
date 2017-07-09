@@ -340,7 +340,7 @@ exports.default = {
   },
   "Collections": {
     "just-diff": {
-      "code": ["const diff = require('just-diff')\n\ncompare({a: 2, b: {bb: 4}, c: [1, 3]}, {a: 2, b: {bb: 4}, c: [1, 2, 5]});"]
+      "code": ["const diff = require('just-diff')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {a: 2, b: {bb: 4}, c: [1, 2, 5]}\n);"]
     },
     "just-compare": {
       "code": ["const compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]

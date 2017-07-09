@@ -115,7 +115,10 @@ typeOf({});
     "just-diff": {
       "code": [
         `const diff = require('just-diff')\n
-compare({a: 2, b: {bb: 4}, c: [1, 3]}, {a: 2, b: {bb: 4}, c: [1, 2, 5]});`
+diff(
+  {a: 2, b: {bb: 4}, c: [1, 3]},
+  {a: 2, b: {bb: 4}, c: [1, 2, 5]}
+);`
       ]
     },
     "just-compare": {
