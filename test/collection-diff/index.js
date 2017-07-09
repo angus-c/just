@@ -1,5 +1,5 @@
 var test = require('tape');
-var diff = require('../../packages/collections-diff');
+var diff = require('../../packages/collection-diff');
 var compare = require('../../packages/collection-compare');
 
 test('flat objects', function (t) {
