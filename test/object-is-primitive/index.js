@@ -1,3 +1,5 @@
+/* globals Symbol */
+
 var test = require('tape');
 var isPrimitive = require('../../packages/object-is-primitive');
 

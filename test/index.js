@@ -21,6 +21,7 @@ require('./function-compose');
 require('./function-debounce');
 require('./function-throttle');
 require('./collection-compare');
+require('./collection-diff');
 require('./collection-pluck');
 require('./collection-flush');
 require('./object-is-empty');
