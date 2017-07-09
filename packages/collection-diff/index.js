@@ -1,7 +1,8 @@
 module.exports = diff;
 
 /*
-  Diffs are in JSON Patch format (RFC 6902)
+  Diffs represented as objects (not JSON) in JSON Patch format
+  See http://jsonpatch.com
 
   const obj1 = {a: 4, b: 5};
   const obj2 = {a: 3, b: 5};
@@ -20,8 +21,8 @@ module.exports = diff;
 
   diff(obj2, obj3);
   [
-    { "op": "replace", "path": "/a", "value": 3 }
     { "op": "remove", "path": "/b" },
+    { "op": "replace", "path": "/a", "value": 4 }
     { "op": "add", "path": "/c", "value": 5 }
   ]
 
@@ -55,20 +56,28 @@ module.exports = diff;
     { "op": "remove", "path": "/b/c" }
     { "op": "add", "path": "/b/d", "value": 4 }
   ]
+
+  const obj10 = {a: 4};
+  const obj11 = {a: 4, b: {c: 4}};
+
+  diff(obj10, obj11);
+  [
+    { "op": "add", "path": "/b", "value": {c: 4} }
+  ]
+
+  diff(obj11, obj10);
+  [
+    { "op": "remove", "path": "/b" }
+  ]
 */
 
 function diff(obj1, obj2, path, diffs) {
-  // var typeOfObj1 = ({}).toString.call(obj1).slice(8, -1).toLowerCase();
-  // if (typeOfObj1 != 'object') {
-  //   throw new Error('obj1 must be a non-array object ');
-  // }
-  // var typeOfObj2 = ({}).toString.call(obj2).slice(8, -1).toLowerCase();
-  // if (typeOfObj2 != 'object') {
-  //   throw new Error('obj2 must be a non-array object ');
-  // }
+  if (!obj1 || typeof obj1 != 'object' || !obj2 || typeof obj2 != 'object') {
+    throw new Error('both arguments must be objects or arrays');
+  }
 
   !path && (path = '');
-  !diffs && (diffs = []);
+  !diffs && (diffs = {remove: [], replace: [], add: []});
   var obj1Keys = Object.keys(obj1);
   var obj1KeysLength = obj1Keys.length;
   var obj2Keys = Object.keys(obj2);
@@ -78,7 +87,7 @@ function diff(obj1, obj2, path, diffs) {
     var key = obj1Keys[i];
     var removePath = path + '/' + key;
     if (!obj2[key]) {
-      diffs.push({
+      diffs.remove.push({
         op: 'remove',
         path: removePath
       });
@@ -90,14 +99,14 @@ function diff(obj1, obj2, path, diffs) {
     var updatePath = path + '/' + key;
     if (!obj1[key]) {
       var obj2Value = obj2[key];
-      diffs.push({
+      diffs.add.push({
         op: 'add',
         path: updatePath,
-        value: Object(obj2Value) !== obj2Value ? obj2Value : JSON.stringify(obj2Value)
+        value: obj2Value
       });
     } else if (obj1[key] != obj2[key]) {
       if (Object(obj2[key]) !== obj2[key]) {
-        diffs.push({
+        diffs.replace.push({
           op: 'replace',
           path: updatePath,
           value: obj2[key]
@@ -108,5 +117,5 @@ function diff(obj1, obj2, path, diffs) {
     }
   }
 
-  return diffs;
+  return diffs.remove.concat(diffs.replace).concat(diffs.add);
 }
