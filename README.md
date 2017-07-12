@@ -2,9 +2,8 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.
-Guilt-free utilities for every occasion.
-Perfect for the Mobile Web.
+A library of **zero-dependency** npm modules that do just do one thing.  
+A guilt-free alternative to those bulkier libraries. Suitable for mobile web clients or wherever bytes are precious.
 
 We welcome contributions. Please follow the [contribution guidelines](#new-module-guidelines) below.
 
