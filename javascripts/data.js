@@ -114,10 +114,11 @@ typeOf({});
   "Collections": {
     "just-diff": {
       "code": [
-        `const diff = require('just-diff')\n
+        `const {diff, jsonPatchPathConverter} = require('just-diff')\n
 diff(
   {a: 2, b: {bb: 4}, c: [1, 3]},
-  {b: {cc: 4}, c: [1, 2, 5]}
+  {b: {cc: 4}, c: [1, 2, 5]},
+  /* jsonPatchPathConverter */
 );`
       ]
     },
