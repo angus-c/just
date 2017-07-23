@@ -1,4 +1,35 @@
 export default {
+  "Collections": {
+    "just-diff": {
+      "code": [
+        `const {diff, jsonPatchPathConverter} = require('just-diff')\n
+diff(
+  {a: 2, b: {bb: 4}, c: [1, 3]},
+  {b: {cc: 4}, c: [1, 2, 5]},
+  /* jsonPatchPathConverter */
+);`
+      ]
+    },
+    "just-compare": {
+      "code": [
+        `const compare = require('just-compare')\n
+compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
+      ]
+    },
+    "just-pluck-it": {
+      "code": [
+        `const pluck = require('just-pluck-it')\n
+pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')`
+      ]
+    },
+    "just-flush": {
+      "code": [
+        `const flush = require('just-flush')\n
+flush([1, undefined, 2, null, 3, NaN, 0])
+// flush({a: 2, b: null, c: 4, d: undefined})`
+      ]
+    }
+  },
   "Object": {
     "just-extend": {
       "code": [
@@ -108,37 +139,6 @@ typeOf({});
 // typeOf('a');
 // typeOf(1);
 // typeOf(true);`
-      ]
-    }
-  },
-  "Collections": {
-    "just-diff": {
-      "code": [
-        `const {diff, jsonPatchPathConverter} = require('just-diff')\n
-diff(
-  {a: 2, b: {bb: 4}, c: [1, 3]},
-  {b: {cc: 4}, c: [1, 2, 5]},
-  /* jsonPatchPathConverter */
-);`
-      ]
-    },
-    "just-compare": {
-      "code": [
-        `const compare = require('just-compare')\n
-compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
-      ]
-    },
-    "just-pluck-it": {
-      "code": [
-        `const pluck = require('just-pluck-it')\n
-pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')`
-      ]
-    },
-    "just-flush": {
-      "code": [
-        `const flush = require('just-flush')\n
-flush([1, undefined, 2, null, 3, NaN, 0])
-// flush({a: 2, b: null, c: 4, d: undefined})`
       ]
     }
   },
