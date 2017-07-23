@@ -1,5 +1,7 @@
 var test = require('tape');
-var diff = require('../../packages/collection-diff');
+var diffModule = require('../../packages/collection-diff');
+var diff = diffModule.diff;
+var jsonPatchPathConverter = diffModule.jsonPatchPathConverter;
 var compare = require('../../packages/collection-compare');
 
 test('flat objects', function (t) {
@@ -10,28 +12,28 @@ test('flat objects', function (t) {
   var obj3 = {a: 4, c: 5};
 
   t.ok(compare(diff(obj1, obj2), [
-    { op: 'replace', 'path': '/a', value: 3 }
+    { op: 'replace', 'path': ['a'], value: 3 }
   ]));
   t.ok(compare(diff(obj2, obj1), [
-    { op: 'replace', 'path': '/a', value: 4 }
+    { op: 'replace', 'path': ['a'], value: 4 }
   ]));
   t.ok(compare(diff(obj1, obj3), [
-    { op: 'remove', 'path': '/b' },
-    { op: 'add', 'path': '/c', value: 5 }
+    { op: 'remove', 'path': ['b'] },
+    { op: 'add', 'path': ['c'], value: 5 }
   ]));
   t.ok(compare(diff(obj3, obj1), [
-    { op: 'remove', 'path': '/c' },
-    { op: 'add', 'path': '/b', value: 5 }
+    { op: 'remove', 'path': ['c'] },
+    { op: 'add', 'path': ['b'], value: 5 }
   ]));
   t.ok(compare(diff(obj2, obj3), [
-    { op: 'remove', 'path': '/b' },
-    { op: 'replace', 'path': '/a', value: 4 },
-    { op: 'add', 'path': '/c', value: 5 }
+    { op: 'remove', 'path': ['b'] },
+    { op: 'replace', 'path': ['a'], value: 4 },
+    { op: 'add', 'path': ['c'], value: 5 }
   ]));
   t.ok(compare(diff(obj3, obj2), [
-    { op: 'remove', 'path': '/c' },
-    { op: 'replace', 'path': '/a', value: 3 },
-    { op: 'add', 'path': '/b', value: 5 }
+    { op: 'remove', 'path': ['c'] },
+    { op: 'replace', 'path': ['a'], value: 3 },
+    { op: 'add', 'path': ['b'], value: 5 }
   ]));
 });
 
@@ -43,28 +45,28 @@ test('objects with array properties', function (t) {
   var obj6 = {a: 3, b: [1, 2, 4, 5]};
 
   t.ok(compare(diff(obj4, obj5), [
-    { op: 'replace', 'path': '/a', value: 3 },
-    { op: 'replace', 'path': '/b/2', value: 4 }
+    { op: 'replace', 'path': ['a'], value: 3 },
+    { op: 'replace', 'path': ['b', '2'], value: 4 }
   ]));
   t.ok(compare(diff(obj5, obj4), [
-    { op: 'replace', 'path': '/a', value: 4 },
-    { op: 'replace', 'path': '/b/2', value: 3 }
+    { op: 'replace', 'path': ['a'], value: 4 },
+    { op: 'replace', 'path': ['b', '2'], value: 3 }
   ]));
   t.ok(compare(diff(obj4, obj6), [
-    { op: 'replace', 'path': '/a', value: 3 },
-    { op: 'replace', 'path': '/b/2', value: 4 },
-    { op: 'add', 'path': '/b/3', value: 5 }
+    { op: 'replace', 'path': ['a'], value: 3 },
+    { op: 'replace', 'path': ['b', '2'], value: 4 },
+    { op: 'add', 'path': ['b', '3'], value: 5 }
   ]));
   t.ok(compare(diff(obj6, obj4), [
-    { op: 'remove', 'path': '/b/3' },
-    { op: 'replace', 'path': '/a', value: 4 },
-    { op: 'replace', 'path': '/b/2', value: 3 }
+    { op: 'remove', 'path': ['b', '3'] },
+    { op: 'replace', 'path': ['a'], value: 4 },
+    { op: 'replace', 'path': ['b', '2'], value: 3 }
   ]));
   t.ok(compare(diff(obj5, obj6), [
-    { op: 'add', 'path': '/b/3', value: 5 }
+    { op: 'add', 'path': ['b', '3'], value: 5 }
   ]));
   t.ok(compare(diff(obj6, obj5), [
-    { op: 'remove', 'path': '/b/3' }
+    { op: 'remove', 'path': ['b', '3'] }
   ]));
 });
 
@@ -78,36 +80,36 @@ test('nested objects', function (t) {
   var obj11 = {a: 4, b: {c: 4}};
 
   t.ok(compare(diff(obj7, obj8), [
-    { op: 'replace', 'path': '/b/c', value: 4 }
+    { op: 'replace', 'path': ['b', 'c'], value: 4 }
   ]));
   t.ok(compare(diff(obj8, obj7), [
-    { op: 'replace', 'path': '/b/c', value: 3 }
+    { op: 'replace', 'path': ['b', 'c'], value: 3 }
   ]));
   t.ok(compare(diff(obj7, obj9), [
-    { op: 'remove', 'path': '/b/c' },
-    { op: 'replace', 'path': '/a', value: 5 },
-    { op: 'add', 'path': '/b/d', value: 4 }
+    { op: 'remove', 'path': ['b', 'c'] },
+    { op: 'replace', 'path': ['a'], value: 5 },
+    { op: 'add', 'path': ['b', 'd'], value: 4 }
   ]));
   t.ok(compare(diff(obj9, obj7), [
-    { op: 'remove', 'path': '/b/d' },
-    { op: 'replace', 'path': '/a', value: 4 },
-    { op: 'add', 'path': '/b/c', value: 3 }
+    { op: 'remove', 'path': ['b', 'd'] },
+    { op: 'replace', 'path': ['a'], value: 4 },
+    { op: 'add', 'path': ['b', 'c'], value: 3 }
   ]));
   t.ok(compare(diff(obj8, obj9), [
-    { op: 'remove', 'path': '/b/c' },
-    { op: 'replace', 'path': '/a', value: 5 },
-    { op: 'add', 'path': '/b/d', value: 4 }
+    { op: 'remove', 'path': ['b', 'c'] },
+    { op: 'replace', 'path': ['a'], value: 5 },
+    { op: 'add', 'path': ['b', 'd'], value: 4 }
   ]));
   t.ok(compare(diff(obj9, obj8), [
-    { op: 'remove', 'path': '/b/d' },
-    { op: 'replace', 'path': '/a', value: 4 },
-    { op: 'add', 'path': '/b/c', value: 4 }
+    { op: 'remove', 'path': ['b', 'd'] },
+    { op: 'replace', 'path': ['a'], value: 4 },
+    { op: 'add', 'path': ['b', 'c'], value: 4 }
   ]));
   t.ok(compare(diff(obj10, obj11), [
-    { op: 'add', 'path': '/b', value: {c: 4} }
+    { op: 'add', 'path': ['b'], value: {c: 4} }
   ]));
   t.ok(compare(diff(obj11, obj10), [
-    { op: 'remove', 'path': '/b' }
+    { op: 'remove', 'path': ['b'] }
   ]));
 });
 
@@ -119,37 +121,37 @@ test('arrays', function (t) {
   var obj14 = ['b', {b: 3}, 'd', 'e'];
 
   t.ok(compare(diff(obj12, obj13), [
-    { op: 'replace', 'path': '/1/a', value: 3 },
-    { op: 'replace', 'path': '/2', value: 'd' }
+    { op: 'replace', 'path': ['1', 'a'], value: 3 },
+    { op: 'replace', 'path': ['2'], value: 'd' }
   ]));
   t.ok(compare(diff(obj13, obj12), [
-    { op: 'replace', 'path': '/1/a', value: 2 },
-    { op: 'replace', 'path': '/2', value: 'c' }
+    { op: 'replace', 'path': ['1', 'a'], value: 2 },
+    { op: 'replace', 'path': ['2'], value: 'c' }
   ]));
   t.ok(compare(diff(obj12, obj14), [
-    { op: 'remove', 'path': '/1/a' },
-    { op: 'replace', 'path': '/0', value: 'b' },
-    { op: 'replace', 'path': '/2', value: 'd' },
-    { op: 'add', 'path': '/1/b', value: 3 },
-    { op: 'add', 'path': '/3', value: 'e' }
+    { op: 'remove', 'path': ['1', 'a'] },
+    { op: 'replace', 'path': ['0'], value: 'b' },
+    { op: 'replace', 'path': ['2'], value: 'd' },
+    { op: 'add', 'path': ['1', 'b'], value: 3 },
+    { op: 'add', 'path': ['3'], value: 'e' }
   ]));
   t.ok(compare(diff(obj13, obj14), [
-    { op: 'remove', 'path': '/1/a' },
-    { op: 'replace', 'path': '/0', value: 'b' },
-    { op: 'add', 'path': '/1/b', value: 3 },
-    { op: 'add', 'path': '/3', value: 'e' }
+    { op: 'remove', 'path': ['1', 'a'] },
+    { op: 'replace', 'path': ['0'], value: 'b' },
+    { op: 'add', 'path': ['1', 'b'], value: 3 },
+    { op: 'add', 'path': ['3'], value: 'e' }
   ]));
   t.ok(compare(diff(obj13, obj14), [
-    { op: 'remove', 'path': '/1/a' },
-    { op: 'replace', 'path': '/0', value: 'b' },
-    { op: 'add', 'path': '/1/b', value: 3 },
-    { op: 'add', 'path': '/3', value: 'e' }
+    { op: 'remove', 'path': ['1', 'a'] },
+    { op: 'replace', 'path': ['0'], value: 'b' },
+    { op: 'add', 'path': ['1', 'b'], value: 3 },
+    { op: 'add', 'path': ['3'], value: 'e' }
   ]));
   t.ok(compare(diff(obj14, obj13), [
-    { op: 'remove', 'path': '/3' },
-    { op: 'remove', 'path': '/1/b' },
-    { op: 'replace', 'path': '/0', value: 'a' },
-    { op: 'add', 'path': '/1/a', value: 3 }
+    { op: 'remove', 'path': ['3'] },
+    { op: 'remove', 'path': ['1', 'b'] },
+    { op: 'replace', 'path': ['0'], value: 'a' },
+    { op: 'add', 'path': ['1', 'a'], value: 3 }
   ]));
 });
 
@@ -160,14 +162,229 @@ test('object vs array', function (t) {
   var obj16 = ['a', 2];
 
   t.ok(compare(diff(obj15, obj16), [
+    { op: 'remove', 'path': ['a'] },
+    { op: 'add', 'path': ['0'], 'value': 'a' },
+    { op: 'add', 'path': ['1'], 'value': 2 }
+  ]));
+  t.ok(compare(diff(obj16, obj15), [
+    { op: 'remove', 'path': ['0'] },
+    { op: 'remove', 'path': ['1'] },
+    { op: 'add', 'path': ['a'], 'value': 2 }
+  ]));
+});
+
+test('flat objects using jsPatchStandard', function (t) {
+  t.plan(6);
+
+  var obj1 = {a: 4, b: 5};
+  var obj2 = {a: 3, b: 5};
+  var obj3 = {a: 4, c: 5};
+
+  t.ok(compare(diff(obj1, obj2, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/a', value: 3 }
+  ]));
+  t.ok(compare(diff(obj2, obj1, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/a', value: 4 }
+  ]));
+  t.ok(compare(diff(obj1, obj3, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b' },
+    { op: 'add', 'path': '/c', value: 5 }
+  ]));
+  t.ok(compare(diff(obj3, obj1, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/c' },
+    { op: 'add', 'path': '/b', value: 5 }
+  ]));
+  t.ok(compare(diff(obj2, obj3, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b' },
+    { op: 'replace', 'path': '/a', value: 4 },
+    { op: 'add', 'path': '/c', value: 5 }
+  ]));
+  t.ok(compare(diff(obj3, obj2, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/c' },
+    { op: 'replace', 'path': '/a', value: 3 },
+    { op: 'add', 'path': '/b', value: 5 }
+  ]));
+});
+
+test('objects with array properties using jsPatchStandard', function (t) {
+  t.plan(6);
+
+  var obj4 = {a: 4, b: [1, 2, 3]};
+  var obj5 = {a: 3, b: [1, 2, 4]};
+  var obj6 = {a: 3, b: [1, 2, 4, 5]};
+
+  t.ok(compare(diff(obj4, obj5, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/a', value: 3 },
+    { op: 'replace', 'path': '/b/2', value: 4 }
+  ]));
+  t.ok(compare(diff(obj5, obj4, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/a', value: 4 },
+    { op: 'replace', 'path': '/b/2', value: 3 }
+  ]));
+  t.ok(compare(diff(obj4, obj6, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/a', value: 3 },
+    { op: 'replace', 'path': '/b/2', value: 4 },
+    { op: 'add', 'path': '/b/3', value: 5 }
+  ]));
+  t.ok(compare(diff(obj6, obj4, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/3' },
+    { op: 'replace', 'path': '/a', value: 4 },
+    { op: 'replace', 'path': '/b/2', value: 3 }
+  ]));
+  t.ok(compare(diff(obj5, obj6, jsonPatchPathConverter), [
+    { op: 'add', 'path': '/b/3', value: 5 }
+  ]));
+  t.ok(compare(diff(obj6, obj5, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/3' }
+  ]));
+});
+
+test('nested objects using jsPatchStandard', function (t) {
+  t.plan(8);
+
+  var obj7 = {a: 4, b: {c: 3}};
+  var obj8 = {a: 4, b: {c: 4}};
+  var obj9 = {a: 5, b: {d: 4}};
+  var obj10 = {a: 4};
+  var obj11 = {a: 4, b: {c: 4}};
+
+  t.ok(compare(diff(obj7, obj8, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/b/c', value: 4 }
+  ]));
+  t.ok(compare(diff(obj8, obj7, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/b/c', value: 3 }
+  ]));
+  t.ok(compare(diff(obj7, obj9, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/c' },
+    { op: 'replace', 'path': '/a', value: 5 },
+    { op: 'add', 'path': '/b/d', value: 4 }
+  ]));
+  t.ok(compare(diff(obj9, obj7, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/d' },
+    { op: 'replace', 'path': '/a', value: 4 },
+    { op: 'add', 'path': '/b/c', value: 3 }
+  ]));
+  t.ok(compare(diff(obj8, obj9, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/c' },
+    { op: 'replace', 'path': '/a', value: 5 },
+    { op: 'add', 'path': '/b/d', value: 4 }
+  ]));
+  t.ok(compare(diff(obj9, obj8, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b/d' },
+    { op: 'replace', 'path': '/a', value: 4 },
+    { op: 'add', 'path': '/b/c', value: 4 }
+  ]));
+  t.ok(compare(diff(obj10, obj11, jsonPatchPathConverter), [
+    { op: 'add', 'path': '/b', value: {c: 4} }
+  ]));
+  t.ok(compare(diff(obj11, obj10, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/b' }
+  ]));
+});
+
+test('arrays using jsPatchStandard', function (t) {
+  t.plan(6);
+
+  var obj12 = ['a', {a: 2}, 'c'];
+  var obj13 = ['a', {a: 3}, 'd'];
+  var obj14 = ['b', {b: 3}, 'd', 'e'];
+
+  t.ok(compare(diff(obj12, obj13, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/1/a', value: 3 },
+    { op: 'replace', 'path': '/2', value: 'd' }
+  ]));
+  t.ok(compare(diff(obj13, obj12, jsonPatchPathConverter), [
+    { op: 'replace', 'path': '/1/a', value: 2 },
+    { op: 'replace', 'path': '/2', value: 'c' }
+  ]));
+  t.ok(compare(diff(obj12, obj14, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/1/a' },
+    { op: 'replace', 'path': '/0', value: 'b' },
+    { op: 'replace', 'path': '/2', value: 'd' },
+    { op: 'add', 'path': '/1/b', value: 3 },
+    { op: 'add', 'path': '/3', value: 'e' }
+  ]));
+  t.ok(compare(diff(obj13, obj14, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/1/a' },
+    { op: 'replace', 'path': '/0', value: 'b' },
+    { op: 'add', 'path': '/1/b', value: 3 },
+    { op: 'add', 'path': '/3', value: 'e' }
+  ]));
+  t.ok(compare(diff(obj13, obj14, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/1/a' },
+    { op: 'replace', 'path': '/0', value: 'b' },
+    { op: 'add', 'path': '/1/b', value: 3 },
+    { op: 'add', 'path': '/3', value: 'e' }
+  ]));
+  t.ok(compare(diff(obj14, obj13, jsonPatchPathConverter), [
+    { op: 'remove', 'path': '/3' },
+    { op: 'remove', 'path': '/1/b' },
+    { op: 'replace', 'path': '/0', value: 'a' },
+    { op: 'add', 'path': '/1/a', value: 3 }
+  ]));
+});
+
+test('object vs array using jsPatchStandard', function (t) {
+  t.plan(2);
+
+  var obj15 = {a: 2};
+  var obj16 = ['a', 2];
+
+  t.ok(compare(diff(obj15, obj16, jsonPatchPathConverter), [
     { op: 'remove', 'path': '/a' },
     { op: 'add', 'path': '/0', 'value': 'a' },
     { op: 'add', 'path': '/1', 'value': 2 }
   ]));
-  t.ok(compare(diff(obj16, obj15), [
+  t.ok(compare(diff(obj16, obj15, jsonPatchPathConverter), [
     { op: 'remove', 'path': '/0' },
     { op: 'remove', 'path': '/1' },
     { op: 'add', 'path': '/a', 'value': 2 }
+  ]));
+});
+
+test('nested objects using custom converter', function (t) {
+  t.plan(8);
+
+  var converter = function (path) {
+    return path.join('-');
+  };
+  var obj7 = {a: 4, b: {c: 3}};
+  var obj8 = {a: 4, b: {c: 4}};
+  var obj9 = {a: 5, b: {d: 4}};
+  var obj10 = {a: 4};
+  var obj11 = {a: 4, b: {c: 4}};
+
+  t.ok(compare(diff(obj7, obj8, converter), [
+    { op: 'replace', 'path': 'b-c', value: 4 }
+  ]));
+  t.ok(compare(diff(obj8, obj7, converter), [
+    { op: 'replace', 'path': 'b-c', value: 3 }
+  ]));
+  t.ok(compare(diff(obj7, obj9, converter), [
+    { op: 'remove', 'path': 'b-c' },
+    { op: 'replace', 'path': 'a', value: 5 },
+    { op: 'add', 'path': 'b-d', value: 4 }
+  ]));
+  t.ok(compare(diff(obj9, obj7, converter), [
+    { op: 'remove', 'path': 'b-d' },
+    { op: 'replace', 'path': 'a', value: 4 },
+    { op: 'add', 'path': 'b-c', value: 3 }
+  ]));
+  t.ok(compare(diff(obj8, obj9, converter), [
+    { op: 'remove', 'path': 'b-c' },
+    { op: 'replace', 'path': 'a', value: 5 },
+    { op: 'add', 'path': 'b-d', value: 4 }
+  ]));
+  t.ok(compare(diff(obj9, obj8, converter), [
+    { op: 'remove', 'path': 'b-d' },
+    { op: 'replace', 'path': 'a', value: 4 },
+    { op: 'add', 'path': 'b-c', value: 4 }
+  ]));
+  t.ok(compare(diff(obj10, obj11, converter), [
+    { op: 'add', 'path': 'b', value: {c: 4} }
+  ]));
+  t.ok(compare(diff(obj11, obj10, converter), [
+    { op: 'remove', 'path': 'b' }
   ]));
 });
 
