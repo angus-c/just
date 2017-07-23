@@ -77,7 +77,7 @@ var App = function (_React$Component) {
     key: 'fnFromUrl',
     value: function fnFromUrl() {
       var lastPath = location.href.split('/').pop();
-      return lastPath.indexOf('just-') == 0 ? lastPath : 'just-extend';
+      return lastPath.indexOf('just-') == 0 ? lastPath : 'just-diff';
     }
   }, {
     key: 'onSelect',
