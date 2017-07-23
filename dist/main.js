@@ -291,6 +291,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
+  "Collections": {
+    "just-diff": {
+      "code": ["const {diff, jsonPatchPathConverter} = require('just-diff')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);"]
+    },
+    "just-compare": {
+      "code": ["const compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
+    },
+    "just-pluck-it": {
+      "code": ["const pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
+    },
+    "just-flush": {
+      "code": ["const flush = require('just-flush')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})"]
+    }
+  },
   "Object": {
     "just-extend": {
       "code": ["const extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
@@ -336,20 +350,6 @@ exports.default = {
     },
     "just-typeof": {
       "code": ["const typeOf = require('just-typeof');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
-    }
-  },
-  "Collections": {
-    "just-diff": {
-      "code": ["const {diff, jsonPatchPathConverter} = require('just-diff')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);"]
-    },
-    "just-compare": {
-      "code": ["const compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
-    },
-    "just-pluck-it": {
-      "code": ["const pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
-    },
-    "just-flush": {
-      "code": ["const flush = require('just-flush')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})"]
     }
   },
   "Array": {
