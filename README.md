@@ -15,6 +15,11 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
 ## The Modules :package:
 
+* [Collections](#collections)
+  * [just-diff](#just-diff)
+  * [just-compare](#just-compare)
+  * [just-pluck-it](#just-pluck-it)
+  * [just-flush](#just-flush)
 * [Objects](#objects)
   * [just-extend](#just-extend)
   * [just-values](#just-values)
@@ -31,11 +36,6 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-safe-set](#just-safe-set)
   * [just-typeof](#just-typeof)
   * [just-flip-object](#just-flip-object)
-* [Collections](#collections)
-  * [just-diff](#just-diff)
-  * [just-compare](#just-compare)
-  * [just-pluck-it](#just-pluck-it)
-  * [just-flush](#just-flush)
 * [Arrays](#arrays)
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
@@ -73,6 +73,132 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-partial-it](#just-partial-it)
   * [just-debounce-it](#just-debounce-it)
   * [just-throttle](#just-throttle)
+
+  ### Collections
+
+  ### [just-diff](https://www.npmjs.com/package/just-diff)
+  :icecream:[`Try It`](http://anguscroll.com/just/just-diff)
+
+  `npm install just-diff`
+
+  Diffs represented as objects (not JSON) in JSON Patch format
+  See http://jsonpatch.com
+
+  ```js
+  import {diff} from 'just-diff';
+
+  const obj1 = {a: 4, b: 5};
+  const obj2 = {a: 3, b: 5};
+  const obj3 = {a: 4, c: 5};
+
+  diff(obj1, obj2);
+  [
+    { "op": "replace", "path": ['a'], "value": 3 }
+  ]
+
+  diff(obj2, obj3);
+  [
+    { "op": "remove", "path": ['b'] },
+    { "op": "replace", "path": ['a'], "value": 4 }
+    { "op": "add", "path": ['c'], "value": 5 }
+  ]
+
+  // using converter to generate jsPatch standard paths
+  // see http://jsonpatch.com
+  import {diff, jsonPatchPathConverter} from 'just-diff'
+  diff(obj1, obj2, jsonPatchPathConverter);
+  [
+    { "op": "replace", "path": '/a', "value": 3 }
+  ]
+
+  diff(obj2, obj3, jsonPatchPathConverter);
+  [
+    { "op": "remove", "path": '/b' },
+    { "op": "replace", "path": '/a', "value": 4 }
+    { "op": "add", "path": '/c', "value": 5 }
+  ]
+
+  // arrays
+  const obj4 = {a: 4, b: [1, 2, 3]};
+  const obj5 = {a: 3, b: [1, 2, 4]};
+  const obj6 = {a: 3, b: [1, 2, 4, 5]};
+
+  diff(obj4, obj5);
+  [
+    { "op": "replace", "path": ['a'], "value": 3 }
+    { "op": "replace", "path": ['b', '2'], "value": 4 }
+  ]
+
+  diff(obj5, obj6);
+  [
+    { "op": "add", "path": ['b', '3'], "value": 5 }
+  ]
+
+  // nested paths
+  const obj7 = {a: 4, b: {c: 3}};
+  const obj8 = {a: 4, b: {c: 4}};
+  const obj9 = {a: 5, b: {d: 4}};
+
+  diff(obj7, obj8);
+  [
+    { "op": "replace", "path": ['b', 'c'], "value": 4 }
+  ]
+
+  diff(obj8, obj9);
+  [
+    { "op": "replace", "path": ['a'], "value": 5 }
+    { "op": "remove", "path": ['b', 'c']}
+    { "op": "add", "path": ['b', 'd'], "value": 4 }
+  ]
+  ```
+
+  ### [just-compare](https://www.npmjs.com/package/just-compare)
+  :icecream:[`Try It`](http://anguscroll.com/just/just-compare)
+
+  `npm install just-compare`
+
+  ```js
+  import compare from 'just-compare';
+
+  // primitives: value1 === value2
+  // functions: value1.toString == value2.toString
+  // arrays: if length, sequence and values of properties are identical
+  // objects: if length, names and values of properties are identical
+  compare([[1, [2, 3]], [[1, [2, 3]]); // true
+  compare([[1, [2, 3], 4], [[1, [2, 3]]); // false
+  compare({a: 2, b: 3}, {a: 2, b: 3}); // true
+  compare({a: 2, b: 3}, {b: 3, a: 2}); // true
+  compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
+  compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
+  compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
+  ```
+
+  ### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
+  :icecream:[`Try It`](http://anguscroll.com/just/just-pluck-it)
+
+  `npm install just-pluck-it`
+
+  ```js
+  import pluck from 'just-pluck-it';
+
+  pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
+  pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
+  ```
+
+  ### [just-flush](https://www.npmjs.com/package/just-flush)
+  :icecream:[`Try It`](http://anguscroll.com/just/just-flush)
+
+  `npm install just-flush`
+
+  ```js
+  import flush from 'just-flush';
+
+  flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
+  flush([true, null, false, true, [null], undefined]); // [true, false, [null], true]
+  flush({a: 2, b: null, c: 4, d: undefined}); // {a: 2, c: 4}
+  flush('something'); // undefined
+  flush(); // undefined
+  ```
 
 ### Objects
 
@@ -361,132 +487,6 @@ import flip from 'just-flip-object';
 flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}
 flip({a: 1, b: 2, c: 3}); // {'1': 'a', '2': 'b', '3': 'c'}
 flip({a: false, b: true}); // {false: 'a', true: 'b'}
-```
-
-### Collections
-
-### [just-diff](https://www.npmjs.com/package/just-diff)
-:icecream:[`Try It`](http://anguscroll.com/just/just-diff)
-
-`npm install just-diff`
-
-Diffs represented as objects (not JSON) in JSON Patch format
-See http://jsonpatch.com
-
-```js
-import {diff} from 'just-diff';
-
-const obj1 = {a: 4, b: 5};
-const obj2 = {a: 3, b: 5};
-const obj3 = {a: 4, c: 5};
-
-diff(obj1, obj2);
-[
-  { "op": "replace", "path": ['a'], "value": 3 }
-]
-
-diff(obj2, obj3);
-[
-  { "op": "remove", "path": ['b'] },
-  { "op": "replace", "path": ['a'], "value": 4 }
-  { "op": "add", "path": ['c'], "value": 5 }
-]
-
-// using converter to generate jsPatch standard paths
-// see http://jsonpatch.com
-import {diff, jsonPatchPathConverter} from 'just-diff'
-diff(obj1, obj2, jsonPatchPathConverter);
-[
-  { "op": "replace", "path": '/a', "value": 3 }
-]
-
-diff(obj2, obj3, jsonPatchPathConverter);
-[
-  { "op": "remove", "path": '/b' },
-  { "op": "replace", "path": '/a', "value": 4 }
-  { "op": "add", "path": '/c', "value": 5 }
-]
-
-// arrays
-const obj4 = {a: 4, b: [1, 2, 3]};
-const obj5 = {a: 3, b: [1, 2, 4]};
-const obj6 = {a: 3, b: [1, 2, 4, 5]};
-
-diff(obj4, obj5);
-[
-  { "op": "replace", "path": ['a'], "value": 3 }
-  { "op": "replace", "path": ['b', '2'], "value": 4 }
-]
-
-diff(obj5, obj6);
-[
-  { "op": "add", "path": ['b', '3'], "value": 5 }
-]
-
-// nested paths
-const obj7 = {a: 4, b: {c: 3}};
-const obj8 = {a: 4, b: {c: 4}};
-const obj9 = {a: 5, b: {d: 4}};
-
-diff(obj7, obj8);
-[
-  { "op": "replace", "path": ['b', 'c'], "value": 4 }
-]
-
-diff(obj8, obj9);
-[
-  { "op": "replace", "path": ['a'], "value": 5 }
-  { "op": "remove", "path": ['b', 'c']}
-  { "op": "add", "path": ['b', 'd'], "value": 4 }
-]
-```
-
-### [just-compare](https://www.npmjs.com/package/just-compare)
-:icecream:[`Try It`](http://anguscroll.com/just/just-compare)
-
-`npm install just-compare`
-
-```js
-import compare from 'just-compare';
-
-// primitives: value1 === value2
-// functions: value1.toString == value2.toString
-// arrays: if length, sequence and values of properties are identical
-// objects: if length, names and values of properties are identical
-compare([[1, [2, 3]], [[1, [2, 3]]); // true
-compare([[1, [2, 3], 4], [[1, [2, 3]]); // false
-compare({a: 2, b: 3}, {a: 2, b: 3}); // true
-compare({a: 2, b: 3}, {b: 3, a: 2}); // true
-compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
-compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
-compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
-```
-
-### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
-:icecream:[`Try It`](http://anguscroll.com/just/just-pluck-it)
-
-`npm install just-pluck-it`
-
-```js
-import pluck from 'just-pluck-it';
-
-pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
-pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
-```
-
-### [just-flush](https://www.npmjs.com/package/just-flush)
-:icecream:[`Try It`](http://anguscroll.com/just/just-flush)
-
-`npm install just-flush`
-
-```js
-import flush from 'just-flush';
-
-flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
-flush([true, null, false, true, [null], undefined]); // [true, false, [null], true]
-flush({a: 2, b: null, c: 4, d: undefined}); // {a: 2, c: 4}
-flush('something'); // undefined
-flush(); // undefined
 ```
 
 ### Arrays
