@@ -10,7 +10,7 @@
   "keywords": [
     "object",
     "diff",
-    "jsonPatch"
+    "jsonPatch",
     "no-dependencies",
     "just"
   ],
