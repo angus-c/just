@@ -28,7 +28,6 @@ diff(obj2, obj3);
 ]
 
 // using converter to generate jsPatch standard paths
-// see http://jsonpatch.com
 import {diff, jsonPatchPathConverter} from 'just-diff'
 diff(obj1, obj2, jsonPatchPathConverter);
 [
