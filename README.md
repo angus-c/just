@@ -81,8 +81,8 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
   `npm install just-diff`
 
-  Diffs represented as objects (not JSON) in JSON Patch format
-  See http://jsonpatch.com
+  Return an object representing the difference between two other objects
+  Pass converter to format as http://jsonpatch.com
 
   ```js
   import {diff} from 'just-diff';
