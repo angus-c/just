@@ -81,7 +81,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
   `npm install just-diff`
 
-  Return an object representing the difference between two other objects
+  Return an object representing the difference between two other objects  
   Pass converter to format as http://jsonpatch.com
 
   ```js
