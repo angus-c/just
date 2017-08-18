@@ -372,6 +372,17 @@ fn1();`
 const fn1 = throttle(() => console.log('hello'), 2000, true);
 setInterval(fn1, 400);`
       ]
+    },
+    "just-once": {
+      "code": [
+        `const once = require('just-once');
+ 
+let i = 0;
+const addOnce = once(() => i++);
+addOnce();
+addOnce();
+i;`
+      ]
     }
   }
 };

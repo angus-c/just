@@ -457,6 +457,9 @@ exports.default = {
     },
     "just-throttle": {
       "code": ["const throttle = require('just-throttle');\n \nconst fn1 = throttle(() => console.log('hello'), 2000, true);\nsetInterval(fn1, 400);"]
+    },
+    "just-once": {
+      "code": ["const once = require('just-once');\n \nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;"]
     }
   }
 };
