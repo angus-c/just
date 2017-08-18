@@ -11,7 +11,7 @@ function once(fn) {
   var called, value;
 
   if (typeof fn !== 'function') {
-    new Error('expected a function but got ' + fn);
+    throw new Error('expected a function but got ' + fn);
   }
 
   return function wrap() {

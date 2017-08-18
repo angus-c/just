@@ -1,6 +1,6 @@
 {
   "name": "just-once",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create a function that can only be invoked once",
   "main": "index.js",
   "scripts": {
