@@ -73,6 +73,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-partial-it](#just-partial-it)
   * [just-debounce-it](#just-debounce-it)
   * [just-throttle](#just-throttle)
+  * [just-once](#just-once)
 
   ### Collections
 
@@ -996,6 +997,21 @@ setInterval(fn1, 400);
 const fn2 = throttle(() => console.log('hello'), 500);
 setInterval(fn2, 400);
 // logs 'hello' after 500ms and then every 500ms
+```
+### [just-once](https://www.npmjs.com/package/just-once)
+:icecream:[`Try It`](http://anguscroll.com/just/just-once)
+
+`npm install just-once`
+
+```js
+import once from 'just-once';
+
+const fn = once(() => console.log('hello'));
+
+fn();
+// logs 'hello'
+fn();
+// does nothing
 ```
 ## Testing
 
