@@ -9,11 +9,12 @@
   "devDependencies": {
     "eslint": "^1.10.3",
     "lerna": "2.0.0-beta.23",
+    "tap-spec": "^4.1.1",
     "tape": "^4.6.0"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && node test"
+    "test": "npm run lint && tape ./test/**/index.js | tap-spec"
   },
   "repository": {
     "type": "git",
