@@ -27,7 +27,7 @@ test('runs only once', function (t) {
 });
 
 test('forwards arguments', function (t) {
-  t.plan(1);
+  t.plan(2);
   var callCounter = 0;
   var fn = once(function (delta) {callCounter += delta;});
 
@@ -38,7 +38,7 @@ test('forwards arguments', function (t) {
 });
 
 test('forwards context', function (t) {
-  t.plan(1);
+  t.plan(2);
   var callCounter = 0;
   var fn = once(function (delta) {callCounter += this;});
 

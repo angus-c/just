@@ -20,6 +20,7 @@ require('./function-partial');
 require('./function-compose');
 require('./function-debounce');
 require('./function-throttle');
+require('./function-once');
 require('./collection-compare');
 require('./collection-diff');
 require('./collection-pluck');
