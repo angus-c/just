@@ -100,5 +100,5 @@ function diffApply(obj, diff, pathConverter) {
 }
 
 function jsonPatchPathConverter(stringPath) {
-  return stringPath.split('/').shift();
+  return stringPath.split('/').slice(1);
 }

@@ -1,76 +1,52 @@
-## just-diff
+## just-diff-apply
 
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-diff)
+[Try it now](http://anguscroll.com/just/just-diff-apply)
 
-Return an object representing the difference between two other objects  
-Pass converter to format as http://jsonpatch.com
+Apply a diff object to an object.  
+Pass converter to apply a http://jsonpatch.com standard patch
 
 ```js
-import {diff} from 'just-diff';
+  import diffApply from 'just-diff-apply';
 
-const obj1 = {a: 4, b: 5};
-const obj2 = {a: 3, b: 5};
-const obj3 = {a: 4, c: 5};
+  const obj1 = {a: 3, b: 5};
+  diffApply(obj1,
+    [
+      { "op": "remove", "path": ['b'] },
+      { "op": "replace", "path": ['a'], "value": 4 },
+      { "op": "add", "path": ['c'], "value": 5 }
+    ]
+  );
+  obj1; // {a: 4, c: 5}
 
-diff(obj1, obj2);
-[
-  { "op": "replace", "path": ['a'], "value": 3 }
-]
+  // using converter to apply jsPatch standard paths
+  // see http://jsonpatch.com
+  import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'
+  const obj2 = {a: 3, b: 5};
+  diffApply(obj2, [
+    { "op": "remove", "path": '/b' },
+    { "op": "replace", "path": '/a', "value": 4 }
+    { "op": "add", "path": '/c', "value": 5 }
+  ], jsonPatchPathConverter);
+  obj2; // {a: 4, c: 5}
 
-diff(obj2, obj3);
-[
-  { "op": "remove", "path": ['b'] },
-  { "op": "replace", "path": ['a'], "value": 4 }
-  { "op": "add", "path": ['c'], "value": 5 }
-]
+  // arrays
+  const obj3 = {a: 4, b: [1, 2, 3]};
+  diffApply(obj3, [
+    { "op": "replace", "path": ['a'], "value": 3 }
+    { "op": "replace", "path": ['b', '2'], "value": 4 }
+    { "op": "add", "path": ['b', '3'], "value": 9 }
+  ]);
+  obj3; // {a: 3, b: [1, 2, 4, 9]}
 
-// using converter to generate jsPatch standard paths
-import {diff, jsonPatchPathConverter} from 'just-diff'
-diff(obj1, obj2, jsonPatchPathConverter);
-[
-  { "op": "replace", "path": '/a', "value": 3 }
-]
-
-diff(obj2, obj3, jsonPatchPathConverter);
-[
-  { "op": "remove", "path": '/b' },
-  { "op": "replace", "path": '/a', "value": 4 }
-  { "op": "add", "path": '/c', "value": 5 }
-]
-
-// arrays
-const obj4 = {a: 4, b: [1, 2, 3]};
-const obj5 = {a: 3, b: [1, 2, 4]};
-const obj6 = {a: 3, b: [1, 2, 4, 5]};
-
-diff(obj4, obj5);
-[
-  { "op": "replace", "path": ['a'], "value": 3 }
-  { "op": "replace", "path": ['b', '2'], "value": 4 }
-]
-
-diff(obj5, obj6);
-[
-  { "op": "add", "path": ['b', '3'], "value": 5 }
-]
-
-// nested paths
-const obj7 = {a: 4, b: {c: 3}};
-const obj8 = {a: 4, b: {c: 4}};
-const obj9 = {a: 5, b: {d: 4}};
-
-diff(obj7, obj8);
-[
-  { "op": "replace", "path": ['b', 'c'], "value": 4 }
-]
-
-diff(obj8, obj9);
-[
-  { "op": "replace", "path": ['a'], "value": 5 }
-  { "op": "remove", "path": ['b', 'c']}
-  { "op": "add", "path": ['b', 'd'], "value": 4 }
-]
-```
+  // nested paths
+  const obj4 = {a: 4, b: {c: 3}};
+  diffApply(obj4, [
+    { "op": "replace", "path": ['a'], "value": 5 }
+    { "op": "remove", "path": ['b', 'c']}
+    { "op": "add", "path": ['b', 'd'], "value": 4 }
+  ]);
+  obj4; // {a: 5, b: {d: 4}}
+  ```
