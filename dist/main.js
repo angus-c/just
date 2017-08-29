@@ -285,181 +285,184 @@ exports.default = function (_ref) {
 };
 
 },{"./Evaluate":2,"react":189}],5:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = {
-  "Collections": {
-    "just-diff": {
-      "code": ["const {diff, jsonPatchPathConverter} = require('just-diff')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);"]
+  Collections: {
+    'just-diff': {
+      code: ['const {diff, jsonPatchPathConverter} = require(\'just-diff\')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);']
     },
-    "just-compare": {
-      "code": ["const compare = require('just-compare')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);"]
+    'just-diff-apply': {
+      code: ['const {diffApply, jsonPatchPathConverter} = require(\'just-diff-apply\')\n\nconst obj1 = {a: 3, b: 5};\ndiffApply(obj1,\n  [\n    { "op": "remove", "path": [\'b\'] },\n    { "op": "replace", "path": [\'a\'], "value": 4 },\n    { "op": "add", "path": [\'c\'], "value": 5 }\n  ],\n  /* jsonPatchPathConverter */\n);\nobj1;']
     },
-    "just-pluck-it": {
-      "code": ["const pluck = require('just-pluck-it')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')"]
+    'just-compare': {
+      code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
     },
-    "just-flush": {
-      "code": ["const flush = require('just-flush')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})"]
+    'just-pluck-it': {
+      code: ['const pluck = require(\'just-pluck-it\')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, \'a\')']
+    },
+    'just-flush': {
+      code: ['const flush = require(\'just-flush\')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})']
     }
   },
-  "Object": {
-    "just-extend": {
-      "code": ["const extend = require('just-extend')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});"]
+  Object: {
+    'just-extend': {
+      code: ['const extend = require(\'just-extend\')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});']
     },
-    "just-values": {
-      "code": ["const values = require('just-values')\n\nvalues({a: 4, b: 9, c: 8});"]
+    'just-values': {
+      code: ['const values = require(\'just-values\')\n\nvalues({a: 4, b: 9, c: 8});']
     },
-    "just-entries": {
-      "code": ["const entries = require('just-entries')\n\nentries({a: 4, b: 9, c: 8});"]
+    'just-entries': {
+      code: ['const entries = require(\'just-entries\')\n\nentries({a: 4, b: 9, c: 8});']
     },
-    "just-pick": {
-      "code": ["const pick = require('just-pick')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, ['a', 'c']);"]
+    'just-pick': {
+      code: ['const pick = require(\'just-pick\')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, [\'a\', \'c\']);']
     },
-    "just-omit": {
-      "code": ["const omit = require('just-omit')\n\nvar obj = {a: 3, b: 5, c: 9};\nomit(obj, ['a', 'c']);"]
+    'just-omit': {
+      code: ['const omit = require(\'just-omit\')\n\nvar obj = {a: 3, b: 5, c: 9};\nomit(obj, [\'a\', \'c\']);']
     },
-    "just-filter-object": {
-      "code": ["const filter = require('just-filter-object')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);"]
+    'just-filter-object': {
+      code: ['const filter = require(\'just-filter-object\')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);']
     },
-    "just-flip-object": {
-      "code": ["const flip = require('just-flip-object')\n\nflip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}"]
+    'just-flip-object': {
+      code: ['const flip = require(\'just-flip-object\')\n\nflip({a: \'x\', b: \'y\', c: \'z\'}); // {x: \'a\', y: \'b\', z: \'c\'}']
     },
-    "just-map-object": {
-      "code": ["const map = require('just-map-object')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);"]
+    'just-map-object': {
+      code: ['const map = require(\'just-map-object\')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);']
     },
-    "just-reduce-object": {
-      "code": ["const reduce = require('just-reduce-object')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});"]
+    'just-reduce-object': {
+      code: ['const reduce = require(\'just-reduce-object\')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});']
     },
-    "just-is-empty": {
-      "code": ["const isEmpty = require('just-is-empty');\n\nisEmpty({a: 3, b: 5});"]
+    'just-is-empty': {
+      code: ['const isEmpty = require(\'just-is-empty\');\n\nisEmpty({a: 3, b: 5});']
     },
-    "just-is-circular": {
-      "code": ["const obj = {};\nobj.x = {y: obj};\nconst isCircular = require('just-is-circular');\n\nisCircular(obj);"]
+    'just-is-circular': {
+      code: ['const obj = {};\nobj.x = {y: obj};\nconst isCircular = require(\'just-is-circular\');\n\nisCircular(obj);']
     },
-    "just-is-primitive": {
-      "code": ["const isPrimitive = require('just-is-primitive');\n\nisPrimitive(new Date());"]
+    'just-is-primitive': {
+      code: ['const isPrimitive = require(\'just-is-primitive\');\n\nisPrimitive(new Date());']
     },
-    "just-safe-get": {
-      "code": ["const get = require('just-safe-get');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, 'b.bb.bbb');"]
+    'just-safe-get': {
+      code: ['const get = require(\'just-safe-get\');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, \'b.bb.bbb\');']
     },
-    "just-safe-set": {
-      "code": ["const set = require('just-safe-set');\n\nconst obj = {};\nset(obj, 'a.aa.aaa', {aaaa: 4});\nobj;"]
+    'just-safe-set': {
+      code: ['const set = require(\'just-safe-set\');\n\nconst obj = {};\nset(obj, \'a.aa.aaa\', {aaaa: 4});\nobj;']
     },
-    "just-typeof": {
-      "code": ["const typeOf = require('just-typeof');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf('a');\n// typeOf(1);\n// typeOf(true);"]
+    'just-typeof': {
+      code: ['const typeOf = require(\'just-typeof\');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf(\'a\');\n// typeOf(1);\n// typeOf(true);']
     }
   },
-  "Array": {
-    "just-unique": {
-      "code": ["const unique = require('just-unique');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);"]
+  Array: {
+    'just-unique': {
+      code: ['const unique = require(\'just-unique\');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);']
     },
-    "just-flatten-it": {
-      "code": ["const flatten = require('just-flatten-it')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);"]
+    'just-flatten-it': {
+      code: ['const flatten = require(\'just-flatten-it\')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);']
     },
-    "just-index": {
-      "code": ["const index = require('just-index')\n\nindex([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');"]
+    'just-index': {
+      code: ['const index = require(\'just-index\')\n\nindex([{id: \'first\', val: 1}, {id: \'second\', val: 2}], \'id\');']
     },
-    "just-insert": {
-      "code": ["const insert = require('just-insert')\n\ninsert([1, 2, 5, 6], ['a', 'c', 'e'], 2);"]
+    'just-insert': {
+      code: ['const insert = require(\'just-insert\')\n\ninsert([1, 2, 5, 6], [\'a\', \'c\', \'e\'], 2);']
     },
-    "just-intersect": {
-      "code": ["const intersect = require('just-intersect')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);"]
+    'just-intersect': {
+      code: ['const intersect = require(\'just-intersect\')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);']
     },
-    "just-compact": {
-      "code": ["const compact = require('just-compact')\n\ncompact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);"]
+    'just-compact': {
+      code: ['const compact = require(\'just-compact\')\n\ncompact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);']
     },
-    "just-last": {
-      "code": ["const last = require('just-last')\n\nlast([true, false, [true, false]]);"]
+    'just-last': {
+      code: ['const last = require(\'just-last\')\n\nlast([true, false, [true, false]]);']
     },
-    "just-tail": {
-      "code": ["const tail = require('just-tail')\n\ntail([0, 1, 2, 3, 4, 5]);"]
+    'just-tail': {
+      code: ['const tail = require(\'just-tail\')\n\ntail([0, 1, 2, 3, 4, 5]);']
     },
-    "just-random": {
-      "code": ["const random = require('just-random');\n\nrandom([1, 2, 3]);"]
+    'just-random': {
+      code: ['const random = require(\'just-random\');\n\nrandom([1, 2, 3]);']
     },
-    "just-shuffle": {
-      "code": ["const shuffle = require('just-shuffle');\n\nshuffle([1, 2, 3, 4, 5]);"]
+    'just-shuffle': {
+      code: ['const shuffle = require(\'just-shuffle\');\n\nshuffle([1, 2, 3, 4, 5]);']
     },
-    "just-range": {
-      "code": ["const range = require('just-range')\n\nrange(0, 20, 5);"]
+    'just-range': {
+      code: ['const range = require(\'just-range\')\n\nrange(0, 20, 5);']
     },
-    "just-split-at": {
-      "code": ["const splitAt = require('just-split-at');\n\nsplitAt([1, 2, 3, 4, 5], 2);"]
+    'just-split-at': {
+      code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
     },
-    "just-remove": {
-      "code": ["const remove = require('just-remove')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);"]
+    'just-remove': {
+      code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
     },
-    "just-union": {
-      "code": ["const union = require('just-union')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);"]
+    'just-union': {
+      code: ['const union = require(\'just-union\')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);']
     },
-    "just-zip-it": {
-      "code": ["const zip = require('just-zip-it')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);"]
+    'just-zip-it': {
+      code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
     }
   },
-  "Strings": {
-    "just-template": {
-      "code": ["const template = require('just-template')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: 'apple',\n      bbb: 'pear'\n    },\n    bb: 'orange'\n  },\n  b: 'plum'\n};\ntemplate('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);"]
+  Strings: {
+    'just-template': {
+      code: ['const template = require(\'just-template\')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: \'apple\',\n      bbb: \'pear\'\n    },\n    bb: \'orange\'\n  },\n  b: \'plum\'\n};\ntemplate(\'2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.\', data);']
     },
-    "just-truncate": {
-      "code": ["const truncate = require('just-truncate')\n\ntruncate('when shall we three meet again', 10, ' (etc)');"]
+    'just-truncate': {
+      code: ['const truncate = require(\'just-truncate\')\n\ntruncate(\'when shall we three meet again\', 10, \' (etc)\');']
     },
-    "just-prune": {
-      "code": ["const prune = require('just-prune')\n\nprune('when shall we three meet again', 12, ' (etc)');"]
+    'just-prune': {
+      code: ['const prune = require(\'just-prune\')\n\nprune(\'when shall we three meet again\', 12, \' (etc)\');']
     },
-    "just-squash": {
-      "code": ["const squash = require('just-squash')\n\nsquash(`\tthe cat\n sat \fon \x0Bthe \rmat `, true);"]
+    'just-squash': {
+      code: ['const squash = require(\'just-squash\')\n\nsquash(`\tthe cat\n sat \fon \x0Bthe \rmat `, true);']
     },
-    "just-left-pad": {
-      "code": ["const leftPad = require('just-left-pad')\n\nleftPad('hello', 9, '.');"]
+    'just-left-pad': {
+      code: ['const leftPad = require(\'just-left-pad\')\n\nleftPad(\'hello\', 9, \'.\');']
     },
-    "just-right-pad": {
-      "code": ["const rightPad = require('just-right-pad')\n\nrightPad('hello', 9, '.');"]
+    'just-right-pad': {
+      code: ['const rightPad = require(\'just-right-pad\')\n\nrightPad(\'hello\', 9, \'.\');']
     },
-    "just-camel-case": {
-      "code": ["const camelCase = require('just-camel-case')\n\ncamelCase('the-quick-brown _fox');"]
+    'just-camel-case': {
+      code: ['const camelCase = require(\'just-camel-case\')\n\ncamelCase(\'the-quick-brown _fox\');']
     },
-    "just-snake-case": {
-      "code": ["const snakeCase = require('just-snake-case')\n\nsnakeCase('theQuickBrownFox');"]
+    'just-snake-case': {
+      code: ['const snakeCase = require(\'just-snake-case\')\n\nsnakeCase(\'theQuickBrownFox\');']
     },
-    "just-kebab-case": {
-      "code": ["const kebabCase = require('just-kebab-case')\n\nkebabCase('theQuickBrownFox');"]
+    'just-kebab-case': {
+      code: ['const kebabCase = require(\'just-kebab-case\')\n\nkebabCase(\'theQuickBrownFox\');']
     }
   },
-  "Number": {
-    "just-clamp": {
-      "code": ["const clamp = require('just-clamp');\n\nvar n = 5;\nclamp(1, n, 3); // 3"]
+  Number: {
+    'just-clamp': {
+      code: ['const clamp = require(\'just-clamp\');\n\nvar n = 5;\nclamp(1, n, 3); // 3']
     },
-    "just-modulo": {
-      "code": ["const modulo = require('just-modulo');\n\nmodulo(-4, 13);"]
+    'just-modulo': {
+      code: ['const modulo = require(\'just-modulo\');\n\nmodulo(-4, 13);']
     }
   },
-  "Functions": {
-    "just-compose": {
-      "code": ["const compose = require('just-compose')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);"]
+  Functions: {
+    'just-compose': {
+      code: ['const compose = require(\'just-compose\')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);']
     },
-    "just-curry-it": {
-      "code": ["const curry = require('just-curry-it')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);"]
+    'just-curry-it': {
+      code: ['const curry = require(\'just-curry-it\')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);']
     },
-    "just-demethodize": {
-      "code": ["const demethodize = require('just-demethodize');\n\nconst trimFn = demethodize(''.trim);\n['hello ', ' goodbye', 'hello again'].map(trimFn)"]
+    'just-demethodize': {
+      code: ['const demethodize = require(\'just-demethodize\');\n\nconst trimFn = demethodize(\'\'.trim);\n[\'hello \', \' goodbye\', \'hello again\'].map(trimFn)']
     },
-    "just-partial-it": {
-      "code": ["const partial = require('just-partial')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);"]
+    'just-partial-it': {
+      code: ['const partial = require(\'just-partial\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
     },
-    "just-flip": {
-      "code": ["const flip = require('just-flip');\n \nflip(console.log)(1, 2, 3);"]
+    'just-flip': {
+      code: ['const flip = require(\'just-flip\');\n \nflip(console.log)(1, 2, 3);']
     },
-    "just-debounce-it": {
-      "code": ["const debounce = require('just-debounce-it');\n \nconst fn1 = debounce(() => console.log('Hello'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();"]
+    'just-debounce-it': {
+      code: ['const debounce = require(\'just-debounce-it\');\n \nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
     },
-    "just-throttle": {
-      "code": ["const throttle = require('just-throttle');\n \nconst fn1 = throttle(() => console.log('hello'), 2000, true);\nsetInterval(fn1, 400);"]
+    'just-throttle': {
+      code: ['const throttle = require(\'just-throttle\');\n \nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
     },
-    "just-once": {
-      "code": ["const once = require('just-once');\n \nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;"]
+    'just-once': {
+      code: ['const once = require(\'just-once\');\n \nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
     }
   }
 };

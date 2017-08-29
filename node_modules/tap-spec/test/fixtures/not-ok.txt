@@ -1,0 +1,17 @@
+TAP version 13
+# THIS IS A SUITE
+# test 1
+ok 1 this test should pass
+# test 2
+not ok 2 this test should fail
+  ---
+    operator: ok
+    expected: true
+    actual:   false
+    at: Test.<anonymous> (/Users/khanh.nguyen/tap-spec/test.js:13:15)
+  ...
+
+1..2
+# tests 2
+# pass  1
+# fail  1
