@@ -105,20 +105,6 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
     { "op": "add", "path": ['c'], "value": 5 }
   ]
 
-  // using converter to generate jsPatch standard paths
-  import {diff, jsonPatchPathConverter} from 'just-diff'
-  diff(obj1, obj2, jsonPatchPathConverter);
-  [
-    { "op": "replace", "path": '/a', "value": 3 }
-  ]
-
-  diff(obj2, obj3, jsonPatchPathConverter);
-  [
-    { "op": "remove", "path": '/b' },
-    { "op": "replace", "path": '/a', "value": 4 }
-    { "op": "add", "path": '/c', "value": 5 }
-  ]
-
   // arrays
   const obj4 = {a: 4, b: [1, 2, 3]};
   const obj5 = {a: 3, b: [1, 2, 4]};
@@ -151,6 +137,21 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
     { "op": "remove", "path": ['b', 'c']}
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]
+  
+  // using converter to generate jsPatch standard paths
+  import {diff, jsonPatchPathConverter} from 'just-diff'
+  
+  diff(obj1, obj2, jsonPatchPathConverter);
+  [
+    { "op": "replace", "path": '/a', "value": 3 }
+  ]
+
+  diff(obj2, obj3, jsonPatchPathConverter);
+  [
+    { "op": "remove", "path": '/b' },
+    { "op": "replace", "path": '/a', "value": 4 }
+    { "op": "add", "path": '/c', "value": 5 }
+  ]  
   ```
 
 ### [just-diff-apply](https://www.npmjs.com/package/just-diff-apply)
@@ -174,17 +175,6 @@ Pass converter to apply a http://jsonpatch.com standard patch
   );
   obj1; // {a: 4, c: 5}
 
-  // using converter to apply jsPatch standard paths
-  // see http://jsonpatch.com
-  import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'
-  const obj2 = {a: 3, b: 5};
-  diffApply(obj2, [
-    { "op": "remove", "path": '/b' },
-    { "op": "replace", "path": '/a', "value": 4 }
-    { "op": "add", "path": '/c', "value": 5 }
-  ], jsonPatchPathConverter);
-  obj2; // {a: 4, c: 5}
-
   // arrays
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
@@ -202,6 +192,18 @@ Pass converter to apply a http://jsonpatch.com standard patch
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]);
   obj4; // {a: 5, b: {d: 4}}
+  
+  // using converter to apply jsPatch standard paths
+  // see http://jsonpatch.com
+  import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'
+  
+  const obj2 = {a: 3, b: 5};
+  diffApply(obj2, [
+    { "op": "remove", "path": '/b' },
+    { "op": "replace", "path": '/a', "value": 4 }
+    { "op": "add", "path": '/c', "value": 5 }
+  ], jsonPatchPathConverter);
+  obj2; // {a: 4, c: 5}  
   ```
 
   ### [just-compare](https://www.npmjs.com/package/just-compare)
