@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var insert = require('../../packages/array-insert');
 
 test('adds array elements at given index', function (t) {
@@ -30,7 +30,7 @@ test('adds non array values at given index', function (t) {
   t.plan(3);
   var arr1 = [1, 2, 3, 4, 5, 6];
   t.deepEqual(insert(arr1, 2.5, 2), [1, 2, 2.5, 3, 4, 5, 6]);
-  t.deepEqual(insert(arr1, {a: 4}, 2), [1, 2, {a: 4}, 3, 4, 5, 6]);
+  t.deepEqual(insert(arr1, { a: 4 }, 2), [1, 2, { a: 4 }, 3, 4, 5, 6]);
   t.deepEqual(insert(arr1, 'x'), ['x', 1, 2, 3, 4, 5, 6]);
   t.end();
 });

@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var partial = require('../../packages/function-partial');
 
 test('binds to supplied arguments placeholders', function (t) {
@@ -37,7 +37,7 @@ test('executes in the correct context', function (t) {
     return Math.pow(input, 1 / n).toFixed(this.dps);
   }
   var fourthRoot = partial(nthRoot, undefined, 4);
-  t.equal(fourthRoot.call({dps: 0}, 4345), '8');
-  t.equal(fourthRoot.call({dps: 2}, 4345), '8.12');
+  t.equal(fourthRoot.call({ dps: 0 }, 4345), '8');
+  t.equal(fourthRoot.call({ dps: 2 }, 4345), '8.12');
   t.end();
 });

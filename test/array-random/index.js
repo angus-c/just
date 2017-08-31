@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var random = require('../../packages/array-random');
 
 test('picks array values at random', function (t) {

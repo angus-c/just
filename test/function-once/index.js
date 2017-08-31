@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var once = require('../../packages/function-once');
 
 test('requires a function as first argument', function (t) {
@@ -18,7 +18,9 @@ test('requires a function as first argument', function (t) {
 test('runs only once', function (t) {
   t.plan(2);
   var callCounter = 0;
-  var fn = once(function () {callCounter++;});
+  var fn = once(function () {
+    callCounter++;
+  });
 
   fn();
   t.equal(callCounter, 1);
@@ -29,7 +31,9 @@ test('runs only once', function (t) {
 test('forwards arguments', function (t) {
   t.plan(2);
   var callCounter = 0;
-  var fn = once(function (delta) {callCounter += delta;});
+  var fn = once(function (delta) {
+    callCounter += delta;
+  });
 
   fn(2);
   t.equal(callCounter, 2);
@@ -40,7 +44,9 @@ test('forwards arguments', function (t) {
 test('forwards context', function (t) {
   t.plan(2);
   var callCounter = 0;
-  var fn = once(function (delta) {callCounter += this;});
+  var fn = once(function (delta) {
+    callCounter += this;
+  });
 
   fn.call(2);
   t.equal(callCounter, 2);

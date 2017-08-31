@@ -1,10 +1,10 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var values = require('../../packages/object-values');
 
 test('regular objects return array of property values', function (t) {
   t.plan(3);
-  t.deepEqual(values({a: 4, c: 8}), [4, 8]);
-  t.deepEqual(values({a: {aa: 2}, b: {bb: 4}}), [{aa: 2}, {bb: 4}]);
+  t.deepEqual(values({ a: 4, c: 8 }), [4, 8]);
+  t.deepEqual(values({ a: { aa: 2 }, b: { bb: 4 } }), [{ aa: 2 }, { bb: 4 }]);
   t.deepEqual(values({}), []);
   t.end();
 });
@@ -22,7 +22,12 @@ test('array returns a copy of itself', function (t) {
 
 test('irregular objects return array of property values', function (t) {
   t.plan(3);
-  t.deepEqual(values(function (a, b) {return a + b;}), []);
+  t.deepEqual(
+    values(function (a, b) {
+      return a + b;
+    }),
+    []
+  );
   t.deepEqual(values(new String('hello')), ['h', 'e', 'l', 'l', 'o']);
   var fn = function () {};
   fn.a = 4;
@@ -32,8 +37,16 @@ test('irregular objects return array of property values', function (t) {
 
 test('primitives throw exceptions', function (t) {
   t.plan(4);
-  t.throws(function () {values(1);}, Error);
-  t.throws(function () {values(true);}, Error);
-  t.throws(function () {values(undefined);}, Error);
-  t.throws(function () {values(null);}, Error);
+  t.throws(function () {
+    values(1);
+  }, Error);
+  t.throws(function () {
+    values(true);
+  }, Error);
+  t.throws(function () {
+    values(undefined);
+  }, Error);
+  t.throws(function () {
+    values(null);
+  }, Error);
 });

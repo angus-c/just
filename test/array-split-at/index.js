@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var splitAt = require('../../packages/array-split-at');
 
 test('splits array into two at a given position within the array bounds', function (t) {
@@ -26,7 +26,7 @@ test('splits array into two at an empty array', function (t) {
   t.end();
 });
 
-test('undefined inputs don\'t throw and return undefined', function (t) {
+test("undefined inputs don't throw and return undefined", function (t) {
   t.plan(3);
   t.equal(splitAt(), undefined);
   t.equal(splitAt(undefined), undefined);

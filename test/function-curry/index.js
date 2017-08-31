@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var curry = require('../../packages/function-curry');
 
 test('returns a curried function', function (t) {
@@ -37,8 +37,8 @@ test('executes in the correct context', function (t) {
     return (input * ratio).toFixed(this.dps);
   }
   var milesToKm = curry(converter)(1.62);
-  t.equal(milesToKm.call({dps: 0}, 35), '57');
-  t.equal(milesToKm.call({dps: 2}, 35), '56.70');
+  t.equal(milesToKm.call({ dps: 0 }, 35), '57');
+  t.equal(milesToKm.call({ dps: 2 }, 35), '56.70');
   t.end();
 });
 

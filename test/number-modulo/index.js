@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var modulo = require('../../packages/number-modulo');
 
 test('positive numbers do simple remainder', function (t) {

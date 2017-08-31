@@ -1,7 +1,7 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var union = require('../../packages/array-union');
 
-test('union of intersecting arrays doesn\'t include dupliccates', function (t) {
+test("union of intersecting arrays doesn't include dupliccates", function (t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [3, 4, 5, 6, 7];

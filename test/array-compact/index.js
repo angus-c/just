@@ -1,12 +1,9 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var compact = require('../../packages/array-compact');
 
 test('removes all falsey types', function (t) {
   t.plan(1);
-  t.deepEqual(
-    compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]),
-    [1, 2, 3, 4, 5]
-  );
+  t.deepEqual(compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]), [1, 2, 3, 4, 5]);
   t.end();
 });
 

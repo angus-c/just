@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var rightPad = require('../../packages/string-right-pad');
 
 test('right pad with default pad character', function (t1) {

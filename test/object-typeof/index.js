@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var typeOf = require('../../packages/object-typeof');
 
 test('all types', function (t) {

@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var flip = require('../../packages/function-flip');
 
 test('flips the first two args', function (t) {

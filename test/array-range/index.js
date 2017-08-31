@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var range = require('../../packages/array-range');
 
 test('array range with one integer argument', function (t) {

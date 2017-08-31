@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var isCircular = require('../../packages/object-is-circular');
 
 test('detects circular objects', function (t) {
@@ -8,7 +8,7 @@ test('detects circular objects', function (t) {
   t.ok(isCircular(obj1));
 
   var obj2 = {};
-  obj2.x = {y: obj2};
+  obj2.x = { y: obj2 };
   t.ok(isCircular(obj2));
   t.end();
 });
@@ -24,7 +24,7 @@ test('detects circular arrays', function (t) {
 test('detects non-circular objects', function (t) {
   t.plan(2);
   var obj1 = {};
-  obj1.x = {y: 4};
+  obj1.x = { y: 4 };
   t.ok(!isCircular(obj1));
 
   t.ok(!isCircular({}));

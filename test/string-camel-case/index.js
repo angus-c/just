@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var camelCase = require('../../packages/string-camel-case');
 
 test('string with spaces', function (t) {

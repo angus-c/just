@@ -1,6 +1,6 @@
 /* globals Symbol */
 
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var isPrimitive = require('../../packages/object-is-primitive');
 
 /*

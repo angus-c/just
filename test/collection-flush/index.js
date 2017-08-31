@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var flush = require('../../packages/collection-flush');
 
 /*
@@ -11,23 +11,14 @@ var flush = require('../../packages/collection-flush');
 
 test('removes null/undefined from array', function (t) {
   t.plan(2);
-  t.deepEqual(
-    flush([1, undefined, 2, null, 3, 0]),
-    [1, 2, 3, 0]
-  );
-  t.deepEqual(
-    flush([true, null, false, true, [null], undefined]),
-    [true, false, true, [null]]
-  );
+  t.deepEqual(flush([1, undefined, 2, null, 3, 0]), [1, 2, 3, 0]);
+  t.deepEqual(flush([true, null, false, true, [null], undefined]), [true, false, true, [null]]);
   t.end();
 });
 
 test('removes null/undefined from object', function (t) {
   t.plan(1);
-  t.deepEqual(
-    flush({a: 2, b: null, c: 4, d: undefined}),
-    {a: 2, c: 4}
-  );
+  t.deepEqual(flush({ a: 2, b: null, c: 4, d: undefined }), { a: 2, c: 4 });
   t.end();
 });
 

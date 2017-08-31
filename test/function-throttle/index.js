@@ -1,13 +1,12 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var throttle = require('../../packages/function-throttle');
 
 test('runs once after every n ms - part 1', function (t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = throttle(
-    function () {callCounter++;},
-    70
-  );
+  var fn = throttle(function () {
+    callCounter++;
+  }, 70);
 
   setTimeout(function () {
     fn();
@@ -28,10 +27,9 @@ test('runs once after every n ms - part 1', function (t) {
 test('runs once after every n ms - part 2', function (t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = throttle(
-    function () {callCounter++;},
-    70
-  );
+  var fn = throttle(function () {
+    callCounter++;
+  }, 70);
 
   setTimeout(function () {
     fn();
@@ -53,7 +51,9 @@ test('when callFirst is true, runs once at beginning of every n ms - part1', fun
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     70,
     true
   );
@@ -78,7 +78,9 @@ test('when callFirst is true, runs once at beginning of every n ms - part2', fun
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     70,
     true
   );
@@ -103,7 +105,9 @@ test('invokes repeatedly when wait is 0', function (t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     0,
     true
   );
@@ -128,7 +132,9 @@ test('invokes repeatedly when call intervals > than wait time', function (t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     30,
     true
   );
@@ -153,7 +159,9 @@ test('invokes repeatedly when wait is falsey', function (t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     NaN,
     true
   );

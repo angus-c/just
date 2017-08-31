@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var intersect = require('../../packages/array-remove');
 
 test('returns elements unique to first array', function (t) {

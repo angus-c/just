@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var zip = require('../../packages/array-zip');
 
 test('zips any number of arrays together', function (t) {

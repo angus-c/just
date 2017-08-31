@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var truncate = require('../../packages/string-truncate');
 
 test('string defaulted with default suffix', function (t) {

@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var clamp = require('../../packages/number-clamp');
 
 test('regular numbers are limited by range', function (t) {

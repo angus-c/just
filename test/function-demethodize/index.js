@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var demethodize = require('../../packages/function-demethodize');
 
 /*
@@ -31,7 +31,7 @@ test('resulting function passes remaining args to new function', function (t) {
       return this.radius * this.radius * Math.PI * height;
     }
   };
-  var volume = demethodize(circle.volumeOfCylinder)({radius: 3}, 4);
+  var volume = demethodize(circle.volumeOfCylinder)({ radius: 3 }, 4);
   t.equal(volume.toFixed(1), '113.1');
   t.end();
 });

@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var diffApplyModule = require('../../packages/collection-diff-apply');
 var diffApply = diffApplyModule.diffApply;
 var jsonPatchPathConverter = diffApplyModule.jsonPatchPathConverter;

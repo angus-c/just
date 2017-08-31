@@ -1,10 +1,12 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var compose = require('../../packages/function-compose');
 var compare = require('../../packages/collection-compare');
 
 test('composes two or more functions', function (t) {
   t.plan(3);
-  var splitBy2s = compose(String, function (str) {return str.split(2);});
+  var splitBy2s = compose(String, function (str) {
+    return str.split(2);
+  });
   t.ok(compare(splitBy2s(52423), ['5', '4', '3']));
   var sqRootBiggest = compose(Math.max, Math.sqrt, Math.round);
   t.equal(sqRootBiggest(10, 5), 3);

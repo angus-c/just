@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var shuffle = require('../../packages/array-shuffle');
 var compare = require('../../packages/collection-compare');
 

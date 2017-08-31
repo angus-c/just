@@ -1,13 +1,12 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var debounce = require('../../packages/function-debounce');
 
 test('waits for n ms then runs once', function (t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = debounce(
-    function () {callCounter++;},
-    100
-  );
+  var fn = debounce(function () {
+    callCounter++;
+  }, 100);
 
   for (var i = 0; i < 5; i++) {
     setTimeout(fn, 50);
@@ -23,7 +22,9 @@ test('when callFirst is true, runs once, waits for n ms then runs again', functi
   t.plan(2);
   var callCounter = 0;
   var fn = debounce(
-    function () {callCounter++;},
+    function () {
+      callCounter++;
+    },
     100,
     true
   );
@@ -44,10 +45,9 @@ test('when callFirst is true, runs once, waits for n ms then runs again', functi
 test('invokes repeatedly when call intervals > than wait time', function (t) {
   t.plan(4);
   var callCounter = 0;
-  var fn = debounce(
-    function () {callCounter++;},
-    100
-  );
+  var fn = debounce(function () {
+    callCounter++;
+  }, 100);
 
   var runAndTest = function (expectedCounter) {
     fn();

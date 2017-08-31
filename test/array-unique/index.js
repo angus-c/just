@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var unique = require('../../packages/array-unique');
 
 test('primitives', function (t) {
@@ -26,9 +26,9 @@ test('primitives', function (t) {
 
 test('objects by equality', function (t) {
   t.plan(3);
-  var a = {a: 1};
-  var b = {b: 3};
-  var c = {c: 2};
+  var a = { a: 1 };
+  var b = { b: 3 };
+  var c = { c: 2 };
   t.deepEqual(unique([a, b, a, c, a]), [a, b, c]);
   var fn1 = function () {};
   var fn2 = function () {};
@@ -44,9 +44,9 @@ test('presorted arrays', function (t) {
   t.plan(5);
   t.deepEqual(unique([1, 1, 2, 2, 3, 3, 4, 4], true), [1, 2, 3, 4]);
   t.deepEqual(unique(['a', 'a', 'b', 'b', 'c', 'c'], true), ['a', 'b', 'c']);
-  var a = {a: 1};
-  var b = {b: 3};
-  var c = {c: 2};
+  var a = { a: 1 };
+  var b = { b: 3 };
+  var c = { c: 2 };
   t.deepEqual(unique([a, a, b, b, c, c], true), [a, b, c]);
   // bogus sorted declarations fail
   t.notDeepEqual(unique([1, 2, 1, 3, 4, 4, 1], true), [1, 2, 3, 4]);
@@ -63,9 +63,9 @@ test('using strings option', function (t) {
   t.deepEqual(unique([false, true, false, false], false, true), ['false', 'true']);
 
   // works for arrays of same-type non-primitives (ignores strings flag)
-  var a = {a: 1};
-  var b = {b: 3};
-  var c = {c: 2};
+  var a = { a: 1 };
+  var b = { b: 3 };
+  var c = { c: 2 };
   t.deepEqual(unique([a, b, a, b, b, c], false, true), [a, b, c]);
   var fn1 = function () {};
   var fn2 = function () {};

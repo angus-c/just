@@ -1,4 +1,4 @@
-var test = require('tape');
+var test = require('../util/test')(__filename);
 var squash = require('../../packages/string-squash');
 
 /*
