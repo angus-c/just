@@ -79,7 +79,7 @@ function diffApply(obj, diff, pathConverter) {
     }
     var thisProp;
     while ((thisProp = thisPath.shift())) {
-      if (!subObject[thisProp]) {
+      if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
       subObject = subObject[thisProp];

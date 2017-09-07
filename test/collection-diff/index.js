@@ -5,7 +5,7 @@ var jsonPatchPathConverter = diffModule.jsonPatchPathConverter;
 var compare = require('../../packages/collection-compare');
 
 test('flat objects', function (t) {
-  t.plan(6);
+  t.plan(8);
 
   var obj1 = { a: 4, b: 5 };
   var obj2 = { a: 3, b: 5 };
@@ -31,6 +31,20 @@ test('flat objects', function (t) {
       { op: 'remove', path: ['c'] },
       { op: 'replace', path: ['a'], value: 3 },
       { op: 'add', path: ['b'], value: 5 }
+    ])
+  );
+
+  var obj4 = { a: 3, b: null };
+  t.ok(
+    compare(diff(obj1, obj4), [
+      { op: 'replace', path: ['a'], value: 3 },
+      { op: 'replace', path: ['b'], value: null }
+    ])
+  );
+  t.ok(
+    compare(diff(obj4, obj1), [
+      { op: 'replace', path: ['a'], value: 4 },
+      { op: 'replace', path: ['b'], value: 5 }
     ])
   );
 });

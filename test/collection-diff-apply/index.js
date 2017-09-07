@@ -4,7 +4,7 @@ var diffApply = diffApplyModule.diffApply;
 var jsonPatchPathConverter = diffApplyModule.jsonPatchPathConverter;
 
 test('flat objects', function (t) {
-  t.plan(2);
+  t.plan(3);
   var obj1 = { a: 3, b: 5 };
   diffApply(obj1, [{ op: 'replace', path: ['a'], value: 'hello' }]);
   t.deepEqual(obj1, { a: 'hello', b: 5 });
@@ -16,6 +16,13 @@ test('flat objects', function (t) {
     { op: 'add', path: ['c'], value: 5 }
   ]);
   t.deepEqual(obj2, { a: 4, c: 5 });
+
+  var obj3 = { a: 3, b: 5 };
+  diffApply(obj3, [
+    { op: 'remove', path: ['b'] },
+    { op: 'replace', path: ['a'], value: null }
+  ]);
+  t.deepEqual(obj3, { a: null });
   t.end();
 });
 

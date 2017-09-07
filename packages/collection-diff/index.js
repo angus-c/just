@@ -83,7 +83,7 @@ function diff(obj1, obj2, pathConverter) {
 
     for (var i = 0; i < obj1KeysLength; i++) {
       var key = obj1Keys[i];
-      if (!obj2[key]) {
+      if (!(key in obj2)) {
         path = basePath.concat(key);
         diffs.remove.push({
           op: 'remove',
@@ -94,7 +94,7 @@ function diff(obj1, obj2, pathConverter) {
 
     for (var i = 0; i < obj2KeysLength; i++) {
       var key = obj2Keys[i];
-      if (!obj1[key]) {
+      if (!(key in obj1)) {
         path = basePath.concat(key);
         var obj2Value = obj2[key];
         diffs.add.push({
