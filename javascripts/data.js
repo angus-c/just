@@ -357,7 +357,7 @@ const trimFn = demethodize(''.trim);
     },
     'just-partial-it': {
       code: [
-        `const partial = require('just-partial')\n
+        `const partial = require('just-partial-it')\n
 const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(35).toFixed(1);`
       ]
