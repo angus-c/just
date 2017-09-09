@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.  
+A library of **zero-dependency** npm modules that do just do one thing.
 A guilt-free alternative to those bulkier libraries. Ideal for mobile web development or wherever bytes are precious.
 
 We welcome contributions. Please follow the [contribution guidelines](#new-module-guidelines) below.
@@ -17,7 +17,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
 * [Collections](#collections)
   * [just-diff](#just-diff)
-  * [just-diff-apply](#just-diff-apply)  
+  * [just-diff-apply](#just-diff-apply)
   * [just-compare](#just-compare)
   * [just-pluck-it](#just-pluck-it)
   * [just-flush](#just-flush)
@@ -83,7 +83,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
   `npm install just-diff`
 
-  Return an object representing the difference between two other objects  
+  Return an object representing the difference between two other objects
   Pass converter to format as http://jsonpatch.com
 
   ```js
@@ -137,10 +137,10 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
     { "op": "remove", "path": ['b', 'c']}
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]
-  
+
   // using converter to generate jsPatch standard paths
   import {diff, jsonPatchPathConverter} from 'just-diff'
-  
+
   diff(obj1, obj2, jsonPatchPathConverter);
   [
     { "op": "replace", "path": '/a', "value": 3 }
@@ -151,7 +151,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
     { "op": "remove", "path": '/b' },
     { "op": "replace", "path": '/a', "value": 4 }
     { "op": "add", "path": '/c', "value": 5 }
-  ]  
+  ]
   ```
 
 ### [just-diff-apply](https://www.npmjs.com/package/just-diff-apply)
@@ -159,7 +159,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
 
 `npm install just-diff-apply`
 
-Apply a diff object to an object.  
+Apply a diff object to an object.
 Pass converter to apply a http://jsonpatch.com standard patch
 
 ```js
@@ -192,18 +192,18 @@ Pass converter to apply a http://jsonpatch.com standard patch
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]);
   obj4; // {a: 5, b: {d: 4}}
-  
+
   // using converter to apply jsPatch standard paths
   // see http://jsonpatch.com
   import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'
-  
+
   const obj2 = {a: 3, b: 5};
   diffApply(obj2, [
     { "op": "remove", "path": '/b' },
     { "op": "replace", "path": '/a', "value": 4 }
     { "op": "add", "path": '/c', "value": 5 }
   ], jsonPatchPathConverter);
-  obj2; // {a: 4, c: 5}  
+  obj2; // {a: 4, c: 5}
   ```
 
   ### [just-compare](https://www.npmjs.com/package/just-compare)
@@ -1011,9 +1011,11 @@ flip(console.log)(1, 2, 3) // 2, 1, 3
 ```js
 import partial from 'just-partial-it';
 
-const cubedRoot = partial(Math.pow, undefined, 1/3);
-cubedRoot(10).toFixed(1); // 56.7
-cubedRoot(35).toFixed(1); // 16.2
+const cubedRoot = partial(Math.pow, _, 1/3);
+cubedRoot(64); // 4
+
+const getRoot = partial(Math.pow, 64);
+getRoot(1/2); // 8
 ```
 ### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
 :icecream:[`Try It`](http://anguscroll.com/just/just-debounce-it)

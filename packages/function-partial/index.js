@@ -1,10 +1,12 @@
 module.exports = partial;
 
 /*
-  var cubedRoot = partial(Math.pow, _, 1/3);
-  cubedRoot(10).toFixed(1); // 56.7
-  cubedRoot(35).toFixed(1); // 16.2
-*/
+  const cubedRoot = partial(Math.pow, _, 1/3);
+  cubedRoot(64); // 4
+
+  const getRoot = partial(Math.pow, 64);
+  getRoot(1/2); // 8
+  */
 
 function partial(fn /*, arg1, arg2 etc */) {
   var partialArgs = [].slice.call(arguments, 1);
@@ -12,11 +14,12 @@ function partial(fn /*, arg1, arg2 etc */) {
     return fn;
   }
   return function () {
-    var argIndex = 0, derivedArgs = [];
+    var args = [].slice.call(arguments);
+    var derivedArgs = [];
     for (var i = 0; i < partialArgs.length; i++) {
       var thisPartialArg = partialArgs[i];
-      derivedArgs[i] = thisPartialArg === undefined ? arguments[argIndex++] : thisPartialArg;
+      derivedArgs[i] = thisPartialArg === undefined ? args.shift() : thisPartialArg;
     }
-    return fn.apply(this, derivedArgs);
+    return fn.apply(this, derivedArgs.concat(args));
   };
 }
