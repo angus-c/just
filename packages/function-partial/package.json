@@ -1,18 +1,13 @@
 {
   "name": "just-partial-it",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "return a partial function",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "function",
-    "partial",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["function", "partial", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

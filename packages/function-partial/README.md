@@ -8,7 +8,9 @@ Guilt-free utilities for every occasion.
 ```js
 import partial from 'just-partial-it';
 
-const cubedRoot = partial(Math.pow, undefined, 1/3);
-cubedRoot(10).toFixed(1); // 56.7
-cubedRoot(35).toFixed(1); // 16.2
+const cubedRoot = partial(Math.pow, _, 1/3);
+cubedRoot(64); // 4
+
+const getRoot = partial(Math.pow, 64);
+getRoot(1/2); // 8
 ```  
