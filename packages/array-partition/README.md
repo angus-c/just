@@ -6,7 +6,7 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-range)
 
 ```js
-import range from 'just-partition';
+import partition from 'just-partition';
 
 partition([]); // []
 partition([1,2,3,4,5]); // [[1,2,3,4,5]]
