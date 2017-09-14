@@ -48,6 +48,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-tail](#just-tail)
   * [just-random](#just-random)
   * [just-shuffle](#just-shuffle)
+  * [just-split](#just-split)
   * [just-split-at](#just-split-at)
   * [just-range](#just-range)
   * [just-remove](#just-remove)
@@ -696,6 +697,22 @@ shuffle(undefined); // undefined
 shuffle(null); // undefined
 shuffle({}); // undefined
 ```
+### [just-split](https://www.npmjs.com/package/just-split)
+:icecream:[`Try It`](http://anguscroll.com/just/just-split)
+
+`npm install just-split`
+
+```js
+import split from 'just-split';
+
+split([]); // []
+split([1, 2, 3, 4, 5]); // [[1, 2, 3, 4, 5]]
+split([1, 2, 3, 4, 5, 6, 7, 8, 9], 3); [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+split([1, 2, 3, 4, 5, 6, 7, 8, 9], '3'); [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+split(['a', 'b', 'c', 'd', 'e'], 2); [['a', 'b'], ['c', 'd'], ['e']]
+split([1, 2, 3, 4, 5, 6, 7, 8], 3); [[1, 2, 3], [4, 5, 6], [7, 8]]
+```
+
 
 ### [just-split-at](https://www.npmjs.com/package/just-split-at)
 :icecream:[`Try It`](http://anguscroll.com/just/just-split-at)
