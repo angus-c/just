@@ -1,0 +1,21 @@
+{
+  "name": "just-partition",
+  "version": "1.0.1",
+  "description": "Partition array into groups of n items each",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "partition",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Eric W. Lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
