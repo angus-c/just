@@ -203,7 +203,7 @@ last([true, false, [true, false]]);`
     'just-split': {
       code: [
         `const split = require('just-split')\n
-split([[1, 2, 3, 4, 5, 6, 7, 8], 2);`
+split([1, 2, 3, 4, 5, 6, 7, 8], 2);`
       ]
     },    
     'just-tail': {
@@ -363,7 +363,7 @@ const trimFn = demethodize(''.trim);
     },
     'just-partial-it': {
       code: [
-        `const partial = require('just-partial')\n
+        `const partial = require('just-partial-it')\n
 const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(35).toFixed(1);`
       ]

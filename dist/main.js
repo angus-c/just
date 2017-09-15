@@ -378,7 +378,7 @@ exports.default = {
       code: ['const last = require(\'just-last\')\n\nlast([true, false, [true, false]]);']
     },
     'just-split': {
-      code: ['const split = require(\'just-split\')\n\nsplit([[1, 2, 3, 4, 5, 6, 7, 8], 2);']
+      code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
     },
     'just-tail': {
       code: ['const tail = require(\'just-tail\')\n\ntail([0, 1, 2, 3, 4, 5]);']
@@ -453,7 +453,7 @@ exports.default = {
       code: ['const demethodize = require(\'just-demethodize\');\n\nconst trimFn = demethodize(\'\'.trim);\n[\'hello \', \' goodbye\', \'hello again\'].map(trimFn)']
     },
     'just-partial-it': {
-      code: ['const partial = require(\'just-partial\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
+      code: ['const partial = require(\'just-partial-it\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
     },
     'just-flip': {
       code: ['const flip = require(\'just-flip\');\n \nflip(console.log)(1, 2, 3);']
