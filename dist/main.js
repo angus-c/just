@@ -377,6 +377,9 @@ exports.default = {
     'just-last': {
       code: ['const last = require(\'just-last\')\n\nlast([true, false, [true, false]]);']
     },
+    'just-split': {
+      code: ['const split = require(\'just-split\')\n\nsplit([[1, 2, 3, 4, 5, 6, 7, 8], 2);']
+    },
     'just-tail': {
       code: ['const tail = require(\'just-tail\')\n\ntail([0, 1, 2, 3, 4, 5]);']
     },

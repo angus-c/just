@@ -200,6 +200,12 @@ compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);`
 last([true, false, [true, false]]);`
       ]
     },
+    'just-split': {
+      code: [
+        `const split = require('just-split')\n
+split([[1, 2, 3, 4, 5, 6, 7, 8], 2);`
+      ]
+    },    
     'just-tail': {
       code: [
         `const tail = require('just-tail')\n
