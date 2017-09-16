@@ -1,6 +1,6 @@
 module.exports = reduce;
 
-function reduce(obj, predicate/*, initialValue*/) {
+function reduce(obj, predicate /*, initialValue*/) {
   var args = [callback];
   // `initialValue` is optional
   var hasInitialValue = 2 in arguments;
@@ -13,7 +13,13 @@ function reduce(obj, predicate/*, initialValue*/) {
       previousValue = obj[array[0]];
       hasInitialValue = true;
     }
-    return predicate(previousValue, currentKey, obj[currentKey], currentIndex, array);
+    return predicate(
+      previousValue,
+      currentKey,
+      obj[currentKey],
+      currentIndex,
+      array
+    );
   }
 
   return Array.prototype.reduce.apply(Object.keys(obj), args);

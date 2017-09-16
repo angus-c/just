@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var intersect = require('../../packages/array-remove');
 
-test('returns elements unique to first array', function (t) {
+test('returns elements unique to first array', function(t) {
   t.plan(4);
   var arr1 = [1, 2, 3, 4, 5, 6];
   var arr2 = [1, 3, 6];

@@ -1,20 +1,20 @@
 var test = require('../util/test')(__filename);
 var throttle = require('../../packages/function-throttle');
 
-test('runs once after every n ms - part 1', function (t) {
+test('runs once after every n ms - part 1', function(t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = throttle(function () {
+  var fn = throttle(function() {
     callCounter++;
   }, 70);
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 1);
           t.end();
@@ -24,20 +24,20 @@ test('runs once after every n ms - part 1', function (t) {
   }, 40);
 });
 
-test('runs once after every n ms - part 2', function (t) {
+test('runs once after every n ms - part 2', function(t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = throttle(function () {
+  var fn = throttle(function() {
     callCounter++;
   }, 70);
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 2);
           t.end();
@@ -47,24 +47,26 @@ test('runs once after every n ms - part 2', function (t) {
   }, 40);
 });
 
-test('when callFirst is true, runs once at beginning of every n ms - part1', function (t) {
+test('when callFirst is true, runs once at beginning of every n ms - part1', function(
+  t
+) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {
+    function() {
       callCounter++;
     },
     70,
     true
   );
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 2);
           t.end();
@@ -74,24 +76,26 @@ test('when callFirst is true, runs once at beginning of every n ms - part1', fun
   }, 40);
 });
 
-test('when callFirst is true, runs once at beginning of every n ms - part2', function (t) {
+test('when callFirst is true, runs once at beginning of every n ms - part2', function(
+  t
+) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {
+    function() {
       callCounter++;
     },
     70,
     true
   );
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 3);
           t.end();
@@ -101,24 +105,24 @@ test('when callFirst is true, runs once at beginning of every n ms - part2', fun
   }, 40);
 });
 
-test('invokes repeatedly when wait is 0', function (t) {
+test('invokes repeatedly when wait is 0', function(t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {
+    function() {
       callCounter++;
     },
     0,
     true
   );
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 4);
           t.end();
@@ -128,24 +132,24 @@ test('invokes repeatedly when wait is 0', function (t) {
   }, 40);
 });
 
-test('invokes repeatedly when call intervals > than wait time', function (t) {
+test('invokes repeatedly when call intervals > than wait time', function(t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {
+    function() {
       callCounter++;
     },
     30,
     true
   );
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 4);
           t.end();
@@ -155,24 +159,24 @@ test('invokes repeatedly when call intervals > than wait time', function (t) {
   }, 40);
 });
 
-test('invokes repeatedly when wait is falsey', function (t) {
+test('invokes repeatedly when wait is falsey', function(t) {
   t.plan(1);
   var callCounter = 0;
   var fn = throttle(
-    function () {
+    function() {
       callCounter++;
     },
     NaN,
     true
   );
 
-  setTimeout(function () {
+  setTimeout(function() {
     fn();
-    setTimeout(function () {
+    setTimeout(function() {
       fn();
-      setTimeout(function () {
+      setTimeout(function() {
         fn();
-        setTimeout(function () {
+        setTimeout(function() {
           fn();
           t.equal(callCounter, 4);
           t.end();

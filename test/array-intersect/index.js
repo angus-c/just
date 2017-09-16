@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var intersect = require('../../packages/array-intersect');
 
-test('intersecting arrays return intersect', function (t) {
+test('intersecting arrays return intersect', function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [3, 4, 5, 6, 7];
@@ -9,7 +9,7 @@ test('intersecting arrays return intersect', function (t) {
   t.end();
 });
 
-test('non intersecting arrays return empty array', function (t) {
+test('non intersecting arrays return empty array', function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [6, 7, 8, 9, 10];

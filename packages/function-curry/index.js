@@ -16,7 +16,7 @@ function curry(fn) {
     if (args.length >= fn.length) {
       return fn.apply(this, args);
     } else {
-      return function () {
+      return function() {
         return curried.apply(this, args.concat([].slice.call(arguments)));
       };
     }

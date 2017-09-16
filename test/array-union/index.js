@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var union = require('../../packages/array-union');
 
-test("union of intersecting arrays doesn't include dupliccates", function (t) {
+test("union of intersecting arrays doesn't include dupliccates", function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [3, 4, 5, 6, 7];
@@ -9,7 +9,7 @@ test("union of intersecting arrays doesn't include dupliccates", function (t) {
   t.end();
 });
 
-test('union of non-intersecting arrays return all members', function (t) {
+test('union of non-intersecting arrays return all members', function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [6, 7, 8, 9, 10];
@@ -17,7 +17,7 @@ test('union of non-intersecting arrays return all members', function (t) {
   t.end();
 });
 
-test('does not mutate', function (t) {
+test('does not mutate', function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
   var arr2 = [6, 7, 8, 9, 10];

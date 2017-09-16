@@ -18,7 +18,7 @@ isPrimitive(new Date()) // false
 isPrimitive(/a/) // false
 */
 
-test('detects primitive values', function (t) {
+test('detects primitive values', function(t) {
   t.plan(7);
   t.ok(isPrimitive('hi'));
   t.ok(isPrimitive(3));
@@ -34,11 +34,11 @@ test('detects primitive values', function (t) {
   t.end();
 });
 
-test('detects non-primitive values', function (t) {
+test('detects non-primitive values', function(t) {
   t.plan(5);
   t.ok(!isPrimitive({}));
   t.ok(!isPrimitive([]));
-  t.ok(!isPrimitive(function () {}));
+  t.ok(!isPrimitive(function() {}));
   t.ok(!isPrimitive(new Date()));
   t.ok(!isPrimitive(/a/));
   t.end();

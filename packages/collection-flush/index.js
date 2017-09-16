@@ -23,7 +23,7 @@ function flush(collection) {
       }
     }
     return result;
-  };
+  }
   if (typeof collection == 'object') {
     result = {};
     var keys = Object.keys(collection);
@@ -36,6 +36,6 @@ function flush(collection) {
       }
     }
     return result;
-  };
+  }
   return undefined;
 }

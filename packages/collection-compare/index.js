@@ -31,7 +31,7 @@ function compare(value1, value2) {
   if (Array.isArray(value1)) {
     return compareArrays(value1, value2);
   }
-  if (({}).toString.call(value1) == '[object Object]') {
+  if ({}.toString.call(value1) == '[object Object]') {
     return compareObjects(value1, value2);
   } else {
     return compareNativeSubtypes(value1, value2);
@@ -68,7 +68,7 @@ function compareObjects(value1, value2) {
   for (var i = 0; i < len; i++) {
     var key1 = keys1[i];
     var key2 = keys2[i];
-    if (!((key1 == key2) && (compare(value1[key1], value2[key2])))) {
+    if (!(key1 == key2 && compare(value1[key1], value2[key2]))) {
       return false;
     }
   }

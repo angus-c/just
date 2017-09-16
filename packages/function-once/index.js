@@ -22,4 +22,4 @@ function once(fn) {
     value = fn.apply(this, arguments);
     return value;
   };
-};
+}

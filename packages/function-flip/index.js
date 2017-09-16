@@ -6,7 +6,7 @@ module.exports = flip;
 */
 
 function flip(fn) {
-  return function () {
+  return function() {
     var first = arguments[0];
     var second = arguments[1];
     var rest = [].slice.call(arguments, 2);

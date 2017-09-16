@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var range = require('../../packages/array-range');
 
-test('array range with one integer argument', function (t) {
+test('array range with one integer argument', function(t) {
   t.plan(2);
   var stop = 5;
   var negativeStop = -5;
@@ -10,7 +10,7 @@ test('array range with one integer argument', function (t) {
   t.end();
 });
 
-test('array range with two integer arguments', function (t) {
+test('array range with two integer arguments', function(t) {
   t.plan(2);
   var start = 0;
   var stop = 5;
@@ -20,7 +20,7 @@ test('array range with two integer arguments', function (t) {
   t.end();
 });
 
-test('array range with three integer arguments', function (t) {
+test('array range with three integer arguments', function(t) {
   t.plan(2);
   var start = 0;
   var stop = 20;
@@ -32,7 +32,7 @@ test('array range with three integer arguments', function (t) {
   t.end();
 });
 
-test('array range with three decimal arguments', function (t) {
+test('array range with three decimal arguments', function(t) {
   t.plan(2);
   var start = 0;
   var stop = 1.9;

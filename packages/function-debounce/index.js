@@ -2,7 +2,7 @@ module.exports = debounce;
 
 function debounce(fn, wait, callFirst) {
   var timeout;
-  return function () {
+  return function() {
     if (!wait) {
       return fn.apply(this, arguments);
     }
@@ -10,7 +10,7 @@ function debounce(fn, wait, callFirst) {
     var args = arguments;
     var callNow = callFirst && !timeout;
     clearTimeout(timeout);
-    timeout = setTimeout(function () {
+    timeout = setTimeout(function() {
       timeout = null;
       if (!callNow) {
         return fn.apply(context, args);
@@ -21,4 +21,4 @@ function debounce(fn, wait, callFirst) {
       return fn.apply(this, arguments);
     }
   };
-};
+}
