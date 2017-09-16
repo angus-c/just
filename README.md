@@ -50,6 +50,7 @@ We welcome contributions. Please follow the [contribution guidelines](#new-modul
   * [just-shuffle](#just-shuffle)
   * [just-split](#just-split)
   * [just-split-at](#just-split-at)
+  * [just-partition](#just-partition)
   * [just-range](#just-range)
   * [just-remove](#just-remove)
   * [just-union](#just-union)
@@ -727,6 +728,24 @@ splitAt([{a: 1}, {b: 1}, {c: 1}], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
 splitAt([], 2); // [[], []]
 splitAt(null, 1); // undefined
 splitAt(undefined, 1); // undefined
+```
+
+### [just-partition](https://www.npmjs.com/package/just-partition)
+:icecream:[`Try It`](http://anguscroll.com/just/just-partition)
+
+`npm install just-partition`
+
+```js
+import partition from 'just-partition';
+
+partition([1, 5, 2, 4, 3], n => n > 3); // [[5, 4],[1, 2, 3]]
+partition(['a', 2, 3, '3'], x => typeof x == 'string'); // [['a', '3'],[2, 3]]
+partition([1, 2, 3, 4], x => typeof x == 'number'); // [[1, 2, 3, 4],[]]
+partition([1, 2, 3, 4], x => typeof x == 'string'); // [[], [1, 2, 3, 4]]
+partition([], n => n > 3); // [[], []]
+partition({a: 1, b: 2}, n => n > 1); // throws
+partition(null, n => n > 1); // throws
+partition(undefined, n => n > 1); // throws
 ```
 
 ### [just-range](https://www.npmjs.com/package/just-range)
