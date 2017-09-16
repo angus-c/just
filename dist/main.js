@@ -377,9 +377,6 @@ exports.default = {
     'just-last': {
       code: ['const last = require(\'just-last\')\n\nlast([true, false, [true, false]]);']
     },
-    'just-split': {
-      code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
-    },
     'just-tail': {
       code: ['const tail = require(\'just-tail\')\n\ntail([0, 1, 2, 3, 4, 5]);']
     },
@@ -392,8 +389,14 @@ exports.default = {
     'just-range': {
       code: ['const range = require(\'just-range\')\n\nrange(0, 20, 5);']
     },
+    'just-split': {
+      code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
+    },
     'just-split-at': {
       code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
+    },
+    'just-partition': {
+      code: ['const partition = require(\'just-partition\');\n\npartition([1, 5, 3, 4, 2], n => n > 3);']
     },
     'just-remove': {
       code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
@@ -456,16 +459,16 @@ exports.default = {
       code: ['const partial = require(\'just-partial-it\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
     },
     'just-flip': {
-      code: ['const flip = require(\'just-flip\');\n \nflip(console.log)(1, 2, 3);']
+      code: ['const flip = require(\'just-flip\');\n\nflip(console.log)(1, 2, 3);']
     },
     'just-debounce-it': {
-      code: ['const debounce = require(\'just-debounce-it\');\n \nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
+      code: ['const debounce = require(\'just-debounce-it\');\n\nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
     },
     'just-throttle': {
-      code: ['const throttle = require(\'just-throttle\');\n \nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
+      code: ['const throttle = require(\'just-throttle\');\n\nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
     },
     'just-once': {
-      code: ['const once = require(\'just-once\');\n \nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
+      code: ['const once = require(\'just-once\');\n\nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
     }
   }
 };
