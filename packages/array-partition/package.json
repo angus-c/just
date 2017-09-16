@@ -1,7 +1,7 @@
 {
-  "name": "just-split",
-  "version": "1.0.1",
-  "description": "Splits array into groups of n items each",
+  "name": "just-partition",
+  "version": "1.0.0",
+  "description": "Elements satisfying predicate added to first array, remainder added to second",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,11 +9,12 @@
   "repository": "https://github.com/angus-c/just",
   "keywords": [
     "array",
+    "partition",
     "split",
     "no-dependencies",
     "just"
   ],
-  "author": "Eric W. Lin",
+  "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
