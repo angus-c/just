@@ -236,7 +236,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   `npm install just-clone`
 
   ```js
-  // Identical to `just-extend(true, {}, obj1) but also works on arrays`
+  // Identical to `just-extend(true, {}, obj1)` but also works on arrays
 
   import clone from 'just-clone';
 
