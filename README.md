@@ -3,16 +3,16 @@
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just do one thing.
-A guilt-free alternative to those bulkier libraries. Ideal for mobile web development or wherever bytes are precious.
+A guilt-free alternative to those bulkier utility libraries. Ideal for mobile web development or wherever bytes are precious.
 
-We welcome contributions. Please follow the [contribution guidelines](#new-module-guidelines) below.
+We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
+
+## Read :books:
+[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## Try :icecream:
 [Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [RunKit](https://runkit.com))
 <a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
-## Read :books:
-[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
-
 ## The Modules :package:
 
 * [Collections](#collections)
@@ -1135,24 +1135,4 @@ Run all tests as a single test suite with
 
 ## Contribute!
 
-We welcome pull requests for additional utilities (and corrections to existing ones).
-
-## New Module Guidelines
-* Must not depend on any other npm modules
-* Always assume this is hot code and code accordingly
-  * favor for loops over high order functions
-  * don't repeatedly access the same property, assign to a var
-  * write es5
-* API
-  * keep the api simple and intuitive
-  * avoid option arguments whenever possible - make it just do one thing
-* README
-  * limit README to examples of each use case
-  * if you must explain the api (see api section) add a comment in the README example code
-  * add a section in the general README that duplicates the individual README for your module
-* Tests
-  * write a test for each use case
-  * include tests for all README examples
-  * over-thorough is better than not thorough enough
-* Interactive gh-pages (anguscroll.com/just)
-  * I can update this afterwards
+https://github.com/angus-c/just/blob/master/CONTRIBUTING.md

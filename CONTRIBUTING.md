@@ -15,4 +15,4 @@
   * Include tests for all examples you included in the README
   * Too thorough is better than not thorough enough
 * Interactive gh-pages ([http://anguscroll.com/just](anguscroll.com/just))
-  * I'll take care of this after I land your PR
+  * We'll take care of this after we land your PR and publish the npm module
