@@ -33,12 +33,15 @@ test('works with values in arrays of arrays', function(t) {
 });
 
 test('throws if first argument is not an array', function(t) {
-  t.plan(2);
+  t.plan(3);
   t.throws(function() {
     findIndexOf(3, 1, 2);
   });
   t.throws(function() {
     findIndexOf();
+  });
+  t.throws(function() {
+    findIndexOf(undefined, 'key', 5);
   });
   t.end();
 });
