@@ -5,9 +5,12 @@ module.exports = tail;
   tail([{a: 1}, {b: 1}, {c: 1}]); // [{b: 1}, {c: 1}]
   tail([true, false, [true, false]]); // [false, [true, false]]
   tail([]); // []
-  tail(undefined); // undefined
+  tail(); // throws
 */
 
 function tail(arr) {
-  return arr != null ? arr.slice(1) : undefined;
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array');
+  }
+  return arr.slice(1);
 }

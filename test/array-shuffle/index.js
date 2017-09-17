@@ -2,7 +2,7 @@ var test = require('../util/test')(__filename);
 var shuffle = require('../../packages/array-shuffle');
 var compare = require('../../packages/collection-compare');
 
-test('returns elements, randomly sorted', function (t) {
+test('returns elements, randomly sorted', function(t) {
   t.plan(2);
   var arr = [1, 2, 3, 4, 5];
   var shuffled = shuffle(arr);
@@ -11,7 +11,7 @@ test('returns elements, randomly sorted', function (t) {
   t.end();
 });
 
-test('returns duplicate when array has 0 or 1 element', function (t) {
+test('returns duplicate when array has 0 or 1 element', function(t) {
   t.plan(2);
   var arr = [1];
   var shuffled = shuffle(arr);
@@ -22,11 +22,19 @@ test('returns duplicate when array has 0 or 1 element', function (t) {
   t.end();
 });
 
-test('non-array-like, falsey or empty input returns undefined', function (t) {
+test('non-array arguments throw', function(t) {
   t.plan(4);
-  t.equal(shuffle({}), undefined);
-  t.equal(shuffle(undefined), undefined);
-  t.equal(shuffle(null), undefined);
-  t.equal(shuffle(), undefined);
+  t.throws(function() {
+    shuffle({});
+  });
+  t.throws(function() {
+    shuffle(undefined);
+  });
+  t.throws(function() {
+    shuffle(null);
+  });
+  t.throws(function() {
+    shuffle();
+  });
   t.end();
 });

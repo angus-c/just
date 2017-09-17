@@ -1,6 +1,6 @@
 module.exports = {
   diff: diff,
-  jsonPatchPathConverter: jsonPatchPathConverter
+  jsonPatchPathConverter: jsonPatchPathConverter,
 };
 
 /*
@@ -87,7 +87,7 @@ function diff(obj1, obj2, pathConverter) {
         path = basePath.concat(key);
         diffs.remove.push({
           op: 'remove',
-          path: pathConverter ? pathConverter(path) : path
+          path: pathConverter ? pathConverter(path) : path,
         });
       }
     }
@@ -100,7 +100,7 @@ function diff(obj1, obj2, pathConverter) {
         diffs.add.push({
           op: 'add',
           path: pathConverter ? pathConverter(path) : path,
-          value: obj2Value
+          value: obj2Value,
         });
       } else if (obj1[key] != obj2[key]) {
         if (Object(obj2[key]) !== obj2[key]) {
@@ -108,7 +108,7 @@ function diff(obj1, obj2, pathConverter) {
           diffs.replace.push({
             op: 'replace',
             path: pathConverter ? pathConverter(path) : path,
-            value: obj2[key]
+            value: obj2[key],
           });
         } else {
           getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);

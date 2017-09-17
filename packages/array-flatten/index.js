@@ -6,6 +6,9 @@ module.exports = flatten;
 */
 
 function flatten(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array');
+  }
   var result = [];
   var len = arr.length;
   for (var i = 0; i < len; i++) {

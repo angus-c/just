@@ -35,9 +35,9 @@ function isCircular(obj) {
   }
   try {
     JSON.stringify(obj);
-  } catch(err) {
+  } catch (err) {
     var index = errorKeywords.length;
-    while(index--) {
+    while (index--) {
       if (err.message.indexOf(errorKeywords[index]) > -1) {
         return true;
       }

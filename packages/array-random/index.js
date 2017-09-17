@@ -3,9 +3,12 @@ module.exports = random;
 /*
   random([1, 2, 3]); // one of [1, 2, 3], at random
   random([1]); // 1
-  random(); // undefined
+  random(); // throws
 */
 
 function random(arr) {
-  return arr != null ? arr[Math.floor(Math.random() * arr.length)] : undefined;
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array');
+  }
+  return arr[Math.floor(Math.random() * arr.length)];
 }

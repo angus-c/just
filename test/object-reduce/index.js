@@ -2,16 +2,16 @@ var test = require('../util/test')(__filename);
 var reduce = require('../../packages/object-reduce');
 var compare = require('../../packages/collection-compare');
 
-var noop = function () {};
-var obj = { a: 3, b: 5, c: 9, d: null, e: noop };
+var noop = function() {};
+var obj = {a: 3, b: 5, c: 9, d: null, e: noop};
 
-test('initialValue', function (t) {
+test('initialValue', function(t) {
   t.plan(2);
 
   var expectedKeys = Object.keys(obj);
 
   function getArgsInitialIndex(idx) {
-    return function () {
+    return function() {
       if (arguments[3] == idx) {
         return [].slice.call(arguments);
       }
@@ -29,12 +29,12 @@ test('initialValue', function (t) {
   t.end();
 });
 
-test('use value', function (t) {
+test('use value', function(t) {
   t.plan(3);
 
   var result1 = reduce(
     obj,
-    function (target, key, value) {
+    function(target, key, value) {
       target.push(value);
       return target;
     },
@@ -44,7 +44,7 @@ test('use value', function (t) {
 
   var result2 = reduce(
     obj,
-    function (target, key, value) {
+    function(target, key, value) {
       target += Number(value) || 0;
       return target;
     },
@@ -52,7 +52,7 @@ test('use value', function (t) {
   );
   t.ok(compare(result2, 17));
 
-  var result3 = reduce(obj, function (target, key, value) {
+  var result3 = reduce(obj, function(target, key, value) {
     target += Number(value) || 0;
     return target;
   });
@@ -60,12 +60,12 @@ test('use value', function (t) {
   t.end();
 });
 
-test('use key', function (t) {
+test('use key', function(t) {
   t.plan(3);
 
   var result1 = reduce(
     obj,
-    function (target, key, value) {
+    function(target, key, value) {
       target.push(key);
       return target;
     },
@@ -75,15 +75,15 @@ test('use key', function (t) {
 
   var result2 = reduce(
     obj,
-    function (target, key, value, index) {
+    function(target, key, value, index) {
       target[index] = key;
       return target;
     },
     {}
   );
-  t.ok(compare(result2, { 0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e' }));
+  t.ok(compare(result2, {0: 'a', 1: 'b', 2: 'c', 3: 'd', 4: 'e'}));
 
-  var result3 = reduce(obj, function (target, key, value) {
+  var result3 = reduce(obj, function(target, key, value) {
     target += key;
     return target;
   });
@@ -91,13 +91,19 @@ test('use key', function (t) {
   t.end();
 });
 
-test('use key and value', function (t) {
+test('use key and value', function(t) {
   t.plan(2);
 
-  var expectedResult1 = ['a is 3', 'b is 5', 'c is 9', 'd is null', 'e is function () {}'];
+  var expectedResult1 = [
+    'a is 3',
+    'b is 5',
+    'c is 9',
+    'd is null',
+    'e is function () {}',
+  ];
   var result1 = reduce(
     obj,
-    function (target, key, value) {
+    function(target, key, value) {
       target.push(key + ' is ' + value);
       return target;
     },
@@ -107,24 +113,32 @@ test('use key and value', function (t) {
 
   var result2 = reduce(
     obj,
-    function (target, key, value) {
+    function(target, key, value) {
       target[value] = key;
       return target;
     },
     {}
   );
-  t.ok(compare(result2, { 3: 'a', 5: 'b', 9: 'c', null: 'd', 'function () {}': 'e' }));
+  t.ok(
+    compare(result2, {
+      3: 'a',
+      5: 'b',
+      9: 'c',
+      null: 'd',
+      'function () {}': 'e',
+    })
+  );
   t.end();
 });
 
-test('invalid usage', function (t) {
+test('invalid usage', function(t) {
   t.plan(2);
 
-  t.throws(function () {
+  t.throws(function() {
     reduce(obj);
   });
 
-  t.throws(function () {
+  t.throws(function() {
     reduce({}, noop);
   });
   t.end();

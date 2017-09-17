@@ -1,19 +1,13 @@
 {
   "name": "just-shuffle",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "return the elements of an array in random order",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "array",
-    "random",
-    "shuffle",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["array", "random", "shuffle", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

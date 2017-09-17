@@ -14,14 +14,25 @@ module.exports = unique;
 */
 
 function unique(arr, sorted, strings) {
-  if (!sorted && strings && (arr[0] !== Object(arr[0]))) {
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array for the first argument');
+  }
+  if (sorted != null && typeof sorted != 'boolean') {
+    throw new Error('expected a number or boolean for the second argument');
+  }
+  if (strings != null && typeof strings != 'boolean') {
+    throw new Error('expected a number or boolean for the third argument');
+  }
+  if (!sorted && strings && arr[0] !== Object(arr[0])) {
     return stringUnique(arr);
   }
-  var result = [], duplicate, lastAdded;
+  var result = [],
+    duplicate,
+    lastAdded;
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     var elem = arr[i];
-    duplicate = lastAdded && (lastAdded === elem);
+    duplicate = lastAdded && lastAdded === elem;
     if (!duplicate && !sorted) {
       duplicate = result.indexOf(elem) > -1;
     }

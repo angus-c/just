@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var prune = require('../../packages/string-prune');
 
-test('string defaulted with default suffix', function (t) {
+test('string defaulted with default suffix', function(t) {
   t.plan(2);
   var str = 'when shall we three meet again';
   var result = prune(str, 9);
@@ -11,7 +11,7 @@ test('string defaulted with default suffix', function (t) {
   t.end();
 });
 
-test('string defaulted with custom suffix', function (t) {
+test('string defaulted with custom suffix', function(t) {
   t.plan(2);
   var str = 'when shall we three meet again';
   var result = prune(str, 16, ' (etc)');
@@ -21,7 +21,7 @@ test('string defaulted with custom suffix', function (t) {
   t.end();
 });
 
-test('no length specified', function (t) {
+test('no length specified', function(t) {
   t.plan(1);
   var str = 'when shall we three meet again';
   var result = prune(str);
@@ -29,7 +29,9 @@ test('no length specified', function (t) {
   t.end();
 });
 
-test('truncation length minus suffix length is shorter than first word', function (t) {
+test('truncation length minus suffix length is shorter than first word', function(
+  t
+) {
   t.plan(1);
   var str = 'when shall we three meet again';
   var result = prune(str, 6);
@@ -37,7 +39,7 @@ test('truncation length minus suffix length is shorter than first word', functio
   t.end();
 });
 
-test('string is shorter than truncation length', function (t) {
+test('string is shorter than truncation length', function(t) {
   t.plan(2);
   var str = 'when shall we';
   var result = prune(str, 25);
@@ -47,7 +49,7 @@ test('string is shorter than truncation length', function (t) {
   t.end();
 });
 
-test('suffix is greater than or equal to truncation length', function (t) {
+test('suffix is greater than or equal to truncation length', function(t) {
   t.plan(2);
   var str = 'when shall we three meet again';
   var result = prune(str, 10, ' (etc etc etc)');
@@ -57,7 +59,7 @@ test('suffix is greater than or equal to truncation length', function (t) {
   t.end();
 });
 
-test('suffix is greater than or equal to string length', function (t) {
+test('suffix is greater than or equal to string length', function(t) {
   t.plan(2);
   var str = 'when shall';
   var result = prune(str, 10, ' very long suffix');

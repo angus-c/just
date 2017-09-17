@@ -1,20 +1,20 @@
 var test = require('../util/test')(__filename);
 var leftPad = require('../../packages/string-left-pad');
 
-test('left pad with default pad character', function (t1) {
-  test('strings with sufficient padding', function (t) {
+test('left pad with default pad character', function(t1) {
+  test('strings with sufficient padding', function(t) {
     t.plan(2);
     t.equal(leftPad('hello', 9), '    hello');
     t.equal(leftPad('a', 2), ' a');
     t.end();
   });
-  test('strings with insufficient padding', function (t) {
+  test('strings with insufficient padding', function(t) {
     t.plan(2);
     t.equal(leftPad('hello', 3), 'hello');
     t.equal(leftPad('a', 1), 'a');
     t.end();
   });
-  test('non strings', function (t) {
+  test('non strings', function(t) {
     t.plan(3);
     t.equal(leftPad(['hello'], 9), '    hello');
     t.equal(leftPad(1 + 1, 2), ' 2');
@@ -24,22 +24,22 @@ test('left pad with default pad character', function (t1) {
   t1.end();
 });
 
-test('left pad with custom pad character', function (t2) {
-  test('strings with sufficient padding', function (t) {
+test('left pad with custom pad character', function(t2) {
+  test('strings with sufficient padding', function(t) {
     t.plan(3);
     t.equal(leftPad('hello', 9, '.'), '....hello');
     t.equal(leftPad('a', 2, '_'), '_a');
     t.equal(leftPad('no-pad', 12, ''), 'no-pad');
     t.end();
   });
-  test('strings with insufficient padding', function (t) {
+  test('strings with insufficient padding', function(t) {
     t.plan(3);
     t.equal(leftPad('hello', 3, '.'), 'hello');
     t.equal(leftPad('a', 1, '_'), 'a');
     t.equal(leftPad('no-pad', 4, ''), 'no-pad');
     t.end();
   });
-  test('non strings', function (t) {
+  test('non strings', function(t) {
     t.plan(3);
     t.equal(leftPad(['hello'], 9, '='), '====hello');
     t.equal(leftPad(1 + 1, 2, '+'), '+2');

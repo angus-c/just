@@ -23,7 +23,7 @@ function rightPad(str, length, char) {
   arr.push(str);
 
   var count = length;
-  while(count--) {
+  while (count--) {
     arr.push(char);
   }
 

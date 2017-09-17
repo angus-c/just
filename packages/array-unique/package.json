@@ -1,19 +1,13 @@
 {
   "name": "just-unique",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "dedupes an array",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "array",
-    "unique",
-    "dedupe",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["array", "unique", "dedupe", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

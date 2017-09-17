@@ -6,13 +6,15 @@ sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 */
 
-function compose(fn1, fn2/*, fn3, etc */) {
+function compose(fn1, fn2 /*, fn3, etc */) {
   if (!arguments.length) {
-    throw new Error('expected at least one (and probably more) function arguments');
+    throw new Error(
+      'expected at least one (and probably more) function arguments'
+    );
   }
   var fns = arguments;
 
-  return function () {
+  return function() {
     var result = fns[0].apply(this, arguments);
     var len = fns.length;
     for (var i = 1; i < len; i++) {
@@ -20,4 +22,4 @@ function compose(fn1, fn2/*, fn3, etc */) {
     }
     return result;
   };
-};
+}

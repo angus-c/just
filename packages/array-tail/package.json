@@ -1,18 +1,13 @@
 {
   "name": "just-tail",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "return all but the first element of an array",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/tail",
-  "keywords": [
-    "array",
-    "tail",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["array", "tail", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

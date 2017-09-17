@@ -21,7 +21,7 @@ function leftPad(str, length, char) {
   }
 
   var count = length;
-  while(count--) {
+  while (count--) {
     arr.push(char);
   }
 

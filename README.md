@@ -595,8 +595,8 @@ index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');
 // {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
 index([{id: 'first', val: 1}, null], 'id'); // {first: {id: 'first', val: 1}}
 index([], 'id'); // {}
-index([], null); // undefined
-index({}, 'id'); // undefined
+index([], null); // throws
+index({}, 'id'); // throws
 ```
 
 ### [just-insert](https://www.npmjs.com/package/just-insert)
@@ -635,7 +635,7 @@ import compact from 'just-compact';
 compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
 compact([1, 2, [], 4, {}]); // [1, 2, [], 4, {}]
 compact([]); // []
-compact({}); // undefined
+compact({}); // throws
 ```
 
 ### [just-last](https://www.npmjs.com/package/just-last)
@@ -649,10 +649,10 @@ import last from 'just-last';
 last([1, 2, 3, 4, 5]); // 5
 last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
 last([true, false, [true, false]]); // [true, false]
-last(); // undefined
 last([]); // undefined
-last(null); // undefined
-last(undefined); // undefined
+last(); // throws
+last(null); // throws
+last(undefined); // throws
 ```
 
 ### [just-tail](https://www.npmjs.com/package/just-tail)
@@ -667,9 +667,9 @@ tail([1, 2, 3, 4, 5]); // [2, 3, 4, 5]
 tail([{a: 1}, {b: 1}, {c: 1}]); // [{b: 1}, {c: 1}]
 tail([true, false, [true, false]]); // [false, [true, false]]
 tail([]); // []
-tail(); // undefined
-tail(null); // undefined
-tail(undefined); // undefined
+tail(); // throws
+tail(null); // throws
+tail(undefined); // throws
 ```
 
 ### [just-random](https://www.npmjs.com/package/just-random)
@@ -693,10 +693,10 @@ import shuffle from 'just-shuffle';
 
 shuffle([1, 2, 3]); // array with original elements randomly sorted
 shuffle([1]); // [1]
-shuffle(); // undefined
-shuffle(undefined); // undefined
-shuffle(null); // undefined
-shuffle({}); // undefined
+shuffle(); // throws
+shuffle(undefined); // throws
+shuffle(null); // throws
+shuffle({}); // throws
 ```
 ### [just-split](https://www.npmjs.com/package/just-split)
 :icecream:[`Try It`](http://anguscroll.com/just/just-split)
@@ -709,9 +709,11 @@ import split from 'just-split';
 split([]); // []
 split([1, 2, 3, 4, 5]); // [[1, 2, 3, 4, 5]]
 split([1, 2, 3, 4, 5, 6, 7, 8, 9], 3); [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-split([1, 2, 3, 4, 5, 6, 7, 8, 9], '3'); [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 split(['a', 'b', 'c', 'd', 'e'], 2); [['a', 'b'], ['c', 'd'], ['e']]
 split([1, 2, 3, 4, 5, 6, 7, 8], 3); [[1, 2, 3], [4, 5, 6], [7, 8]]
+split({}, 3); // throws
+split(null, 3); // throws
+split([1, 2, 3, 4, 5, 6], '3'); // throws
 ```
 
 
@@ -726,8 +728,9 @@ import splitAt from 'just-split-at';
 splitAt([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4, 5]]
 splitAt([{a: 1}, {b: 1}, {c: 1}], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
 splitAt([], 2); // [[], []]
-splitAt(null, 1); // undefined
-splitAt(undefined, 1); // undefined
+splitAt(null, 1); // throws
+splitAt(undefined, 1); // throws
+splitAt([1, 2, 3, 4, 5], {}); // throws
 ```
 
 ### [just-partition](https://www.npmjs.com/package/just-partition)
@@ -794,12 +797,10 @@ import zip from 'just-zip-it';
 
 zip([1, 2, 3]); // [[1], [2], [3]]
 zip([1, 2, 3], ['a', 'b', 'c']); // [[1, 'a'], [2, 'b'], [3, 'c']]
-zip([1, 2], ['a', 'b'], [true, false]); //[[1, 'a', true], [2, 'b', false]]
-
-zip(undefined, {}, false, 1, 'foo'); // []
-zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // [[1, 'a'], [2, 'b']]
-
+zip([1, 2], ['a', 'b'], [true, false]); // [[1, 'a', true], [2, 'b', false]]
 zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
+zip(undefined, {}, false, 1, 'foo'); // throws
+zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
 ```
 
 ### Strings

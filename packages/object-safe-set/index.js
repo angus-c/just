@@ -27,7 +27,7 @@ function set(obj, props, value) {
     return false;
   }
   var thisProp;
-  while (thisProp = props.shift()) {
+  while ((thisProp = props.shift())) {
     if (!obj[thisProp]) {
       obj[thisProp] = {};
     }

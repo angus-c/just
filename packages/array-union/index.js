@@ -5,6 +5,9 @@ module.exports = union;
 */
 
 function union(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    throw new Error('expected both arguments to be arrays');
+  }
   var result = arr1.concat([]);
   var len = arr2.length;
   for (var i = 0; i < len; i++) {

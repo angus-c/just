@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var curry = require('../../packages/function-curry');
 
-test('returns a curried function', function (t) {
+test('returns a curried function', function(t) {
   t.plan(1);
   function converter(ratio, input) {
     return (input * ratio).toFixed(1);
@@ -12,7 +12,7 @@ test('returns a curried function', function (t) {
   t.end();
 });
 
-test('does not bind supplied arguments', function (t) {
+test('does not bind supplied arguments', function(t) {
   t.plan(3);
   function converter(ratio, input) {
     return (input * ratio).toFixed(1);
@@ -24,25 +24,27 @@ test('does not bind supplied arguments', function (t) {
   t.end();
 });
 
-test('still returns a function for zero-arity functions', function (t) {
+test('still returns a function for zero-arity functions', function(t) {
   t.plan(2);
   function nothing() {}
   t.equal(typeof curry(nothing), 'function');
   t.equal(typeof curry(nothing, 1, 2, 3), 'function');
 });
 
-test('executes in the correct context', function (t) {
+test('executes in the correct context', function(t) {
   t.plan(2);
   function converter(ratio, input) {
     return (input * ratio).toFixed(this.dps);
   }
   var milesToKm = curry(converter)(1.62);
-  t.equal(milesToKm.call({ dps: 0 }, 35), '57');
-  t.equal(milesToKm.call({ dps: 2 }, 35), '56.70');
+  t.equal(milesToKm.call({dps: 0}, 35), '57');
+  t.equal(milesToKm.call({dps: 2}, 35), '56.70');
   t.end();
 });
 
-test('converts n-ary function to a sequence of nested unary functions', function (t) {
+test('converts n-ary function to a sequence of nested unary functions', function(
+  t
+) {
   t.plan(4);
   function addThree(x, y, z) {
     return x + y + z;

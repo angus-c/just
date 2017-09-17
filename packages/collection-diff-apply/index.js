@@ -1,6 +1,6 @@
 module.exports = {
   diffApply: diffApply,
-  jsonPatchPathConverter: jsonPatchPathConverter
+  jsonPatchPathConverter: jsonPatchPathConverter,
 };
 
 /*
@@ -70,7 +70,9 @@ function diffApply(obj, diff, pathConverter) {
       }
     } else {
       if (!Array.isArray(thisPath)) {
-        throw new Error('diff path must be an array, consider supplying a path converter');
+        throw new Error(
+          'diff path must be an array, consider supplying a path converter'
+        );
       }
     }
     var lastProp = thisPath.pop();
@@ -86,11 +88,17 @@ function diffApply(obj, diff, pathConverter) {
     }
     if (thisOp === REMOVE || thisOp === REPLACE) {
       if (!subObject[lastProp]) {
-        throw new Error(['expected to find property', thisDiff.path, 'in object', obj].join(' '));
+        throw new Error(
+          ['expected to find property', thisDiff.path, 'in object', obj].join(
+            ' '
+          )
+        );
       }
     }
     if (thisOp === REMOVE) {
-      Array.isArray(subObject) ? subObject.splice(lastProp, 1) : delete subObject[lastProp];
+      Array.isArray(subObject)
+        ? subObject.splice(lastProp, 1)
+        : delete subObject[lastProp];
     }
     if (thisOp === REPLACE || thisOp === ADD) {
       subObject[lastProp] = thisDiff.value;

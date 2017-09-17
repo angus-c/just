@@ -23,5 +23,5 @@ function modulo(n, d) {
   if (d < 0) {
     return NaN;
   }
-  return ((n % d) + d) % d;
+  return (n % d + d) % d;
 }

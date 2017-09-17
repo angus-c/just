@@ -1,18 +1,13 @@
 {
   "name": "just-intersect",
-  "version": "1.1.22",
+  "version": "2.0.0",
   "description": "return the intersect of two arrays",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "array",
-    "intersect",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["array", "intersect", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
