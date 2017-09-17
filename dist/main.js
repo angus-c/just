@@ -290,6 +290,11 @@ exports.default = function (_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _Array;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 exports.default = {
   Collections: {
     'just-diff': {
@@ -302,7 +307,7 @@ exports.default = {
       code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
     },
     'just-clone': {
-      code: ['var arr = [1, 2, 3];\nvar subObj = {aa: 1};\nvar obj = {a: 3, b: 5, c: arr, d: subObj};\nvar objClone = clone(obj);\narr.push(4);\nsubObj.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
+      code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nsubObj.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
     },
     'just-pluck-it': {
       code: ['const pluck = require(\'just-pluck-it\')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, \'a\')']
@@ -358,7 +363,7 @@ exports.default = {
       code: ['const typeOf = require(\'just-typeof\');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf(\'a\');\n// typeOf(1);\n// typeOf(true);']
     }
   },
-  Array: {
+  Array: (_Array = {
     'just-unique': {
       code: ['const unique = require(\'just-unique\');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);']
     },
@@ -394,20 +399,20 @@ exports.default = {
     },
     'just-range': {
       code: ['const range = require(\'just-range\')\n\nrange(0, 20, 5);']
-    },
-    'just-split-at': {
-      code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
-    },
-    'just-remove': {
-      code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
-    },
-    'just-union': {
-      code: ['const union = require(\'just-union\')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);']
-    },
-    'just-zip-it': {
-      code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
     }
-  },
+  }, _defineProperty(_Array, 'just-split', {
+    code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
+  }), _defineProperty(_Array, 'just-split-at', {
+    code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
+  }), _defineProperty(_Array, 'just-partition', {
+    code: ['const partition = require(\'just-partition\');\n\npartition([1, 5, 3, 4, 2], n => n > 3);']
+  }), _defineProperty(_Array, 'just-remove', {
+    code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
+  }), _defineProperty(_Array, 'just-union', {
+    code: ['const union = require(\'just-union\')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);']
+  }), _defineProperty(_Array, 'just-zip-it', {
+    code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
+  }), _Array),
   Strings: {
     'just-template': {
       code: ['const template = require(\'just-template\')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: \'apple\',\n      bbb: \'pear\'\n    },\n    bb: \'orange\'\n  },\n  b: \'plum\'\n};\ntemplate(\'2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.\', data);']
@@ -459,16 +464,16 @@ exports.default = {
       code: ['const partial = require(\'just-partial-it\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
     },
     'just-flip': {
-      code: ['const flip = require(\'just-flip\');\n \nflip(console.log)(1, 2, 3);']
+      code: ['const flip = require(\'just-flip\');\n\nflip(console.log)(1, 2, 3);']
     },
     'just-debounce-it': {
-      code: ['const debounce = require(\'just-debounce-it\');\n \nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
+      code: ['const debounce = require(\'just-debounce-it\');\n\nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
     },
     'just-throttle': {
-      code: ['const throttle = require(\'just-throttle\');\n \nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
+      code: ['const throttle = require(\'just-throttle\');\n\nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
     },
     'just-once': {
-      code: ['const once = require(\'just-once\');\n \nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
+      code: ['const once = require(\'just-once\');\n\nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
     }
   }
 };

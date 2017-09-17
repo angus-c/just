@@ -33,10 +33,11 @@ compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
     },
     'just-clone': {
       code: [
-        `var arr = [1, 2, 3];
-var subObj = {aa: 1};
-var obj = {a: 3, b: 5, c: arr, d: subObj};
-var objClone = clone(obj);
+        `const clone = require('just-clone')\n
+const arr = [1, 2, 3];
+const subObj = {aa: 1};
+const obj = {a: 3, b: 5, c: arr, d: subObj};
+const objClone = clone(obj);
 arr.push(4);
 subObj.bb = 2;
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  
@@ -242,10 +243,22 @@ shuffle([1, 2, 3, 4, 5]);`
 range(0, 20, 5);`
       ]
     },
+    'just-split': {
+      code: [
+        `const split = require('just-split')\n
+split([1, 2, 3, 4, 5, 6, 7, 8], 2);`
+      ]
+    },
     'just-split-at': {
       code: [
         `const splitAt = require('just-split-at');\n
 splitAt([1, 2, 3, 4, 5], 2);`
+      ]
+    },
+    'just-partition': {
+      code: [
+        `const partition = require('just-partition');\n
+partition([1, 5, 3, 4, 2], n => n > 3);`
       ]
     },
     'just-remove': {
@@ -383,14 +396,14 @@ cubedRoot(35).toFixed(1);`
     'just-flip': {
       code: [
         `const flip = require('just-flip');
- 
+
 flip(console.log)(1, 2, 3);`
       ]
     },
     'just-debounce-it': {
       code: [
         `const debounce = require('just-debounce-it');
- 
+
 const fn1 = debounce(() => console.log('Hello'), 1000, true);
 fn1();
 fn1();
@@ -401,7 +414,7 @@ fn1();`
     'just-throttle': {
       code: [
         `const throttle = require('just-throttle');
- 
+
 const fn1 = throttle(() => console.log('hello'), 2000, true);
 setInterval(fn1, 400);`
       ]
@@ -409,7 +422,7 @@ setInterval(fn1, 400);`
     'just-once': {
       code: [
         `const once = require('just-once');
- 
+
 let i = 0;
 const addOnce = once(() => i++);
 addOnce();
