@@ -7,12 +7,12 @@ A guilt-free alternative to those bulkier utility libraries. Ideal for mobile we
 
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
 
-## Try :icecream:
-[Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [RunKit](https://runkit.com))
-<a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
 ## Read :books:
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
+## Try :icecream:
+[Editable, runnable examples](http://anguscroll.com/just) of every utility (powered by [RunKit](https://runkit.com))
+<a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
 ## The Modules :package:
 
 * [Collections](#collections)
