@@ -34,3 +34,31 @@ test('adds non array values at given index', function(t) {
   t.deepEqual(insert(arr1, 'x'), ['x', 1, 2, 3, 4, 5, 6]);
   t.end();
 });
+
+test('throws if first argument is not an array', function(t) {
+  t.plan(3);
+  t.throws(function() {
+    insert(undefined, [1, 2, 3, 4, 5], 4);
+  });
+  t.throws(function() {
+    insert(null, [1, 2, 3, 4, 5], 3);
+  });
+  t.throws(function() {
+    insert({}, [1, 2, 3], 'x');
+  });
+  t.end();
+});
+
+test('throws if third argument is present and not a number', function(t) {
+  t.plan(3);
+  t.throws(function() {
+    insert([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5], '4');
+  });
+  t.throws(function() {
+    insert([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5], {});
+  });
+  t.throws(function() {
+    insert([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5], undefined);
+  });
+  t.end();
+});

@@ -3,15 +3,15 @@ module.exports = shuffle;
 /*
   shuffle([1, 2, 3]); // array with original elements randomly sorted
   shuffle([1]); // [1]
-  shuffle(); // undefined
-  shuffle(undefined); // undefined
-  shuffle(null); // undefined
-  shuffle({}); // undefined
+  shuffle(); // throws
+  shuffle(undefined); // throws
+  shuffle(null); // throws
+  shuffle({}); // throws
 */
 
 function shuffle(arr) {
-  if (!arr || !('length' in arr)) {
-    return undefined;
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array');
   }
   var len = arr.length;
   var result = Array(len);

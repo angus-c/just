@@ -43,3 +43,17 @@ test('array range with three decimal arguments', function(t) {
   t.deepEqual(range(start, negativeStop, negativeStep), [0, -0.5, -1, -1.5]);
   t.end();
 });
+
+test('throws if any argument is not null/undefined or number', function(t) {
+  t.plan(3);
+  t.throws(function() {
+    range('0', 3);
+  });
+  t.throws(function() {
+    range(0, '3');
+  });
+  t.throws(function() {
+    range(0, 3, '1');
+  });
+  t.end();
+});

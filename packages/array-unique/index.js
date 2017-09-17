@@ -14,6 +14,15 @@ module.exports = unique;
 */
 
 function unique(arr, sorted, strings) {
+  if (!Array.isArray(arr)) {
+    throw new Error('expected an array for the first argument');
+  }
+  if (sorted != null && typeof sorted != 'boolean') {
+    throw new Error('expected a number or boolean for the second argument');
+  }
+  if (strings != null && typeof strings != 'boolean') {
+    throw new Error('expected a number or boolean for the third argument');
+  }
   if (!sorted && strings && arr[0] !== Object(arr[0])) {
     return stringUnique(arr);
   }

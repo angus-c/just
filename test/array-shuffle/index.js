@@ -22,11 +22,19 @@ test('returns duplicate when array has 0 or 1 element', function(t) {
   t.end();
 });
 
-test('non-array-like, falsey or empty input returns undefined', function(t) {
+test('non-array arguments throw', function(t) {
   t.plan(4);
-  t.equal(shuffle({}), undefined);
-  t.equal(shuffle(undefined), undefined);
-  t.equal(shuffle(null), undefined);
-  t.equal(shuffle(), undefined);
+  t.throws(function() {
+    shuffle({});
+  });
+  t.throws(function() {
+    shuffle(undefined);
+  });
+  t.throws(function() {
+    shuffle(null);
+  });
+  t.throws(function() {
+    shuffle();
+  });
   t.end();
 });

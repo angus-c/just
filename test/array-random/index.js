@@ -17,10 +17,19 @@ test('picks sole element when array is of unity length', function(t) {
   t.end();
 });
 
-test('undefined or empty input returns undefined', function(t) {
-  t.plan(3);
-  t.equal(random([]), undefined);
-  t.equal(random(), undefined);
-  t.equal(random(null), undefined);
+test('non-array arguments throw', function(t) {
+  t.plan(4);
+  t.throws(function() {
+    random({});
+  });
+  t.throws(function() {
+    random(undefined);
+  });
+  t.throws(function() {
+    random(null);
+  });
+  t.throws(function() {
+    random();
+  });
   t.end();
 });

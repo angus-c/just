@@ -1,18 +1,13 @@
 {
   "name": "just-last",
-  "version": "1.1.23",
+  "version": "2.0.0",
   "description": "return the last member of an array",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "array",
-    "last",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["array", "last", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

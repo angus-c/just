@@ -21,10 +21,19 @@ test('empty arrays return undefined', function(t) {
   t.end();
 });
 
-test("undefined inputs don't throw and return undefined", function(t) {
-  t.plan(3);
-  t.equal(last(), undefined);
-  t.equal(last(undefined), undefined);
-  t.equal(last(null), undefined);
+test('non-array arguments throw', function(t) {
+  t.plan(4);
+  t.throws(function() {
+    last({});
+  });
+  t.throws(function() {
+    last(undefined);
+  });
+  t.throws(function() {
+    last(null);
+  });
+  t.throws(function() {
+    last();
+  });
   t.end();
 });

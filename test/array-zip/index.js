@@ -19,38 +19,29 @@ test('zips any number of arrays together', function(t) {
   t.end();
 });
 
-test('returns an empty array for incorrect inputs', function(t) {
-  t.plan(1);
-
-  var actual = zip(undefined, {}, false, 1, 'foo');
-  var expected = [];
-  t.deepEqual(actual, expected);
-
-  t.end();
-});
-
-test('skips incorrect inputs', function(t) {
-  t.plan(1);
-
-  var actual = zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo');
-  var expected = [[1, 'a'], [2, 'b']];
-  t.deepEqual(actual, expected);
-
-  t.end();
-});
-
-test('fill in blank spaces with undefined when given arrays of various lengths', function(
-  t
-) {
+test('fill in blank spaces with undefined when given arrays of various lengths', function(t) {
   t.plan(1);
 
   var actual = zip([1, 2, 3], ['a', 'b'], [true]);
-  var expected = [
-    [1, 'a', true],
-    [2, 'b', undefined],
-    [3, undefined, undefined],
-  ];
+  var expected = [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]];
   t.deepEqual(actual, expected);
 
+  t.end();
+});
+
+test('throws for empty / non-array arguments', function(t) {
+  t.plan(4);
+  t.throws(function() {
+    zip();
+  });
+  t.throws(function() {
+    zip(null);
+  });
+  t.throws(function() {
+    zip([1, 2, 3], {a: '1', b: '2', c: '3'});
+  });
+  t.throws(function() {
+    zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo');
+  });
   t.end();
 });
