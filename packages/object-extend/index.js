@@ -12,17 +12,17 @@ module.exports = extend;
   var arr = [1, 2, 3];
   var obj = {a: 3, b: 5};
   extend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
-  arr.push[4];
+  arr.push(4);
   obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
 
   var arr = [1, 2, 3];
   var obj = {a: 3, b: 5};
   extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
-  arr.push[4];
+  arr.push(4);
   obj; // {a: 3, b: 5, c: [1, 2, 3]}
 */
 
-function extend(obj1, obj2 /*, [objn]*/) {
+function extend(/* [deep], obj1, obj2, [objn] */) {
   var args = [].slice.call(arguments);
   var deep = false;
   if (typeof args[0] === 'boolean') {
