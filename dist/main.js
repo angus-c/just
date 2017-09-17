@@ -301,6 +301,9 @@ exports.default = {
     'just-compare': {
       code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
     },
+    'just-clone': {
+      code: ['var arr = [1, 2, 3];\nvar subObj = {aa: 1};\nvar obj = {a: 3, b: 5, c: arr, d: subObj};\nvar objClone = clone(obj);\narr.push(4);\nsubObj.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
+    },
     'just-pluck-it': {
       code: ['const pluck = require(\'just-pluck-it\')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, \'a\')']
     },
