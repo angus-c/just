@@ -236,8 +236,6 @@ Pass converter to apply a http://jsonpatch.com standard patch
   `npm install just-clone`
 
   ```js
-  // Deep copies objects and arrays
-
   import clone from 'just-clone';
 
   var arr = [1, 2, 3];
