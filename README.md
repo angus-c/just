@@ -572,12 +572,10 @@ unique([1, 1, '1', 2, 2, 5, '5', '5'], true); // [1, '1', 2, 5, '6']
 unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
 ```
 
-## just-find-index-of
+### [just-find-index-of](https://www.npmjs.com/package/just-find-index-of)
+:icecream:[`Try It`](http://anguscroll.com/just/just-find-index-of)
 
-Part of a [library](http://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.  
-Guilt-free utilities for every occasion.
-
-[Try it now](http://anguscroll.com/just/just-find-index-of)
+`npm install just-unique`
 
 ```js
 import findIndexOf from 'just-find-index-of';
