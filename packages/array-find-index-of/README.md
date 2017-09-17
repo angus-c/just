@@ -17,5 +17,6 @@ findIndexOf([[4,5,6,7], [3,4,5,6], [0,2,3,7]], 1, 2); // 2
 findIndexOf(arrOfObjs, 'b', 5); // -1
 findIndexOf([], 'b', 5); // -1
 findIndexOf(arrOfObjs); // throws
+findIndexOf(arrOfObjs, 'a'); // throws
 findIndexOf(undefined, 'a', 3); // throws
 ```
