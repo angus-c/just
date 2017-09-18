@@ -66,6 +66,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-camel-case](#just-camel-case)
   * [just-kebab-case](#just-kebab-case)
   * [just-snake-case](#just-snake-case)
+  * [just-pascal-case](#just-pascal-case)
 * [Numbers](#numbers)
   * [just-clamp](#just-clamp)
   * [just-modulo](#just-modulo)
@@ -957,6 +958,21 @@ sat on the mat`, true); // thecatsatonthemat
   snakeCase('thequickbrownfox'); // 'thequickbrownfox'
   snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'
   snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
+```
+
+### [just-pascal-case](https://www.npmjs.com/package/just-pascal-case)
+:icecream:[`Try It`](http://anguscroll.com/just/just-pascal-case)
+
+`npm install just-pascal-case`
+
+```js
+  pascalCase('the quick brown fox'); // 'TheQuickBrownFox'
+  pascalCase('the_quick_brown_fox'); // 'TheQuickBrownFox'
+  pascalCase('the-quick-brown-fox'); // 'TheQuickBrownFox'
+  pascalCase('theQuickBrownFox'); // 'TheQuickBrownFox'
+  pascalCase('thequickbrownfox'); // 'Thequickbrownfox'
+  pascalCase('the - quick * brown# fox'); // 'TheQuickBrownFox'
+  pascalCase('theQUICKBrownFox'); // 'TheQUICKBrownFox'
 ```
 
 ### Numbers
