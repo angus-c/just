@@ -23,9 +23,7 @@ function pascalCase(str) {
     if (word === '') {
       continue;
     }
-    var firstLetter = word[0];
-    firstLetter = firstLetter.toUpperCase();
-    mappedWords[i] = firstLetter + word.slice(1);
+    mappedWords[i] = word[0].toUpperCase() + word.slice(1);
   }
   return mappedWords.join('');
 }
