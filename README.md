@@ -15,14 +15,14 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 <a href="http://anguscroll.com/just"><img src="images/just-interactive.png" width="500"/></a>
 ## The Modules :package:
 
-* [Collections](#collections)
+* [Collections](#collections) {}[]
   * [just-diff](#just-diff)
   * [just-diff-apply](#just-diff-apply)
   * [just-compare](#just-compare)
   * [just-clone](#just-clone)  
   * [just-pluck-it](#just-pluck-it)
   * [just-flush](#just-flush)  
-* [Objects](#objects)
+* [Objects](#objects) {}
   * [just-extend](#just-extend)
   * [just-values](#just-values)
   * [just-entries](#just-entries)
@@ -38,7 +38,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-safe-set](#just-safe-set)
   * [just-typeof](#just-typeof)
   * [just-flip-object](#just-flip-object)
-* [Arrays](#arrays)
+* [Arrays](#arrays) []
   * [just-unique](#just-unique)
   * [just-flatten-it](#just-flatten-it)
   * [just-index](#just-index)
@@ -56,7 +56,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-remove](#just-remove)
   * [just-union](#just-union)
   * [just-zip-it](#just-zip-it)
-* [Strings](#strings)
+* [Strings](#strings) ""
   * [just-template](#just-template)
   * [just-truncate](#just-truncate)
   * [just-prune](#just-prune)
@@ -67,10 +67,10 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-kebab-case](#just-kebab-case)
   * [just-snake-case](#just-snake-case)
   * [just-pascal-case](#just-pascal-case)
-* [Numbers](#numbers)
+* [Numbers](#numbers) 123
   * [just-clamp](#just-clamp)
   * [just-modulo](#just-modulo)
-* [Functions](#functions)
+* [Functions](#functions) =>
   * [just-compose](#just-compose)
   * [just-curry-it](#just-curry-it)
   * [just-demethodize](#just-demethodize)
