@@ -58,7 +58,7 @@ flush([1, undefined, 2, null, 3, NaN, 0])
       ]
     }
   },
-  Object: {
+  Objects: {
     'just-extend': {
       code: [
         `const extend = require('just-extend')\n
@@ -170,7 +170,7 @@ typeOf({});
       ]
     }
   },
-  Array: {
+  Arrays: {
     'just-unique': {
       code: [
         `const unique = require('just-unique');\n
@@ -352,7 +352,7 @@ pascalCase('the-quick-brown _fox');`
       ]
     }
   },
-  Number: {
+  Numbers: {
     'just-clamp': {
       code: [
         `const clamp = require('just-clamp');\n

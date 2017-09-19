@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/anguscroll/.nvm/versions/node/v6.10.3/bin/node',
+1 verbose cli   '/Users/anguscroll/.nvm/versions/node/v6.10.3/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/anguscroll/g-repos/just/packages/array-partition',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/anguscroll/.npm/just-partition/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/anguscroll/.npm correctMkdir not in flight; initializing
+10 info lifecycle just-partition@1.0.0~prepublish: just-partition@1.0.0
+11 silly lifecycle just-partition@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/anguscroll/.npm/just-partition/1.0.0/package.tgz',
+12 verbose tar pack   '/Users/anguscroll/g-repos/just/packages/array-partition' ]
+13 verbose tarball /Users/anguscroll/.npm/just-partition/1.0.0/package.tgz
+14 verbose folder /Users/anguscroll/g-repos/just/packages/array-partition
+15 verbose addLocalTarball adding from inside cache /Users/anguscroll/.npm/just-partition/1.0.0/package.tgz
+16 verbose correctMkdir /Users/anguscroll/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd just-partition@1.0.0
+18 verbose afterAdd /Users/anguscroll/.npm/just-partition/1.0.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/anguscroll/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/anguscroll/.npm/just-partition/1.0.0/package/package.json written
+21 silly publish { name: 'just-partition',
+21 silly publish   version: '1.0.0',
+21 silly publish   description: 'Elements satisfying predicate added to first array, remainder added to second',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository: { type: 'git', url: 'git+https://github.com/angus-c/just.git' },
+21 silly publish   keywords: [ 'array', 'partition', 'split', 'no-dependencies', 'just' ],
+21 silly publish   author: { name: 'Angus Croll' },
+21 silly publish   license: 'MIT',
+21 silly publish   bugs: { url: 'https://github.com/angus-c/just/issues' },
+21 silly publish   readme: '## just-partition\n\nPart of a [library](../../../../) of zero-dependency npm modules that do just do one thing.\nGuilt-free utilities for every occasion.\n\n[Try it now](http://anguscroll.com/just/just-partition)\n\n```js\nimport partition from \'just-partition\';\n\npartition([1, 5, 2, 4, 3], n => n > 3); // [[5, 4],[1, 2, 3]]\npartition([\'a\', 2, 3, \'3\'], x => typeof x == \'string\'); // [[\'a\', \'3\'],[2, 3]]\npartition([1, 2, 3, 4], x => typeof x == \'number\'); // [[1, 2, 3, 4],[]]\npartition([1, 2, 3, 4], x => typeof x == \'string\'); // [[], [1, 2, 3, 4]]\npartition([], n => n > 3); // [[], []]\npartition({a: 1, b: 2}, n => n > 1); // throws\npartition(null, n => n > 1); // throws\npartition(undefined, n => n > 1); // throws\n```\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   homepage: 'https://github.com/angus-c/just#readme',
+21 silly publish   _id: 'just-partition@1.0.0',
+21 silly publish   _shasum: 'a9cd03775b1877f3a5362120ed3bf8b56e0bcd8e',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name just-partition
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://unpm.uberinternal.com/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'just-partition',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'just-partition',
+26 silly mapToRegistry   name: 'just-partition',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://unpm.uberinternal.com/just-partition
+28 verbose publish registryBase https://unpm.uberinternal.com/
+29 silly publish uploading /Users/anguscroll/.npm/just-partition/1.0.0/package.tgz
+30 verbose request uri https://unpm.uberinternal.com/just-partition
+31 verbose request always-auth set; sending authorization
+32 info attempt registry request try #1 at 8:25:59 PM
+33 verbose request id f17c5442e2dbeb34
+34 http request PUT https://unpm.uberinternal.com/just-partition
+35 http 400 https://unpm.uberinternal.com/just-partition
+36 verbose headers { server: 'nginx',
+36 verbose headers   date: 'Sat, 16 Sep 2017 03:26:00 GMT',
+36 verbose headers   'content-type': 'application/json',
+36 verbose headers   'transfer-encoding': 'chunked',
+36 verbose headers   connection: 'close',
+36 verbose headers   'x-powered-by': 'unpm 6.1.12',
+36 verbose headers   'x-uber-app': 'unpm',
+36 verbose headers   'strict-transport-security': 'max-age=604800',
+36 verbose headers   'x-content-type-options': 'nosniff',
+36 verbose headers   'x-xss-protection': '1; mode=block' }
+37 verbose request invalidating /Users/anguscroll/.npm/unpm.uberinternal.com/just-partition on PUT
+38 error publish Failed PUT 400
+39 verbose stack Error: Package just-partition must begin with the @uber scope. : just-partition
+39 verbose stack     at makeError (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+39 verbose stack     at Request._callback (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+39 verbose stack     at Request.self.callback (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/request/request.js:187:22)
+39 verbose stack     at emitTwo (events.js:106:13)
+39 verbose stack     at Request.emit (events.js:191:7)
+39 verbose stack     at Request.<anonymous> (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+39 verbose stack     at emitOne (events.js:96:13)
+39 verbose stack     at Request.emit (events.js:188:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/Users/anguscroll/.nvm/versions/node/v6.10.3/lib/node_modules/npm/node_modules/request/request.js:969:12)
+40 verbose statusCode 400
+41 verbose pkgid just-partition
+42 verbose cwd /Users/anguscroll/g-repos/just/packages/array-partition
+43 error Darwin 16.7.0
+44 error argv "/Users/anguscroll/.nvm/versions/node/v6.10.3/bin/node" "/Users/anguscroll/.nvm/versions/node/v6.10.3/bin/npm" "publish"
+45 error node v6.10.3
+46 error npm  v3.10.10
+47 error code E400
+48 error Package just-partition must begin with the @uber scope. : just-partition
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

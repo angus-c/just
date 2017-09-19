@@ -291,7 +291,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Array;
+var _Arrays;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -316,7 +316,7 @@ exports.default = {
       code: ['const flush = require(\'just-flush\')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})']
     }
   },
-  Object: {
+  Objects: {
     'just-extend': {
       code: ['const extend = require(\'just-extend\')\n\nlet obj = {a: 3, b: 5};\nextend(obj, {a: 4, c: 8});']
     },
@@ -363,7 +363,7 @@ exports.default = {
       code: ['const typeOf = require(\'just-typeof\');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf(\'a\');\n// typeOf(1);\n// typeOf(true);']
     }
   },
-  Array: (_Array = {
+  Arrays: (_Arrays = {
     'just-unique': {
       code: ['const unique = require(\'just-unique\');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);']
     },
@@ -400,19 +400,19 @@ exports.default = {
     'just-range': {
       code: ['const range = require(\'just-range\')\n\nrange(0, 20, 5);']
     }
-  }, _defineProperty(_Array, 'just-split', {
+  }, _defineProperty(_Arrays, 'just-split', {
     code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
-  }), _defineProperty(_Array, 'just-split-at', {
+  }), _defineProperty(_Arrays, 'just-split-at', {
     code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
-  }), _defineProperty(_Array, 'just-partition', {
+  }), _defineProperty(_Arrays, 'just-partition', {
     code: ['const partition = require(\'just-partition\');\n\npartition([1, 5, 3, 4, 2], n => n > 3);']
-  }), _defineProperty(_Array, 'just-remove', {
+  }), _defineProperty(_Arrays, 'just-remove', {
     code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
-  }), _defineProperty(_Array, 'just-union', {
+  }), _defineProperty(_Arrays, 'just-union', {
     code: ['const union = require(\'just-union\')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);']
-  }), _defineProperty(_Array, 'just-zip-it', {
+  }), _defineProperty(_Arrays, 'just-zip-it', {
     code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
-  }), _Array),
+  }), _Arrays),
   Strings: {
     'just-template': {
       code: ['const template = require(\'just-template\')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: \'apple\',\n      bbb: \'pear\'\n    },\n    bb: \'orange\'\n  },\n  b: \'plum\'\n};\ntemplate(\'2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.\', data);']
@@ -445,7 +445,7 @@ exports.default = {
       code: ['const pascalCase = require(\'just-pascal-case\')\n\npascalCase(\'the-quick-brown _fox\');']
     }
   },
-  Number: {
+  Numbers: {
     'just-clamp': {
       code: ['const clamp = require(\'just-clamp\');\n\nvar n = 5;\nclamp(1, n, 3); // 3']
     },
