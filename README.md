@@ -67,7 +67,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-kebab-case](#just-kebab-case)
   * [just-snake-case](#just-snake-case)
   * [just-pascal-case](#just-pascal-case)
-* [Numbers](#numbers) 123
+* [Numbers](#numbers) +-
   * [just-clamp](#just-clamp)
   * [just-modulo](#just-modulo)
 * [Functions](#functions) =>
