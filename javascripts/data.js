@@ -344,6 +344,12 @@ snakeCase('theQuickBrownFox');`
         `const kebabCase = require('just-kebab-case')\n
 kebabCase('theQuickBrownFox');`
       ]
+    },
+    'just-pascal-case': {
+      code: [
+        `const pascalCase = require('just-pascal-case')\n
+pascalCase('the-quick-brown _fox');`
+      ]
     }
   },
   Number: {

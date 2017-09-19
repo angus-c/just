@@ -440,6 +440,9 @@ exports.default = {
     },
     'just-kebab-case': {
       code: ['const kebabCase = require(\'just-kebab-case\')\n\nkebabCase(\'theQuickBrownFox\');']
+    },
+    'just-pascal-case': {
+      code: ['const pascalCase = require(\'just-pascal-case\')\n\npascalCase(\'the-quick-brown _fox\');']
     }
   },
   Number: {
