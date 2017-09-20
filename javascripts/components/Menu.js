@@ -9,7 +9,11 @@ objectMap(data, (categoryName, categoryValue) => {
   objectMap(categoryValue.utils, fnName => {
     fnsArr.push(fnName);
   });
-  categoriesArr.push({ name: categoryName, fns: fnsArr });
+  categoriesArr.push({
+    name: categoryName,
+    symbol: categoryValue.symbol,
+    fns: fnsArr
+  });
 });
 
 export default ({ selected, onSelect }) => {
@@ -19,7 +23,10 @@ export default ({ selected, onSelect }) => {
         {categoriesArr.map((category, i) => (
           <div>
             <li key={'li-x-' + i} style={{ listStyle: 'none' }}>
-              {category.name}
+              <span>{category.name}</span>
+              <span style={{ 'font-family': 'Menlo', color: '#aaa' }}>
+                {' ' + category.symbol}
+              </span>
             </li>
             <ul key={'ul-y-' + i}>
               {category.fns.map((fn, j) => {
