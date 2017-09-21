@@ -22,7 +22,7 @@ export default ({ selected, onSelect }) => {
       <ul key={'u1-x-' + 0}>
         {categoriesArr.map((category, i) => (
           <div>
-            <li key={'li-x-' + i} style={{ listStyle: 'none' }}>
+            <li className="category" key={'li-x-' + i} style={{ listStyle: 'none' }}>
               <span>{category.name}</span>
               <span style={{ 'font-family': 'Menlo', color: '#aaa' }}>
                 {' ' + category.symbol}

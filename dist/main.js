@@ -216,7 +216,7 @@ exports.default = function (_ref) {
           null,
           _react2.default.createElement(
             'li',
-            { key: 'li-x-' + i, style: { listStyle: 'none' } },
+            { className: 'category', key: 'li-x-' + i, style: { listStyle: 'none' } },
             _react2.default.createElement(
               'span',
               null,
@@ -251,22 +251,6 @@ exports.default = function (_ref) {
   );
 };
 
-// export default ({onSelect}) => {
-//   return (
-//     <section style={{flex: 1}} className="main-content">
-//       <ul>
-//         <li style={{listStyle: 'none'}}>Objects</li>
-//         <ul>
-//           <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>just-extend</li>
-//         </ul>
-//         <ul>
-//           <li className='link' style={{listStyle: 'none'}} onClick={onSelect}>just-filter-object</li>
-//         </ul>
-//       </ul>
-//     </section>
-//   );
-// }
-
 },{"../data":5,"just-map-object":31,"react":189}],4:[function(require,module,exports){
 'use strict';
 
@@ -289,7 +273,7 @@ exports.default = function (_ref) {
       script = _ref.script;
   return _react2.default.createElement(
     'section',
-    { id: 'react-root', style: { flex: 3 }, className: 'main-content right-col' },
+    { id: 'react-root', style: { flex: 5 }, className: 'main-content right-col' },
     _react2.default.createElement(
       'div',
       null,
@@ -299,7 +283,7 @@ exports.default = function (_ref) {
         'npm install ',
         _react2.default.createElement(
           'a',
-          { href: 'https://www.npmjs.com/package/' + moduleName },
+          { 'class': 'link selected', href: 'https://www.npmjs.com/package/' + moduleName },
           moduleName
         )
       ),
