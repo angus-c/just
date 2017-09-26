@@ -24,6 +24,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-flush](#just-flush)  
 * [Objects](#objects)
   * [just-extend](#just-extend)
+  * [just-merge](#just-merge)  
   * [just-values](#just-values)
   * [just-entries](#just-entries)
   * [just-pick](#just-pick)
@@ -278,6 +279,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
 
 ### Objects
 
+
 ### [just-extend](https://www.npmjs.com/package/just-extend)
 :icecream:[`Try It`](http://anguscroll.com/just/just-extend)
 
@@ -306,6 +308,31 @@ extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
 ```
+### [just-merge](https://www.npmjs.com/package/just-merge)
+:icecream:[`Try It`](http://anguscroll.com/just/just-merge)
+
+`npm install just-merge`
+
+Shallow assign. Like just-extend but without deep copy option.
+
+```js
+import extend from 'just-merge';
+
+let obj = {a: 3, b: 5};
+extend(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+obj; // {a: 4, b: 5, c: 8}
+
+let obj = {a: 3, b: 5};
+extend({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+obj; // {a: 3, b: 5}
+
+let arr = [1, 2, 3];
+let obj = {a: 3, b: 5};
+extend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+arr.push[4];
+obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
+```
+
 ### [just-values](https://www.npmjs.com/package/just-values)
 :icecream:[`Try It`](http://anguscroll.com/just/just-values)
 
