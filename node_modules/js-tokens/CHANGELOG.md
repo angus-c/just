@@ -1,3 +1,8 @@
+### Version 3.0.2 (2017-06-28) ###
+
+- No code changes. Just updates to the readme.
+
+
 ### Version 3.0.1 (2017-01-30) ###
 
 - Fixed: ES2015 unicode escapes with more than 6 hex digits are now matched

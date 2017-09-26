@@ -12,7 +12,7 @@ module.exports = function resolve(x, options, callback) {
         opts = {};
     }
     if (typeof x !== 'string') {
-        var err = new TypeError('path must be a string');
+        var err = new TypeError('Path must be a string.');
         return process.nextTick(function () {
             cb(err);
         });
@@ -20,9 +20,11 @@ module.exports = function resolve(x, options, callback) {
 
     var isFile = opts.isFile || function (file, cb) {
         fs.stat(file, function (err, stat) {
-            if (err && err.code === 'ENOENT') cb(null, false);
-            else if (err) cb(err);
-            else cb(null, stat.isFile() || stat.isFIFO());
+            if (!err) {
+                return cb(null, stat.isFile() || stat.isFIFO());
+            }
+            if (err.code === 'ENOENT' || err.code === 'ENOTDIR') return cb(null, false);
+            return cb(err);
         });
     };
     var readFile = opts.readFile || fs.readFile;
@@ -32,9 +34,9 @@ module.exports = function resolve(x, options, callback) {
 
     opts.paths = opts.paths || [];
 
-    if (/^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[\\\/])/.test(x)) {
+    if (/^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/.test(x)) {
         var res = path.resolve(y, x);
-        if (x === '..') res += '/';
+        if (x === '..' || x.slice(-1) === '/') res += '/';
         if (/\/$/.test(x) && res === y) {
             loadAsDirectory(res, opts.package, onfile);
         } else loadAsFile(res, opts.package, onfile);
@@ -63,20 +65,22 @@ module.exports = function resolve(x, options, callback) {
         });
     }
 
-    function loadAsFile(x, pkg, callback) {
+    function loadAsFile(x, thePackage, callback) {
+        var loadAsFilePackage = thePackage;
         var cb = callback;
-        if (typeof pkg === 'function') {
-            cb = pkg;
-            pkg = undefined;
+        if (typeof loadAsFilePackage === 'function') {
+            cb = loadAsFilePackage;
+            loadAsFilePackage = undefined;
         }
 
         var exts = [''].concat(extensions);
-        load(exts, x, pkg);
+        load(exts, x, loadAsFilePackage);
 
-        function load(exts, x, pkg) {
-            if (exts.length === 0) return cb(null, undefined, pkg);
+        function load(exts, x, loadPackage) {
+            if (exts.length === 0) return cb(null, undefined, loadPackage);
             var file = x + exts[0];
 
+            var pkg = loadPackage;
             if (pkg) onpkg(null, pkg);
             else loadpkg(path.dirname(file), onpkg);
 
@@ -96,19 +100,19 @@ module.exports = function resolve(x, options, callback) {
                 isFile(file, onex);
             }
             function onex(err, ex) {
-                if (err) cb(err);
-                else if (!ex) load(exts.slice(1), x, pkg);
-                else cb(null, file, pkg);
+                if (err) return cb(err);
+                if (ex) return cb(null, file, pkg);
+                load(exts.slice(1), x, pkg);
             }
         }
     }
 
     function loadpkg(dir, cb) {
         if (dir === '' || dir === '/') return cb(null);
-        if (process.platform === 'win32' && (/^\w:[\\\/]*$/).test(dir)) {
+        if (process.platform === 'win32' && (/^\w:[/\\]*$/).test(dir)) {
             return cb(null);
         }
-        if (/[\\\/]node_modules[\\\/]*$/.test(dir)) return cb(null);
+        if (/[/\\]node_modules[/\\]*$/.test(dir)) return cb(null);
 
         var pkgfile = path.join(dir, 'package.json');
         isFile(pkgfile, function (err, ex) {
@@ -127,8 +131,9 @@ module.exports = function resolve(x, options, callback) {
         });
     }
 
-    function loadAsDirectory(x, fpkg, callback) {
+    function loadAsDirectory(x, loadAsDirectoryPackage, callback) {
         var cb = callback;
+        var fpkg = loadAsDirectoryPackage;
         if (typeof fpkg === 'function') {
             cb = fpkg;
             fpkg = opts.package;

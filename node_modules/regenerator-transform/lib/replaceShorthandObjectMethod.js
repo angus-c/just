@@ -7,6 +7,10 @@ var _babelTypes = require("babel-types");
 
 var t = _interopRequireWildcard(_babelTypes);
 
+var _util = require("./util");
+
+var util = _interopRequireWildcard(_util);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 // this function converts a shorthand object generator method into a normal
@@ -62,7 +66,7 @@ function replaceShorthandObjectMethod(path) {
   t.cloneDeep(path.node.body), // body
   path.node.generator, path.node.async);
 
-  path.replaceWith(t.objectProperty(t.cloneDeep(path.node.key), // key
+  util.replaceWithOrRemove(path, t.objectProperty(t.cloneDeep(path.node.key), // key
   functionExpression, //value
   path.node.computed, // computed
   false // shorthand

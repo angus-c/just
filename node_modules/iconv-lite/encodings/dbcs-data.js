@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // Description of supported double byte encodings and aliases.
 // Tables are not require()-d until they are needed to speed up library load.

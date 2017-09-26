@@ -1,6 +1,26 @@
-# hash.js [![Build Status](https://secure.travis-ci.org/indutny/hash.js.png)](http://travis-ci.org/indutny/hash.js)
+# hash.js [![Build Status](https://secure.travis-ci.org/indutny/hash.js.svg)](http://travis-ci.org/indutny/hash.js)
 
 Just a bike-shed.
+
+## Install
+
+```sh
+npm install hash.js
+```
+
+## Usage
+
+```js
+var hash = require('hash.js')
+hash.sha256().update('abc').digest('hex')
+```
+
+## Selective hash usage
+
+```js
+var sha512 = require('hash.js/lib/hash/sha/512');
+sha512().update('abc').digest('hex');
+```
 
 #### LICENSE
 

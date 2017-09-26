@@ -80,7 +80,11 @@ retrieveFileHandlers.push(function(path) {
     }
   } else if (fs.existsSync(path)) {
     // Otherwise, use the filesystem
-    contents = fs.readFileSync(path, 'utf8');
+    try {
+      contents = fs.readFileSync(path, 'utf8');
+    } catch (er) {
+      contents = '';
+    }
   }
 
   return fileContentsCache[path] = contents;
@@ -331,8 +335,9 @@ function wrapCallSite(frame) {
 
     // Fix position in Node where some (internal) code is prepended.
     // See https://github.com/evanw/node-source-map-support/issues/36
-    if (line === 1 && !isInBrowser() && !frame.isEval()) {
-      column -= 62;
+    var headerLength = 62;
+    if (line === 1 && column > headerLength && !isInBrowser() && !frame.isEval()) {
+      column -= headerLength;
     }
 
     var position = mapSourcePosition({
@@ -387,7 +392,11 @@ function getErrorSource(error) {
 
     // Support files on disk
     if (!contents && fs && fs.existsSync(source)) {
-      contents = fs.readFileSync(source, 'utf8');
+      try {
+        contents = fs.readFileSync(source, 'utf8');
+      } catch (er) {
+        contents = '';
+      }
     }
 
     // Format the line from the original source code like node does

@@ -6,8 +6,7 @@ var keys = require('object-keys');
 var nodeModulesPaths = require('../lib/node-modules-paths');
 
 var verifyDirs = function verifyDirs(t, start, dirs, moduleDirectories, paths) {
-    moduleDirectories = [].concat(moduleDirectories || 'node_modules');
-    if (!paths) { paths = []; }
+    var moduleDirs = [].concat(moduleDirectories || 'node_modules');
 
     var foundModuleDirs = {};
     var uniqueDirs = {};
@@ -21,7 +20,7 @@ var verifyDirs = function verifyDirs(t, start, dirs, moduleDirectories, paths) {
     }
     t.equal(keys(parsedDirs).length >= start.split(path.sep).length, true, 'there are >= dirs than "start" has');
     var foundModuleDirNames = keys(foundModuleDirs);
-    t.deepEqual(foundModuleDirNames, moduleDirectories.concat(paths), 'all desired module dirs were found');
+    t.deepEqual(foundModuleDirNames, moduleDirs.concat(paths || []), 'all desired module dirs were found');
     t.equal(keys(uniqueDirs).length, dirs.length, 'all dirs provided were unique');
 
     var counts = {};

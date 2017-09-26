@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2014, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * https://raw.github.com/facebook/regenerator/master/LICENSE file. An
+ * additional grant of patent rights can be found in the PATENTS file in
+ * the same directory.
+ */
+
 "use strict";
 
 var _assert = require("assert");
@@ -23,18 +33,6 @@ var util = _interopRequireWildcard(_util);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Copyright (c) 2014, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * https://raw.github.com/facebook/regenerator/master/LICENSE file. An
- * additional grant of patent rights can be found in the PATENTS file in
- * the same directory.
- */
-
-var getMarkInfo = require("private").makeAccessor();
 
 exports.visitor = {
   Function: {
@@ -160,7 +158,8 @@ exports.visitor = {
       }
 
       if (wasGeneratorFunction && t.isExpression(node)) {
-        path.replaceWith(t.callExpression(util.runtimeProperty("mark"), [node]));
+        util.replaceWithOrRemove(path, t.callExpression(util.runtimeProperty("mark"), [node]));
+        path.addComment("leading", "#__PURE__");
       }
 
       // Generators are processed in 'exit' handlers so that regenerator only has to run on
@@ -187,42 +186,52 @@ function getOuterFnExpr(funPath) {
 
   if (node.generator && // Non-generator functions don't need to be marked.
   t.isFunctionDeclaration(node)) {
-    var pp = funPath.findParent(function (path) {
-      return path.isProgram() || path.isBlockStatement();
-    });
-
-    if (!pp) {
-      return node.id;
-    }
-
-    var markDecl = getRuntimeMarkDecl(pp);
-    var markedArray = markDecl.declarations[0].id;
-    var funDeclIdArray = markDecl.declarations[0].init.callee.object;
-    t.assertArrayExpression(funDeclIdArray);
-
-    var index = funDeclIdArray.elements.length;
-    funDeclIdArray.elements.push(node.id);
-
-    return t.memberExpression(markedArray, t.numericLiteral(index), true);
+    // Return the identifier returned by runtime.mark(<node.id>).
+    return getMarkedFunctionId(funPath);
   }
 
   return node.id;
 }
 
-function getRuntimeMarkDecl(blockPath) {
+var getMarkInfo = require("private").makeAccessor();
+
+function getMarkedFunctionId(funPath) {
+  var node = funPath.node;
+  t.assertIdentifier(node.id);
+
+  var blockPath = funPath.findParent(function (path) {
+    return path.isProgram() || path.isBlockStatement();
+  });
+
+  if (!blockPath) {
+    return node.id;
+  }
+
   var block = blockPath.node;
   _assert2.default.ok(Array.isArray(block.body));
 
   var info = getMarkInfo(block);
-  if (info.decl) {
-    return info.decl;
+  if (!info.decl) {
+    info.decl = t.variableDeclaration("var", []);
+    blockPath.unshiftContainer("body", info.decl);
+    info.declPath = blockPath.get("body.0");
   }
 
-  info.decl = t.variableDeclaration("var", [t.variableDeclarator(blockPath.scope.generateUidIdentifier("marked"), t.callExpression(t.memberExpression(t.arrayExpression([]), t.identifier("map"), false), [util.runtimeProperty("mark")]))]);
+  _assert2.default.strictEqual(info.declPath.node, info.decl);
 
-  blockPath.unshiftContainer("body", info.decl);
+  // Get a new unique identifier for our marked variable.
+  var markedId = blockPath.scope.generateUidIdentifier("marked");
+  var markCallExp = t.callExpression(util.runtimeProperty("mark"), [node.id]);
 
-  return info.decl;
+  var index = info.decl.declarations.push(t.variableDeclarator(markedId, markCallExp)) - 1;
+
+  var markCallExpPath = info.declPath.get("declarations." + index + ".init");
+
+  _assert2.default.strictEqual(markCallExpPath.node, markCallExp);
+
+  markCallExpPath.addComment("leading", "#__PURE__");
+
+  return markedId;
 }
 
 function renameArguments(funcPath, argsId) {
@@ -247,7 +256,7 @@ var argumentsVisitor = {
 
   Identifier: function Identifier(path, state) {
     if (path.node.name === "arguments" && util.isReference(path)) {
-      path.replaceWith(state.argsId);
+      util.replaceWithOrRemove(path, state.argsId);
       state.didRenameArguments = true;
     }
   }
@@ -259,7 +268,7 @@ var functionSentVisitor = {
 
 
     if (node.meta.name === "function" && node.property.name === "sent") {
-      path.replaceWith(t.memberExpression(this.context, t.identifier("_sent")));
+      util.replaceWithOrRemove(path, t.memberExpression(this.context, t.identifier("_sent")));
     }
   }
 };
@@ -276,6 +285,6 @@ var awaitVisitor = {
     // Transforming `await x` to `yield regeneratorRuntime.awrap(x)`
     // causes the argument to be wrapped in such a way that the runtime
     // can distinguish between awaited and merely yielded values.
-    path.replaceWith(t.yieldExpression(t.callExpression(util.runtimeProperty("awrap"), [argument]), false));
+    util.replaceWithOrRemove(path, t.yieldExpression(t.callExpression(util.runtimeProperty("awrap"), [argument]), false));
   }
 };

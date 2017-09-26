@@ -32,6 +32,7 @@ app.get('/testHeaders', function (req, res) {
 	})
 
 	res.setHeader('Content-Type', 'application/json')
+	res.setHeader('Cache-Control', 'no-cache')
 
 	// Request headers are sent in the body as json
 	var reqHeaders = {}

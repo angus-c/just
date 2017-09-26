@@ -1,5 +1,15 @@
 [
     {
+            "desc"    : "Chrome Headless",
+            "ua"      : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome Safari/537.36",
+            "expect"  :
+        {
+           "name"    : "Chrome Headless",
+           "version" : "HeadlessChrome",
+           "major"   : ""
+        }
+    },
+    {
         "desc"    : "Android Browser on Galaxy Nexus",
         "ua"      : "Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
         "expect"  :
@@ -54,7 +64,7 @@
         "ua"      : "Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-G925F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/3.0 Chrome/38.0.2125.102 Mobile Safari/537.36",
         "expect"  :
         {
-            "name"    : "Android Browser",
+            "name"    : "Samsung Browser",
             "version" : "3.0",
             "major"   : "3"
         }
@@ -96,6 +106,16 @@
         {
             "name"    : "Bolt",
             "version" : "0.862",
+            "major"   : "0"
+        }
+    },
+    {
+        "desc"    : "Bowser",
+        "ua"      : "Mozilla/5.0 (iOS; like Mac OS X) AppleWebKit/536.36 (KHTML, like Gecko) not Chrome/27.0.1500.95 Mobile/10B141 Safari/537.36 Bowser/0.2.1",
+        "expect"  :
+        {
+            "name"    : "Bowser",
+            "version" : "0.2.1",
             "major"   : "0"
         }
     },
@@ -210,13 +230,23 @@
         }
     },
     {
-        "desc"    : "Facebook in-App Browser",
+        "desc"    : "Facebook in-App Browser for Android",
         "ua"      : "Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/35.0.0.48.273;]",
         "expect"  :
         {
-            "name"    : "Chrome WebView",
-            "version" : "43.0.2357.121",
-            "major"   : "43"
+            "name"    : "Facebook",
+            "version" : "35.0.0.48.273",
+            "major"   : "35"
+        }
+    },
+    {
+        "desc"    : "Facebook in-App Browser for iOS",
+        "ua"      : "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Mobile/14E304 [FBAN/FBIOS;FBAV/91.0.0.41.73;FBBV/57050710;FBDV/iPhone8,1;FBMD/iPhone;FBSN/iOS;FBSV/10.3.1;FBSS/2;FBCR/Telekom.de;FBID/phone;FBLC/de_DE;FBOP/5;FBRV/0])",
+        "expect"  :
+        {
+            "name"    : "Facebook",
+            "version" : "91.0.0.41.73",
+            "major"   : "91"
         }
     },
     {
@@ -520,6 +550,16 @@
         }
     },
     {
+        "desc"    : "Oculus Browser",
+        "ua"      : "Mozilla/5.0 (Linux; Android 7.0; SM-G920I Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) OculusBrowser/3.4.9 SamsungBrowser/4.0 Chrome/57.0.2987.146 Mobile VR Safari/537.36",
+        "expect"  :
+        {
+            "name"    : "Oculus Browser",
+            "version" : "3.4.9",
+            "major"   : "3"
+        }
+    },
+    {
         "desc"    : "OmniWeb",
         "ua"      : "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-US) AppleWebKit/85 (KHTML, like Gecko) OmniWeb/v558.48",
         "expect"  :
@@ -610,6 +650,16 @@
         }
     },
     {
+        "desc"    : "Opera Coast",
+        "ua"      : "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_2 like Mac OS X; en) AppleWebKit/601.1.46 (KHTML, like Gecko) Coast/5.04.110603 Mobile/13F69 Safari/7534.48.3",
+        "expect"  :
+        {
+            "name"    : "Opera Coast",
+            "version" : "5.04.110603",
+            "major"   : "5"
+        }
+    },
+    {
         "desc"    : "PhantomJS",
         "ua"      : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.2 Safari/534.34",
         "expect"  :
@@ -640,6 +690,16 @@
         }
     },
     {
+        "desc"    : "QQ",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; OPPO R7s Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/37.0.0.0 MQQBrowser/7.1 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "name"    : "QQBrowser",
+            "version" : "7.1",
+            "major"   : "7"
+        }
+    },
+    {
         "desc"    : "RockMelt",
         "ua"      : "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.7 (KHTML, like Gecko) RockMelt/0.8.36.78 Chrome/7.0.517.44 Safari/534.7",
         "expect"  :
@@ -667,6 +727,16 @@
             "name"    : "Safari",
             "version" : "2.0.4",
             "major"   : "2"
+        }
+    },
+    {
+        "desc"    : "Samsung Browser",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; SAMSUNG-SM-G925A Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "name"    : "Samsung Browser",
+            "version" : "4.0",
+            "major"   : "4"
         }
     },
     {
@@ -727,6 +797,26 @@
             "name"    : "Tizen Browser",
             "version" : "1.0",
             "major"   : "1"
+        }
+    },
+    {
+        "desc"    : "UC Browser",
+        "ua"      : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 UBrowser/5.6.12860.7 Safari/537.36",
+        "expect"  :
+        {
+            "name"    : "UCBrowser",
+            "version" : "5.6.12860.7",
+            "major"   : "5"
+        }
+    },
+    {
+        "desc"    : "UC Browser",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 6.0.1; en-US; Lenovo P2a42 Build/MMB29M) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/11.2.0.915 U3/0.8.0 Mobile Safari/534.30",
+        "expect"  :
+        {
+            "name"    : "UCBrowser",
+            "version" : "11.2.0.915",
+            "major"   : "11"
         }
     },
     {
@@ -810,6 +900,16 @@
         }
     },
     {
+        "desc"    : "Puffin",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; Lenovo P2a42 Build/MMB29M; en-us) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Puffin/6.0.8.15804AP",
+        "expect"  :
+        {
+            "name"    : "Puffin",
+            "version" : "6.0.8.15804AP",
+            "major"   : "6"
+        }
+    },
+    {
         "desc"    : "Microsoft Edge",
         "ua"      : "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0",
         "expect"  :
@@ -837,6 +937,26 @@
             "name"    : "Firefox",
             "version" : "1.1",
             "major"   : "1"
+        }
+    },
+    {
+        "desc"    : "QQ on iOS",
+        "ua"      : "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Mobile/14A456 QQ/6.5.3.410 V1_IPH_SQ_6.5.3_1_APP_A Pixel/1080 Core/UIWebView NetType/WIFI Mem/26",
+        "expect"  :
+        {
+            "name"    : "QQ",
+            "version" : "6.5.3.410",
+            "major"   : "6"
+        }
+    },
+    {
+        "desc"    : "QQ on Android",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0; PRO 6 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.8 TBS/036824 Safari/537.36 V1_AND_SQ_6.5.8_422_YYB_D PA QQ/6.5.8.2910 NetType/WIFI WebP/0.3.0 Pixel/1080",
+        "expect"  :
+        {
+            "name"    : "QQ",
+            "version" : "6.5.8.2910",
+            "major"   : "6"
         }
     }
 ]

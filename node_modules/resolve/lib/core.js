@@ -1,4 +1,4 @@
-var current = process.versions && process.versions.node && process.versions.node.split('.') || [];
+var current = (process.versions && process.versions.node && process.versions.node.split('.')) || [];
 
 function versionIncluded(version) {
     if (version === '*') return true;
@@ -12,7 +12,7 @@ function versionIncluded(version) {
 var data = require('./core.json');
 
 var core = {};
-for (var version in data) {
+for (var version in data) { // eslint-disable-line no-restricted-syntax
     if (Object.prototype.hasOwnProperty.call(data, version) && versionIncluded(version)) {
         for (var i = 0; i < data[version].length; ++i) {
             core[data[version][i]] = true;

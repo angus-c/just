@@ -14,8 +14,8 @@ For detailed tutorials on its use, see www.promisejs.org
 
 [travis-image]: https://img.shields.io/travis/then/promise.svg?style=flat
 [travis-url]: https://travis-ci.org/then/promise
-[dep-image]: https://img.shields.io/gemnasium/then/promise.svg?style=flat
-[dep-url]: https://gemnasium.com/then/promise
+[dep-image]: https://img.shields.io/david/then/promise.svg?style=flat
+[dep-url]: https://david-dm.org/then/promise
 [npm-image]: https://img.shields.io/npm/v/promise.svg?style=flat
 [npm-url]: https://npmjs.org/package/promise
 [downloads-image]: https://img.shields.io/npm/dm/promise.svg?style=flat

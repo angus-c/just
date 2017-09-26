@@ -127,6 +127,10 @@ var PathHoister = function () {
       }
     }
 
+    if (path.parentPath.isExportDeclaration()) {
+      path = path.parentPath;
+    }
+
     return path;
   };
 

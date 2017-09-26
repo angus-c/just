@@ -64,11 +64,22 @@ flush([1, undefined, 2, null, 3, NaN, 0])
   Objects: {
     symbol: '{}',
     utils: {
+      'just-merge': {
+        code: [
+          `const merge = require('just-merge')\n
+let obj = {a: 3, b: 5};
+merge(obj, {a: 4, c: 8});`
+        ]
+      },
       'just-extend': {
         code: [
-          `const extend = require('just-extend')\n
+          `// like just-merge but allows deep copy
+const extend = require('just-extend')\n          
+let arr = [1, 2, 3];
 let obj = {a: 3, b: 5};
-extend(obj, {a: 4, c: 8});`
+extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+arr.push[4];
+obj`
         ]
       },
       'just-values': {

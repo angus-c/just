@@ -1,6 +1,8 @@
+'use strict';
+/* global describe it */
+
 var assert = require('assert');
 var hash = require('../');
-var utils = hash.utils;
 
 describe('Hmac', function() {
   describe('mixed test vector', function() {
@@ -49,10 +51,11 @@ describe('Hmac', function() {
       it('should not fail at ' + opt.name, function() {
         var h = hash.hmac(hash.sha256, opt.key, 'hex');
         assert.equal(h.update(opt.msg, opt.msgEnc).digest('hex'), opt.res);
-        var h = hash.hmac(hash.sha256, opt.key, 'hex');
-        assert.equal(h.update(opt.msg.slice(0, 10), opt.msgEnc)
-                      .update(opt.msg.slice(10), opt.msgEnc)
-                      .digest('hex'), opt.res);
+        h = hash.hmac(hash.sha256, opt.key, 'hex');
+        assert.equal(h
+          .update(opt.msg.slice(0, 10), opt.msgEnc)
+          .update(opt.msg.slice(10), opt.msgEnc)
+          .digest('hex'), opt.res);
       });
     }
   });

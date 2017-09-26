@@ -17,7 +17,7 @@ test('core modules', function (t) {
 
         for (var i = 0; i < resolve.core.length; ++i) {
             st.doesNotThrow(
-                function () { require(resolve.core[i]); },
+                function () { require(resolve.core[i]); }, // eslint-disable-line no-loop-func
                 'requiring ' + resolve.core[i] + ' does not throw'
             );
         }

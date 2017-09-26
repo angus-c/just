@@ -1,4 +1,10 @@
 
+## 2.0.6
+
+Version 2.0.4 adds support for React Native by clarifying in package.json that
+the browser environment does not support Node.js domains.
+Why this is necessary, we leave as an exercise for the user.
+
 ## 2.0.3
 
 Version 2.0.3 fixes a bug when adjusting the capacity of the task queue.

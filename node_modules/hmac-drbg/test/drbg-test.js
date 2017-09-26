@@ -58,4 +58,34 @@ describe('Hmac_DRBG', () => {
       });
     });
   });
+
+  describe('reseeding', function() {
+    it('should reseed', function() {
+      const entropy = 'totally random string with many chars that I typed ' +
+                      'in agony';
+      const nonce = 'nonce';
+      const pers = 'pers';
+
+      const original = HmacDRBG({
+        hash: hash.sha256,
+        entropy,
+        nonce,
+        pers
+      });
+      const reseeded = HmacDRBG({
+        hash: hash.sha256,
+        entropy,
+        nonce,
+        pers
+      });
+
+      assert.strictEqual(original.generate(32, 'hex'),
+                         reseeded.generate(32, 'hex'));
+
+      reseeded.reseed('another absolutely random string');
+
+      assert.notEqual(original.generate(32, 'hex'),
+                      reseeded.generate(32, 'hex'));
+    });
+  });
 });

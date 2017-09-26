@@ -15,13 +15,15 @@ Sometimes encoding/decoding binary data in the browser is useful, and that is wh
 
 With [npm](https://npmjs.org) do:
 
-`npm install base64-js`
+`npm install base64-js` and `var base64js = require('base64-js')`
+
+For use in web browsers do:
+
+`<script src="base64js.min.js"></script>`
 
 ## methods
 
-`var base64 = require('base64-js')`
-
-`base64` has three exposed functions, `byteLength`, `toByteArray` and `fromByteArray`, which both take a single argument.
+`base64js` has three exposed functions, `byteLength`, `toByteArray` and `fromByteArray`, which both take a single argument.
 
 * `byteLength` - Takes a base64 string and returns length of byte array
 * `toByteArray` - Takes a base64 string and returns a byte array

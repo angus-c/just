@@ -50,12 +50,42 @@
         }
     },
     {
+        "desc"    : "Huawei Honor",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 2.3; xx-xx; U8860 Build/HuaweiU8860) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1",
+        "expect"  :
+        {
+            "vendor"  : "Huawei",
+            "model"   : "U8860",
+            "type"    : "mobile"
+        }
+    },
+    {
         "desc"    : "Huawei Nexus 6P",
         "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 6P Build/MTC19V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Mobile Safari/537",
         "expect"  :
         {
             "vendor"  : "Huawei",
             "model"   : "Nexus 6P",
+            "type"    : "mobile"
+        }
+    },
+    {
+        "desc"    : "Huawei P10",
+        "ua"      : "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09; xx-xx) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/56.0.2924.87 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Huawei",
+            "model"   : "VTR-L09",
+            "type"    : "mobile"
+        }
+    },
+    {
+        "desc"    : "Huawei Y3II",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 5.1; xx-xx; HUAWEI LUA-L03 Build/HUAWEILUA-L03) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Huawei",
+            "model"   : "LUA-L03",
             "type"    : "mobile"
         }
     },
@@ -87,6 +117,16 @@
             "vendor"  : "LG",
             "model"   : "Nexus 5",
             "type"    : "mobile"
+        }
+    },
+    {
+        "desc"      : "Meizu M5 Note",
+        "ua"        : "Mozilla/5.0 (Linux; Android 6.0; M5 Note Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.7.1040 NetType/WIFI Language/zh_CN",
+        "expect"    :
+        {
+            "vendor"  : "Meizu",
+            "model"   : "M5 Note",
+            "type"    : "tablet"
         }
     },
     {
@@ -180,6 +220,16 @@
         }
     },
     {
+        "desc"    : "OPPO R7s",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; OPPO R7s Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko)Version/4.0 Chrome/37.0.0.0 MQQBrowser/7.1 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "OPPO",
+            "model"   : "R7s",
+            "type"    : "mobile"
+        }
+    },
+    {
         "desc"    : "Philips SmartTV",
         "ua"      : "Opera/9.80 HbbTV/1.1.1 (; Philips; ; ; ; ) NETTV/4.0.2; en) Version/11.60",
         "expect"  :
@@ -207,6 +257,16 @@
             "vendor"  : "Samsung",
             "model"   : "GT-N5100",
             "type"    : "tablet"
+        }
+    },
+    {
+        "desc"    : "Samsung SM-C5000",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; SM-C5000 Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.81 Mobile Safari/537.36 wkbrowser 4.1.35 3065",
+        "expect"  :
+        {
+            "vendor"  : "Samsung",
+            "model"   : "SM-C5000",
+            "type"    : "mobile"
         }
     },
     {
@@ -285,7 +345,7 @@
         "expect"  :
         {
             "vendor"  : "Sony",
-            "model"   : "Xperia Phone",
+            "model"   : "C5303",
             "type"    : "mobile"
         }
     },
@@ -295,7 +355,7 @@
         "expect"    :
         {
             "vendor"  : "Sony",
-            "model"   : "Xperia Phone",
+            "model"   : "SO-02F",
             "type"    : "mobile"
         }
     },
@@ -305,7 +365,7 @@
         "expect"    :
         {
             "vendor"  : "Sony",
-            "model"   : "Xperia Phone",
+            "model"   : "D6653",
             "type"    : "mobile"
         }
     },
@@ -315,7 +375,7 @@
         "expect"    :
         {
             "vendor"  : "Sony",
-            "model"   : "Xperia Phone",
+            "model"   : "SOL25",
             "type"    : "mobile"
         }
     },
@@ -325,7 +385,7 @@
         "expect"    :
         {
             "vendor"  : "Sony",
-            "model"   : "Xperia Phone",
+            "model"   : "C5302",
             "type"    : "mobile"
         }
     },
@@ -478,6 +538,390 @@
             "vendor"  : "Samsung",
             "model"   : "SM-N920C",
             "type"    : "mobile"
+        }
+    }
+,
+    {
+        "desc"    : "Google Chromecast",
+        "ua"      : "Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.84 Safari/537.36 CrKey/1.22.79313",
+        "expect"  :
+        {
+            "vendor"  : "Google",
+            "model"   : "Chromecast"
+        }
+    }
+,
+    {
+        "desc"    : "Google Pixel C",
+        "ua"      : "Mozilla/5.0 (Linux; Android 7.0; Pixel C Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.98 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Google",
+            "model"   : "Pixel C",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Google Pixel",
+        "ua"      : "Mozilla/5.0 (Linux; Android 7.1; Pixel Build/NDE63V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Google",
+            "model"   : "Pixel",
+            "type"    : "mobile"
+        }
+    }
+,
+    {
+        "desc"    : "Google Pixel",
+        "ua"      : "Mozilla/5.0 (Linux; Android 7.1; Pixel XL Build/NDE63X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.85 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Google",
+            "model"   : "Pixel XL",
+            "type"    : "mobile"
+        }
+    }
+,
+
+    {
+        "desc"    : "Generic Android Device",
+        "ua"      : "Mozilla/5.0  (Linux; U; Android 6.0.1; i980 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Generic",
+            "model"   : "Android 6.0.1"
+        }
+    }
+,
+    {
+        "desc"    : "LG VK Series Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.0.2; VK700 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.84 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "LG",
+            "model"   : "VK700",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "LG LK Series Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.0.1; LGLK430 Build/LRX21Y) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/38.0.2125.102 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "LG",
+            "model"   : "LK430",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "RCA Voyager III Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; RCT6973W43 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "RCA",
+            "model"   : "RCT6973W43",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "RCA Voyager II Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.0; RCT6773W22B Build/LRX21M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "RCA",
+            "model"   : "RCT6773W22B",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Verizon Quanta Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; QMV7B Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Verizon",
+            "model"   : "QMV7B",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Verizon Ellipsis 8 Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.1.1; QTAQZ3 Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Verizon",
+            "model"   : "QTAQZ3",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Verizon Ellipsis 8HD Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; QTASUN1 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.81 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Verizon",
+            "model"   : "QTASUN1",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Dell Venue 8 Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; Venue 8 3830 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Dell",
+            "model"   : "Venue 8 3830",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Dell Venue 7 Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; Venue 7 3730 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Dell",
+            "model"   : "Venue 7 3730",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Barnes & Noble Nook HD+ Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; Barnes & Noble Nook HD+ Build/JZO54K; CyanogenMod-10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "expect"  :
+        {
+            "vendor"  : "Barnes & Noble",
+            "model"   : "Nook HD+",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Barnes & Noble V400 Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.0.4; BNTV400 Build/IMM76L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Barnes & Noble",
+            "model"   : "V400",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "NuVision TM101A540N Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.1; TM101A540N Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/50.0.2661.86 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "NuVision",
+            "model"   : "TM101A540N",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "ZTE K Series Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 6.0.1; K88 Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "ZTE",
+            "model"   : "K88",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Swizz GEN610",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; GEN610 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Mobile Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Swiss",
+            "model"   : "GEN610",
+            "type"    : "mobile"
+        }
+    }
+,
+    {
+        "desc"    : "Swizz ZUR700",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; ZUR700 Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Swiss",
+            "model"   : "ZUR700",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Zeki TB782b Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.0.4; en-US; TB782B Build/IMM76D) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/9.0.2.299 U3/0.8.0 Mobile Safari/534.31",
+        "expect"  :
+        {
+            "vendor"  : "Zeki",
+            "model"   : "TB782B",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+    "desc"    : "Dragon Touch Tablet",
+    "ua"      : "Mozilla/5.0 (Linux; Android 4.0.4; DT9138B Build/IMM76D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Mobile Safari/537.36",
+    "expect"  :
+    {
+    "vendor"  : "Dragon Touch",
+    "model"   : "9138B",
+    "type"    : "tablet"
+    }
+    }
+,
+    {
+        "desc"    : "Insignia Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 6.0.1; NS-P08A7100 Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Insignia",
+            "model"   : "NS-P08A7100",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Voice Xtreme V75",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.2.1; en-us; V75 Build/JOP40D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30",
+        "expect"  :
+        {
+            "vendor"  : "Voice",
+            "model"   : "V75",
+            "type"    : "mobile"
+        }
+    }
+,
+    {
+        "desc"    : "LvTel V11",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.1.1; V11 Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/39.0.0.0 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "LvTel",
+            "model"   : "V11",
+            "type"    : "mobile"
+        }
+    }
+,
+    {
+        "desc"    : "Envizen Tablet V100MD",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; V100MD Build/V100MD.20130816) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
+        "expect"  :
+        {
+            "vendor"  : "Envizen",
+            "model"   : "V100MD",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Rotor Tablet",
+        "ua"      : "mozilla/5.0 (linux; android 5.0.1; tu_1491 build/lrx22c) applewebkit/537.36 (khtml, like gecko) chrome/43.0.2357.93 safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Rotor",
+            "model"   : "1491",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "MachSpeed Tablets",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.4.2; Trio 7.85 vQ Build/Trio_7.85_vQ) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "MachSpeed",
+            "model"   : "Trio 7.85 vQ",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Trinity Tablets",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.0.1; Trinity T101 Build/LRX22C) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Trinity",
+            "model"   : "T101",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "NextBook Next7",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; Next7P12 Build/IMM76I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30",
+        "expect"  :
+        {
+            "vendor"  : "NextBook",
+            "model"   : "Next7P12",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "NextBook Tablets",
+        "ua"      : "Mozilla/5.0 (Linux; Android 5.0; NXA8QC116 Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "NextBook",
+            "model"   : "NXA8QC116",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Le Pan Tablets",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.2.2; Le Pan TC802A Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Le Pan",
+            "model"   : "TC802A",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Le Pan Tablets",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.2.2; Le Pan TC802A Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Le Pan",
+            "model"   : "TC802A",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Amazon Kindle Fire Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; U; Android 4.4.3; en-us; KFSAWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.66 like Chrome/39.0.2171.93 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Amazon",
+            "model"   : "KFSAWI",
+            "type"    : "tablet"
+        }
+    }
+,
+    {
+        "desc"    : "Gigaset Tablet",
+        "ua"      : "Mozilla/5.0 (Linux; Android 4.2.2; Gigaset QV830 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+        "expect"  :
+        {
+            "vendor"  : "Gigaset",
+            "model"   : "QV830",
+            "type"    : "tablet"
         }
     }
 ]

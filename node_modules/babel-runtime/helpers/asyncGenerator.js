@@ -119,7 +119,7 @@ exports.default = function () {
         return new AsyncGenerator(fn.apply(this, arguments));
       };
     },
-    await: function await(value) {
+    await: function _await(value) {
       return new AwaitValue(value);
     }
   };

@@ -24,11 +24,14 @@ exports.default = function (_ref) {
   }
 
   var isCreateClassCallExpression = t.buildMatchMemberExpression("React.createClass");
+  var isCreateClassAddon = function isCreateClassAddon(callee) {
+    return callee.name === "createReactClass";
+  };
 
   function isCreateClass(node) {
     if (!node || !t.isCallExpression(node)) return false;
 
-    if (!isCreateClassCallExpression(node.callee)) return false;
+    if (!isCreateClassCallExpression(node.callee) && !isCreateClassAddon(node.callee)) return false;
 
     var args = node.arguments;
     if (args.length !== 1) return false;

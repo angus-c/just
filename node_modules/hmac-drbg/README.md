@@ -8,8 +8,10 @@ JS-only implementation of [HMAC DRBG][0].
 
 ```js
 const DRBG = require('hmac-drbg');
+const hash = require('hash.js');
 
 const d = new DRBG({
+  hash: hash.sha256,
   entropy: '0123456789abcdef',
   nonce: '0123456789abcdef',
   pers: '0123456789abcdef' /* or `null` */

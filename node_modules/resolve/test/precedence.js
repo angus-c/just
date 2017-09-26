@@ -13,7 +13,7 @@ test('precedence', function (t) {
     });
 });
 
-test('./ should not load ${dir}.js', function (t) {
+test('./ should not load ${dir}.js', function (t) { // eslint-disable-line no-template-curly-in-string
     t.plan(1);
     var dir = path.join(__dirname, 'precedence/bbb');
 

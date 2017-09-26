@@ -1,4 +1,4 @@
-/*! https://mths.be/regenerate v1.3.2 by @mathias | MIT license */
+/*! https://mths.be/regenerate v1.3.3 by @mathias | MIT license */
 ;(function(root) {
 
 	// Detect free variables `exports`.
@@ -539,14 +539,15 @@
 		else if (
 			codePoint == 0x24 ||
 			(codePoint >= 0x28 && codePoint <= 0x2B) ||
-			codePoint == 0x2D || codePoint == 0x2E || codePoint == 0x3F ||
+			(codePoint >= 0x2D && codePoint <= 0x2F) ||
+			codePoint == 0x3F ||
 			(codePoint >= 0x5B && codePoint <= 0x5E) ||
 			(codePoint >= 0x7B && codePoint <= 0x7D)
 		) {
 			// The code point maps to an unsafe printable ASCII character;
 			// backslash-escape it. Here’s the list of those symbols:
 			//
-			//     $()*+-.?[\]^{|}
+			//     $()*+-./?[\]^{|}
 			//
 			// See #7 for more info.
 			string = '\\' + stringFromCharCode(codePoint);
@@ -1052,7 +1053,7 @@
 		return (new regenerate).add(value);
 	};
 
-	regenerate.version = '1.3.2';
+	regenerate.version = '1.3.3';
 
 	var proto = regenerate.prototype;
 	extend(proto, {

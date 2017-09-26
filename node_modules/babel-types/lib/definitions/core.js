@@ -506,7 +506,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
       }
     },
     value: {
-      validate: (0, _index2.assertNodeType)("Expression")
+      validate: (0, _index2.assertNodeType)("Expression", "Pattern", "RestElement")
     },
     shorthand: {
       validate: (0, _index2.assertValueType)("boolean"),

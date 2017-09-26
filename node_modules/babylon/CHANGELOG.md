@@ -15,6 +15,42 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 See the [Babel Changelog](https://github.com/babel/babel/blob/master/CHANGELOG.md) for the pre-6.8.0 version Changelog.
 
+## 6.17.4 (2017-06-18)
+
+ * Fix comment attachment for call expressions (#575) (aardito2)
+ * Correctly put typeParameters on FunctionExpression (#585) (Daniel Tschinder)
+
+## 6.17.3 (2017-06-09)
+
+ * Fix location info on FunctionTypeParam nodes (#565) (#571) (Michal Srb)
+ * Fix stmt value being the raw value (#557) (#558) (Daniel Tschinder)
+
+## 6.17.2 (2017-05-31)
+
+ * Fixed disappearing comments following a trailing comma on the last property of an object literal or the last argument of a call expression (#478) (aardito2)
+ * Fix #437: only prohibit 'export type from "module" ' when flow is enabled (#438) (Kevin Gibbons)
+ * Fix handling of anonymous parameters in `flowParseObjectTypeMethodish`. (#526) (Max Schaefer)
+ * Convert argument of SpreadElement correctly to assignable (#518) (Daniel Tschinder)
+
+## 6.17.1 (2017-05-10)
+
+ * Fix typo in flow spread operator error (Brian Ng)
+ * Fixed invalid number literal parsing ([#473](https://github.com/babel/babylon/pull/473)) (Alex Kuzmenko)
+ * Fix number parser ([#433](https://github.com/babel/babylon/pull/433)) (Alex Kuzmenko)
+ * Ensure non pattern shorthand props are checked for reserved words ([#479](https://github.com/babel/babylon/pull/479)) (Brian Ng)
+ * Remove jsx context when parsing arrow functions ([#475](https://github.com/babel/babylon/pull/475)) (Brian Ng)
+ * Allow super in class properties ([#499](https://github.com/babel/babylon/pull/499)) (Brian Ng)
+ * Allow flow class field to be named constructor ([#510](https://github.com/babel/babylon/pull/510)) (Brian Ng)
+
+## 6.17.0 (2017-04-20)
+
+ * Cherry-pick #418 to 6.x ([#476](https://github.com/babel/babylon/pull/476)) (Sebastian McKenzie)
+ * Add support for invalid escapes in tagged templates ([#274](https://github.com/babel/babylon/pull/274)) (Kevin Gibbons)
+ * Throw error if new.target is used outside of a function ([#402](https://github.com/babel/babylon/pull/402)) (Brian Ng)
+ * Fix parsing of class properties ([#351](https://github.com/babel/babylon/pull/351)) (Kevin Gibbons)
+ * Fix parsing yield with dynamicImport ([#383](https://github.com/babel/babylon/pull/383)) (Brian Ng)
+ * Ensure consistent start args for parseParenItem ([#386](https://github.com/babel/babylon/pull/386)) (Brian Ng)
+
 ## 6.16.0 (2017-02-23)
 
 ### :rocket: New Feature
@@ -172,7 +208,7 @@ Update API documentation ([#330](https://github.com/babel/babylon/pull/330)) (Ti
 Added keywords to package.json ([#323](https://github.com/babel/babylon/pull/323)) (Dmytro)
 
 AST spec: fix casing of `RegExpLiteral` ([#318](https://github.com/babel/babylon/pull/318)) (Mathias Bynens)
- 
+
 ## 6.15.0 (2017-01-10)
 
 ### :eyeglasses: Spec Compliancy
@@ -313,20 +349,20 @@ type C = { [string]: number };
 ```
 
 Parse flow nested array type annotations like `number[][]` ([#219](https://github.com/babel/babylon/pull/219)) (Bernhard Häussner)
- 
+
 Supports these form now of specifying array types:
 
 ```js
 var a: number[][][][];
 var b: string[][];
 ```
- 
+
 ### :bug: Bug Fix
 
 Correctly eat semicolon at the end of `DelcareModuleExports` ([#223](https://github.com/babel/babylon/pull/223))  (Daniel Tschinder)
 
 ```
-declare module "foo" { declare module.exports: number } 
+declare module "foo" { declare module.exports: number }
 declare module "foo" { declare module.exports: number; }  // also allowed now
 ```
 
@@ -414,7 +450,7 @@ Readd missin .eslinignore for IDEs (Daniel Tschinder)
 Error on missing expected.json fixture in CI ([#188](https://github.com/babel/babylon/pull/188)) (Moti Zilberman)
 
 Add .gitattributes and .editorconfig for LF line endings ([#179](https://github.com/babel/babylon/pull/179)) (Moti Zilberman)
- 
+
 Fixes two tests that are failing after the merge of #172 ([#177](https://github.com/babel/babylon/pull/177)) (Moti Zilberman)
 
 ## v6.12.0 (2016-10-14)
@@ -627,7 +663,7 @@ function something({ set = null, get = null }) {}
 ```js
 // regression with duplicate export check
 SyntaxError: ./typography.js: `undefined` has already been exported. Exported identifiers must be unique. (22:13)
-  20 | 
+  20 |
   21 | export const { rhythm } = typography;
 > 22 | export const { TypographyStyle } = typography
 ```
@@ -932,7 +968,7 @@ var obj = {
 
 There is also a new node type, `ForAwaitStatement`.
 
-> [Async generators and for-await](https://github.com/tc39/proposal-async-iteration) are now a [stage 2 proposal](https://github.com/tc39/ecma262#current-proposals). 
+> [Async generators and for-await](https://github.com/tc39/proposal-async-iteration) are now a [stage 2 proposal](https://github.com/tc39/ecma262#current-proposals).
 
 Example:
 
