@@ -187,11 +187,12 @@ var _justMapObject2 = _interopRequireDefault(_justMapObject);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var categoriesArr = [];
+var sizeTipText = 'gzipped size (data from VSCode Cost Import extension)';
 
 (0, _justMapObject2.default)(_data2.default, function (categoryName, categoryValue) {
   var fnsArr = [];
-  (0, _justMapObject2.default)(categoryValue.utils, function (fnName) {
-    fnsArr.push(fnName);
+  (0, _justMapObject2.default)(categoryValue.utils, function (name, value) {
+    fnsArr.push({ name: name, size: value.size });
   });
   categoriesArr.push({
     name: categoryName,
@@ -216,7 +217,11 @@ exports.default = function (_ref) {
           null,
           _react2.default.createElement(
             'li',
-            { className: 'category', key: 'li-x-' + i, style: { listStyle: 'none' } },
+            {
+              className: 'category',
+              key: 'li-x-' + i,
+              style: { listStyle: 'none' }
+            },
             _react2.default.createElement(
               'span',
               null,
@@ -232,16 +237,21 @@ exports.default = function (_ref) {
             'ul',
             { key: 'ul-y-' + i },
             category.fns.map(function (fn, j) {
-              var className = fn == selected ? 'link selected' : 'link';
+              debugger;
+              var className = fn.name == selected ? 'link selected' : 'link';
               return _react2.default.createElement(
                 'li',
-                {
-                  key: j,
-                  className: className,
-                  style: { listStyle: 'none' },
-                  onClick: onSelect
-                },
-                fn
+                { key: j, style: { listStyle: 'none' } },
+                _react2.default.createElement(
+                  'span',
+                  { onClick: onSelect, className: className },
+                  fn.name
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'size', title: sizeTipText },
+                  ' (' + (fn.size || '345') + ' bytes)'
+                )
               );
             })
           )
@@ -308,21 +318,27 @@ exports.default = {
     symbol: '{}[]',
     utils: {
       'just-diff': {
+        size: 626,
         code: ['const {diff, jsonPatchPathConverter} = require(\'just-diff\')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);']
       },
       'just-diff-apply': {
+        size: 677,
         code: ['const {diffApply, jsonPatchPathConverter} = require(\'just-diff-apply\')\n\nconst obj1 = {a: 3, b: 5};\ndiffApply(obj1,\n  [\n    { "op": "remove", "path": [\'b\'] },\n    { "op": "replace", "path": [\'a\'], "value": 4 },\n    { "op": "add", "path": [\'c\'], "value": 5 }\n  ],\n  /* jsonPatchPathConverter */\n);\nobj1;']
       },
       'just-compare': {
+        size: 520,
         code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
       },
       'just-clone': {
+        size: 355,
         code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nsubObj.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
       },
       'just-pluck-it': {
+        size: 448,
         code: ['const pluck = require(\'just-pluck-it\')\n\npluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, \'a\')']
       },
       'just-flush': {
+        size: 419,
         code: ['const flush = require(\'just-flush\')\n\nflush([1, undefined, 2, null, 3, NaN, 0])\n// flush({a: 2, b: null, c: 4, d: undefined})']
       }
     }
@@ -331,51 +347,67 @@ exports.default = {
     symbol: '{}',
     utils: {
       'just-merge': {
+        size: 369,
         code: ['const merge = require(\'just-merge\')\n\nlet obj = {a: 3, b: 5};\nmerge(obj, {a: 4, c: 8});']
       },
       'just-extend': {
+        size: 455,
         code: ['// like just-merge but allows deep copy\nconst extend = require(\'just-extend\')\n          \nlet arr = [1, 2, 3];\nlet obj = {a: 3, b: 5};\nextend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push[4];\nobj']
       },
       'just-values': {
+        size: 426,
         code: ['const values = require(\'just-values\')\n\nvalues({a: 4, b: 9, c: 8});']
       },
       'just-entries': {
+        size: 398,
         code: ['const entries = require(\'just-entries\')\n\nentries({a: 4, b: 9, c: 8});']
       },
       'just-pick': {
+        size: 369,
         code: ['const pick = require(\'just-pick\')\n\nconst obj = {a: 3, b: 5, c: 9};\npick(obj, [\'a\', \'c\']);']
       },
       'just-omit': {
+        size: 376,
         code: ['const omit = require(\'just-omit\')\n\nvar obj = {a: 3, b: 5, c: 9};\nomit(obj, [\'a\', \'c\']);']
       },
       'just-filter-object': {
+        size: 348,
         code: ['const filter = require(\'just-filter-object\')\n\nfilter({a: 3, b: 5, c: 9}, (key, value) => value < 6);']
       },
       'just-flip-object': {
+        size: 348,
         code: ['const flip = require(\'just-flip-object\')\n\nflip({a: \'x\', b: \'y\', c: \'z\'}); // {x: \'a\', y: \'b\', z: \'c\'}']
       },
       'just-map-object': {
+        size: 351,
         code: ['const map = require(\'just-map-object\')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);']
       },
       'just-reduce-object': {
+        size: 385,
         code: ['const reduce = require(\'just-reduce-object\')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});']
       },
       'just-is-empty': {
+        size: 354,
         code: ['const isEmpty = require(\'just-is-empty\');\n\nisEmpty({a: 3, b: 5});']
       },
       'just-is-circular': {
+        size: 437,
         code: ['const obj = {};\nobj.x = {y: obj};\nconst isCircular = require(\'just-is-circular\');\n\nisCircular(obj);']
       },
       'just-is-primitive': {
+        size: 308,
         code: ['const isPrimitive = require(\'just-is-primitive\');\n\nisPrimitive(new Date());']
       },
       'just-safe-get': {
+        size: 350,
         code: ['const get = require(\'just-safe-get\');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, \'b.bb.bbb\');']
       },
       'just-safe-set': {
+        size: 375,
         code: ['const set = require(\'just-safe-set\');\n\nconst obj = {};\nset(obj, \'a.aa.aaa\', {aaaa: 4});\nobj;']
       },
       'just-typeof': {
+        size: 356,
         code: ['const typeOf = require(\'just-typeof\');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf(\'a\');\n// typeOf(1);\n// typeOf(true);']
       }
     }
@@ -384,52 +416,70 @@ exports.default = {
     symbol: '[]',
     utils: (_utils = {
       'just-unique': {
+        size: 537,
         code: ['const unique = require(\'just-unique\');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);']
       },
       'just-flatten-it': {
+        size: 364,
         code: ['const flatten = require(\'just-flatten-it\')\n\nflatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);']
       },
       'just-index': {
+        size: 427,
         code: ['const index = require(\'just-index\')\n\nindex([{id: \'first\', val: 1}, {id: \'second\', val: 2}], \'id\');']
       },
       'just-insert': {
+        size: 435,
         code: ['const insert = require(\'just-insert\')\n\ninsert([1, 2, 5, 6], [\'a\', \'c\', \'e\'], 2);']
       },
       'just-intersect': {
+        size: 354,
         code: ['const intersect = require(\'just-intersect\')\n\nintersect([1, 2, 5, 6], [2, 3, 5, 6]);']
       },
       'just-compact': {
+        size: 381,
         code: ['const compact = require(\'just-compact\')\n\ncompact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);']
       },
       'just-last': {
+        size: 349,
         code: ['const last = require(\'just-last\')\n\nlast([true, false, [true, false]]);']
       },
       'just-split': {
+        size: 364,
         code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
       },
       'just-tail': {
+        size: 345,
         code: ['const tail = require(\'just-tail\')\n\ntail([0, 1, 2, 3, 4, 5]);']
       },
       'just-random': {
+        size: 362,
         code: ['const random = require(\'just-random\');\n\nrandom([1, 2, 3]);']
       },
       'just-shuffle': {
+        size: 405,
         code: ['const shuffle = require(\'just-shuffle\');\n\nshuffle([1, 2, 3, 4, 5]);']
       },
       'just-range': {
+        size: 435,
         code: ['const range = require(\'just-range\')\n\nrange(0, 20, 5);']
       }
     }, _defineProperty(_utils, 'just-split', {
+      size: 364,
       code: ['const split = require(\'just-split\')\n\nsplit([1, 2, 3, 4, 5, 6, 7, 8], 2);']
     }), _defineProperty(_utils, 'just-split-at', {
+      size: 415,
       code: ['const splitAt = require(\'just-split-at\');\n\nsplitAt([1, 2, 3, 4, 5], 2);']
     }), _defineProperty(_utils, 'just-partition', {
+      size: 430,
       code: ['const partition = require(\'just-partition\');\n\npartition([1, 5, 3, 4, 2], n => n > 3);']
     }), _defineProperty(_utils, 'just-remove', {
+      size: 412,
       code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
     }), _defineProperty(_utils, 'just-union', {
+      size: 419,
       code: ['const union = require(\'just-union\')\n\nunion([1, 2, 5, 6], [2, 3, 4, 6]);']
     }), _defineProperty(_utils, 'just-zip-it', {
+      size: 473,
       code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
     }), _utils)
   },
@@ -437,33 +487,43 @@ exports.default = {
     symbol: '""',
     utils: {
       'just-template': {
+        size: 379,
         code: ['const template = require(\'just-template\')\n\nconst data = {\n  a: {\n    aa: {\n      aaa: \'apple\',\n      bbb: \'pear\'\n    },\n    bb: \'orange\'\n  },\n  b: \'plum\'\n};\ntemplate(\'2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.bbb}}.\', data);']
       },
       'just-truncate': {
+        size: 352,
         code: ['const truncate = require(\'just-truncate\')\n\ntruncate(\'when shall we three meet again\', 10, \' (etc)\');']
       },
       'just-prune': {
+        size: 385,
         code: ['const prune = require(\'just-prune\')\n\nprune(\'when shall we three meet again\', 12, \' (etc)\');']
       },
       'just-squash': {
+        size: 330,
         code: ['const squash = require(\'just-squash\')\n\nsquash(`\tthe cat\n sat \fon \x0Bthe \rmat `, true);']
       },
       'just-left-pad': {
+        size: 376,
         code: ['const leftPad = require(\'just-left-pad\')\n\nleftPad(\'hello\', 9, \'.\');']
       },
       'just-right-pad': {
+        size: 375,
         code: ['const rightPad = require(\'just-right-pad\')\n\nrightPad(\'hello\', 9, \'.\');']
       },
       'just-camel-case': {
+        size: 459,
         code: ['const camelCase = require(\'just-camel-case\')\n\ncamelCase(\'the-quick-brown _fox\');']
       },
       'just-snake-case': {
+        size: 444,
         code: ['const snakeCase = require(\'just-snake-case\')\n\nsnakeCase(\'theQuickBrownFox\');']
       },
       'just-kebab-case': {
+        size: 444,
         code: ['const kebabCase = require(\'just-kebab-case\')\n\nkebabCase(\'theQuickBrownFox\');']
       },
       'just-pascal-case': {
+        size: 456,
         code: ['const pascalCase = require(\'just-pascal-case\')\n\npascalCase(\'the-quick-brown _fox\');']
       }
     }
@@ -472,9 +532,11 @@ exports.default = {
     symbol: '+-',
     utils: {
       'just-clamp': {
+        size: 320,
         code: ['const clamp = require(\'just-clamp\');\n\nvar n = 5;\nclamp(1, n, 3); // 3']
       },
       'just-modulo': {
+        size: 319,
         code: ['const modulo = require(\'just-modulo\');\n\nmodulo(-4, 13);']
       }
     }
@@ -483,27 +545,35 @@ exports.default = {
     symbol: '=>',
     utils: {
       'just-compose': {
+        size: 415,
         code: ['const compose = require(\'just-compose\')\n\nconst sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);\nsqRootBiggest(7, 0, 16);']
       },
       'just-curry-it': {
+        size: 346,
         code: ['const curry = require(\'just-curry-it\')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);']
       },
       'just-demethodize': {
+        size: 348,
         code: ['const demethodize = require(\'just-demethodize\');\n\nconst trimFn = demethodize(\'\'.trim);\n[\'hello \', \' goodbye\', \'hello again\'].map(trimFn)']
       },
       'just-partial-it': {
+        size: 396,
         code: ['const partial = require(\'just-partial-it\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
       },
       'just-flip': {
+        size: 359,
         code: ['const flip = require(\'just-flip\');\n\nflip(console.log)(1, 2, 3);']
       },
       'just-debounce-it': {
+        size: 383,
         code: ['const debounce = require(\'just-debounce-it\');\n\nconst fn1 = debounce(() => console.log(\'Hello\'), 1000, true);\nfn1();\nfn1();\nfn1();\nfn1();']
       },
       'just-throttle': {
+        size: 373,
         code: ['const throttle = require(\'just-throttle\');\n\nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
       },
       'just-once': {
+        size: 376,
         code: ['const once = require(\'just-once\');\n\nlet i = 0;\nconst addOnce = once(() => i++);\naddOnce();\naddOnce();\ni;']
       }
     }
