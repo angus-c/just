@@ -7,17 +7,17 @@ Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Dat
 
 | Just          |  LoDash   | UScore  |
 | ------------- |---------------| -------|
-| just-compact  | compact       |    |
-| just-split    | chunk         |   |
-| just-tail | tail      |    |
-| just-flatten |flattenDeep      |    |
-| just-intersect | intersection      |    |
-| just-unique | uniq ||
+| just-compact  | compact       | PASS*å   |
+| just-split    | chunk         | PASS*π¬  |
+| just-tail | tail      |  PASS*å  |
+| just-flatten-it |flattenDeep      | PASS*å   |
+| just-intersect | intersection      | FAIL∞∫   |
+| just-unique | uniq |  |
 | just-zip-it | zip      |    |
 | just-curry | curry      |    |
 | just-debounce | debounce      |    |
-| just-once | once      |    |
-| just-partial | partial      |    |
+| just-once | once      |  PASS*  |
+| just-partial-it | partial      |  PASS*†  |
 | just-throttle | throttle      |    |
 | just-clone | cloneDeep      |    |
 | just-clamp | clamp      |    |
@@ -33,6 +33,15 @@ Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Dat
 | just-pad-left | padStart      |    |
 | just-pad-right | padEnd      |    |
 | just-range | range      |    |
+| just-truncate | truncate      |    |
+
+† `instance of` on instances of instructor
+* falsey argument discrepancy
+π expects number arg (doesn't support coercion) 
+¬ doesn't work as expected with other lodash utils
+å doesn't work with arguments in lieu of arrays
+∞ NaN not equal
+∫ non-unique results
 
 * Load speed
 * Dependency management

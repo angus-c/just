@@ -18,8 +18,7 @@ function partial(fn /*, arg1, arg2 etc */) {
     var derivedArgs = [];
     for (var i = 0; i < partialArgs.length; i++) {
       var thisPartialArg = partialArgs[i];
-      derivedArgs[i] =
-        thisPartialArg === undefined ? args.shift() : thisPartialArg;
+      derivedArgs[i] = thisPartialArg === undefined ? args.shift() : thisPartialArg;
     }
     return fn.apply(this, derivedArgs.concat(args));
   };
