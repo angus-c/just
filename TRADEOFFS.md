@@ -7,22 +7,22 @@ Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Dat
 
 | Just          |  LoDash   | UScore  |
 | ------------- |---------------| -------|
-| just-compact  | compact       |    |
-| just-split    | chunk         |   |
-| just-tail | tail      |    |
-| just-flatten |flattenDeep      |    |
-| just-intersect | intersection      |    |
-| just-unique | uniq ||
-| just-zip-it | zip      |    |
-| just-curry | curry      |    |
-| just-debounce | debounce      |    |
-| just-once | once      |    |
-| just-partial | partial      |    |
-| just-throttle | throttle      |    |
-| just-clone | cloneDeep      |    |
-| just-clamp | clamp      |    |
-| just-safe-get | get      |    |
-| just-safe-set | set      |    |
+| just-compact  | compact       | PASS*å   |
+| just-split    | chunk         | PASS*π¬  |
+| just-tail | tail      |  PASS*å  |
+| just-flatten-it |flattenDeep      | PASS*å   |
+| just-intersect | intersection      | FAIL∞∫   |
+| just-unique | uniq | PASS*å |
+| just-zip-it | zip |  PASS*å•  |
+| just-curry | curry  |  FAIL  |
+| just-debounce | debounce      | FAIL   |
+| just-once | once      |  PASS*  |
+| just-partial-it | partial  | PASS*†  |
+| just-throttle | throttle      | FAIL  |
+| just-clone | cloneDeep      | FAIL   |
+| just-clamp | clamp      |  PASS*µƒ  |
+| just-safe-get | get      |  ∞  |
+| just-safe-set | set      |  ∞  |
 | just-map-object | mapKeys      |    |
 | just-merge | merge      |    |
 | just-omit | omit      |    |
@@ -33,6 +33,19 @@ Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Dat
 | just-pad-left | padStart      |    |
 | just-pad-right | padEnd      |    |
 | just-range | range      |    |
+| just-truncate | truncate      |    |
+
+† `instance of` on instances of partial  
+* falsey argument discrepancy  
+π expects number arg (doesn't support coercion)   
+¬ doesn't work as expected with other lodash utils  
+å doesn't work with arguments in lieu of arrays  
+∞ NaN not equal  
+∫ non-unique results
+• zip([[],[]]) => [[[]], [[]]] (as per http://osteele.com/sources/javascript/functional/)
+µ should work without lower bound arg
+ƒ if outer bounds are NaN should coerce to 0
+∞ follows dotty re. get(obj, ['a.b'])
 
 * Load speed
 * Dependency management
