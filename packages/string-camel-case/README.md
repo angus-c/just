@@ -9,8 +9,8 @@ Guilt-free utilities for every occasion.
   camelCase('the quick brown fox'); // 'theQuickBrownFox'
   camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
   camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
+  camelCase('theQuickBrownFox'); // 'thequickbrownfox'
   camelCase('thequickbrownfox'); // 'thequickbrownfox'
   camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
+  camelCase('TheQUICKBrownFox'); // 'theQuickBrownFox'
 ```

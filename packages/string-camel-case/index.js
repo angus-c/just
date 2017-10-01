@@ -24,10 +24,8 @@ function camelCase(str) {
       continue;
     }
     var firstLetter = word[0];
-    if (i > 0) {
-      firstLetter = firstLetter.toUpperCase();
-    }
-    mappedWords[i] = firstLetter + word.slice(1);
+    firstLetter = i > 0 ? firstLetter.toUpperCase() : firstLetter.toLowerCase();
+    mappedWords[i] = firstLetter + word.slice(1).toLowerCase();
   }
   return mappedWords.join('');
 }
