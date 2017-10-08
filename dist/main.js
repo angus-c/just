@@ -532,7 +532,7 @@ exports.default = {
     symbol: '+-',
     utils: {
       'just-clamp': {
-        size: 320,
+        size: 412,
         code: ['const clamp = require(\'just-clamp\');\n\nvar n = 5;\nclamp(1, n, 3); // 3']
       },
       'just-modulo': {
