@@ -2,7 +2,7 @@ var test = require('../util/test')(__filename);
 var zip = require('../../packages/array-zip');
 
 test('zips any number of arrays together', function(t) {
-  t.plan(3);
+  t.plan(4);
 
   var actual = zip([1, 2, 3]);
   var expected = [[1], [2], [3]];
@@ -14,6 +14,10 @@ test('zips any number of arrays together', function(t) {
 
   actual = zip([1, 2], ['a', 'b'], [true, false]);
   expected = [[1, 'a', true], [2, 'b', false]];
+  t.deepEqual(actual, expected);
+
+  actual = zip([], []);
+  expected = [];
   t.deepEqual(actual, expected);
 
   t.end();
