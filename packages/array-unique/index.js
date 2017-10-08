@@ -28,17 +28,24 @@ function unique(arr, sorted, strings) {
   }
   var result = [],
     duplicate,
+    seenNaN,
     lastAdded;
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     var elem = arr[i];
-    duplicate = lastAdded && lastAdded === elem;
+    if (Number.isNaN(elem)) {
+      duplicate = seenNaN;
+      seenNaN = true;
+    }
+    duplicate = duplicate || (lastAdded && lastAdded === elem);
     if (!duplicate && !sorted) {
       duplicate = result.indexOf(elem) > -1;
     }
     if (!duplicate) {
       result.push(elem);
       lastAdded = elem;
+    } else {
+      duplicate = false;
     }
   }
   return result;

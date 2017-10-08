@@ -231,6 +231,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
   compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
   compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
+  compare(NaN, NaN); // true  
   ```
 
   ### [just-clone](https://www.npmjs.com/package/just-clone)

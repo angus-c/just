@@ -48,7 +48,6 @@
     "no-console": 0,
     "no-constant-condition": 0,
     "no-control-regex": 2,
-    "no-debugger": 1,
     "no-delete-var": 2,
     "no-div-regex": 0,
     "no-dupe-args": 2,

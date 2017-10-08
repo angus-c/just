@@ -1,11 +1,13 @@
 var test = require('../util/test')(__filename);
 var unique = require('../../packages/array-unique');
+var compare = require('../../packages/collection-compare');
 
 test('primitives', function(t) {
-  t.plan(3);
+  t.plan(4);
   t.deepEqual(unique([1, 2, 3, 2, 3, 4, 1]), [1, 2, 3, 4]);
   t.deepEqual(unique(['a', 'c', 'a', 'b', 'a', 'b', 'c']), ['a', 'c', 'b']);
   t.deepEqual(unique([true, true, false, false, true]), [true, false]);
+  t.ok(compare(unique([NaN, NaN, NaN]), [NaN]));
   t.end();
 });
 

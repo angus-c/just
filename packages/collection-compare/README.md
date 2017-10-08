@@ -19,4 +19,5 @@ compare({a: 2, b: 3}, {b: 3, a: 2}); // true
 compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
 compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
 compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
+compare(NaN, NaN); // true
 ```

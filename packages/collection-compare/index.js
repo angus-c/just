@@ -18,6 +18,9 @@ function compare(value1, value2) {
   if (value1 === value2) {
     return true;
   }
+  if (Number.isNaN(value1) && Number.isNaN(value2)) {
+    return true;
+  }
   if (typeof value1 != typeof value2) {
     return false;
   }
@@ -44,6 +47,9 @@ function compareNativeSubtypes(value1, value2) {
 }
 
 function compareArrays(value1, value2) {
+  if (Number.isNaN(value1)) {
+    debugger;
+  }
   var len = value1.length;
   if (len != value2.length) {
     return false;
