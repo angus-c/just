@@ -47,9 +47,6 @@ function compareNativeSubtypes(value1, value2) {
 }
 
 function compareArrays(value1, value2) {
-  if (Number.isNaN(value1)) {
-    debugger;
-  }
   var len = value1.length;
   if (len != value2.length) {
     return false;
