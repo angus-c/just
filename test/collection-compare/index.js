@@ -11,13 +11,19 @@ test('strictly equal primitives return true', function(t) {
   t.end();
 });
 
-test('not strictly equal primitives return true', function(t) {
+test('not strictly equal primitives return false', function(t) {
   t.plan(5);
   t.notOk(compare(3, 4));
   t.notOk(compare('3', '4'));
   t.notOk(compare(true, false));
   t.notOk(compare(null, undefined));
   t.notOk(compare(undefined, null));
+  t.end();
+});
+
+test('two NaN values return true', function(t) {
+  t.plan(1);
+  t.ok(compare(NaN, NaN));
   t.end();
 });
 
