@@ -429,7 +429,7 @@ pascalCase('the-quick-brown _fox');`
     symbol: '+-',
     utils: {
       'just-clamp': {
-        size: 320,
+        size: 412,
         code: [
           `const clamp = require('just-clamp');\n
 var n = 5;
