@@ -30,7 +30,7 @@ obj1;`
         ]
       },
       'just-compare': {
-        size: 520,
+        size: 539,
         code: [
           `const compare = require('just-compare')\n
 compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
@@ -213,7 +213,7 @@ typeOf({});
     symbol: '[]',
     utils: {
       'just-unique': {
-        size: 537,
+        size: 563,
         code: [
           `const unique = require('just-unique');\n
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);`

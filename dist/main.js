@@ -326,7 +326,7 @@ exports.default = {
         code: ['const {diffApply, jsonPatchPathConverter} = require(\'just-diff-apply\')\n\nconst obj1 = {a: 3, b: 5};\ndiffApply(obj1,\n  [\n    { "op": "remove", "path": [\'b\'] },\n    { "op": "replace", "path": [\'a\'], "value": 4 },\n    { "op": "add", "path": [\'c\'], "value": 5 }\n  ],\n  /* jsonPatchPathConverter */\n);\nobj1;']
       },
       'just-compare': {
-        size: 520,
+        size: 539,
         code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
       },
       'just-clone': {
@@ -416,7 +416,7 @@ exports.default = {
     symbol: '[]',
     utils: (_utils = {
       'just-unique': {
-        size: 537,
+        size: 563,
         code: ['const unique = require(\'just-unique\');\n\nunique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);']
       },
       'just-flatten-it': {
