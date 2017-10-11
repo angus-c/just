@@ -1,6 +1,6 @@
 {
   "name": "just-clamp",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "restrict a number within a range",
   "main": "index.js",
   "scripts": {

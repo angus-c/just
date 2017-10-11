@@ -1016,13 +1016,13 @@ import clamp from 'just-clamp';
 
 var n = 5;
 clamp(1, n, 12); // 5
-clamp(1, n, 3); // 3
+clamp(3, n, 1); // 3
 clamp(8, n, 9); // 8
 clamp(0, n, 0); // 0
 
 var n = -5;
 clamp(1, n, 12); // 1
-clamp(-8, n, -7); // -7
+clamp(-7, n, -8); // -7
 
 clamp(NaN, n, 8); // NaN
 clamp(3, n, NaN); // NaN  
