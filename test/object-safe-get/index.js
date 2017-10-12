@@ -26,9 +26,7 @@ test('returns existing properties using array arg', function(t) {
   t.end();
 });
 
-test('returns undefined for non-existing properties, using dot-notation arg', function(
-  t
-) {
+test('returns undefined for non-existing properties, using dot-notation arg', function(t) {
   t.plan(3);
   var obj = {a: {aa: {aaa: 2}}, b: 4};
   t.ok(compare(get(obj, 'b.bb'), undefined));
@@ -37,9 +35,7 @@ test('returns undefined for non-existing properties, using dot-notation arg', fu
   t.end();
 });
 
-test('returns undefined for non-existing properties, using array arg', function(
-  t
-) {
+test('returns undefined for non-existing properties, using array arg', function(t) {
   t.plan(3);
   var obj = {a: {aa: {aaa: 2}}, b: 4};
   t.ok(compare(get(obj, ['b', 'bb']), undefined));
@@ -47,3 +43,15 @@ test('returns undefined for non-existing properties, using array arg', function(
   t.ok(compare(get(obj.b, ['bb', 'bbb']), undefined));
   t.end();
 });
+
+/* eslint-disable no-undef*/
+if (typeof Symbol === 'function') {
+  test('works with symbols', function(t) {
+    t.plan(1);
+    var obj = {a: {}};
+    var sym = Symbol();
+    obj.a[sym] = 4;
+    t.ok(compare(get(obj.a, sym), 4));
+    t.end();
+  });
+}
