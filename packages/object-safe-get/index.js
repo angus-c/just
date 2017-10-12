@@ -1,7 +1,7 @@
 module.exports = get;
 
 /*
-  var obj = {a: {aa: {aaa: 2}}, b: 4};
+  const obj = {a: {aa: {aaa: 2}}, b: 4};
 
   get(obj, 'a.aa.aaa'); // 2
   get(obj, ['a', 'aa', 'aaa']); // 2
@@ -14,11 +14,19 @@ module.exports = get;
 
   get(obj.b, 'bb.bbb'); // undefined
   get(obj.b, ['bb', 'bbb']); // undefined
+
+  const obj = {a: {}};
+  const sym = Symbol();
+  obj.a[sym] = 4;
+  get(obj.a, sym); // 4
 */
 
 function get(obj, props) {
   if (typeof props == 'string') {
     props = props.split('.');
+  }
+  if (typeof props == 'symbol') {
+    props = [props];
   }
   var prop;
   while ((prop = props.shift())) {

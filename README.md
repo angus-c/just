@@ -533,6 +533,11 @@ get(obj.a, ['aa', 'aaa']); // 2
 
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
+
+const obj = {a: {}};
+const sym = Symbol();
+obj.a[sym] = 4;
+get(obj.a, sym); // 4
 ```
 
 ### [just-safe-set](https://www.npmjs.com/package/just-safe-set)
@@ -558,6 +563,11 @@ obj3; // {a: {aa: {aaa: 3}}}
 const obj4 = {a: {aa: {aaa: 2}}};
 set(obj4, 'a.aa', {bbb: 7}); // true
 obj4; // {a: {aa: {bbb: 7}}}
+
+const obj5 = {a: {}};
+const sym = Symbol();
+set(obj5.a, sym, 7); // true
+obj5; // {a: {Symbol(): 7}}
 ```
 
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
