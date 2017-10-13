@@ -16,11 +16,19 @@ module.exports = set;
   var obj4 = {a: {aa: {aaa: 2}}};
   set(obj4, 'a.aa', {bbb: 7}); // true
   obj4; // {a: {aa: {bbb: 7}}}
+
+  const obj5 = {a: {}};
+  const sym = Symbol();
+  set(obj5.a, sym, 7); // true
+  obj5; // {a: {Symbol(): 7}}
 */
 
 function set(obj, props, value) {
   if (typeof props == 'string') {
     props = props.split('.');
+  }
+  if (typeof props == 'symbol') {
+    props = [props];
   }
   var lastProp = props.pop();
   if (!lastProp) {

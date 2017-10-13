@@ -21,4 +21,9 @@ get(obj.a, ['aa', 'aaa']); // 2
 
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
+
+const obj = {a: {}};
+const sym = Symbol();
+obj.a[sym] = 4;
+get(obj.a, sym); // 4
 ```

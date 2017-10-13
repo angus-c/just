@@ -41,3 +41,15 @@ test("doesn't set non-existent properties, using dot-notation arg", function(t) 
   t.isEqual(set(obj2, ['a', 'aa'], {bbb: 7}), false);
   t.end();
 });
+
+/* eslint-disable no-undef*/
+if (typeof Symbol === 'function') {
+  test('supports symbol prop', function(t) {
+    t.plan(2);
+    var obj1 = {a: {}};
+    var sym = Symbol();
+    t.isEqual(set(obj1.a, sym, 7), true);
+    t.ok(obj1.a[sym] === 7);
+    t.end();
+  });
+}
