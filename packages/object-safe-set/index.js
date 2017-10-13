@@ -13,9 +13,9 @@ module.exports = set;
   set(obj3, 'a.aa.aaa', 3); // true
   obj3; // {a: {aa: {aaa: 3}}}
 
+  // don't clobber existing
   var obj4 = {a: {aa: {aaa: 2}}};
-  set(obj4, 'a.aa', {bbb: 7}); // true
-  obj4; // {a: {aa: {bbb: 7}}}
+  set(obj4, 'a.aa', {bbb: 7}); // false
 
   const obj5 = {a: {}};
   const sym = Symbol();
@@ -36,6 +36,9 @@ function set(obj, props, value) {
   }
   var thisProp;
   while ((thisProp = props.shift())) {
+    if (typeof obj[thisProp] == 'undefined') {
+      obj[thisProp] = {};
+    }
     obj = obj[thisProp];
     if (!obj || typeof obj != 'object') {
       return false;
