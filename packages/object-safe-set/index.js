@@ -28,10 +28,10 @@ function set(obj, props, value) {
   }
   var thisProp;
   while ((thisProp = props.shift())) {
-    if (!obj[thisProp]) {
-      obj[thisProp] = {};
-    }
     obj = obj[thisProp];
+    if (!obj || typeof obj != 'object') {
+      return false;
+    }
   }
   obj[lastProp] = value;
   return true;
