@@ -175,7 +175,7 @@ isPrimitive(new Date());`
         ]
       },
       'just-safe-get': {
-        size: 350,
+        size: 360,
         code: [
           `const get = require('just-safe-get');\n
 const obj = {a: {aa: {aaa: 2}}, b: 4};
@@ -183,7 +183,7 @@ get(obj, 'b.bb.bbb');`
         ]
       },
       'just-safe-set': {
-        size: 375,
+        size: 404,
         code: [
           `const set = require('just-safe-set');\n
 const obj = {};

@@ -399,11 +399,11 @@ exports.default = {
         code: ['const isPrimitive = require(\'just-is-primitive\');\n\nisPrimitive(new Date());']
       },
       'just-safe-get': {
-        size: 350,
+        size: 360,
         code: ['const get = require(\'just-safe-get\');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nget(obj, \'b.bb.bbb\');']
       },
       'just-safe-set': {
-        size: 375,
+        size: 404,
         code: ['const set = require(\'just-safe-set\');\n\nconst obj = {};\nset(obj, \'a.aa.aaa\', {aaaa: 4});\nobj;']
       },
       'just-typeof': {
