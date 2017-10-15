@@ -32,6 +32,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-omit](#just-omit)
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)
+  * [just-map-values](#just-map-values)  
   * [just-reduce-object](#just-reduce-object)
   * [just-is-empty](#just-is-empty)
   * [just-is-circular](#just-is-circular)
@@ -486,10 +487,24 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```js
 import map from 'just-map-object';
 
-// returns a new object with the predicate applied to each value
+// map an object, passing the key and value to the predicate
 map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
 map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
+```
+
+### [just-map-values](https://www.npmjs.com/package/just-map-values)
+:icecream:[`Try It`](http://anguscroll.com/just/just-map-values)
+
+`npm install just-map-values`
+
+```js
+import map from 'just-map-values';
+
+// map an object, passing the value to the predicate
+// like just-map-object, but only the value argument is available
+map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}
+map({a: 3, b: null, c: undefined}, (value) => Boolean); // {a: 3, b: false, c: false}
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
