@@ -141,6 +141,13 @@ flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}`
 map({a: 3, b: 5, c: 9}, (key, value) => key + value);`
         ]
       },
+      'just-map-values': {
+        size: 351,
+        code: [
+          `const map = require('just-map-values')\n
+map({a: 3, b: 5, c: 9}, (value) => value * value);`
+        ]
+      },
       'just-reduce-object': {
         size: 385,
         code: [

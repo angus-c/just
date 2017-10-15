@@ -382,6 +382,10 @@ exports.default = {
         size: 351,
         code: ['const map = require(\'just-map-object\')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);']
       },
+      'just-map-values': {
+        size: 351,
+        code: ['const map = require(\'just-map-values\')\n\nmap({a: 3, b: 5, c: 9}, (value) => value * value);']
+      },
       'just-reduce-object': {
         size: 385,
         code: ['const reduce = require(\'just-reduce-object\')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});']
