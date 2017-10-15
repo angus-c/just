@@ -3,7 +3,8 @@ import data from '../data';
 import objectMap from 'just-map-object';
 
 var categoriesArr = [];
-const sizeTipText = 'gzipped size (data from VSCode Cost Import extension)';
+const sizeTipText =
+  'gzipped size (data from https://www.npmjs.com/package/package-size)';
 
 objectMap(data, (categoryName, categoryValue) => {
   var fnsArr = [];
