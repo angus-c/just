@@ -1,6 +1,6 @@
 {
   "name": "just-map-object",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "map an object, passing key and value to predicates",
   "main": "index.js",
   "scripts": {

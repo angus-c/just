@@ -487,7 +487,8 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```js
 import map from 'just-map-object';
 
-// map an object, passing the key and value to the predicate
+// map an object, applying the predicate to the value
+// like just-map-value, but (key, value) is passed to the predicate
 map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
 map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
@@ -501,10 +502,11 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```js
 import map from 'just-map-values';
 
-// map an object, passing the value to the predicate
-// like just-map-object, but only the value argument is available
+// map an object, applying the predicate to the value
+// like just-map-object, but (value, key, object) is passed to the predicate
 map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}
-map({a: 3, b: null, c: undefined}, (value) => Boolean); // {a: 3, b: false, c: false}
+map({a: 3, b: 5, c: 9}, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
+map({a: 3, b: 5, c: 9}, (value, key, object) => object.b); // {a: 5, b: 5, c: 5}
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)

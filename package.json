@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
   },
-  "homepage": "https://github.com/angus-c/just#readme"
+  "homepage": "https://github.com/angus-c/just#readme",
+  "dependencies": {
+    "test": "^0.6.0"
+  }
 }

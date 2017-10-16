@@ -8,7 +8,8 @@ Guilt-free utilities for every occasion.
 ```js
 import map from 'just-map-object';
 
-// map an object, passing the key and value to the predicate
+// map an object, applying the predicate to the value
+// like just-map-value, but (key, value) are passed to the predicate
 map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
 map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}```
