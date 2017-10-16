@@ -1,13 +1,13 @@
 {
-  "name": "just-map-values",
-  "version": "1.0.2",
-  "description": "map an object, predicate updates values, recieves (value, key, object)",
+  "name": "just-map-keys",
+  "version": "1.0.0",
+  "description": "map an object, predicate updates keys, recieves (value, key, object)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["object", "map", "values", "no-dependencies", "just"],
+  "keywords": ["object", "map", "keys", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
