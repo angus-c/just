@@ -1,51 +1,96 @@
 # Tradeoffs
 
-## Pros
+Lodash is brilliantly engineered, well maintained and documented, and designed to be highly performant even over very large data structures. So why would you ever need Just?
 
-#### 1. Size
-Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Data) and compare very favorably to Lodash modular equivalents
+## Short, simplified answer
+* Use Lodash when it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
+* Use Lodash if your app is going to be processing vast datastructures (100,000+ records). 
+* Use Lodash if you need one of the many Lodash methods that Just doesn't provide.
+* Use Just if you care about JavaScript footprint.
+
+## Why does JavaScript footprint matter?
+
+[Alex Russell](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) puts it better than I could:
+
+> We regularly see sites loading more than 500KB of script (compressed). This matters because all script loading delays the metric we value most: Time to Interactive. Sites with this much script are simply inaccessible to a broad swath of the world’s users; statistically, users do not (and will not) wait for these experiences to load. Those that do experience horrendous jank.
+
+JavaScript size is especially critical for mobile web development. As Alex points out, 45% of mobile connections occur over 2G worldwide
+75% of of connections occur on either 2G or 3G.
+
+## Just utilities are tiny.
+
+Whenever I found a Just util with a Lodash equivalent, I ran it against the corresponding Lodash unit test. Most of them passed every non-opinionated feature
+
+Every Just utility comes in at well under 1K minified/gzipped[¹](#¹Data). While 
 
 | Just          |  LoDash   | UScore  |
 | ------------- |---------------| -------|
-| just-compact  | compact       | PASS*å   |
-| just-split    | chunk         | PASS*π¬  |
-| just-tail | tail      |  PASS*å  |
-| just-flatten-it |flattenDeep      | PASS*å   |
+| just-compact  | compact       | PASS√å   |
+| just-split    | chunk         | PASS√π¬  |
+| just-tail | tail      |  PASS√å  |
+| just-flatten-it |flattenDeep      | PASS√å   |
 | just-intersect | intersection      | FAIL∞∫   |
-| just-unique | uniq | PASS*å |
-| just-zip-it | zip |  PASS*å•  |
-| just-curry | curry  |  FAIL  |
+| just-unique | uniq | PASS√å |
+| just-zip-it | zip |  PASS√å•  |
+| just-curry | curry  |  PASS√≠…  |
 | just-debounce | debounce      | FAIL   |
-| just-once | once      |  PASS*  |
-| just-partial-it | partial  | PASS*†  |
+| just-once | once      |  PASS√  |
+| just-partial-it | partial  | PASS√†  |
 | just-throttle | throttle      | FAIL  |
 | just-clone | cloneDeep      | FAIL   |
-| just-clamp | clamp      |  PASS*µƒ  |
-| just-safe-get | get      |  ∞  |
-| just-safe-set | set      |  ∞  |
-| just-map-object | mapKeys      |    |
-| just-merge | merge      |    |
-| just-omit | omit      |    |
-| just-pick | pick      |    |
-| just-values | values      |    |
-| just-camel-case | camelCase      |    |
-| just-kebab-case | kebabCase      |    |
-| just-pad-left | padStart      |    |
-| just-pad-right | padEnd      |    |
-| just-range | range      |    |
-| just-truncate | truncate      |    |
+| just-clamp | clamp      |  PASS√µƒ  |
+| just-safe-get | get      |  PASS˙  |
+| just-safe-set | set      |  PASS˙  |
+| just-map-values | mapValues      |  PASS√¬π˚  |
+| just-map-keys | mapKeys      |  PASS√¬π˚  |
+| just-merge | merge      |  FAIL |
+| just-omit | omit      |  PASS√¶≥˚å  |
+| just-pick | pick      |  PASS√¶≥˚  |
+| just-values | values      | PASS¶  |
+| just-camel-case | camelCase      | PASS√  |
+| just-kebab-case | kebabCase      | PASS√   |
+| just-snake-case | snakeCase      | PASS√   |
+| just-left-pad | padStart      |  PASS≈√  |
+| just-right-pad | padEnd      |  PASS≈√  |
+| just-range | range      | PASS   |
+| just-truncate | truncate      | FAIL§   |
 
 † `instance of` on instances of partial  
-* falsey argument discrepancy  
+√ argument coercion
+¶ expects object not falsey value as argument  
 π expects number arg (doesn't support coercion)   
-¬ doesn't work as expected with other lodash utils  
+¬ doesn't defer to other lodash utils
+π doesn't use `_.identity` when predicate function is nullish
+˚ should work with `_.property` shorthands  
 å doesn't work with arguments in lieu of arrays  
 ∞ NaN not equal  
 ∫ non-unique results
 • zip([[],[]]) => [[[]], [[]]] (as per http://osteele.com/sources/javascript/functional/)
 µ should work without lower bound arg
 ƒ if outer bounds are NaN should coerce to 0
-∞ follows dotty re. get(obj, ['a.b'])
+˙ follows dotty re. get(obj, ['a.b'])
+≈ trunctates from right, not left
+§ lodash truncate is bizaare (e.g. default 30)
+≥ doesn't flatten `pick(obj, ['a', 'b'], 'c')`
+≠should support placeholders (see partial)
+…can not be used as a constructor
+
+truncate issues
+no separator arg
+30 default
+
+merge issues
+∆ should work as an iteratee for methods like `_.reduce`
+æ should not assign values that are the same as their destinations
+÷ should merge sources containing circular references
+« should treat sparse array sources as dense
+≠ should merge typed arrays
+º should deep clone array/typed-array/plain-object sources
+œ should not augment source objects
+¡ should merge plain-objects onto non plain-objects
+™ should skip merging when `object` and `source` are the same value
+
+
 
 * Load speed
 * Dependency management
@@ -56,5 +101,5 @@ Every Just utility is tiny. They all come in at well under 1K gzipped[¹](#¹Dat
 * Randomness
 * LoDash meant to compete with ES methods for perf
 
-##### ¹Data generated by VS Code [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) extension
+##### ¹Size data generated by [package-size](https://github.com/egoist/package-size).
 
