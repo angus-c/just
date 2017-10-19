@@ -55,6 +55,34 @@ test('flat objects', function(t) {
   );
 });
 
+test('flat null and undefined', function(t) {
+  t.plan(4);
+
+  t.ok(compare(diff({
+    foo: null,
+  }, {
+    foo: null,
+  }), []));
+
+  t.ok(compare(diff({
+    foo: undefined,
+  }, {
+    foo: undefined,
+  }), []));
+
+  t.ok(compare(diff({
+    foo: undefined,
+  }, {
+    foo: null,
+  }), [{op: 'replace', path: ['foo'], value: null}]));
+
+  t.ok(compare(diff({
+    foo: null,
+  }, {
+    foo: undefined,
+  }), [{op: 'replace', path: ['foo'], value: undefined}]));
+});
+
 test('objects with array properties', function(t) {
   t.plan(6);
 
@@ -90,6 +118,22 @@ test('objects with array properties', function(t) {
   );
   t.ok(compare(diff(obj5, obj6), [{op: 'add', path: ['b', '3'], value: 5}]));
   t.ok(compare(diff(obj6, obj5), [{op: 'remove', path: ['b', '3']}]));
+});
+
+test('objects with nulls against array properties', function(t) {
+  t.plan(2);
+
+  t.ok(compare(diff({
+    foo: null,
+  }, {
+    foo: [1, 2, 3],
+  }), [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]));
+
+  t.ok(compare(diff({
+    foo: undefined,
+  }, {
+    foo: [1, 2, 3],
+  }), [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]));
 });
 
 test('nested objects', function(t) {
@@ -139,6 +183,22 @@ test('nested objects', function(t) {
     compare(diff(obj10, obj11), [{op: 'add', path: ['b'], value: {c: 4}}])
   );
   t.ok(compare(diff(obj11, obj10), [{op: 'remove', path: ['b']}]));
+});
+
+test('objects with nulls against nested objects', function(t) {
+  t.plan(2);
+
+  t.ok(compare(diff({
+    foo: null,
+  }, {
+    foo: {bar: 'smang'},
+  }), [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]));
+
+  t.ok(compare(diff({
+    foo: undefined,
+  }, {
+    foo: {bar: 'smang'},
+  }), [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]));
 });
 
 test('arrays', function(t) {
