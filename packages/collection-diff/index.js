@@ -102,17 +102,8 @@ function diff(obj1, obj2, pathConverter) {
           path: pathConverter ? pathConverter(path) : path,
           value: obj2Value,
         });
-      } else if (obj1[key] == null) {
-        if (obj1[key] !== obj2[key]) {
-          path = basePath.concat(key);
-          diffs.replace.push({
-            op: 'replace',
-            path: pathConverter ? pathConverter(path) : path,
-            value: obj2[key],
-          });
-        }
-      } else if (obj1[key] != obj2[key]) {
-        if (Object(obj2[key]) !== obj2[key]) {
+      } else if (obj1[key] !== obj2[key]) {
+        if (Object(obj1[key]) !== obj1[key] || Object(obj2[key]) !== obj2[key]) {
           path = basePath.concat(key);
           diffs.replace.push({
             op: 'replace',
