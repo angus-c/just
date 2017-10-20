@@ -11,8 +11,8 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## Try :icecream:
-[Editable, runnable examples](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))  
-  
+[Editable, runnable examples](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
+
 <a href="http://anguscroll.com/just"><img src="images/just-interactive-page.png" width="800"/></a>
 ## The Modules :package:
 
@@ -20,19 +20,20 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
   * [just-diff](#just-diff)
   * [just-diff-apply](#just-diff-apply)
   * [just-compare](#just-compare)
-  * [just-clone](#just-clone)  
+  * [just-clone](#just-clone)
   * [just-pluck-it](#just-pluck-it)
-  * [just-flush](#just-flush)  
+  * [just-flush](#just-flush)
 * [Objects](#objects) {}
   * [just-extend](#just-extend)
-  * [just-merge](#just-merge)  
+  * [just-merge](#just-merge)
   * [just-values](#just-values)
   * [just-entries](#just-entries)
   * [just-pick](#just-pick)
   * [just-omit](#just-omit)
   * [just-filter-object](#just-filter-object)
   * [just-map-object](#just-map-object)
-  * [just-map-values](#just-map-values)  
+  * [just-map-values](#just-map-values)
+  * [just-map-keys](#just-map-values)
   * [just-reduce-object](#just-reduce-object)
   * [just-is-empty](#just-is-empty)
   * [just-is-circular](#just-is-circular)
@@ -232,7 +233,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
   compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
   compare([[1, [2, {a: 4}], 4], [[1, [2, {a: 4}]]); // true
-  compare(NaN, NaN); // true  
+  compare(NaN, NaN); // true
   ```
 
   ### [just-clone](https://www.npmjs.com/package/just-clone)
@@ -249,7 +250,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   var objClone = clone(obj);
   arr.push(4);
   subObj.bb = 2;
-  obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  
+  obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}
   objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}
   ```
 
@@ -487,8 +488,7 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```js
 import map from 'just-map-object';
 
-// map an object, applying the predicate to the value
-// like just-map-value, but (key, value) is passed to the predicate
+// DEPRECATED: use just-map-values
 map({a: 3, b: 5, c: 9}, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (key, value) => key); // {a: 'a', b: 'b', c: 'c'}
 map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: 'c9'}
@@ -502,11 +502,27 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```js
 import map from 'just-map-values';
 
-// map an object, applying the predicate to the value
-// like just-map-object, but (value, key, object) is passed to the predicate
+// predicate updates values, recieves (value, key, object)
 map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
 map({a: 3, b: 5, c: 9}, (value, key, object) => object.b); // {a: 5, b: 5, c: 5}
+```
+
+### [just-map-keys](https://www.npmjs.com/package/just-map-keys)
+:icecream:[`Try It`](http://anguscroll.com/just/just-map-keys)
+
+`npm install just-map-keys`
+
+```js
+import map from 'just-map-keys';
+
+// predicate updates keys, recieves (value, key, object)
+map({a: 'cow', b: 'sheep', c: 'pig'}, (value) => value);
+  // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
+map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
+map({a: 3, b: 5, c: 9}, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
+map({a: 3, b: 5, c: 9}, (value, key, object) => obj['b'] + value + key);
+  // {'8a': 3, '10b': 5, '14c': 9}
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
@@ -1052,12 +1068,12 @@ clamp(1, n, 12); // 1
 clamp(-7, n, -8); // -7
 
 clamp(NaN, n, 8); // NaN
-clamp(3, n, NaN); // NaN  
-clamp(3, NaN, 8); // NaN    
+clamp(3, n, NaN); // NaN
+clamp(3, NaN, 8); // NaN
 
 clamp(undefined, n, 8); // throws
-clamp(3, n, 'h'); // throws  
-clamp(3, false, 8); // throws 
+clamp(3, n, 'h'); // throws
+clamp(3, false, 8); // throws
 ```
 
 ### [just-modulo](https://www.npmjs.com/package/just-modulo)
