@@ -6,7 +6,7 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-map-object)
 
 ```js
-import map from 'just-map-object';
+import map from 'just-map-values';
 
 // predicate updates values, recieves (value, key, object)
 map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}

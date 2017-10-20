@@ -1,10 +1,12 @@
 module.exports = map;
 
 /*
-  map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a1: 3, b1: 5, c1: 9}
-  map([4, 5, 6], (key) => key + 1); // [0, 4, 5, 6]
-  map({a: 3, b: 5, c: 9}, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
-  map({a: 3, b: 5, c: 9}, (value, key, object) => key + object.b); // {a5: 3, b5: 5, c5: 9}
+map({a: 'cow', b: 'sheep', c: pig'}, (value) => value);
+  // {cow: 'cow', sheep: 'sheep', pig: pig'}
+map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
+map({a: 3, b: 5, c: 9}, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
+map({a: 3, b: 5, c: 9}, (value, key, object) => key + object.b);
+  // {a5: 3, b5: 5, c5: 9}
 */
 
 function map(obj, predicate) {
