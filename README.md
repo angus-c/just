@@ -311,6 +311,11 @@ let obj = {a: 3, b: 5};
 extend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3]}
+
+extend({a: 4, b: 5}); // {a: 4, b: 5}
+extend(3, {a: 4, b: 5}); // throws
+extend({a: 4, b: 5}, 3); // throws
+extend({a: 4, b: 5}, 3); // throws
 ```
 ### [just-merge](https://www.npmjs.com/package/just-merge)
 :icecream:[`Try It`](http://anguscroll.com/just/just-merge)
@@ -335,6 +340,12 @@ let obj = {a: 3, b: 5};
 extend(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
+
+extend({a: 4, b: 5}); // {a: 4, b: 5}
+extend(3, {a: 4, b: 5}); // throws
+extend({a: 4, b: 5}, 3); // throws
+extend({a: 4, b: 5}, {b: 4, c: 5}, 'c'); // throws
+
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)
