@@ -79,7 +79,7 @@ merge(obj, {a: 4, c: 8});`
         ]
       },
       'just-extend': {
-        size: 157,
+        size: 217,
         code: [
           `// like just-merge but allows deep copy
 const extend = require('just-extend')\n          
