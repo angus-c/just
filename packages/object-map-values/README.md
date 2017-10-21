@@ -8,8 +8,8 @@ Guilt-free utilities for every occasion.
 ```js
 import map from 'just-map-values';
 
-// predicate updates values, recieves (value, key, object)
+// predicate updates values, recieves (value, key, obj)
 map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
-map({a: 3, b: 5, c: 9}, (value, key, object) => object.b); // {a: 5, b: 5, c: 5}
+map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 ```

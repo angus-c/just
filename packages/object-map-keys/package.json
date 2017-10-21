@@ -1,7 +1,8 @@
 {
   "name": "just-map-keys",
-  "version": "1.0.0",
-  "description": "map an object, predicate updates keys, recieves (value, key, object)",
+  "version": "1.0.1",
+  "description":
+    "map an object, predicate updates keys, recieves (value, key, object)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

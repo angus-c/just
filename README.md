@@ -502,10 +502,10 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```js
 import map from 'just-map-values';
 
-// predicate updates values, recieves (value, key, object)
+// predicate updates values, recieves (value, key, obj)
 map({a: 3, b: 5, c: 9}, (value) => value + 1); // {a: 4, b: 6, c: 10}
 map({a: 3, b: 5, c: 9}, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
-map({a: 3, b: 5, c: 9}, (value, key, object) => object.b); // {a: 5, b: 5, c: 5}
+map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 ```
 
 ### [just-map-keys](https://www.npmjs.com/package/just-map-keys)
@@ -521,7 +521,7 @@ map({a: 'cow', b: 'sheep', c: 'pig'}, (value) => value);
   // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
 map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
 map({a: 3, b: 5, c: 9}, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
-map({a: 3, b: 5, c: 9}, (value, key, object) => obj['b'] + value + key);
+map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);
   // {'8a': 3, '10b': 5, '14c': 9}
 ```
 
