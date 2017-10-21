@@ -137,8 +137,16 @@ flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}`
       'just-map-object': {
         size: 53,
         code: [
-          `const map = require('just-map-object')\n
+          `// DEPRECATED: use just-map-values
+const map = require('just-map-object')\n
 map({a: 3, b: 5, c: 9}, (key, value) => key + value);`
+        ]
+      },
+      'just-map-keys': {
+        size: 57,
+        code: [
+          `const map = require('just-map-keys')\n
+map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);`
         ]
       },
       'just-map-values': {

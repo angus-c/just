@@ -375,7 +375,11 @@ exports.default = {
       },
       'just-map-object': {
         size: 53,
-        code: ['const map = require(\'just-map-object\')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);']
+        code: ['// DEPRECATED: use just-map-values\nconst map = require(\'just-map-object\')\n\nmap({a: 3, b: 5, c: 9}, (key, value) => key + value);']
+      },
+      'just-map-keys': {
+        size: 57,
+        code: ['const map = require(\'just-map-keys\')\n\nmap({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);']
       },
       'just-map-values': {
         size: 54,
