@@ -33,17 +33,18 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
   if (typeof args[0] == 'boolean') {
     deep = args.shift();
   }
-  var result = args[0];
-  if (!result || typeof result !== 'object') {
-    throw new Error('expected extendee ', result, ' to be an object');
+  var arg;
+  var i = args.length;
+  while (((arg = args[i - 1]), i--)) {
+    if (!arg || typeof arg != 'object') {
+      throw new Error('expected object, got ' + arg);
+    }
   }
+  var result = args[0];
   var extenders = args.slice(1);
   var len = extenders.length;
   for (var i = 0; i < len; i++) {
     var extender = extenders[i];
-    if (!extender || typeof extender !== 'object') {
-      throw new Error('expected extender ', extender, ' to be an object');
-    }
     for (var key in extender) {
       // include prototype properties
       var value = extender[key];
