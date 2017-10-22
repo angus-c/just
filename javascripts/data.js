@@ -71,7 +71,7 @@ flush([1, undefined, 2, null, 3, NaN, 0])
     symbol: '{}',
     utils: {
       'just-merge': {
-        size: 75,
+        size: 137,
         code: [
           `const merge = require('just-merge')\n
 let obj = {a: 3, b: 5};
@@ -79,7 +79,7 @@ merge(obj, {a: 4, c: 8});`
         ]
       },
       'just-extend': {
-        size: 217,
+        size: 211,
         code: [
           `// like just-merge but allows deep copy
 const extend = require('just-extend')\n          
