@@ -84,9 +84,15 @@ test('when no extenders, extendee is returned unmutated', function(t) {
 });
 
 test('extendee and extenders must be objects', function(t) {
-  t.plan(5);
+  t.plan(7);
+  // function is ok
+  var fn = function() {};
+  var result = extend(fn, {a: 4});
+  t.ok(typeof result == 'function');
+  t.ok(result.a === 4);
+
   t.throws(function() {
-    extend(3, {a: 4, b: 5});
+    extend({a: 4, b: 5}, 3);
   });
   t.throws(function() {
     extend({a: 4, b: 5}, 3);
