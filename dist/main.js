@@ -342,11 +342,11 @@ exports.default = {
     symbol: '{}',
     utils: {
       'just-merge': {
-        size: 75,
+        size: 137,
         code: ['const merge = require(\'just-merge\')\n\nlet obj = {a: 3, b: 5};\nmerge(obj, {a: 4, c: 8});']
       },
       'just-extend': {
-        size: 217,
+        size: 211,
         code: ['// like just-merge but allows deep copy\nconst extend = require(\'just-extend\')\n          \nlet arr = [1, 2, 3];\nlet obj = {a: 3, b: 5};\nextend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push[4];\nobj']
       },
       'just-values': {
