@@ -26,7 +26,7 @@ function merge(/* obj1, obj2, [objn] */) {
   var arg;
   var i = args.length;
   while (((arg = args[i - 1]), i--)) {
-    if (!arg || typeof arg != 'object') {
+    if (!arg || (typeof arg != 'object' && typeof arg != 'function')) {
       throw new Error('expected object, got ' + arg);
     }
   }

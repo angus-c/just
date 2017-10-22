@@ -56,6 +56,16 @@ test('when no extendee, extenders is returned unmutated', function(t) {
   t.deepEqual(src, merge(src));
   t.equal(srcRef, src);
   t.equal(srcRef, src);
+  t.end();
+});
+
+test('extendee and extenders can be functions', function(t) {
+  t.plan(2);
+  var fn = function() {};
+  var result = merge(fn, {a: 4});
+  t.ok(typeof result == 'function');
+  t.ok(result.a === 4);
+  t.end();
 });
 
 test('extendee and extenders must be objects', function(t) {
