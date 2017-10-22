@@ -102,3 +102,14 @@ test('extendee and extenders must be objects', function(t) {
   });
   t.end();
 });
+
+test('extended and extender may be functions', function(t) {
+  t.plan(2);
+  t.doesNotThrow(function() {
+    extend(function() {}, {a: 4, b: 5});
+  });
+  t.doesNotThrow(function() {
+    extend({}, function() {});
+  });
+  t.end();
+});
