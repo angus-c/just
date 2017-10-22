@@ -48,7 +48,7 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
     for (var key in extender) {
       // include prototype properties
       var value = extender[key];
-      if (deep && value && typeof value == 'object') {
+      if (deep && value && (typeof value == 'object' || typeof value == 'function')) {
         var base = Array.isArray(value) ? [] : {};
         result[key] = extend(true, result[key] || base, value);
       } else {
