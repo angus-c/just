@@ -8,23 +8,27 @@ module.exports = leftPad;
   leftPad(null, 7); '   null'
 */
 
-function leftPad(str, length, char) {
-  str = String(str);
+var surrogatePairRegEx = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 
-  if (!length || length <= str.length) {
+function leftPad(str, length, padStr) {
+  str = String(str);
+  if (padStr == null) {
+    padStr = ' ';
+  }
+
+  var strLen = str.length - (str.match(surrogatePairRegEx) || []).length;
+  var padStrLen = padStr.length - (padStr.match(surrogatePairRegEx) || []).length;
+
+  if (!length || length <= strLen) {
     return str;
   }
 
-  var arr = [];
-  if (char == null) {
-    char = ' ';
-  }
+  var padCount = (length - strLen) / padStrLen;
 
-  var count = length;
-  while (count--) {
-    arr.push(char);
-  }
+  var result = [];
 
-  arr.push(str);
-  return arr.join('').slice(-length);
+  while (padCount--) {
+    result.push(padStr);
+  }
+  return result.concat(str).join('');
 }
