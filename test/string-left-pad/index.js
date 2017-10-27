@@ -14,13 +14,6 @@ test('left pad with default pad character', function(t1) {
     t.equal(leftPad('a', 1), 'a');
     t.end();
   });
-  test('non strings', function(t) {
-    t.plan(3);
-    t.equal(leftPad(['hello'], 9), '    hello');
-    t.equal(leftPad(1 + 1, 2), ' 2');
-    t.equal(leftPad(null, 6), '  null');
-    t.end();
-  });
   test('strings with surrogate pairs', function(t) {
     t.plan(2);
     t.equal(leftPad('\uD83D\uDC04\uD83D\uDC04', 9), '       🐄🐄');
@@ -28,14 +21,28 @@ test('left pad with default pad character', function(t1) {
     t.end();
   });
   t1.end();
+  test('first argument must be a string', function(t) {
+    t.plan(2);
+    t.throws(function() {
+      leftPad(['hello'], 8);
+    });
+    t.throws(function() {
+      leftPad(27, 9);
+    });
+    t.end();
+  });
 });
 
 test('left pad with custom pad character', function(t2) {
   test('strings with sufficient padding', function(t) {
-    t.plan(3);
+    t.plan(2);
     t.equal(leftPad('hello', 9, '.'), '....hello');
     t.equal(leftPad('a', 2, '_'), '_a');
-    t.equal(leftPad('no-pad', 12, ''), 'no-pad');
+    t.end();
+  });
+  test('empty padding string treated as a space', function(t) {
+    t.plan(1);
+    t.equal(leftPad('no-pad', 12, ''), '      no-pad');
     t.end();
   });
   test('strings with insufficient padding', function(t) {
@@ -45,17 +52,27 @@ test('left pad with custom pad character', function(t2) {
     t.equal(leftPad('no-pad', 4, ''), 'no-pad');
     t.end();
   });
-  test.only('surrogate pairs as characters', function(t) {
-    t.plan(1);
-    console.log(leftPad('hello', 9, '\uD83D\uDC04'));
+  test('surrogate pairs as pad chars', function(t) {
+    t.plan(2);
     t.equal(leftPad('hello', 9, '\uD83D\uDC04'), '🐄🐄🐄🐄hello');
+    t.equal(leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), '🐄🐑🐄🐑🐄hello');
     t.end();
   });
-  test('non strings', function(t) {
-    t.plan(3);
-    t.equal(leftPad(['hello'], 9, '='), '====hello');
-    t.equal(leftPad(1 + 1, 2, '+'), '+2');
-    t.equal(leftPad(null, 6, '>'), '>>null');
+  test("padding can't mix regular characters and surrogate pairs", function(t) {
+    t.plan(1);
+    t.throws(function() {
+      leftPad('hello', 9, 'o0053\uD83D\uDC04');
+    });
+    t.end();
+  });
+  test('pad argument must be a strings', function(t) {
+    t.plan(2);
+    t.throws(function() {
+      leftPad('hello', 9, false);
+    });
+    t.throws(function() {
+      leftPad('hello', 12, 31);
+    });
     t.end();
   });
   t2.end();
