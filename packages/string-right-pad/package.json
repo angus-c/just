@@ -1,7 +1,8 @@
 {
   "name": "just-right-pad",
-  "version": "1.0.0",
-  "description": "add characters to the right of a string such that its total length is n",
+  "version": "2.0.0",
+  "description":
+    "add characters to the right of a string such that its total length is n",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

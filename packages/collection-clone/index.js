@@ -9,7 +9,7 @@ module.exports = clone;
   var objClone = clone(obj);
   arr.push(4);
   subObj.bb = 2;
-  obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  
+  obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}
   objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}
 */
 
