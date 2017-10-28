@@ -508,12 +508,12 @@ exports.default = {
         code: ['const squash = require(\'just-squash\')\n\nsquash(`\tthe cat\n sat \fon \x0Bthe \rmat `, true);']
       },
       'just-left-pad': {
-        size: 83,
-        code: ['const leftPad = require(\'just-left-pad\')\n\nleftPad(\'hello\', 9, \'.\');']
+        size: 316,
+        code: ['const leftPad = require(\'just-left-pad\')\n\nleftPad(\'hello\', 7, \'\uD83D\uDC04\');']
       },
       'just-right-pad': {
-        size: 82,
-        code: ['const rightPad = require(\'just-right-pad\')\n\nrightPad(\'hello\', 9, \'.\');']
+        size: 316,
+        code: ['const rightPad = require(\'just-right-pad\')\n\nrightPad(\'hello\', 7, \'\uD83D\uDC04\');']
       },
       'just-camel-case': {
         size: 180,

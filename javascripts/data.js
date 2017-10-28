@@ -390,17 +390,17 @@ squash(\`\tthe cat\n sat \fon \vthe \rmat \`, true);`
         ]
       },
       'just-left-pad': {
-        size: 83,
+        size: 316,
         code: [
           `const leftPad = require('just-left-pad')\n
-leftPad('hello', 9, '.');`
+leftPad('hello', 7, '🐄');`
         ]
       },
       'just-right-pad': {
-        size: 82,
+        size: 316,
         code: [
           `const rightPad = require('just-right-pad')\n
-rightPad('hello', 9, '.');`
+rightPad('hello', 7, '🐄');`
         ]
       },
       'just-camel-case': {
