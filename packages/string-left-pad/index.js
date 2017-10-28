@@ -2,10 +2,16 @@ module.exports = leftPad;
 
 /*
   leftPad('hello', 9); // '    hello'
-  leftPad('hello', 3); 'hello'
-  leftPad('hello', 9, '.'); '....hello'
-  leftPad(['hello'], 7, '_'); '__hello'
-  leftPad(null, 7); '   null'
+  leftPad('hello', 3); // 'hello'
+  leftPad('hello', 9, '.'); // '....hello'
+  leftPad('hello', 9, '..'); // '....hello'
+  leftPad('hello', 10, 'ab'); // 'bababhello'
+  leftPad('hello', 9, '\uD83D\uDC04'); // '🐄🐄🐄🐄hello'
+  leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '🐄🐑🐄🐑🐄hello'
+  leftPad('hello', 7, '🐄'), // '🐄🐄hello'
+  leftPad(null, 7); // throws
+  leftPad([], 4, '*'); // throws
+  leftPad('hello', 4, true); // throws
 */
 
 var surrogatePairRegEx = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
@@ -27,7 +33,7 @@ function leftPad(str, length, padStr) {
   if (!length || length <= strLen) {
     return str;
   }
-  var padCount = (length - strLen) / padStrLen;
+  var padCount = Math.floor((length - strLen) / padStrLen);
   var padRemainder = (length - strLen) % padStrLen;
   if (surrPairsInPad) {
     padCount = 2 * padCount;
