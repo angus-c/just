@@ -10,7 +10,6 @@ module.exports = zip;
 
   zip(undefined, {}, false, 1, 'foo'); // throws
   zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
-  
 */
 
 function zip() {

@@ -5,7 +5,7 @@ module.exports = last;
   last([{a: 1}, {b: 1}, {c: 1}]); // {c: 1}
   last([true, false, [true, false]]); // [true, false]
   last({}); // throws
-  last(); // throws  
+  last(); // throws
 */
 
 function last(arr) {

@@ -14,6 +14,17 @@ test('left pad with default pad character', function(t1) {
     t.equal(leftPad('a', 1), 'a');
     t.end();
   });
+  test('empty string arg', function(t) {
+    t.plan(1);
+    t.equal(leftPad('', 4), '    ');
+    t.end();
+  });
+  test('zero length arg', function(t) {
+    t.plan(2);
+    t.equal(leftPad('hello', 0), 'hello');
+    t.equal(leftPad('', 0), '');
+    t.end();
+  });
   test('strings with surrogate pairs', function(t) {
     t.plan(2);
     t.equal(leftPad('\uD83D\uDC04\uD83D\uDC04', 9), '       🐄🐄');
@@ -28,6 +39,25 @@ test('left pad with default pad character', function(t1) {
     });
     t.throws(function() {
       leftPad(27, 9);
+    });
+    t.end();
+  });
+  test('second argument must be a positive finite integer', function(t) {
+    t.plan(5);
+    t.throws(function() {
+      leftPad('hello', '4');
+    });
+    t.throws(function() {
+      leftPad('hello', NaN);
+    });
+    t.throws(function() {
+      leftPad('hello', Number.POSITIVE_INFINITY);
+    });
+    t.throws(function() {
+      leftPad('hello', -1);
+    });
+    t.throws(function() {
+      leftPad('hello', 4.3);
     });
     t.end();
   });
@@ -52,13 +82,24 @@ test('left pad with custom pad character', function(t2) {
     t.equal(leftPad('no-pad', 4, ''), 'no-pad');
     t.end();
   });
+  test('empty string arg', function(t) {
+    t.plan(1);
+    t.equal(leftPad('', 4, '.'), '....');
+    t.end();
+  });
+  test('zero length arg', function(t) {
+    t.plan(2);
+    t.equal(leftPad('hello', 0, '.'), 'hello');
+    t.equal(leftPad('', 0, '.'), '');
+    t.end();
+  });
   test('surrogate pairs as pad chars', function(t) {
     t.plan(2);
     t.equal(leftPad('hello', 9, '\uD83D\uDC04'), '🐄🐄🐄🐄hello');
     t.equal(leftPad('hello', 6, '\uD83D\uDC11'), '🐑hello');
     t.end();
   });
-  test('pad argument must be a strings', function(t) {
+  test('pad argument must be a string', function(t) {
     t.plan(2);
     t.throws(function() {
       leftPad('hello', 9, false);
@@ -85,6 +126,13 @@ test('left pad with multiple custom pad characters', function(t3) {
     t.equal(leftPad('hello', 3, '..'), 'hello');
     t.equal(leftPad('a', 1, 'ab'), 'a');
     t.equal(leftPad('no-pad', 4, '**'), 'no-pad');
+    t.end();
+  });
+  test('empty string arg', function(t) {
+    t.plan(3);
+    t.equal(leftPad('', 4, '..'), '....');
+    t.equal(leftPad('', 3, '..'), '...');
+    t.equal(leftPad('', 3, 'ab'), 'bab');
     t.end();
   });
   test('surrogate pairs as pad chars', function(t) {

@@ -8,7 +8,7 @@ module.exports = split;
     split([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
     split(null, 3); // throws
     split([1, 2, 3, 4, 5, 6], '3'); // throws
-    split([1, 2, 3, 4, 5, 6], null); // throws    
+    split([1, 2, 3, 4, 5, 6], null); // throws
 */
 
 function split(arr, n) {

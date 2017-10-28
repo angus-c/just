@@ -12,13 +12,19 @@ module.exports = leftPad;
   leftPad(null, 7); // throws
   leftPad([], 4, '*'); // throws
   leftPad('hello', 4, true); // throws
+  leftPad('hello', -4, true); // throws
+  leftPad('hello', 2.3, true); // throws
 */
 
 var surrogatePairRegEx = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 
 function leftPad(str, length, padStr) {
-  if (typeof str != 'string' || (arguments.length > 2 && typeof padStr != 'string')) {
-    throw Error('first and padding arguments must be strings');
+  if (
+    typeof str != 'string' ||
+    (arguments.length > 2 && typeof padStr != 'string') ||
+    !(isFinite(length) && length >= 0 && Math.floor(length) === length)
+  ) {
+    throw Error('1st and 3rd args must be strings, 2nd arg must be a positive integer');
   }
   if (padStr == null || padStr == '') {
     padStr = ' ';
@@ -39,16 +45,8 @@ function leftPad(str, length, padStr) {
     padCount = 2 * padCount;
     padRemainder = 2 * padRemainder;
   }
-  var result = [];
-  if (padRemainder) {
-    result.unshift(padStr.slice(-padRemainder));
-  }
-
-  console.log(padCount, padRemainder, result);
-  while (padCount-- >= 1) {
-    result.push(padStr);
-  }
-  if ((length - strLen) / padStrLen) {
-  }
-  return result.concat(str).join('');
+  return (padRemainder ? [padStr.slice(-padRemainder)] : [])
+    .concat(new Array(padCount + 1).join(padStr))
+    .concat(str)
+    .join('');
 }
