@@ -97,22 +97,62 @@ test('extendee and extenders can be functions', function(t) {
   t.end();
 });
 
-test('extendee and extenders must be objects', function(t) {
-  t.plan(5);
+test('extender can be any primitive', function(t) {
+  t.plan(12);
+  var src1 = {a: 4};
+  t.deepEqual(extend(src1, null), {a: 4});
+  t.deepEqual(src1, {a: 4});
+
+  var src2 = {a: 3};
+  t.deepEqual(extend(src2, undefined), {a: 3});
+  t.deepEqual(src2, {a: 3});
+
+  var src3 = {a: 4};
+  t.deepEqual(extend(src3, 'hello'), {0: 'h', 1: 'e', 2: 'l', 3: 'l', 4: 'o', a: 4});
+  t.deepEqual(src3, {0: 'h', 1: 'e', 2: 'l', 3: 'l', 4: 'o', a: 4});
+
+  var src4 = {1: 9, a: 4};
+  t.deepEqual(extend(src4, 'hello', 4), {0: 'h', 1: 'e', 2: 'l', 3: 'l', 4: 'o', a: 4});
+  t.deepEqual(src4, {0: 'h', 1: 'e', 2: 'l', 3: 'l', 4: 'o', a: 4});
+
+  var src5 = {a: 4};
+  t.deepEqual(extend(src5, false), {a: 4});
+  t.deepEqual(src5, {a: 4});
+
+  var src6 = {a: 4};
+  t.deepEqual(extend(src6, 3, true), {a: 4});
+  t.deepEqual(src6, {a: 4});
+  t.end();
+});
+
+test("extendee can't be a primitive", function(t) {
+  t.plan(9);
   t.throws(function() {
-    extend({a: 4, b: 5}, 3);
+    extend(null, {b: 4, c: 5});
   });
   t.throws(function() {
-    extend({a: 4, b: 5}, 3);
+    extend(undefined, {b: 4, c: 5});
   });
   t.throws(function() {
-    extend({a: 4, b: 5}, true);
+    extend('hello', {b: 4, c: 5});
   });
   t.throws(function() {
-    extend({a: 4, b: 5}, {b: 4, c: 5}, 'c');
+    extend(3, {b: 4, c: 5});
   });
   t.throws(function() {
-    extend({a: 4, b: 5}, null, {b: 4, c: 5});
+    extend(false, null, {b: 4, c: 5});
+  });
+  t.throws(function() {
+    extend(true, undefined, {b: 4, c: 5});
+  });
+  t.throws(function() {
+    extend(true, 'hello', {b: 4, c: 5});
+  });
+  t.throws(function() {
+    extend(false, 3, {b: 4, c: 5});
+  });
+  t.throws(function() {
+    extend(false, false, {b: 4, c: 5});
   });
   t.end();
 });
