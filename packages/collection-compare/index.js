@@ -18,7 +18,9 @@ function compare(value1, value2) {
   if (value1 === value2) {
     return true;
   }
-  if (Number.isNaN(value1) && Number.isNaN(value2)) {
+  /* eslint-disable no-self-compare */
+  // if both values are NaNs return true
+  if ((value1 !== value1) && (value2 !== value2)) {
     return true;
   }
   if (typeof value1 != typeof value2) {
