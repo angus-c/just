@@ -1,6 +1,6 @@
 {
   "name": "just-extend",
-  "version": "1.1.27",
+  "version": "2.0.0",
   "description": "extend an object",
   "main": "index.js",
   "scripts": {
