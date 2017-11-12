@@ -18,11 +18,15 @@ function clone(obj) {
   for (var key in obj) {
     // include prototype properties
     var value = obj[key];
-    if (value && typeof value == 'object') {
+    if (isCloneable(value)) {
       result[key] = clone(value);
     } else {
       result[key] = value;
     }
   }
   return result;
+}
+
+function isCloneable(obj) {
+  return Array.isArray(obj) || {}.toString.call(obj) == '[object Object]';
 }

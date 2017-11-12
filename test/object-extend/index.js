@@ -31,6 +31,38 @@ test('shallow extend does not clone child objects', function(t) {
   t.deepEqual(extend(src1, {c: arrOuter}), {a: 3, b: 5, c: ['a', 'b', [1, 2, 3]]});
   t.equal(arrOuter, src1.c);
   t.equal(arrInner, src1.c[2]);
+  t.end();
+});
+
+test('shallow extend copies non-plain objects', function(t) {
+  t.plan(12);
+  var fn = function(a, b) {
+    return a + b;
+  };
+  var src2 = {a: 3, b: 5};
+  t.deepEqual(extend(src2, {c: fn}), {a: 3, b: 5, c: fn});
+  t.deepEqual(src2, {a: 3, b: 5, c: fn});
+  t.equal(src2.c(4, 2), 6);
+  fn.x = 34;
+  t.equal(src2.c.x, 34);
+
+  var date = new Date(1510439803151);
+  var src3 = {a: 3, b: 5};
+  t.deepEqual(extend(src3, {c: date}), {a: 3, b: 5, c: date});
+  t.deepEqual(src3, {a: 3, b: 5, c: date});
+  t.equal(src3.c.getTime(), 1510439803151);
+  date.x = 34;
+  t.equal(src3.c.x, 34);
+
+  var regex = /abc/;
+  var src3 = {a: 3, b: 5};
+  t.deepEqual(extend(src3, {c: regex}), {a: 3, b: 5, c: regex});
+  t.deepEqual(src3, {a: 3, b: 5, c: regex});
+  t.equal(src3.c.exec('ddabc').index, 2);
+  regex.x = 34;
+  t.equal(src3.c.x, 34);
+
+  t.end();
 });
 
 test('deep extend merges child objects', function(t) {
@@ -39,9 +71,10 @@ test('deep extend merges child objects', function(t) {
   var obj2 = {a: {c: 'd'}};
   t.deepEqual(extend(true, obj, obj2), {a: {b: 'c', c: 'd'}});
   t.deepEqual(obj, {a: {b: 'c', c: 'd'}});
+  t.end();
 });
 
-test('deep extend clones child objects', function(t) {
+test('deep extend clones child plain objects and arrays', function(t) {
   t.plan(5);
   var obj = {p: 4};
   var src2 = {a: 3, b: 5};
@@ -55,6 +88,38 @@ test('deep extend clones child objects', function(t) {
   t.deepEqual(extend(true, src1, {c: arrOuter}), {a: 3, b: 5, c: ['a', 'b', [1, 2, 3]]});
   t.notEqual(arrOuter, src1.c);
   t.notEqual(arrInner, src1.c[2]);
+  t.end();
+});
+
+test('deep extend does not clone child non-plain objects', function(t) {
+  t.plan(12);
+  var fn = function(a, b) {
+    return a + b;
+  };
+  var src2 = {a: 3, b: 5};
+  t.deepEqual(extend(true, src2, {c: fn}), {a: 3, b: 5, c: fn});
+  t.deepEqual(src2, {a: 3, b: 5, c: fn});
+  t.equal(src2.c(4, 2), 6);
+  fn.x = 34;
+  t.equal(src2.c.x, 34);
+
+  var date = new Date(1510439803151);
+  var src3 = {a: 3, b: 5};
+  t.deepEqual(extend(true, src3, {c: date}), {a: 3, b: 5, c: date});
+  t.deepEqual(src3, {a: 3, b: 5, c: date});
+  t.equal(src3.c.getTime(), 1510439803151);
+  date.x = 34;
+  t.equal(src3.c.x, 34);
+
+  var regex = /abc/;
+  var src3 = {a: 3, b: 5};
+  t.deepEqual(extend(true, src3, {c: regex}), {a: 3, b: 5, c: regex});
+  t.deepEqual(src3, {a: 3, b: 5, c: regex});
+  t.equal(src3.c.exec('ddabc').index, 2);
+  regex.x = 34;
+  t.equal(src3.c.x, 34);
+
+  t.end();
 });
 
 test('null values are copied', function(t) {
@@ -81,6 +146,7 @@ test('when no extenders, extendee is returned unmutated', function(t) {
   t.equal(srcRef, src);
   t.deepEqual(src, extend(true, src));
   t.equal(srcRef, src);
+  t.end();
 });
 
 test('extendee and extenders can be functions', function(t) {
@@ -92,8 +158,8 @@ test('extendee and extenders can be functions', function(t) {
 
   var src = {a: 3};
   var fn2 = function() {};
-  t.deepEqual(extend(true, src, {b: fn2}), {a: 3, b: {}});
-  t.deepEqual(src, {a: 3, b: {}});
+  t.deepEqual(extend(true, src, {b: fn2}), {a: 3, b: fn2});
+  t.deepEqual(src, {a: 3, b: fn2});
   t.end();
 });
 
