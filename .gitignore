@@ -1,0 +1,9 @@
+# Logs
+npm-debug.log*
+lerna-debug.log*
+
+node_modules
+.idea
+.vscode
+
+.DS_Store

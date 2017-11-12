@@ -4,7 +4,7 @@ import objectMap from 'just-map-object';
 
 var categoriesArr = [];
 const sizeTipText =
-  'gzipped size (data from https://www.npmjs.com/package/package-size)';
+  'minfied and gzipped size (data from https://www.npmjs.com/package/package-size)';
 
 objectMap(data, (categoryName, categoryValue) => {
   var fnsArr = [];
@@ -36,7 +36,6 @@ export default ({ selected, onSelect }) => {
             </li>
             <ul key={'ul-y-' + i}>
               {category.fns.map((fn, j) => {
-                debugger;
                 const className =
                   fn.name == selected ? 'link selected' : 'link';
                 return (
@@ -45,7 +44,7 @@ export default ({ selected, onSelect }) => {
                       {fn.name}
                     </span>
                     <span className="size" title={sizeTipText}>
-                      {` (${fn.size || '345'} bytes)`}
+                      {` (${fn.size || '?'} bytes)`}
                     </span>
                   </li>
                 );

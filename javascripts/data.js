@@ -1,9 +1,11 @@
-export default {
+const sizes = require('./sizes');
+
+module.exports = {
   Collections: {
     symbol: '{}[]',
     utils: {
       'just-diff': {
-        size: 327,
+        size: sizes['just-diff'],
         code: [
           `const {diff, jsonPatchPathConverter} = require('just-diff')\n
 diff(
@@ -14,7 +16,7 @@ diff(
         ]
       },
       'just-diff-apply': {
-        size: 380,
+        size: sizes['just-diff'],
         code: [
           `const {diffApply, jsonPatchPathConverter} = require('just-diff-apply')\n
 const obj1 = {a: 3, b: 5};
@@ -30,14 +32,14 @@ obj1;`
         ]
       },
       'just-compare': {
-        size: 235,
+        size: sizes['just-compare'],
         code: [
           `const compare = require('just-compare')\n
 compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
         ]
       },
       'just-clone': {
-        size: 57,
+        size: sizes['just-clone'],
         code: [
           `const clone = require('just-clone')\n
 const arr = [1, 2, 3];
@@ -51,14 +53,14 @@ objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}`
         ]
       },
       'just-pluck-it': {
-        size: 150,
+        size: sizes['just-pluck-it'],
         code: [
           `const pluck = require('just-pluck-it')\n
 pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a')`
         ]
       },
       'just-flush': {
-        size: 118,
+        size: sizes['just-flush'],
         code: [
           `const flush = require('just-flush')\n
 flush([1, undefined, 2, null, 3, NaN, 0])
@@ -71,7 +73,7 @@ flush([1, undefined, 2, null, 3, NaN, 0])
     symbol: '{}',
     utils: {
       'just-merge': {
-        size: 137,
+        size: sizes['just-merge'],
         code: [
           `const merge = require('just-merge')\n
 let obj = {a: 3, b: 5};
@@ -79,7 +81,7 @@ merge(obj, {a: 4, c: 8});`
         ]
       },
       'just-extend': {
-        size: 211,
+        size: sizes['just-extend'],
         code: [
           `// like just-merge but allows deep copy
 const extend = require('just-extend')\n          
@@ -91,21 +93,21 @@ obj`
         ]
       },
       'just-values': {
-        size: 127,
+        size: sizes['just-values'],
         code: [
           `const values = require('just-values')\n
 values({a: 4, b: 9, c: 8});`
         ]
       },
       'just-entries': {
-        size: 100,
+        size: sizes['just-entries'],
         code: [
           `const entries = require('just-entries')\n
 entries({a: 4, b: 9, c: 8});`
         ]
       },
       'just-pick': {
-        size: 75,
+        size: sizes['just-pick'],
         code: [
           `const pick = require('just-pick')\n
 const obj = {a: 3, b: 5, c: 9};
@@ -113,7 +115,7 @@ pick(obj, ['a', 'c']);`
         ]
       },
       'just-omit': {
-        size: 80,
+        size: sizes['just-omit'],
         code: [
           `const omit = require('just-omit')\n
 var obj = {a: 3, b: 5, c: 9};
@@ -121,21 +123,21 @@ omit(obj, ['a', 'c']);`
         ]
       },
       'just-filter-object': {
-        size: 58,
+        size: sizes['just-filter-object'],
         code: [
           `const filter = require('just-filter-object')\n
 filter({a: 3, b: 5, c: 9}, (key, value) => value < 6);`
         ]
       },
       'just-flip-object': {
-        size: 52,
+        size: sizes['just-flip-object'],
         code: [
           `const flip = require('just-flip-object')\n
 flip({a: 'x', b: 'y', c: 'z'}); // {x: 'a', y: 'b', z: 'c'}`
         ]
       },
       'just-map-object': {
-        size: 53,
+        size: sizes['just-map-object'],
         code: [
           `// DEPRECATED: use just-map-values
 const map = require('just-map-object')\n
@@ -143,21 +145,21 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value);`
         ]
       },
       'just-map-keys': {
-        size: 57,
+        size: sizes['just-map-keys'],
         code: [
           `const map = require('just-map-keys')\n
 map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);`
         ]
       },
       'just-map-values': {
-        size: 54,
+        size: sizes['just-map-values'],
         code: [
           `const map = require('just-map-values')\n
 map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);`
         ]
       },
       'just-reduce-object': {
-        size: 87,
+        size: sizes['just-reduce-object'],
         code: [
           `const reduce = require('just-reduce-object')\n
 reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
@@ -167,14 +169,14 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
         ]
       },
       'just-is-empty': {
-        size: 56,
+        size: sizes['just-is-empty'],
         code: [
           `const isEmpty = require('just-is-empty');\n
 isEmpty({a: 3, b: 5});`
         ]
       },
       'just-is-circular': {
-        size: 140,
+        size: sizes['just-is-circular'],
         code: [
           `const obj = {};
 obj.x = {y: obj};
@@ -183,14 +185,14 @@ isCircular(obj);`
         ]
       },
       'just-is-primitive': {
-        size: 12,
+        size: sizes['just-is-primitive'],
         code: [
           `const isPrimitive = require('just-is-primitive');\n
 isPrimitive(new Date());`
         ]
       },
       'just-safe-get': {
-        size: 65,
+        size: sizes['just-safe-get'],
         code: [
           `const get = require('just-safe-get');\n
 const obj = {a: {aa: {aaa: 2}}, b: 4};
@@ -198,7 +200,7 @@ get(obj, 'b.bb.bbb');`
         ]
       },
       'just-safe-set': {
-        size: 108,
+        size: sizes['just-safe-set'],
         code: [
           `const set = require('just-safe-set');\n
 const obj = {};
@@ -207,7 +209,7 @@ obj;`
         ]
       },
       'just-typeof': {
-        size: 60,
+        size: sizes['just-typeof'],
         code: [
           `const typeOf = require('just-typeof');\n
 typeOf({});
@@ -228,119 +230,119 @@ typeOf({});
     symbol: '[]',
     utils: {
       'just-unique': {
-        size: 268,
+        size: sizes['just-unique'],
         code: [
           `const unique = require('just-unique');\n
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]);`
         ]
       },
       'just-flatten-it': {
-        size: 99,
+        size: sizes['just-flatten-it'],
         code: [
           `const flatten = require('just-flatten-it')\n
 flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);`
         ]
       },
       'just-index': {
-        size: 129,
+        size: sizes['just-index'],
         code: [
           `const index = require('just-index')\n
 index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');`
         ]
       },
       'just-insert': {
-        size: 137,
+        size: sizes['just-insert'],
         code: [
           `const insert = require('just-insert')\n
 insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);`
         ]
       },
       'just-intersect': {
-        size: 115,
+        size: sizes['just-intersect'],
         code: [
           `const intersect = require('just-intersect')\n
 intersect([1, 2, 5, 6], [2, 3, 5, 6]);`
         ]
       },
       'just-compact': {
-        size: 84,
+        size: sizes['just-compact'],
         code: [
           `const compact = require('just-compact')\n
 compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]);`
         ]
       },
       'just-last': {
-        size: 52,
+        size: sizes['just-last'],
         code: [
           `const last = require('just-last')\n
 last([true, false, [true, false]]);`
         ]
       },
       'just-tail': {
-        size: 48,
+        size: sizes['just-tail'],
         code: [
           `const tail = require('just-tail')\n
 tail([0, 1, 2, 3, 4, 5]);`
         ]
       },
       'just-random': {
-        size: 65,
+        size: sizes['just-random'],
         code: [
           `const random = require('just-random');\n
 random([1, 2, 3]);`
         ]
       },
       'just-shuffle': {
-        size: 108,
+        size: sizes['just-shuffle'],
         code: [
           `const shuffle = require('just-shuffle');\n
 shuffle([1, 2, 3, 4, 5]);`
         ]
       },
       'just-range': {
-        size: 137,
+        size: sizes['just-range'],
         code: [
           `const range = require('just-range')\n
 range(0, 20, 5);`
         ]
       },
       'just-split': {
-        size: 145,
+        size: sizes['just-split'],
         code: [
           `const split = require('just-split')\n
 split([1, 2, 3, 4, 5, 6, 7, 8], 2);`
         ]
       },
       'just-split-at': {
-        size: 119,
+        size: sizes['just-split-at'],
         code: [
           `const splitAt = require('just-split-at');\n
 splitAt([1, 2, 3, 4, 5], 2);`
         ]
       },
       'just-partition': {
-        size: 134,
+        size: sizes['just-partition'],
         code: [
           `const partition = require('just-partition');\n
 partition([1, 5, 3, 4, 2], n => n > 3);`
         ]
       },
       'just-remove': {
-        size: 115,
+        size: sizes['just-remove'],
         code: [
           `const remove = require('just-remove')\n
 remove([1, 2, 3, 4, 5, 6], [1, 3, 6]);`
         ]
       },
       'just-union': {
-        size: 120,
+        size: sizes['just-union'],
         code: [
           `const union = require('just-union')\n
 union([1, 2, 5, 6], [2, 3, 4, 6]);`
         ]
       },
       'just-zip-it': {
-        size: 173,
+        size: sizes['just-zip-it'],
         code: [
           `const zip = require('just-zip-it')\n
 zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`
@@ -352,7 +354,7 @@ zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`
     symbol: '""',
     utils: {
       'just-template': {
-        size: 80,
+        size: sizes['just-template'],
         code: [
           `const template = require('just-template')\n
 const data = {
@@ -369,63 +371,63 @@ template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}} and a {{b}}. Yes 1 {{a.aa.
         ]
       },
       'just-truncate': {
-        size: 54,
+        size: sizes['just-truncate'],
         code: [
           `const truncate = require('just-truncate')\n
 truncate('when shall we three meet again', 10, ' (etc)');`
         ]
       },
       'just-prune': {
-        size: 83,
+        size: sizes['just-prune'],
         code: [
           `const prune = require('just-prune')\n
 prune('when shall we three meet again', 12, ' (etc)');`
         ]
       },
       'just-squash': {
-        size: 34,
+        size: sizes['just-squash'],
         code: [
           `const squash = require('just-squash')\n
 squash(\`\tthe cat\n sat \fon \vthe \rmat \`, true);`
         ]
       },
       'just-left-pad': {
-        size: 316,
+        size: sizes['just-left-pad'],
         code: [
           `const leftPad = require('just-left-pad')\n
 leftPad('hello', 7, '🐄');`
         ]
       },
       'just-right-pad': {
-        size: 316,
+        size: sizes['just-right-pad'],
         code: [
           `const rightPad = require('just-right-pad')\n
 rightPad('hello', 7, '🐄');`
         ]
       },
       'just-camel-case': {
-        size: 180,
+        size: sizes['just-camel-case'],
         code: [
           `const camelCase = require('just-camel-case')\n
 camelCase('the-quick-brown _fox');`
         ]
       },
       'just-snake-case': {
-        size: 149,
+        size: sizes['just-snake-case'],
         code: [
           `const snakeCase = require('just-snake-case')\n
 snakeCase('theQuickBrownFox');`
         ]
       },
       'just-kebab-case': {
-        size: 149,
+        size: sizes['just-kebab-case'],
         code: [
           `const kebabCase = require('just-kebab-case')\n
 kebabCase('theQuickBrownFox');`
         ]
       },
       'just-pascal-case': {
-        size: 162,
+        size: sizes['just-pascal-case'],
         code: [
           `const pascalCase = require('just-pascal-case')\n
 pascalCase('the-quick-brown _fox');`
@@ -437,7 +439,7 @@ pascalCase('the-quick-brown _fox');`
     symbol: '+-',
     utils: {
       'just-clamp': {
-        size: 116,
+        size: sizes['just-clamp'],
         code: [
           `const clamp = require('just-clamp');\n
 var n = 5;
@@ -445,7 +447,7 @@ clamp(1, n, 3); // 3`
         ]
       },
       'just-modulo': {
-        size: 23,
+        size: sizes['just-modulo'],
         code: [
           `const modulo = require('just-modulo');\n
 modulo(-4, 13);`
@@ -457,7 +459,7 @@ modulo(-4, 13);`
     symbol: '=>',
     utils: {
       'just-compose': {
-        size: 118,
+        size: sizes['just-compose'],
         code: [
           `const compose = require('just-compose')\n
 const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
@@ -465,7 +467,7 @@ sqRootBiggest(7, 0, 16);`
         ]
       },
       'just-curry-it': {
-        size: 62,
+        size: sizes['just-curry-it'],
         code: [
           `const curry = require('just-curry-it')\n
 function add(a, b, c) {
@@ -475,7 +477,7 @@ curry(add)(1)(2)(3);`
         ]
       },
       'just-demethodize': {
-        size: 51,
+        size: sizes['just-demethodize'],
         code: [
           `const demethodize = require('just-demethodize');
 
@@ -484,7 +486,7 @@ const trimFn = demethodize(''.trim);
         ]
       },
       'just-partial-it': {
-        size: 98,
+        size: sizes['just-partial-it'],
         code: [
           `const partial = require('just-partial-it')\n
 const cubedRoot = partial(Math.pow, undefined, 1/3);
@@ -492,7 +494,7 @@ cubedRoot(35).toFixed(1);`
         ]
       },
       'just-flip': {
-        size: 61,
+        size: sizes['just-flip'],
         code: [
           `const flip = require('just-flip');
 
@@ -500,7 +502,7 @@ flip(console.log)(1, 2, 3);`
         ]
       },
       'just-debounce-it': {
-        size: 90,
+        size: sizes['just-debounce-it'],
         code: [
           `const debounce = require('just-debounce-it');
 
@@ -512,7 +514,7 @@ fn1();`
         ]
       },
       'just-throttle': {
-        size: 76,
+        size: sizes['just-throttle'],
         code: [
           `const throttle = require('just-throttle');
 
@@ -521,7 +523,7 @@ setInterval(fn1, 400);`
         ]
       },
       'just-once': {
-        size: 78,
+        size: sizes['just-once'],
         code: [
           `const once = require('just-once');
 
