@@ -14,12 +14,15 @@ Lodash is brilliantly engineered, well maintained and documented, and designed t
 
 > We regularly see sites loading more than 500KB of script (compressed). This matters because all script loading delays the metric we value most: Time to Interactive. Sites with this much script are simply inaccessible to a broad swath of the world’s users; statistically, users do not (and will not) wait for these experiences to load. Those that do experience horrendous jank.
 
-JavaScript size is especially critical for mobile web development. As Alex points out, 45% of mobile connections occur over 2G worldwide
-75% of of connections occur on either 2G or 3G.
+JavaScript size is especially critical for mobile web development. As Alex points out, 45% of mobile connections occur over 2G worldwide. 75% of of connections occur on either 2G or 3G.
 
-## Just utilities are tiny.
+## How Big are Just utils?
 
-Whenever I found a Just util with a Lodash equivalent, I ran it against the corresponding Lodash unit test. Most of them passed every non-opinionated feature
+They're tiny. All of them come in at well under 1kB minfied/gzipped. Their size compares very well to Lodash Modularized utils (see below). For the most part Lodash modularized just inline their dependencies, meaning they tend to share a lot of redundant code. Just modules are hadn written to include the minimum required code. 
+
+## How robust are Just utils?
+
+Most Just utils pass all Lodash unit tests for the features they are designed to support. The following utils only failed on subjective behaviors (notably argument coercion which Just is not intended to support). Failing tests are noted against each util.
 
 Every Just utility comes in at well under 1K minified/gzipped[¹](#¹Data). While 
 
