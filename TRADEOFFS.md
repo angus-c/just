@@ -5,8 +5,8 @@
 ## Short, simplified answer
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
 * Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records). 
-* Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if you need one of the many methods provided by these libraries and not by Just.
-* If none of the above apply and you care about JavaScript footprint, use Just.
+* Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if they provide a method that Just doesn't (and there are many).
+* If none of the above apply and you care about JavaScript footprint, use __Just__.
 
 ## Why does JavaScript footprint matter?
 
