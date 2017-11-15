@@ -1,12 +1,12 @@
 # Tradeoffs
 
-Lodash is brilliantly engineered, well maintained and documented, and designed to be highly performant even over very large data structures. So why would you ever need Just?
+[Lodash](https://lodash.com/) is brilliantly engineered, well maintained and documented, and designed to be highly performant even over very large data structures. So why would you ever need Just?
 
 ## Short, simplified answer
-* Use Lodash when it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
-* Use Lodash if your app is going to be processing vast datastructures (100,000+ records). 
-* Use Lodash if you need one of the many Lodash methods that Just doesn't provide.
-* Use Just if you care about JavaScript footprint.
+* Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
+* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records). 
+* Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if you need one of the many methods provided by these libraries and not by Just.
+* If none of the above apply and you care about JavaScript footprint, use Just.
 
 ## Why does JavaScript footprint matter?
 
