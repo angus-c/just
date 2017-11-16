@@ -10,7 +10,7 @@
     "eslint": "^4.7.0",
     "lerna": "2.0.0-beta.23",
     "tap-spec": "^4.1.1",
-    "tape": "^4.6.0",
+    "tape": "^4.6.0"
   },
   "scripts": {
     "lint": "eslint .",
