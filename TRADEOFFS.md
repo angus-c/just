@@ -26,18 +26,18 @@ Most Just utils pass all Lodash unit tests for the functionality they are design
 
 Every Just utility comes in at well under 1K minified/gzipped[¹](#¹Data). While 
 
-| Just | (size)   |  Lodash  | (Size) | Lodash tests which Just fails |
-| -----|----------| --------|---------|-------------------------------|
-| just-split | (145b)  | chunk | (756b)        | PASS√π¬  |
-| just-tail | (48b) | tail | (111b)  |  PASS√å  |
-| just-flatten-it | (99b) |flattendeep | (549b) | PASS√å   |
-| just-intersect | (115b) | intersection | (361b)  | FAIL∞∫   |
+| Just  (size)   |  Lodash  (Size) | Lodash tests which Just fails |
+| ---------------| -----------------|-------------------------------|
+| just-split (145b)  | chunk (756b)        | PASS√π¬  |
+| just-tail (48b) | tail (111b)  |  PASS√å  |
+| just-flatten-it (99b) |flattendeep | (549b) | PASS√å   |
+| just-intersect (115b) | intersection | (361b)  | FAIL∞∫   |
 | just-unique | uniq | PASS√å |
 | just-zip-it | zip |  PASS√å•  |
-| just-compact  | (84b)  | compact | (53b) | PASS√å   |
-| just-curry | (72b) | curry | (2860b)  |  PASS√≠…  |
-| just-partial-it | (98b) | partial | (2940b) | PASS√†  |
-| just-once | (78b) | once | (465b) |  PASS√  |
+| just-compact  (84b)  | compact (53b) | PASS√å   |
+| just-curry (72b) | curry (2860b)  |  PASS√≠…  |
+| just-partial-it (98b) | partial (2940b) | PASS√†  |
+| just-once (78b) | once (465b) |  PASS√  |
 | just-clamp | clamp      |  PASS√µƒ  |
 | just-safe-get | get      |  PASS˙  |
 | just-safe-set | set      |  PASS˙  |
