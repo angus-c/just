@@ -24,34 +24,33 @@ Just modules are hand written so they include only essential code. All of them c
 
 Most Just utils pass all Lodash unit tests for the functionality they are designed to support. The following utils only failed on subjective behaviors (notably argument coercion which Just is not intended to support). Failing tests are noted against each util.
 
-Every Just utility comes in at well under 1K minified/gzipped[¹](#¹Data). While 
-
 | Just  (size)   |  Lodash  (Size) | Lodash tests which Just fails |
 | ---------------| -----------------|-------------------------------|
-| just-split (145b)  | chunk (756b)        | PASS√π¬  |
-| just-tail (48b) | tail (111b)  |  PASS√å  |
-| just-flatten-it (99b) |flattendeep | (549b) | PASS√å   |
+| just-split (145b)  | chunk (756b)        | ab  |
+| just-tail (48b) | tail (111b)  |  a  |
+| just-flatten-it (99b) |flattendeep | (549b) | a   |
+| just-unique | uniq | a |
+| just-zip-it | zip |  ac  |
+| just-compact  (84b)  | compact (53b) | a   |
+| just-curry (72b) | curry (2860b)  |  ade  |
+| just-partial-it (98b) | partial (2940b) | af  |
+| just-once (78b) | once (465b) |  a  |
+| just-clamp | clamp      |  agh  |
+| just-safe-get | get      |  i  |
+| just-safe-set | set      |  i  |
+| just-map-values | mapValues      |  abj  |
+| just-map-keys | mapKeys      |  abj  |
+| just-omit | omit      |  ajkl  |
+| just-pick | pick      |  ajkl  |
+| just-values | values      | a  |
+| just-camel-case | camelCase      | a  |
+| just-kebab-case | kebabCase      | a   |
+| just-snake-case | snakeCase      | a   |
+| just-left-pad | padStart      |  am  |
+| just-right-pad | padEnd      |  am  |
+| just-range | range      |   |
+
 | just-intersect (115b) | intersection | (361b)  | FAIL∞∫   |
-| just-unique | uniq | PASS√å |
-| just-zip-it | zip |  PASS√å•  |
-| just-compact  (84b)  | compact (53b) | PASS√å   |
-| just-curry (72b) | curry (2860b)  |  PASS√≠…  |
-| just-partial-it (98b) | partial (2940b) | PASS√†  |
-| just-once (78b) | once (465b) |  PASS√  |
-| just-clamp | clamp      |  PASS√µƒ  |
-| just-safe-get | get      |  PASS˙  |
-| just-safe-set | set      |  PASS˙  |
-| just-map-values | mapValues      |  PASS√¬π˚  |
-| just-map-keys | mapKeys      |  PASS√¬π˚  |
-| just-omit | omit      |  PASS√¶≥˚å  |
-| just-pick | pick      |  PASS√¶≥˚  |
-| just-values | values      | PASS¶  |
-| just-camel-case | camelCase      | PASS√  |
-| just-kebab-case | kebabCase      | PASS√   |
-| just-snake-case | snakeCase      | PASS√   |
-| just-left-pad | padStart      |  PASS≈√  |
-| just-right-pad | padEnd      |  PASS≈√  |
-| just-range | range      | PASS   |
 | just-truncate | truncate      | FAIL§   |
 | just-debounce | debounce      | FAIL   |
 | just-merge | merge      |  FAIL |
@@ -59,25 +58,25 @@ Every Just utility comes in at well under 1K minified/gzipped[¹](#¹Data). Whil
 | just-clone | cloneDeep      | FAIL   |
 
 
-† `instance of` on instances of partial  
-√ argument coercion
-¶ expects object not falsey value as argument  
-π expects number arg (doesn't support coercion)   
-¬ doesn't defer to other lodash utils
+f `instance of` on instances of partial  
+a argument coercion
+k¶ expects object not falsey value as argument  
+π √   
+b¬ doesn't invoke other lodash utils
 π doesn't use `_.identity` when predicate function is nullish
-˚ should work with `_.property` shorthands  
-å doesn't work with arguments in lieu of arrays  
+j˚ should work with `_.property` shorthands  
+å √  
 ∞ NaN not equal  
 ∫ non-unique results
-• zip([[],[]]) => [[[]], [[]]] (as per http://osteele.com/sources/javascript/functional/)
-µ should work without lower bound arg
+c zip([[],[]]) => [[[]], [[]]] (as per http://osteele.com/sources/javascript/functional/)
+g should work without lower bound arg
 ƒ if outer bounds are NaN should coerce to 0
-˙ follows dotty re. get(obj, ['a.b'])
-≈ trunctates from right, not left
+i follows dotty re. get(obj, ['a.b'])
+m≈ trunctates from right, not left
 § lodash truncate is bizaare (e.g. default 30)
-≥ doesn't flatten `pick(obj, ['a', 'b'], 'c')`
-≠should support placeholders (see partial)
-…can not be used as a constructor
+l≥ doesn't flatten `pick(obj, ['a', 'b'], 'c')`
+d should support placeholders (see partial)
+e can not be used as a constructor
 
 truncate issues
 no separator arg
