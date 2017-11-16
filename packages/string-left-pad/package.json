@@ -5,7 +5,7 @@
     "add characters to the left of a string such that its total length is n",
   "main": "index.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": ["pad", "left", "left-pad", "string", "no-dependencies", "just"],
