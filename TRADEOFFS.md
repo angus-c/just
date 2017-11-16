@@ -22,77 +22,71 @@ Just modules are hand written so they include only essential code. All of them c
 
 ## How robust are Just utils?
 
-Most Just utils pass all Lodash unit tests for the functionality they are designed to support. The following utils only failed on subjective behaviors (notably argument coercion which Just is not intended to support). Failing tests are noted against each util.
+The following Just utils pass all Lodash unit tests for core functionality. The only "fails" are for opinionated behaviors (notably argument coercion) which Just intentially avoids, and these are noted in the table.
 
-| Just  (size)   |  Lodash  (Size) | Lodash tests which Just fails |
+| Just  (size)   |  Lodash  (Size) | Differences with Lodash |
 | ---------------| -----------------|-------------------------------|
-| just-split (145b)  | chunk (756b)        | ab  |
-| just-tail (48b) | tail (111b)  |  a  |
-| just-flatten-it (99b) |flattendeep | (549b) | a   |
-| just-unique | uniq | a |
-| just-zip-it | zip |  ac  |
-| just-compact  (84b)  | compact (53b) | a   |
-| just-curry (72b) | curry (2860b)  |  ade  |
-| just-partial-it (98b) | partial (2940b) | af  |
-| just-once (78b) | once (465b) |  a  |
-| just-clamp | clamp      |  agh  |
-| just-safe-get | get      |  i  |
-| just-safe-set | set      |  i  |
-| just-map-values | mapValues      |  abj  |
-| just-map-keys | mapKeys      |  abj  |
-| just-omit | omit      |  ajkl  |
-| just-pick | pick      |  ajkl  |
-| just-values | values      | a  |
-| just-camel-case | camelCase      | a  |
-| just-kebab-case | kebabCase      | a   |
-| just-snake-case | snakeCase      | a   |
-| just-left-pad | padStart      |  am  |
-| just-right-pad | padEnd      |  am  |
-| just-range | range      |   |
+| just-split (145b)  | chunk (756b)        | _a, b_  |
+| just-tail (48b) | tail (111b)  |  _a_  |
+| just-flatten-it (99b) |flattendeep  (549b) | _a_   |
+| just-unique (268b) | uniq (1650b) | _a_ |
+| just-zip-it (173b) | zip (517b) |  _a, c_  |
+| just-compact (84b)  | compact (53b) | _a_   |
+| just-intersect (115b) | intersection (361b)  | _a_ |
+| just-curry (72b) | curry (2860b)  |  _a, d, e_  |
+| just-partial-it (98b) | partial (2940b) | _a, f_  |
+| just-once (78b) | once (465b) |  _a_  |
+| just-clamp (116b) | clamp (355b)     |  _a, g, h_  |
+| just-safe-get (65b) | get (1750b)     |  _i_  |
+| just-safe-set (108b) | set (1930b)     |  _i_ |
+| just-map-values (54b) | mapvalues (4470b)      |  _a, b, j, k_  |
+| just-map-keys (57b) | mapKeys  (4470b)  |  _a, b, j, k_  |
+| just-omit (80b) | omit (2540b)  |  _a, l_  |
+| just-pick (75b) | pick (874b)  |  _a, l_  |
+| just-values (127b) | values (562b)     | _a_  |
+| just-camel-case (180b) | camelCase (2020b)      | _a_  |
+| just-kebab-case (149b) | kebabCase (1720b)  | _a_   |
+| just-snake-case (149b) | snakeCase (1720b)  | _a_   |
+| just-left-pad (316b) | padstart (1190b)  |  _a, m_  |
+| just-right-pad (316b) | padEnd  (1190b)  |  _a, m_  |
+| just-range (137b)  | range (705b) | (_none_)  |
 
-| just-intersect (115b) | intersection | (361b)  | FAIL∞∫   |
-| just-truncate | truncate      | FAIL§   |
-| just-debounce | debounce      | FAIL   |
-| just-merge | merge      |  FAIL |
-| just-throttle | throttle      | FAIL  |
-| just-clone | cloneDeep      | FAIL   |
+_a._ Just expects correct argument type, Lodash coerces arguments to expected type\
+_b._ Just does not invoke other Lodash as part of its implementation utils\
+_c._ Lodash zip returns [] if no arguments, Just requires at least one argument\ 
+_d._ Lodash curry supports `_` placeholders. Just expects only just-partial to support such placeholders.\
+_e._ Lodash curry can be used as a constructor\
+_f._ instances of Lodash partial have a unique `instanceof` value.\
+_g._ Lodash clamp works without a lower bound arg. Just always requires lower and upper bounds.\
+_h._ If either bound is NaN, Lodash returns 0, Just returns NaN.\
+_i._ just-get and just-set follows dotty for (obj, ['a.b']) style arguments. Lodash uses its own rules.\
+_j._ Lodash invokes `_.identity` when predicate function is nullish\
+_k._ Lodash accepts `_.property` shorthand instead of predicate function.\
+_l._ Lodash will flatten arguments to pick and omit. e.g. `pick(obj, ['a', 'b'], 'c')` becomes `pick(obj, 'a', 'b', 'c')`\
+_m._ When splitting left and right multi-character pads, Lodash truncates from the outside:\
+`padStart('cde', 4, 'ab')` yields `'acde'`\
+Just truncates from the inside:\
+`just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
+
+In addition, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
+
+| Just  (size)   |  Lodash  (Size) | Extra Lodash features |
+| ---------------| -----------------|-------------------------------|
+| just-truncate (54b) | truncate  | _b_|
+| just-debounce (90b) | debounce      | _c, d, e_ |
+| just-throttle (76b) | throttle      | _c, d, e_  |
+| just-merge (142b) | merge      |  _f, g, h_ |
+| just-clone (157b) | cloneDeep      | _f, g, h_   |
 
 
-f `instance of` on instances of partial  
-a argument coercion
-k¶ expects object not falsey value as argument  
-π √   
-b¬ doesn't invoke other lodash utils
-π doesn't use `_.identity` when predicate function is nullish
-j˚ should work with `_.property` shorthands  
-å √  
-∞ NaN not equal  
-∫ non-unique results
-c zip([[],[]]) => [[[]], [[]]] (as per http://osteele.com/sources/javascript/functional/)
-g should work without lower bound arg
-ƒ if outer bounds are NaN should coerce to 0
-i follows dotty re. get(obj, ['a.b'])
-m≈ trunctates from right, not left
-§ lodash truncate is bizaare (e.g. default 30)
-l≥ doesn't flatten `pick(obj, ['a', 'b'], 'c')`
-d should support placeholders (see partial)
-e can not be used as a constructor
-
-truncate issues
-no separator arg
-30 default
-
-merge issues
-∆ should work as an iteratee for methods like `_.reduce`
-æ should not assign values that are the same as their destinations
-÷ should merge sources containing circular references
-« should treat sparse array sources as dense
-≠ should merge typed arrays
-º should deep clone array/typed-array/plain-object sources
-œ should not augment source objects
-¡ should merge plain-objects onto non plain-objects
-™ should skip merging when `object` and `source` are the same value
-
+_a_ Lodash returns the unique set of intersects.\
+_b_ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
+_c_ Lodash has a leading and trailing option, Just only has a leading option.\
+_d_ Lodash cancels delayed calls.\
+_e_ Lodash has a `flushed` method that can be applied to throttles/debounces.   
+_f_ Lodash can merge circular references\
+_g_ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
+_i_ Lodash treats sparse arrays as dense
 
 
 * Load speed

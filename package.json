@@ -33,6 +33,16 @@
   },
   "homepage": "https://github.com/angus-c/just#readme",
   "dependencies": {
+    "intersection": "0.0.1",
+    "just-compact": "^2.0.0",
+    "just-tail": "^2.0.0",
+    "lodash.chunk": "^4.2.0",
+    "lodash.compact": "^3.0.1",
+    "lodash.curry": "^4.1.1",
+    "lodash.flattendeep": "^4.4.0",
+    "lodash.once": "^4.1.1",
+    "lodash.partial": "^4.2.1",
+    "lodash.tail": "^4.1.1",
     "npm-list-package-dependents": "^1.0.0"
   }
 }
