@@ -695,6 +695,7 @@ insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
 import intersect from 'just-intersect';
 
 intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
+intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]  
 ```
 
 ### [just-compact](https://www.npmjs.com/package/just-compact)

@@ -9,6 +9,14 @@ test('intersecting arrays return intersect', function(t) {
   t.end();
 });
 
+test('result is de-duped', function(t) {
+  t.plan(1);
+  var arr1 = [1, 2, 2, 4, 5];
+  var arr2 = [3, 2, 2, 5, 7];
+  t.deepEqual(intersect(arr1, arr2), [2, 5]);
+  t.end();
+});
+
 test('non intersecting arrays return empty array', function(t) {
   t.plan(1);
   var arr1 = [1, 2, 3, 4, 5];
