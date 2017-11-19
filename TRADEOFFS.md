@@ -26,30 +26,30 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 
 | Just  (size)   |  Lodash  (Size) | Differences with Lodash |
 | ---------------| -----------------|-------------------------------|
-| just-split (145b)  | chunk (756b)        | _a, b_  |
-| just-tail (48b) | tail (111b)  |  _a_  |
-| just-flatten-it (99b) |flattendeep  (549b) | _a_   |
-| just-unique (268b) | uniq (1650b) | _a_ |
-| just-zip-it (173b) | zip (517b) |  _a, c_  |
-| just-compact (84b)  | compact (53b) | _a_   |
-| just-intersect (115b) | intersection (361b)  | _a_ |
-| just-curry (72b) | curry (2860b)  |  _a, d, e_  |
-| just-partial-it (98b) | partial (2940b) | _a, f_  |
-| just-once (78b) | once (465b) |  _a_  |
-| just-clamp (116b) | clamp (355b)     |  _a, g, h_  |
 | just-safe-get (65b) | get (1750b)     |  _i_  |
 | just-safe-set (108b) | set (1930b)     |  _i_ |
 | just-map-values (54b) | mapvalues (4470b)      |  _a, b, j, k_  |
 | just-map-keys (57b) | mapKeys  (4470b)  |  _a, b, j, k_  |
 | just-omit (80b) | omit (2540b)  |  _a, l_  |
 | just-pick (75b) | pick (874b)  |  _a, l_  |
-| just-values (127b) | values (562b)     | _a_  |
-| just-camel-case (180b) | camelCase (2020b)      | _a_  |
+| just-values (127b) | values (562b)     | _a_  || 
+| just-split (145b) | chunk (756b)  | _a, b_  |
+| just-flatten-it (99b) |flattendeep  (549b) | _a_   |
+| just-tail (48b) | tail (111b)  |  _a_  |
+| just-unique (268b) | uniq (1650b) | _a_ |
+| just-zip-it (173b) | zip (517b) |  _a, c_  |
+| just-compact (84b)  | compact (53b) | _a_   |
+| just-intersect (115b) | intersection (361b)  | _a, n, o_ |
+just-camel-case (180b) | camelCase (2020b)      | _a_  |
 | just-kebab-case (149b) | kebabCase (1720b)  | _a_   |
 | just-snake-case (149b) | snakeCase (1720b)  | _a_   |
 | just-left-pad (316b) | padstart (1190b)  |  _a, m_  |
 | just-right-pad (316b) | padEnd  (1190b)  |  _a, m_  |
+| just-clamp (116b) | clamp (355b)     |  _a, g, h_  |
 | just-range (137b)  | range (705b) | (_none_)  |
+| just-curry (72b) | curry (2860b)  |  _a, d, e_  |
+| just-partial-it (98b) | partial (2940b) | _a, f_  |
+| just-once (78b) | once (465b) |  _a_  |
 
 _a._ Just expects correct argument type, Lodash coerces arguments to expected type\
 _b._ Just does not invoke other Lodash as part of its implementation utils\
@@ -67,6 +67,8 @@ _m._ When splitting left and right multi-character pads, Lodash truncates from t
 `padStart('cde', 4, 'ab')` yields `'acde'`\
 Just truncates from the inside:\
 `just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
+_n._ Lodash works with just one argument, Just expects two\
+_o._ Lodash treats NaN values as equal to one other \
 
 In addition, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
 
@@ -79,14 +81,14 @@ In addition, these Just utilities, while lacking the additional features of thei
 | just-clone (157b) | cloneDeep      | _f, g, h_   |
 
 
-_a_ Lodash returns the unique set of intersects.\
-_b_ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
-_c_ Lodash has a leading and trailing option, Just only has a leading option.\
-_d_ Lodash cancels delayed calls.\
-_e_ Lodash has a `flushed` method that can be applied to throttles/debounces.   
-_f_ Lodash can merge circular references\
-_g_ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
-_i_ Lodash treats sparse arrays as dense
+_a._ Lodash returns the unique set of intersects.\
+_b._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
+_c._ Lodash has a leading and trailing option, Just only has a leading option.\
+_d._ Lodash cancels delayed calls.\
+_e._ Lodash has a `flushed` method that can be applied to throttles/debounces.   
+_f._ Lodash can merge circular references\
+_g._ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
+_h._ Lodash treats sparse arrays as dense
 
 
 * Load speed
