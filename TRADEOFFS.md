@@ -68,9 +68,9 @@ _m._ When splitting left and right multi-character pads, Lodash truncates from t
 Just truncates from the inside:\
 `just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
 _n._ Lodash works with just one argument, Just expects two\
-_o._ Lodash treats NaN values as equal to one other \
-
-In addition, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
+_o._ Lodash treats NaN values as equal to one other 
+      
+__In addition__, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
 
 | Just  (size)   |  Lodash  (Size) | Extra Lodash features |
 | ---------------| -----------------|-------------------------------|
