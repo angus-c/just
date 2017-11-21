@@ -1,8 +1,6 @@
 # Tradeoffs
 
-The most common reaction to Just is why not just use [__Lodash__](https://lodash.com/). Great question, and there are certainly times when you should use Lodash. Here I'll try (as impartially as possible) to document why you might, and why you might notm want to use Just.
-
-Lodash is brilliantly engineered, well maintained and battle tested. So why would you ever need __Just__?
+The most common reaction to Just is why not just use [__Lodash__](https://lodash.com/). Great question—Lodash is brilliantly engineered, well maintained and battle tested. Here I'll try (as impartially as possible) to document why you might, and why you might not, want to use Just.
 
 ## Short, simplified answer
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
