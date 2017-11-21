@@ -8,8 +8,8 @@ A guilt-free alternative to those bulkier utility libraries. Ideal for mobile we
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
 
 ## Read :books:
-[TRADEOFFS.md -- when to use Just (and when not to)](https://github.com/angus-c/just/blob/master/TRADEOFFS.md).   
-[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
+* [TRADEOFFS.md -- When to use Just (and when not to)](https://github.com/angus-c/just/blob/master/TRADEOFFS.md).   
+* [The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
 
 ## Try :icecream:
 [Editable, runnable examples](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
