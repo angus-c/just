@@ -20,7 +20,7 @@ JavaScript size is especially critical for mobile web development. As Alex point
 
 Just modules are hand written so they include only essential code. All of them come in at well under 1kB minfied/gzipped[¹](#¹Data). 
 
-Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. you can load submodules directly from the Lodash mono-library:  
+Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. You can load submodules directly from the Lodash mono-library:  
 
 `import camelCase from 'lodash/camelcase'`  
 
@@ -30,7 +30,7 @@ Alternatively, [Lodash Modularized](https://www.npmjs.com/browse/keyword/lodash-
 
 Lodash Modularized modules are really modular by name only. They're generated from the Lodash mono-library by inlining all their dependencies, meaning they share a lot of redundant code and are generally much bigger than they need to be.
 
-Module for module, both import techniques yield the same size, but if you want to import several Lodash modules, the earlier technique becomes more efficient, since common dependencies are ony loaded once.
+Module for module, both import techniques yield the same size, but if you want to import several Lodash modules the earlier technique becomes more efficient, since common dependencies are ony loaded once.
 
 Check out the Just vs Lodash file size comparisons below. (Please note the disclaimer in the footnote[¹](#¹Data)) 
 
