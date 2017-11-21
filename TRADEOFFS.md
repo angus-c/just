@@ -6,7 +6,7 @@
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
 * Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records). 
 * Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if they provide a method that Just doesn't (and there are many).
-* If none of the above apply and you care about JavaScript footprint, use __Just__.
+* Use __Just__ if you care about JavaScript footprint (and none of the above applies).
 
 ## Why does JavaScript footprint matter?
 
@@ -18,7 +18,19 @@ JavaScript size is especially critical for mobile web development. As Alex point
 
 ## How Big are Just utils?
 
-Just modules are hand written so they include only essential code. All of them come in at well under 1kB minfied/gzipped[¹](#¹Data). Lodash Modularized modules are really modular by name only. They're generated from the Lodash mono-library by inlining all their erstwhile dependencies, meaning they share a lot of redundant code and are generally much bigger than they need to be. 
+Just modules are hand written so they include only essential code. All of them come in at well under 1kB minfied/gzipped[¹](#¹Data). 
+
+Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. you can load submodules directly from the Lodash mono-library:  
+
+`import camelCase from 'lodash/camelcase'`  
+
+Alterantively, Lodash.modularized provides a set of dependency-free modules: 
+
+`import camelCase from 'lodash.camelcase'`
+
+Lodash Modularized modules are really modular by name only. They're generated from the Lodash mono-library by inlining all their erstwhile dependencies, meaning they share a lot of redundant code and are generally much bigger than they need to be.
+
+ Module for module, both techniques will be the same size, but if you want to import several Lodash modules, the earlier technique becomes more efficient, since common dependencies are ony loaded once.
 
 Check out the Just vs Lodash file size comparisons below. (Please note the disclaimer in the footnote[¹](#¹Data)) 
 
@@ -28,7 +40,7 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 
 | Just  (size[¹](#¹Data))   |  Lodash  (Size[¹](#¹Data)) | Differences with Lodash |
 | ---------------| -----------------|-------------------------------|
-| just-values (127b) | values (562b)     | _a_  || 
+| just-values (127b) | values (562b)     | _a_  | 
 | just-omit (80b) | omit (2540b)  |  _a, l_  |
 | just-pick (75b) | pick (874b)  |  _a, l_  |
 | just-map-values (54b) | mapvalues (4470b)      |  _a, b, j, k_  |
@@ -42,7 +54,7 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 | just-zip-it (173b) | zip (517b) |  _a, c_  |
 | just-compact (84b)  | compact (53b) | _a_   |
 | just-intersect (115b) | intersection (361b)  | _a, n, o_ |
-just-camel-case (180b) | camelCase (2020b)      | _a_  |
+| just-camel-case (180b) | camelCase (2020b)      | _a_  |
 | just-kebab-case (149b) | kebabCase (1720b)  | _a_   |
 | just-snake-case (149b) | snakeCase (1720b)  | _a_   |
 | just-left-pad (316b) | padstart (1190b)  |  _a, m_  |
