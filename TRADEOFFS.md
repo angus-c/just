@@ -66,14 +66,14 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 | just-once (78b) | once (465b) |  _a_  |
 
 _a._ Just expects correct argument type, Lodash coerces arguments to expected type\
-_b._ Just does not invoke other Lodash as part of its implementation utils\
-_c._ Lodash zip returns [] if no arguments, Just requires at least one argument\   
+_b._ Just does not invoke other Lodash utils as part of its implementation\
+_c._ Lodash zip returns `[]` if no arguments, Just requires at least one argument\   
 _d._ Lodash curry supports `_` placeholders. Just expects only just-partial to support such placeholders.\
 _e._ Lodash curry can be used as a constructor\
 _f._ instances of Lodash partial have a unique `instanceof` value.\
 _g._ Lodash clamp works without a lower bound arg. Just always requires lower and upper bounds.\
-_h._ If either bound is NaN, Lodash returns 0, Just returns NaN.\
-_i._ just-get and just-set follows dotty for (obj, ['a.b']) style arguments. Lodash uses its own rules.\
+_h._ If either bound is `NaN`, Lodash returns `0`, Just returns `NaN`.\
+_i._ just-get and just-set follows dotty for `(obj, ['a.b'])` style arguments. Lodash uses its own rules.\
 _j._ Lodash invokes `_.identity` when predicate function is nullish\
 _k._ Lodash accepts `_.property` shorthand instead of predicate function.\
 _l._ Lodash will flatten arguments to pick and omit. e.g. `pick(obj, ['a', 'b'], 'c')` becomes `pick(obj, 'a', 'b', 'c')`\
@@ -82,7 +82,7 @@ _m._ When splitting left and right multi-character pads, Lodash truncates from t
 Just truncates from the inside:\
 `just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
 _n._ Lodash works with just one argument, Just expects two\
-_o._ Lodash treats NaN values as equal to one other 
+_o._ Lodash treats `NaN` values as equal to one other 
       
 __In addition__, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
 
