@@ -14,7 +14,7 @@ The most common reaction to Just is why not just use [__Lodash__](https://lodash
 
 > We regularly see sites loading more than 500KB of script (compressed). This matters because all script loading delays the metric we value most: Time to Interactive. Sites with this much script are simply inaccessible to a broad swath of the world’s users; statistically, users do not (and will not) wait for these experiences to load. Those that do experience horrendous jank.
 
-JavaScript size is especially critical for mobile web development. As Alex points out, 45% of mobile connections occur over 2G worldwide. 75% of of connections occur on either 2G or 3G.
+JavaScript size is especially critical for mobile web development. As Alex points out, 45% of mobile connections occur over 2G worldwide. 75% of connections occur on either 2G or 3G.
 
 ## How Big are Just utils?
 
@@ -36,7 +36,7 @@ Check out the Just vs Lodash file size comparisons below. (Please note the discl
 
 ## How Robust are Just utils?
 
-The following Just utils pass all Lodash unit tests for core functionality. The only "fails" are by design, for opinionated behaviors (notably argument coercion) which Just intentially avoids. These are noted in the table.
+The following Just utils pass all Lodash unit tests for core functionality. The only "fails" are by design, for opinionated behaviors (notably argument coercion) which Just intentionally avoids. These are noted in the table.
 
 | Just  (size[¹](#¹Data))   |  Lodash  (Size[¹](#¹Data)) | Differences with Lodash |
 | ---------------| -----------------|-------------------------------|
