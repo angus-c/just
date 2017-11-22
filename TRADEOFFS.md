@@ -88,20 +88,19 @@ __In addition__, these Just utilities, while lacking the additional features of 
 
 | Just  (size[¹](#¹Data))   |  Lodash  (size[¹](#¹Data)) | Extra Lodash features |
 | ---------------| -----------------|-------------------------------|
-| just-truncate (54b) | truncate  | _b_|
-| just-debounce (90b) | debounce      | _c, d, e_ |
-| just-throttle (76b) | throttle      | _c, d, e_  |
-| just-merge (142b) | merge      |  _f, g, h_ |
-| just-clone (157b) | cloneDeep      | _f, g, h_   |
+| just-truncate (54b) | truncate  | _a_|
+| just-debounce (90b) | debounce      | _b, c, d_ |
+| just-throttle (76b) | throttle      | _b, c, d_  |
+| just-merge (142b) | merge      |  _e, f, g_ |
+| just-clone (157b) | cloneDeep      | _e, f, g_   |
 
-_a._ Lodash returns the unique set of intersects.\
-_b._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
-_c._ Lodash has a leading and trailing option, Just only has a leading option.\
-_d._ Lodash cancels delayed calls.\
-_e._ Lodash has a `flushed` method that can be applied to throttles/debounces.   
-_f._ Lodash can merge circular references\
-_g._ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
-_h._ Lodash treats sparse arrays as dense
+_a._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
+_b._ Lodash has a leading and trailing option, Just only has a leading option.\
+_c._ Lodash cancels delayed calls.\
+_d._ Lodash has a `flushed` method that can be applied to throttles/debounces.   
+_e._ Lodash can merge circular references\
+_f._ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
+_g._ Lodash treats sparse arrays as dense
 
 ## What's the deal with no dependencies anyway?
 
