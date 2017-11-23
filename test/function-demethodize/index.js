@@ -36,18 +36,22 @@ test('resulting function passes remaining args to new function', function(t) {
   t.end();
 });
 
+test('throws when arg is not a function', function(t) {
+  t.plan(2);
+  t.throws(function() {
+    demethodize({});
+  });
+  t.throws(function() {
+    demethodize(null);
+  });
+  t.end();
+});
+
 test('resulting function throws when no args', function(t) {
   t.plan(1);
   var trimFn = demethodize(''.trim);
   t.throws(function() {
     trimFn();
-  }, /called on null or undefined/);
-  t.end();
-});
-
-test('returns undefined for non-functions', function(t) {
-  t.plan(2);
-  t.equal(demethodize({}), undefined);
-  t.equal(demethodize(null), undefined);
+  });
   t.end();
 });
