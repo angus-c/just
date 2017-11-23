@@ -18,7 +18,7 @@ JavaScript size is especially critical for mobile web development. As Alex point
 
 ## How Big are Just utils?
 
-Just modules are hand written so they include only essential code. All of them come in at well under 1kB minfied/gzipped[¹](#¹Data). 
+Just utils nearly all weigh in at a [tiny fraction](#how-robust-are-just-utils) of the size of their Lodash counterparts. Just modules are hand written so they include only essential code. All of them come in at well under 1kB minfied/gzipped[¹](#¹Data). 
 
 Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. You can load submodules directly from the Lodash mono-library:  
 
@@ -88,11 +88,11 @@ __In addition__, these Just utilities, while lacking the additional features of 
 
 | Just  (size[¹](#¹Data))   |  Lodash  (size[¹](#¹Data)) | Extra Lodash features |
 | ---------------| -----------------|-------------------------------|
-| just-truncate (54b) | truncate  | _a_|
-| just-debounce (90b) | debounce      | _b, c, d_ |
-| just-throttle (76b) | throttle      | _b, c, d_  |
-| just-merge (142b) | merge      |  _e, f, g_ |
-| just-clone (157b) | cloneDeep      | _e, f, g_   |
+| just-truncate (54b) | truncate (1510b)  | _a_|
+| just-debounce (90b) | debounce (797b) | _b, c, d_ |
+| just-throttle (76b) | throttle (857b)      | _b, c, d_  |
+| just-merge (142b) | merge (4220b)  |  _e, f, g_ |
+| just-clone (157b) | clonedeep (3360b) | _e, f, g_   |
 
 _a._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
 _b._ Lodash has a leading and trailing option, Just only has a leading option.\
