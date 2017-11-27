@@ -42,9 +42,9 @@ test('negative numbers are limited by range', function(t) {
 test('Returns NaN if any argument is NaN', function(t) {
   t.plan(3);
   var n = 3;
-  t.ok(Number.isNaN(clamp(NaN, n, 8)));
-  t.ok(Number.isNaN(clamp(3, n, NaN)));
-  t.ok(Number.isNaN(clamp(3, NaN, 8)));
+  t.ok(isNaN(clamp(NaN, n, 8)));
+  t.ok(isNaN(clamp(3, n, NaN)));
+  t.ok(isNaN(clamp(3, NaN, 8)));
   t.end();
 });
 
