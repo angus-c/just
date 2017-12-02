@@ -9,8 +9,16 @@ Guilt-free utilities for every occasion.
   camelCase('the quick brown fox'); // 'theQuickBrownFox'
   camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
   camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-  camelCase('theQuickBrownFox'); // 'thequickbrownfox'
+  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
+  camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'  
+  camelCase('Behold theQuickBrownFox'); // 'BeholdTheQuickBrownFox'    
   camelCase('thequickbrownfox'); // 'thequickbrownfox'
   camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-  camelCase('TheQUICKBrownFox'); // 'theQuickBrownFox'
+  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
+
+  // `strict` lower cases anything not at the beginning of a word 
+  // and the very first letter
+  camelCase('theQuickBrownFox', {strict: true}); // 'thequickbrownfox'    
+  camelCase('behold theQuickBrownFox', {strict: true}); // 'beholdThequickbrownfox'    
+  camelCase('Behold theQUICKBrownFox', {strict: true}); // 'beholdThequickbrownfox' 
 ```
