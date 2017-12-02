@@ -1,6 +1,6 @@
 {
   "name": "just-camel-case",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "convert a string to camel case",
   "main": "index.js",
   "scripts": {
