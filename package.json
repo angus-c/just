@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "compile":
-      "browserify javascripts/main.js -o dist/main.js -t [ babelify --presets [ es2015 react ] ]",
+    "compile": "browserify javascripts/main.js -o dist/main.js -t [ babelify --presets [ es2015 react ] ]",
     "fetch-sizes": "node javascripts/generate-pkg-sizes.js"
   },
   "devDependencies": {

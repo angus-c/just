@@ -21,6 +21,7 @@ const getSizes = function() {
     function iterate(pkgName) {
       console.log(pkgName);
       exec(`package-size ${pkgName}`, (...args) => {
+        debugger;
         const min = args[args.length - 2]
           .trim()
           .match(/([0-9]+)\s[k]?B[^B]+$/)[1];
