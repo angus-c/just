@@ -8,7 +8,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 
 ## Read :books:
 * [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).   
-* [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) –- Why I wrote Just.
+* [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
 ## Try :icecream:
 A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
