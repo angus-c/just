@@ -24,7 +24,7 @@ function clamp(b1, n, b2) {
   if (typeof b1 != 'number' || typeof n != 'number' || typeof b2 != 'number') {
     throw new Error('arguments must be numbers');
   }
-  if (Number.isNaN(b1) || Number.isNaN(n) || Number.isNaN(b2)) {
+  if (isNaN(b1) || isNaN(n) || isNaN(b2)) {
     return NaN;
   }
   if (b1 == b2) {
