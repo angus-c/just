@@ -33,7 +33,7 @@ function unique(arr, sorted, strings) {
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     var elem = arr[i];
-    if (Number.isNaN(elem)) {
+    if (typeof elem == 'number' && isNaN(elem)) {
       duplicate = seenNaN;
       seenNaN = true;
     }

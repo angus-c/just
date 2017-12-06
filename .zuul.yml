@@ -1,0 +1,16 @@
+ui: tape
+concurrency: 1
+browsers:
+  - name: chrome
+    version: latest
+  - name: firefox
+    version: latest
+  - name: safari
+    version: latest
+  - name: microsoftedge
+    version: latest
+    platform: Windows 10
+  - name: internet explorer
+    version: 9
+  - name: android
+    version: latest
