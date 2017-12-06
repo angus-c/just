@@ -1,4 +1,5 @@
 ## Just :cherries:
+
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just do one thing. A
@@ -9,21 +10,13 @@ We welcome contributions. Please follow our
 [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
 
 ## Read :books:
-<<<<<<< HEAD
-* [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).   
+
+* [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
 * [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
 ## Try :icecream:
+
 A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
-=======
-
-[The Zen of Dependency-Free –- Why I wrote Just](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5)
-
-## Try :icecream:
-
-[Editable, runnable examples](http://anguscroll.com/just) for every utility
-(powered by [RunKit](https://runkit.com))
->>>>>>> circular references
 
 <a href="http://anguscroll.com/just"><img src="images/just-interactive-page.png" width="800"/></a>
 
@@ -1075,31 +1068,21 @@ rightPad('hello', 2.3, true); // throws
 `npm install just-camel-case`
 
 ```js
-<<<<<<< HEAD
-  camelCase('the quick brown fox'); // 'theQuickBrownFox'
-  camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
-  camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
-  camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'  
-  camelCase('Behold theQuickBrownFox'); // 'BeholdTheQuickBrownFox'    
-  camelCase('thequickbrownfox'); // 'thequickbrownfox'
-  camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
-
-  // `strict` lower cases anything not at the beginning of a word 
-  // and the very first letter
-  camelCase('theQuickBrownFox', {strict: true}); // 'thequickbrownfox'    
-  camelCase('behold theQuickBrownFox', {strict: true}); // 'beholdThequickbrownfox'    
-  camelCase('Behold theQUICKBrownFox', {strict: true}); // 'beholdThequickbrownfox' 
-=======
 camelCase('the quick brown fox'); // 'theQuickBrownFox'
 camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
 camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-camelCase('theQuickBrownFox'); // 'thequickbrownfox'
+camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
+camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+camelCase('Behold theQuickBrownFox'); // 'BeholdTheQuickBrownFox'
 camelCase('thequickbrownfox'); // 'thequickbrownfox'
 camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-camelCase('TheQUICKBrownFox'); // 'theQuickBrownFox'
->>>>>>> circular references
+camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
+
+// `strict` lower cases anything not at the beginning of a word
+// and the very first letter
+camelCase('theQuickBrownFox', { strict: true }); // 'thequickbrownfox'
+camelCase('behold theQuickBrownFox', { strict: true }); // 'beholdThequickbrownfox'
+camelCase('Behold theQUICKBrownFox', { strict: true }); // 'beholdThequickbrownfox'
 ```
 
 ### [just-kebab-case](https://www.npmjs.com/package/just-kebab-case)

@@ -10,7 +10,8 @@ browsers:
   - name: microsoftedge
     version: latest
     platform: Windows 10
-  - name: internet explorer
-    version: 9
+  - name: iphone
+    version: [10]
   - name: android
-    version: latest
+    version: [6]
+
