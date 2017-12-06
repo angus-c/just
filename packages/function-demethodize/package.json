@@ -1,6 +1,6 @@
 {
   "name": "just-demethodize",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/angus-c/just.git"
   },
-  "keywords": [
-    "function",
-    "no-dependencies",
-    "just",
-    "demethodize",
-    "invert",
-    "globalize"
-  ],
+  "keywords": ["function", "no-dependencies", "just", "demethodize", "invert", "globalize"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
