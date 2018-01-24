@@ -29,7 +29,8 @@ function get(obj, props) {
     props = [props];
   }
   var prop;
-  while ((prop = props.shift())) {
+  while (props.length) {
+    prop = props.shift();
     obj = obj[prop];
     if (!obj) {
       return obj;

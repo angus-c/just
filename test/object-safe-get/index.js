@@ -27,20 +27,42 @@ test('returns existing properties using array arg', function(t) {
 });
 
 test('returns undefined for non-existing properties, using dot-notation arg', function(t) {
-  t.plan(3);
+  t.plan(4);
   var obj = {a: {aa: {aaa: 2}}, b: 4};
   t.ok(compare(get(obj, 'b.bb'), undefined));
+  t.ok(compare(get(obj, 'a.bb'), undefined));
   t.ok(compare(get(obj, 'b.bb.bbb'), undefined));
   t.ok(compare(get(obj.b, 'bb.bbb'), undefined));
   t.end();
 });
 
 test('returns undefined for non-existing properties, using array arg', function(t) {
-  t.plan(3);
+  t.plan(4);
   var obj = {a: {aa: {aaa: 2}}, b: 4};
   t.ok(compare(get(obj, ['b', 'bb']), undefined));
+  t.ok(compare(get(obj, ['a', 'bb']), undefined));
   t.ok(compare(get(obj, ['b', 'bb', 'bbb']), undefined));
   t.ok(compare(get(obj.b, ['bb', 'bbb']), undefined));
+  t.end();
+});
+
+test('returns undefined for falsey property names using dot notation', function(t) {
+  t.plan(4);
+  var obj = {a: {aa: {aaa: 2}}, b: {}};
+  t.ok(compare(get(obj, 'a, ""', undefined)));
+  t.ok(compare(get(obj, 'a, aa, aaa, ""', undefined)));
+  t.ok(compare(get(obj, 'b, ""', undefined)));
+  t.ok(compare(get(obj, 'b, ""'), undefined));
+  t.end();
+});
+
+test('returns undefined for falsey property names using array arg', function(t) {
+  t.plan(4);
+  var obj = {a: {aa: {aaa: 2}}, b: {}};
+  t.ok(compare(get(obj, ['a', false]), undefined));
+  t.ok(compare(get(obj, ['a', 'aa', 'aaa', null]), undefined));
+  t.ok(compare(get(obj, ['b', undefined]), undefined));
+  t.ok(compare(get(obj, ['b', '']), undefined));
   t.end();
 });
 
