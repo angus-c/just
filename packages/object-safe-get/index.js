@@ -22,6 +22,9 @@ module.exports = get;
 */
 
 function get(obj, props) {
+  if (!obj) {
+    return undefined;
+  }
   if (typeof props == 'string') {
     props = props.split('.');
   }

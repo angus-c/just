@@ -66,6 +66,13 @@ test('returns undefined for falsey property names using array arg', function(t) 
   t.end();
 });
 
+test('returns undefined when object is null or undefined', function(t) {
+  t.plan(2);
+  t.ok(compare(get(null, 'a')), undefined);
+  t.ok(compare(get(undefined, 'a')), undefined);
+  t.end();
+});
+
 /* eslint-disable no-undef*/
 if (typeof Symbol === 'function') {
   test('works with symbols', function(t) {
