@@ -23,7 +23,7 @@ module.exports = get;
 
 function get(obj, props) {
   if (!obj) {
-    return undefined;
+    return obj;
   }
   if (typeof props == 'string') {
     props = props.split('.');
