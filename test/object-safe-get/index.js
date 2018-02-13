@@ -66,10 +66,10 @@ test('returns undefined for falsey property names using array arg', function(t) 
   t.end();
 });
 
-test('returns undefined when object is null or undefined', function(t) {
+test('returns first argument if it is a falsey value', function(t) {
   t.plan(2);
-  t.ok(compare(get(null, 'a')), undefined);
-  t.ok(compare(get(undefined, 'a')), undefined);
+  t.ok(compare(get(null, 'a'), null));
+  t.ok(compare(get(undefined, 'a'), undefined));
   t.end();
 });
 
