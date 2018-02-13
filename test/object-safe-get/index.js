@@ -66,6 +66,13 @@ test('returns undefined for falsey property names using array arg', function(t) 
   t.end();
 });
 
+test('returns first argument if it is a falsey value', function(t) {
+  t.plan(2);
+  t.ok(compare(get(null, 'a'), null));
+  t.ok(compare(get(undefined, 'a'), undefined));
+  t.end();
+});
+
 /* eslint-disable no-undef*/
 if (typeof Symbol === 'function') {
   test('works with symbols', function(t) {
