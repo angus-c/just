@@ -301,6 +301,10 @@ body {
   }
 }
 
+li {
+  list-style: none;
+}
+
 li > span.link:hover {
   text-decoration: underline;
   cursor: pointer;

@@ -2,7 +2,7 @@ module.exports = {
   "just-diff": "403",
   "just-diff-apply": "380",
   "just-compare": "221",
-  "just-clone": "80",
+  "just-clone": "140",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",

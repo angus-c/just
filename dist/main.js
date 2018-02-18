@@ -143,6 +143,7 @@ var Evaluate = function (_React$Component) {
   _createClass(Evaluate, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      debugger;
       notebook = RunKit.createNotebook({
         element: document.querySelector('#tonic'),
         source: this.props.script
@@ -282,18 +283,43 @@ exports.default = function (_ref) {
       script = _ref.script;
   return _react2.default.createElement(
     'section',
-    { id: 'react-root', style: { flex: 5 }, className: 'main-content right-col' },
+    {
+      id: 'react-root',
+      style: { flex: 5 },
+      className: 'main-content right-col'
+    },
     _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
-        'span',
-        { style: { fontFamily: 'consolas' } },
-        'npm install ',
+        'ul',
+        null,
         _react2.default.createElement(
-          'a',
-          { 'class': 'link selected', href: 'https://www.npmjs.com/package/' + moduleName },
-          moduleName
+          'li',
+          null,
+          _react2.default.createElement(
+            'span',
+            { style: { fontSize: 20, fontWeight: 'bold' } },
+            moduleName
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'span',
+            { style: { fontFamily: 'consolas' } },
+            'npm install',
+            ' ',
+            _react2.default.createElement(
+              'a',
+              {
+                'class': 'link selected',
+                href: 'https://www.npmjs.com/package/' + moduleName
+              },
+              moduleName
+            )
+          )
         )
       ),
       _react2.default.createElement(_Evaluate2.default, { script: script })
@@ -609,7 +635,7 @@ module.exports = {
   "just-diff": "403",
   "just-diff-apply": "380",
   "just-compare": "221",
-  "just-clone": "80",
+  "just-clone": "140",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",
