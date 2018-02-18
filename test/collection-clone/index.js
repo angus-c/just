@@ -26,41 +26,37 @@ test('clones child plain objects and arrays', function(t) {
   t.deepEqual(objClone, {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1}});
 });
 
-test.only('clones Dates and RegExps', function(t) {
+test('clones Functions, Dates and RegExps', function(t) {
   t.plan(7);
   var date = new Date();
   var regexp = /a(b)c/gim;
-  var obj = {c: date, d: regexp};
+  var obj = {b: date, c: regexp};
   var objClone = clone(obj);
   var objToString = Object.prototype.toString;
-  t.equal(objToString.call(objClone.c), 'object Date');
-  t.equal(objToString.call(objClone.d), 'object RegExp');
-  objClone.c.setTime(date.getTime() + 87);
-  t.equal(objClone.c.getTime() - date.getTime(), 87);
-  objClone.d.compile(/a(c)/gi);
-  t.equal(regexp.source, '/a(b)c');
-  t.equal(objClone.d.source, 'a(c)');
+  t.equal(objToString.call(objClone.b), '[object Date]');
+  t.equal(objToString.call(objClone.c), '[object RegExp]');
+  objClone.b.setTime(date.getTime() + 87);
+  t.equal(objClone.b.getTime() - date.getTime(), 87);
+  objClone.c.compile(/a(c)/gi);
+  t.equal(regexp.source, 'a(b)c');
+  t.equal(objClone.c.source, 'a(c)');
   t.equal(regexp.flags, 'gim');
-  t.equal(objClone.d.flags, 'gi');
+  t.equal(objClone.c.flags, 'gi');
 });
 
-test("doesn't clone other non-plain object properties", function(t) {
-  t.plan(7);
+test("doesn't clone functions", function(t) {
+  t.plan(6);
   var fn = function(a, b) {
     return a + b;
   };
-  var date = new Date(1510439803151);
-  var regex = /abc/;
-  var obj = {a: 3, b: 5, c: fn, d: date, e: regex};
+  t.ok(fn === clone(fn));
+  var obj = {a: 3, b: 5, c: fn};
+  fn.x = 22;
   var objClone = clone(obj);
   fn.x = 34;
-  date.x = 34;
-  regex.x = 34;
-  t.deepEqual(objClone, {a: 3, b: 5, c: fn, d: date, e: regex});
+  t.deepEqual(objClone, {a: 3, b: 5, c: fn});
   t.equal(objClone.c(2, 3), 5);
-  t.equal(objClone.d.getTime(), 1510439803151);
-  t.equal(objClone.e.exec('ddabc').index, 2);
+  t.equal(fn(2, 3), 5);
   t.equal(objClone.c.x, 34);
-  t.equal(objClone.d.x, 34);
-  t.equal(objClone.e.x, 34);
+  t.equal(fn.x, 34);
 });

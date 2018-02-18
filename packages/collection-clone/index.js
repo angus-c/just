@@ -1,7 +1,7 @@
 module.exports = clone;
 
 /*
-  Identical to `just-extend(true, {}, obj1)`
+  Deep clones all properties except functions
 
   var arr = [1, 2, 3];
   var subObj = {aa: 1};
@@ -14,27 +14,23 @@ module.exports = clone;
 */
 
 function clone(obj) {
+  if (typeof obj == 'function') {
+    return obj;
+  }
   var result = Array.isArray(obj) ? [] : {};
   for (var key in obj) {
     // include prototype properties
     var value = obj[key];
-    if (isCloneable(value)) {
+    var type = {}.toString.call(value).slice(8, -1);
+    if (type == 'Array' || type == 'Object') {
       result[key] = clone(value);
+    } else if (type == 'Date') {
+      result[key] = new Date(value.getTime());
+    } else if (type == 'RegExp') {
+      result[key] = RegExp(value.source, value.flags);
     } else {
-      // manually clone dates and regexps
-      var objToString = {}.toString;
-      if (objToString.call(value) == '[object Date]') {
-        result[key] = new Date(value.getTime());
-      } else if (objToString.call(value) == '[object RegExp]') {
-        result[key] = RegExp(value.source, value.flags);
-      } else {
-        result[key] = value;
-      }
+      result[key] = value;
     }
   }
   return result;
-}
-
-function isCloneable(obj) {
-  return Array.isArray(obj) || {}.toString.call(obj) == '[object Object]';
 }
