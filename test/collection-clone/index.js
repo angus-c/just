@@ -26,7 +26,25 @@ test('clones child plain objects and arrays', function(t) {
   t.deepEqual(objClone, {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1}});
 });
 
-test("doesn't clone child non-plain objects", function(t) {
+test.only('clones Dates and RegExps', function(t) {
+  t.plan(7);
+  var date = new Date();
+  var regexp = /a(b)c/gim;
+  var obj = {c: date, d: regexp};
+  var objClone = clone(obj);
+  var objToString = Object.prototype.toString;
+  t.equal(objToString.call(objClone.c), 'object Date');
+  t.equal(objToString.call(objClone.d), 'object RegExp');
+  objClone.c.setTime(date.getTime() + 87);
+  t.equal(objClone.c.getTime() - date.getTime(), 87);
+  objClone.d.compile(/a(c)/gi);
+  t.equal(regexp.source, '/a(b)c');
+  t.equal(objClone.d.source, 'a(c)');
+  t.equal(regexp.flags, 'gim');
+  t.equal(objClone.d.flags, 'gi');
+});
+
+test("doesn't clone other non-plain object properties", function(t) {
   t.plan(7);
   var fn = function(a, b) {
     return a + b;

@@ -21,7 +21,15 @@ function clone(obj) {
     if (isCloneable(value)) {
       result[key] = clone(value);
     } else {
-      result[key] = value;
+      // manually clone dates and regexps
+      var objToString = {}.toString;
+      if (objToString.call(value) == '[object Date]') {
+        result[key] = new Date(value.getTime());
+      } else if (objToString.call(value) == '[object RegExp]') {
+        result[key] = RegExp(value.source, value.flags);
+      } else {
+        result[key] = value;
+      }
     }
   }
   return result;
