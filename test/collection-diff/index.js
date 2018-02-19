@@ -120,6 +120,36 @@ test('objects with array properties', function(t) {
   t.ok(compare(diff(obj6, obj5), [{op: 'remove', path: ['b', '3']}]));
 });
 
+test('objects whose properties are objects but with no properties of their own', function(t) {
+  t.plan(1);
+
+  var obj21 = {
+    a: 4,
+    b1: new Date('1990-01-22T15:14:10.837Z'),
+    b2: new Date('1993-01-22T15:14:10.837Z'),
+    c1: /abc/,
+    c2: /def/,
+    d: JSON,
+  };
+
+  var obj22 = {
+    a: 3,
+    b1: new Date('2018-01-22T15:11:19.244Z'),
+    b2: new Date('1993-01-22T15:14:10.837Z'),
+    c1: /bcd/,
+    c2: /def/,
+    d: JSON,
+  };
+
+  t.ok(
+    compare(diff(obj21, obj22), [
+      {op: 'replace', path: ['a'], value: 3},
+      {op: 'replace', path: ['b1'], value: new Date('2018-01-22T15:11:19.244Z')},
+      {op: 'replace', path: ['c1'], value: /bcd/},
+    ])
+  );
+});
+
 test('objects with nulls against array properties', function(t) {
   t.plan(2);
 

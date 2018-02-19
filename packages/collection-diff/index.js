@@ -94,6 +94,8 @@ function diff(obj1, obj2, pathConverter) {
 
     for (var i = 0; i < obj2KeysLength; i++) {
       var key = obj2Keys[i];
+      var obj1AtKey = obj1[key];
+      var obj2AtKey = obj2[key];
       if (!(key in obj1)) {
         path = basePath.concat(key);
         var obj2Value = obj2[key];
@@ -102,16 +104,16 @@ function diff(obj1, obj2, pathConverter) {
           path: pathConverter ? pathConverter(path) : path,
           value: obj2Value,
         });
-      } else if (obj1[key] !== obj2[key]) {
-        if (Object(obj1[key]) !== obj1[key] || Object(obj2[key]) !== obj2[key]) {
-          path = basePath.concat(key);
-          diffs.replace.push({
-            op: 'replace',
-            path: pathConverter ? pathConverter(path) : path,
-            value: obj2[key],
-          });
+      } else if (obj1AtKey !== obj2AtKey) {
+        if (Object(obj1AtKey) !== obj1AtKey || Object(obj2AtKey) !== obj2AtKey) {
+          path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
         } else {
-          getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);
+          if ((!Object.keys(obj1AtKey).length && !Object.keys(obj2AtKey).length) &&
+              (String(obj1AtKey) != String(obj2AtKey))) {
+            path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
+          } else {
+            getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);
+          }
         }
       }
     }
@@ -120,6 +122,16 @@ function diff(obj1, obj2, pathConverter) {
   }
 
   return getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
+}
+
+function pushReplace(path, basePath, key, diffs, pathConverter, obj2) {
+  path = basePath.concat(key);
+  diffs.replace.push({
+    op: 'replace',
+    path: pathConverter ? pathConverter(path) : path,
+    value: obj2[key],
+  });
+  return path;
 }
 
 function jsonPatchPathConverter(arrayPath) {

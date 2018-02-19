@@ -22,6 +22,9 @@ module.exports = get;
 */
 
 function get(obj, props) {
+  if (!obj) {
+    return obj;
+  }
   if (typeof props == 'string') {
     props = props.split('.');
   }
@@ -29,7 +32,8 @@ function get(obj, props) {
     props = [props];
   }
   var prop;
-  while ((prop = props.shift())) {
+  while (props.length) {
+    prop = props.shift();
     obj = obj[prop];
     if (!obj) {
       return obj;

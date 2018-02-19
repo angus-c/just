@@ -1,6 +1,3 @@
-var test = require('../util/test')(__filename);
-var isCircular = require('../../packages/object-is-circular');
-
 // TODO:skip tests until we have ie/edge support
 
 // test('detects circular objects', function(t) {

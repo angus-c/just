@@ -1,20 +1,13 @@
 {
   "name": "just-is-circular",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "determine if an object contains a circular reference",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": [
-    "object",
-    "circular",
-    "reference",
-    "structure",
-    "no-dependencies",
-    "just"
-  ],
+  "keywords": ["object", "circular", "reference", "structure", "no-dependencies", "just"],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
