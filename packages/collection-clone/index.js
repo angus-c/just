@@ -27,10 +27,24 @@ function clone(obj) {
     } else if (type == 'Date') {
       result[key] = new Date(value.getTime());
     } else if (type == 'RegExp') {
-      result[key] = RegExp(value.source, value.flags);
+      result[key] = RegExp(value.source, getRegExpFlags(value));
     } else {
       result[key] = value;
     }
   }
   return result;
+}
+
+function getRegExpFlags(regExp) {
+  if (typeof regExp.source.flags == 'string') {
+    return regExp.source.flags;
+  } else {
+    var flags = [];
+    regExp.global && flags.push('g');
+    regExp.ignoreCase && flags.push('i');
+    regExp.multiline && flags.push('m');
+    regExp.sticky && flags.push('y');
+    regExp.unicode && flags.push('u');
+    return flags.join();
+  }
 }
