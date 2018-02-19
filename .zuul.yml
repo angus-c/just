@@ -7,11 +7,13 @@ browsers:
     version: latest
   - name: safari
     version: latest
+  - name: internet explorer
+    version: 9  
   - name: microsoftedge
-    version: latest
+    version: 13
     platform: Windows 10
   - name: iphone
-    version: [10]
+    version: [8.1, latest]
   - name: android
-    version: [6]
+    version: [5, 6]
 
