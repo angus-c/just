@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-<<<<<<< HEAD
 - '9'
 addons:
   sauce_connect: true
@@ -15,12 +14,3 @@ env:
   global:
   - secure: e43CLuu3td+TqdktOFIlpybleiypxsgU1rN/S0dQeKoybwpd8M4oPRF1ts1TfpIbFFLs2VyK7LPgFsmJ2wRWLv5uQtEyX6BaYikLYugYidfdO5YJcICEbSBK1sC0ZrRLZFXTYkXW1nCQFsHy/ct1Da5VUfZIF3u4Gv/V8GOPEVIVlhORryHoIKrT3vRG1NYIv96X+6O/T7RjGrQrSYJnoKSnaFyVYw5JKRbGPsNo5B+J8HOGV5nN3MUZsEbZCFDOZwbcjfMcGAcEQB5JJya62505dFkPdhwE0/riC3YW+L3u+o1pqtZnp2Ry0cMhxj9HtaQt+Cql3IQTYcYGF6bREgwogg4VMaYomKyBZQZJmVE0I6p9A2wm1KN+RMMOYGiUQn4GFrSF/2QxINFFICGiGuBmh8q3I0Nw0OrggAOSC+UGq2CdWv9VMOIjyC2gAGURQXpVYwSIuC3vegC+ODioRYEpRaVPQ/iz1LYdtjyif9/7Rj3HF+45NBn/VzyMxMnNu2d8yer91I7Jc9L9JCl0ge4R8edsXl4dz4yA9GaBieWlOBJAi9SUJllECZGWim0mYNPA66vdULgR50toTeq84VtXmK0BpUXcoSKlouj5QI2LxHl1pwHeppmp9TgkOR2wSSeOvVa6+vrKW8LVFfxA5quwKYLlwafkjNsnJGuhkQs=
   - secure: M6TkVwo0s5R+lOi51n8BCPKa5PWdZ4syigt100JfNKILDXKJhMjgnLMD5eQwswOVAHW/xPejBPqWFYiFRMwGB7HYILJuRoyqJktKeOuEjrTfheZu+LzcyNEPu4L+MNZkkxB/hnHX13uZvpecI8tXLBzoiQS3jrXSQjmUHT5ebInQGmmpiLpWMQx/rnYYtk8yqHdErmh2tOc2rMEzF4h1Xui9YWioWA74eL8pJAXMJ1xwHgmL743/uGW2ILmD+HgObxIUfyfa/Jhbxvi5FH2ndPwpnUFcpCgxf7guSn6F6CVZknTeIAv3Ro8r2Mqn+RP7mEqlq+CubyjNAstWHpX5vyN4O5fr4GyAFsOH0bQw47f52U3zb/fjI0AwvrOANo4+rLJkjReYA3xPU+dghV4UPeEATfioxYpPp2CzNx08xug4W4mPkcqCBZYJclDNBogk82I2CAWtx03/NUh9sBI82jA1I8phT0CqQXbdPLJ0R0D6s87WYSFLOkqEuXBFADgNXK/jGy9ouoBq1NS0gEJrg0JIm4TuoBfTiAh7g2a5P20ynK11D9zxlQQHaFT+AIzH50KGcR+Z9K8IiL6v+nhAk3S/xL3pvGA3i4sxYJa/EhZ8tqE4wf4263+3LmnqQfiFmOsO/Y53MsAOIctMPx+C3XDKxuvu+vaaoio6S9mtKmg=
-=======
-  - "6"
-  - "7"
-  - "8"
-  - "9"
-before_script:
-  - "npm install && lerna bootstrap"
-script: "npm run test"
->>>>>>> origin/master
