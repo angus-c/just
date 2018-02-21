@@ -45,6 +45,6 @@ function getRegExpFlags(regExp) {
     regExp.multiline && flags.push('m');
     regExp.sticky && flags.push('y');
     regExp.unicode && flags.push('u');
-    return flags.join();
+    return flags.join('');
   }
 }
