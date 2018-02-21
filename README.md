@@ -24,7 +24,7 @@ Following support data based on [available saucelabs test browsers](https://gith
 
 | Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android |
 | ------ | ------ | ------- | ------- | ---- | ------------- | ------- |
-| yes    | yes    | yes     | IE9+    | 6+   | iPhone 8+     | 5+      |
+| yes    | yes    | yes     | IE9+    | 6+   | iOS 8+     | Android OS 5+      |
 
 ## The Modules :package:
 
