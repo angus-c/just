@@ -18,6 +18,14 @@ A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](http
 
 <a href="http://anguscroll.com/just"><img src="images/just-interactive-page.png" width="800"/></a>
 
+## Browser Support :computer:
+
+Following support data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). In some cases Just may also be fully supported by older versions not listed below.
+
+| Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android |
+| ------ | ------ | ------- | ------- | ---- | ------------- | ------- |
+| yes    | yes    | yes     | IE9+    | 6+   | iPhone 8+     | 5+      |
+
 ## The Modules :package:
 
 * [Collections](#collections) {}[]
@@ -1340,6 +1348,8 @@ fn();
 Run all tests as a single test suite with
 
 `npm run test`
+
+Cross browser tests (via saucelabs) are in the [`sauce` branch](https://github.com/angus-c/just/tree/sauce)
 
 ## Contribute!
 
