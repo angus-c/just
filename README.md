@@ -2,10 +2,12 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.
-A guilt-free alternative to those bulkier utility libraries. Ideal for mobile web development or wherever bytes are precious.
+A library of **zero-dependency** npm modules that do just do one thing. A
+guilt-free alternative to those bulkier utility libraries. Ideal for mobile web
+development or wherever bytes are precious.
 
-We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
+We welcome contributions. Please follow our
+[contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
 
 ## Read :books:
 
@@ -97,8 +99,8 @@ A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](http
 
   `npm install just-diff`
 
-  Return an object representing the difference between two other objects
-  Pass converter to format as http://jsonpatch.com
+  Return an object representing the difference between two other objects Pass
+  converter to format as http://jsonpatch.com
 
   ```js
   import {diff} from 'just-diff';
@@ -174,8 +176,8 @@ A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](http
 
 `npm install just-diff-apply`
 
-Apply a diff object to an object.
-Pass converter to apply a http://jsonpatch.com standard patch
+Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com
+standard patch
 
 ```js
   import diffApply from 'just-diff-apply';
@@ -253,14 +255,12 @@ compare(NaN, NaN); // true
 ```js
 import clone from 'just-clone';
 
-// Deep copies objects and arrays, doesn't clone functions
-
 var arr = [1, 2, 3];
 var subObj = { aa: 1 };
 var obj = { a: 3, b: 5, c: arr, d: subObj };
 var objClone = clone(obj);
 arr.push(4);
-objClone.d.bb = 2;
+subObj.bb = 2;
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}
 objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}
 ```
@@ -431,6 +431,8 @@ isEmpty(undefined); // true
 
 `npm install just-is-circular`
 
+NOTE: not supported in IE or microsoft edge
+
 ```js
 import isCircular from 'just-is-circular';
 
@@ -588,9 +590,6 @@ get(obj.a, ['aa', 'aaa']); // 2
 
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
-
-get(null, 'a'); // null
-get(undefined, 'a'); //undefined
 
 const obj = { a: {} };
 const sym = Symbol();

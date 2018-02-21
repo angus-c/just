@@ -27,7 +27,7 @@ test('clones child plain objects and arrays', function(t) {
 });
 
 test('clones Functions, Dates and RegExps', function(t) {
-  t.plan(7);
+  t.plan(5);
   var date = new Date();
   var regexp = /a(b)c/gim;
   var obj = {b: date, c: regexp};
@@ -38,10 +38,8 @@ test('clones Functions, Dates and RegExps', function(t) {
   objClone.b.setTime(date.getTime() + 87);
   t.equal(objClone.b.getTime() - date.getTime(), 87);
   objClone.c.compile(/a(c)/gi);
-  t.equal(regexp.source, 'a(b)c');
-  t.equal(objClone.c.source, 'a(c)');
-  t.equal(regexp.flags, 'gim');
-  t.equal(objClone.c.flags, 'gi');
+  t.equal(String(regexp), '/a(b)c/gim');
+  t.equal(String(objClone.c), '/a(c)/gi');
 });
 
 test("doesn't clone functions", function(t) {
