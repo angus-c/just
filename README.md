@@ -20,7 +20,7 @@ A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](http
 
 ## Browser Support :computer:
 
-Following support data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). In some cases Just may also be fully supported by older versions not listed below.
+Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely Just is also fully supported by some older versions not verifiable via saucelabs.
 
 | Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android |
 | ------ | ------ | ------- | ------- | ---- | ------------- | ------- |
