@@ -5,6 +5,8 @@
 A library of **zero-dependency** npm modules that do just do one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for mobile web development or wherever bytes are precious.
 
+[Jump To API](#The-Modules-:package:)
+
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
 
 ## Read :books:
