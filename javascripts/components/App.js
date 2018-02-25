@@ -43,7 +43,7 @@ export default class App extends React.Component {
 
   fnFromUrl() {
     const lastPath = location.href.split('/').pop();
-    return lastPath.indexOf('just-') == 0 ? lastPath : 'just-diff';
+    return lastPath.indexOf('just-') == 0 ? lastPath : 'just-clone';
   }
 
   onSelect({ target: { innerText } }) {

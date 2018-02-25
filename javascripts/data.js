@@ -4,6 +4,20 @@ module.exports = {
   Collections: {
     symbol: '{}[]',
     utils: {
+      'just-clone': {
+        size: sizes['just-clone'],
+        code: [
+          `const clone = require('just-clone')\n
+const arr = [1, 2, 3];
+const subObj = {aa: 1};
+const obj = {a: 3, b: 5, c: arr, d: subObj};
+const objClone = clone(obj);
+arr.push(4);
+objClone.d.bb = 2;
+obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  
+objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}`
+        ]
+      },
       'just-diff': {
         size: sizes['just-diff'],
         code: [
@@ -36,20 +50,6 @@ obj1;`
         code: [
           `const compare = require('just-compare')\n
 compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);`
-        ]
-      },
-      'just-clone': {
-        size: sizes['just-clone'],
-        code: [
-          `const clone = require('just-clone')\n
-const arr = [1, 2, 3];
-const subObj = {aa: 1};
-const obj = {a: 3, b: 5, c: arr, d: subObj};
-const objClone = clone(obj);
-arr.push(4);
-subObj.bb = 2;
-obj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  
-objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}`
         ]
       },
       'just-pluck-it': {

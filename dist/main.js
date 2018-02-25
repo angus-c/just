@@ -83,7 +83,7 @@ var App = function (_React$Component) {
     key: 'fnFromUrl',
     value: function fnFromUrl() {
       var lastPath = location.href.split('/').pop();
-      return lastPath.indexOf('just-') == 0 ? lastPath : 'just-diff';
+      return lastPath.indexOf('just-') == 0 ? lastPath : 'just-clone';
     }
   }, {
     key: 'onSelect',
@@ -299,8 +299,44 @@ exports.default = function (_ref) {
           null,
           _react2.default.createElement(
             'span',
-            { style: { fontSize: 20, fontWeight: 'bold' } },
+            { style: { fontSize: 36, fontWeight: 'bold' } },
             moduleName
+          ),
+          _react2.default.createElement(
+            'span',
+            { style: { fontSize: 14 } },
+            '\xA0\xA0\xA0',
+            _react2.default.createElement(
+              'a',
+              {
+                'class': 'link selected',
+                href: 'https://github.com/angus-c/just#' + moduleName
+              },
+              'API'
+            )
+          ),
+          ', ',
+          _react2.default.createElement(
+            'span',
+            { style: { fontSize: 14 } },
+            _react2.default.createElement(
+              'a',
+              {
+                'class': 'link selected',
+                href: 'https://www.npmjs.com/package/' + moduleName
+              },
+              'NPM'
+            )
+          ),
+          ''
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'span',
+            { style: { fontFamily: 'consolas' } },
+            'npm install ' + moduleName
           )
         ),
         _react2.default.createElement(
@@ -309,20 +345,15 @@ exports.default = function (_ref) {
           _react2.default.createElement(
             'span',
             { style: { fontFamily: 'consolas' } },
-            'npm install',
-            ' ',
-            _react2.default.createElement(
-              'a',
-              {
-                'class': 'link selected',
-                href: 'https://www.npmjs.com/package/' + moduleName
-              },
-              moduleName
-            )
+            'yarn add ' + moduleName
           )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(_Evaluate2.default, { script: script })
         )
-      ),
-      _react2.default.createElement(_Evaluate2.default, { script: script })
+      )
     )
   );
 };
@@ -336,6 +367,10 @@ module.exports = {
   Collections: {
     symbol: '{}[]',
     utils: {
+      'just-clone': {
+        size: sizes['just-clone'],
+        code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nobjClone.d.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
+      },
       'just-diff': {
         size: sizes['just-diff'],
         code: ['const {diff, jsonPatchPathConverter} = require(\'just-diff\')\n\ndiff(\n  {a: 2, b: {bb: 4}, c: [1, 3]},\n  {b: {cc: 4}, c: [1, 2, 5]},\n  /* jsonPatchPathConverter */\n);']
@@ -347,10 +382,6 @@ module.exports = {
       'just-compare': {
         size: sizes['just-compare'],
         code: ['const compare = require(\'just-compare\')\n\ncompare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]);']
-      },
-      'just-clone': {
-        size: sizes['just-clone'],
-        code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nsubObj.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
       },
       'just-pluck-it': {
         size: sizes['just-pluck-it'],
