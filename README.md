@@ -18,7 +18,7 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 
 A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
 
-<a href="http://anguscroll.com/just"><img src="images/just-interactive-page.png" width="800"/></a>
+<a href="http://anguscroll.com/just"><img src="images/just-interactive-page.png" width="500"/></a>
 
 ## Browser Support :computer:
 
