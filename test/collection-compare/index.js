@@ -165,3 +165,15 @@ test('alike dates return true', function(t) {
   t.notOk(compare(new Date(2016, 8, 3), new Date(2016, 8, 3, 16)));
   t.end();
 });
+
+// https://github.com/angus-c/just/issues/98
+test('unalike complex objects do not crash when objects/arrays become null', function(t) {
+  t.plan(2);
+  var value1 = {a: [4, 2], b: 3};
+  var value2 = {a: null, c: 3};
+  t.notOk(compare(value1, value2));
+  var value3 = {a: {a: 1}, b: 3};
+  var value4 = {a: null, c: 3};
+  t.notOk(compare(value3, value4));
+  t.end();
+});
