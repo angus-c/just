@@ -23,7 +23,7 @@ function compare(value1, value2) {
   if ((value1 !== value1) && (value2 !== value2)) {
     return true;
   }
-  if (typeof value1 != typeof value2) {
+  if ({}.toString.call(value1) != {}.toString.call(value2)) {
     return false;
   }
   if (value1 !== Object(value1)) {
