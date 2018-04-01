@@ -26,6 +26,14 @@ export default class App extends React.Component {
       this.setState({ selectedFn: this.fnFromUrl(location.href) });
   }
 
+  componentDidMount() {
+    document.title = `Just... ${this.state.selectedFn}`;
+  }
+
+  componentDidUpdate() {
+    document.title = `Just... ${this.state.selectedFn}`;
+  }
+
   render() {
     return (
       <section className="container">

@@ -315,8 +315,9 @@ li > span.link.selected {
 }
 
 li.category {
-  color: black;
-  background-color: rgba(170, 158, 236, 0.1);
+  color: #fff;
+  background-color: #d94e44;
+  padding-left: 4px;
 }
 
 span.size {
@@ -334,8 +335,8 @@ li.selected span.size {
   color: #fff;
   text-align: center;
   height: 50px;
-  background-image: linear-gradient(to right, #897dd4, #b8abff);
-  border-bottom: 1px solid black;
+  background-color: #d94e44;
+  /* border-bottom: 1px solid black; */
   display: flex;
   align-items: center;
 }
