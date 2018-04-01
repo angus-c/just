@@ -81,9 +81,9 @@ body {
 
 .project-tagline {
   /* margin-bottom: 2rem; */
-  /* font-weight: bold; */
+  font-weight: 100;
   margin-left: 0.5rem;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 @media screen and (min-width: 42em) {
@@ -316,7 +316,7 @@ li > span.link.selected {
 
 li.category {
   color: #fff;
-  background-color: #d94e44;
+  background-color: hsl(32, 84%, 54%);
   padding-left: 4px;
 }
 
@@ -335,7 +335,7 @@ li.selected span.size {
   color: #fff;
   text-align: center;
   height: 50px;
-  background-color: #d94e44;
+  background-color: hsl(32, 84%, 54%);
   /* border-bottom: 1px solid black; */
   display: flex;
   align-items: center;

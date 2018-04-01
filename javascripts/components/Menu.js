@@ -30,7 +30,7 @@ export default ({ selected, onSelect }) => {
               style={{ listStyle: 'none' }}
             >
               <span>{category.name}</span>
-              <span style={{ 'font-family': 'Menlo', color: '#aaa' }}>
+              <span style={{ 'font-family': 'Menlo', color: '#ddd' }}>
                 {' ' + category.symbol}
               </span>
             </li>

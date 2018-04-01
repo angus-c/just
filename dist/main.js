@@ -240,7 +240,7 @@ exports.default = function (_ref) {
             ),
             _react2.default.createElement(
               'span',
-              { style: { 'font-family': 'Menlo', color: '#aaa' } },
+              { style: { 'font-family': 'Menlo', color: '#ddd' } },
               ' ' + category.symbol
             )
           ),
