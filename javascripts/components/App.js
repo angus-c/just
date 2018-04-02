@@ -27,11 +27,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    document.title = `Just... ${this.state.selectedFn}`;
+    document.title = this.state.selectedFn;
   }
 
   componentDidUpdate() {
-    document.title = `Just... ${this.state.selectedFn}`;
+    document.title = this.state.selectedFn;
   }
 
   render() {

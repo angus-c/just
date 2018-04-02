@@ -66,12 +66,12 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      document.title = 'Just... ' + this.state.selectedFn;
+      document.title = this.state.selectedFn;
     }
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
-      document.title = 'Just... ' + this.state.selectedFn;
+      document.title = this.state.selectedFn;
     }
   }, {
     key: 'render',
