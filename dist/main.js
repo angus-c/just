@@ -153,7 +153,6 @@ var Evaluate = function (_React$Component) {
   _createClass(Evaluate, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      debugger;
       notebook = RunKit.createNotebook({
         element: document.querySelector('#tonic'),
         source: this.props.script
