@@ -16,7 +16,9 @@ function pick(obj, select) {
   var len = select.length;
   for (var i = 0; i < len; i++) {
     var key = select[i];
-    result[key] = obj[key];
+    if (key in obj) {
+      result[key] = obj[key];
+    }
   }
   return result;
 }
