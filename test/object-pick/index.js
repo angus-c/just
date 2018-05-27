@@ -35,7 +35,7 @@ test('pick using arguments', function(t) {
 test('pick using a non-existent key', function(t) {
   t.plan(1);
   var obj = {a: 3, b: 5, c: 9};
-  t.ok(compare(pick(obj, ['a', 'b', 'd']), {a: 3, b: 5, d: undefined}));
+  t.ok(compare(pick(obj, ['a', 'b', 'd']), {a: 3, b: 5}));
   t.end();
 });
 

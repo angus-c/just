@@ -24,9 +24,9 @@ A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](http
 
 Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
 
-| Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android |
-| ------ | ------ | ------- | ------- | ---- | ------------- | ------- |
-| yes    | yes    | yes     | IE9+    | 6+   | iOS 8+     | Android OS 5+      |
+| Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android       |
+| ------ | ------ | ------- | ------- | ---- | ------------- | ------------- |
+| yes    | yes    | yes     | IE9+    | 6+   | iOS 8+        | Android OS 5+ |
 
 ## The Modules :package:
 
@@ -246,12 +246,12 @@ import compare from 'just-compare';
 // objects: if length, names and values of properties are identical
 compare([1, [2, 3]], [1, [2, 3]]); // true
 compare([1, [2, 3], 4], [1, [2, 3]]); // false
-compare({a: 2, b: 3}, {a: 2, b: 3}); // true
-compare({a: 2, b: 3}, {b: 3, a: 2}); // true
-compare({a: 2, b: 3, c: 4}, {a: 2, b: 3}); // false
-compare({a: 2, b: 3}, {a: 2, b: 3, c: 4}); // false
-compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}]]); // false
-compare([1, [2, {a: 4}], 4], [1, [2, {a: 4}], 4]); // true
+compare({ a: 2, b: 3 }, { a: 2, b: 3 }); // true
+compare({ a: 2, b: 3 }, { b: 3, a: 2 }); // true
+compare({ a: 2, b: 3, c: 4 }, { a: 2, b: 3 }); // false
+compare({ a: 2, b: 3 }, { a: 2, b: 3, c: 4 }); // false
+compare([1, [2, { a: 4 }], 4], [1, [2, { a: 4 }]]); // false
+compare([1, [2, { a: 4 }], 4], [1, [2, { a: 4 }], 4]); // true
 compare(NaN, NaN); // true
 ```
 
@@ -399,7 +399,7 @@ import pick from 'just-pick';
 var obj = { a: 3, b: 5, c: 9 };
 pick(obj, ['a', 'c']); // {a: 3, c: 9}
 pick(obj, 'a', 'c'); // {a: 3, c: 9}
-pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5, d: undefined}
+pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5}
 pick(obj, ['a', 'a']); // {a: 3}
 ```
 
