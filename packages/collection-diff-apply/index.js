@@ -87,7 +87,7 @@ function diffApply(obj, diff, pathConverter) {
       subObject = subObject[thisProp];
     }
     if (thisOp === REMOVE || thisOp === REPLACE) {
-      if (!subObject[lastProp]) {
+      if (!subObject.hasOwnProperty(lastProp)) {
         throw new Error(
           ['expected to find property', thisDiff.path, 'in object', obj].join(
             ' '
