@@ -18,10 +18,7 @@ test('flat objects', function(t) {
   t.deepEqual(obj2, {a: 4, c: 5});
 
   var obj3 = {a: 3, b: 5};
-  diffApply(obj3, [
-    {op: 'remove', path: ['b']},
-    {op: 'replace', path: ['a'], value: null},
-  ]);
+  diffApply(obj3, [{op: 'remove', path: ['b']}, {op: 'replace', path: ['a'], value: null}]);
   t.deepEqual(obj3, {a: null});
   t.end();
 });
@@ -109,14 +106,22 @@ test('object vs array', function(t) {
   t.end();
 });
 
+test('replacing falsey values', function(t) {
+  t.plan(1);
+  var obj11 = {a: false, b: null, c: 0};
+  diffApply(obj11, [
+    {op: 'replace', path: ['a'], value: true},
+    {op: 'replace', path: ['b'], value: 'bb'},
+    {op: 'replace', path: ['c'], value: 1},
+  ]);
+  t.deepEqual(obj11, {a: true, b: 'bb', c: 1});
+  t.end();
+});
+
 test('flat objects using js patch standard', function(t) {
   t.plan(2);
   var obj1 = {a: 3, b: 5};
-  diffApply(
-    obj1,
-    [{op: 'replace', path: '/a', value: 'hello'}],
-    jsonPatchPathConverter
-  );
+  diffApply(obj1, [{op: 'replace', path: '/a', value: 'hello'}], jsonPatchPathConverter);
   t.deepEqual(obj1, {a: 'hello', b: 5});
 
   var obj2 = {a: 3, b: 5};
@@ -237,27 +242,25 @@ test('object vs array using js patch standard', function(t) {
   var obj10 = ['a', 2];
   diffApply(
     obj10,
-    [
-      {op: 'remove', path: '/0'},
-      {op: 'remove', path: '/0'},
-      {op: 'add', path: '/a', value: 2},
-    ],
+    [{op: 'remove', path: '/0'}, {op: 'remove', path: '/0'}, {op: 'add', path: '/a', value: 2}],
     jsonPatchPathConverter
   );
   t.deepEqual(obj10, {a: 2});
   t.end();
 });
 
-test('object with false in a key being replaced', function(t) {
+test('replacing falsey values using js patch standard', function(t) {
   t.plan(1);
-  var obj11 = {a: false};
+  var obj11 = {a: false, b: null, c: 0};
   diffApply(
     obj11,
     [
       {op: 'replace', path: '/a', value: true},
+      {op: 'replace', path: '/b', value: 'bb'},
+      {op: 'replace', path: '/c', value: 1},
     ],
     jsonPatchPathConverter
   );
-  t.deepEqual(obj11, {'a': true});
+  t.deepEqual(obj11, {a: true, b: 'bb', c: 1});
   t.end();
 });
