@@ -247,3 +247,17 @@ test('object vs array using js patch standard', function(t) {
   t.deepEqual(obj10, {a: 2});
   t.end();
 });
+
+test('object with false in a key being replaced', function(t) {
+  t.plan(1);
+  var obj11 = {a: false};
+  diffApply(
+    obj11,
+    [
+      {op: 'replace', path: '/a', value: true},
+    ],
+    jsonPatchPathConverter
+  );
+  t.deepEqual(obj11, {'a': true});
+  t.end();
+});
