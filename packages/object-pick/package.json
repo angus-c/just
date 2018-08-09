@@ -1,13 +1,19 @@
 {
   "name": "just-pick",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "copy an object but with only the specified keys",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["object", "pick", "keys", "no-dependencies", "just"],
+  "keywords": [
+    "object",
+    "pick",
+    "keys",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

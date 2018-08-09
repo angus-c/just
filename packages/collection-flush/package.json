@@ -1,6 +1,6 @@
 {
   "name": "just-flush",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "returns a copy of an array or object with null/undefined members removed",
   "main": "index.js",
   "scripts": {

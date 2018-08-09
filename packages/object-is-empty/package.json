@@ -1,6 +1,6 @@
 {
   "name": "just-is-empty",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "determine if an object is empty",
   "main": "index.js",
   "scripts": {
