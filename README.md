@@ -16,9 +16,9 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 
 ## Try :icecream:
 
-A [REPL](http://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
+A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
 
-<a href="http://anguscroll.com/just"><img src="images/repl.png" width="500"/></a>
+<a href="https://anguscroll.com/just"><img src="images/repl.png" width="500"/></a>
 
 ## Browser Support :computer:
 
