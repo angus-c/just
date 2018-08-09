@@ -1,13 +1,21 @@
 {
   "name": "just-clone",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "deep copies objects and arrays",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["object", "clone", "copy", "deep-copy", "extend", "no-dependencies", "just"],
+  "keywords": [
+    "object",
+    "clone",
+    "copy",
+    "deep-copy",
+    "extend",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

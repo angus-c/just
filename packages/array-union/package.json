@@ -1,13 +1,18 @@
 {
   "name": "just-union",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "returns the union of two arrays",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["array", "union", "no-dependencies", "just"],
+  "keywords": [
+    "array",
+    "union",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

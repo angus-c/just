@@ -1,13 +1,18 @@
 {
   "name": "just-curry-it",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "return a curried function",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["function", "curry", "no-dependencies", "just"],
+  "keywords": [
+    "function",
+    "curry",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {

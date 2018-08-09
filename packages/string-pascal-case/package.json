@@ -1,6 +1,6 @@
 {
   "name": "just-pascal-case",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "convert a string to pascal case",
   "main": "index.js",
   "scripts": {

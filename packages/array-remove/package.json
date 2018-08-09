@@ -1,13 +1,18 @@
 {
   "name": "just-remove",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "removes one array from another",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["array", "remove", "no-dependencies", "just"],
+  "keywords": [
+    "array",
+    "remove",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
