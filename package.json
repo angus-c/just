@@ -7,7 +7,7 @@
     "test": "test"
   },
   "devDependencies": {
-    "eslint": "^4.7.0",
+    "eslint": "^5.0.0",
     "lerna": "2.0.0-beta.23",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0"
