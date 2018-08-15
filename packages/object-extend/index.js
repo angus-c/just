@@ -43,13 +43,14 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
   for (var i = 0; i < len; i++) {
     var extender = extenders[i];
     for (var key in extender) {
-      // include prototype properties
-      var value = extender[key];
-      if (deep && isCloneable(value)) {
-        var base = Array.isArray(value) ? [] : {};
-        result[key] = extend(true, result[key] || base, value);
-      } else {
-        result[key] = value;
+      if (extender.hasOwnProperty(key)) {
+        var value = extender[key];
+        if (deep && isCloneable(value)) {
+          var base = Array.isArray(value) ? [] : {};
+          result[key] = extend(true, result[key] || base, value);
+        } else {
+          result[key] = value;
+        }
       }
     }
   }
