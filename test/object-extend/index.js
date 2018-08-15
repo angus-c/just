@@ -223,18 +223,18 @@ test("extendee can't be a primitive", function(t) {
   t.end();
 });
 
-test('shallow extend copies prototype values', function(t) {
+test('shallow extend does not copy prototype values', function(t) {
   t.plan(2);
   var obj1 = {a: 3, b: 5};
   var obj2 = Object.create({c: 9, d: 4, e: 3});
   obj2.a = 4;
   obj2.e = 7;
-  t.deepEqual(extend(obj1, obj2), {a: 4, b: 5, c: 9, d: 4, e: 7});
-  t.deepEqual(obj1, {a: 4, b: 5, c: 9, d: 4, e: 7});
+  t.deepEqual(extend(obj1, obj2), {a: 4, b: 5, e: 7});
+  t.deepEqual(obj1, {a: 4, b: 5, e: 7});
   t.end();
 });
 
-test('deep extend copies prototype values', function(t) {
+test('deep extend does not copy prototype values', function(t) {
   t.plan(2);
   var obj1 = {a: 3, b: 5};
   var obj2 = Object.create({c: 9, d: 4});
@@ -248,10 +248,8 @@ test('deep extend copies prototype values', function(t) {
     a: 4,
     b: 5,
     e: 7,
-    h: {f: 2, g: 88, x: 12, y: 33},
-    c: 9,
-    d: 4,
+    h: {f: 2, g: 88},
   });
-  t.deepEqual(obj1, {a: 4, b: 5, e: 7, h: {f: 2, g: 88, x: 12, y: 33}, c: 9, d: 4});
+  t.deepEqual(obj1, {a: 4, b: 5, e: 7, h: {f: 2, g: 88}});
   t.end();
 });
