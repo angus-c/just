@@ -11,8 +11,8 @@ We welcome contributions. Please follow our [contribution guidelines](https://gi
 
 ## Read :books:
 
-* [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
-* [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
+- [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
+- [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
 ## Try :icecream:
 
@@ -30,74 +30,74 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 
 ## The Modules :package:
 
-* [Collections](#collections) {}[]
-  * [just-diff](#just-diff)
-  * [just-diff-apply](#just-diff-apply)
-  * [just-compare](#just-compare)
-  * [just-clone](#just-clone)
-  * [just-pluck-it](#just-pluck-it)
-  * [just-flush](#just-flush)
-* [Objects](#objects) {}
-  * [just-extend](#just-extend)
-  * [just-merge](#just-merge)
-  * [just-values](#just-values)
-  * [just-entries](#just-entries)
-  * [just-pick](#just-pick)
-  * [just-omit](#just-omit)
-  * [just-filter-object](#just-filter-object)
-  * [just-map-object](#just-map-object)
-  * [just-map-values](#just-map-values)
-  * [just-map-keys](#just-map-values)
-  * [just-reduce-object](#just-reduce-object)
-  * [just-is-empty](#just-is-empty)
-  * [just-is-circular](#just-is-circular)
-  * [just-is-primitive](#just-is-primitive)
-  * [just-safe-get](#just-safe-get)
-  * [just-safe-set](#just-safe-set)
-  * [just-typeof](#just-typeof)
-  * [just-flip-object](#just-flip-object)
-* [Arrays](#arrays) []
-  * [just-unique](#just-unique)
-  * [just-flatten-it](#just-flatten-it)
-  * [just-index](#just-index)
-  * [just-insert](#just-insert)
-  * [just-intersect](#just-intersect)
-  * [just-compact](#just-compact)
-  * [just-last](#just-last)
-  * [just-tail](#just-tail)
-  * [just-random](#just-random)
-  * [just-shuffle](#just-shuffle)
-  * [just-split](#just-split)
-  * [just-split-at](#just-split-at)
-  * [just-partition](#just-partition)
-  * [just-range](#just-range)
-  * [just-remove](#just-remove)
-  * [just-union](#just-union)
-  * [just-zip-it](#just-zip-it)
-* [Strings](#strings) ""
-  * [just-template](#just-template)
-  * [just-truncate](#just-truncate)
-  * [just-prune](#just-prune)
-  * [just-squash](#just-squash)
-  * [just-left-pad](#just-left-pad)
-  * [just-right-pad](#just-right-pad)
-  * [just-camel-case](#just-camel-case)
-  * [just-kebab-case](#just-kebab-case)
-  * [just-snake-case](#just-snake-case)
-  * [just-pascal-case](#just-pascal-case)
-* [Numbers](#numbers) +-
-  * [just-clamp](#just-clamp)
-  * [just-modulo](#just-modulo)
-* [Functions](#functions) =>
+- [Collections](#collections) {}[]
+  - [just-diff](#just-diff)
+  - [just-diff-apply](#just-diff-apply)
+  - [just-compare](#just-compare)
+  - [just-clone](#just-clone)
+  - [just-pluck-it](#just-pluck-it)
+  - [just-flush](#just-flush)
+- [Objects](#objects) {}
+  - [just-extend](#just-extend)
+  - [just-merge](#just-merge)
+  - [just-values](#just-values)
+  - [just-entries](#just-entries)
+  - [just-pick](#just-pick)
+  - [just-omit](#just-omit)
+  - [just-filter-object](#just-filter-object)
+  - [just-map-object](#just-map-object)
+  - [just-map-values](#just-map-values)
+  - [just-map-keys](#just-map-values)
+  - [just-reduce-object](#just-reduce-object)
+  - [just-is-empty](#just-is-empty)
+  - [just-is-circular](#just-is-circular)
+  - [just-is-primitive](#just-is-primitive)
+  - [just-safe-get](#just-safe-get)
+  - [just-safe-set](#just-safe-set)
+  - [just-typeof](#just-typeof)
+  - [just-flip-object](#just-flip-object)
+- [Arrays](#arrays) []
+  - [just-unique](#just-unique)
+  - [just-flatten-it](#just-flatten-it)
+  - [just-index](#just-index)
+  - [just-insert](#just-insert)
+  - [just-intersect](#just-intersect)
+  - [just-compact](#just-compact)
+  - [just-last](#just-last)
+  - [just-tail](#just-tail)
+  - [just-random](#just-random)
+  - [just-shuffle](#just-shuffle)
+  - [just-split](#just-split)
+  - [just-split-at](#just-split-at)
+  - [just-partition](#just-partition)
+  - [just-range](#just-range)
+  - [just-remove](#just-remove)
+  - [just-union](#just-union)
+  - [just-zip-it](#just-zip-it)
+- [Strings](#strings) ""
+  - [just-template](#just-template)
+  - [just-truncate](#just-truncate)
+  - [just-prune](#just-prune)
+  - [just-squash](#just-squash)
+  - [just-left-pad](#just-left-pad)
+  - [just-right-pad](#just-right-pad)
+  - [just-camel-case](#just-camel-case)
+  - [just-kebab-case](#just-kebab-case)
+  - [just-snake-case](#just-snake-case)
+  - [just-pascal-case](#just-pascal-case)
+- [Numbers](#numbers) +-
+  - [just-clamp](#just-clamp)
+  - [just-modulo](#just-modulo)
+- [Functions](#functions) =>
 
-  * [just-compose](#just-compose)
-  * [just-curry-it](#just-curry-it)
-  * [just-demethodize](#just-demethodize)
-  * [just-flip](#just-flip)
-  * [just-partial-it](#just-partial-it)
-  * [just-debounce-it](#just-debounce-it)
-  * [just-throttle](#just-throttle)
-  * [just-once](#just-once)
+  - [just-compose](#just-compose)
+  - [just-curry-it](#just-curry-it)
+  - [just-demethodize](#just-demethodize)
+  - [just-flip](#just-flip)
+  - [just-partial-it](#just-partial-it)
+  - [just-debounce-it](#just-debounce-it)
+  - [just-throttle](#just-throttle)
+  - [just-once](#just-once)
 
   ### Collections
 
@@ -1084,17 +1084,16 @@ camelCase('the quick brown fox'); // 'theQuickBrownFox'
 camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
 camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
 camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
-camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
-camelCase('Behold theQuickBrownFox'); // 'BeholdTheQuickBrownFox'
 camelCase('thequickbrownfox'); // 'thequickbrownfox'
 camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
-
-// `strict` lower cases anything not at the beginning of a word
-// and the very first letter
-camelCase('theQuickBrownFox', { strict: true }); // 'thequickbrownfox'
-camelCase('behold theQuickBrownFox', { strict: true }); // 'beholdThequickbrownfox'
-camelCase('Behold theQUICKBrownFox', { strict: true }); // 'beholdThequickbrownfox'
+camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+// all caps words are camel-cased
+camelCase('The quick brown FOX'); // theQuickBrownFox
+// all caps substrings >= 4 chars are camel-cased
+camelCase('theQUickBrownFox'); // 'theQUickBrownFox'
+camelCase('theQUIckBrownFox'); // 'theQUIckBrownFox'
+camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'
 ```
 
 ### [just-kebab-case](https://www.npmjs.com/package/just-kebab-case)
@@ -1212,7 +1211,11 @@ modulo(null, undefined); // NaN
 ```js
 import compose from 'just-compose';
 
-const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
+const sqRootBiggest = compose(
+  Math.max,
+  Math.sqrt,
+  Math.trunc
+);
 sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```

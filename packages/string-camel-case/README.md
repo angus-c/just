@@ -10,15 +10,14 @@ Guilt-free utilities for every occasion.
   camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
   camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
   camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
-  camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'  
-  camelCase('Behold theQuickBrownFox'); // 'BeholdTheQuickBrownFox'    
   camelCase('thequickbrownfox'); // 'thequickbrownfox'
   camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-  camelCase('theQUICKBrownFox'); // 'theQUICKBrownFox'
-
-  // `strict` lower cases anything not at the beginning of a word 
-  // and the very first letter
-  camelCase('theQuickBrownFox', {strict: true}); // 'thequickbrownfox'    
-  camelCase('behold theQuickBrownFox', {strict: true}); // 'beholdThequickbrownfox'    
-  camelCase('Behold theQUICKBrownFox', {strict: true}); // 'beholdThequickbrownfox' 
+  camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+  camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+  // all caps words are camel-cased
+  camelCase('The quick brown FOX'), 'theQuickBrownFox');
+  // all caps substrings >= 4 chars are camel-cased
+  camelCase('theQUickBrownFox'); // 'theQUickBrownFox'
+  camelCase('theQUIckBrownFox'); // 'theQUIckBrownFox'
+  camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'
 ```
