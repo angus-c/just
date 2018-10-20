@@ -19,11 +19,9 @@ function camelCase(str, options) {
     }
     var isCamelCase = basicCamelRegEx.test(word) && !allCapsRegEx.test(word);
     if (isCamelCase) {
-      console.log('before', word);
       word = word.replace(fourOrMoreConsecutiveCapsRegEx, function(match, p1, offset) {
         return deCap(match, word.length - offset + match.length);
       });
-      console.log('after', word);
     }
     var firstLetter = word[0];
     firstLetter = i > 0 ? firstLetter.toUpperCase() : firstLetter.toLowerCase();
