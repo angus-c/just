@@ -25,7 +25,7 @@ test('string with mixed spaces and punctuation', function(t) {
 });
 
 test('string with existing capitalization', function(t) {
-  t.plan(12);
+  t.plan(13);
   t.equal(camelCase('theQuickBrownFox'), 'theQuickBrownFox');
   t.equal(camelCase('TheQuickBrownFox'), 'theQuickBrownFox');
   t.equal(camelCase('the Quick Brown Fox'), 'theQuickBrownFox');
@@ -37,6 +37,7 @@ test('string with existing capitalization', function(t) {
   t.equal(camelCase('Behold theQUIckBrownFox'), 'beholdTheQUIckBrownFox');
   t.equal(camelCase('Behold theQUICkBrownFox'), 'beholdTheQuiCkBrownFox');
   t.equal(camelCase('Behold theQUICKBrownFox'), 'beholdTheQuickBrownFox');
+  t.equal(camelCase('Behold theQUICKBrownFOXES'), 'beholdTheQuickBrownFoxes');
   t.equal(camelCase('THE_QUICK_BROWN_FOX'), 'theQuickBrownFox');
   t.equal(camelCase('THE_QUICK/BROWN_FOX'), 'theQuickBrownFox');
   t.end();

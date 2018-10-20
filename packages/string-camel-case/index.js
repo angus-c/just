@@ -20,7 +20,7 @@ function camelCase(str, options) {
     var isCamelCase = basicCamelRegEx.test(word) && !allCapsRegEx.test(word);
     if (isCamelCase) {
       word = word.replace(fourOrMoreConsecutiveCapsRegEx, function(match, p1, offset) {
-        return deCap(match, word.length - offset + match.length);
+        return deCap(match, word.length - offset - match.length == 0);
       });
     }
     var firstLetter = word[0];
@@ -33,6 +33,6 @@ function camelCase(str, options) {
 function deCap(match, endOfWord) {
   var arr = match.split('');
   var first = arr.shift().toUpperCase();
-  var last = endOfWord ? arr.pop() : arr.pop().toUpperCase();
+  var last = endOfWord ? arr.pop().toLowerCase() : arr.pop();
   return first + arr.join('').toLowerCase() + last;
 }
