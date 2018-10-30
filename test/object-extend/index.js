@@ -253,3 +253,18 @@ test('deep extend does not copy prototype values', function(t) {
   t.deepEqual(obj1, {a: 4, b: 5, e: 7, h: {f: 2, g: 88}});
   t.end();
 });
+
+test('deep extend cannot extend a constructor`s prototype', function(t) {
+  t.plan(8);
+  var attackObj = {constructor: {prototype: {isAdmin: true}}};
+  var obj = extend(true, {}, attackObj);
+  t.equal({}.isAdmin, undefined);
+  t.equal({}.__proto__.isAdmin, undefined);
+  t.ok(typeof {}.constructor === 'function');
+  t.ok(obj.constructor);
+  t.ok(typeof obj.constructor === 'object');
+  t.ok(obj.constructor.prototype);
+  t.ok(typeof obj.constructor.prototype === 'object');
+  t.ok(obj.constructor.prototype.isAdmin, true);
+  t.end();
+});
