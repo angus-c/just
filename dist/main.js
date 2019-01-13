@@ -699,17 +699,17 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 "use strict";
 
 module.exports = {
+  "just-clone": "225",
   "just-diff": "403",
-  "just-diff-apply": "380",
-  "just-compare": "221",
-  "just-clone": "140",
+  "just-diff-apply": "383",
+  "just-compare": "222",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",
-  "just-extend": "208",
+  "just-extend": "236",
   "just-values": "127",
   "just-entries": "100",
-  "just-pick": "75",
+  "just-pick": "82",
   "just-omit": "80",
   "just-filter-object": "58",
   "just-flip-object": "52",
@@ -717,7 +717,7 @@ module.exports = {
   "just-map-keys": "57",
   "just-map-values": "54",
   "just-reduce-object": "87",
-  "just-is-empty": "56",
+  "just-is-empty": "53",
   "just-is-circular": "140",
   "just-is-primitive": "12",
   "just-safe-get": "75",
@@ -746,7 +746,7 @@ module.exports = {
   "just-squash": "34",
   "just-left-pad": "316",
   "just-right-pad": "316",
-  "just-camel-case": "195",
+  "just-camel-case": "325",
   "just-snake-case": "149",
   "just-kebab-case": "149",
   "just-pascal-case": "162",
@@ -757,8 +757,8 @@ module.exports = {
   "just-demethodize": "107",
   "just-partial-it": "98",
   "just-flip": "61",
-  "just-debounce-it": "90",
-  "just-throttle": "76",
+  "just-debounce-it": "88",
+  "just-throttle": "84",
   "just-once": "78"
 };
 
