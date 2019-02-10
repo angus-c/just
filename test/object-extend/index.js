@@ -254,7 +254,7 @@ test('deep extend does not copy prototype values', function(t) {
   t.end();
 });
 
-test.only('deep extend cannot extend native prototypes', function(t) {
+test('deep extend cannot extend native prototypes', function(t) {
   t.plan(14);
   var attackObj1 = {constructor: {prototype: {isAdmin: true}}};
   var obj1 = extend(true, {}, attackObj1);
