@@ -5,7 +5,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   overflow: hidden;
@@ -13,7 +13,7 @@ body {
 }
 
 .page-header a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
 }
 .page-header a:hover {
@@ -40,6 +40,11 @@ body {
   transition: background-color 0.2s;
 }
 
+.btn.right {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
 .btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -63,7 +68,7 @@ body {
 
 @media screen and (min-width: 42em) {
   .project-name {
-    font-size: 1.75rem;
+    font-size: 3rem;
   }
 }
 
@@ -81,26 +86,26 @@ body {
 
 .project-tagline {
   /* margin-bottom: 2rem; */
-  font-weight: 100;
+  font-weight: 300;
   margin-left: 0.5rem;
   opacity: 1;
 }
 
 @media screen and (min-width: 42em) {
   .project-tagline {
-    font-size: 0.75rem;
+    font-size: 3rem;
   }
 }
 
 @media screen and (min-width: 30em) and (max-width: 42em) {
   .project-tagline {
-    font-size: 0.6rem;
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 30em) {
   .project-tagline {
-    font-size: 0.35rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -315,9 +320,10 @@ li > span.link.selected {
 }
 
 li.category {
-  color: #fff;
-  background-color: hsl(32, 84%, 54%);
-  padding-left: 4px;
+  color: #000;
+  border-bottom: 1px #ddd solid;
+  list-style-position:inside;  
+  padding: 10px 0 0 4px;
 }
 
 span.size {
@@ -332,13 +338,15 @@ li.selected span.size {
 }
 
 .page-header {
-  color: #fff;
+  color: #000;
   text-align: center;
   height: 50px;
-  background-color: hsl(32, 84%, 54%);
+  /* background-color: hsl(32, 84%, 54%); */
   /* border-bottom: 1px solid black; */
   display: flex;
   align-items: center;
+  margin: 20px 0;
+  /* padding-bottom: 20px;   */
 }
 
 .container {

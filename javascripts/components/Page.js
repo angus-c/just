@@ -13,7 +13,7 @@ export default class Page extends React.Component {
         <div>
           <ul>
             <li>
-              <span style={{ fontSize: 36, fontWeight: 'bold' }}>
+              <span style={{ fontSize: 36, color: '#000' }}>
                 {moduleName}
               </span>
               <span style={{ fontSize: 14 }}>

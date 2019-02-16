@@ -239,7 +239,7 @@ exports.default = function (_ref) {
             ),
             _react2.default.createElement(
               'span',
-              { style: { 'font-family': 'Menlo', color: '#ddd' } },
+              { style: { 'font-family': 'Menlo', color: '#888' } },
               ' ' + category.symbol
             )
           ),
@@ -329,7 +329,7 @@ var Page = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'span',
-                { style: { fontSize: 36, fontWeight: 'bold' } },
+                { style: { fontSize: 36, color: '#000' } },
                 moduleName
               ),
               _react2.default.createElement(
