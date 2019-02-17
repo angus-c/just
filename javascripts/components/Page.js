@@ -12,14 +12,12 @@ export default class Page extends React.Component {
       >
         <div>
           <ul>
-            <li>
-              <span style={{ fontSize: 36, color: '#000' }}>
-                {moduleName}
-              </span>
+            <li key={'header'}>
+              <span style={{ fontSize: 36, color: '#000' }}>{moduleName}</span>
               <span style={{ fontSize: 14 }}>
                 {'\u00a0\u00a0\u00a0'}
                 <a
-                  class="link selected"
+                  className="link selected"
                   href={`https://github.com/angus-c/just#${moduleName}`}
                 >
                   API
@@ -28,7 +26,7 @@ export default class Page extends React.Component {
               {', '}
               <span style={{ fontSize: 14 }}>
                 <a
-                  class="link selected"
+                  className="link selected"
                   href={`https://www.npmjs.com/package/${moduleName}`}
                 >
                   NPM
@@ -36,17 +34,17 @@ export default class Page extends React.Component {
               </span>
               {''}
             </li>
-            <li>
+            <li key={'npm'}>
               <span style={{ fontFamily: 'consolas' }}>
                 {`npm install ${moduleName}`}
               </span>
             </li>
-            <li>
+            <li key={'yarn'}>
               <span style={{ fontFamily: 'consolas' }}>
                 {`yarn add ${moduleName}`}
               </span>
             </li>
-            <li>
+            <li key={'repl'}>
               <Evaluate script={script} />
             </li>
           </ul>

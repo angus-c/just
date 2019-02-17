@@ -239,7 +239,7 @@ exports.default = function (_ref) {
             ),
             _react2.default.createElement(
               'span',
-              { style: { 'font-family': 'Menlo', color: '#888' } },
+              { style: { fontFamily: 'Menlo', color: '#888' } },
               ' ' + category.symbol
             )
           ),
@@ -326,7 +326,7 @@ var Page = function (_React$Component) {
             null,
             _react2.default.createElement(
               'li',
-              null,
+              { key: 'header' },
               _react2.default.createElement(
                 'span',
                 { style: { fontSize: 36, color: '#000' } },
@@ -339,7 +339,7 @@ var Page = function (_React$Component) {
                 _react2.default.createElement(
                   'a',
                   {
-                    'class': 'link selected',
+                    className: 'link selected',
                     href: 'https://github.com/angus-c/just#' + moduleName
                   },
                   'API'
@@ -352,7 +352,7 @@ var Page = function (_React$Component) {
                 _react2.default.createElement(
                   'a',
                   {
-                    'class': 'link selected',
+                    className: 'link selected',
                     href: 'https://www.npmjs.com/package/' + moduleName
                   },
                   'NPM'
@@ -362,7 +362,7 @@ var Page = function (_React$Component) {
             ),
             _react2.default.createElement(
               'li',
-              null,
+              { key: 'npm' },
               _react2.default.createElement(
                 'span',
                 { style: { fontFamily: 'consolas' } },
@@ -371,7 +371,7 @@ var Page = function (_React$Component) {
             ),
             _react2.default.createElement(
               'li',
-              null,
+              { key: 'yarn' },
               _react2.default.createElement(
                 'span',
                 { style: { fontFamily: 'consolas' } },
@@ -380,7 +380,7 @@ var Page = function (_React$Component) {
             ),
             _react2.default.createElement(
               'li',
-              null,
+              { key: 'repl' },
               _react2.default.createElement(_Evaluate2.default, { script: script })
             )
           )

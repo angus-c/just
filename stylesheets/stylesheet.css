@@ -41,7 +41,6 @@ body {
 }
 
 .btn.right {
-  font-size: 1.5rem;
   font-weight: 300;
 }
 
@@ -91,22 +90,22 @@ body {
   opacity: 1;
 }
 
-@media screen and (min-width: 42em) {
+@media screen and (min-width: 54em) {
   .project-tagline {
     font-size: 3rem;
   }
-}
-
-@media screen and (min-width: 30em) and (max-width: 42em) {
-  .project-tagline {
+  .btn.right {
     font-size: 1.5rem;
-  }
+  }  
 }
 
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 54em) {
   .project-tagline {
-    font-size: 1.25rem;
+    display: none;
   }
+  .btn.right {
+    font-size: 1rem;
+  }  
 }
 
 .main-content :first-child {
