@@ -4,6 +4,7 @@ module.exports = typeOf;
   typeOf({}); // 'object'
   typeOf([]); // 'array'
   typeOf(function() {}); // 'function'
+  typeOf(async function() {}); // 'function'
   typeOf(/a/); // 'regexp'
   typeOf(new Date()); // 'date'
   typeOf(null); // 'null'
@@ -20,8 +21,11 @@ function typeOf(obj) {
   if (obj !== Object(obj)) {
     return typeof obj;
   }
-  return {}.toString
+  var result = {}.toString
     .call(obj)
     .slice(8, -1)
     .toLowerCase();
+
+  // strip function adornments (e.g. "sAsyncFunction")
+  return result.toLowerCase().indexOf('function') > -1 ? 'function' : result;
 }
