@@ -6,6 +6,8 @@ test('all types', function(t) {
   t.equal(typeOf([]), 'array');
   t.equal(typeOf(new Array()), 'array');
   t.equal(typeOf(function() {}), 'function');
+  t.equal(typeOf(async function() {}), 'function');
+  t.equal(typeOf(function* () {}), 'function');
   t.equal(typeOf(new Function()), 'function');
   t.equal(typeOf(/a/), 'regexp');
   t.equal(typeOf(new Date()), 'date');
