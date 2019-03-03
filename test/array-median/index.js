@@ -12,7 +12,7 @@ test('array of numbers (length is odd) returns middle sorted value', function(t)
   t.equal(median([1, 2, 3, 4, 5]), 3);
   t.equal(median([5, 4, 1, 2, 4]), 4);
   t.equal(median([-1, -8, 312, 4, 5, 0, 0, 2, 1]), 1);
-  t.equal(5);
+  t.equal(median(5), 5);
   t.end();
 });
 

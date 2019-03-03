@@ -7,11 +7,15 @@ function mean(arr) {
   if (!arr.length) {
     throw new Error('no values were passed to `mean`');
   }
-  var sum = arr.reduce(function(acc, n) {
+
+  var sum = 0;
+  var len = arr.length;
+  for (var i = 0; i < len; i++) {
+    var n = arr[i];
     if (typeof n != 'number') {
       throw new Error('all values passed to `mean` must be numeric');
     }
-    return acc + n;
-  }, 0);
+    sum += n;
+  }
   return sum / arr.length;
 }

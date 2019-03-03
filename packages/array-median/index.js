@@ -1,5 +1,7 @@
 module.exports = median;
 
+var nonNumericMsg = 'all values passed to `median` must be numeric';
+
 function median(arr) {
   if (!Array.isArray(arr)) {
     arr = [].slice.call(arguments);
@@ -8,15 +10,15 @@ function median(arr) {
     throw new Error('no values were passed to `median`');
   }
   if (arr.length == 1) {
-    if (typeof arr[1] === 'number') {
-      return arr[1];
+    if (typeof arr[0] == 'number') {
+      return arr[0];
     } else {
-      throw new Error('all values passed to `median` must be numeric');
+      throw new Error(nonNumericMsg);
     }
   }
   var sorted = arr.sort(function(a, b) {
     if (typeof a != 'number') {
-      throw new Error('all values passed to `median` must be numeric');
+      throw new Error(nonNumericMsg);
     }
     return a <= b ? 1 : -1;
   }, 0);
