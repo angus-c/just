@@ -1,19 +1,16 @@
 {
-  "name": "just-clamp",
-  "version": "3.1.0",
-  "description": "restrict a number within a range",
+  "name": "just-mode",
+  "version": "1.0.0",
+  "description": "return the most frequently occuring number(s)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "clamp",
-    "restrict",
-    "greater",
-    "less",
-    "range",
-    "number",
+    "mode",
+    "statistics",
+    "stats",
     "just"
   ],
   "author": "Angus Croll",
