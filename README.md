@@ -86,6 +86,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-remove](#just-remove)
   - [just-union](#just-union)
   - [just-zip-it](#just-zip-it)
+  - [just-mean](#just-mean)
 - [Strings](#strings) ""
   - [just-template](#just-template)
   - [just-truncate](#just-truncate)
@@ -1011,6 +1012,22 @@ zip([1, 2], ['a', 'b'], [true, false]); // [[1, 'a', true], [2, 'b', false]]
 zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
 zip(undefined, {}, false, 1, 'foo'); // throws
 zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
+```
+
+### [just-mean](https://www.npmjs.com/package/just-mean)
+
+:icecream:[`Try It`](http://anguscroll.com/just/just-mean)
+
+`npm install just-mean`
+
+```js
+import mean from 'just-mean';
+
+mean([1, 2, 3, 2, 4, 1]); // 2.1666666667
+mean(3, 2, 1); // 2
+mean([4]); // 4
+mean(['3', 2]); // throws
+mean(); // throws
 ```
 
 ### Strings

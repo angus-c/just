@@ -1,0 +1,22 @@
+{
+  "name": "just-safe-get",
+  "version": "1.3.0",
+  "description": "get value at property, don't throw if parent is undefined",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "object",
+    "safe",
+    "get",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
