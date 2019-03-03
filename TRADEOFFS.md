@@ -4,7 +4,7 @@ The most common reaction to Just is why not just use [__Lodash__](https://lodash
 
 ## Short, simplified answer
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
-* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records) *and* the resulting performance gains are worth the page load lag from the extra JavaScript payload. 
+* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records) *and* the runtime performance gains exceed the extra page load lag from the increased JavaScript payload. 
 * Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if they provide a method that Just doesn't (and there are many).
 * Use __Just__ if you care about JavaScript footprint (and none of the above applies).
 
