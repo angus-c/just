@@ -23,7 +23,7 @@ test('non-numeric values throw', function(t) {
     mean([1, '2', 3, 4]);
   });
   t.throws(function() {
-    mean({});
+    mean({a: 2});
   });
   t.throws(function() {
     mean(undefined);
