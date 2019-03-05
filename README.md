@@ -87,6 +87,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-union](#just-union)
   - [just-zip-it](#just-zip-it)
   - [just-mean](#just-mean)
+  - [just-median](#just-median)
+  - [just-mode](#just-mode)
 - [Strings](#strings) ""
   - [just-template](#just-template)
   - [just-truncate](#just-truncate)
@@ -1028,6 +1030,40 @@ mean(3, 2, 1); // 2
 mean([4]); // 4
 mean(['3', 2]); // throws
 mean(); // throws
+```
+
+### [just-median](https://www.npmjs.com/package/just-median)
+
+:icecream:[`Try It`](http://anguscroll.com/just/just-median)
+
+`npm install just-median`
+
+```js
+import median from 'just-median';
+
+median([1, 2, 3, 4, 5]); // 5
+median([3, -1, 2]); // 2
+median([9, 14, 14, 200, 15]); // 14
+median(1, 2, 4, 3); // 2.5
+median(['3', 2, 1]); // throws
+median(); // throws
+```
+
+### [just-mode](https://www.npmjs.com/package/just-mode)
+
+:icecream:[`Try It`](http://anguscroll.com/just/just-mode)
+
+`npm install just-mode`
+
+```js
+import mode from 'just-mode';
+
+mode([1, 2, 3, 2]); // 2
+mode(4, 4, 1, 4); // 4
+mode(100, 100, 101, 101); // [100, 101]
+mode(4, 3, 2, 1); // [1, 2, 3, 4]
+mode(['1', 2, 2, 1, 2]); // throws
+mode(null); // throws
 ```
 
 ### Strings

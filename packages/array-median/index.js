@@ -20,8 +20,8 @@ function median(arr) {
     if (typeof a != 'number') {
       throw new Error(nonNumericMsg);
     }
-    return a <= b ? 1 : -1;
-  }, 0);
+    return a >= b ? 1 : -1;
+  });
   var lowerMiddleRank = Math.floor(arr.length / 2);
   return arr.length / 2 != lowerMiddleRank
     ? sorted[lowerMiddleRank]

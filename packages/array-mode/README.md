@@ -3,7 +3,7 @@
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-```
+```js
 import mode from 'just-mode';
 
 mode([1, 2, 3, 2]); // 2

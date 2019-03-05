@@ -1,42 +1,40 @@
-module.exports = clamp;
+module.exports = percentile;
 
-/*
-  var n = 5;
-  clamp(1, n, 12); // 5
-  clamp(12, n, 3); // 3
-  clamp(8.2, n, 9,4); // 8.2
-  clamp(0, n, 0); // 0
+var nonNumericMsg = 'all values passed to `percentile` must be numeric';
 
-  var n = -2;
-  clamp(1, n, 12); // 1
-  clamp(-4, n, -7); // -4
+// Using linear interpolation method
+// https://en.wikipedia.org/wiki/Percentile
 
-  clamp(NaN, n, 8); // NaN
-  clamp(3, n, NaN); // NaN
-  clamp(3, NaN, 8); // NaN
-
-  clamp(undefined, n, 8); // throws
-  clamp(3, n, 'h'); // throws
-  clamp(12, false, 8); // throws
-*/
-
-function clamp(b1, n, b2) {
-  if (typeof b1 != 'number' || typeof n != 'number' || typeof b2 != 'number') {
-    throw new Error('arguments must be numbers');
+function percentile(arr, percentileValue) {
+  if (!Array.isArray(arr)) {
+    throw new Error('the argument to `percentile` must be an array');
   }
-  if (isNaN(b1) || isNaN(n) || isNaN(b2)) {
-    return NaN;
+  if (!arr.length) {
+    throw new Error('no values were passed to `percentile`');
   }
-  if (b1 == b2) {
-    return b1;
+  if (arr.length == 1) {
+    if (typeof arr[0] == 'number') {
+      return arr[0];
+    } else {
+      throw new Error(nonNumericMsg);
+    }
   }
-  var lower, higher;
-  b1 < b2 ? ((lower = b1), (higher = b2)) : ((higher = b1), (lower = b2));
-  if (n < lower) {
-    return lower;
+  var sorted = arr.sort(function(a, b) {
+    if (typeof a != 'number') {
+      throw new Error(nonNumericMsg);
+    }
+    return a >= b ? 1 : -1;
+  });
+  var percentileRank = Math.min(
+    Math.max((arr.length * percentileValue) / 100 - 0.5, 0),
+    arr.length - 1
+  );
+  var lowerInt = Math.floor(percentileRank);
+  if (percentileRank == lowerInt) {
+    return sorted[lowerInt];
+  } else {
+    var upperInt = Math.ceil(percentileRank);
+    console.log(lowerInt, upperInt, percentileRank);
+    return sorted[lowerInt] + (percentileRank - lowerInt) * (sorted[upperInt] - sorted[lowerInt]);
   }
-  if (n > higher) {
-    return higher;
-  }
-  return n;
 }
