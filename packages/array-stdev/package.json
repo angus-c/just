@@ -1,5 +1,5 @@
 {
-  "name": "just-clamp",
+  "name": "just-stdev",
   "version": "3.1.0",
   "description": "restrict a number within a range",
   "main": "index.js",

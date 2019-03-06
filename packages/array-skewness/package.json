@@ -1,6 +1,6 @@
 {
-  "name": "just-clamp",
-  "version": "3.1.0",
+  "name": "just-skewness",
+  "version": "1.0.0",
   "description": "restrict a number within a range",
   "main": "index.js",
   "scripts": {
