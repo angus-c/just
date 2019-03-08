@@ -1,3 +1,4 @@
+// @ts-check
 var test = require('../util/test')(__filename);
 var omit = require('../../packages/object-omit');
 var compare = require('../../packages/collection-compare');
@@ -35,6 +36,7 @@ test('omit using arguments', function(t) {
 test('omit using a non-existent key', function(t) {
   t.plan(1);
   var obj = {a: 3, b: 5, c: 9};
+  // @ts-ignore
   t.ok(compare(omit(obj, ['a', 'b', 'd']), {c: 9}));
   t.end();
 });
