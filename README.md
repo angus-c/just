@@ -20,7 +20,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 - [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
 - [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
-## TypeScript Support <img src="images/ts.png" width="36"/>
+## TypeScript Support <img src="images/ts.png" width="18"/>
 
 Right now, a handful of Just functions are type-defined in [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/pulls). We welcome additions.
 
