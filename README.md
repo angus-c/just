@@ -32,7 +32,7 @@ npm i just-extend && npm i @types/just-extend -D
 
 or
 
-```js
+```sh
 yarn add just-extend && yarn add @types/just-extend -D
 ```
 
