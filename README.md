@@ -26,7 +26,7 @@ Right now, a handful of Just functions are type-defined in [Definitely Typed](ht
 
 When available, you can install type definitions for a Just function like this:
 
-```js
+```sh
 npm i just-extend && npm i @types/just-extend -D
 ```
 
