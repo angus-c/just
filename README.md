@@ -28,11 +28,7 @@ When available, you can install type definitions for a Just function like this:
 
 ```sh
 npm i just-extend && npm i @types/just-extend -D
-```
-
-or
-
-```sh
+# or
 yarn add just-extend && yarn add @types/just-extend -D
 ```
 
