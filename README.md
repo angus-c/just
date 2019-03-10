@@ -20,7 +20,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 - [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
 - [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
-## TypeScript Support
+## TypeScript Support <img src="images/ts.png" width="36"/>
 
 Right now, a handful of Just functions are type-defined in [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/pulls). We welcome additions.
 
@@ -368,24 +368,24 @@ extend(3, {a: 4, b: 5}); // throws
 ```js
 import merge from 'just-merge';
 
-let obj = {a: 3, b: 5};
-merge(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge(obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 4, b: 5, c: 8}
 
-let obj = {a: 3, b: 5};
-merge({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge({}, obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 3, b: 5}
 
 let arr = [1, 2, 3];
-let obj = {a: 3, b: 5};
-merge(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+let obj = { a: 3, b: 5 };
+merge(obj, { c: arr }); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
 
-merge({a: 4, b: 5}); // {a: 4, b: 5}
-merge(3, {a: 4, b: 5}); // throws
-merge({a: 4, b: 5}, 3); // throws
-merge({a: 4, b: 5}, {b: 4, c: 5}, 'c'); // throws
+merge({ a: 4, b: 5 }); // {a: 4, b: 5}
+merge(3, { a: 4, b: 5 }); // throws
+merge({ a: 4, b: 5 }, 3); // throws
+merge({ a: 4, b: 5 }, { b: 4, c: 5 }, 'c'); // throws
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)
