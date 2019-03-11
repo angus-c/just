@@ -8,6 +8,13 @@ test('string lowercase', function(t) {
   t.end();
 });
 
+test('lowercase remaining string', function(t) {
+  t.plan(2);
+  t.equal(capitalize('capiTALS'), 'Capitals');
+  t.equal(capitalize('some String'), 'Some string');
+  t.end();
+});
+
 test('string already capitalized', function(t) {
   t.plan(2);
   t.equal(capitalize('Capitals'), 'Capitals');
