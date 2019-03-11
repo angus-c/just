@@ -18,7 +18,7 @@ test('lowercase remaining string', function(t) {
 test('string already capitalized', function(t) {
   t.plan(2);
   t.equal(capitalize('Capitals'), 'Capitals');
-  t.equal(capitalize('ALLCAPS'), 'ALLCAPS');
+  t.equal(capitalize('ALLCAPS'), 'Allcaps');
   t.end();
 });
 
