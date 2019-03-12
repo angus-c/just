@@ -1,0 +1,21 @@
+{
+  "name": "just-capitalize",
+  "version": "0.0.0",
+  "description": "capitalize the first character of a string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "capitalize",
+    "string",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Antony Jones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

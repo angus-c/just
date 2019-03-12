@@ -93,6 +93,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-squash](#just-squash)
   - [just-left-pad](#just-left-pad)
   - [just-right-pad](#just-right-pad)
+  - [just-capitalize](#just-capitalize)
   - [just-camel-case](#just-camel-case)
   - [just-kebab-case](#just-kebab-case)
   - [just-snake-case](#just-snake-case)
@@ -1112,6 +1113,25 @@ rightPad([], 4, '*'); // throws
 rightPad('hello', 4, true); // throws
 rightPad('hello', -4, true); // throws
 rightPad('hello', 2.3, true); // throws
+```
+
+
+### [just-capitalize](https://www.npmjs.com/package/just-capitalize)
+
+:icecream:[`Try It`](http://anguscroll.com/just/just-capitalize)
+
+`npm install just-capitalize`
+
+```js
+capitalize('capitals'); // 'Capitals'
+capitalize('Capitals'); // 'Capitals'
+// all remaining characters are lowercased
+capitalize('CAPITALS'); // 'Capitals'
+capitalize('CaPiTaLs'); // 'Capitals'
+capitalize(' capitals'); // ' capitals'
+capitalize('Capi tals'); // 'Capit als'
+capitalize('Capi Tals'); // 'Capi tals'
+capitalize('!capitals'); // '!capitals'
 ```
 
 ### [just-camel-case](https://www.npmjs.com/package/just-camel-case)
