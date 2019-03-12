@@ -432,6 +432,13 @@ kebabCase('theQuickBrownFox');`
           `const pascalCase = require('just-pascal-case')\n
 pascalCase('the-quick-brown _fox');`
         ]
+      },
+      'just-capitalize': {
+        size: sizes['just-capitalize'],
+        code: [
+          `const capitalize = require('just-capitalize')\n
+capitalize('all the THINGS');`
+        ]
       }
     }
   },

@@ -1,12 +1,12 @@
 module.exports = {
   "just-clone": "225",
   "just-diff": "403",
-  "just-diff-apply": "383",
+  "just-diff-apply": "389",
   "just-compare": "222",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",
-  "just-extend": "236",
+  "just-extend": "239",
   "just-values": "127",
   "just-entries": "100",
   "just-pick": "82",
@@ -22,7 +22,7 @@ module.exports = {
   "just-is-primitive": "12",
   "just-safe-get": "75",
   "just-safe-set": "108",
-  "just-typeof": "60",
+  "just-typeof": "88",
   "just-unique": "273",
   "just-flatten-it": "99",
   "just-index": "129",
@@ -50,6 +50,7 @@ module.exports = {
   "just-snake-case": "149",
   "just-kebab-case": "149",
   "just-pascal-case": "162",
+  "just-capitalize": "38",
   "just-clamp": "111",
   "just-modulo": "23",
   "just-compose": "118",
@@ -59,5 +60,5 @@ module.exports = {
   "just-flip": "61",
   "just-debounce-it": "88",
   "just-throttle": "84",
-  "just-once": "78"
+  "just-once": "86"
 }
