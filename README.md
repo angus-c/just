@@ -1,24 +1,36 @@
-## Just :cherries:
+## Just
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just do one thing.
-A guilt-free alternative to those bulkier utility libraries. Ideal for mobile web development or wherever bytes are precious.
+A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
 
 **[Jump To API](#the-modules-package)**
 
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
-
-## Read :books:
-
-- [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
-- [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
 ## Try :icecream:
 
 A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
 
 <a href="https://anguscroll.com/just"><img src="images/repl.png" width="500"/></a>
+
+## Read :books:
+
+- [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
+- [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
+
+## TypeScript <img src="images/ts.png" width="18"/>
+
+Right now, a handful of Just functions are type-defined in [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/pulls). We welcome additions. When available, you can install type definitions for a Just function like this:
+
+```sh
+# npm
+npm i just-extend && npm i @types/just-extend -D
+
+# yarn
+yarn add just-extend && yarn add @types/just-extend -D
+```
 
 ## Browser Support :computer:
 
@@ -353,24 +365,24 @@ extend(3, {a: 4, b: 5}); // throws
 ```js
 import merge from 'just-merge';
 
-let obj = {a: 3, b: 5};
-merge(obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge(obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 4, b: 5, c: 8}
 
-let obj = {a: 3, b: 5};
-merge({}, obj, {a: 4, c: 8}); // {a: 4, b: 5, c: 8}
+let obj = { a: 3, b: 5 };
+merge({}, obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
 obj; // {a: 3, b: 5}
 
 let arr = [1, 2, 3];
-let obj = {a: 3, b: 5};
-merge(obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}
+let obj = { a: 3, b: 5 };
+merge(obj, { c: arr }); // {a: 3, b: 5, c: [1, 2, 3]}
 arr.push[4];
 obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
 
-merge({a: 4, b: 5}); // {a: 4, b: 5}
-merge(3, {a: 4, b: 5}); // throws
-merge({a: 4, b: 5}, 3); // throws
-merge({a: 4, b: 5}, {b: 4, c: 5}, 'c'); // throws
+merge({ a: 4, b: 5 }); // {a: 4, b: 5}
+merge(3, { a: 4, b: 5 }); // throws
+merge({ a: 4, b: 5 }, 3); // throws
+merge({ a: 4, b: 5 }, { b: 4, c: 5 }, 'c'); // throws
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)

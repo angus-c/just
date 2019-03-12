@@ -4,7 +4,7 @@ The most common reaction to Just is why not just use [__Lodash__](https://lodash
 
 ## Short, simplified answer
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
-* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records). 
+* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records) *and* the runtime performance gains exceed the extra page load lag from the increased JavaScript payload. 
 * Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if they provide a method that Just doesn't (and there are many).
 * Use __Just__ if you care about JavaScript footprint (and none of the above applies).
 
@@ -28,7 +28,7 @@ Alternatively, [Lodash Modularized](https://www.npmjs.com/browse/keyword/lodash-
 
 `import camelCase from 'lodash.camelcase'`
 
-Lodash Modularized modules are really modular by name only. They're generated from the Lodash mono-library by inlining all their dependencies, meaning they share a lot of redundant code and are generally much bigger than they need to be.
+Lodash Modularized modules are really modular by name only. They're still dependant on other Lodash functions, the only difference is those dependencies are now inlined within the module. The upshot is Lodash modules share a lot of redundant code and are generally much bigger than they need to be. 
 
 Module for module, both Lodash import techniques yield the same size, but if you want to import several Lodash modules the earlier technique becomes more efficient, since common dependencies are ony loaded once.
 
