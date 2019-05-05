@@ -1,16 +1,30 @@
 ## just-is-empty
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 [Try it now](http://anguscroll.com/just/just-is-empty)
 
 ```js
 import isEmpty from 'just-is-empty';
-isEmpty({a: 3, b: 5}) // false
-isEmpty(['a','b']) // false
-isEmpty({}) // true
-isEmpty([]) // true
-isEmpty(null) // true
-isEmpty(undefined) // true
+ isEmpty({a: 3, b: 5}) // false
+ isEmpty([1, 2]) // false
+ isEmpty(new Set([1, 2, 2])) // false
+ isEmpty((new Map()).set('a', 2)) // false
+ isEmpty({}) // true
+ isEmpty([]) // true
+ isEmpty(new Set()) // true
+ isEmpty(new Map()) // true
+ isEmpty('abc') // true
+ isEmpty('') // true
+ isEmpty(0) // true
+ isEmpty(1) // true
+ isEmpty(true) // true
+ isEmpty(Symbol('abc')); // false
+ isEmpty(//); // false
+ isEmpty(new String('abc')); // false
+ isEmpty(new String('')); // false
+ isEmpty(new Boolean(true)); // false
+ isEmpty(null) // true
+ isEmpty(undefined) // true
 ```

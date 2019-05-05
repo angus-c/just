@@ -9,9 +9,16 @@ module.exports = isEmpty;
  isEmpty([]) // true
  isEmpty(new Set()) // true
  isEmpty(new Map()) // true
+ isEmpty('abc') // true
+ isEmpty('') // true
  isEmpty(0) // true
  isEmpty(1) // true
  isEmpty(true) // true
+ isEmpty(Symbol('abc')); // false
+ isEmpty(//); // false
+ isEmpty(new String('abc')); // false
+ isEmpty(new String('')); // false
+ isEmpty(new Boolean(true)); // false
  isEmpty(null) // true
  isEmpty(undefined) // true
 */
@@ -27,14 +34,19 @@ function isEmpty(obj) {
 
   var type = {}.toString.call(obj);
 
+  // treat non-primitive strings as regular strings
+  if (type == '[object String]') {
+    return true;
+  }
+
   if (type == '[object Object]') {
     return !Object.keys(obj).length;
   }
 
-  if (type == '[object Map]' || type == '[object Set') {
+  if (type == '[object Map]' || type == '[object Set]') {
     return !obj.size;
   }
 
   // primitive || unidentifed object type
-  return Object(obj) === obj || !Object.keys(obj).length;
+  return Object(obj) !== obj || !Object.keys(obj).length;
 }
