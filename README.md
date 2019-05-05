@@ -477,16 +477,16 @@ import isEmpty from 'just-is-empty';
  isEmpty([]) // true
  isEmpty(new Set()) // true
  isEmpty(new Map()) // true
- isEmpty('abc') // true
+ isEmpty('abc') // false
  isEmpty('') // true
  isEmpty(0) // true
  isEmpty(1) // true
  isEmpty(true) // true
- isEmpty(Symbol('abc')); // false
- isEmpty(//); // false
+ isEmpty(Symbol('abc')); // true
+ isEmpty(//); // true
  isEmpty(new String('abc')); // false
- isEmpty(new String('')); // false
- isEmpty(new Boolean(true)); // false
+ isEmpty(new String('')); // true
+ isEmpty(new Boolean(true)); // true
  isEmpty(null) // true
  isEmpty(undefined) // true
 ```
