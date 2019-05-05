@@ -1,44 +1,29 @@
+/* global Set, Map */
+
 var test = require('../util/test')(__filename);
-var isObjectEmpty = require('../../packages/object-is-empty');
+var isEmpty = require('../../packages/object-is-empty');
 
-test('find that an object is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty({});
-  t.equal(obj, true);
+test('empty object, array, map or set', function(t) {
+  t.plan(4);
+  t.ok(isEmpty({}));
+  t.ok(isEmpty([]));
+  t.ok(typeof Set == 'function' ? isEmpty(new Set()) : true);
+  t.ok(typeof Map == 'function' ? isEmpty(new Map()) : true);
   t.end();
 });
 
-test('find that an null object is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(null);
-  t.equal(obj, true);
+test('null or undefined', function(t) {
+  t.plan(2);
+  t.ok(isEmpty(null));
+  t.ok(isEmpty(undefined));
   t.end();
 });
 
-test('find that an object is not empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty({foo: 'bar'});
-  t.equal(obj, false);
-  t.end();
-});
-
-test('find that an array is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty([]);
-  t.equal(obj, true);
-  t.end();
-});
-
-test('find that an array is not empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(['bar']);
-  t.equal(obj, false);
-  t.end();
-});
-
-test('find that undefined is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(undefined);
-  t.equal(obj, true);
+test.only('non-empty object, array, map or set', function(t) {
+  t.plan(4);
+  t.notOk(isEmpty({a: 3, b: 5}));
+  t.notOk(isEmpty([1, 2]));
+  t.notOk(typeof Set == 'function' ? isEmpty(new Set([1, 2, 2])) : true);
+  t.notOk(typeof Map == 'function' ? isEmpty(new Map().set('a', 2)) : true);
   t.end();
 });
