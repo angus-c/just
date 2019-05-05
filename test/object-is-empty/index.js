@@ -1,44 +1,58 @@
+/* global Set, Map, Symbol */
+
 var test = require('../util/test')(__filename);
-var isObjectEmpty = require('../../packages/object-is-empty');
+var isEmpty = require('../../packages/object-is-empty');
 
-test('find that an object is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty({});
-  t.equal(obj, true);
+test('empty object, array, map or set', function(t) {
+  t.plan(4);
+  t.ok(isEmpty({}));
+  t.ok(isEmpty([]));
+  t.ok(typeof Set == 'function' ? isEmpty(new Set()) : true);
+  t.ok(typeof Map == 'function' ? isEmpty(new Map()) : true);
   t.end();
 });
 
-test('find that an null object is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(null);
-  t.equal(obj, true);
+test('non-empty object, array, map or set', function(t) {
+  t.plan(6);
+  t.notOk(isEmpty({a: 3, b: 5}));
+  t.notOk(isEmpty([1, 2]));
+  t.notOk(isEmpty(['a', 'b']));
+  t.notOk(isEmpty(new Array(4)));
+  t.notOk(typeof Set == 'function' ? isEmpty(new Set([1, 2, 2])) : true);
+  t.notOk(typeof Map == 'function' ? isEmpty(new Map().set('a', 2)) : true);
   t.end();
 });
 
-test('find that an object is not empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty({foo: 'bar'});
-  t.equal(obj, false);
+test('null or undefined', function(t) {
+  t.plan(2);
+  t.ok(isEmpty(null));
+  t.ok(isEmpty(undefined));
   t.end();
 });
 
-test('find that an array is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty([]);
-  t.equal(obj, true);
+test('other primitives', function(t) {
+  t.plan(6);
+  t.ok(isEmpty(true));
+  t.ok(isEmpty(false));
+  t.ok(isEmpty('hello'));
+  t.ok(isEmpty(''));
+  t.ok(isEmpty(0));
+  t.ok(isEmpty(35));
   t.end();
 });
 
-test('find that an array is not empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(['bar']);
-  t.equal(obj, false);
-  t.end();
-});
-
-test('find that undefined is empty', function(t) {
-  t.plan(1);
-  var obj = isObjectEmpty(undefined);
-  t.equal(obj, true);
+test('other object types', function(t) {
+  t.plan(11);
+  t.ok(isEmpty(/^abc$/));
+  t.ok(isEmpty(typeof Symbol == 'function' ? Symbol('abc') : true));
+  t.ok(isEmpty(typeof Symbol == 'function' ? Symbol('') : true));
+  t.ok(isEmpty(new String('')));
+  t.ok(isEmpty(new String('abc')));
+  t.ok(isEmpty(new Boolean(false)));
+  t.ok(isEmpty(new Boolean(true)));
+  t.ok(isEmpty(''));
+  t.ok(isEmpty('abc'));
+  t.ok(isEmpty(0));
+  t.ok(isEmpty(35));
   t.end();
 });

@@ -1,7 +1,7 @@
 {
   "name": "just-is-empty",
-  "version": "1.1.0",
-  "description": "determine if an object is empty",
+  "version": "2.0.0",
+  "description": "return true if object has no enumerable key values",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,7 @@
     "no-dependencies",
     "just"
   ],
-  "author": "Jonathan Fielding",
+  "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
