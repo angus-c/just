@@ -17,5 +17,5 @@ function mean(arr) {
     }
     sum += n;
   }
-  return sum / arr.length;
+  return sum / len;
 }

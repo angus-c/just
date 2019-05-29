@@ -9,7 +9,7 @@ test('array of numbers returns mean', function(t) {
   t.end();
 });
 
-test('list of numberic arguments returns mean', function(t) {
+test('list of numeric arguments returns mean', function(t) {
   t.plan(3);
   t.equal(mean(1, 2, 5, 2, 4, 1), 2.5);
   t.equal(mean(100, 100, 100.1, 100), 100.025);
