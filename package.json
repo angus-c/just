@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "eslint": "^5.14.1",
-    "lerna": "^3.13.4",
+    "lerna": "^3.14.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.6.0"
   },
