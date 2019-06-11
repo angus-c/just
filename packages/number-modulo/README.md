@@ -8,7 +8,7 @@ import modulo from 'just-modulo';
 
 modulo(7, 5); // 2
 modulo(17, 23); // 17
-modulo(16.2, 3.8); // 17
+modulo(16.2, 3.8); // 1
 modulo(5.8, 3.4); //2.4
 modulo(4, 0); // 4
 modulo(-7, 5); // 3
