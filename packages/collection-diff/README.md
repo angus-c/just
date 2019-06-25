@@ -49,12 +49,12 @@ const obj6 = {a: 3, b: [1, 2, 4, 5]};
 diff(obj4, obj5);
 [
   { "op": "replace", "path": ['a'], "value": 3 }
-  { "op": "replace", "path": ['b', '2'], "value": 4 }
+  { "op": "replace", "path": ['b', 2], "value": 4 }
 ]
 
 diff(obj5, obj6);
 [
-  { "op": "add", "path": ['b', '3'], "value": 5 }
+  { "op": "add", "path": ['b', 3], "value": 5 }
 ]
 
 // nested paths

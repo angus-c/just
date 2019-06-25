@@ -150,12 +150,12 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   diff(obj4, obj5);
   [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
   ]
 
   diff(obj5, obj6);
   [
-    { "op": "add", "path": ['b', '3'], "value": 5 }
+    { "op": "add", "path": ['b', 3], "value": 5 }
   ]
 
   // nested paths
@@ -217,8 +217,8 @@ Pass converter to apply a http://jsonpatch.com standard patch
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
-    { "op": "add", "path": ['b', '3'], "value": 9 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
+    { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
   obj3; // {a: 3, b: [1, 2, 4, 9]}
 
@@ -1095,8 +1095,8 @@ leftPad('hello', 9, '..'); // '....hello'
 leftPad('hello', 10, 'ab'); // 'bababhello'
 leftPad('hello', 9, '\uD83D\uDC04'); // '🐄🐄🐄🐄hello'
 leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '🐄🐑🐄🐑🐄hello'
-leftPad('hello', 7, '🐄'), // '🐄🐄hello'
-leftPad(null, 7); // throws
+  leftPad('hello', 7, '🐄'), // '🐄🐄hello'
+  leftPad(null, 7); // throws
 leftPad([], 4, '*'); // throws
 leftPad('hello', 4, true); // throws
 leftPad('hello', -4, true); // throws
@@ -1117,8 +1117,8 @@ rightPad('hello', 9, '..'); // 'hello....'
 rightPad('hello', 10, 'ab'); // 'helloababa'
 rightPad('hello', 9, '\uD83D\uDC04'); // 'hello🐄🐄🐄🐄'
 rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // 'hello🐑🐄🐑🐄🐑'
-rightPad('hello', 7, '🐄'), // 'hello🐄🐄'
-rightPad(null, 7); // throws
+  rightPad('hello', 7, '🐄'), // 'hello🐄🐄'
+  rightPad(null, 7); // throws
 rightPad([], 4, '*'); // throws
 rightPad('hello', 4, true); // throws
 rightPad('hello', -4, true); // throws

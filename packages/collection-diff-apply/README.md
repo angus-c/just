@@ -36,8 +36,8 @@ Pass converter to apply a http://jsonpatch.com standard patch
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
-    { "op": "add", "path": ['b', '3'], "value": 9 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
+    { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
   obj3; // {a: 3, b: [1, 2, 4, 9]}
 
@@ -49,4 +49,4 @@ Pass converter to apply a http://jsonpatch.com standard patch
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]);
   obj4; // {a: 5, b: {d: 4}}
-  ```
+```
