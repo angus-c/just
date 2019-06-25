@@ -38,6 +38,33 @@ test('objects with array properties', function(t) {
   var obj3 = {a: 4, b: [1, 2, 3]};
   var originalDiff = [
     {op: 'replace', path: ['a'], value: 3},
+    {op: 'replace', path: ['b', 2], value: 4},
+    {op: 'add', path: ['b', 3], value: 5},
+  ];
+  var diff = clone(originalDiff);
+  diffApply(obj3, diff);
+  t.deepEqual(obj3, {a: 3, b: [1, 2, 4, 5]});
+  t.deepEqual(diff, originalDiff);
+
+  var obj4 = {a: 4, b: [1, 2, 3]};
+  var originalDiff = [
+    {op: 'remove', path: ['b', 2]},
+    {op: 'replace', path: ['a'], value: 3},
+    {op: 'replace', path: ['b', 1], value: 3},
+  ];
+  var diff = clone(originalDiff);
+
+  diffApply(obj4, diff);
+  t.deepEqual(obj4, {a: 3, b: [1, 3]});
+  t.deepEqual(diff, originalDiff);
+  t.end();
+});
+
+test('objects with array properties using string array keys', function(t) {
+  t.plan(4);
+  var obj3 = {a: 4, b: [1, 2, 3]};
+  var originalDiff = [
+    {op: 'replace', path: ['a'], value: 3},
     {op: 'replace', path: ['b', '2'], value: 4},
     {op: 'add', path: ['b', '3'], value: 5},
   ];
@@ -90,11 +117,11 @@ test('arrays', function(t) {
   t.plan(4);
   var obj7 = ['a', {b: 3}, 'c', 'd'];
   var originalDiff = [
-    {op: 'remove', path: ['1', 'b']},
-    {op: 'replace', path: ['0'], value: 'b'},
-    {op: 'replace', path: ['2'], value: 'd'},
-    {op: 'add', path: ['1', 'e'], value: 4},
-    {op: 'add', path: ['4'], value: 'f'},
+    {op: 'remove', path: [1, 'b']},
+    {op: 'replace', path: [0], value: 'b'},
+    {op: 'replace', path: [2], value: 'd'},
+    {op: 'add', path: [1, 'e'], value: 4},
+    {op: 'add', path: [4], value: 'f'},
   ];
   var diff = clone(originalDiff);
   diffApply(obj7, diff);
@@ -103,10 +130,10 @@ test('arrays', function(t) {
 
   var obj8 = ['a', {b: 3}, 'c', 'd'];
   var originalDiff = [
-    {op: 'remove', path: ['0']},
-    {op: 'add', path: ['0', 'c'], value: 6},
-    {op: 'replace', path: ['2'], value: 'ab'},
-    {op: 'add', path: ['1'], value: 12},
+    {op: 'remove', path: [0]},
+    {op: 'add', path: [0, 'c'], value: 6},
+    {op: 'replace', path: [2], value: 'ab'},
+    {op: 'add', path: [1], value: 12},
   ];
   var diff = clone(originalDiff);
   diffApply(obj8, diff);
@@ -120,8 +147,8 @@ test('object vs array', function(t) {
   var obj9 = {a: 2};
   var originalDiff = [
     {op: 'remove', path: ['a']},
-    {op: 'add', path: ['0'], value: 'a'},
-    {op: 'add', path: ['1'], value: 2},
+    {op: 'add', path: [0], value: 'a'},
+    {op: 'add', path: [1], value: 2},
   ];
   var diff = clone(originalDiff);
   diffApply(obj9, diff);
@@ -130,8 +157,8 @@ test('object vs array', function(t) {
 
   var obj10 = ['a', 2];
   var originalDiff = [
-    {op: 'remove', path: ['0']},
-    {op: 'remove', path: ['0']},
+    {op: 'remove', path: [0]},
+    {op: 'remove', path: [0]},
     {op: 'add', path: ['a'], value: 2},
   ];
   var diff = clone(originalDiff);

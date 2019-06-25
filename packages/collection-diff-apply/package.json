@@ -1,6 +1,6 @@
 {
   "name": "just-diff-apply",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Apply a diff to an object. Optionally supports jsonPatch protocol",
   "main": "index.js",
   "scripts": {

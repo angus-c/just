@@ -29,8 +29,8 @@ module.exports = {
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
-    { "op": "add", "path": ['b', '3'], "value": 9 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
+    { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
   obj3; // {a: 3, b: [1, 2, 4, 9]}
 
@@ -75,11 +75,11 @@ function diffApply(obj, diff, pathConverter) {
     }
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
-    if (!lastProp) {
+    if (lastProp == null) {
       return false;
     }
     var thisProp;
-    while ((thisProp = pathCopy.shift())) {
+    while (((thisProp = pathCopy.shift())) != null) {
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
