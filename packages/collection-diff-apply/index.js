@@ -75,11 +75,11 @@ function diffApply(obj, diff, pathConverter) {
     }
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
-    if (!lastProp) {
+    if (lastProp == null) {
       return false;
     }
     var thisProp;
-    while ((thisProp = pathCopy.shift())) {
+    while (((thisProp = pathCopy.shift())) != null) {
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }

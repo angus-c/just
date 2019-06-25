@@ -1,11 +1,11 @@
 ## just-diff-apply
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 [Try it now](http://anguscroll.com/just/just-diff-apply)
 
-Apply a diff object to an object.  
+Apply a diff object to an object.
 Pass converter to apply a http://jsonpatch.com standard patch
 
 ```js
@@ -32,7 +32,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   ], jsonPatchPathConverter);
   obj2; // {a: 4, c: 5}
 
-  // arrays
+  // arrays (array key can be string or numeric)
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }

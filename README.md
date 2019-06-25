@@ -213,7 +213,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
   );
   obj1; // {a: 4, c: 5}
 
-  // arrays
+  // arrays (array key can be string or numeric)
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }
