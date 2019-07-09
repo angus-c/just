@@ -29,8 +29,8 @@ module.exports = {
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
-    { "op": "add", "path": ['b', '3'], "value": 9 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
+    { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
   obj3; // {a: 3, b: [1, 2, 4, 9]}
 
@@ -70,35 +70,28 @@ function diffApply(obj, diff, pathConverter) {
       }
     } else {
       if (!Array.isArray(thisPath)) {
-        throw new Error(
-          'diff path must be an array, consider supplying a path converter'
-        );
+        throw new Error('diff path must be an array, consider supplying a path converter');
       }
     }
-    var lastProp = thisPath.pop();
-    if (!lastProp) {
+    var pathCopy = thisPath.slice();
+    var lastProp = pathCopy.pop();
+    if (lastProp == null) {
       return false;
     }
     var thisProp;
-    while ((thisProp = thisPath.shift())) {
+    while (((thisProp = pathCopy.shift())) != null) {
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
       subObject = subObject[thisProp];
     }
     if (thisOp === REMOVE || thisOp === REPLACE) {
-      if (!subObject[lastProp]) {
-        throw new Error(
-          ['expected to find property', thisDiff.path, 'in object', obj].join(
-            ' '
-          )
-        );
+      if (!subObject.hasOwnProperty(lastProp)) {
+        throw new Error(['expected to find property', thisDiff.path, 'in object', obj].join(' '));
       }
     }
     if (thisOp === REMOVE) {
-      Array.isArray(subObject)
-        ? subObject.splice(lastProp, 1)
-        : delete subObject[lastProp];
+      Array.isArray(subObject) ? subObject.splice(lastProp, 1) : delete subObject[lastProp];
     }
     if (thisOp === REPLACE || thisOp === ADD) {
       subObject[lastProp] = thisDiff.value;

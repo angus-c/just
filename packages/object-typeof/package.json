@@ -1,6 +1,6 @@
 {
   "name": "just-typeof",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "type inferer",
   "main": "index.js",
   "scripts": {

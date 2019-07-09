@@ -222,3 +222,59 @@ test("extendee can't be a primitive", function(t) {
   });
   t.end();
 });
+
+test('shallow extend does not copy prototype values', function(t) {
+  t.plan(2);
+  var obj1 = {a: 3, b: 5};
+  var obj2 = Object.create({c: 9, d: 4, e: 3});
+  obj2.a = 4;
+  obj2.e = 7;
+  t.deepEqual(extend(obj1, obj2), {a: 4, b: 5, e: 7});
+  t.deepEqual(obj1, {a: 4, b: 5, e: 7});
+  t.end();
+});
+
+test('deep extend does not copy prototype values', function(t) {
+  t.plan(2);
+  var obj1 = {a: 3, b: 5};
+  var obj2 = Object.create({c: 9, d: 4});
+  obj2.a = 4;
+  obj2.e = 7;
+  var obj3 = Object.create({f: 4, x: 12, y: 33});
+  obj3.f = 2;
+  obj3.g = 88;
+  obj2.h = obj3;
+  t.deepEqual(extend(true, obj1, obj2), {
+    a: 4,
+    b: 5,
+    e: 7,
+    h: {f: 2, g: 88},
+  });
+  t.deepEqual(obj1, {a: 4, b: 5, e: 7, h: {f: 2, g: 88}});
+  t.end();
+});
+
+test('deep extend cannot extend native prototypes', function(t) {
+  t.plan(14);
+  var attackObj1 = {constructor: {prototype: {isAdmin: true}}};
+  var obj1 = extend(true, {}, attackObj1);
+  t.equal({}.isAdmin, undefined);
+  t.equal({}.__proto__.isAdmin, undefined);
+  t.ok(typeof {}.constructor === 'function');
+  t.ok(obj1.constructor);
+  t.ok(typeof obj1.constructor === 'object');
+  t.ok(obj1.constructor.prototype);
+  t.ok(typeof obj1.constructor.prototype === 'object');
+  t.equal(obj1.constructor.prototype.isAdmin, true);
+
+  var attackObj2 = JSON.parse('{"__proto__": {"isAdmin": true}}');
+  var obj2 = extend(true, {}, attackObj2);
+  console.log(JSON.stringify(obj2, null, 2));
+  t.equal({}.isAdmin, undefined);
+  t.equal({}.__proto__.isAdmin, undefined);
+  t.ok(typeof {}.constructor === 'function');
+  t.ok(obj2.__proto__);
+  t.equal(obj2.isAdmin, true);
+  t.equal(obj2.__proto__.isAdmin, true);
+  t.end();
+});

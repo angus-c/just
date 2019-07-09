@@ -93,31 +93,31 @@ test('objects with array properties', function(t) {
   t.ok(
     compare(diff(obj4, obj5), [
       {op: 'replace', path: ['a'], value: 3},
-      {op: 'replace', path: ['b', '2'], value: 4},
+      {op: 'replace', path: ['b', 2], value: 4},
     ])
   );
   t.ok(
     compare(diff(obj5, obj4), [
       {op: 'replace', path: ['a'], value: 4},
-      {op: 'replace', path: ['b', '2'], value: 3},
+      {op: 'replace', path: ['b', 2], value: 3},
     ])
   );
   t.ok(
     compare(diff(obj4, obj6), [
       {op: 'replace', path: ['a'], value: 3},
-      {op: 'replace', path: ['b', '2'], value: 4},
-      {op: 'add', path: ['b', '3'], value: 5},
+      {op: 'replace', path: ['b', 2], value: 4},
+      {op: 'add', path: ['b', 3], value: 5},
     ])
   );
   t.ok(
     compare(diff(obj6, obj4), [
-      {op: 'remove', path: ['b', '3']},
+      {op: 'remove', path: ['b', 3]},
       {op: 'replace', path: ['a'], value: 4},
-      {op: 'replace', path: ['b', '2'], value: 3},
+      {op: 'replace', path: ['b', 2], value: 3},
     ])
   );
-  t.ok(compare(diff(obj5, obj6), [{op: 'add', path: ['b', '3'], value: 5}]));
-  t.ok(compare(diff(obj6, obj5), [{op: 'remove', path: ['b', '3']}]));
+  t.ok(compare(diff(obj5, obj6), [{op: 'add', path: ['b', 3], value: 5}]));
+  t.ok(compare(diff(obj6, obj5), [{op: 'remove', path: ['b', 3]}]));
 });
 
 test('objects whose properties are objects but with no properties of their own', function(t) {
@@ -240,47 +240,47 @@ test('arrays', function(t) {
 
   t.ok(
     compare(diff(obj12, obj13), [
-      {op: 'replace', path: ['1', 'a'], value: 3},
-      {op: 'replace', path: ['2'], value: 'd'},
+      {op: 'replace', path: [1, 'a'], value: 3},
+      {op: 'replace', path: [2], value: 'd'},
     ])
   );
   t.ok(
     compare(diff(obj13, obj12), [
-      {op: 'replace', path: ['1', 'a'], value: 2},
-      {op: 'replace', path: ['2'], value: 'c'},
+      {op: 'replace', path: [1, 'a'], value: 2},
+      {op: 'replace', path: [2], value: 'c'},
     ])
   );
   t.ok(
     compare(diff(obj12, obj14), [
-      {op: 'remove', path: ['1', 'a']},
-      {op: 'replace', path: ['0'], value: 'b'},
-      {op: 'replace', path: ['2'], value: 'd'},
-      {op: 'add', path: ['1', 'b'], value: 3},
-      {op: 'add', path: ['3'], value: 'e'},
+      {op: 'remove', path: [1, 'a']},
+      {op: 'replace', path: [0], value: 'b'},
+      {op: 'replace', path: [2], value: 'd'},
+      {op: 'add', path: [1, 'b'], value: 3},
+      {op: 'add', path: [3], value: 'e'},
     ])
   );
   t.ok(
     compare(diff(obj13, obj14), [
-      {op: 'remove', path: ['1', 'a']},
-      {op: 'replace', path: ['0'], value: 'b'},
-      {op: 'add', path: ['1', 'b'], value: 3},
-      {op: 'add', path: ['3'], value: 'e'},
+      {op: 'remove', path: [1, 'a']},
+      {op: 'replace', path: [0], value: 'b'},
+      {op: 'add', path: [1, 'b'], value: 3},
+      {op: 'add', path: [3], value: 'e'},
     ])
   );
   t.ok(
     compare(diff(obj13, obj14), [
-      {op: 'remove', path: ['1', 'a']},
-      {op: 'replace', path: ['0'], value: 'b'},
-      {op: 'add', path: ['1', 'b'], value: 3},
-      {op: 'add', path: ['3'], value: 'e'},
+      {op: 'remove', path: [1, 'a']},
+      {op: 'replace', path: [0], value: 'b'},
+      {op: 'add', path: [1, 'b'], value: 3},
+      {op: 'add', path: [3], value: 'e'},
     ])
   );
   t.ok(
     compare(diff(obj14, obj13), [
-      {op: 'remove', path: ['3']},
-      {op: 'remove', path: ['1', 'b']},
-      {op: 'replace', path: ['0'], value: 'a'},
-      {op: 'add', path: ['1', 'a'], value: 3},
+      {op: 'remove', path: [3]},
+      {op: 'remove', path: [1, 'b']},
+      {op: 'replace', path: [0], value: 'a'},
+      {op: 'add', path: [1, 'a'], value: 3},
     ])
   );
 });
@@ -294,14 +294,14 @@ test('object vs array', function(t) {
   t.ok(
     compare(diff(obj15, obj16), [
       {op: 'remove', path: ['a']},
-      {op: 'add', path: ['0'], value: 'a'},
-      {op: 'add', path: ['1'], value: 2},
+      {op: 'add', path: [0], value: 'a'},
+      {op: 'add', path: [1], value: 2},
     ])
   );
   t.ok(
     compare(diff(obj16, obj15), [
-      {op: 'remove', path: ['0']},
-      {op: 'remove', path: ['1']},
+      {op: 'remove', path: [0]},
+      {op: 'remove', path: [1]},
       {op: 'add', path: ['a'], value: 2},
     ])
   );

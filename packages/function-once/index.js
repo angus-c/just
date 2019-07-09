@@ -20,6 +20,7 @@ function once(fn) {
     }
     called = true;
     value = fn.apply(this, arguments);
+    fn = undefined;
     return value;
   };
 }

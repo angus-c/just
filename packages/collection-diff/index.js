@@ -43,12 +43,12 @@ module.exports = {
   diff(obj4, obj5);
   [
     { "op": "replace", "path": ['a'], "value": 3 }
-    { "op": "replace", "path": ['b', '2'], "value": 4 }
+    { "op": "replace", "path": ['b', 2], "value": 4 }
   ]
 
   diff(obj5, obj6);
   [
-    { "op": "add", "path": ['b', '3'], "value": 5 }
+    { "op": "add", "path": ['b', 3], "value": 5 }
   ]
 
   // nested paths
@@ -82,7 +82,7 @@ function diff(obj1, obj2, pathConverter) {
     var path;
 
     for (var i = 0; i < obj1KeysLength; i++) {
-      var key = obj1Keys[i];
+      var key = Array.isArray(obj1) ? Number(obj1Keys[i]) : obj1Keys[i];
       if (!(key in obj2)) {
         path = basePath.concat(key);
         diffs.remove.push({
@@ -93,7 +93,7 @@ function diff(obj1, obj2, pathConverter) {
     }
 
     for (var i = 0; i < obj2KeysLength; i++) {
-      var key = obj2Keys[i];
+      var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
       var obj1AtKey = obj1[key];
       var obj2AtKey = obj2[key];
       if (!(key in obj1)) {
@@ -108,8 +108,11 @@ function diff(obj1, obj2, pathConverter) {
         if (Object(obj1AtKey) !== obj1AtKey || Object(obj2AtKey) !== obj2AtKey) {
           path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
         } else {
-          if ((!Object.keys(obj1AtKey).length && !Object.keys(obj2AtKey).length) &&
-              (String(obj1AtKey) != String(obj2AtKey))) {
+          if (
+            !Object.keys(obj1AtKey).length &&
+            !Object.keys(obj2AtKey).length &&
+            String(obj1AtKey) != String(obj2AtKey)
+          ) {
             path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
           } else {
             getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);
@@ -120,7 +123,6 @@ function diff(obj1, obj2, pathConverter) {
 
     return diffs.remove.concat(diffs.replace).concat(diffs.add);
   }
-
   return getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
 }
 

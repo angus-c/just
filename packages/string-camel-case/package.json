@@ -1,13 +1,18 @@
 {
   "name": "just-camel-case",
-  "version": "3.0.0",
+  "version": "4.0.2",
   "description": "convert a string to camel case",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
-  "keywords": ["camelCase", "string", "no-dependencies", "just"],
+  "keywords": [
+    "camelCase",
+    "string",
+    "no-dependencies",
+    "just"
+  ],
   "author": "Angus Croll",
   "license": "MIT",
   "bugs": {
