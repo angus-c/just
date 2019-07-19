@@ -60,7 +60,7 @@ function diffApply(obj, diff, pathConverter) {
   var diffLength = diff.length;
   for (var i = 0; i < diffLength; i++) {
     var thisDiff = diff[i];
-    var subObject = obj;
+    var subObject = JSON.parse(JSON.stringify(obj));
     var thisOp = thisDiff.op;
     var thisPath = thisDiff.path;
     if (pathConverter) {
