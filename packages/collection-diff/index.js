@@ -74,11 +74,10 @@ function diff(obj1, obj2, pathConverter) {
     throw new Error('both arguments must be objects or arrays');
   }
 
-  pathConverter =
-    pathConverter ||
-    function(a) {
-      return a;
-    };
+  pathConverter ||
+    (pathConverter = function(arr) {
+      return arr;
+    });
 
   function getDiff(obj1, obj2, basePath, diffs) {
     var obj1Keys = Object.keys(obj1);
@@ -129,11 +128,7 @@ function diff(obj1, obj2, pathConverter) {
 
     return diffs.remove
       .sort(function(a, b) {
-        return Array.isArray(b.path)
-          ? b.path.join('-') > a.path.join('-')
-            ? 1
-            : -1
-          : b.path > a.path;
+        return b.path > a.path ? 1 : -1;
       })
       .concat(diffs.replace)
       .concat(diffs.add);

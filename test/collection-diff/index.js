@@ -3,6 +3,7 @@ var diffModule = require('../../packages/collection-diff');
 var diff = diffModule.diff;
 var jsonPatchPathConverter = diffModule.jsonPatchPathConverter;
 var compare = require('../../packages/collection-compare');
+var {diffApply} = require('../../packages/collection-diff-apply');
 
 test('flat objects', function(t) {
   t.plan(8);
@@ -357,6 +358,24 @@ test('object vs array', function(t) {
       {op: 'add', path: ['a'], value: 2},
     ])
   );
+});
+
+test.only('round trip', function(t) {
+  t.plan(2);
+
+  var obj15 = [1, 2, 3, 4];
+  var obj16 = ['a', 2];
+
+  console.log(diff(obj15, obj16));
+  console.log(diffApply(obj15, diff(obj15, obj16)));
+  t.ok(compare(obj16, diffApply(obj15, diff(obj15, obj16))));
+
+  var obj17 = {a: 2};
+  var obj18 = ['a', 2];
+
+  console.log(diff(obj17, obj18));
+  console.log(diffApply(obj17, diff(obj17, obj18)));
+  t.ok(compare(obj18, diffApply(obj17, diff(obj17, obj18))));
 });
 
 test('flat objects using jsPatchStandard', function(t) {
