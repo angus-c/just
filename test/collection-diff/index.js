@@ -14,16 +14,10 @@ test('flat objects', function(t) {
   t.ok(compare(diff(obj1, obj2), [{op: 'replace', path: ['a'], value: 3}]));
   t.ok(compare(diff(obj2, obj1), [{op: 'replace', path: ['a'], value: 4}]));
   t.ok(
-    compare(diff(obj1, obj3), [
-      {op: 'remove', path: ['b']},
-      {op: 'add', path: ['c'], value: 5},
-    ])
+    compare(diff(obj1, obj3), [{op: 'remove', path: ['b']}, {op: 'add', path: ['c'], value: 5}])
   );
   t.ok(
-    compare(diff(obj3, obj1), [
-      {op: 'remove', path: ['c']},
-      {op: 'add', path: ['b'], value: 5},
-    ])
+    compare(diff(obj3, obj1), [{op: 'remove', path: ['c']}, {op: 'add', path: ['b'], value: 5}])
   );
   t.ok(
     compare(diff(obj2, obj3), [
@@ -58,29 +52,61 @@ test('flat objects', function(t) {
 test('flat null and undefined', function(t) {
   t.plan(4);
 
-  t.ok(compare(diff({
-    foo: null,
-  }, {
-    foo: null,
-  }), []));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: null,
+        },
+        {
+          foo: null,
+        }
+      ),
+      []
+    )
+  );
 
-  t.ok(compare(diff({
-    foo: undefined,
-  }, {
-    foo: undefined,
-  }), []));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: undefined,
+        },
+        {
+          foo: undefined,
+        }
+      ),
+      []
+    )
+  );
 
-  t.ok(compare(diff({
-    foo: undefined,
-  }, {
-    foo: null,
-  }), [{op: 'replace', path: ['foo'], value: null}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: undefined,
+        },
+        {
+          foo: null,
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: null}]
+    )
+  );
 
-  t.ok(compare(diff({
-    foo: null,
-  }, {
-    foo: undefined,
-  }), [{op: 'replace', path: ['foo'], value: undefined}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: null,
+        },
+        {
+          foo: undefined,
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: undefined}]
+    )
+  );
 });
 
 test('objects with array properties', function(t) {
@@ -153,17 +179,33 @@ test('objects whose properties are objects but with no properties of their own',
 test('objects with nulls against array properties', function(t) {
   t.plan(2);
 
-  t.ok(compare(diff({
-    foo: null,
-  }, {
-    foo: [1, 2, 3],
-  }), [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: null,
+        },
+        {
+          foo: [1, 2, 3],
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]
+    )
+  );
 
-  t.ok(compare(diff({
-    foo: undefined,
-  }, {
-    foo: [1, 2, 3],
-  }), [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: undefined,
+        },
+        {
+          foo: [1, 2, 3],
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: [1, 2, 3]}]
+    )
+  );
 });
 
 test('nested objects', function(t) {
@@ -175,12 +217,8 @@ test('nested objects', function(t) {
   var obj10 = {a: 4};
   var obj11 = {a: 4, b: {c: 4}};
 
-  t.ok(
-    compare(diff(obj7, obj8), [{op: 'replace', path: ['b', 'c'], value: 4}])
-  );
-  t.ok(
-    compare(diff(obj8, obj7), [{op: 'replace', path: ['b', 'c'], value: 3}])
-  );
+  t.ok(compare(diff(obj7, obj8), [{op: 'replace', path: ['b', 'c'], value: 4}]));
+  t.ok(compare(diff(obj8, obj7), [{op: 'replace', path: ['b', 'c'], value: 3}]));
   t.ok(
     compare(diff(obj7, obj9), [
       {op: 'remove', path: ['b', 'c']},
@@ -209,26 +247,40 @@ test('nested objects', function(t) {
       {op: 'add', path: ['b', 'c'], value: 4},
     ])
   );
-  t.ok(
-    compare(diff(obj10, obj11), [{op: 'add', path: ['b'], value: {c: 4}}])
-  );
+  t.ok(compare(diff(obj10, obj11), [{op: 'add', path: ['b'], value: {c: 4}}]));
   t.ok(compare(diff(obj11, obj10), [{op: 'remove', path: ['b']}]));
 });
 
 test('objects with nulls against nested objects', function(t) {
   t.plan(2);
 
-  t.ok(compare(diff({
-    foo: null,
-  }, {
-    foo: {bar: 'smang'},
-  }), [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: null,
+        },
+        {
+          foo: {bar: 'smang'},
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]
+    )
+  );
 
-  t.ok(compare(diff({
-    foo: undefined,
-  }, {
-    foo: {bar: 'smang'},
-  }), [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]));
+  t.ok(
+    compare(
+      diff(
+        {
+          foo: undefined,
+        },
+        {
+          foo: {bar: 'smang'},
+        }
+      ),
+      [{op: 'replace', path: ['foo'], value: {bar: 'smang'}}]
+    )
+  );
 });
 
 test('arrays', function(t) {
@@ -300,8 +352,8 @@ test('object vs array', function(t) {
   );
   t.ok(
     compare(diff(obj16, obj15), [
-      {op: 'remove', path: [0]},
       {op: 'remove', path: [1]},
+      {op: 'remove', path: [0]},
       {op: 'add', path: ['a'], value: 2},
     ])
   );
@@ -314,16 +366,8 @@ test('flat objects using jsPatchStandard', function(t) {
   var obj2 = {a: 3, b: 5};
   var obj3 = {a: 4, c: 5};
 
-  t.ok(
-    compare(diff(obj1, obj2, jsonPatchPathConverter), [
-      {op: 'replace', path: '/a', value: 3},
-    ])
-  );
-  t.ok(
-    compare(diff(obj2, obj1, jsonPatchPathConverter), [
-      {op: 'replace', path: '/a', value: 4},
-    ])
-  );
+  t.ok(compare(diff(obj1, obj2, jsonPatchPathConverter), [{op: 'replace', path: '/a', value: 3}]));
+  t.ok(compare(diff(obj2, obj1, jsonPatchPathConverter), [{op: 'replace', path: '/a', value: 4}]));
   t.ok(
     compare(diff(obj1, obj3, jsonPatchPathConverter), [
       {op: 'remove', path: '/b'},
@@ -385,16 +429,8 @@ test('objects with array properties using jsPatchStandard', function(t) {
       {op: 'replace', path: '/b/2', value: 3},
     ])
   );
-  t.ok(
-    compare(diff(obj5, obj6, jsonPatchPathConverter), [
-      {op: 'add', path: '/b/3', value: 5},
-    ])
-  );
-  t.ok(
-    compare(diff(obj6, obj5, jsonPatchPathConverter), [
-      {op: 'remove', path: '/b/3'},
-    ])
-  );
+  t.ok(compare(diff(obj5, obj6, jsonPatchPathConverter), [{op: 'add', path: '/b/3', value: 5}]));
+  t.ok(compare(diff(obj6, obj5, jsonPatchPathConverter), [{op: 'remove', path: '/b/3'}]));
 });
 
 test('nested objects using jsPatchStandard', function(t) {
@@ -407,14 +443,10 @@ test('nested objects using jsPatchStandard', function(t) {
   var obj11 = {a: 4, b: {c: 4}};
 
   t.ok(
-    compare(diff(obj7, obj8, jsonPatchPathConverter), [
-      {op: 'replace', path: '/b/c', value: 4},
-    ])
+    compare(diff(obj7, obj8, jsonPatchPathConverter), [{op: 'replace', path: '/b/c', value: 4}])
   );
   t.ok(
-    compare(diff(obj8, obj7, jsonPatchPathConverter), [
-      {op: 'replace', path: '/b/c', value: 3},
-    ])
+    compare(diff(obj8, obj7, jsonPatchPathConverter), [{op: 'replace', path: '/b/c', value: 3}])
   );
   t.ok(
     compare(diff(obj7, obj9, jsonPatchPathConverter), [
@@ -445,15 +477,9 @@ test('nested objects using jsPatchStandard', function(t) {
     ])
   );
   t.ok(
-    compare(diff(obj10, obj11, jsonPatchPathConverter), [
-      {op: 'add', path: '/b', value: {c: 4}},
-    ])
+    compare(diff(obj10, obj11, jsonPatchPathConverter), [{op: 'add', path: '/b', value: {c: 4}}])
   );
-  t.ok(
-    compare(diff(obj11, obj10, jsonPatchPathConverter), [
-      {op: 'remove', path: '/b'},
-    ])
-  );
+  t.ok(compare(diff(obj11, obj10, jsonPatchPathConverter), [{op: 'remove', path: '/b'}]));
 });
 
 test('arrays using jsPatchStandard', function(t) {
@@ -525,8 +551,8 @@ test('object vs array using jsPatchStandard', function(t) {
   );
   t.ok(
     compare(diff(obj16, obj15, jsonPatchPathConverter), [
-      {op: 'remove', path: '/0'},
       {op: 'remove', path: '/1'},
+      {op: 'remove', path: '/0'},
       {op: 'add', path: '/a', value: 2},
     ])
   );
@@ -544,16 +570,8 @@ test('nested objects using custom converter', function(t) {
   var obj10 = {a: 4};
   var obj11 = {a: 4, b: {c: 4}};
 
-  t.ok(
-    compare(diff(obj7, obj8, converter), [
-      {op: 'replace', path: 'b-c', value: 4},
-    ])
-  );
-  t.ok(
-    compare(diff(obj8, obj7, converter), [
-      {op: 'replace', path: 'b-c', value: 3},
-    ])
-  );
+  t.ok(compare(diff(obj7, obj8, converter), [{op: 'replace', path: 'b-c', value: 4}]));
+  t.ok(compare(diff(obj8, obj7, converter), [{op: 'replace', path: 'b-c', value: 3}]));
   t.ok(
     compare(diff(obj7, obj9, converter), [
       {op: 'remove', path: 'b-c'},
@@ -582,11 +600,7 @@ test('nested objects using custom converter', function(t) {
       {op: 'add', path: 'b-c', value: 4},
     ])
   );
-  t.ok(
-    compare(diff(obj10, obj11, converter), [
-      {op: 'add', path: 'b', value: {c: 4}},
-    ])
-  );
+  t.ok(compare(diff(obj10, obj11, converter), [{op: 'add', path: 'b', value: {c: 4}}]));
   t.ok(compare(diff(obj11, obj10, converter), [{op: 'remove', path: 'b'}]));
 });
 

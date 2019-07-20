@@ -74,6 +74,12 @@ function diff(obj1, obj2, pathConverter) {
     throw new Error('both arguments must be objects or arrays');
   }
 
+  pathConverter =
+    pathConverter ||
+    function(a) {
+      return a;
+    };
+
   function getDiff(obj1, obj2, basePath, diffs) {
     var obj1Keys = Object.keys(obj1);
     var obj1KeysLength = obj1Keys.length;
@@ -87,7 +93,7 @@ function diff(obj1, obj2, pathConverter) {
         path = basePath.concat(key);
         diffs.remove.push({
           op: 'remove',
-          path: pathConverter ? pathConverter(path) : path,
+          path: pathConverter(path),
         });
       }
     }
@@ -101,7 +107,7 @@ function diff(obj1, obj2, pathConverter) {
         var obj2Value = obj2[key];
         diffs.add.push({
           op: 'add',
-          path: pathConverter ? pathConverter(path) : path,
+          path: pathConverter(path),
           value: obj2Value,
         });
       } else if (obj1AtKey !== obj2AtKey) {
@@ -121,7 +127,16 @@ function diff(obj1, obj2, pathConverter) {
       }
     }
 
-    return diffs.remove.concat(diffs.replace).concat(diffs.add);
+    return diffs.remove
+      .sort(function(a, b) {
+        return Array.isArray(b.path)
+          ? b.path.join('-') > a.path.join('-')
+            ? 1
+            : -1
+          : b.path > a.path;
+      })
+      .concat(diffs.replace)
+      .concat(diffs.add);
   }
   return getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
 }
@@ -130,7 +145,7 @@ function pushReplace(path, basePath, key, diffs, pathConverter, obj2) {
   path = basePath.concat(key);
   diffs.replace.push({
     op: 'replace',
-    path: pathConverter ? pathConverter(path) : path,
+    path: pathConverter(path),
     value: obj2[key],
   });
   return path;
