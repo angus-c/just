@@ -20,7 +20,7 @@ function compare(value1, value2) {
   }
   /* eslint-disable no-self-compare */
   // if both values are NaNs return true
-  if ((value1 !== value1) && (value2 !== value2)) {
+  if (value1 !== value1 && value2 !== value2) {
     return true;
   }
   if ({}.toString.call(value1) != {}.toString.call(value2)) {

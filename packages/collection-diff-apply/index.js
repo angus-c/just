@@ -66,6 +66,7 @@ function diffApply(obj, diff, pathConverter) {
     if (pathConverter) {
       thisPath = pathConverter(thisPath);
       if (!Array.isArray(thisPath)) {
+        debugger;
         throw new Error('pathConverter must return an array');
       }
     } else {
@@ -79,7 +80,7 @@ function diffApply(obj, diff, pathConverter) {
       return false;
     }
     var thisProp;
-    while (((thisProp = pathCopy.shift())) != null) {
+    while ((thisProp = pathCopy.shift()) != null) {
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }

@@ -1,9 +1,10 @@
 var test = require('../util/test')(__filename);
-var diffModule = require('../../packages/collection-diff');
-var diff = diffModule.diff;
-var jsonPatchPathConverter = diffModule.jsonPatchPathConverter;
+var {diff, jsonPatchPathConverter} = require('../../packages/collection-diff');
+var {
+  diffApply,
+  jsonPatchPathConverter: jsonPatchApplier,
+} = require('../../packages/collection-diff-apply');
 var compare = require('../../packages/collection-compare');
-var {diffApply} = require('../../packages/collection-diff-apply');
 
 test('flat objects', function(t) {
   t.plan(8);
@@ -360,22 +361,36 @@ test('object vs array', function(t) {
   );
 });
 
-test.only('round trip', function(t) {
-  t.plan(2);
+test('round trip', function(t) {
+  t.plan(4);
 
-  var obj15 = [1, 2, 3, 4];
-  var obj16 = ['a', 2];
+  var obj15 = [1, 2, 3, 4, 5];
+  var obj16 = [5];
 
-  console.log(diff(obj15, obj16));
-  console.log(diffApply(obj15, diff(obj15, obj16)));
-  t.ok(compare(obj16, diffApply(obj15, diff(obj15, obj16))));
+  var thisDiff = diff(obj15, obj16);
+  diffApply(obj15, thisDiff);
+  t.ok(compare(obj15, obj16));
 
-  var obj17 = {a: 2};
-  var obj18 = ['a', 2];
+  var obj15a = [1, 2, 3, 4, 5];
+  var obj16a = [5];
 
-  console.log(diff(obj17, obj18));
-  console.log(diffApply(obj17, diff(obj17, obj18)));
-  t.ok(compare(obj18, diffApply(obj17, diff(obj17, obj18))));
+  thisDiff = diff(obj16a, obj15a);
+  diffApply(obj16a, thisDiff);
+  t.ok(compare(obj15a, obj16a));
+
+  var obj17 = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
+  var obj18 = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
+
+  var thisDiff = diff(obj17, obj18);
+  diffApply(obj17, thisDiff);
+  t.ok(compare(obj17, obj18));
+
+  var obj17a = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
+  var obj18a = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
+
+  thisDiff = diff(obj18a, obj17a);
+  diffApply(obj18a, thisDiff);
+  t.ok(compare(obj17a, obj18a));
 });
 
 test('flat objects using jsPatchStandard', function(t) {
@@ -575,6 +590,38 @@ test('object vs array using jsPatchStandard', function(t) {
       {op: 'add', path: '/a', value: 2},
     ])
   );
+});
+
+test('round trip using jsPatchStandard', function(t) {
+  t.plan(4);
+
+  var obj15 = [1, 2, 3, 4, 5];
+  var obj16 = [5];
+
+  var thisDiff = diff(obj15, obj16, jsonPatchPathConverter);
+  diffApply(obj15, thisDiff, jsonPatchApplier);
+  t.ok(compare(obj15, obj16));
+
+  var obj15a = [1, 2, 3, 4, 5];
+  var obj16a = [5];
+
+  thisDiff = diff(obj16a, obj15a, jsonPatchPathConverter);
+  diffApply(obj16a, thisDiff, jsonPatchApplier);
+  t.ok(compare(obj15a, obj16a));
+
+  var obj17 = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
+  var obj18 = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
+
+  var thisDiff = diff(obj17, obj18, jsonPatchPathConverter);
+  diffApply(obj17, thisDiff, jsonPatchApplier);
+  t.ok(compare(obj17, obj18));
+
+  var obj17a = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
+  var obj18a = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
+
+  thisDiff = diff(obj18a, obj17a, jsonPatchPathConverter);
+  diffApply(obj18a, thisDiff, jsonPatchApplier);
+  t.ok(compare(obj17a, obj18a));
 });
 
 test('nested objects using custom converter', function(t) {
