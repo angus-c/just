@@ -45,8 +45,8 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 | just-pick (75b) | pick (874b)  |  _a, l_  |
 | just-map-values (54b) | mapvalues (4470b)      |  _a, b, j, k_  |
 | just-map-keys (57b) | mapKeys  (4470b)  |  _a, b, j, k_  |
-| just-safe-get (65b) | get (1750b)     |  _i_  |
-| just-safe-set (108b) | set (1930b)     |  _i_ |
+| just-safe-get (65b) | get (1750b)     |  _p_,_q_,_r_  |
+| just-safe-set (108b) | set (1930b)     |  _p_,_q_,_r_ |
 | just-split (145b) | chunk (756b)  | _a, b_  |
 | just-flatten-it (99b) |flattendeep  (549b) | _a_   |
 | just-tail (48b) | tail (111b)  |  _a_  |
@@ -73,7 +73,6 @@ _e._ Lodash curry can be used as a constructor\
 _f._ instances of Lodash partial have a unique `instanceof` value.\
 _g._ Lodash clamp works without a lower bound arg. Just always requires lower and upper bounds.\
 _h._ If either bound is `NaN`, Lodash returns `0`, Just returns `NaN`.\
-_i._ just-get and just-set follows dotty for `(obj, ['a.b'])` style arguments. Lodash uses its own rules.\
 _j._ Lodash invokes `_.identity` when predicate function is nullish\
 _k._ Lodash accepts `_.property` shorthand instead of predicate function.\
 _l._ Lodash will flatten arguments to pick and omit. e.g. `pick(obj, ['a', 'b'], 'c')` becomes `pick(obj, 'a', 'b', 'c')`\
@@ -82,7 +81,10 @@ _m._ When splitting left and right multi-character pads, Lodash truncates from t
 Just truncates from the inside:\
 `just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
 _n._ Lodash works with just one argument, Just expects two\
-_o._ Lodash treats `NaN` values as equal to one other 
+_o._ Lodash treats `NaN` values as equal to one other\
+_p._ Lodash accepts 3rd parameter for a default value.\
+_q._ just-get and just-set follows dotty for `(obj, ['a.b'])` style arguments. Lodash uses its own rules.\
+_r._ It's unsafe to pass array references as a 2nd argument to `just` as they get mutated. Always pass literals instead.
       
 __In addition__, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
 
