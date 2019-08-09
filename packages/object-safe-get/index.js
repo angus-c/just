@@ -40,9 +40,12 @@ function get(obj, propsArg) {
   }
   while (props.length) {
     prop = props.shift();
-    obj = obj[prop];
     if (!obj) {
       return void 0;
+    }
+    obj = obj[prop];
+    if (obj === undefined) {
+      return obj;
     }
   }
   return obj;
