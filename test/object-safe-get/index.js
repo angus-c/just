@@ -30,22 +30,26 @@ test('returns existing properties using array arg', function(t) {
 });
 
 test('returns undefined for non-existing properties, using dot-notation arg', function(t) {
-  t.plan(4);
-  var obj = {a: {aa: {aaa: 2}}, b: 4};
+  t.plan(6);
+  var obj = {a: {aa: {aaa: 2}}, b: 4, c: null, d: 0};
   t.ok(compare(get(obj, 'b.bb'), undefined));
   t.ok(compare(get(obj, 'a.bb'), undefined));
   t.ok(compare(get(obj, 'b.bb.bbb'), undefined));
   t.ok(compare(get(obj.b, 'bb.bbb'), undefined));
+  t.ok(compare(get(obj, 'c.cc'), undefined));
+  t.ok(compare(get(obj, 'd.dd.ddd'), undefined));
   t.end();
 });
 
 test('returns undefined for non-existing properties, using array arg', function(t) {
-  t.plan(6);
-  var obj = {a: {aa: {aaa: 2}}, b: 4};
+  t.plan(8);
+  var obj = {a: {aa: {aaa: 2}}, b: 4, c: null, d: 0};
   t.ok(compare(get(obj, ['b', 'bb']), undefined));
   t.ok(compare(get(obj, ['a', 'bb']), undefined));
   t.ok(compare(get(obj, ['b', 'bb', 'bbb']), undefined));
   t.ok(compare(get(obj.b, ['bb', 'bbb']), undefined));
+  t.ok(compare(get(obj, ['c', 'cc']), undefined));
+  t.ok(compare(get(obj, ['d', 'dd', 'ddd']), undefined));
   var arr = ['b', 'bb', 'bbb'];
   t.ok(compare(get(obj, arr), undefined));
   t.ok(compare(arr, ['b', 'bb', 'bbb'])); // array arg preserved

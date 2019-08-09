@@ -42,7 +42,7 @@ function get(obj, propsArg) {
     prop = props.shift();
     obj = obj[prop];
     if (!obj) {
-      return obj;
+      return void 0;
     }
   }
   return obj;
