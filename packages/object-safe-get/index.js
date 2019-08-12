@@ -21,21 +21,30 @@ module.exports = get;
   get(obj.a, sym); // 4
 */
 
-function get(obj, props) {
+function get(obj, propsArg) {
   if (!obj) {
     return obj;
   }
-  if (typeof props == 'string') {
-    props = props.split('.');
+  var props, prop;
+  if (Array.isArray(propsArg)) {
+    props = propsArg.slice(0);
   }
-  if (typeof props == 'symbol') {
-    props = [props];
+  if (typeof propsArg == 'string') {
+    props = propsArg.split('.');
   }
-  var prop;
+  if (typeof propsArg == 'symbol') {
+    props = [propsArg];
+  }
+  if (!Array.isArray(props)) {
+    throw new Error('props arg must be an array, a string or a symbol');
+  }
   while (props.length) {
     prop = props.shift();
-    obj = obj[prop];
     if (!obj) {
+      return void 0;
+    }
+    obj = obj[prop];
+    if (obj === undefined) {
       return obj;
     }
   }
