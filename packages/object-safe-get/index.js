@@ -21,7 +21,7 @@ module.exports = get;
   get(obj.a, sym); // 4
 */
 
-function get(obj, propsArg) {
+function get(obj, propsArg, defaultValue) {
   if (!obj) {
     return obj;
   }
@@ -41,11 +41,11 @@ function get(obj, propsArg) {
   while (props.length) {
     prop = props.shift();
     if (!obj) {
-      return void 0;
+      return defaultValue;
     }
     obj = obj[prop];
     if (obj === undefined) {
-      return obj;
+      return defaultValue;
     }
   }
   return obj;
