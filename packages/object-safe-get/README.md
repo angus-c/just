@@ -31,6 +31,12 @@ get(undefined, ['a']); // undefined
 get(null, 'a', 42); // 42
 get(undefined, ['a'], 42); // 42
 
+get(obj.b, 'bb.bbb', 5); // 5
+get(obj.b, ['bb', 'bbb'], true); // true
+
+get(null, 'a', 5) // 5
+get(undefined, 'a', {a: 3}) // {a: 3}
+
 const obj = {a: {}};
 const sym = Symbol();
 obj.a[sym] = 4;
