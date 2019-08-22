@@ -1,6 +1,6 @@
 ## just-safe-get
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 [Try it now](http://anguscroll.com/just/just-safe-get)
@@ -22,8 +22,14 @@ get(obj.a, ['aa', 'aaa']); // 2
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
 
-get(null, 'a') // null
-get(undefined, 'a') //undefined
+get(obj.b, 'bb.bbb', 42); // 42
+get(obj.b, ['bb', 'bbb'], 42); // 42
+
+get(null, 'a'); // undefined
+get(undefined, ['a']); // undefined
+
+get(null, 'a', 42); // 42
+get(undefined, ['a'], 42); // 42
 
 const obj = {a: {}};
 const sym = Symbol();

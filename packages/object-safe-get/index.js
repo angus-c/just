@@ -15,6 +15,15 @@ module.exports = get;
   get(obj.b, 'bb.bbb'); // undefined
   get(obj.b, ['bb', 'bbb']); // undefined
 
+  get(obj.b, 'bb.bbb', 42); // 42
+  get(obj.b, ['bb', 'bbb'], 42); // 42
+
+  get(null, 'a'); // undefined
+  get(undefined, ['a']); // undefined
+
+  get(null, 'a', 42); // 42
+  get(undefined, ['a'], 42); // 42
+
   const obj = {a: {}};
   const sym = Symbol();
   obj.a[sym] = 4;
@@ -23,7 +32,7 @@ module.exports = get;
 
 function get(obj, propsArg, defaultValue) {
   if (!obj) {
-    return obj;
+    return defaultValue;
   }
   var props, prop;
   if (Array.isArray(propsArg)) {

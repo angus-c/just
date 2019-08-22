@@ -137,10 +137,17 @@ test('follows empty keys using array arg', function(t) {
   t.end();
 });
 
-test('returns first argument if it is a falsey value', function(t) {
+test('returns undefined if first argument is a falsey value', function(t) {
   t.plan(2);
-  t.ok(compare(get(null, 'a'), null));
+  t.ok(compare(get(null, 'a'), undefined));
   t.ok(compare(get(undefined, 'a'), undefined));
+  t.end();
+});
+
+test('returns 3rd argument if first argument is a falsey value', function(t) {
+  t.plan(2);
+  t.ok(compare(get(null, 'a', 888), 888));
+  t.ok(compare(get(undefined, 'a', 888), 888));
   t.end();
 });
 

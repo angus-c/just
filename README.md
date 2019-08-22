@@ -655,8 +655,14 @@ get(obj.a, ['aa', 'aaa']); // 2
 get(obj.b, 'bb.bbb'); // undefined
 get(obj.b, ['bb', 'bbb']); // undefined
 
-get(null, 'a'); // null
-get(undefined, 'a'); //undefined
+get(obj.b, 'bb.bbb', 42); // 42
+get(obj.b, ['bb', 'bbb'], 42); // 42
+
+get(null, 'a'); // undefined
+get(undefined, ['a']); // undefined
+
+get(null, 'a', 42); // 42
+get(undefined, ['a'], 42); // 42
 
 const obj = { a: {} };
 const sym = Symbol();
