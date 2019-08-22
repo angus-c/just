@@ -4,7 +4,7 @@ The most common reaction to Just is why not just use [__Lodash__](https://lodash
 
 ## Short, simplified answer
 * Use __Lodash__ if it covers an edge case you care about (Lodash is _very_ good at covering edge cases)
-* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records) *and* the runtime performance gains exceed the extra page load lag from the increased JavaScript payload. 
+* Use __Lodash__ if your app is going to be processing vast datastructures (100,000+ records) *and* the runtime performance gains exceed the extra page load lag from the increased JavaScript payload.
 * Use __Lodash__, [__Underscore__](http://underscorejs.org/) or [__Ramda__](http://ramdajs.com/) if they provide a method that Just doesn't (and there are many).
 * Use __Just__ if you care about JavaScript footprint (and none of the above applies).
 
@@ -18,21 +18,21 @@ JavaScript size is especially critical for mobile web development. As Alex point
 
 ## How Big are Just utils?
 
-Just utils nearly all weigh in at a [tiny fraction](#how-robust-are-just-utils) of the size of their Lodash counterparts. They're hand written so they include only essential code. All of them are well under 1kB minfied/gzipped[¹](#¹Data). 
+Just utils nearly all weigh in at a [tiny fraction](#how-robust-are-just-utils) of the size of their Lodash counterparts. They're hand written so they include only essential code. All of them are well under 1kB minfied/gzipped[¹](#¹Data).
 
-Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. You can load submodules directly from the Lodash mono-library:  
+Assuming you don't want to import the entire Lodash monolith, there are two ways to access individual Lodash modules. You can load submodules directly from the Lodash mono-library:
 
-`import camelCase from 'lodash/camelcase'`  
+`import camelCase from 'lodash/camelcase'`
 
-Alternatively, [Lodash Modularized](https://www.npmjs.com/browse/keyword/lodash-modularized) provides a set of dependency-free modules: 
+Alternatively, [Lodash Modularized](https://www.npmjs.com/browse/keyword/lodash-modularized) provides a set of dependency-free modules:
 
 `import camelCase from 'lodash.camelcase'`
 
-Lodash Modularized modules are really modular by name only. They're still dependant on other Lodash functions, the only difference is those dependencies are now inlined within the module. The upshot is Lodash modules share a lot of redundant code and are generally much bigger than they need to be. 
+Lodash Modularized modules are really modular by name only. They're still dependant on other Lodash functions, the only difference is those dependencies are now inlined within the module. The upshot is Lodash modules share a lot of redundant code and are generally much bigger than they need to be.
 
 Module for module, both Lodash import techniques yield the same size, but if you want to import several Lodash modules the earlier technique becomes more efficient, since common dependencies are ony loaded once.
 
-Check out the Just vs Lodash file size comparisons below. (Please note the disclaimer in the footnote[¹](#¹Data)) 
+Check out the Just vs Lodash file size comparisons below. (Please note the disclaimer in the footnote[¹](#¹Data))
 
 ## How Robust are Just utils?
 
@@ -40,7 +40,7 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 
 | Just  (size[¹](#¹Data))   |  Lodash  (Size[¹](#¹Data)) | Differences with Lodash |
 | ---------------| -----------------|-------------------------------|
-| just-values (127b) | values (562b)     | _a_  | 
+| just-values (127b) | values (562b)     | _a_  |
 | just-omit (80b) | omit (2540b)  |  _a, l_  |
 | just-pick (75b) | pick (874b)  |  _a, l_  |
 | just-map-values (54b) | mapvalues (4470b)      |  _a, b, j, k_  |
@@ -67,13 +67,13 @@ The following Just utils pass all Lodash unit tests for core functionality. The 
 
 _a._ Just expects correct argument type, Lodash coerces arguments to expected type\
 _b._ Just does not invoke other Lodash utils as part of its implementation\
-_c._ Lodash zip returns `[]` if no arguments, Just requires at least one argument\   
+_c._ Lodash zip returns `[]` if no arguments, Just requires at least one argument\
 _d._ Lodash curry supports `_` placeholders. Just expects only just-partial to support such placeholders.\
 _e._ Lodash curry can be used as a constructor\
 _f._ instances of Lodash partial have a unique `instanceof` value.\
 _g._ Lodash clamp works without a lower bound arg. Just always requires lower and upper bounds.\
 _h._ If either bound is `NaN`, Lodash returns `0`, Just returns `NaN`.\
-_i._ Lodash accepts array notation `(obj, 'a.b[2]')` while just-get and just-set follow [dotty](https://github.com/deoxxa/dotty): `(obj, 'a.b.2')`.\
+_i._ just-get and just-set follows dotty for `(obj, ['a.b'])` style arguments. Lodash uses its own rules.\
 _j._ Lodash invokes `_.identity` when predicate function is nullish\
 _k._ Lodash accepts `_.property` shorthand instead of predicate function.\
 _l._ Lodash will flatten arguments to pick and omit. e.g. `pick(obj, ['a', 'b'], 'c')` becomes `pick(obj, 'a', 'b', 'c')`\
@@ -82,8 +82,8 @@ _m._ When splitting left and right multi-character pads, Lodash truncates from t
 Just truncates from the inside:\
 `just-left-pad('cde', 4, 'ab')` yields `'bcde'`\
 _n._ Lodash works with just one argument, Just expects two\
-_o._ Lodash treats `NaN` values as equal to one other 
-      
+_o._ Lodash treats `NaN` values as equal to one other
+
 __In addition__, these Just utilities, while lacking the additional features of their Lodash equivalents (noted below), match the feature set / behavior of _underscore_ and other comparable libraries.
 
 | Just  (size[¹](#¹Data))   |  Lodash  (size[¹](#¹Data)) | Extra Lodash features |
@@ -94,10 +94,10 @@ __In addition__, these Just utilities, while lacking the additional features of 
 | just-merge (142b) | merge (4220b)  |  _e, f, g_ |
 | just-clone (157b) | clonedeep (3360b) | _e, f, g_   |
 
-_a._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.   
+_a._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.
 _b._ Lodash has a leading and trailing option, Just only has a leading option.\
 _c._ Lodash cancels delayed calls.\
-_d._ Lodash has a `flushed` method that can be applied to throttles/debounces.   
+_d._ Lodash has a `flushed` method that can be applied to throttles/debounces.
 _e._ Lodash can merge circular references\
 _f._ Just only merges plain objects, regular arrays, functions and primitives. Lodash merges additional non-plain object types. \
 _g._ Lodash treats sparse arrays as dense
