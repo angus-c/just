@@ -73,7 +73,7 @@ _e._ Lodash curry can be used as a constructor\
 _f._ instances of Lodash partial have a unique `instanceof` value.\
 _g._ Lodash clamp works without a lower bound arg. Just always requires lower and upper bounds.\
 _h._ If either bound is `NaN`, Lodash returns `0`, Just returns `NaN`.\
-_i._ just-get and just-set follows dotty for `(obj, ['a.b'])` style arguments. Lodash uses its own rules.\
+_i._ Lodash accepts array notation `(obj, 'a.b[2]')` while just-get and just-set follow [dotty](https://github.com/deoxxa/dotty): `(obj, 'a.b.2')`.\
 _j._ Lodash invokes `_.identity` when predicate function is nullish\
 _k._ Lodash accepts `_.property` shorthand instead of predicate function.\
 _l._ Lodash will flatten arguments to pick and omit. e.g. `pick(obj, ['a', 'b'], 'c')` becomes `pick(obj, 'a', 'b', 'c')`\
