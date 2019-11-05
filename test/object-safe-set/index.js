@@ -46,6 +46,28 @@ test('sets non-existent property using array arg', function(t) {
   t.end();
 });
 
+test('sets null value property using dot-notation arg', function(t) {
+  t.plan(4);
+  var obj1 = {a: null};
+  t.isEqual(set(obj1, 'a.aa.aaa', 4), true);
+  t.ok(compare(obj1, {a: {aa: {aaa: 4}}}));
+  var obj2 = {a: null};
+  t.isEqual(set(obj2, 'a.aa', {bbb: 7}), true);
+  t.ok(compare(obj2, {a: {aa: {bbb: 7}}}));
+  t.end();
+});
+
+test('sets null value property using array arg', function(t) {
+  t.plan(4);
+  var obj1 = {a: null};
+  t.isEqual(set(obj1, ['a', 'aa', 'aaa'], 4), true);
+  t.ok(compare(obj1, {a: {aa: {aaa: 4}}}));
+  var obj2 = {a: null};
+  t.isEqual(set(obj2, ['a', 'aa'], {bbb: 7}), true);
+  t.ok(compare(obj2, {a: {aa: {bbb: 7}}}));
+  t.end();
+});
+
 test("doesn't interrupt property chain, using dot-notation arg", function(t) {
   t.plan(2);
   var obj1 = {a: 5};

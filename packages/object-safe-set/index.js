@@ -21,6 +21,10 @@ module.exports = set;
   const sym = Symbol();
   set(obj5.a, sym, 7); // true
   obj5; // {a: {Symbol(): 7}}
+
+  var obj6 = {a: null};
+  set(obj6, 'a.aa.aaa', 3); // true
+  obj6; // {a: {aa: {aaa: 3}}}
 */
 
 function set(obj, props, value) {
@@ -37,6 +41,9 @@ function set(obj, props, value) {
   var thisProp;
   while ((thisProp = props.shift())) {
     if (typeof obj[thisProp] == 'undefined') {
+      obj[thisProp] = {};
+    }
+    if (obj[thisProp] == null) {
       obj[thisProp] = {};
     }
     obj = obj[thisProp];
