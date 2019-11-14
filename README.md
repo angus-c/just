@@ -680,11 +680,11 @@ get(obj.a, sym); // 4
 import set from 'just-safe-set';
 
 const obj1 = {};
-set(obj1, 'a.aa.aaa', 4}); // true
+set(obj1, 'a.aa.aaa', 4); // true
 obj1; // {a: {aa: {aaa: 4}}}
 
 const obj2 = {};
-set(obj2, [a, aa, aaa], 4}); // true
+set(obj2, [a, aa, aaa], 4); // true
 obj2; // {a: {aa: {aaa: 4}}}
 
 const obj3 = {a: {aa: {aaa: 2}}};
