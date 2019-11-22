@@ -8,7 +8,7 @@ var basicCamelRegEx = /^[a-z\u00E0-\u00FCA-Z\u00C0-\u00DC][\d|a-z\u00E0-\u00FCA-
 var fourOrMoreConsecutiveCapsRegEx = /([A-Z\u00C0-\u00DC]{4,})/g;
 var allCapsRegEx = /^[A-Z\u00C0-\u00DC]+$/;
 
-function camelCase(str, options) {
+function camelCase(str) {
   var words = str.split(wordSeparatorsRegEx);
   var len = words.length;
   var mappedWords = new Array(len);
