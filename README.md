@@ -1019,7 +1019,7 @@ zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
 
 ### [just-mean](https://www.npmjs.com/package/just-mean)
 
-:icecream:[`Try It`](http://anguscroll.com/just/just-mean)
+:icecream:[`Try It`](https://anguscroll.com/just/just-mean)
 
 `npm install just-mean`
 
@@ -1035,7 +1035,7 @@ mean(); // throws
 
 ### [just-median](https://www.npmjs.com/package/just-median)
 
-:icecream:[`Try It`](http://anguscroll.com/just/just-median)
+:icecream:[`Try It`](https://anguscroll.com/just/just-median)
 
 `npm install just-median`
 
@@ -1052,7 +1052,7 @@ median(); // throws
 
 ### [just-mode](https://www.npmjs.com/package/just-mode)
 
-:icecream:[`Try It`](http://anguscroll.com/just/just-mode)
+:icecream:[`Try It`](https://anguscroll.com/just/just-mode)
 
 `npm install just-mode`
 
@@ -1069,7 +1069,7 @@ mode(null); // throws
 
 ### [just-variance](https://www.npmjs.com/package/just-variance)
 
-:icecream:[`Try It`](http://anguscroll.com/just/just-variance)
+:icecream:[`Try It`](https://anguscroll.com/just/just-variance)
 
 `npm install just-variance`
 
