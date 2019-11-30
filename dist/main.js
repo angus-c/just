@@ -584,7 +584,27 @@ module.exports = {
     utils: {
       'just-mean': {
         size: sizes['just-mean'],
-        code: ['const mean = require(\'just-mean\')\n\nmean(1, 4, 5, -9);']
+        code: ['const mean = require(\'just-mean\')\n\nmean([1, 4, 5, -9]);']
+      },
+      'just-median': {
+        size: sizes['just-median'],
+        code: ['const median = require(\'just-median\')\n\nmedian([1, 4, 5, -9, 2]);']
+      },
+      'just-mode': {
+        size: sizes['just-mode'],
+        code: ['const mode = require(\'just-mode\')\n\nmode([1, 4, 4, -9, 2]);']
+      },
+      'just-percentile': {
+        size: sizes['just-percentile'],
+        code: ['const percentile = require(\'just-percentile\')\n\npercentile([15, 20, 35, 40, 50], 30);']
+      },
+      'just-variance': {
+        size: sizes['just-variance'],
+        code: ['const variance = require(\'just-variance\')\n\nvariance([1, 3, 9, 4, -1]);']
+      },
+      'just-stdev': {
+        size: sizes['just-stdev'],
+        code: ['const standardDeviation = require(\'just-stdev\')\n\nstandardDeviation([1, 3, 9, 4, -1]);']
       }
     }
   },
@@ -754,6 +774,11 @@ module.exports = {
   "just-union": "120",
   "just-zip-it": "173",
   "just-mean": "148",
+  "just-median": "196",
+  "just-mode": "241",
+  "just-percentile": "249",
+  "just-variance": "190",
+  "just-stdev": "198",
   "just-template": "80",
   "just-truncate": "54",
   "just-prune": "83",
