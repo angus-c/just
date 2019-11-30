@@ -1131,14 +1131,14 @@ variance(NaN, NaN); // throws
 variance(); // throws
 ```
 
-### [just-stdev](https://www.npmjs.com/package/just-stdev)
+### [just-standard-deviation](https://www.npmjs.com/package/just-standard-deviation)
 
-:icecream:[`Try It`](https://anguscroll.com/just/just-stdev)
+:icecream:[`Try It`](https://anguscroll.com/just/just-standard-deviation)
 
-`npm install just-stdev`
+`npm install just-standard-deviation`
 
 ```js
-import standardDeviation from "just-stdev";
+import standardDeviation from "just-standard-deviation";
 
 standardDeviation([1, 2, 3, 2, 4, 1]); // 1.16904519
 standardDeviation(3, 2, 1); // 1
