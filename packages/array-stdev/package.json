@@ -1,5 +1,5 @@
 {
-  "name": "just-stdev",
+  "name": "just-standard-deviation",
   "version": "1.0.0",
   "description": "return the standard deviation of an array or numeric argument list",
   "main": "index.js",
