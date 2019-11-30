@@ -1,18 +1,16 @@
 {
   "name": "just-stdev",
-  "version": "3.1.0",
-  "description": "restrict a number within a range",
+  "version": "1.0.0",
+  "description": "return the standard deviation of an array or numeric argument list",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "clamp",
-    "restrict",
-    "greater",
-    "less",
-    "range",
+    "standard deviation",
+    "stats",
+    "statistics",
     "number",
     "just"
   ],
