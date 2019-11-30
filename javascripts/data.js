@@ -350,6 +350,25 @@ zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`
       }
     }
   },
+  Statistics: {
+    symbol: 'Σ',
+    utils: {
+      'just-mean': {
+        size: sizes['just-mean'],
+        code: [
+          `const mean = require('just-mean')\n
+mean(1, 4, 5, -9);`
+        ]
+      },
+      'just-median': {
+        size: sizes['just-median'],
+        code: [
+          `const mean = require('just-median')\n
+  mean(1, 4, 5, -9, 2, 3);`
+        ]
+      }
+    }
+  },
   Strings: {
     symbol: '""',
     utils: {
