@@ -46,6 +46,7 @@ module.exports = {
   "just-percentile": "249",
   "just-variance": "190",
   "just-standard-deviation": "198",
+  "just-skewness": "273",
   "just-template": "80",
   "just-truncate": "54",
   "just-prune": "83",

@@ -394,6 +394,13 @@ variance([1, 3, 9, 4, -1]);`
           `const standardDeviation = require('just-standard-deviation')\n
 standardDeviation([1, 3, 9, 4, -1]);`
         ]
+      },
+      'just-skewness': {
+        size: sizes['just-skewness'],
+        code: [
+          `const skewness = require('just-skewness')\n
+skewness([1, 2, 3, 5]);`
+        ]
       }
     }
   },
