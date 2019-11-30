@@ -602,9 +602,9 @@ module.exports = {
         size: sizes['just-variance'],
         code: ['const variance = require(\'just-variance\')\n\nvariance([1, 3, 9, 4, -1]);']
       },
-      'just-stdev': {
-        size: sizes['just-stdev'],
-        code: ['const standardDeviation = require(\'just-stdev\')\n\nstandardDeviation([1, 3, 9, 4, -1]);']
+      'just-standard-deviation': {
+        size: sizes['just-standard-deviation'],
+        code: ['const standardDeviation = require(\'just-standard-deviation\')\n\nstandardDeviation([1, 3, 9, 4, -1]);']
       }
     }
   },
@@ -778,7 +778,7 @@ module.exports = {
   "just-mode": "241",
   "just-percentile": "249",
   "just-variance": "190",
-  "just-stdev": "198",
+  "just-standard-deviation": "198",
   "just-template": "80",
   "just-truncate": "54",
   "just-prune": "83",

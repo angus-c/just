@@ -388,10 +388,10 @@ percentile([15, 20, 35, 40, 50], 30);`
 variance([1, 3, 9, 4, -1]);`
         ]
       },
-      'just-stdev': {
-        size: sizes['just-stdev'],
+      'just-standard-deviation': {
+        size: sizes['just-standard-deviation'],
         code: [
-          `const standardDeviation = require('just-stdev')\n
+          `const standardDeviation = require('just-standard-deviation')\n
 standardDeviation([1, 3, 9, 4, -1]);`
         ]
       }
