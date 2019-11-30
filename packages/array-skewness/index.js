@@ -5,7 +5,7 @@ function skewness(arr) {
     arr = [].slice.call(arguments);
   }
   if (!arr.length || arr.length < 2) {
-    throw new Error('less than one value was passed to `skewness`');
+    throw new Error("less than one value was passed to `skewness`");
   }
 
   let standardDeviation, mean, median;
@@ -16,7 +16,7 @@ function skewness(arr) {
   for (var i = 0; i < len; i++) {
     var n = arr[i];
     if (!Number.isFinite(n)) {
-      throw new Error('all values passed to `skewness` must be numeric');
+      throw new Error("all values passed to `skewness` must be numeric");
     }
     sum += n;
   }
@@ -41,8 +41,6 @@ function skewness(arr) {
     arr.length / 2 != lowerMiddleRank
       ? sorted[lowerMiddleRank]
       : (sorted[lowerMiddleRank] + sorted[lowerMiddleRank - 1]) / 2;
-
-  console.log(standardDeviation, mean, median);
 
   // Pearson's second skewness coefficient (median skewness)
   return (3 * (mean - median)) / standardDeviation;
