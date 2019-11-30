@@ -8,8 +8,8 @@ function mode(arr) {
   var ArrLen = arr.length;
   for (var i = 0; i < ArrLen; i++) {
     var n = arr[i];
-    if (typeof n != 'number') {
-      throw new Error('all values passed to `mode` must be numeric');
+    if (!Number.isFinite(n)) {
+      throw new Error("all values passed to `mode` must be numeric");
     }
     n in map ? map[n]++ : (map[n] = 1);
   }
@@ -17,7 +17,7 @@ function mode(arr) {
   var mapKeys = Object.keys(map);
   var mapKeysLen = mapKeys.length;
   if (!mapKeysLen) {
-    throw new Error('no values were passed to `mode`');
+    throw new Error("no values were passed to `mode`");
   }
   var maxOccurences = -1;
   var result;
@@ -32,7 +32,7 @@ function mode(arr) {
   }
   return result.length > 1
     ? result.sort(function(a, b) {
-      return a >= b ? 1 : -1;
-    })
+        return a >= b ? 1 : -1;
+      })
     : result[0];
 }
