@@ -1,0 +1,22 @@
+{
+  "name": "just-skewness",
+  "version": "1.0.0",
+  "description": "return the skewness of an array or numeric argument list using Pearson's second skewness coefficient",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "skewness",
+    "stats",
+    "statistics",
+    "number",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

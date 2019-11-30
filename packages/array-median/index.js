@@ -10,7 +10,7 @@ function median(arr) {
     throw new Error('no values were passed to `median`');
   }
   if (arr.length == 1) {
-    if (typeof arr[0] == 'number') {
+    if (Number.isFinite(arr[0])) {
       return arr[0];
     } else {
       throw new Error(nonNumericMsg);

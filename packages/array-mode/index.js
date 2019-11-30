@@ -8,7 +8,7 @@ function mode(arr) {
   var ArrLen = arr.length;
   for (var i = 0; i < ArrLen; i++) {
     var n = arr[i];
-    if (typeof n != 'number') {
+    if (!Number.isFinite(n)) {
       throw new Error('all values passed to `mode` must be numeric');
     }
     n in map ? map[n]++ : (map[n] = 1);

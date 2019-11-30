@@ -12,7 +12,7 @@ function variance(arr) {
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     var n = arr[i];
-    if (typeof n != 'number' || !n) {
+    if (!Number.isFinite(n)) {
       throw new Error('all values passed to `variance` must be numeric');
     }
     sum += n;

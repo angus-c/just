@@ -12,7 +12,7 @@ function mean(arr) {
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     var n = arr[i];
-    if (typeof n != 'number') {
+    if (!Number.isFinite(n)) {
       throw new Error('all values passed to `mean` must be numeric');
     }
     sum += n;

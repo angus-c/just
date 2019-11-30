@@ -13,14 +13,14 @@ function percentile(arr, percentileValue) {
     throw new Error('no values were passed to `percentile`');
   }
   if (arr.length == 1) {
-    if (typeof arr[0] == 'number') {
+    if (Number.isFinite(arr[0])) {
       return arr[0];
     } else {
       throw new Error(nonNumericMsg);
     }
   }
   var sorted = arr.sort(function(a, b) {
-    if (typeof a != 'number') {
+    if (!Number.isFinite(a)) {
       throw new Error(nonNumericMsg);
     }
     return a >= b ? 1 : -1;
@@ -35,6 +35,9 @@ function percentile(arr, percentileValue) {
   } else {
     var upperInt = Math.ceil(percentileRank);
     console.log(lowerInt, upperInt, percentileRank);
-    return sorted[lowerInt] + (percentileRank - lowerInt) * (sorted[upperInt] - sorted[lowerInt]);
+    return (
+      sorted[lowerInt] +
+      (percentileRank - lowerInt) * (sorted[upperInt] - sorted[lowerInt])
+    );
   }
 }
