@@ -1,23 +1,23 @@
 module.exports = median;
 
-var nonNumericMsg = "all values passed to `median` must be numeric";
+var nonNumericMsg = 'all values passed to `median` must be numeric';
 
 function median(arr) {
   if (!Array.isArray(arr)) {
     arr = [].slice.call(arguments);
   }
   if (!arr.length) {
-    throw new Error("no values were passed to `median`");
+    throw new Error('no values were passed to `median`');
   }
   if (arr.length == 1) {
-    if (!Number.isFinite(n)) {
+    if (Number.isFinite(arr[0])) {
       return arr[0];
     } else {
       throw new Error(nonNumericMsg);
     }
   }
   var sorted = arr.sort(function(a, b) {
-    if (typeof a != "number") {
+    if (typeof a != 'number') {
       throw new Error(nonNumericMsg);
     }
     return a >= b ? 1 : -1;

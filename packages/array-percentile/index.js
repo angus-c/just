@@ -1,26 +1,26 @@
 module.exports = percentile;
 
-var nonNumericMsg = "all values passed to `percentile` must be numeric";
+var nonNumericMsg = 'all values passed to `percentile` must be numeric';
 
 // Using linear interpolation method
 // https://en.wikipedia.org/wiki/Percentile
 
 function percentile(arr, percentileValue) {
   if (!Array.isArray(arr)) {
-    throw new Error("the argument to `percentile` must be an array");
+    throw new Error('the argument to `percentile` must be an array');
   }
   if (!arr.length) {
-    throw new Error("no values were passed to `percentile`");
+    throw new Error('no values were passed to `percentile`');
   }
   if (arr.length == 1) {
-    if (typeof arr[0] == "number") {
+    if (Number.isFinite(arr[0])) {
       return arr[0];
     } else {
       throw new Error(nonNumericMsg);
     }
   }
   var sorted = arr.sort(function(a, b) {
-    if (!Number.isFinite(n)) {
+    if (!Number.isFinite(a)) {
       throw new Error(nonNumericMsg);
     }
     return a >= b ? 1 : -1;
