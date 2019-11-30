@@ -1,0 +1,21 @@
+{
+  "name": "just-median",
+  "version": "1.0.0",
+  "description": "return the median value of an array of numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "median",
+    "statistics",
+    "stats",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

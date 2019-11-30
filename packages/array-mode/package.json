@@ -1,0 +1,21 @@
+{
+  "name": "just-mode",
+  "version": "1.0.0",
+  "description": "return the most frequently occuring number(s)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "mode",
+    "statistics",
+    "stats",
+    "just"
+  ],
+  "author": "Angus Croll",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
