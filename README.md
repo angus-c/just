@@ -86,6 +86,13 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-remove](#just-remove)
   - [just-union](#just-union)
   - [just-zip-it](#just-zip-it)
+- [Statistics](#stats) Σ
+  - [just-mean](#just-mean)
+  - [just-median](#just-median)
+  - [just-mode](#just-mode)
+  - [just-percentile](#just-percentile)
+  - [just-variance](#just-variance)
+  - [just-stdev](#just-stdev)
 - [Strings](#strings) ""
   - [just-template](#just-template)
   - [just-truncate](#just-truncate)
@@ -251,7 +258,7 @@ Pass converter to apply a http://jsonpatch.com standard patch
 `npm install just-compare`
 
 ```js
-import compare from 'just-compare';
+import compare from "just-compare";
 
 // primitives: value1 === value2
 // functions: value1.toString == value2.toString
@@ -275,7 +282,7 @@ compare(NaN, NaN); // true
 `npm install just-clone`
 
 ```js
-import clone from 'just-clone';
+import clone from "just-clone";
 
 // Deep copies objects and arrays, doesn't clone functions
 
@@ -296,10 +303,17 @@ objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}
 `npm install just-pluck-it`
 
 ```js
-import pluck from 'just-pluck-it';
+import pluck from "just-pluck-it";
 
-pluck([{ a: 1, b: 2 }, { a: 4, b: 3 }, { a: 2, b: 5 }], 'a'); // [1, 4, 2]
-pluck({ x: { a: 1, b: 2 }, y: { a: 4, b: 3 }, z: { a: 2, b: 5 } }, 'a'); // {x: 1, y: 4, z: 2}
+pluck(
+  [
+    { a: 1, b: 2 },
+    { a: 4, b: 3 },
+    { a: 2, b: 5 }
+  ],
+  "a"
+); // [1, 4, 2]
+pluck({ x: { a: 1, b: 2 }, y: { a: 4, b: 3 }, z: { a: 2, b: 5 } }, "a"); // {x: 1, y: 4, z: 2}
 ```
 
 ### [just-flush](https://www.npmjs.com/package/just-flush)
@@ -309,12 +323,12 @@ pluck({ x: { a: 1, b: 2 }, y: { a: 4, b: 3 }, z: { a: 2, b: 5 } }, 'a'); // {x: 
 `npm install just-flush`
 
 ```js
-import flush from 'just-flush';
+import flush from "just-flush";
 
 flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
 flush([true, null, false, true, [null], undefined]); // [true, false, [null], true]
 flush({ a: 2, b: null, c: 4, d: undefined }); // {a: 2, c: 4}
-flush('something'); // undefined
+flush("something"); // undefined
 flush(); // undefined
 ```
 
@@ -363,7 +377,7 @@ extend(3, {a: 4, b: 5}); // throws
 `npm install just-merge`
 
 ```js
-import merge from 'just-merge';
+import merge from "just-merge";
 
 let obj = { a: 3, b: 5 };
 merge(obj, { a: 4, c: 8 }); // {a: 4, b: 5, c: 8}
@@ -382,7 +396,7 @@ obj; // {a: 3, b: 5, c: [1, 2, 3, 4]}
 merge({ a: 4, b: 5 }); // {a: 4, b: 5}
 merge(3, { a: 4, b: 5 }); // throws
 merge({ a: 4, b: 5 }, 3); // throws
-merge({ a: 4, b: 5 }, { b: 4, c: 5 }, 'c'); // throws
+merge({ a: 4, b: 5 }, { b: 4, c: 5 }, "c"); // throws
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)
@@ -392,7 +406,7 @@ merge({ a: 4, b: 5 }, { b: 4, c: 5 }, 'c'); // throws
 `npm install just-values`
 
 ```js
-import values from 'just-values';
+import values from "just-values";
 
 values({ a: 4, c: 8 }); // [4, 8]
 values({ a: { aa: 2 }, b: { bb: 4 } }); // [{aa: 2}, {bb: 4}]
@@ -401,7 +415,7 @@ values([1, 2, 3]); // [1, 2, 3]
 values(function(a, b) {
   return a + b;
 }); // []
-values(String('hello')); // []
+values(String("hello")); // []
 values(1); // throw exception
 values(true); // throw exception
 values(undefined); // throw exception
@@ -415,7 +429,7 @@ values(null); // throw exception
 `npm install just-entries`
 
 ```js
-import entries from 'just-entries';
+import entries from "just-entries";
 
 // Object:
 entries({ c: 8, a: 4 }); // [['c', 8], ['a', 4]]
@@ -424,7 +438,7 @@ entries({}); // []
 
 // Array:
 entries([{ c: 8 }, { a: 4 }]); // [[0, {c: 8}], [1, {a: 4}]]
-entries(['À', 'mauvais', 'ouvrier', 'point', 'de', 'bon', 'outil']);
+entries(["À", "mauvais", "ouvrier", "point", "de", "bon", "outil"]);
 // [[0, 'À'], [1, 'mauvais'] ... [6, 'outil']]
 entries([]); // []
 ```
@@ -436,13 +450,13 @@ entries([]); // []
 `npm install just-pick`
 
 ```js
-import pick from 'just-pick';
+import pick from "just-pick";
 
 var obj = { a: 3, b: 5, c: 9 };
-pick(obj, ['a', 'c']); // {a: 3, c: 9}
-pick(obj, 'a', 'c'); // {a: 3, c: 9}
-pick(obj, ['a', 'b', 'd']); // {a: 3, b: 5}
-pick(obj, ['a', 'a']); // {a: 3}
+pick(obj, ["a", "c"]); // {a: 3, c: 9}
+pick(obj, "a", "c"); // {a: 3, c: 9}
+pick(obj, ["a", "b", "d"]); // {a: 3, b: 5}
+pick(obj, ["a", "a"]); // {a: 3}
 ```
 
 ### [just-omit](https://www.npmjs.com/package/just-omit)
@@ -452,13 +466,13 @@ pick(obj, ['a', 'a']); // {a: 3}
 `npm install just-omit`
 
 ```js
-import omit from 'just-omit';
+import omit from "just-omit";
 
 var obj = { a: 3, b: 5, c: 9 };
-omit(obj, ['a', 'c']); // {b: 5}
-omit(obj, 'a', 'c'); // {b: 5}
-omit(obj, ['a', 'b', 'd']); // {c: 9}
-omit(obj, ['a', 'a']); // {b: 5, c: 9}
+omit(obj, ["a", "c"]); // {b: 5}
+omit(obj, "a", "c"); // {b: 5}
+omit(obj, ["a", "b", "d"]); // {c: 9}
+omit(obj, ["a", "a"]); // {b: 5, c: 9}
 ```
 
 ### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
@@ -498,7 +512,7 @@ import isEmpty from 'just-is-empty';
 `npm install just-is-circular`
 
 ```js
-import isCircular from 'just-is-circular';
+import isCircular from "just-is-circular";
 
 const a = {};
 a.b = a;
@@ -517,7 +531,7 @@ a.push(a);
 isCircular(a); // true
 
 isCircular({}); // false
-isCircular('hi'); // false
+isCircular("hi"); // false
 isCircular(undefined); // false
 ```
 
@@ -528,8 +542,8 @@ isCircular(undefined); // false
 `npm install just-is-primitive`
 
 ```js
-import isPrimitive from 'just-is-primitive';
-isPrimitive('hi'); // true
+import isPrimitive from "just-is-primitive";
+isPrimitive("hi"); // true
 isPrimitive(3); // true
 isPrimitive(true); // true
 isPrimitive(false); // true
@@ -550,11 +564,11 @@ isPrimitive(/a/); // false
 `npm install just-filter-object`
 
 ```js
-import filter from 'just-filter-object';
+import filter from "just-filter-object";
 
 // returns a new object containing those original properties for which the predicate returns truthy
 filter({ a: 3, b: 5, c: 9 }, (key, value) => value < 6); // {a: 3, b: 5}
-filter({ a1: 3, b1: 5, a2: 9 }, (key, value) => key[0] == 'a'); // {a1: 3, a2: 9}
+filter({ a1: 3, b1: 5, a2: 9 }, (key, value) => key[0] == "a"); // {a1: 3, a2: 9}
 filter({ a: 3, b: 5, c: null }, (key, value) => value); // {a: 3, b: 5}
 ```
 
@@ -565,7 +579,7 @@ filter({ a: 3, b: 5, c: null }, (key, value) => value); // {a: 3, b: 5}
 `npm install just-map-object`
 
 ```js
-import map from 'just-map-object';
+import map from "just-map-object";
 
 // DEPRECATED: use just-map-values
 map({ a: 3, b: 5, c: 9 }, (key, value) => value + 1); // {a: 4, b: 6, c: 10}
@@ -580,7 +594,7 @@ map({ a: 3, b: 5, c: 9 }, (key, value) => key + value); // {a: 'a3', b: 'b5', c:
 `npm install just-map-values`
 
 ```js
-import map from 'just-map-values';
+import map from "just-map-values";
 
 // predicate updates values, recieves (value, key, obj)
 map({ a: 3, b: 5, c: 9 }, value => value + 1); // {a: 4, b: 6, c: 10}
@@ -595,10 +609,10 @@ map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 `npm install just-map-keys`
 
 ```js
-import map from 'just-map-keys';
+import map from "just-map-keys";
 
 // predicate updates keys, recieves (value, key, object)
-map({ a: 'cow', b: 'sheep', c: 'pig' }, value => value);
+map({ a: "cow", b: "sheep", c: "pig" }, value => value);
 // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
 map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
 map({ a: 3, b: 5, c: 9 }, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
@@ -613,7 +627,7 @@ map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b + value + key);
 `npm install just-reduce-object`
 
 ```js
-import reduce from 'just-reduce-object';
+import reduce from "just-reduce-object";
 
 // applies a function against an accumulator and each key-value pairs of the object
 // to reduce it to a single value
@@ -639,30 +653,30 @@ reduce({ a: 3, b: 5, c: 9 }, (acc, key, value, index, keys) => {
 `npm install just-safe-get`
 
 ```js
-import get from 'just-safe-get';
+import get from "just-safe-get";
 
 const obj = { a: { aa: { aaa: 2 } }, b: 4 };
 
-get(obj, 'a.aa.aaa'); // 2
-get(obj, ['a', 'aa', 'aaa']); // 2
+get(obj, "a.aa.aaa"); // 2
+get(obj, ["a", "aa", "aaa"]); // 2
 
-get(obj, 'b.bb.bbb'); // undefined
-get(obj, ['b', 'bb', 'bbb']); // undefined
+get(obj, "b.bb.bbb"); // undefined
+get(obj, ["b", "bb", "bbb"]); // undefined
 
-get(obj.a, 'aa.aaa'); // 2
-get(obj.a, ['aa', 'aaa']); // 2
+get(obj.a, "aa.aaa"); // 2
+get(obj.a, ["aa", "aaa"]); // 2
 
-get(obj.b, 'bb.bbb'); // undefined
-get(obj.b, ['bb', 'bbb']); // undefined
+get(obj.b, "bb.bbb"); // undefined
+get(obj.b, ["bb", "bbb"]); // undefined
 
-get(obj.b, 'bb.bbb', 5); // 5
-get(obj.b, ['bb', 'bbb'], true); // true
+get(obj.b, "bb.bbb", 5); // 5
+get(obj.b, ["bb", "bbb"], true); // true
 
-get(null, 'a'); // undefined
-get(undefined, ['a']); // undefined
+get(null, "a"); // undefined
+get(undefined, ["a"]); // undefined
 
-get(null, 'a', 42); // 42
-get(undefined, ['a'], 42); // 42
+get(null, "a", 42); // 42
+get(undefined, ["a"], 42); // 42
 
 const obj = { a: {} };
 const sym = Symbol();
@@ -677,25 +691,25 @@ get(obj.a, sym); // 4
 `npm install just-safe-set`
 
 ```js
-import set from 'just-safe-set';
+import set from "just-safe-set";
 
 const obj1 = {};
-set(obj1, 'a.aa.aaa', 4); // true
+set(obj1, "a.aa.aaa", 4); // true
 obj1; // {a: {aa: {aaa: 4}}}
 
 const obj2 = {};
 set(obj2, [a, aa, aaa], 4); // true
 obj2; // {a: {aa: {aaa: 4}}}
 
-const obj3 = {a: {aa: {aaa: 2}}};
-set(obj3, 'a.aa.aaa', 3); // true
+const obj3 = { a: { aa: { aaa: 2 } } };
+set(obj3, "a.aa.aaa", 3); // true
 obj3; // {a: {aa: {aaa: 3}}}
 
 // don't clobber existing
-const obj4 = {a: {aa: {aaa: 2}}};
-set(obj4, 'a.aa', {bbb: 7}); // false
+const obj4 = { a: { aa: { aaa: 2 } } };
+set(obj4, "a.aa", { bbb: 7 }); // false
 
-const obj5 = {a: {}};
+const obj5 = { a: {} };
 const sym = Symbol();
 set(obj5.a, sym, 7); // true
 obj5; // {a: {Symbol(): 7}}
@@ -708,7 +722,7 @@ obj5; // {a: {Symbol(): 7}}
 `npm install just-typeof`
 
 ```js
-import typeOf from 'just-typeof';
+import typeOf from "just-typeof";
 
 typeOf({}); // 'object'
 typeOf([]); // 'array'
@@ -717,7 +731,7 @@ typeOf(/a/); // 'regexp'
 typeOf(new Date()); // 'date'
 typeOf(null); // 'null'
 typeOf(undefined); // 'undefined'
-typeOf('a'); // 'string'
+typeOf("a"); // 'string'
 typeOf(1); // 'number'
 typeOf(true); // 'boolean'
 ```
@@ -729,10 +743,10 @@ typeOf(true); // 'boolean'
 `npm install just-flip-object`
 
 ```js
-import flip from 'just-flip-object';
+import flip from "just-flip-object";
 
 // flip the key and value
-flip({ a: 'x', b: 'y', c: 'z' }); // {x: 'a', y: 'b', z: 'c'}
+flip({ a: "x", b: "y", c: "z" }); // {x: 'a', y: 'b', z: 'c'}
 flip({ a: 1, b: 2, c: 3 }); // {'1': 'a', '2': 'b', '3': 'c'}
 flip({ a: false, b: true }); // {false: 'a', true: 'b'}
 ```
@@ -746,7 +760,7 @@ flip({ a: false, b: true }); // {false: 'a', true: 'b'}
 `npm install just-unique`
 
 ```js
-import unique from 'just-unique';
+import unique from "just-unique";
 
 unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
 
@@ -755,13 +769,13 @@ var b = { b: 4 };
 var c = { c: 5 };
 unique([a, a, b, c, b]); // [a, b, c]
 
-unique([1, '1', 2, '2', 3, 2]); // [1, '1', 2, '2', 3]
+unique([1, "1", 2, "2", 3, 2]); // [1, '1', 2, '2', 3]
 
 // declaring sorted array for performance
-unique([1, 1, '1', 2, 2, 5, '5', '5'], true); // [1, '1', 2, 5, '6']
+unique([1, 1, "1", 2, 2, 5, "5", "5"], true); // [1, '1', 2, 5, '6']
 
 // declaring strings array for performance
-unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
+unique(["a", "c", "b", "c", "a"], false, true); // ['a', 'b', 'c']
 ```
 
 ### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
@@ -771,9 +785,12 @@ unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
 `npm install just-flatten-it`
 
 ```js
-import flatten from 'just-flatten-it';
+import flatten from "just-flatten-it";
 
-flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
+flatten([
+  [1, [2, 3]],
+  [[4, 5], 6, 7, [8, 9]]
+]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
@@ -784,14 +801,20 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 `npm install just-index`
 
 ```js
-import index from 'just-index';
+import index from "just-index";
 
-index([{ id: 'first', val: 1 }, { id: 'second', val: 2 }], 'id');
+index(
+  [
+    { id: "first", val: 1 },
+    { id: "second", val: 2 }
+  ],
+  "id"
+);
 // {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
-index([{ id: 'first', val: 1 }, null], 'id'); // {first: {id: 'first', val: 1}}
-index([], 'id'); // {}
+index([{ id: "first", val: 1 }, null], "id"); // {first: {id: 'first', val: 1}}
+index([], "id"); // {}
 index([], null); // throws
-index({}, 'id'); // throws
+index({}, "id"); // throws
 ```
 
 ### [just-insert](https://www.npmjs.com/package/just-insert)
@@ -801,12 +824,12 @@ index({}, 'id'); // throws
 `npm install just-insert`
 
 ```js
-import insert from 'just-insert';
+import insert from "just-insert";
 
-insert([1, 2, 5, 6], ['a', 'c', 'e'], 2); // [1, 2, 'a', 'c', 'e', 5, 6]
-insert([1, 2, 5, 6], 'a', 2); // [1, 2, 'a', 5, 6]
-insert([1, 2, 5, 6], ['a', 'c', 'e'], 0); // ['a', 'c', 'e', 1, 2, 5, 6]
-insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
+insert([1, 2, 5, 6], ["a", "c", "e"], 2); // [1, 2, 'a', 'c', 'e', 5, 6]
+insert([1, 2, 5, 6], "a", 2); // [1, 2, 'a', 5, 6]
+insert([1, 2, 5, 6], ["a", "c", "e"], 0); // ['a', 'c', 'e', 1, 2, 5, 6]
+insert([1, 2, 5, 6], ["a", "c", "e"]); // ['a', 'c', 'e', 1, 2, 5, 6]
 ```
 
 ### [just-intersect](https://www.npmjs.com/package/just-intersect)
@@ -816,7 +839,7 @@ insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
 `npm install just-intersect`
 
 ```js
-import intersect from 'just-intersect';
+import intersect from "just-intersect";
 
 intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
 intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]
@@ -829,7 +852,7 @@ intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]
 `npm install just-compact`
 
 ```js
-import compact from 'just-compact';
+import compact from "just-compact";
 
 compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
 compact([1, 2, [], 4, {}]); // [1, 2, [], 4, {}]
@@ -844,7 +867,7 @@ compact({}); // throws
 `npm install just-last`
 
 ```js
-import last from 'just-last';
+import last from "just-last";
 
 last([1, 2, 3, 4, 5]); // 5
 last([{ a: 1 }, { b: 1 }, { c: 1 }]); // {c: 1}
@@ -862,7 +885,7 @@ last(undefined); // throws
 `npm install just-tail`
 
 ```js
-import tail from 'just-tail';
+import tail from "just-tail";
 
 tail([1, 2, 3, 4, 5]); // [2, 3, 4, 5]
 tail([{ a: 1 }, { b: 1 }, { c: 1 }]); // [{b: 1}, {c: 1}]
@@ -880,7 +903,7 @@ tail(undefined); // throws
 `npm install just-random`
 
 ```js
-import random from 'just-random';
+import random from "just-random";
 
 random([1, 2, 3]); // one of [1, 2, 3], at random
 ```
@@ -892,7 +915,7 @@ random([1, 2, 3]); // one of [1, 2, 3], at random
 `npm install just-shuffle`
 
 ```js
-import shuffle from 'just-shuffle';
+import shuffle from "just-shuffle";
 
 shuffle([1, 2, 3]); // array with original elements randomly sorted
 shuffle([1]); // [1]
@@ -909,16 +932,16 @@ shuffle({}); // throws
 `npm install just-split`
 
 ```js
-import split from 'just-split';
+import split from "just-split";
 
 split([]); // []
 split([1, 2, 3, 4, 5]); // [[1, 2, 3, 4, 5]]
 split([1, 2, 3, 4, 5, 6, 7, 8, 9], 3); // [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-split(['a', 'b', 'c', 'd', 'e'], 2); // [['a', 'b'], ['c', 'd'], ['e']];
+split(["a", "b", "c", "d", "e"], 2); // [['a', 'b'], ['c', 'd'], ['e']];
 split([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]];
 split({}, 3); // throws
 split(null, 3); // throws
-split([1, 2, 3, 4, 5, 6], '3'); // throws
+split([1, 2, 3, 4, 5, 6], "3"); // throws
 ```
 
 ### [just-split-at](https://www.npmjs.com/package/just-split-at)
@@ -928,7 +951,7 @@ split([1, 2, 3, 4, 5, 6], '3'); // throws
 `npm install just-split-at`
 
 ```js
-import splitAt from 'just-split-at';
+import splitAt from "just-split-at";
 
 splitAt([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4, 5]]
 splitAt([{ a: 1 }, { b: 1 }, { c: 1 }], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
@@ -945,12 +968,12 @@ splitAt([1, 2, 3, 4, 5], {}); // throws
 `npm install just-partition`
 
 ```js
-import partition from 'just-partition';
+import partition from "just-partition";
 
 partition([1, 5, 2, 4, 3], n => n > 3); // [[5, 4],[1, 2, 3]]
-partition(['a', 2, 3, '3'], x => typeof x == 'string'); // [['a', '3'],[2, 3]]
-partition([1, 2, 3, 4], x => typeof x == 'number'); // [[1, 2, 3, 4],[]]
-partition([1, 2, 3, 4], x => typeof x == 'string'); // [[], [1, 2, 3, 4]]
+partition(["a", 2, 3, "3"], x => typeof x == "string"); // [['a', '3'],[2, 3]]
+partition([1, 2, 3, 4], x => typeof x == "number"); // [[1, 2, 3, 4],[]]
+partition([1, 2, 3, 4], x => typeof x == "string"); // [[], [1, 2, 3, 4]]
 partition([], n => n > 3); // [[], []]
 partition({ a: 1, b: 2 }, n => n > 1); // throws
 partition(null, n => n > 1); // throws
@@ -964,7 +987,7 @@ partition(undefined, n => n > 1); // throws
 `npm install just-range`
 
 ```js
-import range from 'just-range';
+import range from "just-range";
 
 range(1, 5); // [1, 2, 3, 4]
 range(5); // [0, 1, 2, 3, 4]
@@ -979,7 +1002,7 @@ range(0, 20, 5); // [0, 5, 10, 15]
 `npm install just-remove`
 
 ```js
-import remove from 'just-remove';
+import remove from "just-remove";
 
 remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 ```
@@ -991,7 +1014,7 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 `npm install just-union`
 
 ```js
-import union from 'just-union';
+import union from "just-union";
 
 union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 ```
@@ -1003,14 +1026,128 @@ union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
 `npm install just-zip-it`
 
 ```js
-import zip from 'just-zip-it';
+import zip from "just-zip-it";
 
 zip([1, 2, 3]); // [[1], [2], [3]]
-zip([1, 2, 3], ['a', 'b', 'c']); // [[1, 'a'], [2, 'b'], [3, 'c']]
-zip([1, 2], ['a', 'b'], [true, false]); // [[1, 'a', true], [2, 'b', false]]
-zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
-zip(undefined, {}, false, 1, 'foo'); // throws
-zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
+zip([1, 2, 3], ["a", "b", "c"]); // [[1, 'a'], [2, 'b'], [3, 'c']]
+zip([1, 2], ["a", "b"], [true, false]); // [[1, 'a', true], [2, 'b', false]]
+zip([1, 2, 3], ["a", "b"], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
+zip(undefined, {}, false, 1, "foo"); // throws
+zip([1, 2], ["a", "b"], undefined, {}, false, 1, "foo"); // throws
+```
+
+### Statistics
+
+### [just-mean](https://www.npmjs.com/package/just-mean)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-mean)
+
+`npm install just-mean`
+
+```js
+import mean from "just-mean";
+
+mean([1, 2, 3, 2, 4, 1]); // 2.1666666667
+mean(3, 2, 1); // 2
+mean([4]); // 4
+mean(["3", 2]); // throws
+mean(); // throws
+```
+
+### [just-median](https://www.npmjs.com/package/just-median)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-median)
+
+`npm install just-median`
+
+```js
+import median from "just-median";
+
+median([1, 2, 3, 4, 5]); // 5
+median([3, -1, 2]); // 2
+median([9, 14, 14, 200, 15]); // 14
+median(1, 2, 4, 3); // 2.5
+median(["3", 2, 1]); // throws
+median(); // throws
+```
+
+### [just-mode](https://www.npmjs.com/package/just-mode)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-mode)
+
+`npm install just-mode`
+
+```js
+import mode from "just-mode";
+
+mode([1, 2, 3, 2]); // 2
+mode(4, 4, 1, 4); // 4
+mode(100, 100, 101, 101); // [100, 101]
+mode(4, 3, 2, 1); // [1, 2, 3, 4]
+mode(["1", 2, 2, 1, 2]); // throws
+mode(null); // throws
+```
+
+### [just-percentile](https://www.npmjs.com/package/just-percentile)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-percentile)
+
+`npm install just-percentile`
+
+```js
+import percentile from "just-percentile";
+
+percentile([1, 2, 3], 0); // 1
+percentile([1, 2, 3], 50); // 2
+percentile([1, 2, 3], 100); // 3
+
+// See https://en.wikipedia.org/wiki/Percentile (linear interpolation method)
+percentile([15, 20, 35, 40, 50], 5); // 15
+percentile([15, 20, 35, 40, 50], 30); // 20
+percentile([15, 20, 35, 40, 50], 40); // 27.5
+percentile([15, 20, 35, 40, 50], 95); // 50
+
+percentile(1, 2, 3, 50); // throws
+percentile(["1", 2, 3], 50); // throws
+percentile([], 50); // throws
+```
+
+### [just-variance](https://www.npmjs.com/package/just-variance)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-variance)
+
+`npm install just-variance`
+
+```js
+import variance from "just-variance";
+
+variance([1, 2, 3, 2, 4, 1]); // 1.3666666667
+variance(3, 2, 1); // 1
+variance([100, 100, 100.1, 100]); // 0.0025
+variance(1, 2, 3, 4, 5, -6); // 15.5
+variance([4]); // throws
+variance(["3", 2]); // throws
+variance(NaN, NaN); // throws
+variance(); // throws
+```
+
+### [just-stdev](https://www.npmjs.com/package/just-stdev)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-stdev)
+
+`npm install just-stdev`
+
+```js
+import standardDeviation from "just-stdev";
+
+standardDeviation([1, 2, 3, 2, 4, 1]); // 1.16904519
+standardDeviation(3, 2, 1); // 1
+standardDeviation([100, 100, 100.1, 100]); // 0.05
+standardDeviation(1, 2, 3, 4, 5, -6); // 3.9370039
+standardDeviation([4]); // throws
+standardDeviation(["3", 2]); // throws
+standardDeviation(NaN, NaN); // throws
+standardDeviation(); // throws
 ```
 
 ### Strings
@@ -1022,20 +1159,20 @@ zip([1, 2], ['a', 'b'], undefined, {}, false, 1, 'foo'); // throws
 `npm install just-template`
 
 ```js
-import template from 'just-template';
+import template from "just-template";
 
 const data = {
   a: {
     aa: {
-      aaa: 'apple',
-      bbb: 'pear'
+      aaa: "apple",
+      bbb: "pear"
     },
-    bb: 'orange'
+    bb: "orange"
   },
-  b: 'plum'
+  b: "plum"
 };
 template(
-  '2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.',
+  "2 ${a.aa.aaa}s, a ${a.aa.bbb}, 3 ${a.bb}s and a ${b}. Yes 1 ${a.aa.bbb}.",
   data
 );
 // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
@@ -1048,11 +1185,11 @@ template(
 `npm install just-truncate`
 
 ```js
-truncate('when shall we three meet again', 9); // 'when s...'
-truncate('when shall we three meet again', 12, ' (etc)'); // 'when s (etc)'
-truncate('when shall we', 15); // 'when shall we'
-truncate('when shall we', 15, '(more)'); // 'when shall we'
-truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'
+truncate("when shall we three meet again", 9); // 'when s...'
+truncate("when shall we three meet again", 12, " (etc)"); // 'when s (etc)'
+truncate("when shall we", 15); // 'when shall we'
+truncate("when shall we", 15, "(more)"); // 'when shall we'
+truncate("when shall we", 10, " (etc etc etc)"); // ' (etc etc etc)'
 ```
 
 ### [just-prune](https://www.npmjs.com/package/just-prune)
@@ -1076,10 +1213,10 @@ truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'
 `npm install just-squash`
 
 ```js
-squash('the cat sat on the mat'); // 'thecatsatonthemat'
-squash(' the cat sat on the mat '); // 'thecatsatonthemat'
-squash('\tthe cat\n sat \fon \vthe \rmat '); // '\tthecat\nsat\fon\vthe\rmat'
-squash('\tthe cat\n sat \fon \vthe \rmat ', true); // 'thecatsatonthemat'
+squash("the cat sat on the mat"); // 'thecatsatonthemat'
+squash(" the cat sat on the mat "); // 'thecatsatonthemat'
+squash("\tthe cat\n sat \fon \vthe \rmat "); // '\tthecat\nsat\fon\vthe\rmat'
+squash("\tthe cat\n sat \fon \vthe \rmat ", true); // 'thecatsatonthemat'
 squash(
   `the cat
 sat on the mat`,
@@ -1094,19 +1231,19 @@ sat on the mat`,
 `npm install just-left-pad`
 
 ```js
-leftPad('hello', 9); // '    hello'
-leftPad('hello', 3); // 'hello'
-leftPad('hello', 9, '.'); // '....hello'
-leftPad('hello', 9, '..'); // '....hello'
-leftPad('hello', 10, 'ab'); // 'bababhello'
-leftPad('hello', 9, '\uD83D\uDC04'); // '🐄🐄🐄🐄hello'
-leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '🐄🐑🐄🐑🐄hello'
-  leftPad('hello', 7, '🐄'), // '🐄🐄hello'
+leftPad("hello", 9); // '    hello'
+leftPad("hello", 3); // 'hello'
+leftPad("hello", 9, "."); // '....hello'
+leftPad("hello", 9, ".."); // '....hello'
+leftPad("hello", 10, "ab"); // 'bababhello'
+leftPad("hello", 9, "\uD83D\uDC04"); // '🐄🐄🐄🐄hello'
+leftPad("hello", 10, "\uD83D\uDC11\uD83D\uDC04"), // '🐄🐑🐄🐑🐄hello'
+  leftPad("hello", 7, "🐄"), // '🐄🐄hello'
   leftPad(null, 7); // throws
-leftPad([], 4, '*'); // throws
-leftPad('hello', 4, true); // throws
-leftPad('hello', -4, true); // throws
-leftPad('hello', 2.3, true); // throws
+leftPad([], 4, "*"); // throws
+leftPad("hello", 4, true); // throws
+leftPad("hello", -4, true); // throws
+leftPad("hello", 2.3, true); // throws
 ```
 
 ### [just-right-pad](https://www.npmjs.com/package/just-right-pad)
@@ -1116,19 +1253,19 @@ leftPad('hello', 2.3, true); // throws
 `npm install just-right-pad`
 
 ```js
-rightPad('hello', 9); // 'hello    '
-rightPad('hello', 3); // 'hello'
-rightPad('hello', 9, '.'); // 'hello....'
-rightPad('hello', 9, '..'); // 'hello....'
-rightPad('hello', 10, 'ab'); // 'helloababa'
-rightPad('hello', 9, '\uD83D\uDC04'); // 'hello🐄🐄🐄🐄'
-rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // 'hello🐑🐄🐑🐄🐑'
-  rightPad('hello', 7, '🐄'), // 'hello🐄🐄'
+rightPad("hello", 9); // 'hello    '
+rightPad("hello", 3); // 'hello'
+rightPad("hello", 9, "."); // 'hello....'
+rightPad("hello", 9, ".."); // 'hello....'
+rightPad("hello", 10, "ab"); // 'helloababa'
+rightPad("hello", 9, "\uD83D\uDC04"); // 'hello🐄🐄🐄🐄'
+rightPad("hello", 10, "\uD83D\uDC11\uD83D\uDC04"), // 'hello🐑🐄🐑🐄🐑'
+  rightPad("hello", 7, "🐄"), // 'hello🐄🐄'
   rightPad(null, 7); // throws
-rightPad([], 4, '*'); // throws
-rightPad('hello', 4, true); // throws
-rightPad('hello', -4, true); // throws
-rightPad('hello', 2.3, true); // throws
+rightPad([], 4, "*"); // throws
+rightPad("hello", 4, true); // throws
+rightPad("hello", -4, true); // throws
+rightPad("hello", 2.3, true); // throws
 ```
 
 ### [just-camel-case](https://www.npmjs.com/package/just-camel-case)
@@ -1138,20 +1275,20 @@ rightPad('hello', 2.3, true); // throws
 `npm install just-camel-case`
 
 ```js
-camelCase('the quick brown fox'); // 'theQuickBrownFox'
-camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'
-camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
-camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
-camelCase('thequickbrownfox'); // 'thequickbrownfox'
-camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
-camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
-camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
+camelCase("the quick brown fox"); // 'theQuickBrownFox'
+camelCase("the_quick_brown_fox"); // 'theQuickBrownFox'
+camelCase("the-quick-brown-fox"); // 'theQuickBrownFox'
+camelCase("theQuickBrownFox"); // 'theQuickBrownFox'
+camelCase("thequickbrownfox"); // 'thequickbrownfox'
+camelCase("the - quick * brown# fox"); // 'theQuickBrownFox'
+camelCase("behold theQuickBrownFox"); // 'beholdTheQuickBrownFox'
+camelCase("Behold theQuickBrownFox"); // 'beholdTheQuickBrownFox'
 // all caps words are camel-cased
-camelCase('The quick brown FOX'); // theQuickBrownFox
+camelCase("The quick brown FOX"); // theQuickBrownFox
 // all caps substrings >= 4 chars are camel-cased
-camelCase('theQUickBrownFox'); // 'theQUickBrownFox'
-camelCase('theQUIckBrownFox'); // 'theQUIckBrownFox'
-camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'
+camelCase("theQUickBrownFox"); // 'theQUickBrownFox'
+camelCase("theQUIckBrownFox"); // 'theQUIckBrownFox'
+camelCase("theQUICKBrownFox"); // 'theQuickBrownFox'
 ```
 
 ### [just-kebab-case](https://www.npmjs.com/package/just-kebab-case)
@@ -1161,14 +1298,14 @@ camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'
 `npm install just-kebab-case`
 
 ```js
-kebabCase('the quick brown fox'); // 'the-quick-brown-fox'
-kebabCase('the-quick-brown-fox'); // 'the-quick-brown-fox'
-kebabCase('the_quick_brown_fox'); // 'the-quick-brown-fox'
-kebabCase('theQuickBrownFox'); // 'the-quick-brown-fox'
-kebabCase('theQuickBrown Fox'); // 'the-quick-brown-fox'
-kebabCase('thequickbrownfox'); // 'thequickbrownfox'
-kebabCase('the - quick * brown# fox'); // 'the-quick-brown-fox'
-kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'
+kebabCase("the quick brown fox"); // 'the-quick-brown-fox'
+kebabCase("the-quick-brown-fox"); // 'the-quick-brown-fox'
+kebabCase("the_quick_brown_fox"); // 'the-quick-brown-fox'
+kebabCase("theQuickBrownFox"); // 'the-quick-brown-fox'
+kebabCase("theQuickBrown Fox"); // 'the-quick-brown-fox'
+kebabCase("thequickbrownfox"); // 'thequickbrownfox'
+kebabCase("the - quick * brown# fox"); // 'the-quick-brown-fox'
+kebabCase("theQUICKBrownFox"); // 'the-q-u-i-c-k-brown-fox'
 ```
 
 ### [just-snake-case](https://www.npmjs.com/package/just-snake-case)
@@ -1178,14 +1315,14 @@ kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'
 `npm install just-snake-case`
 
 ```js
-snakeCase('the quick brown fox'); // 'the_quick_brown_fox'
-snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'
-snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'
-snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'
-snakeCase('theQuickBrown Fox'); // 'the_quick_brown_Fox'
-snakeCase('thequickbrownfox'); // 'thequickbrownfox'
-snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'
-snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
+snakeCase("the quick brown fox"); // 'the_quick_brown_fox'
+snakeCase("the-quick-brown-fox"); // 'the_quick_brown_fox'
+snakeCase("the_quick_brown_fox"); // 'the_quick_brown_fox'
+snakeCase("theQuickBrownFox"); // 'the_quick_brown_fox'
+snakeCase("theQuickBrown Fox"); // 'the_quick_brown_Fox'
+snakeCase("thequickbrownfox"); // 'thequickbrownfox'
+snakeCase("the - quick * brown# fox"); // 'the_quick_brown_fox'
+snakeCase("theQUICKBrownFox"); // 'the_q_u_i_c_k_brown_fox'
 ```
 
 ### [just-pascal-case](https://www.npmjs.com/package/just-pascal-case)
@@ -1195,13 +1332,13 @@ snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'
 `npm install just-pascal-case`
 
 ```js
-pascalCase('the quick brown fox'); // 'TheQuickBrownFox'
-pascalCase('the_quick_brown_fox'); // 'TheQuickBrownFox'
-pascalCase('the-quick-brown-fox'); // 'TheQuickBrownFox'
-pascalCase('theQuickBrownFox'); // 'TheQuickBrownFox'
-pascalCase('thequickbrownfox'); // 'Thequickbrownfox'
-pascalCase('the - quick * brown# fox'); // 'TheQuickBrownFox'
-pascalCase('theQUICKBrownFox'); // 'TheQUICKBrownFox'
+pascalCase("the quick brown fox"); // 'TheQuickBrownFox'
+pascalCase("the_quick_brown_fox"); // 'TheQuickBrownFox'
+pascalCase("the-quick-brown-fox"); // 'TheQuickBrownFox'
+pascalCase("theQuickBrownFox"); // 'TheQuickBrownFox'
+pascalCase("thequickbrownfox"); // 'Thequickbrownfox'
+pascalCase("the - quick * brown# fox"); // 'TheQuickBrownFox'
+pascalCase("theQUICKBrownFox"); // 'TheQUICKBrownFox'
 ```
 
 ### [just-capitalize](https://www.npmjs.com/package/just-capitalize)
@@ -1211,15 +1348,15 @@ pascalCase('theQUICKBrownFox'); // 'TheQUICKBrownFox'
 `npm install just-capitalize`
 
 ```js
-capitalize('capitals'); // 'Capitals'
-capitalize('Capitals'); // 'Capitals'
+capitalize("capitals"); // 'Capitals'
+capitalize("Capitals"); // 'Capitals'
 // all remaining characters are lowercased
-capitalize('CAPITALS'); // 'Capitals'
-capitalize('CaPiTaLs'); // 'Capitals'
-capitalize(' capitals'); // ' capitals'
-capitalize('Capi tals'); // 'Capit als'
-capitalize('Capi Tals'); // 'Capi tals'
-capitalize('!capitals'); // '!capitals'
+capitalize("CAPITALS"); // 'Capitals'
+capitalize("CaPiTaLs"); // 'Capitals'
+capitalize(" capitals"); // ' capitals'
+capitalize("Capi tals"); // 'Capit als'
+capitalize("Capi Tals"); // 'Capi tals'
+capitalize("!capitals"); // '!capitals'
 ```
 
 ### Numbers
@@ -1231,7 +1368,7 @@ capitalize('!capitals'); // '!capitals'
 `npm install just-clamp`
 
 ```js
-import clamp from 'just-clamp';
+import clamp from "just-clamp";
 
 var n = 5;
 clamp(1, n, 12); // 5
@@ -1248,7 +1385,7 @@ clamp(3, n, NaN); // NaN
 clamp(3, NaN, 8); // NaN
 
 clamp(undefined, n, 8); // throws
-clamp(3, n, 'h'); // throws
+clamp(3, n, "h"); // throws
 clamp(3, false, 8); // throws
 ```
 
@@ -1259,7 +1396,7 @@ clamp(3, false, 8); // throws
 `npm install just-modulo`
 
 ```js
-import modulo from 'just-modulo';
+import modulo from "just-modulo";
 
 modulo(7, 5); // 2
 modulo(17, 23); // 17
@@ -1271,8 +1408,8 @@ modulo(-2, 15); // 13
 modulo(-5.8, 3.4); // 1
 modulo(12, -1); // NaN
 modulo(-3, -8); // NaN
-modulo(12, 'apple'); // NaN
-modulo('bee', 9); // NaN
+modulo(12, "apple"); // NaN
+modulo("bee", 9); // NaN
 modulo(null, undefined); // NaN
 ```
 
@@ -1285,13 +1422,9 @@ modulo(null, undefined); // NaN
 `npm install just-compose`
 
 ```js
-import compose from 'just-compose';
+import compose from "just-compose";
 
-const sqRootBiggest = compose(
-  Math.max,
-  Math.sqrt,
-  Math.trunc
-);
+const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
 sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```
@@ -1303,7 +1436,7 @@ sqRootBiggest(7, 0, 16); // 4
 `npm install just-curry-it`
 
 ```js
-import curry from 'just-curry-it';
+import curry from "just-curry-it";
 
 function add(a, b, c) {
   return a + b + c;
@@ -1334,10 +1467,10 @@ milesToKm(10); // 16.2
 `npm install just-demethodize`
 
 ```js
-const demethodize = require('just-demethodize');
+const demethodize = require("just-demethodize");
 
-const trimFn = demethodize(''.trim);
-['hello ', ' goodbye', 'hello again'].map(trimFn);
+const trimFn = demethodize("".trim);
+["hello ", " goodbye", "hello again"].map(trimFn);
 ```
 
 ### [just-flip](https://www.npmjs.com/package/just-flip)
@@ -1347,7 +1480,7 @@ const trimFn = demethodize(''.trim);
 `npm install just-flip`
 
 ```js
-import flip from 'just-flip';
+import flip from "just-flip";
 
 flip(console.log)(1, 2, 3); // 2, 1, 3
 ```
@@ -1359,7 +1492,7 @@ flip(console.log)(1, 2, 3); // 2, 1, 3
 `npm install just-partial-it`
 
 ```js
-import partial from 'just-partial-it';
+import partial from "just-partial-it";
 
 const cubedRoot = partial(Math.pow, _, 1 / 3);
 cubedRoot(64); // 4
@@ -1375,15 +1508,15 @@ getRoot(1 / 2); // 8
 `npm install just-debounce-it`
 
 ```js
-import debounce from 'just-debounce-it';
+import debounce from "just-debounce-it";
 
-const fn1 = debounce(() => console.log('Hello'), 500);
+const fn1 = debounce(() => console.log("Hello"), 500);
 fn1();
 fn1();
 fn1();
 // 500ms later logs 'hello' once
 
-const fn2 = debounce(() => console.log('Hello'), 500, true);
+const fn2 = debounce(() => console.log("Hello"), 500, true);
 fn2(); // logs hello immediately
 fn2();
 fn2();
@@ -1397,13 +1530,13 @@ fn2();
 `npm install just-throttle`
 
 ```js
-import throttle from 'just-throttle';
+import throttle from "just-throttle";
 
-const fn1 = throttle(() => console.log('hello'), 500, true);
+const fn1 = throttle(() => console.log("hello"), 500, true);
 setInterval(fn1, 400);
 // logs 'hello' immediately and then every 500ms
 
-const fn2 = throttle(() => console.log('hello'), 500);
+const fn2 = throttle(() => console.log("hello"), 500);
 setInterval(fn2, 400);
 // logs 'hello' after 500ms and then every 500ms
 ```
@@ -1415,9 +1548,9 @@ setInterval(fn2, 400);
 `npm install just-once`
 
 ```js
-import once from 'just-once';
+import once from "just-once";
 
-const fn = once(() => console.log('hello'));
+const fn = once(() => console.log("hello"));
 
 fn();
 // logs 'hello'
