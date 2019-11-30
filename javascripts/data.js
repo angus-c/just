@@ -350,6 +350,53 @@ zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`
       }
     }
   },
+  Statistics: {
+    symbol: 'Σ',
+    utils: {
+      'just-mean': {
+        size: sizes['just-mean'],
+        code: [
+          `const mean = require('just-mean')\n
+mean([1, 4, 5, -9]);`
+        ]
+      },
+      'just-median': {
+        size: sizes['just-median'],
+        code: [
+          `const median = require('just-median')\n
+median([1, 4, 5, -9, 2]);`
+        ]
+      },
+      'just-mode': {
+        size: sizes['just-mode'],
+        code: [
+          `const mode = require('just-mode')\n
+mode([1, 4, 4, -9, 2]);`
+        ]
+      },
+      'just-percentile': {
+        size: sizes['just-percentile'],
+        code: [
+          `const percentile = require('just-percentile')\n
+percentile([15, 20, 35, 40, 50], 30);`
+        ]
+      },
+      'just-variance': {
+        size: sizes['just-variance'],
+        code: [
+          `const variance = require('just-variance')\n
+variance([1, 3, 9, 4, -1]);`
+        ]
+      },
+      'just-stdev': {
+        size: sizes['just-stdev'],
+        code: [
+          `const standardDeviation = require('just-stdev')\n
+standardDeviation([1, 3, 9, 4, -1]);`
+        ]
+      }
+    }
+  },
   Strings: {
     symbol: '""',
     utils: {
