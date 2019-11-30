@@ -93,6 +93,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-percentile](#just-percentile)
   - [just-variance](#just-variance)
   - [just-stdev](#just-stdev)
+  - [just-skewness](#just-skewness)
 - [Strings](#strings) ""
   - [just-template](#just-template)
   - [just-truncate](#just-truncate)
@@ -1148,6 +1149,26 @@ standardDeviation([4]); // throws
 standardDeviation(["3", 2]); // throws
 standardDeviation(NaN, NaN); // throws
 standardDeviation(); // throws
+```
+
+### [just-skewness](https://www.npmjs.com/package/just-skewness)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-skewness)
+
+`npm install just-skewness`
+
+```js
+import skewness from "just-skewness";
+
+// Using Pearson's second skewness coefficient
+skewness(3, 2, 1); // 0
+skewness([1, 2, 3, 2, 4, 1]); // 0.4276994613841504
+skewness(1, 2, 3, 4, 5, -6); // -0.762000762001143
+skewness([1, 2, 3, 4, 9]); // 0.7705935588815224
+skewness([4]); // throws
+skewness(["3", 2]); // throws
+skewness(NaN, NaN); // throws
+skewness(); // throws
 ```
 
 ### Strings
