@@ -34,7 +34,6 @@ function percentile(arr, percentileValue) {
     return sorted[lowerInt];
   } else {
     var upperInt = Math.ceil(percentileRank);
-    console.log(lowerInt, upperInt, percentileRank);
     return (
       sorted[lowerInt] +
       (percentileRank - lowerInt) * (sorted[upperInt] - sorted[lowerInt])
