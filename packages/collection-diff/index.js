@@ -110,7 +110,10 @@ function diff(obj1, obj2, pathConverter) {
           value: obj2Value,
         });
       } else if (obj1AtKey !== obj2AtKey) {
-        if (Object(obj1AtKey) !== obj1AtKey || Object(obj2AtKey) !== obj2AtKey) {
+        if (
+          Object(obj1AtKey) !== obj1AtKey ||
+          Object(obj2AtKey) !== obj2AtKey
+        ) {
           path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
         } else {
           if (
@@ -127,9 +130,7 @@ function diff(obj1, obj2, pathConverter) {
     }
 
     return diffs.remove
-      .sort(function(a, b) {
-        return b.path > a.path ? 1 : -1;
-      })
+      .reverse()
       .concat(diffs.replace)
       .concat(diffs.add);
   }

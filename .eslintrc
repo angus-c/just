@@ -132,7 +132,7 @@
     "padded-blocks": [2, "never"],
     "quote-props": 0,
     "quotes": [2, "single", "avoid-escape"],
-    "radix": 2,
+    "radix": 0,
     "semi": 1,
     "semi-spacing": 0,
     "sort-vars": 0,
