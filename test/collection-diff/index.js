@@ -383,8 +383,8 @@ test('object vs array', function(t) {
 test('round trip', function(t) {
   t.plan(4);
 
-  var obj15 = [1, 2, 3, 4, 5];
-  var obj16 = [5];
+  var obj15 = [1, 2, 3, 4, 5, 17, 18];
+  var obj16 = [2];
 
   var thisDiff = diff(obj15, obj16);
   diffApply(obj15, thisDiff);
@@ -640,8 +640,8 @@ test('object vs array using jsPatchStandard', function(t) {
 test('round trip using jsPatchStandard', function(t) {
   t.plan(4);
 
-  var obj15 = [1, 2, 3, 4, 5];
-  var obj16 = [5];
+  var obj15 = [1, 2, 3, 4, 5, 16, 17];
+  var obj16 = [2, 3];
 
   var thisDiff = diff(obj15, obj16, jsonPatchPathConverter);
   diffApply(obj15, thisDiff, jsonPatchApplier);
