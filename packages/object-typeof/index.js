@@ -26,6 +26,6 @@ function typeOf(obj) {
     .slice(8, -1)
     .toLowerCase();
 
-  // strip function adornments (e.g. "sAsyncFunction")
+  // strip function adornments (e.g. "AsyncFunction")
   return result.toLowerCase().indexOf('function') > -1 ? 'function' : result;
 }
