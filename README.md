@@ -86,6 +86,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-remove](#just-remove)
   - [just-union](#just-union)
   - [just-zip-it](#just-zip-it)
+  - [just-group-by](#just-group-by)
 - [Statistics](#stats) Σ
   - [just-mean](#just-mean)
   - [just-median](#just-median)
@@ -1035,6 +1036,21 @@ zip([1, 2], ["a", "b"], [true, false]); // [[1, 'a', true], [2, 'b', false]]
 zip([1, 2, 3], ["a", "b"], [true]); // [[1, 'a', true], [2, 'b', undefined], [3, undefined, undefined]]
 zip(undefined, {}, false, 1, "foo"); // throws
 zip([1, 2], ["a", "b"], undefined, {}, false, 1, "foo"); // throws
+```
+
+### [just-group-by](https://www.npmjs.com/package/just-group-by)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-group-by)
+
+`npm install just-group-by`
+
+```js
+import groupBy from "just-group-by";
+
+groupBy([6.1, 4.2, 6.3], Math.floor); // { '4': [4.2], '6': [6.1, 6.3] }
+groupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2}); // { '0': [2, 4, 6, 8], '1': [1, 3, 5, 7] }
+groupBy('string', Math.floor); // throws
+groupBy([1,2,3,4], 'string'); // throws
 ```
 
 ### Statistics
