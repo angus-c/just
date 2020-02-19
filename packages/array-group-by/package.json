@@ -1,0 +1,21 @@
+{
+  "name": "just-group-by",
+  "version": "1.0.0",
+  "description": "return a grouped object from array",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "groupby",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Marc Balaban",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
