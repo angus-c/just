@@ -405,7 +405,7 @@ module.exports = {
     utils: {
       'just-clone': {
         size: sizes['just-clone'],
-        code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nobjClone.d.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}  \nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
+        code: ['const clone = require(\'just-clone\')\n\nconst arr = [1, 2, 3];\nconst subObj = {aa: 1};\nconst obj = {a: 3, b: 5, c: arr, d: subObj};\nconst objClone = clone(obj);\narr.push(4);\nobjClone.d.bb = 2;\nobj; // {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1}}\nobjClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}']
       },
       'just-diff': {
         size: sizes['just-diff'],
@@ -438,7 +438,7 @@ module.exports = {
       },
       'just-extend': {
         size: sizes['just-extend'],
-        code: ['// like just-merge but allows deep copy\nconst extend = require(\'just-extend\')\n          \nlet arr = [1, 2, 3];\nlet obj = {a: 3, b: 5};\nextend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push[4];\nobj']
+        code: ['// like just-merge but allows deep copy\nconst extend = require(\'just-extend\')\n\nlet arr = [1, 2, 3];\nlet obj = {a: 3, b: 5};\nextend(true, obj, {c: arr}); // {a: 3, b: 5, c: [1, 2, 3]}\narr.push[4];\nobj']
       },
       'just-values': {
         size: sizes['just-values'],
@@ -576,6 +576,10 @@ module.exports = {
       'just-zip-it': {
         size: sizes['just-zip-it'],
         code: ['const zip = require(\'just-zip-it\')\n\nzip([1, 2, 3], [4, 5, 6], [7, 8, 9]);']
+      },
+      'just-group-by': {
+        size: sizes['just-group-by'],
+        code: ['const groupBy = require(\'just-group-by\')\n\ngroupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2});']
       }
     }
   },
