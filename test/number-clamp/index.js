@@ -4,7 +4,7 @@ var clamp = require('../../packages/number-clamp');
 /*
   var n = 5;
   clamp(1, n, 12); // 5
-  clamp(12, n, 3); // 3
+  clamp(12, n, 3); // 5
   clamp(8.2, n, 9,4); // 8.2
   clamp(0, n, 0); // 0
 
