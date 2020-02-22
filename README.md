@@ -107,6 +107,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-snake-case](#just-snake-case)
   - [just-pascal-case](#just-pascal-case)
   - [just-capitalize](#just-capitalize)
+  - [just-replace-all](#just-replace-all)
 - [Numbers](#numbers) +-
   - [just-clamp](#just-clamp)
   - [just-modulo](#just-modulo)
@@ -1394,6 +1395,23 @@ capitalize(" capitals"); // ' capitals'
 capitalize("Capi tals"); // 'Capit als'
 capitalize("Capi Tals"); // 'Capi tals'
 capitalize("!capitals"); // '!capitals'
+```
+
+### [just-replace-all](https://www.npmjs.com/package/just-replace-all)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-replace-all)
+
+`npm install just-replace-all`
+
+```js
+replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'
+replaceAll('hello, world', 'l', 'qq'); // 'heqqqqo, worqqd'
+replaceAll('hello, world', 'll', 'q'); // 'heqo, world'
+replaceAll('hello, world', '', 'q'); // 'hello, world'
+replaceAll('hello, world', null, 'q'); // 'hello, world'
+replaceAll(null, 'l, 'q'); // null
+replaceAll('hello, world', 'l', ''); // 'heo, word'
+replaceAll('hello, world', 'l', null); // 'hello, world'
 ```
 
 ### Numbers
