@@ -47,7 +47,13 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
         var value = extender[key];
         if (deep && isCloneable(value)) {
           var base = Array.isArray(value) ? [] : {};
-          result[key] = extend(true, (result.hasOwnProperty(key) && !isUnextendable(result[key])) ? result[key] : base, value);
+          result[key] = extend(
+            true,
+            result.hasOwnProperty(key) && !isUnextendable(result[key])
+              ? result[key]
+              : base,
+            value
+          );
         } else {
           result[key] = value;
         }
