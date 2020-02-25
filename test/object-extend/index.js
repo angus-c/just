@@ -278,3 +278,17 @@ test('deep extend cannot extend native prototypes', function(t) {
   t.equal(obj2.__proto__.isAdmin, true);
   t.end();
 });
+
+test('deep extend extendees can be primitive values', function(t) {
+  t.plan(2);
+  var obj1 = {a: null, b: null, c: null};
+  var obj2 = {a: {foo: 'str'}, b: {bar: 5}};
+  var obj3 = extend(true, {}, obj1, obj2);
+  t.deepEqual(obj3, {a: {foo: 'str'}, b: {bar: 5}, c: null});
+
+  var obj1 = {a: 5, b: 'foo', c: null};
+  var obj2 = {a: {foo: 'str'}, b: {bar: 5}};
+  var obj3 = extend(true, {}, obj1, obj2);
+  t.deepEqual(obj3, {a: {foo: 'str'}, b: {bar: 5}, c: null});
+  t.end();
+});
