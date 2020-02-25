@@ -662,6 +662,10 @@ module.exports = {
       'just-capitalize': {
         size: sizes['just-capitalize'],
         code: ['const capitalize = require(\'just-capitalize\')\n\ncapitalize(\'all the THINGS\');']
+      },
+      'just-replace-all': {
+        size: sizes['just-replace-all'],
+        code: ['const replaceAll = require(\'just-replace-all\')\n\nreplaceAll(\'Mississippi\', \'s\', \'*\');']
       }
     }
   },

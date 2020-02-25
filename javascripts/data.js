@@ -501,6 +501,13 @@ pascalCase('the-quick-brown _fox');`,
 capitalize('all the THINGS');`,
         ],
       },
+      'just-replace-all': {
+        size: sizes['just-replace-all'],
+        code: [
+          `const replaceAll = require('just-replace-all')\n
+replaceAll('Mississippi', 's', '*');`,
+        ],
+      },
     },
   },
   Numbers: {
