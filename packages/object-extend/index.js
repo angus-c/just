@@ -35,7 +35,7 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
     deep = args.shift();
   }
   var result = args[0];
-  if (!result || (typeof result != 'object' && typeof result != 'function')) {
+  if (isUnextendable(result)) {
     throw new Error('extendee must be an object');
   }
   var extenders = args.slice(1);
@@ -47,7 +47,13 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
         var value = extender[key];
         if (deep && isCloneable(value)) {
           var base = Array.isArray(value) ? [] : {};
-          result[key] = extend(true, result.hasOwnProperty(key) ? result[key] : base, value);
+          result[key] = extend(
+            true,
+            result.hasOwnProperty(key) && !isUnextendable(result[key])
+              ? result[key]
+              : base,
+            value
+          );
         } else {
           result[key] = value;
         }
@@ -59,4 +65,8 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
 
 function isCloneable(obj) {
   return Array.isArray(obj) || {}.toString.call(obj) == '[object Object]';
+}
+
+function isUnextendable(val) {
+  return !val || (typeof val != 'object' && typeof val != 'function');
 }
