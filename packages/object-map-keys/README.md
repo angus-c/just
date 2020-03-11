@@ -8,7 +8,7 @@ Guilt-free utilities for every occasion.
 ```js
 import map from 'just-map-keys';
 
-// predicate updates keys, recieves (value, key, object)
+// predicate updates keys, receives (value, key, object)
 map({a: 'cow', b: 'sheep', c: 'pig'}, (value) => value);
   // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
 map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
