@@ -599,7 +599,7 @@ map({ a: 3, b: 5, c: 9 }, (key, value) => key + value); // {a: 'a3', b: 'b5', c:
 ```js
 import map from "just-map-values";
 
-// predicate updates values, recieves (value, key, obj)
+// predicate updates values, receives (value, key, obj)
 map({ a: 3, b: 5, c: 9 }, value => value + 1); // {a: 4, b: 6, c: 10}
 map({ a: 3, b: 5, c: 9 }, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
 map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
@@ -614,7 +614,7 @@ map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 ```js
 import map from "just-map-keys";
 
-// predicate updates keys, recieves (value, key, object)
+// predicate updates keys, receives (value, key, object)
 map({ a: "cow", b: "sheep", c: "pig" }, value => value);
 // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
 map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
