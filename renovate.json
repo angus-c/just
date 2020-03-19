@@ -4,7 +4,7 @@
   ],
   "packageRules": [
     {
-      "packageNames": ["just"],
+      "packageNames": ["just"]
     }
   ]
 }
