@@ -545,9 +545,10 @@
     inquirer "^6.2.0"
     npmlog "^4.1.2"
 
-"@lerna/publish@3.20.0":
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/@lerna/publish/-/publish-3.20.0.tgz#f0af151789c1d54c20988d4d29b07779cd0e8a69"
+"@lerna/publish@3.20.2":
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/@lerna/publish/-/publish-3.20.2.tgz#a45d29813099b3249657ea913d0dc3f8ebc5cc2e"
+  integrity sha512-N7Y6PdhJ+tYQPdI1tZum8W25cDlTp4D6brvRacKZusweWexxaopbV8RprBaKexkEX/KIbncuADq7qjDBdQHzaA==
   dependencies:
     "@evocateur/libnpmaccess" "^3.1.2"
     "@evocateur/npm-registry-fetch" "^4.0.0"
@@ -570,7 +571,7 @@
     "@lerna/run-lifecycle" "3.16.2"
     "@lerna/run-topologically" "3.18.5"
     "@lerna/validation-error" "3.13.0"
-    "@lerna/version" "3.20.0"
+    "@lerna/version" "3.20.2"
     figgy-pudding "^3.5.1"
     fs-extra "^8.1.0"
     npm-package-arg "^6.1.0"
@@ -672,9 +673,10 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/version@3.20.0":
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/@lerna/version/-/version-3.20.0.tgz#4ac287f098bcff4d9ba67450be08b7c566454cc8"
+"@lerna/version@3.20.2":
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/@lerna/version/-/version-3.20.2.tgz#3709141c0f537741d9bc10cb24f56897bcb30428"
+  integrity sha512-ckBJMaBWc+xJen0cMyCE7W67QXLLrc0ELvigPIn8p609qkfNM0L0CF803MKxjVOldJAjw84b8ucNWZLvJagP/Q==
   dependencies:
     "@lerna/check-working-tree" "3.16.5"
     "@lerna/child-process" "3.16.5"
@@ -2638,10 +2640,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-lerna@3.20.0:
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.20.0.tgz#711a984fe5c84906b42d0877eb4f711cd628d652"
-  integrity sha512-KyMjUk2CCKpoX9MFLzF729vxpQREUb87U4E5vffzD24M4D/2klUkzDIaLY5lXcr9Y55j1pjYifqRKZ9N3qwyMQ==
+lerna@3.20.2:
+  version "3.20.2"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-3.20.2.tgz#abf84e73055fe84ee21b46e64baf37b496c24864"
+  integrity sha512-bjdL7hPLpU3Y8CBnw/1ys3ynQMUjiK6l9iDWnEGwFtDy48Xh5JboR9ZJwmKGCz9A/sarVVIGwf1tlRNKUG9etA==
   dependencies:
     "@lerna/add" "3.20.0"
     "@lerna/bootstrap" "3.20.0"
@@ -2656,9 +2658,9 @@ lerna@3.20.0:
     "@lerna/init" "3.18.5"
     "@lerna/link" "3.18.5"
     "@lerna/list" "3.20.0"
-    "@lerna/publish" "3.20.0"
+    "@lerna/publish" "3.20.2"
     "@lerna/run" "3.20.0"
-    "@lerna/version" "3.20.0"
+    "@lerna/version" "3.20.2"
     import-local "^2.0.0"
     npmlog "^4.1.2"
 
