@@ -1,10 +1,5 @@
 {
   "extends": [
     "config:base"
-  ],
-  "packageRules": [
-    {
-      "packageNames": ["just"]
-    }
   ]
 }
