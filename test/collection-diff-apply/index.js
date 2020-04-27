@@ -143,7 +143,7 @@ test('arrays', function(t) {
 });
 
 test('object vs array', function(t) {
-  t.plan(4);
+  t.plan(7);
   var obj9 = {a: 2};
   var originalDiff = [
     {op: 'remove', path: ['a']},
@@ -152,7 +152,7 @@ test('object vs array', function(t) {
   ];
   var diff = clone(originalDiff);
   diffApply(obj9, diff);
-  t.deepEqual(obj9, ['a', 2]);
+  t.deepEqual(obj9, {'0': 'a', '1': 2});
   t.deepEqual(diff, originalDiff);
 
   var obj10 = ['a', 2];
@@ -163,7 +163,10 @@ test('object vs array', function(t) {
   ];
   var diff = clone(originalDiff);
   diffApply(obj10, diff);
-  t.deepEqual(obj10, {a: 2});
+  t.ok(typeof obj10 == 'object');
+  t.ok(Array.isArray(obj10), true);
+  t.equal(obj10.a, 2);
+  t.equal(obj10.length, 0);
   t.deepEqual(diff, originalDiff);
   t.end();
 });
@@ -303,7 +306,7 @@ test('arrays using js patch standard', function(t) {
 });
 
 test('object vs array using js patch standard', function(t) {
-  t.plan(4);
+  t.plan(7);
   var obj9 = {a: 2};
   var originalDiff = [
     {op: 'remove', path: '/a'},
@@ -312,7 +315,7 @@ test('object vs array using js patch standard', function(t) {
   ];
   var diff = clone(originalDiff);
   diffApply(obj9, diff, jsonPatchPathConverter);
-  t.deepEqual(obj9, ['a', 2]);
+  t.deepEqual(obj9, {'0': 'a', '1': 2});
   t.deepEqual(diff, originalDiff);
 
   var obj10 = ['a', 2];
@@ -323,7 +326,10 @@ test('object vs array using js patch standard', function(t) {
   ];
   var diff = clone(originalDiff);
   diffApply(obj10, diff, jsonPatchPathConverter);
-  t.deepEqual(obj10, {a: 2});
+  t.ok(typeof obj10 == 'object');
+  t.ok(Array.isArray(obj10), true);
+  t.equal(obj10.a, 2);
+  t.equal(obj10.length, 0);
   t.deepEqual(diff, originalDiff);
   t.end();
 });
