@@ -1,4 +1,4 @@
-## just-random
+## just-shuffle
 
 Part of a [library](http://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.  
 Guilt-free utilities for every occasion.
@@ -8,7 +8,11 @@ Guilt-free utilities for every occasion.
 ```js
 import shuffle from 'just-shuffle';
 
-shuffle([1, 2, 3]); // array with original elements randomly sorted
+shuffle([1, 2, 3]); 
+// array with original elements randomly sorted
+shuffle([1, 2, 3], {shuffleAll: true}); 
+// array with original elements randomly sorted and all in new postions
+shuffle([]); // []
 shuffle([1]); // [1]
 shuffle(); // undefined
 shuffle(undefined); // undefined
