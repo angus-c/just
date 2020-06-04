@@ -329,7 +329,7 @@ pluck({ x: { a: 1, b: 2 }, y: { a: 4, b: 3 }, z: { a: 2, b: 5 } }, "a"); // {x: 
 import flush from "just-flush";
 
 flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
-flush([true, null, false, true, [null], undefined]); // [true, false, [null], true]
+flush([true, null, false, true, [null], undefined]); // [true, false, true, [null]]
 flush({ a: 2, b: null, c: 4, d: undefined }); // {a: 2, c: 4}
 flush("something"); // undefined
 flush(); // undefined
