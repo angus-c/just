@@ -74,6 +74,29 @@ test('deep extend merges child objects', function(t) {
   t.end();
 });
 
+test('deep extend merges circular objects', function(t) {
+  t.plan(2);
+  var obj = {};
+  var obj1 = {a: {b: 'c'}};
+  var obj2 = {a: {c: 'd', obj1}};
+  obj1.obj2 = obj2;
+  var result = extend(true, obj, obj1, obj2);
+  t.deepEqual(result.a.obj1, obj1);
+  t.deepEqual(result.obj2, obj2);
+  t.end();
+});
+
+test('deep extend works with Object.create(null)', function(t) {
+  t.plan(2);
+  var obj = {a: {b: 'c'}};
+  var obj2 = Object.create(null);
+  obj2.a = Object.create(null);
+  obj2.a.c = 'd';
+  t.deepEqual(extend(true, obj, obj2), {a: {b: 'c', c: 'd'}});
+  t.deepEqual(obj, {a: {b: 'c', c: 'd'}});
+  t.end();
+});
+
 test('deep extend clones child plain objects and arrays', function(t) {
   t.plan(5);
   var obj = {p: 4};
