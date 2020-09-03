@@ -500,6 +500,10 @@ module.exports = {
         size: sizes['just-safe-set'],
         code: ['const set = require(\'just-safe-set\');\n\nconst obj = {};\nset(obj, \'a.aa.aaa\', {aaaa: 4});\nobj;']
       },
+      'just-has': {
+        size: sizes['just-has'],
+        code: ['const has = require(\'just-has\');\n\nconst obj = {a: {aa: {aaa: 2}}, b: 4};\nhas(obj, [\'a\', \'aa\', \'aaa\']);']
+      },
       'just-typeof': {
         size: sizes['just-typeof'],
         code: ['const typeOf = require(\'just-typeof\');\n\ntypeOf({});\n// typeOf([]);\n// typeOf(function() {});\n// typeOf(/a/);\n// typeOf(new Date());\n// typeOf(null);\n// typeOf(undefined);\n// typeOf(\'a\');\n// typeOf(1);\n// typeOf(true);']

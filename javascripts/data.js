@@ -208,6 +208,14 @@ set(obj, 'a.aa.aaa', {aaaa: 4});
 obj;`,
         ],
       },
+      'just-has': {
+        size: sizes['just-has'],
+        code: [
+          `const has = require('just-has');\n
+const obj = {a: {aa: {aaa: 2}}, b: 4};
+has(obj, ['a', 'aa', 'aaa']);`,
+        ],
+      },
       'just-typeof': {
         size: sizes['just-typeof'],
         code: [
