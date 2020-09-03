@@ -754,6 +754,38 @@ flip({ a: 1, b: 2, c: 3 }); // {'1': 'a', '2': 'b', '3': 'c'}
 flip({ a: false, b: true }); // {false: 'a', true: 'b'}
 ```
 
+### [just-has](https://www.npmjs.com/package/just-has)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-has)
+
+`npm install just-has`
+
+```js
+import has from "just-has";
+
+const obj = { a: { aa: { aaa: 2 } }, b: 4 };
+
+has(obj, "a.aa.aaa"); // true
+has(obj, ["a", "aa", "aaa"]); // true
+
+has(obj, "b.bb.bbb"); // false
+has(obj, ["b", "bb", "bbb"]); // false
+
+has(obj.a, "aa.aaa"); // true
+has(obj.a, ["aa", "aaa"]); // true
+
+has(obj.b, "bb.bbb"); // false
+has(obj.b, ["bb", "bbb"]); // false
+
+has(null, "a"); // false
+has(undefined, ["a"]); // false
+
+const obj = { a: {} };
+const sym = Symbol();
+obj.a[sym] = 4;
+has(obj.a, sym); // true
+```
+
 ### Arrays
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
