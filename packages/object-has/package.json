@@ -14,7 +14,7 @@
     "no-dependencies",
     "just"
   ],
-  "author": "Angus Croll",
+  "author": "Robert Lindstaedt",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
