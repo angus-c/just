@@ -9,5 +9,8 @@ module.exports = capitalize;
 */
 
 function capitalize(str) {
+  if (typeof str != 'string') {
+    throw Error('just-capitalize expects a string argument');
+  }
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }

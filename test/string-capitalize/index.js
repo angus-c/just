@@ -29,3 +29,21 @@ test('non alpha chars', function(t) {
   t.equal(capitalize(' spaces'), ' spaces');
   t.end();
 });
+
+test('empty string', function(t) {
+  t.plan(1);
+  t.equal(capitalize(''), '');
+  t.end();
+});
+
+test('argument not a string', function(t) {
+  t.plan(7);
+  t.throws(function() {capitalize();});
+  t.throws(function() {capitalize(null);});
+  t.throws(function() {capitalize(95);});
+  t.throws(function() {capitalize(true);});
+  t.throws(function() {capitalize({});});
+  t.throws(function() {capitalize([]);});
+  t.throws(function() {capitalize(function() {});});
+  t.end();
+});
