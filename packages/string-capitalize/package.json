@@ -1,6 +1,6 @@
 {
   "name": "just-capitalize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "capitalize the first character of a string",
   "main": "index.js",
   "scripts": {
