@@ -94,7 +94,7 @@ __In addition__, these Just utilities, while lacking the additional features of 
 | just-merge (142b) | merge (4220b)  |  _e, f, g_ |
 | just-clone (157b) | clonedeep (3360b) | _e, f, g_   |
 
-_a._ In addition to a suffix arg, Lodash truncate accepts a separator exression, which when present is used as the truncation point.
+_a._ In addition to a suffix arg, Lodash truncate accepts a separator expression, which when present is used as the truncation point.
 _b._ Lodash has a leading and trailing option, Just only has a leading option.\
 _c._ Lodash cancels delayed calls.\
 _d._ Lodash has a `flushed` method that can be applied to throttles/debounces.
