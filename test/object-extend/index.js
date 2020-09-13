@@ -65,6 +65,28 @@ test('shallow extend copies non-plain objects', function(t) {
   t.end();
 });
 
+test('shallow extend works with null prototype extender', function(t) {
+  t.plan(2);
+  var src = {x: 4};
+  var obj = Object.create(null);
+  obj.x = 54;
+  obj.y = {a: 3};
+  t.deepEqual(extend(src, obj), {x: 54, y: {a: 3}});
+  t.deepEqual(src, {x: 54, y: {a: 3}});
+  t.end();
+});
+
+test('shallow extend works with null prototype target', function(t) {
+  t.plan(2);
+  var src = Object.create(null);;
+  src.x = 54;
+  src.y = {a: 3};
+  var obj = {x: 92, y: {b: 8}};
+  t.deepEqual(extend(src, obj), {x: 92, y: {b: 8}});
+  t.deepEqual(src, {x: 92, y: {b: 8}});
+  t.end();
+});
+
 test('deep extend merges child objects', function(t) {
   t.plan(2);
   var obj = {a: {b: 'c'}};
@@ -119,6 +141,31 @@ test('deep extend does not clone child non-plain objects', function(t) {
   regex.x = 34;
   t.equal(src3.c.x, 34);
 
+  t.end();
+});
+
+test('deep extend works with null prototype extender', function(t) {
+  t.plan(3);
+  var src = {x: 4, y: {c: 9}};
+  var obj = Object.create(null);
+  var obj2 = {a: 3};
+  obj.x = 54;
+  obj.y = obj2;
+  t.deepEqual(extend(true, src, obj), {x: 54, y: {a: 3, c: 9}});
+  t.deepEqual(src, {x: 54, y: {a: 3, c: 9}});
+  obj2.a = 4;
+  t.deepEqual(src, {x: 54, y: {a: 3, c: 9}});
+  t.end();
+});
+
+test('deep extend works with null prototype target', function(t) {
+  t.plan(2);
+  var src = Object.create(null);;
+  src.x = 54;
+  src.y = {a: 3};
+  var obj = {x: 92, y: {b: 8}};
+  t.deepEqual(extend(true, src, obj), {x: 92, y: {a: 3, b: 8}});
+  t.deepEqual(src, {x: 92, y: {a: 3, b: 8}});
   t.end();
 });
 
