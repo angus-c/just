@@ -43,13 +43,13 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
   for (var i = 0; i < len; i++) {
     var extender = extenders[i];
     for (var key in extender) {
-      if (extender.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(extender, key)) {
         var value = extender[key];
         if (deep && isCloneable(value)) {
           var base = Array.isArray(value) ? [] : {};
           result[key] = extend(
             true,
-            result.hasOwnProperty(key) && !isUnextendable(result[key])
+            Object.prototype.hasOwnProperty.call(result, key) && !isUnextendable(result[key])
               ? result[key]
               : base,
             value
