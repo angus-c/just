@@ -10,6 +10,6 @@ Guilt-free utilities for every occasion.
   isPrime(1); // false
   isPrime(2); // true
   isPrime(17); // true
-  isPrime(10); // true
+  isPrime(10); // false
 */
 ```

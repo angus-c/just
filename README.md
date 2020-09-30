@@ -110,6 +110,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-replace-all](#just-replace-all)
 - [Numbers](#numbers) +-
   - [just-clamp](#just-clamp)
+  - [just-is-prime](#just-is-prime)
   - [just-modulo](#just-modulo)
 - [Functions](#functions) =>
 
@@ -1450,6 +1451,21 @@ clamp(3, NaN, 8); // NaN
 clamp(undefined, n, 8); // throws
 clamp(3, n, "h"); // throws
 clamp(3, false, 8); // throws
+```
+
+### [just-modulo](https://www.npmjs.com/package/just-modulo)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-is-prime)
+
+`npm install just-is-prime`
+
+```js
+import modulo from "just-is-prime";
+
+isPrime(1); // false
+isPrime(2); // true
+isPrime(17); // true
+isPrime(10); // false
 ```
 
 ### [just-modulo](https://www.npmjs.com/package/just-modulo)
