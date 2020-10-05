@@ -5,6 +5,12 @@ module.exports = isPrime;
   isPrime(2); // true
   isPrime(17); // true
   isPrime(10); // false
+  isPrime(); // throws
+  isPrime(null); // throws
+  isPrime("js"); // throws
+  isPrime({}); // throws
+  isPrime(function() {}); // throws
+  isPrime([]); // throws
 */
 
 function isPrime(number) {
