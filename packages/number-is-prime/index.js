@@ -15,7 +15,7 @@ module.exports = isPrime;
 
 function isPrime(number) {
   if (!Number.isInteger(number)) {
-    throw new Error('Expected an integer');
+    throw new Error('just-is-prime expects an integer argument');
   }
 
   if (number < 2) {
@@ -23,7 +23,9 @@ function isPrime(number) {
   }
 
   for (var i = 2; i < Math.sqrt(number); i++) {
-    if (number % i === 0) return false;
+    if (number % i === 0) {
+      return false;
+    }
   }
 
   return true;
