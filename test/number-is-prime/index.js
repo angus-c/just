@@ -14,3 +14,31 @@ test('number is not prime', function(t) {
   t.notOk(isPrime(10));
   t.end();
 });
+
+test('throw error', function(t) {
+  t.throws(function() {
+    isPrime(null);
+  });
+
+  t.throws(function() {
+    isPrime('js');
+  });
+
+  t.throws(function() {
+    isPrime();
+  });
+
+  t.throws(function() {
+    isPrime([]);
+  });
+
+  t.throws(function() {
+    isPrime({});
+  });
+
+  t.throws(function() {
+    isPrime(function() { });
+  });
+
+  t.end();
+});
