@@ -45,7 +45,11 @@ test('throw error', function(t) {
   });
 
   t.throws(function() {
-    isPrime(function() { });
+    isPrime(function() {});
+  });
+
+  t.throws(function() {
+    isPrime(2.5);
   });
 
   t.end();
