@@ -1492,7 +1492,7 @@ clamp(3, false, 8); // throws
 `npm install just-is-prime`
 
 ```js
-import modulo from "just-is-prime";
+import isPrime from "just-is-prime";
 
 isPrime(1); // false
 isPrime(2); // true
