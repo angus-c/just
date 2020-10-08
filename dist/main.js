@@ -683,6 +683,10 @@ module.exports = {
       'just-modulo': {
         size: sizes['just-modulo'],
         code: ['const modulo = require(\'just-modulo\');\n\nmodulo(-4, 13);']
+      },
+      'just-is-prime': {
+        size: sizes['just-is-prime'],
+        code: ['const isPrime = require(\'just-is-prime\');\n\nisPrime(199);']
       }
     }
   },

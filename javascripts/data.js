@@ -536,6 +536,13 @@ clamp(1, n, 3); // 3`,
 modulo(-4, 13);`,
         ],
       },
+      'just-is-prime': {
+        size: sizes['just-is-prime'],
+        code: [
+          `const isPrime = require('just-is-prime');\n
+isPrime(199);`,
+        ],
+      },
     },
   },
   Functions: {
