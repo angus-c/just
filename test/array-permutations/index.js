@@ -1,0 +1,38 @@
+var test = require('../util/test')(__filename);
+var permutations = require('../../packages/array-permutations');
+
+test('array with all permutations', function(t) {
+  t.plan(3);
+
+  t.deepEqual(
+    permutations(['javascript', 'typescript']),
+    [['javascript', 'typescript'], ['typescript', 'javascript']]
+  );
+
+  t.deepEqual(
+    permutations([1, 2, 3]),
+    [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+  );
+
+  t.deepEqual(permutations([]), []);
+
+  t.end();
+});
+
+test('invalid', function(t) {
+  t.plan(3);
+
+  t.throws(function() {
+    permutations(undefined);
+  });
+
+  t.throws(function() {
+    permutations(1);
+  });
+
+  t.throws(function() {
+    permutations('javascript', 'typescript');
+  });
+
+  t.end();
+});
