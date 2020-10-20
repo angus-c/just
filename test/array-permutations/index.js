@@ -2,7 +2,7 @@ var test = require('../util/test')(__filename);
 var permutations = require('../../packages/array-permutations');
 
 test('array with all permutations', function(t) {
-  t.plan(3);
+  t.plan(4);
 
   t.deepEqual(
     permutations(['javascript', 'typescript']),
@@ -15,6 +15,7 @@ test('array with all permutations', function(t) {
   );
 
   t.deepEqual(permutations([]), []);
+  t.deepEqual(permutations([1]), [[1]]);
 
   t.end();
 });
