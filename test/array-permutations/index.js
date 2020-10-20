@@ -20,7 +20,11 @@ test('array with all permutations', function(t) {
 });
 
 test('invalid', function(t) {
-  t.plan(3);
+  t.plan(4);
+
+  t.throws(function() {
+    permutations();
+  });
 
   t.throws(function() {
     permutations(undefined);
