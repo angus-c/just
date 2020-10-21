@@ -18,17 +18,17 @@ function permutations(arr) {
     return [arr];
   }
 
-  const output = [];
-  const partialPermutations = permutations(arr.slice(1));
-  const first = arr[0];
+  var output = [];
+  var partialPermutations = permutations(arr.slice(1));
+  var first = arr[0];
 
-  for (let i = 0; i < partialPermutations.length; i++) {
-    const partial = partialPermutations[i];
+  for (var i = 0, len = partialPermutations.length; i < len; i++) {
+    var partial = partialPermutations[i];
 
-    for (let j = 0; j <= partial.length; j++) {
-      const start = partial.slice(0, j);
-      const end = partial.slice(j);
-      const merged = start.concat(first, end);
+    for (var j = 0, len2 = partial.length; j <= len2; j++) {
+      var start = partial.slice(0, j);
+      var end = partial.slice(j);
+      var merged = start.concat(first, end);
 
       output.push(merged);
     }
