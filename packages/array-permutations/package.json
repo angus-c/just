@@ -1,0 +1,22 @@
+{
+  "name": "just-permutations",
+  "version": "1.0.0",
+  "description": "Returns all permutations of the length N of the elements of the given Array",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "list",
+    "algorithm",
+    "permutations",
+    "just"
+  ],
+  "author": "evandrolg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

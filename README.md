@@ -82,6 +82,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
   - [just-partition](#just-partition)
+  - [just-permutations](#just-permutations)
   - [just-range](#just-range)
   - [just-remove](#just-remove)
   - [just-union](#just-union)
@@ -1616,6 +1617,20 @@ cubedRoot(64); // 4
 
 const getRoot = partial(Math.pow, 64);
 getRoot(1 / 2); // 8
+```
+
+### [just-permutations](https://www.npmjs.com/package/just-permutations)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-permutations)
+
+`npm install just-permutations`
+
+```js
+import permutations from "just-permutations";
+
+permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+permutations([]); // []
+permutations(); // throws
 ```
 
 ### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
