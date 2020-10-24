@@ -569,6 +569,10 @@ module.exports = {
         size: sizes['just-partition'],
         code: ['const partition = require(\'just-partition\');\n\npartition([1, 5, 3, 4, 2], n => n > 3);']
       },
+      'just-permutations': {
+        size: sizes['just-permutations'],
+        code: ['const permutations = require(\'just-permutations\');\n\npermutations([1, 2, 3]);']
+      },
       'just-remove': {
         size: sizes['just-remove'],
         code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']

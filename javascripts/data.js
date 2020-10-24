@@ -335,6 +335,13 @@ splitAt([1, 2, 3, 4, 5], 2);`,
 partition([1, 5, 3, 4, 2], n => n > 3);`,
         ],
       },
+      'just-permutations': {
+        size: sizes['just-permutations'],
+        code: [
+          `const permutations = require('just-permutations');\n
+permutations([1, 2, 3]);`,
+        ],
+      },      
       'just-remove': {
         size: sizes['just-remove'],
         code: [
