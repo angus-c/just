@@ -80,6 +80,9 @@ function diffApply(obj, diff, pathConverter) {
     }
     var thisProp;
     while (((thisProp = pathCopy.shift())) != null) {
+      if (thisProp === '__proto__' || thisProp === 'constructor' || thisProp === 'prototype') {
+        throw new Error('Prototype pollution attempt detected');
+      }
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
