@@ -13,7 +13,6 @@ module.exports = {
     ]
   );
   obj1; // {a: 4, c: 5}
-
   // using converter to apply jsPatch standard paths
   // see http://jsonpatch.com
   import {diff, jsonPatchPathConverter} from 'just-diff'
@@ -24,7 +23,6 @@ module.exports = {
     { "op": "add", "path": '/c', "value": 5 }
   ], jsonPatchPathConverter);
   obj2; // {a: 4, c: 5}
-
   // arrays
   const obj3 = {a: 4, b: [1, 2, 3]};
   diffApply(obj3, [
@@ -33,7 +31,6 @@ module.exports = {
     { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
   obj3; // {a: 3, b: [1, 2, 4, 9]}
-
   // nested paths
   const obj4 = {a: 4, b: {c: 3}};
   diffApply(obj4, [
@@ -80,6 +77,9 @@ function diffApply(obj, diff, pathConverter) {
     }
     var thisProp;
     while (((thisProp = pathCopy.shift())) != null) {
+      if (thisProp === '__proto__' || thisProp === 'constructor' || thisProp === 'prototype') {
+        throw new Error('Prototype pollution attempt detected');
+      }
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
