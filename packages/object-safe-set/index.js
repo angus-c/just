@@ -36,6 +36,9 @@ function set(obj, props, value) {
   }
   var thisProp;
   while ((thisProp = props.shift())) {
+    if (thisProp === '__proto__' || thisProp === 'constructor' || thisProp === 'prototype') {
+      return false;
+    }
     if (typeof obj[thisProp] == 'undefined') {
       obj[thisProp] = {};
     }
