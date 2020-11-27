@@ -16,6 +16,13 @@ test('if only array is passed as argument, treat n as the length of array', func
   t.end();
 });
 
+test('if second argument is null, treat n as the length of array', function(t) {
+  t.plan(2);
+  t.deepEqual(split([1, 2, 3, 4, 5, 6, 7, 8, 9], null), [[1, 2, 3, 4, 5, 6, 7, 8, 9]]);
+  t.deepEqual(split([100, 100, 100, 200, 300, 400], null), [[100, 100, 100, 200, 300, 400]]);
+  t.end();
+});
+
 test('splits array into groups of n size if array length divisible by n', function(t) {
   t.plan(2);
   t.deepEqual(split([1, 2, 3, 4, 5, 6, 7, 8, 9], 3), [[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
