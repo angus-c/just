@@ -17,7 +17,7 @@ function median(arr) {
     }
   }
   var sorted = arr.sort(function(a, b) {
-    if (typeof a != 'number') {
+    if (!Number.isFinite(a)) {
       throw new Error(nonNumericMsg);
     }
     return a >= b ? 1 : -1;
