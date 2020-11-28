@@ -1486,7 +1486,7 @@ clamp(3, n, "h"); // throws
 clamp(3, false, 8); // throws
 ```
 
-### [just-modulo](https://www.npmjs.com/package/just-modulo)
+### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-is-prime)
 
