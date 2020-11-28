@@ -1,5 +1,11 @@
 module.exports = median;
 
+if (Number.isFinite === undefined) {
+  Number.isFinite = function(value) {
+    return typeof value === 'number' && isFinite(value);
+  };
+}
+
 var nonNumericMsg = 'all values passed to `median` must be numeric';
 
 function median(arr) {

@@ -1,5 +1,11 @@
 module.exports = percentile;
 
+if (Number.isFinite === undefined) {
+  Number.isFinite = function(value) {
+    return typeof value === 'number' && isFinite(value);
+  };
+}
+
 var nonNumericMsg = 'all values passed to `percentile` must be numeric';
 
 // Using linear interpolation method

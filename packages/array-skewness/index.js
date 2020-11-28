@@ -1,5 +1,11 @@
 module.exports = skewness;
 
+if (Number.isFinite === undefined) {
+  Number.isFinite = function(value) {
+    return typeof value === 'number' && isFinite(value);
+  };
+}
+
 function skewness(arr) {
   if (!Array.isArray(arr)) {
     arr = [].slice.call(arguments);

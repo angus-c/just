@@ -1,5 +1,11 @@
 module.exports = mode;
 
+if (Number.isFinite === undefined) {
+  Number.isFinite = function(value) {
+    return typeof value === 'number' && isFinite(value);
+  };
+}
+
 function mode(arr) {
   if (!Array.isArray(arr)) {
     arr = [].slice.call(arguments);
