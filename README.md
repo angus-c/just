@@ -36,9 +36,9 @@ yarn add just-extend && yarn add @types/just-extend -D
 
 Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
 
-| Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android       |
+| Chrome | Safari | Firefox | Edge    | Node | Mobile Safari | Android       |
 | ------ | ------ | ------- | ------- | ---- | ------------- | ------------- |
-| yes    | yes    | yes     | IE9+    | 6+   | iOS 8+        | Android OS 5+ |
+| yes    | yes    | yes     | 12      | 6+   | iOS 8+        | Android OS 5+ |
 
 ## The Modules :package:
 
