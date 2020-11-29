@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
-A library of **zero-dependency** npm modules that do just do one thing.
+A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
 
 **[Jump To API](#the-modules-package)**
@@ -36,9 +36,9 @@ yarn add just-extend && yarn add @types/just-extend -D
 
 Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
 
-| Chrome | Safari | Firefox | IE/Edge | Node | Mobile Safari | Android       |
+| Chrome | Safari | Firefox | Edge    | Node | Mobile Safari | Android       |
 | ------ | ------ | ------- | ------- | ---- | ------------- | ------------- |
-| yes    | yes    | yes     | IE9+    | 6+   | iOS 8+        | Android OS 5+ |
+| yes    | yes    | yes     | 12      | 6+   | iOS 8+        | Android OS 5+ |
 
 ## The Modules :package:
 
@@ -1486,7 +1486,7 @@ clamp(3, n, "h"); // throws
 clamp(3, false, 8); // throws
 ```
 
-### [just-modulo](https://www.npmjs.com/package/just-modulo)
+### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-is-prime)
 
