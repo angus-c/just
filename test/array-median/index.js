@@ -24,9 +24,12 @@ test('array of numbers (length is even) returns mean of middle 2 sorted values',
 });
 
 test('non-numeric values throw', function(t) {
-  t.plan(3);
+  t.plan(4);
   t.throws(function() {
     median([1, '2', 3, 4, 5]);
+  });
+  t.throws(function() {
+    median([1, NaN, 3, 4, 5]);
   });
   t.throws(function() {
     median({a: 2}, {b: 3});
