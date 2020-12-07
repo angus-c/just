@@ -10,9 +10,10 @@ test('number is prime', function(t) {
 });
 
 test('number is not prime', function(t) {
-  t.plan(5);
+  t.plan(6);
   t.notOk(isPrime(0));
   t.notOk(isPrime(1));
+  t.notOk(isPrime(4));
   t.notOk(isPrime(10));
   t.notOk(isPrime(-10));
   t.notOk(isPrime(13440));
