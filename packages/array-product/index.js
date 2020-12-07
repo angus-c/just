@@ -6,6 +6,10 @@ module.exports = product;
 */
 
 function isArray(item) {
+  if (Array.hasOwnProperty('isArray')) {
+    return Array.isArray(item);
+  }
+
   if (typeof item !== 'object') {
     return false;
   }
@@ -33,8 +37,12 @@ function baseProduct(arr1, arr2) {
 }
 
 function product(arr) {
-  if (!isArray) {
+  if (!isArray(arr)) {
     throw new Error('just-array-product expects an array');
+  }
+
+  if (!arr.length) {
+    return [];
   }
 
   var output = arr[0];
