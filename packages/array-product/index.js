@@ -6,14 +6,6 @@ module.exports = product;
 */
 
 function isArray(item) {
-  if (Array.hasOwnProperty('isArray')) {
-    return Array.isArray(item);
-  }
-
-  if (typeof item !== 'object') {
-    return false;
-  }
-
   if (Object.prototype.toString.call(item) === '[object Array]') {
     return true;
   }
