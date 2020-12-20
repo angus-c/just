@@ -1,5 +1,5 @@
 {
-  "name": "just-product",
+  "name": "just-cartesian-product",
   "version": "1.0.0",
   "description": "Cartesian product of arrays",
   "main": "index.js",
