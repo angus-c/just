@@ -83,6 +83,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-split-at](#just-split-at)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
+  - [just-product](#just-product)
   - [just-range](#just-range)
   - [just-remove](#just-remove)
   - [just-union](#just-union)
@@ -1627,6 +1628,20 @@ getRoot(1 / 2); // 8
 
 ```js
 import permutations from "just-permutations";
+
+permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+permutations([]); // []
+permutations(); // throws
+```
+
+### [just-product](https://www.npmjs.com/package/just-product)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-product)
+
+`npm install just-product`
+
+```js
+import product from "just-product";
 
 permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
 permutations([]); // []
