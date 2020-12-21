@@ -1,0 +1,23 @@
+{
+  "name": "just-cartesian-product",
+  "version": "1.0.0",
+  "description": "Cartesian product of arrays",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "list",
+    "algorithm",
+    "cartesian",
+    "product",
+    "just"
+  ],
+  "author": "evandrolg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

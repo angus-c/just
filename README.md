@@ -69,6 +69,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-typeof](#just-typeof)
   - [just-flip-object](#just-flip-object)
 - [Arrays](#arrays) []
+  - [just-cartesian-product](#just-cartesian-product)
   - [just-unique](#just-unique)
   - [just-flatten-it](#just-flatten-it)
   - [just-index](#just-index)
@@ -789,6 +790,21 @@ has(obj.a, sym); // true
 ```
 
 ### Arrays
+
+### [just-cartesian-product](https://www.npmjs.com/package/just-cartesian-product)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-cartesian-product)
+
+`npm install just-cartesian-product`
+
+```js
+import cartesianProduct from "just-cartesian-product";
+
+cartesianProduct([[1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+cartesianProduct([1, 2], ['a', 'b', 'c']); // [[1, 'a'], [1, 'b'], [1, 'c'], [2, 'a'], [2, 'b'], [2, 'c']]
+cartesianProduct([[]); // []
+cartesianProduct(); // throws
+```
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
 
