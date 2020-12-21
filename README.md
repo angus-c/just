@@ -36,9 +36,9 @@ yarn add just-extend && yarn add @types/just-extend -D
 
 Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
 
-| Chrome | Safari | Firefox | Edge    | Node | Mobile Safari | Android       |
-| ------ | ------ | ------- | ------- | ---- | ------------- | ------------- |
-| yes    | yes    | yes     | 12      | 6+   | iOS 8+        | Android OS 5+ |
+| Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android       |
+| ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |
+| yes    | yes    | yes     | 12   | 6+   | iOS 8+        | Android OS 5+ |
 
 ## The Modules :package:
 
@@ -800,9 +800,9 @@ has(obj.a, sym); // true
 ```js
 import cartesianProduct from "just-cartesian-product";
 
-cartesianProduct([[1, 2], ['a', 'b']); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
-cartesianProduct([1, 2], ['a', 'b', 'c']); // [[1, 'a'], [1, 'b'], [1, 'c'], [2, 'a'], [2, 'b'], [2, 'c']]
-cartesianProduct([[]); // []
+cartesianProduct([[1, 2], ['a', 'b']]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+cartesianProduct([[1, 2], ['a', 'b', 'c']]); // [[1, 'a'], [1, 'b'], [1, 'c'], [2, 'a'], [2, 'b'], [2, 'c']]
+cartesianProduct([]); // []
 cartesianProduct(); // throws
 ```
 
