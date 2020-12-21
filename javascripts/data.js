@@ -341,8 +341,7 @@ partition([1, 5, 3, 4, 2], n => n > 3);`,
           `const permutations = require('just-permutations');\n
 permutations([1, 2, 3]);`,
         ],
-      },      
-      'just-remove': {
+      }, 'just-remove': {
         size: sizes['just-remove'],
         code: [
           `const remove = require('just-remove')\n
@@ -370,6 +369,14 @@ zip([1, 2, 3], [4, 5, 6], [7, 8, 9]);`,
 groupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2});`,
         ],
       },
+      'just-cartesian-product': {
+        size: sizes['just-cartesian-product'],
+        code: [
+          `const product = require('just-cartesian-product')\n
+product([[1, 3], ['a', 'b', 'c']]);`,
+        ],
+      },
+
     },
   },
   Statistics: {

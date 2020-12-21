@@ -572,8 +572,7 @@ module.exports = {
       'just-permutations': {
         size: sizes['just-permutations'],
         code: ['const permutations = require(\'just-permutations\');\n\npermutations([1, 2, 3]);']
-      },
-      'just-remove': {
+      }, 'just-remove': {
         size: sizes['just-remove'],
         code: ['const remove = require(\'just-remove\')\n\nremove([1, 2, 3, 4, 5, 6], [1, 3, 6]);']
       },
@@ -588,7 +587,12 @@ module.exports = {
       'just-group-by': {
         size: sizes['just-group-by'],
         code: ['const groupBy = require(\'just-group-by\')\n\ngroupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2});']
+      },
+      'just-cartesian-product': {
+        size: sizes['just-cartesian-product'],
+        code: ['const product = require(\'just-cartesian-product\')\n\nproduct([[1, 3], [\'a\', \'b\', \'c\']]);']
       }
+
     }
   },
   Statistics: {
@@ -792,15 +796,17 @@ module.exports = {
   "just-random": "65",
   "just-shuffle": "150",
   "just-range": "137",
-  "just-split": "145",
+  "just-split": "150",
   "just-split-at": "119",
   "just-partition": "134",
+  "just-permutations": "166",
   "just-remove": "115",
   "just-union": "120",
   "just-zip-it": "173",
   "just-group-by": "136",
+  "just-cartesian-product": "179",
   "just-mean": "148",
-  "just-median": "196",
+  "just-median": "200",
   "just-mode": "241",
   "just-percentile": "238",
   "just-variance": "190",
@@ -820,6 +826,7 @@ module.exports = {
   "just-replace-all": "96",
   "just-clamp": "111",
   "just-modulo": "23",
+  "just-is-prime": "105",
   "just-compose": "118",
   "just-curry-it": "72",
   "just-demethodize": "107",
