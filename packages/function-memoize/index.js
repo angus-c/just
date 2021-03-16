@@ -3,7 +3,7 @@ module.exports = memoize;
 function memoize(callback, resolver) {
   var cache = {};
 
-  return function() {
+  var memoized = function() {
     var args = arguments;
     var key = resolver ? resolver.apply(this, args) : args[0];
 
@@ -13,4 +13,8 @@ function memoize(callback, resolver) {
 
     return cache[key];
   };
+
+  memoized.cache = cache;
+
+  return memoized;
 }

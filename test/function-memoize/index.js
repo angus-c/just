@@ -2,47 +2,54 @@ var test = require('../util/test')(__filename);
 var memoize = require('../../packages/function-memoize');
 
 test('memoize with one parameter', function(t) {
-  t.plan(1);
+  t.plan(3);
 
-  var cached = memoize(function(a) {
+  var calc = memoize(function(a) {
     return a + 1;
   });
 
-  var result = cached(2);
+  t.deepEqual(calc.cache, {});
 
-  t.same(result, 3);
+  var result = calc(2);
+
+  t.deepEqual(calc.cache, {'2': 3});
+  t.equal(result, 3);
 
   t.end();
 });
 
 test('memoize with two parameter', function(t) {
-  t.plan(1);
+  t.plan(3);
 
-  var cached = memoize(function(a, b) {
+  var calc = memoize(function(a, b) {
     return a + b;
   }, function(a, b) {
     return [a, b].join('-');
   });
 
-  var result = cached(5, 5);
+  t.deepEqual(calc.cache, {});
+  var result = calc(5, 5);
 
-  t.same(result, 10);
+  t.deepEqual(calc.cache, {'5-5': 10});
+  t.equal(result, 10);
 
   t.end();
 });
 
 test('memoize with three parameter', function(t) {
-  t.plan(1);
+  t.plan(3);
 
-  var cached = memoize(function(a, b, c) {
+  var concat = memoize(function(a, b, c) {
     return a + b + c;
   }, function(a, b, c) {
     return [a, b, c].join('-');
   });
 
-  var result = cached('a', 'b', 'c');
+  t.deepEqual(concat.cache, {});
+  var result = concat('a', 'b', 'c');
 
-  t.same(result, 'abc');
+  t.deepEqual(concat.cache, {'a-b-c': 'abc'});
+  t.equal(result, 'abc');
 
   t.end();
 });

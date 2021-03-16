@@ -6,6 +6,7 @@ module.exports = function(modulePath) {
   var test = function(name, fn) {
     tapeTest('[' + moduleName + '] ' + name, fn);
   };
+
   test.only = function(name, fn) {
     tapeTest.only('[' + moduleName + '] ' + name, fn);
   };
