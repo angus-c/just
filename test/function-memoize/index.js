@@ -1,10 +1,10 @@
 var test = require('../util/test')(__filename);
 var memoize = require('../../packages/function-memoize');
 
-test('memoize with one parameter', function (t) {
+test('memoize with one parameter', function(t) {
   t.plan(3);
 
-  var calc = memoize(function (a) {
+  var calc = memoize(function(a) {
     return a + 1;
   });
 
@@ -18,12 +18,12 @@ test('memoize with one parameter', function (t) {
   t.end();
 });
 
-test('memoize with two parameter', function (t) {
+test('memoize with two parameter', function(t) {
   t.plan(3);
 
-  var calc = memoize(function (a, b) {
+  var calc = memoize(function(a, b) {
     return a + b;
-  }, function (a, b) {
+  }, function(a, b) {
     return [a, b].join('-');
   });
 
@@ -36,12 +36,12 @@ test('memoize with two parameter', function (t) {
   t.end();
 });
 
-test('get result from cache using customized key', function (t) {
+test('get result from cache using customized key', function(t) {
   t.plan(5);
 
-  var concat = memoize(function (a, b, c) {
+  var concat = memoize(function(a, b, c) {
     return a + b + c;
-  }, function () {
+  }, function() {
     return 'myKey';
   });
 
@@ -54,6 +54,32 @@ test('get result from cache using customized key', function (t) {
   var result2 = concat('d', 'e', 'f');
   t.deepEqual(concat.cache, {'myKey': 'abc'});
   t.equal(result2, 'abc');
+
+  t.end();
+});
+
+test('throws an error when `resolver` is not a function', function(t) {
+  t.plan(4);
+
+  var callback = function(a, b) {
+    return a + b;
+  };
+
+  t.throws(function() {
+    memoize(callback, true);
+  });
+
+  t.throws(function() {
+    memoize(callback, [1, 2]);
+  });
+
+  t.throws(function() {
+    memoize(callback, 'myResolver');
+  });
+
+  t.throws(function() {
+    memoize(callback, 123);
+  });
 
   t.end();
 });
