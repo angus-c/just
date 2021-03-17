@@ -92,6 +92,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 - [Statistics](#stats) Σ
   - [just-mean](#just-mean)
   - [just-median](#just-median)
+  - [just-memoize](#just-memoize)
   - [just-mode](#just-mode)
   - [just-percentile](#just-percentile)
   - [just-variance](#just-variance)
@@ -1141,6 +1142,37 @@ median([9, 14, 14, 200, 15]); // 14
 median(1, 2, 4, 3); // 2.5
 median(["3", 2, 1]); // throws
 median(); // throws
+```
+
+### [just-memoize](https://www.npmjs.com/package/just-memoize)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-memoize)
+
+`npm install just-memoize`
+
+```js
+import memoize from 'just-memoize';
+
+const sumByOne = memoize(function(value) {
+  return value + 1;
+});
+
+sumByOne(10);
+sumByOne(10); -- Cache hit!
+
+sumByOne(20);
+sumByOne(20); -- Cache hit!
+
+// Custom cache
+var sum = memoize(function(a, b) {
+  return a + b
+}, function(a, b) {
+  return `${a}-${b}`
+})
+
+sum(10, 10)
+sum(10, 20)
+sum(10, 20) -- Cache hit!
 ```
 
 ### [just-mode](https://www.npmjs.com/package/just-mode)
