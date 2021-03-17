@@ -1,10 +1,10 @@
 var test = require('../util/test')(__filename);
 var memoize = require('../../packages/function-memoize');
 
-test('memoize with one parameter', function(t) {
+test('memoize with one parameter', function (t) {
   t.plan(3);
 
-  var calc = memoize(function(a) {
+  var calc = memoize(function (a) {
     return a + 1;
   });
 
@@ -18,12 +18,12 @@ test('memoize with one parameter', function(t) {
   t.end();
 });
 
-test('memoize with two parameter', function(t) {
+test('memoize with two parameter', function (t) {
   t.plan(3);
 
-  var calc = memoize(function(a, b) {
+  var calc = memoize(function (a, b) {
     return a + b;
-  }, function(a, b) {
+  }, function (a, b) {
     return [a, b].join('-');
   });
 
@@ -36,20 +36,24 @@ test('memoize with two parameter', function(t) {
   t.end();
 });
 
-test('memoize with three parameter', function(t) {
-  t.plan(3);
+test('get result from cache using customized key', function (t) {
+  t.plan(5);
 
-  var concat = memoize(function(a, b, c) {
+  var concat = memoize(function (a, b, c) {
     return a + b + c;
-  }, function(a, b, c) {
-    return [a, b, c].join('-');
+  }, function () {
+    return 'myKey';
   });
 
   t.deepEqual(concat.cache, {});
   var result = concat('a', 'b', 'c');
 
-  t.deepEqual(concat.cache, {'a-b-c': 'abc'});
+  t.deepEqual(concat.cache, {'myKey': 'abc'});
   t.equal(result, 'abc');
+
+  var result2 = concat('d', 'e', 'f');
+  t.deepEqual(concat.cache, {'myKey': 'abc'});
+  t.equal(result2, 'abc');
 
   t.end();
 });
