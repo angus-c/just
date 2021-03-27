@@ -142,6 +142,23 @@ test('unalike functions return true', function(t) {
   t.end();
 });
 
+test('alike sets return true', function(t) {
+  t.plan(4);
+  t.ok(compare(new Set(), new Set()));
+  t.ok(compare(new Set(), new Set([])));  
+  t.ok(compare(new Set([1, 2]), new Set([1, 2])));  
+  t.ok(compare({a: 'hi', aSet: new Set([1, 2])}, {a: 'hi', aSet: new Set([1, 2])}));    
+  t.end();
+});
+
+test('unalike sets return true', function(t) {
+  t.plan(3);
+  t.notOk(compare(new Set([1, 2]), new Set([3, 4])));
+  t.notOk(compare(new Set([1, 2]), new Set([1, 2, 3])));  
+  t.notOk(compare({a: 'hi', aSet: new Set([1, 2])}, {a: 'hi', aSet: new Set([3, 4])}));    
+  t.end();
+});
+
 test('alike regexps return true', function(t) {
   t.plan(1);
   t.ok(compare(/hello/, /hello/));
