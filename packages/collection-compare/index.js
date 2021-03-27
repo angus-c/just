@@ -37,8 +37,8 @@ function compare(value1, value2) {
     return compareArrays(value1, value2);
   }
   if ({}.toString.call(value1) == '[object Set]') {
-    return compareArrays(Array.from(value1), Array.from(value2));    
-  }  
+    return compareArrays(Array.from(value1), Array.from(value2));
+  }
   if ({}.toString.call(value1) == '[object Object]') {
     return compareObjects(value1, value2);
   } else {
