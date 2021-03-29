@@ -12,13 +12,13 @@ test('memoize with one parameter', function(t) {
 
   var result = calc(2);
 
-  t.deepEqual(calc.cache, {'2': 3});
+  t.deepEqual(calc.cache, {'{"0":2}': 3});
   t.equal(result, 3);
 
   t.end();
 });
 
-test('memoize with two parameter', function(t) {
+test('memoize with two parameters', function(t) {
   t.plan(3);
 
   var calc = memoize(function(a, b) {
@@ -36,7 +36,7 @@ test('memoize with two parameter', function(t) {
   t.end();
 });
 
-test('get result from cache using customized key', function(t) {
+test('get result from cache using custom resolver', function(t) {
   t.plan(5);
 
   var concat = memoize(function(a, b, c) {

@@ -24,6 +24,10 @@ module.exports = memoize;
 */
 
 function memoize(callback, resolver) {
+  if (typeof callback !== 'function') {
+    throw new Error('`callback` should be a function');
+  }
+
   if (resolver !== undefined && typeof resolver !== 'function') {
     throw new Error('`resolver` should be a function');
   }
@@ -32,7 +36,7 @@ function memoize(callback, resolver) {
 
   var memoized = function() {
     var args = arguments;
-    var key = resolver ? resolver.apply(this, args) : args[0];
+    var key = resolver ? resolver.apply(this, args) : JSON.stringify(args);
 
     if (!(key in cache)) {
       cache[key] = callback.apply(this, args);
