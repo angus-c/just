@@ -83,3 +83,33 @@ test('throws an error when `resolver` is not a function', function(t) {
 
   t.end();
 });
+
+test('throws an error when `callback` is not a function', function(t) {
+  t.plan(6);
+
+  t.throws(function() {
+    memoize();
+  });
+
+  t.throws(function() {
+    memoize(true);
+  });
+
+  t.throws(function() {
+    memoize('myCallback');
+  });
+
+  t.throws(function() {
+    memoize({});
+  });
+
+  t.throws(function() {
+    memoize([1, 2, 3]);
+  });
+
+  t.throws(function() {
+    memoize(123);
+  });
+
+  t.end();
+});
