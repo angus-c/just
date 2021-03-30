@@ -18,8 +18,8 @@ test('memoize with one parameter', function(t) {
   t.end();
 });
 
-test('memoize with two parameters', function(t) {
-  t.plan(3);
+test('memoize with two parameters using constant resolver value', function(t) {
+  t.plan(5);
 
   var calc = memoize(function(a, b) {
     return a + b;
@@ -33,10 +33,14 @@ test('memoize with two parameters', function(t) {
   t.deepEqual(calc.cache, {'5-5': 10});
   t.equal(result, 10);
 
+  var result2 = calc(10, 2);
+  t.deepEqual(calc.cache, {'5-5': 10, '10-2': 12});
+  t.equal(result2, 12);
+
   t.end();
 });
 
-test('get result from cache using custom resolver', function(t) {
+test('get result from cache using constant resolver value', function(t) {
   t.plan(5);
 
   var concat = memoize(function(a, b, c) {

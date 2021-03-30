@@ -18,7 +18,7 @@ sumByOne(10); // Cache hit!
 sumByOne(20); // Returns value returned by the function
 sumByOne(20); // Cache hit!
 
-// Custom cache
+// Custom cache key (key defaults to JSON stringified arguments)
 var sum = memoize(function(a, b) {
   return a + b;
 }, function(a, b) {
