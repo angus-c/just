@@ -580,6 +580,20 @@ function add(a, b, c) {
 curry(add)(1)(2)(3);`,
         ],
       },
+      'just-memoize': {
+        size: sizes['just-memoize'],
+        code: [
+          `const memoize = require('just-memoize')\n
+var sum = memoize(function(a, b) {
+    return a + b;
+  }, function(a, b) {
+    return a + '-' + b; // you can use string interpolation here but I can't :)
+  });
+  sum(10, 10); // Returns value returned by the function
+  sum(10, 20); // Returns value returned by the function
+  sum(10, 20); // Cache hit!`,
+        ],
+      },
       'just-demethodize': {
         size: sizes['just-demethodize'],
         code: [

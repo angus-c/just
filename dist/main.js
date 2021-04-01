@@ -709,6 +709,10 @@ module.exports = {
         size: sizes['just-curry-it'],
         code: ['const curry = require(\'just-curry-it\')\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\ncurry(add)(1)(2)(3);']
       },
+      'just-memoize': {
+        size: sizes['just-memoize'],
+        code: ['const memoize = require(\'just-memoize\')\n\nvar sum = memoize(function(a, b) {\n    return a + b;\n  }, function(a, b) {\n    return a + \'-\' + b; // you can use string interpolation here but I can\'t :)\n  });\n  sum(10, 10); // Returns value returned by the function\n  sum(10, 20); // Returns value returned by the function\n  sum(10, 20); // Cache hit!']
+      },
       'just-demethodize': {
         size: sizes['just-demethodize'],
         code: ['const demethodize = require(\'just-demethodize\');\n\nconst trimFn = demethodize(\'\'.trim);\n[\'hello \', \' goodbye\', \'hello again\'].map(trimFn)']
