@@ -35,7 +35,7 @@ function memoize(callback, resolver) {
   var cache = {};
 
   var memoized = function() {
-    var args = arguments;
+    var args = Array.prototype.slice.call(arguments); // to simplify JSON.stringify
     var key = resolver ? resolver.apply(this, args) : JSON.stringify(args);
 
     if (!(key in cache)) {
