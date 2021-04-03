@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 var test = require('../util/test')(__filename);
 var throttle = require('../../packages/function-throttle');
 
@@ -15,7 +16,7 @@ test('by default, runs once at beginning of every n ms - part1', function(
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -41,7 +42,7 @@ test('by default, runs once at beginning of every n ms - part2', function(
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -62,7 +63,7 @@ test('when leading is false and trailing is omitted, runs once after every n ms 
 
   fn(); // 0ms, setTimeout called, will invoke at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, setTimeout called, will invoke at 150ms
       setTimeout(function() {
@@ -83,7 +84,7 @@ test('when leading is false and trailing is omitted, runs once after every n ms 
 
   fn(); // 0ms, setTimeout called, will invoke at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, setTimeout called, will invoke at 150ms
       setTimeout(function() {
@@ -110,7 +111,7 @@ test('when leading is true and trailing is omitted, runs once at beginning of ev
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -137,7 +138,7 @@ test('when leading is true and trailing is omitted, runs once at beginning of ev
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -164,7 +165,7 @@ test('when leading is true and trailing is false, runs once at beginning of ever
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -191,7 +192,7 @@ test('when leading is true and trailing is false, runs once at beginning of ever
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -212,7 +213,7 @@ test('when leading is false and trailing is true, runs once after every n ms - p
 
   fn(); // 0ms, setTimeout called, will invoke at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, setTimeout called, will invoke at 150ms
       setTimeout(function() {
@@ -233,7 +234,7 @@ test('when leading is false and trailing is true, runs once after every n ms - p
 
   fn(); // 0ms, setTimeout called, will invoke at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, setTimeout called, will invoke at 150ms
       setTimeout(function() {
@@ -260,7 +261,7 @@ test('when leading is true and trailing is true, runs once at beginning of every
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -287,7 +288,7 @@ test('when leading is true and trailing is true, runs once at beginning of every
 
   fn(); // 0ms, invoked, setTimeout called, will expire at 70ms
   setTimeout(function() {
-    fn(); // 40ms, setTimeout not called 
+    fn(); // 40ms, setTimeout not called
     setTimeout(function() {
       fn(); // 80ms, invoked, setTimeout called, will expire at 150ms
       setTimeout(function() {
@@ -306,13 +307,13 @@ test('when leading is false and trailing is false, fn never runs', function(t) {
     callCounter++;
   }, 70, {leading: false, trailing: false});
 
-  fn(); 
+  fn();
   setTimeout(function() {
-    fn(); 
+    fn();
     setTimeout(function() {
-      fn(); 
+      fn();
       setTimeout(function() {
-        fn(); 
+        fn();
         t.equal(callCounter, 0);
         t.end();
       }, 40);
@@ -342,7 +343,6 @@ test('invokes repeatedly when wait is 0', function(t) {
       }, 40);
     }, 40);
   }, 40);
-
 });
 
 test('invokes repeatedly when call intervals > than wait time', function(t) {
@@ -391,5 +391,4 @@ test('invokes repeatedly when wait is falsey', function(t) {
       }, 40);
     }, 40);
   }, 40);
-
 });
