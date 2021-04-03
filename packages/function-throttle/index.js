@@ -10,6 +10,10 @@ function throttle(fn, interval, options) {
   if (trailing == null) {
     trailing = !leading; //default
   }  
+  if (leading == true) {
+    trailing = false; // forced because there should be invocation per call
+  }  
+
   return function() {
     callNow = leading && !wait;
     var context = this;
