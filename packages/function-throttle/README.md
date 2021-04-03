@@ -16,6 +16,6 @@ const fn2 = throttle(() => console.log('hello'), 500, {trailing: true});
 setInterval(fn2, 400);
 // logs 'hello' after 500ms and then every 500ms
 
-const fn2 = throttle(() => console.log('hello'), 500, {leading: true, trailing: true});
+const fn3 = throttle(() => console.log('hello'), 500, {leading: true, trailing: true});
 // forces trailing to false
 ```
