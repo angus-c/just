@@ -636,7 +636,7 @@ fn1();`,
         code: [
           `const throttle = require('just-throttle');
 
-const fn1 = throttle(() => console.log('hello'), 2000, true);
+const fn1 = throttle(() => console.log('hello'), 2000, {leading: true});
 setInterval(fn1, 400);`,
         ],
       },

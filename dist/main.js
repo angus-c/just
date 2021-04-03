@@ -731,7 +731,7 @@ module.exports = {
       },
       'just-throttle': {
         size: sizes['just-throttle'],
-        code: ['const throttle = require(\'just-throttle\');\n\nconst fn1 = throttle(() => console.log(\'hello\'), 2000, true);\nsetInterval(fn1, 400);']
+        code: ['const throttle = require(\'just-throttle\');\n\nconst fn1 = throttle(() => console.log(\'hello\'), 2000, {leading: true});\nsetInterval(fn1, 400);']
       },
       'just-once': {
         size: sizes['just-once'],
