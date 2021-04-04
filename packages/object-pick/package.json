@@ -1,8 +1,9 @@
 {
   "name": "just-pick",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "copy an object but with only the specified keys",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
