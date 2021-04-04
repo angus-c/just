@@ -22,15 +22,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-There are currently 19 Just functions type-defined in [Definitely Typed](https://github.com/DefinitelyTyped/DefinitelyTyped/pulls). We welcome additions. When available, you can install type definitions for a Just function like this:
-
-```sh
-# npm
-npm i just-extend && npm i @types/just-extend -D
-
-# yarn
-yarn add just-extend && yarn add @types/just-extend -D
-```
+We are in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there!
 
 ## Browser Support :computer:
 
