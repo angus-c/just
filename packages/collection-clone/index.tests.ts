@@ -20,14 +20,14 @@ clone([{ a: '' }]);
 
 // Not OK
 // @ts-expect-error
-clone(); // $ExpectError
+clone(); 
 // @ts-expect-error
-clone(1); // $ExpectError
+clone(1); 
 // @ts-expect-error
-clone(''); // $ExpectError
+clone(''); 
 // @ts-expect-error
-clone(true); // $ExpectError
+clone(true); 
 // @ts-expect-error
-clone(false); // $ExpectError
+clone(false); 
 // @ts-expect-error
-clone(); // $ExpectError
+clone(); 
