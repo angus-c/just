@@ -1,6 +1,6 @@
 {
   "name": "just-clone",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "deep copies objects and arrays",
   "main": "index.js",
   "scripts": {
