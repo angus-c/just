@@ -14,5 +14,8 @@
   * Write a test for each use case
   * Include tests for all examples you included in the README
   * Too thorough is better than not thorough enough
+* TypeScript
+  * We're in the process of adding typescript defintions (`index.d.ts`) and tests (`index.tests.ts`) for every utility
+  * Please add these files for your new utility if you feel comfortable doing so
 * Interactive gh-pages ([http://anguscroll.com/just](anguscroll.com/just))
   * We'll take care of this after we land your PR and publish the npm module
