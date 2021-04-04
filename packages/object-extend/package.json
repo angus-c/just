@@ -1,8 +1,9 @@
 {
   "name": "just-extend",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "extend an object",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
