@@ -109,6 +109,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-modulo](#just-modulo)
 - [Functions](#functions) =>
 
+  - [just-bind](#just-bind)
   - [just-compose](#just-compose)
   - [just-curry-it](#just-curry-it)
   - [just-demethodize](#just-demethodize)
@@ -1572,6 +1573,26 @@ modulo(null, undefined); // NaN
 ```
 
 ### Functions
+
+### [just-bind](https://www.npmjs.com/package/just-bind)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-bind)
+
+`npm install just-bind`
+
+```js
+import bind from 'just-bind;
+
+function greet(greeting, city, country) {
+  return `${greeting}, I'm ${this.name} and I live in ${city} - ${country}`;
+}
+
+var bound1 = bind(greet, user, 'Hi', 'Munich');
+bound1('Germany'); // "Hi, I'm Evandro and I live in Munich - Germany"
+
+var bound2 = bind(greet, user, 'Hello', 'Porto Alegre', 'Brazil');
+bound2(); // "Hello, I'm Evandro and I live in Porto Alegre - Brazil"
+```
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)
 

@@ -1,0 +1,20 @@
+{
+  "name": "just-bind",
+  "version": "1.0.0",
+  "description": "It creates a new bound function that, when called, has its `this` set to the provided value",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "function",
+    "bind",
+    "just"
+  ],
+  "author": "evandrolg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
