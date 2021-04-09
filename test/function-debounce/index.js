@@ -18,6 +18,23 @@ test('waits for n ms then runs once', function(t) {
   }, 300);
 });
 
+test.only('cancel debounced function', function(t) {
+  t.plan(1);
+
+  var callCounter = 0;
+  var fn = debounce(function() {
+    callCounter++;
+  }, 200);
+
+  fn();
+  fn();
+  fn.cancel();
+
+  setTimeout(function() {
+    t.equal(callCounter, 0);
+  }, 300);
+});
+
 test('when callFirst is true, runs once, waits for n ms then runs again', function(
   t
 ) {
