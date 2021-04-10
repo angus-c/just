@@ -18,7 +18,7 @@ test('waits for n ms then runs once', function(t) {
   }, 300);
 });
 
-test.only('cancel debounced function', function(t) {
+test('cancel debounced function', function(t) {
   t.plan(1);
 
   var callCounter = 0;
