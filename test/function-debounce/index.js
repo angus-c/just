@@ -119,3 +119,19 @@ test('invokes repeatedly when wait is falsey', function(t) {
     t.end();
   }, 200);
 });
+test('cancel debounced function when callFirst is true', function(t) {
+  t.plan(1);
+
+  var callCounter = 0;
+  var fn = debounce(function() {
+    callCounter++;
+  }, 200, true);
+
+  fn();
+  fn();
+  fn.cancel();
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 300);
+});
