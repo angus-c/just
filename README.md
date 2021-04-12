@@ -308,7 +308,7 @@ pluck(
   [
     { a: 1, b: 2 },
     { a: 4, b: 3 },
-    { a: 2, b: 5 }
+    { a: 2, b: 5 },
   ],
   "a"
 ); // [1, 4, 2]
@@ -411,7 +411,7 @@ values({ a: 4, c: 8 }); // [4, 8]
 values({ a: { aa: 2 }, b: { bb: 4 } }); // [{aa: 2}, {bb: 4}]
 values({}); // []
 values([1, 2, 3]); // [1, 2, 3]
-values(function(a, b) {
+values(function (a, b) {
   return a + b;
 }); // []
 values(String("hello")); // []
@@ -551,7 +551,7 @@ isPrimitive(undefined); // true
 isPrimitive(Symbol()); // true
 isPrimitive({}); // false
 isPrimitive([]); // false
-isPrimitive(function() {}); // false
+isPrimitive(function () {}); // false
 isPrimitive(new Date()); // false
 isPrimitive(/a/); // false
 ```
@@ -596,7 +596,7 @@ map({ a: 3, b: 5, c: 9 }, (key, value) => key + value); // {a: 'a3', b: 'b5', c:
 import map from "just-map-values";
 
 // predicate updates values, receives (value, key, obj)
-map({ a: 3, b: 5, c: 9 }, value => value + 1); // {a: 4, b: 6, c: 10}
+map({ a: 3, b: 5, c: 9 }, (value) => value + 1); // {a: 4, b: 6, c: 10}
 map({ a: 3, b: 5, c: 9 }, (value, key) => value + key); // {a: 3a, b: 5b, c: 9c}
 map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 ```
@@ -611,7 +611,7 @@ map({ a: 3, b: 5, c: 9 }, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 import map from "just-map-keys";
 
 // predicate updates keys, receives (value, key, object)
-map({ a: "cow", b: "sheep", c: "pig" }, value => value);
+map({ a: "cow", b: "sheep", c: "pig" }, (value) => value);
 // {cow: 'cow', sheep: 'sheep', pig: 'pig'}
 map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
 map({ a: 3, b: 5, c: 9 }, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
@@ -725,7 +725,7 @@ import typeOf from "just-typeof";
 
 typeOf({}); // 'object'
 typeOf([]); // 'array'
-typeOf(function() {}); // 'function'
+typeOf(function () {}); // 'function'
 typeOf(/a/); // 'regexp'
 typeOf(new Date()); // 'date'
 typeOf(null); // 'null'
@@ -793,8 +793,14 @@ has(obj.a, sym); // true
 ```js
 import cartesianProduct from "just-cartesian-product";
 
-cartesianProduct([[1, 2], ['a', 'b']]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
-cartesianProduct([[1, 2], ['a', 'b', 'c']]); // [[1, 'a'], [1, 'b'], [1, 'c'], [2, 'a'], [2, 'b'], [2, 'c']]
+cartesianProduct([
+  [1, 2],
+  ["a", "b"],
+]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
+cartesianProduct([
+  [1, 2],
+  ["a", "b", "c"],
+]); // [[1, 'a'], [1, 'b'], [1, 'c'], [2, 'a'], [2, 'b'], [2, 'c']]
 cartesianProduct([]); // []
 cartesianProduct(); // throws
 ```
@@ -835,7 +841,7 @@ import flatten from "just-flatten-it";
 
 flatten([
   [1, [2, 3]],
-  [[4, 5], 6, 7, [8, 9]]
+  [[4, 5], 6, 7, [8, 9]],
 ]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
@@ -852,7 +858,7 @@ import index from "just-index";
 index(
   [
     { id: "first", val: 1 },
-    { id: "second", val: 2 }
+    { id: "second", val: 2 },
   ],
   "id"
 );
@@ -963,9 +969,9 @@ random([1, 2, 3]); // one of [1, 2, 3], at random
 ```js
 import shuffle from "just-shuffle";
 
-shuffle([1, 2, 3]); 
+shuffle([1, 2, 3]);
 // array with original elements randomly sorted
-shuffle([1, 2, 3], {shuffleAll: true}); 
+shuffle([1, 2, 3], { shuffleAll: true });
 // array with original elements randomly sorted and all in new postions
 shuffle([]); // []
 shuffle([1]); // [1]
@@ -1020,14 +1026,14 @@ splitAt([1, 2, 3, 4, 5], {}); // throws
 ```js
 import partition from "just-partition";
 
-partition([1, 5, 2, 4, 3], n => n > 3); // [[5, 4],[1, 2, 3]]
-partition(["a", 2, 3, "3"], x => typeof x == "string"); // [['a', '3'],[2, 3]]
-partition([1, 2, 3, 4], x => typeof x == "number"); // [[1, 2, 3, 4],[]]
-partition([1, 2, 3, 4], x => typeof x == "string"); // [[], [1, 2, 3, 4]]
-partition([], n => n > 3); // [[], []]
-partition({ a: 1, b: 2 }, n => n > 1); // throws
-partition(null, n => n > 1); // throws
-partition(undefined, n => n > 1); // throws
+partition([1, 5, 2, 4, 3], (n) => n > 3); // [[5, 4],[1, 2, 3]]
+partition(["a", 2, 3, "3"], (x) => typeof x == "string"); // [['a', '3'],[2, 3]]
+partition([1, 2, 3, 4], (x) => typeof x == "number"); // [[1, 2, 3, 4],[]]
+partition([1, 2, 3, 4], (x) => typeof x == "string"); // [[], [1, 2, 3, 4]]
+partition([], (n) => n > 3); // [[], []]
+partition({ a: 1, b: 2 }, (n) => n > 1); // throws
+partition(null, (n) => n > 1); // throws
+partition(undefined, (n) => n > 1); // throws
 ```
 
 ### [just-range](https://www.npmjs.com/package/just-range)
@@ -1096,9 +1102,11 @@ zip([1, 2], ["a", "b"], undefined, {}, false, 1, "foo"); // throws
 import groupBy from "just-group-by";
 
 groupBy([6.1, 4.2, 6.3], Math.floor); // { '4': [4.2], '6': [6.1, 6.3] }
-groupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2}); // { '0': [2, 4, 6, 8], '1': [1, 3, 5, 7] }
-groupBy('string', Math.floor); // throws
-groupBy([1,2,3,4], 'string'); // throws
+groupBy([1, 2, 3, 4, 5, 6, 7, 8], function (i) {
+  return i % 2;
+}); // { '0': [2, 4, 6, 8], '1': [1, 3, 5, 7] }
+groupBy("string", Math.floor); // throws
+groupBy([1, 2, 3, 4], "string"); // throws
 ```
 
 ### Statistics
@@ -1143,9 +1151,9 @@ median(); // throws
 `npm install just-memoize`
 
 ```js
-import memoize from 'just-memoize';
+import memoize from "just-memoize";
 
-const sumByOne = memoize(function(value) {
+const sumByOne = memoize(function (value) {
   return value + 1;
 });
 
@@ -1156,11 +1164,14 @@ sumByOne(20); // Returns value returned by the function
 sumByOne(20); // Cache hit!
 
 // Custom cache key (key defaults to JSON stringified arguments)
-var sum = memoize(function(a, b) {
-  return a + b;
-}, function(a, b) {
-  return `${a}-${b}`;
-});
+var sum = memoize(
+  function (a, b) {
+    return a + b;
+  },
+  function (a, b) {
+    return `${a}-${b}`;
+  }
+);
 
 sum(10, 10); // Returns value returned by the function
 sum(10, 20); // Returns value returned by the function
@@ -1281,11 +1292,11 @@ const data = {
   a: {
     aa: {
       aaa: "apple",
-      bbb: "pear"
+      bbb: "pear",
     },
-    bb: "orange"
+    bb: "orange",
   },
-  b: "plum"
+  b: "plum",
 };
 template(
   "2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}}s and a {{b}}. Yes 1 {{a.aa.bbb}}.",
@@ -1482,18 +1493,18 @@ capitalize("!capitals"); // '!capitals'
 `npm install just-replace-all`
 
 ```js
-replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'
-replaceAll('hello, world', 'l', 'qq'); // 'heqqqqo, worqqd'
-replaceAll('hello, world', 'll', 'q'); // 'heqo, world'
-replaceAll('hello, world', '', 'q'); // 'hello, world'
-replaceAll('hello, world', 'l', ''); // 'heo, word'
-replaceAll('hello, world', null, 'q'); // 'hello, world'
-replaceAll('hello, world', 'l'); // throw
-replaceAll('hello, world'); // throw
+replaceAll("hello, world", "l", "q"); // 'heqqo, worqd'
+replaceAll("hello, world", "l", "qq"); // 'heqqqqo, worqqd'
+replaceAll("hello, world", "ll", "q"); // 'heqo, world'
+replaceAll("hello, world", "", "q"); // 'hello, world'
+replaceAll("hello, world", "l", ""); // 'heo, word'
+replaceAll("hello, world", null, "q"); // 'hello, world'
+replaceAll("hello, world", "l"); // throw
+replaceAll("hello, world"); // throw
 replaceAll(); // throw
-replaceAll(null, 'l', 'q'); // throw
-replaceAll('hello, world', null, 'q'); // throw
-replaceAll('hello, world', 'l', null); // throw
+replaceAll(null, "l", "q"); // throw
+replaceAll("hello, world", null, "q"); // throw
+replaceAll("hello, world", "l", null); // throw
 ```
 
 ### Numbers
@@ -1543,7 +1554,7 @@ isPrime(); // throws
 isPrime(null); // throws
 isPrime("js"); // throws
 isPrime({}); // throws
-isPrime(function() {}); // throws
+isPrime(function () {}); // throws
 isPrime([]); // throws
 ```
 
@@ -1693,6 +1704,13 @@ fn2(); // logs hello immediately
 fn2();
 fn2();
 // 500ms later logs 'hello' once
+
+const fn3 = debounce(() => console.log("Hello"), 500);
+fn1();
+fn1();
+fn1();
+fn3.cancel();
+// function cancelled before 'hello' is logged
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)
@@ -1704,15 +1722,18 @@ fn2();
 ```js
 import throttle from "just-throttle";
 
-const fn1 = throttle(() => console.log('hello'), 500, {leading: true});
+const fn1 = throttle(() => console.log("hello"), 500, { leading: true });
 setInterval(fn1, 400);
 // logs 'hello' immediately and then every 500ms
 
-const fn2 = throttle(() => console.log('hello'), 500, {trailing: true});
+const fn2 = throttle(() => console.log("hello"), 500, { trailing: true });
 setInterval(fn2, 400);
 // logs 'hello' after 500ms and then every 500ms
 
-const fn3 = throttle(() => console.log('hello'), 500, {leading: true, trailing: true});
+const fn3 = throttle(() => console.log("hello"), 500, {
+  leading: true,
+  trailing: true,
+});
 // forces trailing to false
 ```
 
