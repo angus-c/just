@@ -134,5 +134,30 @@ test('cancel debounced function when callFirst is true', function(t) {
 
   setTimeout(function() {
     t.equal(callCounter, 1);
+    t.end();
+  }, 300);
+});
+
+test('immediately invoke debounced function', function(t) {
+  t.plan(3);
+
+  var params = {};
+  var callCounter = 0;
+  var fn = debounce(function(param1, param2) {
+    params.param1 = param1;
+    params.param2 = param2,
+
+    callCounter++;
+  }, 200);
+
+  fn('js', 'ts');
+  fn.flush();
+
+  t.equal(callCounter, 1);
+  t.deepEqual(params, {param1: 'js', param2: 'ts'});
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+    t.end();
   }, 300);
 });

@@ -2,11 +2,23 @@ module.exports = debounce;
 
 function debounce(fn, wait, callFirst) {
   var timeout = null;
+  var debouncedFn = null;
 
   var clear = function() {
     if (timeout) {
       clearTimeout(timeout);
+
+      debouncedFn = null;
       timeout = null;
+    }
+  };
+
+  var flush = function() {
+    var call = debouncedFn;
+    clear();
+
+    if (call) {
+      call();
     }
   };
 
@@ -18,23 +30,30 @@ function debounce(fn, wait, callFirst) {
     var context = this;
     var args = arguments;
     var callNow = callFirst && !timeout;
-
     clear();
+
+    debouncedFn = function() {
+      fn.apply(context, args);
+    };
 
     timeout = setTimeout(function() {
       timeout = null;
 
       if (!callNow) {
-        return fn.apply(context, args);
+        var call = debouncedFn;
+        debouncedFn = null;
+
+        return call();
       }
     }, wait);
 
     if (callNow) {
-      return fn.apply(this, arguments);
+      return debouncedFn();
     }
   };
 
   debounceWrapper.cancel = clear;
+  debounceWrapper.flush = flush;
 
   return debounceWrapper;
 }
