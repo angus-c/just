@@ -161,3 +161,23 @@ test('immediately invoke debounced function', function(t) {
     t.end();
   }, 300);
 });
+
+test('should not run the debounced function if cancel was invoked before the flush', function(t) {
+  t.plan(2);
+
+  var callCounter = 0;
+  var fn = debounce(function() {
+    callCounter++;
+  }, 200);
+
+  fn();
+  fn.cancel();
+  fn.flush();
+
+  t.equal(callCounter, 0);
+
+  setTimeout(function() {
+    t.equal(callCounter, 0);
+    t.end();
+  }, 300);
+});
