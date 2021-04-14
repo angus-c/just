@@ -1,10 +1,10 @@
 var test = require('../util/test')(__filename);
 var debounce = require('../../packages/function-debounce');
 
-test('waits for n ms then runs once', function(t) {
+test('waits for n ms then runs once', function (t) {
   t.plan(1);
   var callCounter = 0;
-  var fn = debounce(function() {
+  var fn = debounce(function () {
     callCounter++;
   }, 100);
 
@@ -12,17 +12,17 @@ test('waits for n ms then runs once', function(t) {
     setTimeout(fn, 50);
   }
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 1);
     t.end();
   }, 300);
 });
 
-test('cancel debounced function', function(t) {
+test('cancel debounced function', function (t) {
   t.plan(1);
 
   var callCounter = 0;
-  var fn = debounce(function() {
+  var fn = debounce(function () {
     callCounter++;
   }, 200);
 
@@ -30,18 +30,18 @@ test('cancel debounced function', function(t) {
   fn();
   fn.cancel();
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 0);
   }, 300);
 });
 
-test('when callFirst is true, runs once, waits for n ms then runs again', function(
+test('when callFirst is true, runs once, waits for n ms then runs again', function (
   t
 ) {
   t.plan(2);
   var callCounter = 0;
   var fn = debounce(
-    function() {
+    function () {
       callCounter++;
     },
     100,
@@ -55,32 +55,32 @@ test('when callFirst is true, runs once, waits for n ms then runs again', functi
 
   t.equal(callCounter, 1);
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 2);
     t.end();
   }, 300);
 });
 
-test('invokes repeatedly when call intervals > than wait time', function(t) {
+test('invokes repeatedly when call intervals > than wait time', function (t) {
   t.plan(4);
   var callCounter = 0;
-  var fn = debounce(function() {
+  var fn = debounce(function () {
     callCounter++;
   }, 100);
 
-  var runAndTest = function(expectedCounter) {
+  var runAndTest = function (expectedCounter) {
     fn();
     t.equal(callCounter, expectedCounter);
   };
 
   fn();
-  setTimeout(function() {
+  setTimeout(function () {
     runAndTest(1);
-    setTimeout(function() {
+    setTimeout(function () {
       runAndTest(2);
-      setTimeout(function() {
+      setTimeout(function () {
         runAndTest(3);
-        setTimeout(function() {
+        setTimeout(function () {
           runAndTest(4);
         }, 200);
       }, 200);
@@ -88,10 +88,10 @@ test('invokes repeatedly when call intervals > than wait time', function(t) {
   }, 200);
 });
 
-test('invokes repeatedly when wait is 0', function(t) {
+test('invokes repeatedly when wait is 0', function (t) {
   t.plan(3);
   var callCounter = 0;
-  var fn1 = debounce(function() {
+  var fn1 = debounce(function () {
     callCounter++;
   }, 0);
 
@@ -103,10 +103,10 @@ test('invokes repeatedly when wait is 0', function(t) {
   t.equal(callCounter, 3);
 });
 
-test('invokes repeatedly when wait is falsey', function(t) {
+test('invokes repeatedly when wait is falsey', function (t) {
   t.plan(1);
   var callCounter = 0;
-  var fn1 = debounce(function() {
+  var fn1 = debounce(function () {
     callCounter++;
   });
 
@@ -114,17 +114,17 @@ test('invokes repeatedly when wait is falsey', function(t) {
   fn1();
   fn1();
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 3);
     t.end();
   }, 200);
 });
 
-test('cancel debounced function when callFirst is true', function(t) {
+test('cancel debounced function when callFirst is true', function (t) {
   t.plan(1);
 
   var callCounter = 0;
-  var fn = debounce(function() {
+  var fn = debounce(function () {
     callCounter++;
   }, 200, true);
 
@@ -132,22 +132,22 @@ test('cancel debounced function when callFirst is true', function(t) {
   fn();
   fn.cancel();
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 1);
     t.end();
   }, 300);
 });
 
-test('immediately invoke debounced function', function(t) {
+test('immediately invoke debounced function', function (t) {
   t.plan(3);
 
   var params = {};
   var callCounter = 0;
-  var fn = debounce(function(param1, param2) {
+  var fn = debounce(function (param1, param2) {
     params.param1 = param1;
     params.param2 = param2,
 
-    callCounter++;
+      callCounter++;
   }, 200);
 
   fn('js', 'ts');
@@ -156,17 +156,17 @@ test('immediately invoke debounced function', function(t) {
   t.equal(callCounter, 1);
   t.deepEqual(params, {param1: 'js', param2: 'ts'});
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 1);
     t.end();
   }, 300);
 });
 
-test('should not run the debounced function if cancel was invoked before the flush', function(t) {
+test('should not run the debounced function if cancel was invoked before the flush', function (t) {
   t.plan(2);
 
   var callCounter = 0;
-  var fn = debounce(function() {
+  var fn = debounce(function () {
     callCounter++;
   }, 200);
 
@@ -176,7 +176,7 @@ test('should not run the debounced function if cancel was invoked before the flu
 
   t.equal(callCounter, 0);
 
-  setTimeout(function() {
+  setTimeout(function () {
     t.equal(callCounter, 0);
     t.end();
   }, 300);
