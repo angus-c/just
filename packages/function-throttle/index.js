@@ -1,35 +1,51 @@
 module.exports = throttle;
 
 function throttle(fn, interval, options) {
-  var wait = false;
+  var timeoutId = null;
   var leading = (options && options.leading);
   var trailing = (options && options.trailing);
+
   if (leading == null) {
     leading = true; // default
   }
+
   if (trailing == null) {
     trailing = !leading; //default
   }
+
   if (leading == true) {
     trailing = false; // forced because there should be invocation per call
   }
 
-  return function() {
-    var callNow = leading && !wait;
+  var cancel = function() {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+  };
+
+  var throttleWrapper = function() {
+    var callNow = leading && !timeoutId;
     var context = this;
     var args = arguments;
-    if (!wait) {
-      wait = true;
-      setTimeout(function() {
-        wait = false;
+
+    if (!timeoutId) {
+      timeoutId = setTimeout(function() {
+        timeoutId = null;
+
         if (trailing) {
           return fn.apply(context, args);
         }
       }, interval);
     }
+
     if (callNow) {
       callNow = false;
-      return fn.apply(this, arguments);
+      return fn.apply(context, args);
     }
   };
+
+  throttleWrapper.cancel = cancel;
+
+  return throttleWrapper;
 }
