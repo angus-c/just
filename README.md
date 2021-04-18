@@ -1735,6 +1735,13 @@ const fn3 = throttle(() => console.log("hello"), 500, {
   trailing: true,
 });
 // forces trailing to false
+
+const fn4 = throttle(() => console.log('hello'), 500, { leading: false });
+fn4();
+fn4();
+fn4();
+fn4.cancel();
+// function cancelled before 'hello' is logged
 ```
 
 ### [just-once](https://www.npmjs.com/package/just-once)

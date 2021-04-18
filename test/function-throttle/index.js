@@ -399,8 +399,10 @@ test('cancel delayed function', function(t) {
   var callCounter = 0;
   var fn = throttle(function() {
     callCounter++;
-  }, 200);
+  }, 200, {leading: false});
 
+  fn();
+  fn();
   fn.cancel();
 
   setTimeout(function() {
