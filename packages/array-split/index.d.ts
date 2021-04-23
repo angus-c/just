@@ -1,3 +1,1 @@
-declare function split<T>(arr: T[], n?: number): Array<T[]>;
-
-export = split;
+export default function split<T>(arr: T[], n?: number): Array<T[]>
