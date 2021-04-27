@@ -409,3 +409,37 @@ test('cancel delayed function', function(t) {
     t.equal(callCounter, 0);
   }, 400);
 });
+
+test('cancel delayed function when {leading: true, trailing: false}', function(t) {
+  t.plan(1);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: true, trailing: false});
+
+  fn();
+  fn();
+  fn.cancel();
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 400);
+});
+
+test('cancel delayed function when {leading: true, trailing: true}', function(t) {
+  t.plan(1);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: true, trailing: true});
+
+  fn();
+  fn();
+  fn.cancel();
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 400);
+});
