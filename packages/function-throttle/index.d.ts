@@ -5,6 +5,6 @@ declare type options = {
   leading?: boolean,
   trailing?: boolean,
 }
-declare function throttle(fn: Function, interval: number, options?: options): Function;
+declare function throttle(fn: Function, interval: number, options?: options): Function & {cancel: () => void};
 
 export = throttle;

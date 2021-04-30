@@ -6,7 +6,7 @@ Guilt-free utilities for every occasion.
 ```js
 import median from 'just-median';
 
-median([1, 2, 3, 4, 5]); // 5
+median([1, 2, 3, 4, 5]); // 3
 median([3, -1, 2]); // 2
 median([9, 14, 14, 200, 15]); // 14
 median(1, 2, 4, 3); // 2.5

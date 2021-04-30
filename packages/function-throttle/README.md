@@ -1,6 +1,6 @@
 ## just-throttle
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
 [Try it now](http://anguscroll.com/just/just-throttle)
@@ -18,4 +18,11 @@ setInterval(fn2, 400);
 
 const fn3 = throttle(() => console.log('hello'), 500, {leading: true, trailing: true});
 // forces trailing to false
+
+const fn4 = throttle(() => console.log('hello'), 500, { leading: false });
+fn4();
+fn4();
+fn4();
+fn4.cancel();
+// function cancelled before 'hello' is logged
 ```
