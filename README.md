@@ -22,7 +22,8 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-We are in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there!
+We are in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there! \
+[Here's](https://github.com/angus-c/just/pull/233/files) an example PR.
 
 ## Browser Support :computer:
 
