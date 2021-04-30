@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var median = require('../../packages/array-median');
 
-// median([1, 2, 3, 4, 5]); // 5
+// median([1, 2, 3, 4, 5]); // 3
 // median([3, 2, 1]); // 2
 // median(1, 2, 3, 4); // 2.5
 // median(['3', 2, 1]); // throws
