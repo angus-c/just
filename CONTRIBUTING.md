@@ -16,6 +16,6 @@
   * Too thorough is better than not thorough enough
 * TypeScript
   * We're in the process of adding typescript defintions (`index.d.ts`) and tests (`index.tests.ts`) for every utility
-  * Please add these files for your new utility if you feel comfortable doing so
+  * Please add these files for your new utility if you feel comfortable doing so. [Here's](https://github.com/angus-c/just/pull/233/files) an example PR.
 * Interactive gh-pages ([http://anguscroll.com/just](anguscroll.com/just))
   * We'll take care of this after we land your PR and publish the npm module
