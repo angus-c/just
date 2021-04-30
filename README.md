@@ -1711,6 +1711,13 @@ fn1();
 fn1();
 fn3.cancel();
 // function cancelled before 'hello' is logged
+
+const fn4 = debounce(() => console.log("Hello"), 500);
+fn4();
+fn4();
+fn4();
+fn4.flush();
+// immediately invoke the debounced function
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)
