@@ -22,7 +22,8 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-We are in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there!
+We're in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there! \
+[Here's](https://github.com/angus-c/just/pull/233/files) an example PR.
 
 ## Browser Support :computer:
 
@@ -1711,6 +1712,13 @@ fn1();
 fn1();
 fn3.cancel();
 // function cancelled before 'hello' is logged
+
+const fn4 = debounce(() => console.log("Hello"), 500);
+fn4();
+fn4();
+fn4();
+fn4.flush();
+// immediately invoke the debounced function
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)
@@ -1735,6 +1743,13 @@ const fn3 = throttle(() => console.log("hello"), 500, {
   trailing: true,
 });
 // forces trailing to false
+
+const fn4 = throttle(() => console.log('hello'), 500, { leading: false });
+fn4();
+fn4();
+fn4();
+fn4.cancel();
+// function cancelled before 'hello' is logged
 ```
 
 ### [just-once](https://www.npmjs.com/package/just-once)
