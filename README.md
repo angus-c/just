@@ -840,12 +840,13 @@ unique(["a", "c", "b", "c", "a"], false, true); // ['a', 'b', 'c']
 ```js
 import flatten from "just-flatten-it";
 
-flatten([
-  [1, [2, 3]],
-  [[4, 5], 6, 7, [8, 9]],
-]);
+flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]], 1);
+// [1, [2, 3], [[4, 5], 6, 7, [8, 9]]]
 ```
+
 
 ### [just-index](https://www.npmjs.com/package/just-index)
 
