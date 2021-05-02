@@ -1,1 +1,1 @@
-export default function split<T>(arr: T[], n?: number): Array<T[]>
+export default function split<T>(arr: T[], n?: number | null): Array<T[]>
