@@ -33,9 +33,9 @@ function flatten(arr, depth) {
 
   var optionDepth = typeof depth === 'number' ? depth : Infinity;
 
-  if (Array.prototype.flat) {
-    return arr.flat(optionDepth);
-  }
+  // if (Array.prototype.flat) {
+  //   return arr.flat(optionDepth);
+  // }
 
   return flattenHelper(arr, optionDepth);
 }
