@@ -25,6 +25,8 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 We're in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there! \
 [Here's](https://github.com/angus-c/just/pull/233/files) an example PR.
 
+You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
+
 ## Browser Support :computer:
 
 Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
@@ -840,12 +842,13 @@ unique(["a", "c", "b", "c", "a"], false, true); // ['a', 'b', 'c']
 ```js
 import flatten from "just-flatten-it";
 
-flatten([
-  [1, [2, 3]],
-  [[4, 5], 6, 7, [8, 9]],
-]);
+flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]], 1);
+// [1, [2, 3], [[4, 5], 6, 7, [8, 9]]]
 ```
+
 
 ### [just-index](https://www.npmjs.com/package/just-index)
 
