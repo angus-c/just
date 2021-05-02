@@ -3,8 +3,8 @@
 var test = require('../util/test')(__filename);
 var flatten = require('../../packages/array-flatten');
 
-// var protoFlat = Array.prototype.flat;
-// Array.prototype.flat = null;
+var protoFlat = Array.prototype.flat;
+Array.prototype.flat = null;
 
 test('flattened arrays are unchanged', function(t) {
   t.plan(1);
@@ -76,4 +76,7 @@ test('throws when depth is not a number', function(t) {
   t.end();
 });
 
-// Array.prototype.flat = protoFlat;
+Object.defineProperty(Array.prototype, 'flat', {
+  value: protoFlat,
+  writable: false,
+});
