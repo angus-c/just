@@ -27,6 +27,7 @@ splitMixedArray[0].push({s: 'd', n: 4});
 splitMixedArray[0].push({s: 5});
 
 // not OK
+// @ts-expect-error
 split(null, 3); // throws
 // @ts-expect-error
 split([1, 2, 3, 4, 5, 6], '3'); // throws
