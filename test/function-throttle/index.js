@@ -509,7 +509,7 @@ test('flush invokes immediately the callback function when {leading: true, trail
   }, 400);
 });
 
-test.only('flush invokes immediately the callback function when {leading: false, trailing: true}', function(t) {
+test('flush invokes immediately the callback function when {leading: false, trailing: true}', function(t) {
   t.plan(2);
 
   var callCounter = 0;
