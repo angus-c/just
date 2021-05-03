@@ -1,0 +1,1 @@
+export default function modulo(n: number, d: number): number

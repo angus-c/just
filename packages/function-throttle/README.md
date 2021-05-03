@@ -25,4 +25,11 @@ fn4();
 fn4();
 fn4.cancel();
 // function cancelled before 'hello' is logged
+
+const fn5 = throttle(() => console.log("Hello"), 500);
+fn5();
+fn5();
+fn5();
+fn5.flush();
+// immediately invoke the throttled function
 ```
