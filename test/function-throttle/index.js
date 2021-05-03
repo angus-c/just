@@ -443,3 +443,22 @@ test('cancel delayed function when {leading: true, trailing: true}', function(t)
     t.equal(callCounter, 1);
   }, 400);
 });
+
+test.only('flush invokes immediately the callback function', function(t) {
+  t.plan(2);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: false});
+
+  fn();
+  fn();
+  fn.flush();
+
+  t.equal(callCounter, 1);
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 400);
+});
