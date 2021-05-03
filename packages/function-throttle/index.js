@@ -2,6 +2,7 @@ module.exports = throttle;
 
 function throttle(fn, interval, options) {
   var timeoutId = null;
+  var throttledFn = null;
   var leading = (options && options.leading);
   var trailing = (options && options.trailing);
 
@@ -24,28 +25,42 @@ function throttle(fn, interval, options) {
     }
   };
 
+  var flush = function() {
+    var call = throttledFn;
+    cancel();
+
+    if (call) {
+      call();
+    }
+  };
+
   var throttleWrapper = function() {
     var callNow = leading && !timeoutId;
     var context = this;
     var args = arguments;
+
+    throttledFn = function() {
+      return fn.apply(context, args);
+    };
 
     if (!timeoutId) {
       timeoutId = setTimeout(function() {
         timeoutId = null;
 
         if (trailing) {
-          return fn.apply(context, args);
+          return throttledFn();
         }
       }, interval);
     }
 
     if (callNow) {
       callNow = false;
-      return fn.apply(context, args);
+      return throttledFn();
     }
   };
 
   throttleWrapper.cancel = cancel;
+  throttleWrapper.flush = flush;
 
   return throttleWrapper;
 }

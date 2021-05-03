@@ -15,6 +15,10 @@ throttle(() => 'foo', 100).cancel();
 throttle(() => 'foo', 200, {}).cancel();
 throttle(() => 'foo', 400, {leading: true, trailing: false}).cancel();
 
+throttle(() => 'foo', 100).flush();
+throttle(() => 'foo', 200, {}).flush();
+throttle(() => 'foo', 400, {leading: true, trailing: false}).flush();
+
 // not OK
 
 // @ts-expect-error

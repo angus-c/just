@@ -443,3 +443,87 @@ test('cancel delayed function when {leading: true, trailing: true}', function(t)
     t.equal(callCounter, 1);
   }, 400);
 });
+
+test('flush invokes immediately the callback function', function(t) {
+  t.plan(2);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: false});
+
+  fn();
+  fn();
+  fn.flush();
+
+  t.equal(callCounter, 1);
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 400);
+});
+
+test('flush invokes immediately the callback function when { leading: true }', function(t) {
+  t.plan(3);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: true});
+
+  fn();
+
+  t.equal(callCounter, 1);
+
+  fn();
+  fn();
+  fn.flush();
+
+  t.equal(callCounter, 2);
+
+  setTimeout(function() {
+    t.equal(callCounter, 2);
+  }, 400);
+});
+
+test('flush invokes immediately the callback function when {leading: true, trailing: true}', function(t) {
+  t.plan(3);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: true, trailing: true});
+
+  fn();
+
+  t.equal(callCounter, 1);
+
+  fn();
+  fn();
+  fn.flush();
+
+  t.equal(callCounter, 2);
+
+  setTimeout(function() {
+    t.equal(callCounter, 2);
+  }, 400);
+});
+
+test('flush invokes immediately the callback function when {leading: false, trailing: true}', function(t) {
+  t.plan(2);
+
+  var callCounter = 0;
+  var fn = throttle(function() {
+    callCounter++;
+  }, 200, {leading: false, trailing: true});
+
+  fn();
+  fn();
+  fn.flush();
+
+  t.equal(callCounter, 1);
+
+  setTimeout(function() {
+    t.equal(callCounter, 1);
+  }, 400);
+});
