@@ -1,0 +1,1 @@
+export default function insert<T, U>(arr1: T[], arr2: U[] | U, index?: number): (T | U)[]
