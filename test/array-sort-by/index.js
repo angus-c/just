@@ -1,5 +1,5 @@
 var test = require('../util/test')(__filename);
-var sortBy = require('../../packages/funtion-sort-by');
+var sortBy = require('../../packages/array-sort-by');
 
 test('produces a new sorted array', function(t) {
   t.plan(2);
@@ -57,7 +57,7 @@ test('sort array of objects using the key passed by parameter', function(t) {
   t.end();
 });
 
-test.only('invalid', function(t) {
+test('invalid', function(t) {
   t.plan(7);
 
   t.throws(function() {

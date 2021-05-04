@@ -1,0 +1,27 @@
+## just-array-sortBy
+
+Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Guilt-free utilities for every occasion.
+
+```
+import sortBy from 'just-array-sortBy;
+
+sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
+
+sortBy([
+  {user: 'fabio', age: 34},
+  {user: 'max', age: 29},
+  {user: 'zacarias', age: 44},
+  {user: 'robert', age: 28},
+  {user: 'klaus', age: 38},
+], 'user');
+/*
+[
+  {user: 'robert', age: 28},
+  {user: 'max', age: 29},
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'zacarias', age: 44},
+]
+*/
+```
