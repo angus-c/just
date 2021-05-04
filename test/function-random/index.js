@@ -42,7 +42,11 @@ test('returns a number from 0 to 5', function(t) {
 });
 
 test('invalid', function(t) {
-  t.plan(5);
+  t.plan(6);
+
+  t.throws(function() {
+    random('just');
+  });
 
   t.throws(function() {
     random(5, 'just');
