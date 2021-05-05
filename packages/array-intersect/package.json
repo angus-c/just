@@ -3,6 +3,7 @@
   "version": "3.1.0",
   "description": "return the intersect of two arrays",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
