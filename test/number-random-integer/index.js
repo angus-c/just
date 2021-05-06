@@ -1,5 +1,5 @@
 var test = require('../util/test')(__filename);
-var random = require('../../packages/function-random');
+var random = require('../../packages/number-random-integer');
 
 function expected(value, start, end) {
   return value >= start && value <= end;
@@ -20,11 +20,11 @@ test('returns a number between 0 and 1', function(t) {
 test('returns a number between 5 and 10', function(t) {
   t.plan(5);
 
-  t.ok(expected(random(5, 5, 10), 5, 10));
-  t.ok(expected(random(5, 5, 10), 5, 10));
-  t.ok(expected(random(5, 5, 10), 5, 10));
-  t.ok(expected(random(5, 5, 10), 5, 10));
-  t.ok(expected(random(5, 5, 10), 5, 10));
+  t.ok(expected(random(5, 10), 5, 10));
+  t.ok(expected(random(5, 10), 5, 10));
+  t.ok(expected(random(5, 10), 5, 10));
+  t.ok(expected(random(5, 10), 5, 10));
+  t.ok(expected(random(5, 10), 5, 10));
 
   t.end();
 });

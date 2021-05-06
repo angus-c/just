@@ -1,8 +1,9 @@
 {
-  "name": "just-random",
+  "name": "just-random-integer",
   "version": "1.0.0",
-  "description": "Produces a number number between two values",
+  "description": "Produces an integer between two values",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
