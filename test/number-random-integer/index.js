@@ -41,6 +41,18 @@ test('returns a number from 0 to 5', function(t) {
   t.end();
 });
 
+test.only('returns a number between -5 and -10', function(t) {
+  t.plan(5);
+
+  t.ok(expected(random(-5, -10), -10, -5));
+  t.ok(expected(random(-5, -10), -10, -5));
+  t.ok(expected(random(-5, -10), -10, -5));
+  t.ok(expected(random(-5, -10), -10, -5));
+  t.ok(expected(random(-5, -10), -10, -5));
+
+  t.end();
+});
+
 test('invalid', function(t) {
   t.plan(6);
 
