@@ -1,6 +1,6 @@
 {
   "name": "just-split-at",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "splits an array into two at a given position",
   "main": "index.js",
   "types": "index.d.ts",
