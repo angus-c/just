@@ -119,6 +119,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-flip](#just-flip)
   - [just-partial-it](#just-partial-it)
   - [just-debounce-it](#just-debounce-it)
+  - [just-random](#just-random)
   - [just-throttle](#just-throttle)
   - [just-once](#just-once)
 
@@ -1752,6 +1753,25 @@ fn4();
 fn4();
 fn4.flush();
 // immediately invoke the debounced function
+```
+
+### [just-random](https://www.npmjs.com/package/just-random)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-random)
+
+`npm install just-random`
+
+```js
+import random from 'just-random';
+
+random();
+// Produces a random number between 0 and 1
+
+random(5);
+// Produces a random number between 0 and 5
+
+random(5, 10);
+// Produces a random number between 5 and 10
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)

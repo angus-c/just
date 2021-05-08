@@ -1,7 +1,7 @@
 {
-  "name": "just-safe-get",
-  "version": "2.1.2",
-  "description": "get value at property, don't throw if parent is undefined",
+  "name": "just-random-integer",
+  "version": "1.0.0",
+  "description": "Produces an integer between two values",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -9,13 +9,11 @@
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "object",
-    "safe",
-    "get",
-    "no-dependencies",
+    "random",
+    "range",
     "just"
   ],
-  "author": "Angus Croll",
+  "author": "evandrolg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
