@@ -6,20 +6,21 @@ module.exports = flatten;
 */
 
 function flattenHelper(arr, depth) {
+  var stack = arr.slice();
   var result = [];
-  var len = arr.length;
 
-  for (var i = 0; i < len; i++) {
-    var elem = arr[i];
+  while (stack.length) {
+    var item = stack.pop();
 
-    if (Array.isArray(elem) && depth > 0) {
-      result.push.apply(result, flattenHelper(elem, depth - 1));
+    if (Array.isArray(item) && depth > 0) {
+      stack.push.apply(stack, item);
+      depth--;
     } else {
-      result.push(elem);
+      result.push(item);
     }
   }
 
-  return result;
+  return result.reverse();
 }
 
 function flatten(arr, depth) {
@@ -31,7 +32,5 @@ function flatten(arr, depth) {
     throw new Error('depth expects a number');
   }
 
-  var optionDepth = typeof depth === 'number' ? depth : Infinity;
-
-  return flattenHelper(arr, optionDepth);
+  return flattenHelper(arr, typeof depth === 'number' ? depth : Infinity);
 }
