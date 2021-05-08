@@ -14,8 +14,8 @@ shuffle([1, 2, 3], {shuffleAll: true});
 // array with original elements randomly sorted and all in new postions
 shuffle([]); // []
 shuffle([1]); // [1]
-shuffle(); // undefined
-shuffle(undefined); // undefined
-shuffle(null); // undefined
-shuffle({}); // undefined
+shuffle(); // throws
+shuffle(undefined); // throws
+shuffle(null); // throws
+shuffle({}); // throws
 ```
