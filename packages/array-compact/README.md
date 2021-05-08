@@ -11,5 +11,5 @@ import compact from 'just-compact';
 compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
 compact([1, 2, [], 4, {}]); // [1, 2, [], 4, {}]
 compact([]); // []
-compact({}); // undefined
+compact({}); // throws
 ```
