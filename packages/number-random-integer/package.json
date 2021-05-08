@@ -1,7 +1,7 @@
 {
-  "name": "just-intersect",
-  "version": "3.2.0",
-  "description": "return the intersect of two arrays",
+  "name": "just-random-integer",
+  "version": "1.0.0",
+  "description": "Produces an integer between two values",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -9,12 +9,11 @@
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "array",
-    "intersect",
-    "no-dependencies",
+    "random",
+    "range",
     "just"
   ],
-  "author": "Angus Croll",
+  "author": "evandrolg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"
