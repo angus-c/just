@@ -66,6 +66,27 @@ test("doesn't interrupt property chain, using array arg", function(t) {
   t.end();
 });
 
+test("doesn't support setting of prototype (and related) values", function(t) {
+  t.plan(4);
+  t.throws(function() {
+    var obj1 = {a: {}};
+    set(obj1, '__proto__.x', function malice() {});
+  });
+  t.throws(function() {
+    var obj1 = {a: {}};
+    set(obj1, ['a', 'b', '__proto__'], {toString: 'hehehe'});
+  });
+  t.throws(function() {
+    var obj2 = {a: {}};
+    set(obj2, 'constructor', function FakeConstructor() {});
+  });
+  t.throws(function() {
+    var obj3 = {a: {}};
+    set(obj3, 'prototype.y', 'hahahaha');
+  });
+  t.end();
+});
+
 /* eslint-disable no-undef*/
 if (typeof Symbol === 'function') {
   test('supports symbol prop', function(t) {
