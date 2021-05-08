@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "description": "returns the union of two arrays",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
