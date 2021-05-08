@@ -695,6 +695,10 @@ module.exports = {
       'just-is-prime': {
         size: sizes['just-is-prime'],
         code: ['const isPrime = require(\'just-is-prime\');\n\nisPrime(199);']
+      },
+      'just-random-integer': {
+        size: sizes['just-random-integer'],
+        code: ['const randomInteger = require(\'just-random-integer\');\n\nrandomInteger(5, 10);']
       }
     }
   },
@@ -767,7 +771,7 @@ module.exports = {
   "just-clone": "225",
   "just-diff": "436",
   "just-diff-apply": "398",
-  "just-compare": "222",
+  "just-compare": "238",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",
@@ -833,11 +837,12 @@ module.exports = {
   "just-is-prime": "105",
   "just-compose": "118",
   "just-curry-it": "72",
+  "just-memoize": "162",
   "just-demethodize": "107",
   "just-partial-it": "98",
   "just-flip": "61",
-  "just-debounce-it": "88",
-  "just-throttle": "84",
+  "just-debounce-it": "113",
+  "just-throttle": "121",
   "just-once": "86"
 };
 

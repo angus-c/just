@@ -557,6 +557,13 @@ modulo(-4, 13);`,
 isPrime(199);`,
         ],
       },
+      'just-random-integer': {
+        size: sizes['just-random-integer'],
+        code: [
+          `const randomInteger = require('just-random-integer');\n
+randomInteger(5, 10);`,
+        ],
+      },
     },
   },
   Functions: {
