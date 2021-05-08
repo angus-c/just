@@ -22,7 +22,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-We're in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there!
+We're in the process of adding Typescript definitions and tests to every Just utility. You're welcome to help us get there!
 [Here's](https://github.com/angus-c/just/pull/247/files) an example PR.
 
 You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
