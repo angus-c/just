@@ -34,8 +34,10 @@ function set(obj, props, value) {
   if (!lastProp) {
     return false;
   }
+  prototypeCheck(lastProp);
   var thisProp;
   while ((thisProp = props.shift())) {
+    prototypeCheck(thisProp);
     if (typeof obj[thisProp] == 'undefined') {
       obj[thisProp] = {};
     }
@@ -46,4 +48,10 @@ function set(obj, props, value) {
   }
   obj[lastProp] = value;
   return true;
+}
+
+function prototypeCheck(prop) {
+  if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
+    throw new Error('setting of prototype values not supported');
+  }
 }
