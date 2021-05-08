@@ -1,0 +1,1 @@
+export default function partition<First, Second>(arr: (First | Second)[], fn: (arg: (First | Second)) => unknown): [First[], Second[]]
