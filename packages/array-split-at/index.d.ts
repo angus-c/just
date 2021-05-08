@@ -1,0 +1,1 @@
+export default function splitAt<T>(arr: T[], n?: number | null): [T[], T[]]
