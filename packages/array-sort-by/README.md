@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```
-import sortBy from 'just-array-sort-by;
+import sortBy from 'just-array-sort-by';
 
 sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
 
