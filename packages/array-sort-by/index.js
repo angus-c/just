@@ -1,10 +1,13 @@
 module.exports = sortBy;
 
-function handleSort(key) {
+function handleSort(iteratee) {
   return function(a, b) {
-    if (typeof a[key] === 'string' && typeof b[key] === 'string') {
-      var valueA = a[key].toUpperCase();
-      var valueB = b[key].toUpperCase();
+    var keyA = typeof iteratee === 'string' ? a[iteratee] : iteratee(a);
+    var keyB = typeof iteratee === 'string' ? b[iteratee] : iteratee(b);
+
+    if (typeof keyA === 'string' && typeof keyB === 'string') {
+      var valueA = keyA.toUpperCase();
+      var valueB = keyB.toUpperCase();
 
       if (valueA < valueB) {
         return -1;
@@ -17,17 +20,17 @@ function handleSort(key) {
       return 0;
     }
 
-    return a[key] - b[key];
+    return keyA - keyB;
   };
 }
 
-function sortBy(arr, key) {
+function sortBy(arr, iteratee) {
   if (!Array.isArray(arr)) {
     throw new Error('arr should be an array');
   }
 
-  if (key !== undefined && typeof key !== 'string') {
-    throw new Error('key should be a string');
+  if (iteratee !== undefined && (typeof iteratee !== 'string' && typeof iteratee !== 'function')) {
+    throw new Error('iteratee should be a string or a function');
   }
 
   if (arr.length <= 1) {
@@ -36,11 +39,11 @@ function sortBy(arr, key) {
 
   var copied = arr.slice();
 
-  if (!key) {
+  if (!iteratee) {
     return copied.sort(function(a, b) {
       return a - b;
     });
   }
 
-  return copied.sort(handleSort(key));
+  return copied.sort(handleSort(iteratee));
 }

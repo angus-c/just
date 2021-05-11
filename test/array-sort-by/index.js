@@ -57,8 +57,48 @@ test('sort array of objects using the key passed by parameter', function(t) {
   t.end();
 });
 
+test('sort array of objects using the callback function passed by parameter', function(t) {
+  t.plan(3);
+
+  var users = [
+    {user: 'fabio', age: 34},
+    {user: 'max', age: 29},
+    {user: 'zacarias', age: 44},
+    {user: 'robert', age: 28},
+    {user: 'klaus', age: 38},
+  ];
+
+  var copied = users.slice();
+
+  t.deepEqual(
+    sortBy(users, function(o) {return o.age;}),
+    [
+      {user: 'robert', age: 28},
+      {user: 'max', age: 29},
+      {user: 'fabio', age: 34},
+      {user: 'klaus', age: 38},
+      {user: 'zacarias', age: 44},
+    ]
+  );
+
+  t.deepEqual(
+    sortBy(users, function(o) {return o.user;}),
+    [
+      {user: 'fabio', age: 34},
+      {user: 'klaus', age: 38},
+      {user: 'max', age: 29},
+      {user: 'robert', age: 28},
+      {user: 'zacarias', age: 44},
+    ]
+  );
+
+  t.deepEqual(users, copied);
+
+  t.end();
+});
+
 test('invalid', function(t) {
-  t.plan(7);
+  t.plan(6);
 
   t.throws(function() {
     sortBy();
@@ -78,10 +118,6 @@ test('invalid', function(t) {
 
   t.throws(function() {
     sortBy([1, 2, 3, 0], {});
-  });
-
-  t.throws(function() {
-    sortBy([1, 2, 3, 0], function() {});
   });
 
   t.throws(function() {
