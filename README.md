@@ -1040,13 +1040,32 @@ sortBy([
   {user: 'zacarias', age: 44},
   {user: 'robert', age: 28},
   {user: 'klaus', age: 38},
-], 'user');
+], function(o) {
+  return o.age;
+});
 /*
 [
   {user: 'robert', age: 28},
   {user: 'max', age: 29},
   {user: 'fabio', age: 34},
   {user: 'klaus', age: 38},
+  {user: 'zacarias', age: 44},
+]
+*/
+
+sortBy([
+  {user: 'fabio', age: 34},
+  {user: 'max', age: 29},
+  {user: 'zacarias', age: 44},
+  {user: 'robert', age: 28},
+  {user: 'klaus', age: 38},
+], 'user');
+/*
+[
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'max', age: 29},
+  {user: 'robert', age: 28},
   {user: 'zacarias', age: 44},
 ]
 */
