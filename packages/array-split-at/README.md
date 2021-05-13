@@ -11,6 +11,6 @@ import splitAt from 'just-split-at';
 splitAt([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4, 5]]
 splitAt([{a: 1}, {b: 1}, {c: 1}], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
 splitAt([], 2); // [[], []]
-splitAt(null, 1); // undefined
-splitAt(undefined, 1); // undefined
+splitAt(null, 1); // throws
+splitAt(undefined, 1); // throws
 ```
