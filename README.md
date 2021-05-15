@@ -22,7 +22,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-We're in the process of adding Tyepscript definitions and tests to every Just utility. You're welcome to help us get there!
+We're in the process of adding TypeScript definitions and tests to every Just utility. You're welcome to help us get there!
 [Here's](https://github.com/angus-c/just/pull/247/files) an example PR.
 
 You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
@@ -118,6 +118,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-flip](#just-flip)
   - [just-partial-it](#just-partial-it)
   - [just-debounce-it](#just-debounce-it)
+  - [just-random](#just-random)
   - [just-throttle](#just-throttle)
   - [just-once](#just-once)
 
@@ -1722,6 +1723,25 @@ fn4();
 fn4();
 fn4.flush();
 // immediately invoke the debounced function
+```
+
+### [just-random](https://www.npmjs.com/package/just-random)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-random)
+
+`npm install just-random`
+
+```js
+import random from 'just-random';
+
+random();
+// Produces a random number between 0 and 1
+
+random(5);
+// Produces a random number between 0 and 5
+
+random(5, 10);
+// Produces a random number between 5 and 10
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)

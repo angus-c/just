@@ -1,8 +1,9 @@
 {
   "name": "just-tail",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "return all but the first element of an array",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
