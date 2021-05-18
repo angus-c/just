@@ -9,13 +9,13 @@ import sortBy from 'just-array-sort-by';
 sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
 
 sortBy([
-  {user: 'fabio', age: 34},
-  {user: 'max', age: 29},
-  {user: 'zacarias', age: 44},
-  {user: 'robert', age: 28},
-  {user: 'klaus', age: 38},
+  {user: 'fabio', details: {city: "Milan", age: 34}},
+  {user: 'max', details: {city: "Munich", age: 29}},
+  {user: 'zacarias', details: {city: "Sao Paulo", age: 44}},
+  {user: 'robert', details: {city: "Manchester", age: 28}},
+  {user: 'klaus', details: {city: "Zurich", age: 38}},
 ], function(o) {
-  return o.age;
+  return o.details.age;
 });
 
 /*
