@@ -15,6 +15,14 @@ function defaultEqual(arr1, arr2) {
 }
 
 function memoizeOne(fn, isEqual) {
+  if (typeof fn !== 'function') {
+    throw new Error('fn should be a function');
+  }
+
+  if (isEqual !== undefined && typeof isEqual !== 'function') {
+    throw new Error('isEqual should be a function');
+  }
+
   var wasCalled = false;
   var lastThis = null;
   var lastArgs = null;
