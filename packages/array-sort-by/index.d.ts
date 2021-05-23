@@ -1,3 +1,3 @@
-declare function sortBy<T>(arr: T[], key?: string): T[];
+declare function sortBy<T>(arr: T[], iteratee?: string | Function): T[];
 
 export = sortBy;
