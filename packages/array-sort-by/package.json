@@ -1,0 +1,21 @@
+{
+  "name": "just-sort-by",
+  "version": "1.0.0",
+  "description": "Produces a new array, sorted in ascending order",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "sort",
+    "just"
+  ],
+  "author": "evandrolg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
