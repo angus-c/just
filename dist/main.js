@@ -549,6 +549,10 @@ module.exports = {
         size: sizes['just-random'],
         code: ['const random = require(\'just-random\');\n\nrandom([1, 2, 3]);']
       },
+      'just-sort-by': {
+        size: sizes['just-sort-by'],
+        code: ['const sortBy = require(\'just-sort-by\')\nsortBy([\n  {user: \'fabio\', details: {city: "Milan", age: 34}},\n  {user: \'max\', details: {city: "Munich", age: 29}},\n  {user: \'zacarias\', details: {city: "Sao Paulo", age: 44}},\n  {user: \'robert\', details: {city: "Manchester", age: 28}},\n  {user: \'klaus\', details: {city: "Zurich", age: 38}},\n], function(o) {\n  return o.details.age;\n});']
+      },
       'just-shuffle': {
         size: sizes['just-shuffle'],
         code: ['const shuffle = require(\'just-shuffle\');\n\nshuffle([1, 2, 3, 4, 5]);']

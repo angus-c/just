@@ -300,6 +300,20 @@ tail([0, 1, 2, 3, 4, 5]);`,
 random([1, 2, 3]);`,
         ],
       },
+      'just-sort-by': {
+        size: sizes['just-sort-by'],
+        code: [`const sortBy = require('just-sort-by')
+sortBy([
+  {user: 'fabio', details: {city: "Milan", age: 34}},
+  {user: 'max', details: {city: "Munich", age: 29}},
+  {user: 'zacarias', details: {city: "Sao Paulo", age: 44}},
+  {user: 'robert', details: {city: "Manchester", age: 28}},
+  {user: 'klaus', details: {city: "Zurich", age: 38}},
+], function(o) {
+  return o.details.age;
+});`,
+        ],
+      },
       'just-shuffle': {
         size: sizes['just-shuffle'],
         code: [
