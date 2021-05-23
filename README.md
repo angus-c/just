@@ -1535,7 +1535,7 @@ capitalize("Capitals"); // 'Capitals'
 capitalize("CAPITALS"); // 'Capitals'
 capitalize("CaPiTaLs"); // 'Capitals'
 capitalize(" capitals"); // ' capitals'
-capitalize("Capi tals"); // 'Capit als'
+capitalize("Capi tals"); // 'Capi tals'
 capitalize("Capi Tals"); // 'Capi tals'
 capitalize("!capitals"); // '!capitals'
 ```
