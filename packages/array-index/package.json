@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "description": "return an object from an array, keyed by the value at the given id",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
