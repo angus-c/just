@@ -20,7 +20,7 @@
 * TypeScript
   * We're in the process of adding typescript defintions (`index.d.ts`) and tests (`index.tests.ts`) for every utility
   * Please add these files for your new utility if you feel comfortable doing so. [Here's](https://github.com/angus-c/just/pull/247/files) an example PR.
-  * Also add `"types": "index.d.ts"` after `main` entry in pacakge.json. 
+  * Also add `"types": "index.d.ts"` after `main` entry in package.json. 
   * You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
 * Interactive gh-pages ([http://anguscroll.com/just](anguscroll.com/just))
   * We'll take care of this after we land your PR and publish the npm module
