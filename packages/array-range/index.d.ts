@@ -1,3 +1,3 @@
-declare function range(start: number, end: number|null, step?: number|null): number[];
-declare function range(end: number, step?: number|null): number[];
+declare function range(stop: number): number[];
+declare function range(start?: number, stop?: number|null|undefined, step?: number|null): number[];
 export = range;
