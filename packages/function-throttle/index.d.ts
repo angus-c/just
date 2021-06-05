@@ -11,6 +11,6 @@ type Methods = {
   flush: () => void,
 }
 
-declare function throttle(fn: Function, interval: number, options?: options): Function & Methods;
+declare function throttle<Func extends (...args: any[]) => any>(fn: Func, interval: number, options?: options): Func & Methods;
 
 export = throttle;
