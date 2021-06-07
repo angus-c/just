@@ -23,7 +23,6 @@ function memoizeLast(fn, isEqual) {
     throw new Error('isEqual should be a function');
   }
 
-  var wasCalled = false;
   var lastThis = null;
   var lastArgs = null;
   var lastResult = null;
@@ -32,11 +31,10 @@ function memoizeLast(fn, isEqual) {
   return function() {
     var args = [].slice.call(arguments);
 
-    if (!wasCalled || this !== lastThis || !_isEqual(lastArgs, args)) {
+    if (!lastArgs || this !== lastThis || !_isEqual(lastArgs, args)) {
       lastThis = this;
       lastArgs = args;
       lastResult = fn.apply(this, args);
-      wasCalled = true;
     }
 
     return lastResult;
