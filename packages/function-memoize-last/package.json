@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A memoize implementation that just remember the latest arguments and result",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
