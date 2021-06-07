@@ -45,6 +45,40 @@ test('memoize with multiple parameters', function(t) {
   t.end();
 });
 
+test('memoize with complex parameters', function(t) {
+  var counter = 0;
+  var memoized = memoizeLast(function(x, y) {
+    counter++;
+    return {
+      x: x,
+      y: y,
+    };
+  });
+
+  var result1 = memoized({language: 'javascript'}, {language: 'typescript'});
+  var result2 = memoized({language: 'lua'}, {language: 'ruby'});
+  var result3 = memoized({language: 'lua'}, {language: 'ruby'});
+
+  t.equal(counter, 3);
+
+  t.deepEqual(result1, {
+    x: {language: 'javascript'},
+    y: {language: 'typescript'},
+  });
+
+  t.deepEqual(result2, {
+    x: {language: 'lua'},
+    y: {language: 'ruby'},
+  });
+
+  t.deepEqual(result3, {
+    x: {language: 'lua'},
+    y: {language: 'ruby'},
+  });
+
+  t.end();
+});
+
 test('memoize compares arguments and this', function(t) {
   t.plan(5);
 
