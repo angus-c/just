@@ -1,11 +1,11 @@
 var test = require('../util/test')(__filename);
-var memoizeOne = require('../../packages/function-memoize-one');
+var memoizeLast = require('../../packages/function-memoize-last');
 
 test('memoize with one parameter', function(t) {
   t.plan(4);
 
   var counter = 0;
-  var memoized = memoizeOne(function(x) {
+  var memoized = memoizeLast(function(x) {
     counter++;
     return x + 2;
   });
@@ -27,7 +27,7 @@ test('memoize with multiple parameters', function(t) {
   t.plan(4);
 
   var counter = 0;
-  var memoized = memoizeOne(function(x, y, z) {
+  var memoized = memoizeLast(function(x, y, z) {
     counter++;
     return x * y * z;
   });
@@ -49,7 +49,7 @@ test('memoize compares arguments and this', function(t) {
   t.plan(5);
 
   var counter = 0;
-  var memoized = memoizeOne(function(x, y) {
+  var memoized = memoizeLast(function(x, y) {
     counter++;
     return this.a + x + y;
   });
@@ -85,7 +85,7 @@ test('compare using isEqual', function(t) {
   var args = [];
   var counter1 = 0;
 
-  var memoized1 = memoizeOne(function(x, y) {
+  var memoized1 = memoizeLast(function(x, y) {
     counter1++;
     return x + y;
   }, function(lastArgs, newArgs) {
@@ -103,7 +103,7 @@ test('compare using isEqual', function(t) {
   t.deepEqual(args, [[1, 2], [1, 3]]);
 
   var counter2 = 0;
-  var memoized2 = memoizeOne(function(x, y) {
+  var memoized2 = memoizeLast(function(x, y) {
     counter2++;
     return x + y;
   }, function(lastArgs, newArgs) {
@@ -128,53 +128,44 @@ test('throws an error when `fn` is not a function', function(t) {
   t.plan(6);
 
   t.throws(function() {
-    memoizeOne();
+    memoizeLast();
   });
-
   t.throws(function() {
-    memoizeOne(true);
+    memoizeLast(true);
   });
-
   t.throws(function() {
-    memoizeOne('myCallback');
+    memoizeLast('myCallback');
   });
-
   t.throws(function() {
-    memoizeOne({});
+    memoizeLast({});
   });
-
   t.throws(function() {
-    memoizeOne([1, 2, 3]);
+    memoizeLast([1, 2, 3]);
   });
-
   t.throws(function() {
-    memoizeOne(123);
+    memoizeLast(123);
   });
 
   t.end();
 });
 
 test('throws an error when `isEqual` is defined but it is not a function', function(t) {
-  t.plan(5);
+  t.plan(4);
 
   t.throws(function() {
-    memoizeOne(function() {}, {});
+    memoizeLast(function() {}, true);
   });
 
   t.throws(function() {
-    memoizeOne(function() {}, true);
+    memoizeLast(function() {}, []);
   });
 
   t.throws(function() {
-    memoizeOne(function() {}, []);
+    memoizeLast(function() {}, 'js');
   });
 
   t.throws(function() {
-    memoizeOne(function() {}, 'js');
-  });
-
-  t.throws(function() {
-    memoizeOne(function() {}, 1);
+    memoizeLast(function() {}, 1);
   });
 
   t.end();

@@ -1,4 +1,4 @@
-module.exports = memoizeOne;
+module.exports = memoizeLast;
 
 function defaultEqual(arr1, arr2) {
   if (arr1.length !== arr2.length) {
@@ -14,7 +14,7 @@ function defaultEqual(arr1, arr2) {
   return true;
 }
 
-function memoizeOne(fn, isEqual) {
+function memoizeLast(fn, isEqual) {
   if (typeof fn !== 'function') {
     throw new Error('fn should be a function');
   }

@@ -1,5 +1,5 @@
 {
-  "name": "just-memoize-one",
+  "name": "just-memoize-last",
   "version": "1.0.0",
   "description": "A memoize implementation that just remember the latest arguments and result",
   "main": "index.js",

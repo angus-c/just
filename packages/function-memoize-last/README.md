@@ -3,12 +3,12 @@
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-debounce-it)
+[Try it now](http://anguscroll.com/just/just-memoize-last)
 
 ```js
-import memoizeOne from 'just-memoize-one';
+import memoizeLast from 'just-memoize-last';
 
-const sumByOne = memoizeOne(function(value) {
+const sumByOne = memoizeLast(function(value) {
   return value + 1;
 });
 
