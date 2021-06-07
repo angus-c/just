@@ -1793,6 +1793,7 @@ sumByOne(10); // Cache hit!
 
 sumByOne(20); // Returns value returned by the function
 sumByOne(20); // Cache hit!
+sumByOne(10); // Returns value returned by the function
 
 // Returns always from cache, because the second function is returning true for all cases
 const sum = memoize(function(a, b) {
