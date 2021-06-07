@@ -77,6 +77,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
   - [just-range](#just-range)
@@ -1023,6 +1024,54 @@ splitAt(undefined, 1); // throws
 splitAt([1, 2, 3, 4, 5], {}); // throws
 ```
 
+### [just-sort-by](https://www.npmjs.com/package/just-sort-by)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-sort-by)
+
+`npm install just-sort-by`
+
+```js
+import sortBy from 'just-array-sort-by';
+
+sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
+
+sortBy([
+  {user: 'fabio', details: {city: "Milan", age: 34}},
+  {user: 'max', details: {city: "Munich", age: 29}},
+  {user: 'zacarias', details: {city: "Sao Paulo", age: 44}},
+  {user: 'robert', details: {city: "Manchester", age: 28}},
+  {user: 'klaus', details: {city: "Zurich", age: 38}},
+], function(o) {
+  return o.details.age;
+});
+/*
+[
+  {user: 'robert', age: 28},
+  {user: 'max', age: 29},
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'zacarias', age: 44},
+]
+*/
+
+sortBy([
+  {user: 'fabio', age: 34},
+  {user: 'max', age: 29},
+  {user: 'zacarias', age: 44},
+  {user: 'robert', age: 28},
+  {user: 'klaus', age: 38},
+], 'user');
+/*
+[
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'max', age: 29},
+  {user: 'robert', age: 28},
+  {user: 'zacarias', age: 44},
+]
+*/
+```
+
 ### [just-partition](https://www.npmjs.com/package/just-partition)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-partition)
@@ -1453,7 +1502,7 @@ capitalize("Capitals"); // 'Capitals'
 capitalize("CAPITALS"); // 'Capitals'
 capitalize("CaPiTaLs"); // 'Capitals'
 capitalize(" capitals"); // ' capitals'
-capitalize("Capi tals"); // 'Capit als'
+capitalize("Capi tals"); // 'Capi tals'
 capitalize("Capi Tals"); // 'Capi tals'
 capitalize("!capitals"); // '!capitals'
 ```
