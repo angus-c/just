@@ -33,3 +33,4 @@ fn5();
 fn5.flush();
 // immediately invoke the throttled function
 ```
+test
