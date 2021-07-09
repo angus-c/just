@@ -12,7 +12,7 @@ const compare = require('just-compare')
 const maxValue = memoizeLast(function(arr) {
   return Math.max(...arr)
 }, function(a, b) {
-  return compare(a, b);
+  return compare(a, b)
 });
 
 maxValue([1,2,3]) // 3
