@@ -1,4 +1,4 @@
-## just-debounce-it
+## just-memoize-last
 
 Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
@@ -6,27 +6,17 @@ Guilt-free utilities for every occasion.
 [Try it now](http://anguscroll.com/just/just-memoize-last)
 
 ```js
-import memoizeLast from 'just-memoize-last';
+const memoizeLast = require('just-memoize-last')
+const compare = require('just-compare')
 
-const sumByOne = memoizeLast(function(value) {
-  return value + 1;
-});
-
-sumByOne(10); // Returns value returned by the function
-sumByOne(10); // Cache hit!
-
-sumByOne(20); // Returns value returned by the function
-sumByOne(20); // Cache hit!
-sumByOne(10); // Returns value returned by the function
-
-// Returns always from cache, because the second function is returning true for all cases
-const sum = memoize(function(a, b) {
-  return a + b;
+const maxValue = memoizeLast(function(arr) {
+  return Math.max(...arr)
 }, function(a, b) {
-  return true;
+  return compare(a, b);
 });
 
-sum(10, 10); // Returns value returned by the function
-sum(10, 20); // Cache hit!
-sum(10, 30); // Cache hit!
+maxValue([1,2,3]) // 3
+maxValue([1,2,3]) // cache hit!
+maxValue([1,3,4]) // 4
+maxValue([1,2,3]) // 3
 ```
