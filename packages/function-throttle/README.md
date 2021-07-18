@@ -8,6 +8,11 @@ Guilt-free utilities for every occasion.
 ```js
 import throttle from 'just-throttle';
 
+// no matter how many times the function is called, only invoke once within the given interval
+// options: 
+// `leading`: invoke  before interval
+// `trailing`: invoke afer interval
+
 const fn1 = throttle(() => console.log('hello'), 500, {leading: true});
 setInterval(fn1, 400);
 // logs 'hello' immediately and then every 500ms
