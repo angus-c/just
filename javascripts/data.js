@@ -615,6 +615,24 @@ var sum = memoize(function(a, b) {
   sum(10, 20); // Cache hit!`,
         ],
       },
+      'just-memoize-last': {
+        size: sizes['just-memoize-last'],
+        code: [
+          `const memoizeLast = require('just-memoize-last')
+const compare = require('just-compare')
+
+const maxValue = memoizeLast(function(arr) {
+  return Math.max(...arr)
+}, function(a, b) {
+  return compare(a, b)
+});
+
+maxValue([1,2,3]) // 3
+maxValue([1,2,3]) // cache hit!
+maxValue([1,3,4]) // 4
+maxValue([1,2,3]) // 3`,
+        ],
+      },
       'just-demethodize': {
         size: sizes['just-demethodize'],
         code: [

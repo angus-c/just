@@ -721,6 +721,10 @@ module.exports = {
         size: sizes['just-memoize'],
         code: ['const memoize = require(\'just-memoize\')\n\nvar sum = memoize(function(a, b) {\n    return a + b;\n  }, function(a, b) {\n    return a + \'-\' + b; // you can use string interpolation here but I can\'t :)\n  });\n  sum(10, 10); // Returns value returned by the function\n  sum(10, 20); // Returns value returned by the function\n  sum(10, 20); // Cache hit!']
       },
+      'just-memoize-last': {
+        size: sizes['just-memoize-last'],
+        code: ['const memoizeLast = require(\'just-memoize-last\')\nconst compare = require(\'just-compare\')\n\nconst maxValue = memoizeLast(function(arr) {\n  return Math.max(...arr)\n}, function(a, b) {\n  return compare(a, b)\n});\n\nmaxValue([1,2,3]) // 3\nmaxValue([1,2,3]) // cache hit!\nmaxValue([1,3,4]) // 4\nmaxValue([1,2,3]) // 3']
+      },
       'just-demethodize': {
         size: sizes['just-demethodize'],
         code: ['const demethodize = require(\'just-demethodize\');\n\nconst trimFn = demethodize(\'\'.trim);\n[\'hello \', \' goodbye\', \'hello again\'].map(trimFn)']
@@ -794,11 +798,11 @@ module.exports = {
   "just-is-circular": "140",
   "just-is-primitive": "12",
   "just-safe-get": "152",
-  "just-safe-set": "108",
+  "just-safe-set": "179",
   "just-has": "163",
   "just-typeof": "88",
-  "just-unique": "273",
-  "just-flatten-it": "99",
+  "just-unique": "279",
+  "just-flatten-it": "167",
   "just-index": "129",
   "just-insert": "137",
   "just-intersect": "122",
@@ -806,6 +810,7 @@ module.exports = {
   "just-last": "52",
   "just-tail": "48",
   "just-random": "65",
+  "just-sort-by": "210",
   "just-shuffle": "150",
   "just-range": "137",
   "just-split": "150",
@@ -817,7 +822,7 @@ module.exports = {
   "just-zip-it": "173",
   "just-group-by": "136",
   "just-cartesian-product": "179",
-  "just-mean": "148",
+  "just-mean": "150",
   "just-median": "200",
   "just-mode": "241",
   "just-percentile": "238",
@@ -839,14 +844,16 @@ module.exports = {
   "just-clamp": "111",
   "just-modulo": "23",
   "just-is-prime": "105",
+  "just-random-integer": "119",
   "just-compose": "118",
   "just-curry-it": "72",
   "just-memoize": "162",
+  "just-memoize-last": "183",
   "just-demethodize": "107",
-  "just-partial-it": "98",
+  "just-partial-it": "101",
   "just-flip": "61",
-  "just-debounce-it": "113",
-  "just-throttle": "121",
+  "just-debounce-it": "147",
+  "just-throttle": "171",
   "just-once": "86"
 };
 
