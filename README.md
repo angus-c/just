@@ -121,7 +121,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-memoize](#just-memoize)
   - [just-memoize-last](#just-memoize-last)
   - [just-random](#just-random)
-  - [just-throttle](#just-throttle)
+  - [just-throttle](#just-`throttle`)
   - [just-once](#just-once)
 
   ### Collections
@@ -1825,6 +1825,11 @@ random(5, 10);
 
 ```js
 import throttle from "just-throttle";
+
+// no matter how many times the function is called, only invoke once within the given interval
+// options: 
+// `leading`: invoke  before interval
+// `trailing`: invoke afer interval
 
 const fn1 = throttle(() => console.log("hello"), 500, { leading: true });
 setInterval(fn1, 400);
