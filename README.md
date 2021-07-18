@@ -121,7 +121,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-memoize](#just-memoize)
   - [just-memoize-last](#just-memoize-last)
   - [just-random](#just-random)
-  - [just-throttle](#just-`throttle`)
+  - [just-throttle](#just-throttle)
   - [just-once](#just-once)
 
   ### Collections
