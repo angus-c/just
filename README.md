@@ -88,7 +88,6 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 - [Statistics](#stats) Σ
   - [just-mean](#just-mean)
   - [just-median](#just-median)
-  - [just-memoize](#just-memoize)
   - [just-mode](#just-mode)
   - [just-percentile](#just-percentile)
   - [just-variance](#just-variance)
@@ -119,6 +118,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-flip](#just-flip)
   - [just-partial-it](#just-partial-it)
   - [just-debounce-it](#just-debounce-it)
+  - [just-memoize](#just-memoize)
+  - [just-memoize-last](#just-memoize-last)
   - [just-random](#just-random)
   - [just-throttle](#just-throttle)
   - [just-once](#just-once)
@@ -1198,40 +1199,6 @@ median(["3", 2, 1]); // throws
 median(); // throws
 ```
 
-### [just-memoize](https://www.npmjs.com/package/just-memoize)
-
-:icecream:[`Try It`](https://anguscroll.com/just/just-memoize)
-
-`npm install just-memoize`
-
-```js
-import memoize from "just-memoize";
-
-const sumByOne = memoize(function (value) {
-  return value + 1;
-});
-
-sumByOne(10); // Returns value returned by the function
-sumByOne(10); // Cache hit!
-
-sumByOne(20); // Returns value returned by the function
-sumByOne(20); // Cache hit!
-
-// Custom cache key (key defaults to JSON stringified arguments)
-var sum = memoize(
-  function (a, b) {
-    return a + b;
-  },
-  function (a, b) {
-    return `${a}-${b}`;
-  }
-);
-
-sum(10, 10); // Returns value returned by the function
-sum(10, 20); // Returns value returned by the function
-sum(10, 20); // Cache hit!
-```
-
 ### [just-mode](https://www.npmjs.com/package/just-mode)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-mode)
@@ -1773,6 +1740,63 @@ fn4();
 fn4.flush();
 // immediately invoke the debounced function
 ```
+
+### [just-memoize](https://www.npmjs.com/package/just-memoize)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-memoize)
+
+`npm install just-memoize`
+
+```js
+import memoize from "just-memoize";
+
+const sumByOne = memoize(function (value) {
+  return value + 1;
+});
+
+sumByOne(10); // Returns value returned by the function
+sumByOne(10); // Cache hit!
+
+sumByOne(20); // Returns value returned by the function
+sumByOne(20); // Cache hit!
+
+// Custom cache key (key defaults to JSON stringified arguments)
+var sum = memoize(
+  function (a, b) {
+    return a + b;
+  },
+  function (a, b) {
+    return `${a}-${b}`;
+  }
+);
+
+sum(10, 10); // Returns value returned by the function
+sum(10, 20); // Returns value returned by the function
+sum(10, 20); // Cache hit!
+```
+
+### [just-memoize-last](https://www.npmjs.com/package/just-memoize-last)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-memoize-last)
+
+`npm install just-memoize-last`
+
+```js
+const memoizeLast = require('just-memoize-last')
+const compare = require('just-compare')
+
+const maxValue = memoizeLast(function(arr) {
+  return Math.max(...arr)
+}, function(a, b) {
+  return compare(a, b);
+});
+
+maxValue([1,2,3]) // 3
+maxValue([1,2,3]) // cache hit!
+maxValue([1,3,4]) // 4
+maxValue([1,2,3]) // 3
+```
+
 
 ### [just-random](https://www.npmjs.com/package/just-random)
 
