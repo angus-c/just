@@ -1,7 +1,7 @@
 {
-  "name": "just-filter-object",
-  "version": "1.3.0",
-  "description": "filter an object",
+  "name": "just-memoize-last",
+  "version": "1.0.0",
+  "description": "A memoize implementation that only caches the most recent evaluation",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -9,12 +9,11 @@
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "object",
-    "filter",
-    "no-dependencies",
+    "memoize",
+    "function",
     "just"
   ],
-  "author": "Angus Croll",
+  "author": "evandrolg",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"

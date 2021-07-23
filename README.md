@@ -1,6 +1,6 @@
 ## Just
 
-[![Build Status](https://travis-ci.org/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
+[![Build Status](https://travis-ci.com/angus-c/just.svg?branch=master)](http://travis-ci.org/angus-c/just.js)
 
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
@@ -77,6 +77,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
   - [just-range](#just-range)
@@ -87,7 +88,6 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 - [Statistics](#stats) Σ
   - [just-mean](#just-mean)
   - [just-median](#just-median)
-  - [just-memoize](#just-memoize)
   - [just-mode](#just-mode)
   - [just-percentile](#just-percentile)
   - [just-variance](#just-variance)
@@ -118,6 +118,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-flip](#just-flip)
   - [just-partial-it](#just-partial-it)
   - [just-debounce-it](#just-debounce-it)
+  - [just-memoize](#just-memoize)
+  - [just-memoize-last](#just-memoize-last)
   - [just-random](#just-random)
   - [just-throttle](#just-throttle)
   - [just-once](#just-once)
@@ -1022,6 +1024,54 @@ splitAt(undefined, 1); // throws
 splitAt([1, 2, 3, 4, 5], {}); // throws
 ```
 
+### [just-sort-by](https://www.npmjs.com/package/just-sort-by)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-sort-by)
+
+`npm install just-sort-by`
+
+```js
+import sortBy from 'just-array-sort-by';
+
+sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
+
+sortBy([
+  {user: 'fabio', details: {city: "Milan", age: 34}},
+  {user: 'max', details: {city: "Munich", age: 29}},
+  {user: 'zacarias', details: {city: "Sao Paulo", age: 44}},
+  {user: 'robert', details: {city: "Manchester", age: 28}},
+  {user: 'klaus', details: {city: "Zurich", age: 38}},
+], function(o) {
+  return o.details.age;
+});
+/*
+[
+  {user: 'robert', age: 28},
+  {user: 'max', age: 29},
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'zacarias', age: 44},
+]
+*/
+
+sortBy([
+  {user: 'fabio', age: 34},
+  {user: 'max', age: 29},
+  {user: 'zacarias', age: 44},
+  {user: 'robert', age: 28},
+  {user: 'klaus', age: 38},
+], 'user');
+/*
+[
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'max', age: 29},
+  {user: 'robert', age: 28},
+  {user: 'zacarias', age: 44},
+]
+*/
+```
+
 ### [just-partition](https://www.npmjs.com/package/just-partition)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-partition)
@@ -1147,40 +1197,6 @@ median([9, 14, 14, 200, 15]); // 14
 median(1, 2, 4, 3); // 2.5
 median(["3", 2, 1]); // throws
 median(); // throws
-```
-
-### [just-memoize](https://www.npmjs.com/package/just-memoize)
-
-:icecream:[`Try It`](https://anguscroll.com/just/just-memoize)
-
-`npm install just-memoize`
-
-```js
-import memoize from "just-memoize";
-
-const sumByOne = memoize(function (value) {
-  return value + 1;
-});
-
-sumByOne(10); // Returns value returned by the function
-sumByOne(10); // Cache hit!
-
-sumByOne(20); // Returns value returned by the function
-sumByOne(20); // Cache hit!
-
-// Custom cache key (key defaults to JSON stringified arguments)
-var sum = memoize(
-  function (a, b) {
-    return a + b;
-  },
-  function (a, b) {
-    return `${a}-${b}`;
-  }
-);
-
-sum(10, 10); // Returns value returned by the function
-sum(10, 20); // Returns value returned by the function
-sum(10, 20); // Cache hit!
 ```
 
 ### [just-mode](https://www.npmjs.com/package/just-mode)
@@ -1486,7 +1502,7 @@ capitalize("Capitals"); // 'Capitals'
 capitalize("CAPITALS"); // 'Capitals'
 capitalize("CaPiTaLs"); // 'Capitals'
 capitalize(" capitals"); // ' capitals'
-capitalize("Capi tals"); // 'Capit als'
+capitalize("Capi tals"); // 'Capi tals'
 capitalize("Capi Tals"); // 'Capi tals'
 capitalize("!capitals"); // '!capitals'
 ```
@@ -1725,6 +1741,63 @@ fn4.flush();
 // immediately invoke the debounced function
 ```
 
+### [just-memoize](https://www.npmjs.com/package/just-memoize)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-memoize)
+
+`npm install just-memoize`
+
+```js
+import memoize from "just-memoize";
+
+const sumByOne = memoize(function (value) {
+  return value + 1;
+});
+
+sumByOne(10); // Returns value returned by the function
+sumByOne(10); // Cache hit!
+
+sumByOne(20); // Returns value returned by the function
+sumByOne(20); // Cache hit!
+
+// Custom cache key (key defaults to JSON stringified arguments)
+var sum = memoize(
+  function (a, b) {
+    return a + b;
+  },
+  function (a, b) {
+    return `${a}-${b}`;
+  }
+);
+
+sum(10, 10); // Returns value returned by the function
+sum(10, 20); // Returns value returned by the function
+sum(10, 20); // Cache hit!
+```
+
+### [just-memoize-last](https://www.npmjs.com/package/just-memoize-last)
+
+:icecream:[`Try It`](https://anguscroll.com/just/just-memoize-last)
+
+`npm install just-memoize-last`
+
+```js
+const memoizeLast = require('just-memoize-last')
+const compare = require('just-compare')
+
+const maxValue = memoizeLast(function(arr) {
+  return Math.max(...arr)
+}, function(a, b) {
+  return compare(a, b);
+});
+
+maxValue([1,2,3]) // 3
+maxValue([1,2,3]) // cache hit!
+maxValue([1,3,4]) // 4
+maxValue([1,2,3]) // 3
+```
+
+
 ### [just-random](https://www.npmjs.com/package/just-random)
 
 :icecream:[`Try It`](https://anguscroll.com/just/just-random)
@@ -1752,6 +1825,11 @@ random(5, 10);
 
 ```js
 import throttle from "just-throttle";
+
+// no matter how many times the function is called, only invoke once within the given interval
+// options: 
+// `leading`: invoke  before interval
+// `trailing`: invoke afer interval
 
 const fn1 = throttle(() => console.log("hello"), 500, { leading: true });
 setInterval(fn1, 400);
