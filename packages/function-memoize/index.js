@@ -23,26 +23,35 @@ module.exports = memoize;
   sum(10, 20) -- Cache hit!
 */
 
-function memoize(callback, resolver) {
+function memoize(callback, options, resolver) {
   if (typeof callback !== 'function') {
     throw new Error('`callback` should be a function');
+  }
+
+  if (options !== undefined && typeof options !== 'object') {
+    throw new Error('`options` should be an object');
   }
 
   if (resolver !== undefined && typeof resolver !== 'function') {
     throw new Error('`resolver` should be a function');
   }
 
-  var cache = {};
+  var cache = new Map();
 
   var memoized = function() {
     var args = Array.prototype.slice.call(arguments); // to simplify JSON.stringify
     var key = resolver ? resolver.apply(this, args) : JSON.stringify(args);
 
-    if (!(key in cache)) {
-      cache[key] = callback.apply(this, args);
+    if (!cache.has(key)) {
+      cache.set(key, callback.apply(this, args));
     }
 
-    return cache[key];
+    if (typeof options.max === 'number' && cache.size > options.max) {
+      var firstKey = cache.keys()[0];
+      cache.delete(firstKey);
+    }
+
+    return cache.get(key);
   };
 
   memoized.cache = cache;
