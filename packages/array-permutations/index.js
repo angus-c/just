@@ -2,7 +2,7 @@ module.exports = permutations;
 
 /*
   permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
-  permutations([1]); // 1
+  permutations([1]); // [[1]]
   permutations(); // throws
 */
 function permutations(arr) {
