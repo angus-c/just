@@ -6,7 +6,7 @@ module.exports = values;
   values({}); // []
   values([1, 2, 3]); // [1, 2, 3]
   values(function(a, b) {return a + b;}); // []
-  values(String('hello')); // []
+  values(String('hello')); // throw exception
   values(1); // throw exception
   values(true); // throw exception
   values(undefined); // throw exception
