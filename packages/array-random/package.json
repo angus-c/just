@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "description": "return a randomly selected element in an array",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
