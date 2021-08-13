@@ -1,4 +1,4 @@
-import values from './index';
+import { values } from './index';
 
 const obj = { a: 3, b: 5, c: 9 };
 
