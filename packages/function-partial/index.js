@@ -27,6 +27,10 @@ function partial(fn /*, arg1, arg2 etc */) {
         thisPartialArg === undefined ? args[argsIndex++] : thisPartialArg;
     }
 
-    return fn.apply(this, derivedArgs.concat(args));
+    if (argsIndex < args.length) {
+      derivedArgs = derivedArgs.concat(args.slice(argsIndex));
+    }
+
+    return fn.apply(this, derivedArgs);
   };
 }
