@@ -66,6 +66,20 @@ test("doesn't interrupt property chain, using array arg", function(t) {
   t.end();
 });
 
+test('does not mutate path', function(t) {
+  t.plan(6);
+  var path = ['a', 'aa', 'aaa'];
+  var obj1 = {a: {aa: {aab: 2}}};
+  var obj2 = {a: {aa: {aac: 2}}};
+  t.isEqual(set(obj1, path, 3), true);
+  t.ok(compare(obj1, {a: {aa: {aaa: 3, aab: 2}}}));
+  t.ok(compare(path, ['a', 'aa', 'aaa']));
+  t.isEqual(set(obj2, path, 3), true);
+  t.ok(compare(obj2, {a: {aa: {aaa: 3, aac: 2}}}));
+  t.ok(compare(path, ['a', 'aa', 'aaa']));
+  t.end();
+});
+
 test("doesn't support setting of prototype (and related) values", function(t) {
   t.plan(4);
   t.throws(function() {
