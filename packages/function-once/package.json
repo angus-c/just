@@ -1,8 +1,9 @@
 {
   "name": "just-once",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "create a function that can only be invoked once",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
