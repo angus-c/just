@@ -151,6 +151,18 @@ test('returns 3rd argument if first argument is a falsey value', function(t) {
   t.end();
 });
 
+test('does not mutate path', function(t) {
+  t.plan(4);
+  var obj1 = {a: {ab: {aaa: 2}}, b: null};
+  var obj2 = {a: {aa: {aaa: 2}}, b: null};
+  var path = ['a', 'aa', 'aaa'];
+  t.ok(compare(get(obj1, path), undefined));
+  t.ok(compare(path, ['a', 'aa', 'aaa']));
+  t.ok(compare(get(obj2, path), 2));
+  t.ok(compare(path, ['a', 'aa', 'aaa']));
+  t.end();
+});
+
 /* eslint-disable no-undef*/
 if (typeof Symbol === 'function') {
   test('works with symbols', function(t) {
