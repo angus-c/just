@@ -1,8 +1,9 @@
 {
   "name": "just-permutations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Returns all permutations of the length N of the elements of the given Array",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
