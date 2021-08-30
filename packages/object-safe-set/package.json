@@ -1,6 +1,6 @@
 {
   "name": "just-safe-set",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "set value at property, create intermediate properties if necessary",
   "main": "index.js",
   "types": "index.d.ts",
