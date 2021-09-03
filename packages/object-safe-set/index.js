@@ -58,6 +58,9 @@ function set(obj, propsArg, value) {
 }
 
 function prototypeCheck(prop) {
+    if (typeof prop !== 'string' && typeof prop !== 'number') {
+    prop = String(prop)
+  }
   if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
     throw new Error('setting of prototype values not supported');
   }
