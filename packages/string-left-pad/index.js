@@ -18,7 +18,7 @@ module.exports = leftPad;
 
 var surrogatePairRegEx = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
 
-function leftPad(str, length, padStr) {
+function leftPad(str, length, padStr = ' ') {
   if (
     typeof str != 'string' ||
     (arguments.length > 2 && typeof padStr != 'string') ||
