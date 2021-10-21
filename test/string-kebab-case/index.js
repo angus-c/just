@@ -25,9 +25,11 @@ test('string with mixed spaces and punctuation', function(t) {
 });
 
 test('string with capitalization', function(t) {
-  t.plan(3);
+  t.plan(4);
   t.equal(kebabCase('theQuickBrownFox'), 'the-quick-brown-fox');
   t.equal(kebabCase('the QuickBrown Fox'), 'the-quick-brown-fox');
-  t.equal(kebabCase('The quick brown FOX'), 'the-quick-brown-f-o-x');
+  t.equal(kebabCase('The quick brown FOX'), 'the-quick-brown-fox');
+  t.equal(kebabCase('MapGLBeta'), 'map-gl-beta');
+  t.equal(kebabCase('MapGLB-_-eta'), 'map-gl-beta');
   t.end();
 });
