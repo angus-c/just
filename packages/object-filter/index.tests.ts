@@ -1,4 +1,4 @@
-import filter = require('./index');
+import filter from './index'
 
 // OK
 filter({a: 5}, (_key: string, _val: number) => true);

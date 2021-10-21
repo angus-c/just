@@ -1,4 +1,4 @@
-import index = require('./index');
+import index from './index'
 
 // OK
 index([ { a: 5 }, { a: 6 } ], 'a');

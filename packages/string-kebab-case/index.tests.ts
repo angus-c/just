@@ -1,18 +1,18 @@
-import kebabCase = require("./index");
+import kebabCase from './index'
 
 // OK
 kebabCase('myString');
 
 // Not OK
 // @ts-expect-error
-kebabCase(); 
+kebabCase();
 // @ts-expect-error
-kebabCase(0); 
+kebabCase(0);
 // @ts-expect-error
-kebabCase([]); 
+kebabCase([]);
 // @ts-expect-error
-kebabCase({}); 
+kebabCase({});
 // @ts-expect-error
-kebabCase(/nope/); 
+kebabCase(/nope/);
 // @ts-expect-error
-kebabCase(false); 
+kebabCase(false);

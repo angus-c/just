@@ -1,18 +1,18 @@
-import capitalize = require("./index");
+import capitalize from './index'
 
 // OK
 capitalize('myString');
 
 // Not OK
 // @ts-expect-error
-capitalize(); 
+capitalize();
 // @ts-expect-error
-capitalize(0); 
+capitalize(0);
 // @ts-expect-error
-capitalize([]); 
+capitalize([]);
 // @ts-expect-error
-capitalize({}); 
+capitalize({});
 // @ts-expect-error
-capitalize(/nope/); 
+capitalize(/nope/);
 // @ts-expect-error
-capitalize(false); 
+capitalize(false);
