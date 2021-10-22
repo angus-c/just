@@ -1,4 +1,4 @@
-import { memoize } from './index';
+import memoize from './index';
 
 const testfn = (a: string, b: number) => { return a + b}
 //only memoize on a
