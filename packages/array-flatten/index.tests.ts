@@ -1,4 +1,4 @@
-import flatten = require('./index');
+import flatten from './index'
 
 // OK
 flatten([1, 2, 3]);

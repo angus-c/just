@@ -1,4 +1,4 @@
-import pick = require("./index");
+import pick from './index'
 
 const a = "a";
 const b = "b";
@@ -18,22 +18,22 @@ pick(obj, a, b); // $ExpectType Pick<{ a: string; b: string; }, "a" | "b">
 
 // Not OK
 // @ts-expect-error
-pick(obj, [a, b, c]); 
+pick(obj, [a, b, c]);
 // @ts-expect-error
-pick(obj, a, b, c); 
+pick(obj, a, b, c);
 // @ts-expect-error
-pick(); 
+pick();
 // @ts-expect-error
-pick(obj); 
+pick(obj);
 // @ts-expect-error
-pick(obj, 0); 
+pick(obj, 0);
 // @ts-expect-error
-pick(obj, false); 
+pick(obj, false);
 // @ts-expect-error
-pick(obj); 
+pick(obj);
 // @ts-expect-error
-pick(obj); 
+pick(obj);
 // @ts-expect-error
-pick(obj, {}); 
+pick(obj, {});
 // @ts-expect-error
-pick(obj, () => {}); 
+pick(obj, () => {});

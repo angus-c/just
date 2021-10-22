@@ -1,4 +1,4 @@
-// Definitions by: Dominik Rowicki <https://github.com/papermana> 
+// Definitions by: Dominik Rowicki <https://github.com/papermana>
 // Modified by: Angus Croll <https://github.com/angus-c>
 
 declare type options = {
@@ -13,4 +13,4 @@ type Methods = {
 
 declare function throttle<Func extends (...args: any[]) => any>(fn: Func, interval: number, options?: options): Func & Methods;
 
-export = throttle;
+export default throttle;
