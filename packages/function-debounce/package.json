@@ -1,6 +1,6 @@
 {
   "name": "just-debounce-it",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "return a debounced function",
   "main": "index.js",
   "types": "index.d.ts",
