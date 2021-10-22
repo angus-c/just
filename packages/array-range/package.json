@@ -1,6 +1,6 @@
 {
   "name": "just-range",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Generate a range array for numbers",
   "main": "index.js",
   "types": "index.d.ts",

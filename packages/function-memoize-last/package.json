@@ -1,6 +1,6 @@
 {
   "name": "just-memoize-last",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A memoize implementation that only caches the most recent evaluation",
   "main": "index.js",
   "types": "index.d.ts",

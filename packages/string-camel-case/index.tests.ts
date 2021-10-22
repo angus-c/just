@@ -1,18 +1,18 @@
-import camelCase = require("./index");
+import camelCase from './index'
 
 // OK
 camelCase('myString');
 
 // Not OK
 // @ts-expect-error
-camelCase(); 
+camelCase();
 // @ts-expect-error
-camelCase(0); 
+camelCase(0);
 // @ts-expect-error
-camelCase([]); 
+camelCase([]);
 // @ts-expect-error
-camelCase({}); 
+camelCase({});
 // @ts-expect-error
-camelCase(/nope/); 
+camelCase(/nope/);
 // @ts-expect-error
-camelCase(false); 
+camelCase(false);
