@@ -14,7 +14,8 @@
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild index.js --bundle --platform=browser --format=esm --outfile=index.esm.js"
+    "build": "esbuild index.js --bundle --format=esm --outfile=index.esm.js",
+    "build:rollup": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
