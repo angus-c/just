@@ -5,7 +5,7 @@ test('string defaulted with default suffix', function(t) {
   t.plan(1);
   var str = 'when shall we three meet again';
   var result = truncate(str, 9);
-  t.equal(result, 'when s…');
+  t.equal(result, 'when s...');
   t.end();
 });
 

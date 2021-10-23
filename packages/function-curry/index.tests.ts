@@ -1,4 +1,4 @@
-import curry = require("./index");
+import curry from './index'
 
 function add(a: number, b: number, c: number) {
   return a + b + c;

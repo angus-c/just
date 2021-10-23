@@ -6,7 +6,7 @@ type MethodTypes = {
   flush: () => void;
 }
 
-export = debounce;
+export default debounce;
 
 declare function debounce<T extends Function>(
   fn: T,

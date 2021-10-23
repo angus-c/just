@@ -1,6 +1,6 @@
 {
   "name": "just-snake-case",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "convert a string to snake case",
   "main": "index.js",
   "types": "index.d.ts",

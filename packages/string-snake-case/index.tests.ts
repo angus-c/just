@@ -1,18 +1,18 @@
-import snakeCase = require("./index");
+import snakeCase from './index'
 
 // OK
 snakeCase('myString');
 
 // Not OK
 // @ts-expect-error
-snakeCase(); 
+snakeCase();
 // @ts-expect-error
-snakeCase(0); 
+snakeCase(0);
 // @ts-expect-error
-snakeCase([]); 
+snakeCase([]);
 // @ts-expect-error
-snakeCase({}); 
+snakeCase({});
 // @ts-expect-error
-snakeCase(/nope/); 
+snakeCase(/nope/);
 // @ts-expect-error
-snakeCase(false); 
+snakeCase(false);

@@ -1,4 +1,4 @@
-import sortBy = require('./index');
+import sortBy from './index'
 
 // OK
 sortBy(['a', 'b', 'c']);

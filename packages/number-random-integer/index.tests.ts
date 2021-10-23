@@ -1,4 +1,4 @@
-import random = require('./index');
+import random from './index'
 
 // OK
 random();

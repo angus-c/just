@@ -1,4 +1,4 @@
-import debounce = require("./index");
+import debounce from './index'
 
 // OK
 debounce(() => {});

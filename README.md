@@ -91,7 +91,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-mode](#just-mode)
   - [just-percentile](#just-percentile)
   - [just-variance](#just-variance)
-  - [just-stdev](#just-stdev)
+  - [just-standard-deviation](#just-standard-deviation)
   - [just-skewness](#just-skewness)
 - [Strings](#strings) ""
   - [just-template](#just-template)
