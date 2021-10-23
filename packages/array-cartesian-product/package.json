@@ -2,10 +2,19 @@
   "name": "just-cartesian-product",
   "version": "3.0.0",
   "description": "Cartesian product of arrays",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild index.js --bundle --platform=browser --format=esm --outfile=index.esm.js"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

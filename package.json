@@ -7,6 +7,7 @@
     "test": "test"
   },
   "devDependencies": {
+    "esbuild": "0.13.8",
     "eslint": "6.8.0",
     "lerna": "3.20.2",
     "tap-spec": "5.0.0",
@@ -14,6 +15,7 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
+    "build": "lerna run build --stream $@",
     "lint": "eslint .",
     "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
     "test-types": "tsc packages/**/*.tests.ts --noEmit --strictNullChecks"
