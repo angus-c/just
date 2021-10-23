@@ -1,4 +1,4 @@
-import memoizeLast = require("./index");
+import memoizeLast from './index'
 
 // OK
 memoizeLast((a: {languages: ['js', 'lua', 'python']}) => a);

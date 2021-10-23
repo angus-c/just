@@ -1,4 +1,4 @@
-import range = require('./index');
+import range from './index'
 
 // OK
 range(5);

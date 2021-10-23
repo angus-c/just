@@ -1,6 +1,6 @@
 {
   "name": "just-kebab-case",
-  "version": "1.2.0",
+  "version": "3.0.0",
   "description": "convert a string to kebab case",
   "main": "index.js",
   "types": "index.d.ts",

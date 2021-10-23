@@ -1,6 +1,6 @@
 {
   "name": "just-extend",
-  "version": "4.2.1",
+  "version": "5.0.0",
   "description": "extend an object",
   "main": "index.js",
   "types": "index.d.ts",
