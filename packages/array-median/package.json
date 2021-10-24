@@ -2,10 +2,19 @@
   "name": "just-median",
   "version": "1.0.3",
   "description": "return the median value of an array of numbers",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
