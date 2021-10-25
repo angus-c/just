@@ -1,6 +1,6 @@
-type PropertyKey = string | symbol
-type Stringifyable = {
-  toString: () => string
-}
-
-export default function groupBy<T>(arr: T[], cb: (arg: T) => Stringifyable): { [key in PropertyKey]: T[] }
+/**
+ * Groups items in array, using {@link resolver} to get the key to group by.
+ * @param arr the array to group
+ * @param resolver function used to resolve group key
+ */
+export default function groupBy<T>(arr: T[], resolver: (arg: T) => keyof any): Record<keyof any, T[]>

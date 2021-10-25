@@ -8,13 +8,13 @@ median(1)
 median(1, 2)
 median(1, 2, 3)
 
+//OK but throws
+median()
+median([])
+
 // Not OK
 // @ts-expect-error
-median()
-// @ts-expect-error
 median(null)
-// @ts-expect-error
-median([])
 // @ts-expect-error
 median([true])
 // @ts-expect-error

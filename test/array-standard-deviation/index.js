@@ -1,5 +1,5 @@
 var test = require('../util/test')(__filename);
-var stdev = require('../../packages/array-stdev');
+var stdev = require('../../packages/array-standard-deviation');
 
 test('array of numbers returns standard deviation', function(t) {
   t.plan(4);
