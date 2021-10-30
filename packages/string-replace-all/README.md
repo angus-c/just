@@ -4,7 +4,7 @@ Part of a [library](../../../../) of zero-dependency npm modules that do just do
 Guilt-free utilities for every occasion.
 
 ```
-  import replaceAll from 'just-replace-all;
+  import replaceAll from 'just-replace-all';
 
 /*
   replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'
