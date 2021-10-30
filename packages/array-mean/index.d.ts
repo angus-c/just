@@ -1,2 +1,6 @@
-export default function mean(arr: [number, ...number[]]): number
-export default function mean(arg1: number, ...args: number[]): number
+/**
+ * Finds the mean of a set of numbers
+ * @throws {Error} if array is empty
+ */
+export default function mean(arr: number[]): number;
+export default function mean(...arr: number[]): number;

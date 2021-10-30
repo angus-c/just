@@ -7,7 +7,7 @@ const test3: (string | boolean)[][] = permutations(['a', true])
 const test4: (string | boolean | number)[][] = permutations([true, 'a', 1, false])
 
 const numbers: number[] = []
-let test5: number[] = permutations(numbers)
+let test5: number[][] = permutations(numbers)
 
 // Not OK
 // @ts-expect-error
