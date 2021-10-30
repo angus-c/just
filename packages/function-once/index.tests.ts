@@ -1,4 +1,4 @@
-import { once } from './index';
+import once from './index';
 
 {
 	const plusOne = (num: number) => num + 1

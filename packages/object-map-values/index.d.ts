@@ -1,3 +1,11 @@
-// Definitions by: Roman Lerchster <https://github.com/wa4-fearless-otter>
-declare function map<T extends {}>(item: T, callback: (value: any, key: string, object: T) => any): {};
-export = map;
+// Original definitions by: Roman Lerchster <https://github.com/wa4-fearless-otter>
+declare function mapValues<TInput extends {}, TMappedValue>(
+  item: TInput,
+  callback: (
+    value: TInput[keyof TInput],
+    key: keyof TInput,
+    object: TInput
+  ) => TMappedValue
+): { [k in keyof TInput]: ReturnType<typeof callback> };
+
+export default mapValues;

@@ -7,11 +7,12 @@ test1 = mean(1, 2, 3, 2, 4, 1);
 test1 = mean([4]);
 test1 = mean(4);
 
-// Not OK
-// @ts-expect-error
-mean()
-// @ts-expect-error
+// OK but throws
 mean([])
+mean()
+
+// Not OK
+
 // @ts-expect-error
 mean([1, '2', 3, 4]);
 // @ts-expect-error

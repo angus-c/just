@@ -23,7 +23,7 @@ test('works without placeholders', function(t) {
 test('works when number of runtime arguments exceeds number of placehoders', function(
   t
 ) {
-  t.plan(3);
+  t.plan(5);
   function max() {
     return Math.max.apply(null, arguments);
   }
@@ -31,6 +31,20 @@ test('works when number of runtime arguments exceeds number of placehoders', fun
   t.equal(atLeast4(3, 5), 5);
   t.equal(atLeast4(3, 2), 4);
   t.equal(atLeast4(1, 2, 3, 4, 5), 5);
+
+  var log;
+  function logAllArgs(a, b, c) {
+    log = [...arguments];
+  }
+
+  var logAllOverride = partial(logAllArgs, 1, undefined, 3);
+  logAllOverride(2, 4, 5);
+  t.deepEqual(log, [1, 2, 3, 4, 5]);
+
+  var logAllOverride = partial(logAllArgs, 1);
+  logAllOverride(2, 3, 4);
+  t.deepEqual(log, [1, 2, 3, 4]);
+
   t.end();
 });
 

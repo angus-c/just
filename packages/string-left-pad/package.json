@@ -1,8 +1,9 @@
 {
   "name": "just-left-pad",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "add characters to the left of a string such that its total length is n",
   "main": "index.min.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

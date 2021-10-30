@@ -1,6 +1,6 @@
 {
   "name": "just-compact",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "returns a copy of an array with falsey values removed",
   "main": "index.js",
   "types": "index.d.ts",

@@ -1,5 +1,9 @@
-type ArrayWithLastType<Last> = [...unknown[], Last]
-
-export default function last(arr: []): undefined
-export default function last<Last>(arr: ArrayWithLastType<Last>): Last
-export default function last<Last>(arr: ArrayWithLastType<Last> | []): Last | undefined
+/**
+ * returns the last item in an array
+ * @example
+ * last([0, 1, 2, 3])
+ * // => 3
+ * last([])
+ * // => undefined
+ */
+export default function last<T>(arr: T[]): T;

@@ -1,4 +1,4 @@
-import merge = require('./index');
+import merge from './index'
 
 // OK
 

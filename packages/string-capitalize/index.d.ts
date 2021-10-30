@@ -1,2 +1,2 @@
-declare function capitalize(value: string): string;
-export = capitalize;
+declare function capitalize<T extends string>(value: T): Capitalize<T>;
+export default capitalize;

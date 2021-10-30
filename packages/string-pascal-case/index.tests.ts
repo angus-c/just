@@ -1,18 +1,18 @@
-import pascalCase = require("./index");
+import pascalCase from './index'
 
 // OK
 pascalCase('myString');
 
 // Not OK
 // @ts-expect-error
-pascalCase(); 
+pascalCase();
 // @ts-expect-error
-pascalCase(0); 
+pascalCase(0);
 // @ts-expect-error
-pascalCase([]); 
+pascalCase([]);
 // @ts-expect-error
-pascalCase({}); 
+pascalCase({});
 // @ts-expect-error
-pascalCase(/nope/); 
+pascalCase(/nope/);
 // @ts-expect-error
-pascalCase(false); 
+pascalCase(false);

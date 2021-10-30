@@ -13,35 +13,41 @@ function isArray(item) {
   return false;
 }
 
-function baseProduct(arr1, arr2) {
-  var output = [];
+function baseProduct(prevProduct, arr2) {
+  //pre allocate all our memory
+  var newProduct = new Array(prevProduct.length * arr2.length);
 
-  for (var i = 0; i < arr1.length; i++) {
-    var item = isArray(arr1[i]) ? arr1[i] : [arr1[i]];
-
+  for (var i = 0; i < prevProduct.length; i++) {
     for (var j = 0; j < arr2.length; j++) {
-      var items = item.concat([arr2[j]]);
-      output.push(items);
+      //always provide array to array.concat for consistent behavior
+      newProduct[i * arr2.length + j] = prevProduct[i].concat([arr2[j]]);
     }
   }
-
-  return output;
+  return newProduct;
 }
 
 function cartesianProduct(arr) {
   if (!isArray(arr)) {
-    throw new Error('just-array-product expects an array');
+    throw new Error('just-cartesian-product expects an array');
   }
 
   if (!arr.length) {
     return [];
   }
 
-  var output = arr[0];
-
-  for (var i = 1; i < arr.length; i++) {
-    output = baseProduct(output, arr[i]);
+  if(!isArray(arr[0])) {
+    throw new Error('set at index 0 must be an array');
   }
 
-  return output;
+  //initialize our product array
+  var product = arr[0].map(function(v) { return [v]; });
+
+  for (var i = 1; i < arr.length; i++) {
+    if(!isArray(product)) {
+      throw new Error('set at index ' + i + ' must be an array');
+    }
+    product = baseProduct(product, arr[i]);
+  }
+
+  return product;
 }
