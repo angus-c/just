@@ -1,6 +1,6 @@
 import map from './index'
 
-const obj = {foo: {bar: []}};
+const obj = {foo: 1};
 
 // OK
 map(obj, (value) => value + 1);
