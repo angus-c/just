@@ -1,6 +1,6 @@
 {
   "name": "just-skewness",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "return the skewness of an array or numeric argument list using Pearson's second skewness coefficient",
   "type": "commonjs",
   "main": "index.js",

@@ -1,6 +1,6 @@
 {
   "name": "just-zip-it",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "returns an array of grouped elements, taking n-th element from every given array",
   "type": "commonjs",
   "main": "index.js",

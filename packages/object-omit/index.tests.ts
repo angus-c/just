@@ -1,4 +1,4 @@
-import { omit } from './index';
+import omit from './index';
 
 const obj = {
 	a: 1,
