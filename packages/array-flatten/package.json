@@ -2,7 +2,6 @@
   "name": "just-flatten-it",
   "version": "4.2.0",
   "description": "return a flattened array",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

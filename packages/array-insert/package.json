@@ -2,7 +2,6 @@
   "name": "just-insert",
   "version": "2.4.0",
   "description": "Inserts a sub-array into an array starting at the given index. Returns a copy",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
