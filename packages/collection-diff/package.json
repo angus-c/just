@@ -1,11 +1,20 @@
 {
   "name": "just-diff",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Return an object representing the diffs between two objects. Supports jsonPatch protocol",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

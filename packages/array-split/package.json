@@ -1,11 +1,20 @@
 {
   "name": "just-split",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Splits array into groups of n items each",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

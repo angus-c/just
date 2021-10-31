@@ -1,10 +1,19 @@
 {
   "name": "just-map-keys",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "map an object, predicate updates keys, receives (value, key, object)",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

@@ -1,11 +1,20 @@
 {
   "name": "just-clamp",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "restrict a number within a range",
+  "type": "commonjs",
   "main": "index.js",
+  "module": "index.esm.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.esm.js"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
