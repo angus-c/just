@@ -2,7 +2,6 @@
   "name": "just-clamp",
   "version": "3.3.0",
   "description": "restrict a number within a range",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
