@@ -1,6 +1,6 @@
 {
   "name": "just-map-values",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "map an object, predicate updates values, receives (value, key, object)",
   "type": "commonjs",
   "main": "index.js",

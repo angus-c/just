@@ -1,6 +1,6 @@
 {
   "name": "just-is-circular",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "determine if an object contains a circular reference",
   "type": "commonjs",
   "main": "index.js",

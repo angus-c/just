@@ -1,6 +1,6 @@
 {
   "name": "just-is-empty",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "return true if object has no enumerable key values",
   "type": "commonjs",
   "main": "index.js",

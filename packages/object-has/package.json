@@ -1,6 +1,6 @@
 {
   "name": "just-has",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "return a boolen indicating the existence of a deep property, don't throw if parent is undefined",
   "type": "commonjs",
   "main": "index.js",

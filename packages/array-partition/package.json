@@ -1,6 +1,6 @@
 {
   "name": "just-partition",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Elements satisfying predicate added to first array, remainder added to second",
   "type": "commonjs",
   "main": "index.js",

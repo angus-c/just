@@ -1,6 +1,6 @@
 {
   "name": "just-remove",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "removes one array from another",
   "type": "commonjs",
   "main": "index.js",

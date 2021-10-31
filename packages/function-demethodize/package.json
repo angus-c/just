@@ -1,6 +1,6 @@
 {
   "name": "just-demethodize",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
   "type": "commonjs",
   "main": "index.js",
