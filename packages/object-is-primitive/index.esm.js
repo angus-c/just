@@ -19,4 +19,4 @@ function isPrimitive(obj) {
   return obj !== Object(obj);
 }
 
-export { objectIsPrimitive as default };
+export {objectIsPrimitive as default};

@@ -20,4 +20,4 @@ function intersect(arr1, arr2) {
   return result;
 }
 
-export { arrayIntersect as default };
+export {arrayIntersect as default};

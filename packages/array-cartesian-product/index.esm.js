@@ -52,4 +52,4 @@ function cartesianProduct(arr) {
   return product;
 }
 
-export { arrayCartesianProduct as default };
+export {arrayCartesianProduct as default};

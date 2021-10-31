@@ -23,4 +23,4 @@ function pick(obj, select) {
   return result;
 }
 
-export { objectPick as default };
+export {objectPick as default};

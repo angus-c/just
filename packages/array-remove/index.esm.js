@@ -19,4 +19,4 @@ function remove(arr1, arr2) {
   return result;
 }
 
-export { arrayRemove as default };
+export {arrayRemove as default};

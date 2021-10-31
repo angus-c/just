@@ -39,4 +39,4 @@ function curry(fn, arity) {
   };
 }
 
-export { functionCurry as default };
+export {functionCurry as default};

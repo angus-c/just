@@ -41,4 +41,4 @@ function percentile(arr, percentileValue) {
   }
 }
 
-export { arrayPercentile as default };
+export {arrayPercentile as default};
