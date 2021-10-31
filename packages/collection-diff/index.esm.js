@@ -65,12 +65,12 @@
 */
 
 function diff(obj1, obj2, pathConverter) {
-  if (!obj1 || typeof obj1 != "object" || !obj2 || typeof obj2 != "object") {
-    throw new Error("both arguments must be objects or arrays");
+  if (!obj1 || typeof obj1 != 'object' || !obj2 || typeof obj2 != 'object') {
+    throw new Error('both arguments must be objects or arrays');
   }
 
   pathConverter ||
-    (pathConverter = function (arr) {
+    (pathConverter = function(arr) {
       return arr;
     });
 
@@ -86,7 +86,7 @@ function diff(obj1, obj2, pathConverter) {
       if (!(key in obj2)) {
         path = basePath.concat(key);
         diffs.remove.push({
-          op: "remove",
+          op: 'remove',
           path: pathConverter(path),
         });
       }
@@ -100,7 +100,7 @@ function diff(obj1, obj2, pathConverter) {
         path = basePath.concat(key);
         var obj2Value = obj2[key];
         diffs.add.push({
-          op: "add",
+          op: 'add',
           path: pathConverter(path),
           value: obj2Value,
         });
@@ -126,13 +126,13 @@ function diff(obj1, obj2, pathConverter) {
 
     return diffs.remove.reverse().concat(diffs.replace).concat(diffs.add);
   }
-  return getDiff(obj1, obj2, [], { remove: [], replace: [], add: [] });
+  return getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
 }
 
 function pushReplace(path, basePath, key, diffs, pathConverter, obj2) {
   path = basePath.concat(key);
   diffs.replace.push({
-    op: "replace",
+    op: 'replace',
     path: pathConverter(path),
     value: obj2[key],
   });
@@ -140,7 +140,7 @@ function pushReplace(path, basePath, key, diffs, pathConverter, obj2) {
 }
 
 function jsonPatchPathConverter(arrayPath) {
-  return [""].concat(arrayPath).join("/");
+  return [''].concat(arrayPath).join('/');
 }
 
-export { diff, jsonPatchPathConverter };
+export {diff, jsonPatchPathConverter};

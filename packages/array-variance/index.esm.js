@@ -27,4 +27,4 @@ function variance(arr) {
   return acc / (len - 1);
 }
 
-export { arrayVariance as default };
+export {arrayVariance as default};

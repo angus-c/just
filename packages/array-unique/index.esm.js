@@ -60,4 +60,4 @@ function stringUnique(arr) {
   return Object.keys(lookup);
 }
 
-export { arrayUnique as default };
+export {arrayUnique as default};

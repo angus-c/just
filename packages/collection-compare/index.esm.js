@@ -83,4 +83,4 @@ function compareObjects(value1, value2) {
   return true;
 }
 
-export { collectionCompare as default };
+export {collectionCompare as default};
