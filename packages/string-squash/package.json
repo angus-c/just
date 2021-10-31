@@ -2,7 +2,6 @@
   "name": "just-squash",
   "version": "1.2.0",
   "description": "remove all spaces from a string, optionally remove escape sequences too",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,7 +2,6 @@
   "name": "just-kebab-case",
   "version": "3.1.0",
   "description": "convert a string to kebab case",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

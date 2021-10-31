@@ -2,7 +2,6 @@
   "name": "just-map-object",
   "version": "1.3.0",
   "description": "map an object, passing key and value to predicates",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

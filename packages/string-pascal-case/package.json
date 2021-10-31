@@ -2,7 +2,6 @@
   "name": "just-pascal-case",
   "version": "2.1.0",
   "description": "convert a string to pascal case",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

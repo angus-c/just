@@ -2,7 +2,6 @@
   "name": "just-split-at",
   "version": "2.3.0",
   "description": "splits an array into two at a given position",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

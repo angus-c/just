@@ -2,7 +2,6 @@
   "name": "just-curry-it",
   "version": "4.1.0",
   "description": "return a curried function",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
