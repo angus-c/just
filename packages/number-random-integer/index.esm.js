@@ -23,4 +23,4 @@ function random(lower, upper) {
   );
 }
 
-export { numberRandomInteger as default };
+export {numberRandomInteger as default};

@@ -28,4 +28,4 @@ function pascalCase(str) {
   return mappedWords.join('');
 }
 
-export { stringPascalCase as default };
+export {stringPascalCase as default};

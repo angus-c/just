@@ -28,4 +28,4 @@ function split(arr, n) {
   return groups;
 }
 
-export { arraySplit as default };
+export {arraySplit as default};
