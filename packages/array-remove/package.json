@@ -2,6 +2,7 @@
   "name": "just-remove",
   "version": "2.2.1",
   "description": "removes one array from another",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

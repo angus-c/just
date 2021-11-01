@@ -2,6 +2,7 @@
   "name": "just-index",
   "version": "3.2.1",
   "description": "return an object from an array, keyed by the value at the given id",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-range",
   "version": "3.1.1",
   "description": "Generate a range array for numbers",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

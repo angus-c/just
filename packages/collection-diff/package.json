@@ -2,6 +2,7 @@
   "name": "just-diff",
   "version": "4.1.2",
   "description": "Return an object representing the diffs between two objects. Supports jsonPatch protocol",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

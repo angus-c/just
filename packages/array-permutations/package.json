@@ -2,6 +2,7 @@
   "name": "just-permutations",
   "version": "1.2.1",
   "description": "Returns all permutations of the length N of the elements of the given Array",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

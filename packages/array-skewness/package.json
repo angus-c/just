@@ -2,6 +2,7 @@
   "name": "just-skewness",
   "version": "1.2.1",
   "description": "return the skewness of an array or numeric argument list using Pearson's second skewness coefficient",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-sort-by",
   "version": "2.1.1",
   "description": "Produces a new array, sorted in ascending order",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

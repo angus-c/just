@@ -2,6 +2,7 @@
   "name": "just-compare",
   "version": "1.5.1",
   "description": "compare two collections",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

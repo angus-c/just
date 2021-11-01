@@ -2,6 +2,7 @@
   "name": "just-filter-object",
   "version": "2.1.1",
   "description": "filter an object",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

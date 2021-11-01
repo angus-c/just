@@ -2,6 +2,7 @@
   "name": "just-omit",
   "version": "1.4.1",
   "description": "copy an object but omit the specified keys",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-demethodize",
   "version": "2.2.1",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

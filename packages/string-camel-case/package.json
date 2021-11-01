@@ -2,6 +2,7 @@
   "name": "just-camel-case",
   "version": "5.1.1",
   "description": "convert a string to camel case",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

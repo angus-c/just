@@ -2,6 +2,7 @@
   "name": "just-compose",
   "version": "1.2.1",
   "description": "return a function composed of 2 or more functions",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-snake-case",
   "version": "2.1.1",
   "description": "convert a string to snake case",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

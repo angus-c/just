@@ -2,6 +2,7 @@
   "name": "just-clone",
   "version": "4.1.1",
   "description": "deep copies objects and arrays",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

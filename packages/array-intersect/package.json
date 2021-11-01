@@ -2,6 +2,7 @@
   "name": "just-intersect",
   "version": "3.4.1",
   "description": "return the intersect of two arrays",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
