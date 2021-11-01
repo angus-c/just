@@ -1,6 +1,6 @@
 {
   "name": "just-remove",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "removes one array from another",
   "main": "index.js",
   "module": "index.esm.js",

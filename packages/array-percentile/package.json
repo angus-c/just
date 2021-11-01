@@ -1,6 +1,6 @@
 {
   "name": "just-percentile",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "return the value at the given percentile (using linear interpolation)",
   "main": "index.js",
   "module": "index.esm.js",

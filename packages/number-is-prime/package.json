@@ -1,6 +1,6 @@
 {
   "name": "just-is-prime",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Check if number is prime",
   "main": "index.js",
   "module": "index.esm.js",

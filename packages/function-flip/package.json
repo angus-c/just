@@ -1,6 +1,6 @@
 {
   "name": "just-flip",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "flip first two arguments of a function",
   "main": "index.js",
   "module": "index.esm.js",

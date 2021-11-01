@@ -1,6 +1,6 @@
 {
   "name": "just-intersect",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "return the intersect of two arrays",
   "main": "index.js",
   "module": "index.esm.js",

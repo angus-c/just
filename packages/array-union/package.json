@@ -1,6 +1,6 @@
 {
   "name": "just-union",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "returns the union of two arrays",
   "main": "index.js",
   "module": "index.esm.js",
