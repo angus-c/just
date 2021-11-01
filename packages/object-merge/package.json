@@ -1,6 +1,6 @@
 {
   "name": "just-merge",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "shallow extend an object",
   "main": "index.js",
   "module": "index.esm.js",

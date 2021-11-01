@@ -1,6 +1,6 @@
 {
   "name": "just-tail",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "return all but the first element of an array",
   "main": "index.js",
   "module": "index.esm.js",
