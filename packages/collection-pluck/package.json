@@ -2,6 +2,7 @@
   "name": "just-pluck-it",
   "version": "1.3.0",
   "description": "pluck a property from each member of a collection",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

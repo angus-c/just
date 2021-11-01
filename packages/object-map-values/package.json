@@ -2,6 +2,7 @@
   "name": "just-map-values",
   "version": "2.2.0",
   "description": "map an object, predicate updates values, receives (value, key, object)",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

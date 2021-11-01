@@ -2,6 +2,7 @@
   "name": "just-right-pad",
   "version": "2.2.0",
   "description": "add characters to the right of a string such that its total length is n",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

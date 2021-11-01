@@ -2,6 +2,7 @@
   "name": "just-has",
   "version": "1.1.0",
   "description": "return a boolen indicating the existence of a deep property, don't throw if parent is undefined",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

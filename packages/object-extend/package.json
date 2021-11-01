@@ -2,6 +2,7 @@
   "name": "just-extend",
   "version": "5.1.0",
   "description": "extend an object",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

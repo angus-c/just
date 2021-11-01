@@ -2,6 +2,7 @@
   "name": "just",
   "version": "1.22.4",
   "description": "A library of simple dependency-free utilities that do just do one thing",
+  "type": "module",
   "main": "index.js",
   "directories": {
     "test": "test"

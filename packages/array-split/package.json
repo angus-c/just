@@ -2,6 +2,7 @@
   "name": "just-split",
   "version": "2.3.0",
   "description": "Splits array into groups of n items each",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

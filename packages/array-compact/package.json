@@ -2,6 +2,7 @@
   "name": "just-compact",
   "version": "2.4.0",
   "description": "returns a copy of an array with falsey values removed",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-random",
   "version": "2.2.0",
   "description": "return a randomly selected element in an array",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

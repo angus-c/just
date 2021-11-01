@@ -2,6 +2,7 @@
   "name": "just-typeof",
   "version": "2.1.0",
   "description": "type inferer",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

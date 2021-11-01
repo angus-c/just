@@ -2,6 +2,7 @@
   "name": "just-group-by",
   "version": "1.3.0",
   "description": "return a grouped object from array",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

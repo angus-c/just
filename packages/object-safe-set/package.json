@@ -2,6 +2,7 @@
   "name": "just-safe-set",
   "version": "3.1.0",
   "description": "set value at property, create intermediate properties if necessary",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

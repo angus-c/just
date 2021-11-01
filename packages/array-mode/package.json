@@ -2,6 +2,7 @@
   "name": "just-mode",
   "version": "1.2.0",
   "description": "return the most frequently occuring number(s)",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -2,6 +2,7 @@
   "name": "just-prune",
   "version": "1.2.0",
   "description": "prune a string with whole words and a custom suffix",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

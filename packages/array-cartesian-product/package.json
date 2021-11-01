@@ -2,6 +2,7 @@
   "name": "just-cartesian-product",
   "version": "3.1.0",
   "description": "Cartesian product of arrays",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

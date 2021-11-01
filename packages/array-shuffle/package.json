@@ -2,6 +2,7 @@
   "name": "just-shuffle",
   "version": "3.2.0",
   "description": "return the elements of an array in random order",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

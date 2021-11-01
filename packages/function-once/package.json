@@ -2,6 +2,7 @@
   "name": "just-once",
   "version": "1.4.0",
   "description": "create a function that can only be invoked once",
+  "type": "module",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
