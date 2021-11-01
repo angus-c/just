@@ -421,7 +421,7 @@ mode([1, 4, 4, -9, 2]);`,
         size: sizes['just-percentile'],
         code: [
           `const percentile = require('just-percentile')\n
-percentile([15, 20, 35, 40, 50], 30);`,
+percentile([15, 20, 35, 40, 50], 0.3);`,
         ],
       },
       'just-variance': {

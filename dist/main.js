@@ -616,7 +616,7 @@ module.exports = {
       },
       'just-percentile': {
         size: sizes['just-percentile'],
-        code: ['const percentile = require(\'just-percentile\')\n\npercentile([15, 20, 35, 40, 50], 30);']
+        code: ['const percentile = require(\'just-percentile\')\n\npercentile([15, 20, 35, 40, 50], 0.3);']
       },
       'just-variance': {
         size: sizes['just-variance'],
