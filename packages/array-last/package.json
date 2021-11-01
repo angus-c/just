@@ -1,8 +1,7 @@
 {
   "name": "just-last",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "return the last member of an array",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

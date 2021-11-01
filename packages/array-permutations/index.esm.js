@@ -37,4 +37,4 @@ function permutations(arr) {
   return output;
 }
 
-export { arrayPermutations as default };
+export {arrayPermutations as default};

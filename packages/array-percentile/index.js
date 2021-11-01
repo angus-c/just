@@ -1,6 +1,6 @@
 module.exports = percentile;
 
-var numericError = 'all values passed to percentile must be numeric'
+var numericError = 'all values passed to percentile must be numeric';
 
 // Percentile (Exlusive) from the nist spec
 function percentile(arr, percentage) {
@@ -15,7 +15,7 @@ function percentile(arr, percentage) {
   }
   //sort doesnt call if length is one. need to check explicitly.
   if (arr.length === 1 && !Number.isFinite(arr[0])) {
-    throw new Error(numericError)
+    throw new Error(numericError);
   }
   var sorted = arr.sort(function(a, b) {
     if (!Number.isFinite(a)) {

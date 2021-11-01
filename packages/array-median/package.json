@@ -1,8 +1,7 @@
 {
   "name": "just-median",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "return the median value of an array of numbers",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

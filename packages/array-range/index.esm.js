@@ -33,4 +33,4 @@ function range(start, stop, step) {
   return toReturn;
 }
 
-export { arrayRange as default };
+export {arrayRange as default};

@@ -15,4 +15,4 @@ function last(arr) {
   return arr[arr.length - 1];
 }
 
-export { arrayLast as default };
+export {arrayLast as default};

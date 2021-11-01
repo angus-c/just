@@ -50,4 +50,4 @@ function memoize(callback, resolver) {
   return memoized;
 }
 
-export { functionMemoize as default };
+export {functionMemoize as default};

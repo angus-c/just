@@ -37,4 +37,4 @@ function deCap(match, endOfWord) {
   return first + arr.join('').toLowerCase() + last;
 }
 
-export { stringCamelCase as default };
+export {stringCamelCase as default};

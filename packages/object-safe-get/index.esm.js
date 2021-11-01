@@ -60,4 +60,4 @@ function get(obj, propsArg, defaultValue) {
   return obj;
 }
 
-export { objectSafeGet as default };
+export {objectSafeGet as default};
