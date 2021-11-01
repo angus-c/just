@@ -58,4 +58,4 @@ function debounce(fn, wait, callFirst) {
   return debounceWrapper;
 }
 
-export { functionDebounce as default };
+export {functionDebounce as default};

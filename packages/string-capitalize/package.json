@@ -1,8 +1,7 @@
 {
   "name": "just-capitalize",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "capitalize the first character of a string",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

@@ -25,4 +25,4 @@ function insert(arr1, arr2, index) {
   return front.concat(arr2, back);
 }
 
-export { arrayInsert as default };
+export {arrayInsert as default};

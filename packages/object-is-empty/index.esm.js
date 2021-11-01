@@ -50,4 +50,4 @@ function isEmpty(obj) {
   return Object(obj) !== obj || !Object.keys(obj).length;
 }
 
-export { objectIsEmpty as default };
+export {objectIsEmpty as default};

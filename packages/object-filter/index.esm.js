@@ -30,4 +30,4 @@ function filter(obj, predicate) {
   return result;
 }
 
-export { objectFilter as default };
+export {objectFilter as default};

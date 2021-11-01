@@ -3,7 +3,7 @@ var percentile = require('../../packages/array-percentile');
 
 test('array of numbers where percentile falls exactly on an index', function(t) {
   t.plan(6);
-  var dataset = [5, 4, 1, 3, 2]
+  var dataset = [5, 4, 1, 3, 2];
   t.equal(percentile(dataset, 0), 1);
   t.equal(percentile(dataset, 0.25), 2);
   t.equal(percentile(dataset, 0.5), 3);
@@ -32,7 +32,7 @@ test('array of numbers where percentile falls between indices', function(t) {
 });
 
 test('array of known data set from spec', function(t) {
-  t.plan(1)
+  t.plan(1);
   //from https://www.itl.nist.gov/div898/handbook/prc/section2/prc262.htm
   var values = [
     95.1772, 95.1567, 95.1937, 95.1959, 95.1442, 95.0610,
@@ -40,7 +40,7 @@ test('array of known data set from spec', function(t) {
   ];
   var expectedPercentile = '95.1957';
   t.equal(percentile(values, 0.90).toFixed(4), expectedPercentile);
-  t.end()
+  t.end();
 });
 
 test('list of numeric arguments throws', function(t) {

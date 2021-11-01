@@ -25,4 +25,4 @@ function groupBy(arr, cb) {
   return result;
 }
 
-export { arrayGroupBy as default };
+export {arrayGroupBy as default};
