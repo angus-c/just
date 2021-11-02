@@ -1,6 +1,6 @@
 {
   "name": "just-shuffle",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "return the elements of an array in random order",
   "main": "index.js",
   "module": "index.esm.js",

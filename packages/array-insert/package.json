@@ -1,6 +1,6 @@
 {
   "name": "just-insert",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Inserts a sub-array into an array starting at the given index. Returns a copy",
   "main": "index.js",
   "module": "index.esm.js",

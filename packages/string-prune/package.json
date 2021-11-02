@@ -1,6 +1,6 @@
 {
   "name": "just-prune",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "prune a string with whole words and a custom suffix",
   "main": "index.js",
   "module": "index.esm.js",

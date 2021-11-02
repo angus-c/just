@@ -1,6 +1,6 @@
 {
   "name": "just-debounce-it",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "return a debounced function",
   "main": "index.js",
   "module": "index.esm.js",
