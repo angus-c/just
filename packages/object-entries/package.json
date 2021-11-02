@@ -1,8 +1,7 @@
 {
   "name": "just-entries",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "return object entries as an array of [key, value] pairs",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

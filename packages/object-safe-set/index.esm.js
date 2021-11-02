@@ -63,4 +63,4 @@ function prototypeCheck(prop) {
   }
 }
 
-export { objectSafeSet as default };
+export {objectSafeSet as default};

@@ -32,4 +32,4 @@ function partition(arr, fn) {
   return [first, second];
 }
 
-export { arrayPartition as default };
+export {arrayPartition as default};

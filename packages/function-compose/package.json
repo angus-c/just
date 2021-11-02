@@ -1,8 +1,7 @@
 {
   "name": "just-compose",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "return a function composed of 2 or more functions",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

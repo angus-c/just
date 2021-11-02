@@ -48,4 +48,4 @@ function sortBy(arr, iteratee) {
   return copied.sort(handleSort(iteratee));
 }
 
-export { arraySortBy as default };
+export {arraySortBy as default};

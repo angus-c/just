@@ -1,8 +1,7 @@
 {
   "name": "just-unique",
-  "version": "3.3.0",
+  "version": "3.4.1",
   "description": "dedupes an array",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

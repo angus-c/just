@@ -14,4 +14,4 @@ function flip(fn) {
   };
 }
 
-export { functionFlip as default };
+export {functionFlip as default};

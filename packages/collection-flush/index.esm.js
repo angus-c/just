@@ -40,4 +40,4 @@ function flush(collection) {
   return undefined;
 }
 
-export { collectionFlush as default };
+export {collectionFlush as default};

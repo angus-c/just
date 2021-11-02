@@ -29,4 +29,4 @@ function stdev(arr) {
   return Math.sqrt(acc / (len - 1));
 }
 
-export { arrayStdev as default };
+export {arrayStdev as default};

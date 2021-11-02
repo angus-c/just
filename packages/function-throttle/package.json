@@ -1,8 +1,7 @@
 {
   "name": "just-throttle",
-  "version": "3.0.0",
+  "version": "3.1.1",
   "description": "return a throttled function",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
