@@ -1,13 +1,16 @@
 {
   "name": "just-camel-case",
-  "version": "5.1.2",
+  "version": "5.1.4",
   "description": "convert a string to camel case",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "exports": {
-    "./esm": "./index.esm.js"
+    ".": {
+      "require": "./index.js",
+      "default": "./esm/index.js"
+    }
   },
-  "module": "index.esm.js",
+  "module": "esm/index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
