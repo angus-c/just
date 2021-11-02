@@ -1,0 +1,94 @@
+{
+  "name": "mailcheck",
+  "version": "3.0.0",
+  "description": "An application to clean your subscription list from bounces, and enrich data about customers.",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build && npm run static:404:cp && npm run static:404:rmdir",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore . && svelte-check",
+    "lint:style": "stylelint \"src/**/*.+(scss|css|svelte)\" --fix",
+    "format": "prettier --write --plugin-search-dir=. .",
+    "postbuild": "node --experimental-json-modules ./generate-sitemap.js",
+    "deploy_hosting": "firebase deploy --only hosting --project=dev",
+    "deploy_functions": "firebase deploy --only functions --project=dev",
+    "deploy_hosting:prod": "firebase deploy --only hosting --project=prod",
+    "deploy:prod": "firebase deploy --project=prod",
+    "deploy_functions:prod": "firebase deploy --only functions --project=prod",
+    "optimize-svg": "find ./src ./static -name '*.svg' -print0 | xargs -0 -P16 -L20 npx svgo",
+    "static:404:cp": "cp build/error/index.html build/404.html",
+    "static:404:rmdir": "rimraf - build/error"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.0",
+    "@nodeart/stylelint-config-nodeart": "0.0.4",
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@types/cookie": "^0.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
+    "autoprefixer": "^10.4.0",
+    "cssnano": "^5.0.8",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "fast-glob": "^3.2.7",
+    "mdsvex": "^0.9.0",
+    "postcss": "^8.3.11",
+    "postcss-load-config": "^3.0.1",
+    "prettier": "~2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
+    "rehype-autolink-headings": "^6.1.0",
+    "rehype-slug": "^5.0.0",
+    "remark-abbr": "^1.4.1",
+    "remark-github": "^11.2.1",
+    "sass": "^1.43.4",
+    "stylelint": "^14.0.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "svelte": "^3.44.1",
+    "svelte-check": "^2.2.8",
+    "svelte-preprocess": "^4.9.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4",
+    "vite-imagetools": "^3.8.0",
+    "xmlbuilder2": "^3.0.2"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/fira-mono": "^4.2.2",
+    "@lukeed/uuid": "^2.0.0",
+    "cookie": "^0.4.1",
+    "just-camel-case": "^5.1.4",
+    "just-map-values": "^2.2.10",
+    "schema-dts": "^1.0.0",
+    "svelte-inview": "^2.0.3",
+    "svelte-slidy": "^2.7.1",
+    "unist-util-visit": "^4.1.0"
+  },
+  "stylelint": {
+    "extends": [
+      "@nodeart/stylelint-config-nodeart",
+      "stylelint-config-prettier"
+    ],
+    "ignoreFiles": [
+      "src/styles/normalize.+(scss|css)",
+      "src/styles/fonts.+(scss|css)",
+      "src/styles/vars.+(scss|css)"
+    ],
+    "rules": {
+      "no-descending-specificity": null,
+      "plugin/no-low-performance-animation-properties": null,
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ]
+    }
+  },
+  "url": "https://www.mailcheck.co/"
+}

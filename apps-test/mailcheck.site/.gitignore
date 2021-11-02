@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+.vscode/
+node_modules
+/.svelte-kit
+/package
+/build
+.env
+*-debug.log
+.firebase

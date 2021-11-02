@@ -1,0 +1,17 @@
+@import '@fontsource/fira-mono';
+
+@if variable-exists(google-fonts-url) {
+  @import url($google-fonts-url);
+}
+
+@if variable-exists(typefaces) {
+  @each $file, $option in $typefaces {
+    @font-face {
+      font-weight: map-get(map-get($typefaces, $file), weight);
+      font-family: map-get(map-get($typefaces, $file), family);
+      font-style: map-get(map-get($typefaces, $file), style);
+      src: url('../fonts/#{$file}.ttf') format('truetype'),
+        url('../fonts/#{$file}.woff') format('woff'), url('../fonts/#{$file}.woff2') format('woff2');
+    }
+  }
+}

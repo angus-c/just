@@ -1,0 +1,196 @@
+:root {
+  --inherit: inherit;
+
+  // fonts
+  --defoult-font: arial, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu,
+    cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  font-family: var(--defoult-font);
+
+  --roboto: 'Roboto', sans-serif;
+  --font-mono: 'Fira Mono', monospace;
+  --letter-spacing: 0.05625rem;
+  --letter-spacing-text: 0.05rem;
+
+  // colors
+  --transparent: rgba(0, 0, 0, 0);
+  --primary-color: #b9c6d2;
+  --secondary-color: #d0dde9;
+  --tertiary-color: #edf0f8;
+  --heading-color: rgba(0, 0, 0, 0.7);
+  --text-color: #444;
+  --background-without-opacity: rgba(255, 255, 255, 0.7);
+  --color-pre-bg: rgba(255, 255, 255, 0.45);
+  --color-pre-global-bg: #f9f9f9;
+  --color-pre-shadow: rgb(255 255 255 / 25%);
+  --color-pre-global-shadow: rgba(0, 0, 0, 0.05);
+  --color-progress: #5fcbd2;
+  --hopbush: #c69;
+  --bouquet: #b37399;
+  --venus: #998099;
+  --patina: #699;
+  --nebula: #d2e1dd;
+  --primary-white: #fff;
+  --dawn-pink: #f2ece4;
+  --wafer: #e1d7d2;
+  --iron: #dadbdf;
+  --regent-grey: #808c99;
+  --pale-sky: #6b717f;
+  --midnight-blue: #036;
+  --black: #000;
+  --color-primary: var(--hopbush);
+  --color-secondary: var(--bouquet);
+  --color-accent: var(--patina);
+  --color-shadow: rgba(var(--black), 0.125);
+  --color-note: #666;
+
+  // Common colors
+  --color-background: var(--primary-white);
+  --color-background-shade: var(--iron);
+  --color-background-invert: var(--hopbush);
+  --color-text: darken(var(--pale-sky), 15);
+  --color-text-weak: var(--regent-grey);
+  --color-text-strong: var(--midnight-blue);
+  --color-text-heading: var(--regent-grey);
+  --color-text-invert: rgba(255, 255, 255, 0.75);
+  --color-text-strong-invert: var(--color-background);
+
+  // Links
+  --color-link: var(--primary-accent);
+  --color-link-hover: var(--midnight-blue);
+  --color-link-visited: var(--bouquet);
+
+  // Code
+  --color-code: #333;
+  --color-code-background: #f3f3f3;
+  --color-pre: #d4d4d4;
+  --color-pre-background: #333;
+
+  // Selections
+  --color-selection: #b3d4fc;
+
+  // Messages
+  --color-message: #f4ecbb;
+  --color-success: #2cde2c;
+  --color-warning: #cf8600;
+  --color-important: #d00;
+  --color-notice: #66b;
+
+  // Mailcheck Landing colors
+  --primary-accent: #1bced4;
+  --dark-01: rgba(255, 255, 255, 0.1);
+  --dark-02: rgba(255, 255, 255, 0.2);
+  --dark-04: rgba(255, 255, 255, 0.4);
+  --dark-05: rgba(255, 255, 255, 0.5);
+  --dark-06: #212121;
+  --light-blue-link: #6495ed;
+  --section-titles-color: rgba(17, 50, 78, 0.2);
+  --pricing-plan-pro: #55baff;
+  --pricing-plan-agency: #1edfd0;
+  --pricing-plan-enterprise: #7d7d7d;
+  --pricing-plan-custom: #e6514e;
+  --pricing-plan-border-pro: rgba(85, 187, 255, 0.5);
+  --pricing-plan-border-agency: rgba(85, 187, 255, 0.5);
+  --pricing-plan-border-enterprise: rgba(85, 187, 255, 0.5);
+  --pricing-plan-border-custom: rgba(85, 187, 255, 0.5);
+  --footer-divider-border: #333;
+  --footer-bg: #03091400;
+  --footer-gradient: linear-gradient(to top, var(--black) 10%, var(--footer-bg) 100%);
+  --light-accent-btn: var(--color-progress);
+  --youtube-red: #ff0000;
+
+  // Gradients
+
+  --gradient-1: #0b182d;
+  --gradient-2: #0b1a31;
+  --gradient-3: #0a172e;
+  --gradient-4: #030914;
+  --gradient-5: #1edfcf;
+  --gradient-6: #5bf;
+  --gradient-7: rgb(10, 23, 46);
+  --gradient-8: rgba(10, 23, 46, 0);
+  --bg-gradient-desc: linear-gradient(
+    to top,
+    var(--black) 1%,
+    var(--gradient-1) 4%,
+    var(--gradient-2) 10%,
+    var(--gradient-3) 50%,
+    var(--gradient-4) 100%
+  );
+  --bg-gradient-mob: linear-gradient(
+    to top,
+    var(--black) 1%,
+    var(--gradient-1) 4%,
+    var(--gradient-2) 10%,
+    var(--gradient-3) 50%,
+    var(--gradient-4) 100%
+  );
+  --card-bg-gradient: linear-gradient(to top, var(--gradient-4) 0%, var(--gradient-4) 100%);
+  --slider-overlay-gradient-left: linear-gradient(
+    90deg,
+    var(--gradient-7) 0%,
+    var(--gradient-8) 100%
+  );
+  --slider-overlay-gradient-right: linear-gradient(
+    -90deg,
+    var(--gradient-7) 0%,
+    var(--gradient-8) 100%
+  );
+  --mob-menu-gradient: linear-gradient(to top, var(--gradient-5) 0%, var(--gradient-6) 100%);
+  --popup-bg-gradient: var(--mob-menu-gradient);
+
+  // font-weight
+  --weight-100: 100;
+  --weight-200: 200;
+  --weight-300: 300;
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-600: 600;
+  --weight-700: 700;
+  --weight-800: 800;
+  --weight-900: 900;
+
+  // sizes
+  --size-0: 0;
+  --size-1: 0.08rem;
+  --size-1-invert: -0.08rem;
+  --size-2: 0.125rem;
+  --size-6: 0.375rem;
+  --size-8: 0.5rem;
+  --size-10: 0.625rem;
+  --size-12: 0.75rem;
+  --size-14: 0.875rem;
+  --size-16: 1rem;
+  --size-18: 1.125rem;
+  --size-20: 1.25rem;
+  --size-22: 1.375rem;
+  --size-24: 1.5rem;
+  --size-28: 1.75rem;
+  --size-30: 1.875rem;
+  --size-32: 2rem;
+  --size-36: 2.25rem;
+  --size-38: 2.375rem;
+  --size-40: 2.5rem;
+  --size-42: 2.625rem;
+  --size-44: 2.75rem;
+  --size-46: 2.875rem;
+  --size-50: 3.125rem;
+  --size-58: 3.625rem;
+  --size-60: 3.75rem;
+  --size-64: 4rem;
+  --size-150: 9.375rem;
+  --size-160: 10rem;
+  --size-880: 55rem;
+  --size-clamped: clamp(2.75rem, 14vw, 16rem);
+  --column-width: 42rem;
+  --column-margin-top: var(--size-64);
+
+  // border-radius
+  --br-rounded: 50%;
+  --br-3: 0.1875rem;
+  --br-10: var(--size-10);
+  --br-16: var(--size-16);
+  --br-20: var(--size-20);
+  --br-25: 1.56rem;
+  --br-40: var(--size-40);
+}

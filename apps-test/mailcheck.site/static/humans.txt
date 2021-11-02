@@ -1,0 +1,25 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ivan Prodaiko -- team-lead -- <i.prodaiko@nodeart.io>
+    Olexii Miroshnik -- golang/angular developer -- <o.miroshnik@nodeart.io>
+    Danil Nesterenko -- front-end -- <d.nesterenko@nodeart.io>
+    Evhenii Malovitsa -- devops engeneer -- <e.malovitsa@nodeart.io>
+    Vlad Novikov -- front-end -- <v.novikov@nodeart.io>
+    Nosov Konstantin -- guy with deadlines and passion to google -- <nosov@nodeart.io>
+
+# THANKS
+
+    Serhii Timoshok, Denis Petrov, Elena Diachenko
+    Vlad Kondrateko - for support during timing fails -- <v.kondratenko@nodeart.io>
+    Dmitrii Novakovskii - for good advices about Google services -- <novakovskiy@google.com>
+    Maxim Bulich - for help with understanding problems on a market -- <bulich.m.o@gmail.com>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Angular, RxJs, Normalize.css
+    Firebase functions, Firebase hosting
+    GoogleApp engine, GoLang

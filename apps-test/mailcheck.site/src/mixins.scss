@@ -1,0 +1,62 @@
+// media
+$max-width-xx-small: 374.98px;
+$max-width-x-small: 414.98px;
+$max-width-small: 599.98px;
+$max-width-medium: 767.98px;
+$max-width-tablet: 991.98px;
+$max-width-large: 1199.98px;
+$max-width-x-large: 1599.98px;
+
+// mobile-first
+$min-width-xx-small: 375px;
+$min-width-x-small: 415px;
+$min-width-small: 600px;
+$min-width-medium: 768px;
+$min-width-tablet: 992px;
+$min-width-large: 1200px;
+$min-width-x-large: 1600px;
+
+%container {
+  width: 100%;
+  max-width: 68.75rem;
+  margin: 0 auto;
+
+  @media (min-width: $min-width-small) {
+    width: 85%;
+  }
+}
+
+%truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+%blur {
+  backdrop-filter: blur(1.25rem);
+}
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin font($size, $weight, $color) {
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+@mixin intersection {
+  transform: matrix(1, 0, 0, 1, 0, 50);
+  opacity: 0;
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+
+  &.intersecting {
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1;
+  }
+}

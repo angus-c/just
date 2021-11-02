@@ -1,0 +1,9 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "max-len": "off",
+    "object-curly-spacing": "off",
+    "no-unused-vars": "off",
+    "quotes": "off"
+  }
+}

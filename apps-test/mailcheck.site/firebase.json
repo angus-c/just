@@ -1,0 +1,220 @@
+{
+  "hosting": [
+    {
+      "target": "mailcheck-landing",
+      "headers": [
+        {
+          "source": "**/*.@(js|xml|jpg|jpeg|gif|webp|png|avif|svg)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=691200"
+            }
+          ]
+        },
+        {
+          "source": "404.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=300"
+            }
+          ]
+        }
+      ],
+      "public": "build",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "/sendMail",
+          "function": "sendMail"
+        },
+        {
+          "source": "/checkMail",
+          "function": "checkMail"
+        },
+        {
+          "source": "/api/sendMail",
+          "function": "sendMail"
+        },
+        {
+          "source": "/api/checkMail",
+          "function": "checkMail"
+        },
+        {
+          "source": "/10-tips-to-warm-up-your-cold-emails",
+          "destination": "/blog/10-tips-to-warm-up-your-cold-emails",
+          "type": 301
+        },
+        {
+          "source": "/enforceEmailMarketing",
+          "destination": "/blog/enforce-email-marketing",
+          "type": 301
+        },
+        {
+          "source": "/emailMarketingCampaignGuide",
+          "destination": "/blog/simple-email-marketing-campaign-guide",
+          "type": 301
+        },
+        {
+          "source": "/guide",
+          "destination": "/blog/complete-guide-to-email-verification-services",
+          "type": 301
+        },
+        {
+          "source": "/increaseEmailsDeliverability",
+          "destination": "/blog/x-ways-increase-emails-deliverability",
+          "type": 301
+        },
+        {
+          "source": "/emailMarketingTips",
+          "destination": "/blog/tips-for-email-marketing-approach",
+          "type": 301
+        },
+        {
+          "source": "/six-tips-to-write-an-email-that-prompts-your-subscribers-to-action",
+          "destination": "/blog/six-tips-to-write-an-email-that-prompts-your-subscribers-to-action",
+          "type": 301
+        },
+        {
+          "source": "/catchAllServers",
+          "destination": "/blog/catch-all-email-servers",
+          "type": 301
+        },
+        {
+          "source": "/catchAllServers",
+          "destination": "/blog/catch-all-email-servers",
+          "type": 301
+        },
+        {
+          "source": "/personalizeYourNewsletter",
+          "destination": "/blog/personalize-your-newsletter-and-increase-sales",
+          "type": 301
+        },
+        {
+          "source": "/emailMarketingMetrics",
+          "destination": "/blog/email-marketing-campaign-metrics",
+          "type": 301
+        },
+        {
+          "source": "/does-buying-email-lists-still-work",
+          "destination": "/blog/does-buying-email-lists-still-work",
+          "type": 301
+        },
+        {
+          "source": "/sendersReputation",
+          "destination": "/blog/senders-reputation",
+          "type": 301
+        },
+        {
+          "source": "/smallBusinessTips",
+          "destination": "/blog/small-business-tips",
+          "type": 301
+        },
+        {
+          "source": "/scholarship",
+          "destination": "/blog/mailcheck-scholarship-2019",
+          "type": 301
+        },
+        {
+          "source": "/scholarship",
+          "destination": "/blog/mailcheck-scholarship-2019",
+          "type": 301
+        },
+        {
+          "source": "/emailMarketingTrends",
+          "destination": "/blog/email-marketing-trends",
+          "type": 301
+        },
+        {
+          "source": "/how-Bootstrap-Your-SaaS-Startup",
+          "destination": "/blog/how-to-bootstrap-your-saas-startup",
+          "type": 301
+        },
+        {
+          "source": "/why-hosting-email-at-home-is-not-good-idea",
+          "destination": "/blog/why-hosting-email-at-home-is-not-good-idea",
+          "type": 301
+        },
+        {
+          "source": "/how-mailcheck-can-help-your-business",
+          "destination": "/blog/why-hosting-email-at-home-is-not-good-idea",
+          "type": 301
+        },
+        {
+          "source": "/emails-validation-API-increase-E-Commerce-conversion",
+          "destination": "/blog/emails-validation-api-increase-ecommerce-conversion",
+          "type": 301
+        },
+        {
+          "source": "/email-blasts",
+          "destination": "/blog/email-blasts",
+          "type": 301
+        },
+        {
+          "source": "/what-is-email-API-and-why-do-I-need-one",
+          "destination": "/blog/what-is-email-api",
+          "type": 301
+        },
+        {
+          "source": "/googlePlus",
+          "destination": "/blog/google-plus",
+          "type": 301
+        },
+        {
+          "source": "/bounceRate",
+          "destination": "/blog/explaining-email-bounce-rate",
+          "type": 301
+        },
+        {
+          "source": "/sellingCartCustomization",
+          "destination": "/blog/tips-on-customization-of-selling-cart",
+          "type": 301
+        },
+        {
+          "source": "/rightApproach",
+          "destination": "/blog/right-approach-to-email-address-validation",
+          "type": 301
+        },
+        {
+          "source": "/abandoned-cart-hacks",
+          "destination": "/blog/abandoned-cart-hacks",
+          "type": 301
+        },
+        {
+          "source": "/csvFile",
+          "destination": "/blog/csv-file",
+          "type": 301
+        },
+        {
+          "source": "/email-marketing-during-post-Covid-19-times",
+          "destination": "/blog/email-marketing-during-post-covid-19-times",
+          "type": 301
+        },
+        {
+          "source": "/l/*",
+          "function": "internalRedirect"
+        }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false
+    },
+    {
+      "target": "email-functions",
+      "rewrites": [
+        {
+          "source": "/handle-open-email",
+          "function": "emailOpenHandler"
+        },
+        {
+          "source": "/handle-email-link",
+          "function": "emailLinkHandler"
+        },
+        {
+          "source": "/postback",
+          "function": "postbackLogger"
+        }
+      ]
+    }
+  ]
+}
