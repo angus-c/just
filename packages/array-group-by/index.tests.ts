@@ -5,7 +5,7 @@ const test1: { [key: string]: number[] } = groupBy([6.1, 4.2, 6.3], Math.floor);
 const test2: { [key: string]: string[] } = groupBy(['a', 'b', 'c', 'aa', 'bb', 'cc'], str => str.charAt(0));
 const test3: { [key: string]: number[][] } = groupBy([[1], [2], [1, 2]], arr => arr.length);
 const test4: {} = groupBy([], () => "a");
-const test5: { [key: string]: (number | string)[] } = groupBy([1, 2, 3, "1", "2"], parseInt);
+const test5: { [key: string]: Array<number | string>} = groupBy([1, 2, 3, "1", "2"], (a) => a);
 const test6 = groupBy(['a', 'b', 'c'], str => Symbol(str));
 
 // Not OK
