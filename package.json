@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/angus-c/just#readme",
   "dependencies": {
+    "glob": "^7.2.0",
     "test": "^0.6.0"
   }
 }

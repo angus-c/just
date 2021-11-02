@@ -4,12 +4,6 @@
   "description": "splits an array into two at a given position",
   "main": "index.js",
   "module": "index.esm.js",
-  "exports": {
-    ".": {
-      "require": "./index.js",
-      "default": "./index.esm.js"
-    }
-  },
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

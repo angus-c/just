@@ -4,12 +4,6 @@
   "description": "add characters to the right of a string such that its total length is n",
   "main": "index.js",
   "module": "index.esm.js",
-  "exports": {
-    ".": {
-      "require": "./index.js",
-      "default": "./index.esm.js"
-    }
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
