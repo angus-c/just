@@ -1,6 +1,6 @@
 {
   "name": "just-typeof",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "type inferer",
   "main": "index.js",
   "module": "index.esm.js",
