@@ -29,4 +29,4 @@ function values(obj) {
   throw new Error('argument to `values` must be an object');
 }
 
-export { objectValues as default };
+export {objectValues as default};

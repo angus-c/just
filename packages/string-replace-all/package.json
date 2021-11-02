@@ -1,8 +1,7 @@
 {
   "name": "just-replace-all",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "replace all occurrences of a string within a string with another string",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

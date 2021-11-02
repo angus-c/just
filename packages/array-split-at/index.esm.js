@@ -21,4 +21,4 @@ function splitAt(arr, n) {
   return [arr.slice(0, n), arr.slice(n)];
 }
 
-export { arraySplitAt as default };
+export {arraySplitAt as default};

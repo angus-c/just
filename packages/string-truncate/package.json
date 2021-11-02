@@ -1,8 +1,7 @@
 {
   "name": "just-truncate",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "truncate a string with a custom suffix",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {

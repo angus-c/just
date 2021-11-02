@@ -27,4 +27,4 @@ function template(string, data) {
   });
 }
 
-export { stringTemplate as default };
+export {stringTemplate as default};

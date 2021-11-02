@@ -1,8 +1,7 @@
 {
   "name": "just-squash",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "remove all spaces from a string, optionally remove escape sequences too",
-  "type": "commonjs",
   "main": "index.js",
   "module": "index.esm.js",
   "exports": {
@@ -11,6 +10,7 @@
       "default": "./index.esm.js"
     }
   },
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
