@@ -1,2 +1,2 @@
-declare function once<Func extends (...args: unknown[]) => unknown>(fn: Func): Func
+declare function once<Func extends (...args: any[]) => any>(fn: Func): Func
 export default once

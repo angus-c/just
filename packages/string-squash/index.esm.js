@@ -22,4 +22,4 @@ function squash(str, squashEscapeSequences) {
   }
 }
 
-export { stringSquash as default };
+export {stringSquash as default};

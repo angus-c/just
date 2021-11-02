@@ -41,4 +41,4 @@ function clamp(b1, n, b2) {
   return n;
 }
 
-export { numberClamp as default };
+export {numberClamp as default};

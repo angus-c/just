@@ -1,13 +1,15 @@
 import memoize from './index';
 
-const testfn = (a: string, b: number) => { return a + b}
+type Fn = (a: string, b: number) => string
+
+const testfn = (a: string, b: number) => { return a + b }
 //only memoize on a
 const testkey = (a: string) => a
 
 // OK
-memoize(testfn, testkey)
-memoize(testfn, (a, b) => a)
-memoize(() => {})
+const a: Fn = memoize(testfn, testkey)
+const b: Fn = memoize(testfn, (a, b) => a)
+const c: ()=>void = memoize(() => {})
 
 // not OK
 // @ts-expect-error
