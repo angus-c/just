@@ -1,0 +1,17 @@
+declare function typeOf<T extends undefined>(obj: T): "undefined";
+declare function typeOf<T extends null>(obj: T): "null";
+declare function typeOf<T extends any[]>(obj: T): "array";
+declare function typeOf<T extends readonly any[]>(obj: T): "array";
+declare function typeOf<T extends string>(obj: T): "string";
+declare function typeOf<T extends number>(obj: T): "number";
+declare function typeOf<T extends boolean>(obj: T): "boolean";
+declare function typeOf<T extends Set<any>>(obj: T): "set";
+declare function typeOf<T extends Map<any, any>>(obj: T): "map";
+declare function typeOf<T extends Function>(obj: T): "function";
+declare function typeOf<T extends RegExp>(obj: T): "regexp";
+declare function typeOf<T extends Date>(obj: T): "date";
+declare function typeOf<T extends Symbol>(obj: T): "symbol";
+declare function typeOf<T extends BigInt>(obj: T): "bigint";
+declare function typeOf<T extends {}>(obj: T): "object";
+declare function typeOf<T>(obj: T): string;
+export default typeOf;

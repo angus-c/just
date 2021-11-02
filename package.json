@@ -19,7 +19,7 @@
     "build": "lerna run build --stream $@",
     "lint": "eslint .",
     "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
-    "test-types": "tsc packages/**/*.tests.ts --noEmit --strictNullChecks"
+    "test-types": "tsc"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "checkJs": false,
+    "strict": true
+  },
+  "include": [
+    "packages/**/*.tests.ts"
+  ]
+}

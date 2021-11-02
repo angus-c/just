@@ -1,6 +1,6 @@
 {
   "name": "just-typeof",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "type inferer",
   "main": "index.js",
   "module": "index.esm.js",
@@ -10,6 +10,7 @@
       "default": "./index.esm.js"
     }
   },
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
