@@ -6,14 +6,13 @@
   "module": "index.esm.js",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.js",
+      "import": "./index.js"
     }
   },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

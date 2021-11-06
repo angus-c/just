@@ -1,4 +1,4 @@
-module.exports = compact;
+export default compact;
 
 /*
   compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
