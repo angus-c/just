@@ -14,4 +14,4 @@
 
 ## Reporting a Vulnerability
 
-You can report suspected vulnerabilities directly through issues (since no vulnerability will affect Just library itself) 
+You can report suspected vulnerabilities by creating an issue
