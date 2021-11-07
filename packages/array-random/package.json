@@ -1,6 +1,6 @@
 {
   "name": "just-random",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "return a randomly selected element in an array",
   "main": "index.js",
   "module": "index.esm.js",

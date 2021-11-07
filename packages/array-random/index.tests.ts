@@ -6,7 +6,7 @@ const test2: 1 = random([1]);
 const test3: number = random([1, 2, 3]);
 const test4: number | string = random([1, 2, "a"]);
 const numbers: number[] = [];
-const test6: number | undefined = random(numbers);
+const test5: number | undefined = random(numbers);
 
 // Not OK
 // @ts-expect-error
