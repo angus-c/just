@@ -8,7 +8,7 @@ Guilt-free utilities for every occasion.
 ```js
 import compose from 'just-compose';
 
-const sqRootBiggest = compose(Math.trunc, Math.sqrt, Math.max);
+const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
 sqRootBiggest(10, 5); // 3
 sqRootBiggest(7, 0, 16); // 4
 ```

@@ -1,6 +1,6 @@
 {
   "name": "just-values",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "return property values as an array",
   "main": "index.js",
   "module": "index.esm.js",
