@@ -1,13 +1,13 @@
 {
   "name": "just-split-at",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "splits an array into two at a given position",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

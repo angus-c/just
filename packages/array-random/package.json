@@ -1,13 +1,13 @@
 {
   "name": "just-random",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "return a randomly selected element in an array",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

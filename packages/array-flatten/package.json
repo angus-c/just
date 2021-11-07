@@ -1,13 +1,13 @@
 {
   "name": "just-flatten-it",
-  "version": "4.2.1",
+  "version": "5.0.0",
   "description": "return a flattened array",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

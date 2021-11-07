@@ -1,13 +1,13 @@
 {
   "name": "just-truncate",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "truncate a string with a custom suffix",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",  
