@@ -4,7 +4,6 @@ import union from './index';
 const test1: string[] = union([] as string[], [] as string[]) // []
 const test2: number[] = union([1, 2, 3], [3, 4, 5]) // [1, 2, 3, 4, 5]
 const test3: (number | string)[] = union([1, 2, 3], ['a', 'b', 'c'])
-const test4: [1, 2, 3, 'a', 'b'] = union([1, 2, 3], ['a', 'b']);
 
 // Not OK
 // @ts-expect-error
