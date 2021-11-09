@@ -1691,7 +1691,7 @@ flip(console.log)(1, 2, 3); // 2, 1, 3
 ```js
 import partial from "just-partial-it";
 
-const cubedRoot = partial(Math.pow, _, 1 / 3);
+const cubedRoot = partial(Math.pow, undefined, 1 / 3);
 cubedRoot(64); // 4
 
 const getRoot = partial(Math.pow, 64);
