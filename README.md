@@ -3,6 +3,8 @@
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
 
+![Build status](https://github.com/angus-c/just/actions/workflows/node.js.yml/badge.svg)
+
 **[Jump To API](#the-modules-package)**
 
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
