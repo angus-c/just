@@ -24,9 +24,14 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 All packages support ES module or Common JS syntax without requiring transpilation
 ```
-import clone from 'just-clone'; // esm in node / bundler
-import clone from './node_modules/just-clone/index.mjs'; // esm in native browser code
-const clone = require('just-clone'); // cjs
+// esm (node / bundler)
+import clone from 'just-clone'; 
+
+// esm (native browser code)
+import clone from './node_modules/just-clone/index.mjs'; 
+
+// cjs
+const clone = require('just-clone'); 
 ```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
