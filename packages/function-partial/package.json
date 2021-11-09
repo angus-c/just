@@ -1,13 +1,13 @@
 {
   "name": "just-partial-it",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "return a partial function",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "scripts": {

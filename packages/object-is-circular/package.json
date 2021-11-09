@@ -1,13 +1,13 @@
 {
   "name": "just-is-circular",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "description": "determine if an object contains a circular reference",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

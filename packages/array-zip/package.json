@@ -1,13 +1,13 @@
 {
   "name": "just-zip-it",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "returns an array of grouped elements, taking n-th element from every given array",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "scripts": {
