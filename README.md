@@ -24,7 +24,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 All packages support can be imported using either ES module or Common JS syntax without requiring transpilation
 ```
-import just-clone from 'just-clone';
+import clone from 'just-clone';
 const clone = require('just-clone');
 ```
 
