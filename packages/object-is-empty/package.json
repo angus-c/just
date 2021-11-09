@@ -1,13 +1,13 @@
 {
   "name": "just-is-empty",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "return true if object has no enumerable key values",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "scripts": {

@@ -1,13 +1,13 @@
 {
   "name": "just-safe-set",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "set value at property, create intermediate properties if necessary",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

@@ -4,8 +4,8 @@
   * Favor `for` loops over high order functions
   * Don't repeatedly access the same property, assign to a `var`
 * Brevity
-  * A lot of people choose Just utilities because to minimize their app's JS footprint in memory/network constrained environments
-  * Keep it brief and don't add redundamt code. Most utilites should fit into one shortish function.
+  * A lot of people choose Just utilities to minimize their app's JS footprint in memory/network constrained environments
+  * Keep it brief and don't add redundant code. Most utilites should fit into one shortish function.
 * API
   * Keep the API simple and intuitive
   * Avoid multiple arguments or option arguments whenever possible–-make it just do one thing

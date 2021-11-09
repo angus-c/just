@@ -9,7 +9,7 @@ module.exports = function createRollupConfig(path) {
   return {
     input: resolve(path, './index.js'),
     output: {
-      file: resolve(path, './index.esm.js'),
+      file: resolve(path, './index.mjs'),
       format: 'esm',
     },
     plugins: [cjs()],

@@ -1,2 +1,3 @@
-export default function random<Head, Rest>(arr: [Head, ...Rest[]]): Head | Rest;
-export default function random<T>(arr: T[]): undefined; // return undefined for empty arrays.
+declare function random<Head, Rest>(arr: [Head, ...Rest[]]): Head | Rest;
+declare function random<T>(arr: T[]): T | undefined;
+export default random;

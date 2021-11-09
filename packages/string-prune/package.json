@@ -1,15 +1,16 @@
 {
   "name": "just-prune",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "prune a string with whole words and a custom suffix",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
+  "types": "index.d.ts",  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
