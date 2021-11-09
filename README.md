@@ -27,7 +27,6 @@ All packages support ES module or Common JS syntax without requiring transpilati
 import clone from 'just-clone';
 const clone = require('just-clone');
 ```
-
 ## TypeScript <img src="images/ts.png" width="18"/>
 
 We're in the process of adding TypeScript definitions and tests to every Just utility. You're welcome to help us get there!
