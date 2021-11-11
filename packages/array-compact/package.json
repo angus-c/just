@@ -1,13 +1,13 @@
 {
   "name": "just-compact",
-  "version": "2.4.1",
+  "version": "3.0.0",
   "description": "returns a copy of an array with falsey values removed",
   "main": "index.js",
-  "module": "index.esm.js",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.esm.js"
+      "default": "./index.mjs"
     }
   },
   "types": "index.d.ts",

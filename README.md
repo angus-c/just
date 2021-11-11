@@ -1,9 +1,9 @@
 ## Just
 
-[![Build Status](https://travis-ci.com/angus-c/just.svg?branch=master)](https://travis-ci.org/angus-c/just.js)
-
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
+
+![Build status](https://github.com/angus-c/just/actions/workflows/node.js.yml/badge.svg)
 
 **[Jump To API](#the-modules-package)**
 
@@ -20,6 +20,19 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 - [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
 - [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
 
+## ES and CJS modules available for every utility <img src="images/esm.png" width="22"/> <img src="images/node.jpeg" width="18"/>
+
+All packages support ES module or Common JS syntax without requiring transpilation
+```
+// esm (node / bundler)
+import clone from 'just-clone'; 
+
+// esm (native browser code)
+import clone from './node_modules/just-clone/index.mjs'; 
+
+// cjs
+const clone = require('just-clone'); 
+```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
 We're in the process of adding TypeScript definitions and tests to every Just utility. You're welcome to help us get there!
@@ -984,6 +997,8 @@ npm install just-cartesian-product
 ```shell
 yarn add just-cartesian-product
 ```
+
+Takes an input of an array of arrays and returns their Cartesian product.
 
 Takes an input of an array of arrays and returns their Cartesian product.
 
