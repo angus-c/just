@@ -1,0 +1,17 @@
+### [<!-- template-mate: { "type": "variable", "name": "packageName"} -->](https://www.npmjs.com/package/<!-- template-mate: { "type": "variable", "name": "packageName"} -->)
+[source](https://github.com/angus-c/just/tree/master/packages/<!-- template-mate: { "type": "variable", "name": "dir"} -->/index.js)
+
+[`🍦 Try it`](https://anguscroll.com/just/<!-- template-mate: { "type": "variable", "name": "packageName"} -->)
+
+```shell
+npm install <!-- template-mate: { "type": "variable", "name": "packageName"} -->
+```
+```shell
+yarn add <!-- template-mate: { "type": "variable", "name": "packageName"} -->
+```
+
+<!-- template-mate: { "type": "variable", "name": "description"} -->
+
+```js
+<!-- template-mate: { "type": "variable", "name": "examples"} -->
+```
