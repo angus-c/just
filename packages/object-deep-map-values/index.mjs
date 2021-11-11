@@ -1,6 +1,4 @@
-module.exports = deepMapValues;
-
-function deepMapValues(obj, fn) {
+var deepMapValues = function deepMapValues(obj, fn) {
   return Object.keys(obj).reduce(function (acc, key) {
     var value = obj[key];
     acc[key] =
@@ -10,3 +8,5 @@ function deepMapValues(obj, fn) {
     return acc;
   }, {});
 }
+
+export {deepMapValues as default};
