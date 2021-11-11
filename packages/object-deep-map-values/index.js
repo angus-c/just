@@ -1,7 +1,7 @@
 module.exports = deepMapValues;
 
 function deepMapValues(obj, fn) {
-  return Object.keys(obj).reduce(function (acc, key) {
+  return Object.keys(obj).reduce(function(acc, key) {
     var value = obj[key];
     acc[key] =
       Object.prototype.toString.call(value) === '[object Object]'
