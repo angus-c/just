@@ -1,9 +1,20 @@
 ## just-replace-all
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+[`🍦 Try it`](https://anguscroll.com/just/just-replace-all)
+
+```shell
+npm install just-replace-all
 ```
+```shell
+yarn add just-replace-all
+```
+
+Replace all occurrences of a string within a string with another string
+
+```js
   import replaceAll from 'just-replace-all';
 
 /*

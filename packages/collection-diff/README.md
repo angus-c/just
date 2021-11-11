@@ -1,11 +1,18 @@
 ## just-diff
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-diff)
+[`🍦 Try it`](https://anguscroll.com/just/just-diff)
 
-Return an object representing the difference between two other objects  
+```shell
+npm install just-diff
+```
+```shell
+yarn add just-diff
+```
+
+Return an object representing the difference between two other objects
 Pass converter to format as http://jsonpatch.com
 
 ```js

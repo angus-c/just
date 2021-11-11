@@ -1,9 +1,18 @@
-## just-map-object
+## just-map-values
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-map-object)
+[`🍦 Try it`](https://anguscroll.com/just/just-map-values)
+
+```shell
+npm install just-map-values
+```
+```shell
+yarn add just-map-values
+```
+
+Map an object, predicate updates values, receives (value, key, object)
 
 ```js
 import map from 'just-map-values';

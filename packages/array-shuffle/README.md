@@ -1,9 +1,18 @@
 ## just-shuffle
 
-Part of a [library](http://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-shuffle)
+[`🍦 Try it`](https://anguscroll.com/just/just-shuffle)
+
+```shell
+npm install just-shuffle
+```
+```shell
+yarn add just-shuffle
+```
+
+Return the elements of an array in random order
 
 ```js
 import shuffle from 'just-shuffle';

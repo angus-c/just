@@ -1,11 +1,20 @@
 ## just-is-prime
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](https://anguscroll.com/just/just-is-prime)
+[`🍦 Try it`](https://anguscroll.com/just/just-is-prime)
 
+```shell
+npm install just-is-prime
 ```
+```shell
+yarn add just-is-prime
+```
+
+Check if number is prime
+
+```js
   import isPrime from 'just-is-prime;
 
 /*

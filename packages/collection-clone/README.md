@@ -1,9 +1,18 @@
 ## just-clone
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-extend)
+[`🍦 Try it`](https://anguscroll.com/just/just-clone)
+
+```shell
+npm install just-clone
+```
+```shell
+yarn add just-clone
+```
+
+Deep copies objects and arrays
 
 ```js
 // Deep copies objects and arrays, doesn't clone functions

@@ -1,9 +1,18 @@
 ## just-memoize-last
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-memoize-last)
+[`🍦 Try it`](https://anguscroll.com/just/just-memoize-last)
+
+```shell
+npm install just-memoize-last
+```
+```shell
+yarn add just-memoize-last
+```
+
+A memoize implementation that only caches the most recent evaluation
 
 ```js
 const memoizeLast = require('just-memoize-last')

@@ -1,9 +1,18 @@
 ## just-index
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-index)
+[`🍦 Try it`](https://anguscroll.com/just/just-index)
+
+```shell
+npm install just-index
+```
+```shell
+yarn add just-index
+```
+
+Return an object from an array, keyed by the value at the given id
 
 ```js
 import index from 'just-index';

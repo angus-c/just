@@ -1,9 +1,18 @@
 ## just-group-by
 
-Part of a [library](http://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-group-by)
+[`🍦 Try it`](https://anguscroll.com/just/just-group-by)
+
+```shell
+npm install just-group-by
+```
+```shell
+yarn add just-group-by
+```
+
+Return a grouped object from array
 
 ```js
 import groupBy from 'just-group-by';

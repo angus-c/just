@@ -1,9 +1,20 @@
 ## just-camel-case
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+[`🍦 Try it`](https://anguscroll.com/just/just-camel-case)
+
+```shell
+npm install just-camel-case
 ```
+```shell
+yarn add just-camel-case
+```
+
+Convert a string to camel case
+
+```js
   import camelCase from 'just-camel-case';
 
   camelCase('the quick brown fox'); // 'theQuickBrownFox'

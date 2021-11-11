@@ -1,9 +1,18 @@
-## just-random
+## just-random-integer
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-once)
+[`🍦 Try it`](https://anguscroll.com/just/just-random-integer)
+
+```shell
+npm install just-random-integer
+```
+```shell
+yarn add just-random-integer
+```
+
+Produces an integer between two values
 
 ```js
 import random from 'just-random';

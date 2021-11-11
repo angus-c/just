@@ -1,12 +1,18 @@
 ## just-diff-apply
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-diff-apply)
+[`🍦 Try it`](https://anguscroll.com/just/just-diff-apply)
 
-Apply a diff object to an object.
-Pass converter to apply a http://jsonpatch.com standard patch
+```shell
+npm install just-diff-apply
+```
+```shell
+yarn add just-diff-apply
+```
+
+Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com standard patch
 
 ```js
   import diffApply from 'just-diff-apply';

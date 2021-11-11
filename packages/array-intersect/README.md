@@ -1,9 +1,18 @@
 ## just-intersect
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-intersect)
+[`🍦 Try it`](https://anguscroll.com/just/just-intersect)
+
+```shell
+npm install just-intersect
+```
+```shell
+yarn add just-intersect
+```
+
+Return the intersect of two arrays
 
 ```js
 import intersect from 'just-intersect';

@@ -1,7 +1,18 @@
 ## just-flip-object
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/just-flip-object)
+
+```shell
+npm install just-flip-object
+```
+```shell
+yarn add just-flip-object
+```
+
+Flip the keys and values
 
 ```js
 import flip from 'just-flip-object';

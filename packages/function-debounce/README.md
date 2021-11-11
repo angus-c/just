@@ -1,9 +1,18 @@
 ## just-debounce-it
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-debounce-it)
+[`🍦 Try it`](https://anguscroll.com/just/just-debounce-it)
+
+```shell
+npm install just-debounce-it
+```
+```shell
+yarn add just-debounce-it
+```
+
+Return a debounced function
 
 ```js
 import debounce from "just-debounce-it";

@@ -1,9 +1,18 @@
-## just-flip-it
+## just-flip
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-flip)
+[`🍦 Try it`](https://anguscroll.com/just/just-flip)
+
+```shell
+npm install just-flip
+```
+```shell
+yarn add just-flip
+```
+
+Flip first two arguments of a function
 
 ```js
 import flip from 'just-flip';

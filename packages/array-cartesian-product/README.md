@@ -1,9 +1,20 @@
 ## just-cartesian-product
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+[`🍦 Try it`](https://anguscroll.com/just/just-cartesian-product)
+
+```shell
+npm install just-cartesian-product
 ```
+```shell
+yarn add just-cartesian-product
+```
+
+Takes an input of an array of arrays and returns their Cartesian product.
+
+```js
 import cartesianProduct from 'just-cartesian-product;
 
 cartesianProduct([[1, 2], ['a', 'b']]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]

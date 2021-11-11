@@ -1,7 +1,18 @@
-## just-array-sort-by
+## just-sort-by
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/just-sort-by)
+
+```shell
+npm install just-sort-by
+```
+```shell
+yarn add just-sort-by
+```
+
+Produces a new array, sorted in ascending order
 
 ```js
 import sortBy from 'just-array-sort-by';

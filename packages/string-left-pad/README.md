@@ -1,9 +1,20 @@
 ## just-left-pad
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+[`🍦 Try it`](https://anguscroll.com/just/just-left-pad)
+
+```shell
+npm install just-left-pad
 ```
+```shell
+yarn add just-left-pad
+```
+
+Add characters to the left of a string such that its total length is n
+
+```js
 import leftPad from 'just-left-pad';
 
 leftPad('hello', 9); // '    hello'

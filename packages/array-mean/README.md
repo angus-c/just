@@ -1,7 +1,18 @@
 ## just-mean
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/just-mean)
+
+```shell
+npm install just-mean
+```
+```shell
+yarn add just-mean
+```
+
+The mean (average) value in an array
 
 ```js
 import mean from 'just-mean';
