@@ -1,4 +1,4 @@
-import map = require("./index");
+import map from "./index";
 
 // OK
 

@@ -3,4 +3,4 @@ declare function map<T extends object = object>(
   obj: T,
   predicate: (value: any, key: string | number, object: T) => string | number
 ): object;
-export = map;
+export default map;
