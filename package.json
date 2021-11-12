@@ -18,7 +18,7 @@
   "scripts": {
     "build": "lerna run build --stream $@",
     "lint": "eslint .",
-    "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
+    "test": "npm run lint && tape ./test/**/index.js | tap-spec && npm run test-types",
     "test-types": "tsc"
   },
   "repository": {
