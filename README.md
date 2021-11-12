@@ -3,6 +3,8 @@
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
 
+![Build status](https://github.com/angus-c/just/actions/workflows/node.js.yml/badge.svg)
+
 **[Jump To API](#the-modules-package)**
 
 We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
@@ -22,8 +24,14 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 
 All packages support ES module or Common JS syntax without requiring transpilation
 ```
-import clone from 'just-clone';
-const clone = require('just-clone');
+// esm (node / bundler)
+import clone from 'just-clone'; 
+
+// esm (native browser code)
+import clone from './node_modules/just-clone/index.mjs'; 
+
+// cjs
+const clone = require('just-clone'); 
 ```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
