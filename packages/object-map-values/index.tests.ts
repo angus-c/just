@@ -1,20 +1,30 @@
-import map from './index'
-
-const obj = {foo: 1};
+import map from "./index";
 
 // OK
-map(obj, (value) => value + 1);
-map(obj, (value, key) => value + 2);
-map(obj, (value, key, object) => value + 3);
+const test1: Record<string, string[]> = map({ a: "string" }, (value) =>
+  value.split("")
+);
+const test2: Record<string, string> = map(
+  { a: "string" },
+  (value, key) => key + value
+);
+const test3: Record<string, boolean> = map(
+  { a: "string", string: "a", b: "string" },
+  (value, key, obj) => obj[value] === key
+);
 
-// not OK
+// Not OK
+// @ts-expect-error
+const test4: Record<string, string> = map({ foo: 1 }, (value) => value + 1);
 // @ts-expect-error
 map();
 // @ts-expect-error
-map((value) => value + 1);
+map({ foo: 1 });
 // @ts-expect-error
-map(obj);
+map((value: string) => {});
 // @ts-expect-error
-map(obj, '');
+map({ foo: 1 }, "");
 // @ts-expect-error
-map(obj, {});
+map({ foo: 1 }, {});
+// @ts-expect-error
+map({ a: 1 }, (value: string) => {});
