@@ -6,4 +6,5 @@
  * intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]);
  * // => [2, 5]
  */
-export default function intersect<T, U, I extends T | U>(arr1: T[], arr2: U[]): I[]
+export default function intersect<T, U, I extends T | U>(arr1: T[], arr2: U[]): I[];
+export default function intersect<T, U, I extends T | U>(arr1: readonly T[], arr2: readonly U[]): I[];
