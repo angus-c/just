@@ -1,0 +1,309 @@
+## Just
+
+[![Build Status](https://travis-ci.com/angus-c/just.svg?branch=master)](https://travis-ci.org/angus-c/just.js)
+
+A library of **zero-dependency** npm modules that do just one thing.
+A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
+
+**[Jump To API](#the-modules-package)**
+
+We welcome contributions. Please follow our [contribution guidelines](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md).
+
+## Try :icecream:
+
+A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](https://runkit.com))
+
+<a href="https://anguscroll.com/just"><img src="images/repl.png" width="500"/></a>
+
+## Read :books:
+
+- [TRADEOFFS.md](https://github.com/angus-c/just/blob/master/TRADEOFFS.md) -- When to use Just (and when not to).
+- [The Zen of Dependency-Free](https://medium.com/@angustweets/just-a12d54221f65#.ljib0mfr5) -- Why I wrote Just.
+
+## TypeScript <img src="images/ts.png" width="18"/>
+
+We're in the process of adding TypeScript definitions and tests to every Just utility. You're welcome to help us get there!
+[Here's](https://github.com/angus-c/just/pull/247/files) an example PR.
+
+You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
+
+## Browser Support :computer:
+
+Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
+
+| Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android       |
+| ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |
+| yes    | yes    | yes     | 12   | 6+   | iOS 8+        | Android OS 5+ |
+
+## The Modules :package:
+
+- [Collections](#collections) {}[]
+  - [just-diff](#just-diff)
+  - [just-diff-apply](#just-diff-apply)
+  - [just-compare](#just-compare)
+  - [just-clone](#just-clone)
+  - [just-pluck-it](#just-pluck-it)
+  - [just-flush](#just-flush)
+- [Objects](#objects) {}
+  - [just-extend](#just-extend)
+  - [just-merge](#just-merge)
+  - [just-values](#just-values)
+  - [just-entries](#just-entries)
+  - [just-pick](#just-pick)
+  - [just-omit](#just-omit)
+  - [just-filter-object](#just-filter-object)
+  - [just-map-object](#just-map-object)
+  - [just-map-values](#just-map-values)
+  - [just-map-keys](#just-map-values)
+  - [just-reduce-object](#just-reduce-object)
+  - [just-is-empty](#just-is-empty)
+  - [just-is-circular](#just-is-circular)
+  - [just-is-primitive](#just-is-primitive)
+  - [just-safe-get](#just-safe-get)
+  - [just-safe-set](#just-safe-set)
+  - [just-typeof](#just-typeof)
+  - [just-flip-object](#just-flip-object)
+  - [just-has](#just-has)
+- [Arrays](#arrays) []
+  - [just-cartesian-product](#just-cartesian-product)
+  - [just-unique](#just-unique)
+  - [just-flatten-it](#just-flatten-it)
+  - [just-index](#just-index)
+  - [just-insert](#just-insert)
+  - [just-intersect](#just-intersect)
+  - [just-compact](#just-compact)
+  - [just-last](#just-last)
+  - [just-tail](#just-tail)
+  - [just-random](#just-random)
+  - [just-shuffle](#just-shuffle)
+  - [just-split](#just-split)
+  - [just-split-at](#just-split-at)
+  - [just-sort-by](#just-sort-by)
+  - [just-partition](#just-partition)
+  - [just-permutations](#just-permutations)
+  - [just-range](#just-range)
+  - [just-remove](#just-remove)
+  - [just-union](#just-union)
+  - [just-zip-it](#just-zip-it)
+  - [just-group-by](#just-group-by)
+- [Statistics](#stats) Σ
+  - [just-mean](#just-mean)
+  - [just-median](#just-median)
+  - [just-mode](#just-mode)
+  - [just-percentile](#just-percentile)
+  - [just-variance](#just-variance)
+  - [just-standard-deviation](#just-standard-deviation)
+  - [just-skewness](#just-skewness)
+- [Strings](#strings) ""
+  - [just-template](#just-template)
+  - [just-truncate](#just-truncate)
+  - [just-prune](#just-prune)
+  - [just-squash](#just-squash)
+  - [just-left-pad](#just-left-pad)
+  - [just-right-pad](#just-right-pad)
+  - [just-camel-case](#just-camel-case)
+  - [just-kebab-case](#just-kebab-case)
+  - [just-snake-case](#just-snake-case)
+  - [just-pascal-case](#just-pascal-case)
+  - [just-capitalize](#just-capitalize)
+  - [just-replace-all](#just-replace-all)
+- [Numbers](#numbers) +-
+  - [just-clamp](#just-clamp)
+  - [just-is-prime](#just-is-prime)
+  - [just-modulo](#just-modulo)
+- [Functions](#functions) =>
+  - [just-compose](#just-compose)
+  - [just-curry-it](#just-curry-it)
+  - [just-demethodize](#just-demethodize)
+  - [just-flip](#just-flip)
+  - [just-partial-it](#just-partial-it)
+  - [just-debounce-it](#just-debounce-it)
+  - [just-memoize](#just-memoize)
+  - [just-memoize-last](#just-memoize-last)
+  - [just-random](#just-random)
+  - [just-throttle](#just-throttle)
+  - [just-once](#just-once)
+
+### Collections
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-diff" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-diff-apply" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-compare" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-clone" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-pluck-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-flush" } -->
+
+### Objects
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-extend" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-merge" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-values" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-entries" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-pick" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-omit" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-is-empty" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-is-circular" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-is-primitive" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-filter-object" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-map-object" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-map-values" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-map-keys" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-reduce-object" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-safe-get" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-safe-set" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-typeof" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-flip-object" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-has" } -->
+
+### Arrays
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-cartesian-product" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-unique" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-flatten-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-index" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-insert" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-intersect" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-compact" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-last" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-tail" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-random" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-shuffle" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-split" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-split-at" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-sort-by" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-partition" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-permutations" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-range" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-remove" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-union" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-zip-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-group-by" } -->
+
+### Statistics
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-mean" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-median" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-mode" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-percentile" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-variance" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-standard-deviation" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-skewness" } -->
+
+### Strings
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-template" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-truncate" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-prune" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-squash" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-left-pad" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-right-pad" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-camel-case" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-kebab-case" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-snake-case" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-pascal-case" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-capitalize" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-replace-all" } -->
+
+### Numbers
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-clamp" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-is-prime" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-modulo" } -->
+
+### Functions
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-compose" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-curry-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-demethodize" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-flip" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-partial-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-debounce-it" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-memoize" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-memoize-last" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-random" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-throttle" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-once" } -->
+
+## Testing
+
+Run all tests as a single test suite with
+
+`npm run test`
+
+Cross browser tests (via saucelabs) are in the [`sauce` branch](https://github.com/angus-c/just/tree/sauce)
+
+## Contribute!
+
+https://github.com/angus-c/just/blob/master/CONTRIBUTING.md

@@ -1,7 +1,18 @@
 ## just-skewness
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/just-skewness)
+
+```shell
+npm install just-skewness
+```
+```shell
+yarn add just-skewness
+```
+
+Return the skewness of an array or numeric argument list using Pearson's second skewness coefficient
 
 ```js
 import skewness from "just-skewness";

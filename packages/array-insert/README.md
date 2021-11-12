@@ -1,9 +1,18 @@
 ## just-insert
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-insert)
+[`🍦 Try it`](https://anguscroll.com/just/just-insert)
+
+```shell
+npm install just-insert
+```
+```shell
+yarn add just-insert
+```
+
+Inserts a sub-array into an array starting at the given index. Returns a copy
 
 ```js
 import insert from 'just-insert';

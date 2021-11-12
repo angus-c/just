@@ -1,9 +1,18 @@
 ## just-flatten-it
 
-Part of a [library](http://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-flatten-it)
+[`🍦 Try it`](https://anguscroll.com/just/just-flatten-it)
+
+```shell
+npm install just-flatten-it
+```
+```shell
+yarn add just-flatten-it
+```
+
+Return a flattened array
 
 ```js
 import flatten from 'just-flatten-it';

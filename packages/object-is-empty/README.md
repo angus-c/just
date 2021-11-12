@@ -1,9 +1,18 @@
 ## just-is-empty
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-is-empty)
+[`🍦 Try it`](https://anguscroll.com/just/just-is-empty)
+
+```shell
+npm install just-is-empty
+```
+```shell
+yarn add just-is-empty
+```
+
+Return true if object has no enumerable key values
 
 ```js
 import isEmpty from 'just-is-empty';

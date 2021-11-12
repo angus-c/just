@@ -13,13 +13,15 @@
     "rollup": "^2.58.0",
     "tap-spec": "5.0.0",
     "tape": "^4.0.0",
+    "template-mate": "^1.0.7",
     "typescript": "^4.2.3"
   },
   "scripts": {
     "build": "lerna run build --stream $@",
     "lint": "eslint .",
-    "test": "npm run lint && tape ./test/**/index.js | tap-spec && npm run test-types",
-    "test-types": "tsc"
+    "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
+    "test-types": "tsc",
+    "generate-readmes": "node scripts/generate-readmes.js"
   },
   "repository": {
     "type": "git",

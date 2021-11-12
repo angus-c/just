@@ -1,9 +1,20 @@
 ## just-modulo
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
+[`🍦 Try it`](https://anguscroll.com/just/just-modulo)
+
+```shell
+npm install just-modulo
 ```
+```shell
+yarn add just-modulo
+```
+
+Modulo of a number and a divisor
+
+```js
 import modulo from 'just-modulo';
 
 modulo(7, 5); // 2

@@ -1,9 +1,18 @@
 ## just-is-primitive
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-is-primitive)
+[`🍦 Try it`](https://anguscroll.com/just/just-is-primitive)
+
+```shell
+npm install just-is-primitive
+```
+```shell
+yarn add just-is-primitive
+```
+
+Determine if a value is a primitive value
 
 ```js
 import isPrimitive from 'just-is-primitive';

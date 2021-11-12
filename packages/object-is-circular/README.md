@@ -1,10 +1,16 @@
 ## just-is-circular
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do
-one thing.\
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-is-circular)
+[`🍦 Try it`](https://anguscroll.com/just/just-is-circular)
+
+```shell
+npm install just-is-circular
+```
+```shell
+yarn add just-is-circular
+```
 
 NOTE: not supported in IE or microsoft edge
 

@@ -1,9 +1,16 @@
 ## just-merge
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.  
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-merge)
+[`🍦 Try it`](https://anguscroll.com/just/just-merge)
+
+```shell
+npm install just-merge
+```
+```shell
+yarn add just-merge
+```
 
 Shallow assign. Like just-extend but without deep copy option.
 

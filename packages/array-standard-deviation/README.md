@@ -1,7 +1,18 @@
 ## just-standard-deviation
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/just-standard-deviation)
+
+```shell
+npm install just-standard-deviation
+```
+```shell
+yarn add just-standard-deviation
+```
+
+Return the standard deviation of an array or numeric argument list
 
 ```js
 import standardDeviation from "just-standard-deviation";

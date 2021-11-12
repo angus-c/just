@@ -1,9 +1,18 @@
 ## just-has
 
-Part of a [library](../../../../) of zero-dependency npm modules that do just do one thing.
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
 Guilt-free utilities for every occasion.
 
-[Try it now](http://anguscroll.com/just/just-has)
+[`🍦 Try it`](https://anguscroll.com/just/just-has)
+
+```shell
+npm install just-has
+```
+```shell
+yarn add just-has
+```
+
+Return a boolen indicating the existence of a deep property, don't throw if parent is undefined
 
 ```js
 import has from 'just-has';
