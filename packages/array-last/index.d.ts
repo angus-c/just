@@ -6,4 +6,5 @@
  * last([])
  * // => undefined
  */
+export default function last<T>(arr: readonly [...any, T]): T;
 export default function last<T>(arr: T[]): T;
