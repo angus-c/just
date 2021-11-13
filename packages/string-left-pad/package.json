@@ -1,6 +1,6 @@
 {
   "name": "just-left-pad",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "add characters to the left of a string such that its total length is n",
   "type": "commonjs",
   "main": "index.min.js",

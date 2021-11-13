@@ -1,6 +1,6 @@
 {
   "name": "just-debounce-it",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "return a debounced function",
   "main": "index.js",
   "module": "index.mjs",

@@ -1,6 +1,6 @@
 {
   "name": "just-last",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "return the last member of an array",
   "main": "index.js",
   "module": "index.mjs",

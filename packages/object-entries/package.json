@@ -1,6 +1,6 @@
 {
   "name": "just-entries",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "return object entries as an array of [key, value] pairs",
   "main": "index.js",
   "module": "index.mjs",

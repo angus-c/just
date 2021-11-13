@@ -1,6 +1,6 @@
 {
   "name": "just-tail",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "return all but the first element of an array",
   "main": "index.js",
   "module": "index.mjs",

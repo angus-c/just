@@ -1,6 +1,6 @@
 {
   "name": "just-squash",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "remove all spaces from a string, optionally remove escape sequences too",
   "main": "index.js",
   "module": "index.mjs",

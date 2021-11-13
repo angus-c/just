@@ -1,6 +1,6 @@
 {
   "name": "just-merge",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "shallow extend an object",
   "main": "index.js",
   "module": "index.mjs",

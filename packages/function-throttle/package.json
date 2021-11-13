@@ -1,6 +1,6 @@
 {
   "name": "just-throttle",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "return a throttled function",
   "main": "index.js",
   "module": "index.mjs",

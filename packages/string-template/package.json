@@ -1,6 +1,6 @@
 {
   "name": "just-template",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "interpolate a string with variables",
   "main": "index.js",
   "module": "index.mjs",
@@ -10,7 +10,7 @@
       "default": "./index.mjs"
     }
   },
-  "types": "index.d.ts",  
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
