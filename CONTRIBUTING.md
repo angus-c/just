@@ -32,7 +32,7 @@
   *  `description`: a one sentence description of what the utility does
   *  `examples`: a comprehensive [array of example code](https://github.com/angus-c/just/blob/master/md-variables.json#L19) showing how to use the package
      *  try to add examples for mainstream cases and some edge cases
-     *  start with an element for the import statemement, followed by an empty string element
+     *  start with an element for the `import` statemement, followed by an empty string element
      *  follow up with usage examples, one element per example 
 
 # App Testing
