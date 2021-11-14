@@ -29,10 +29,10 @@
   *  root key: the `name` value from your `package.json` (e.g. `just-comapct`)
   *  `packageName`: same as root key
   *  `dir`: the directory you wrote your package in (e.g. `array-compact`)
-  *  `description`: a one sentence description of what the utility does
+  *  `description`: a one sentence description of what the utility does (for line breaks use an array of strings)
   *  `examples`: a comprehensive [array of example code](https://github.com/angus-c/just/blob/master/md-variables.json#L19) showing how to use the package
      *  try to add examples for mainstream cases and some edge cases
-     *  start with an element for the `import` statemement, followed by an empty string element
+     *  start with an element for the `import` statement, followed by an empty string element
      *  follow up with usage examples, one element per example 
 
 # App Testing
