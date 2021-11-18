@@ -1561,5 +1561,16 @@
       "  truncate('when shall we', 15, '(more)'); // 'when shall we'",
       "  truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'"
     ]
+  },
+  "just-deep-map-values": {
+    "packageName": "just-deep-map-values",
+    "dir": "object-deep-map-values",
+    "description": "Returns an object with values at all depths mapped according to the provided function",
+    "examples": [
+      "import deepMapValues from 'just-deep-map-values';",
+      "",
+      "const squareFn = (number) => number * number;",
+      "deepMapValues({ a: 1, b: { c: 2, d: { e: 3 } } }, squareFn); // => { a: 1, b: { c: 4, d: { e: 9 } } }"
+    ]
   }
 }
