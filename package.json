@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "lerna run build --stream $@",
-    "lint": "eslint .",
-    "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
+    "lint": "eslint --max-warnings=0 .",
+    "test": "npm run lint && tape ./test/**/index.js | tap-spec && npm run test-types",
     "test-types": "tsc",
     "generate-readmes": "node scripts/generate-readmes.js"
   },
