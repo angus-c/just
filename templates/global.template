@@ -67,7 +67,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-filter-object](#just-filter-object)
   - [just-map-object](#just-map-object)
   - [just-map-values](#just-map-values)
-  - [just-map-keys](#just-map-values)
+  - [just-map-keys](#just-map-keys)
+  - [just-deep-map-values](#just-deep-map-values)
   - [just-reduce-object](#just-reduce-object)
   - [just-is-empty](#just-is-empty)
   - [just-is-circular](#just-is-circular)
@@ -178,6 +179,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-map-values" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-map-keys" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-deep-map-values" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-reduce-object" } -->
 

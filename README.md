@@ -67,7 +67,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-filter-object](#just-filter-object)
   - [just-map-object](#just-map-object)
   - [just-map-values](#just-map-values)
-  - [just-map-keys](#just-map-values)
+  - [just-map-keys](#just-map-keys)
+  - [just-deep-map-values](#just-deep-map-values)
   - [just-reduce-object](#just-reduce-object)
   - [just-is-empty](#just-is-empty)
   - [just-is-circular](#just-is-circular)
@@ -775,6 +776,27 @@ map([4, 5, 6], (value, key) => key + 1); // {1: 4, 2: 5, 3: 6}
 map({a: 3, b: 5, c: 9}, (value, key) => key + value); // {a3: 3, b5: 5, c9: 9}
 map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);
   // {'8a': 3, '10b': 5, '14c': 9}
+```
+
+### [just-deep-map-values](https://www.npmjs.com/package/just-deep-map-values)
+[source](https://github.com/angus-c/just/tree/master/packages/object-deep-map-values/index.js)
+
+[`🍦 Try it`](https://anguscroll.com/just/just-deep-map-values)
+
+```shell
+npm install just-deep-map-values
+```
+```shell
+yarn add just-deep-map-values
+```
+
+Returns an object with values at all depths mapped according to the provided function
+
+```js
+import deepMapValues from 'just-deep-map-values';
+
+const squareFn = (number) => number * number;
+deepMapValues({ a: 1, b: { c: 2, d: { e: 3 } } }, squareFn); // => { a: 1, b: { c: 4, d: { e: 9 } } }
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
