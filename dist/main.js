@@ -476,6 +476,10 @@ module.exports = {
         size: sizes['just-map-values'],
         code: ['const map = require(\'just-map-values\')\n\nmap({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);']
       },
+      'just-deep-map-values': {
+        size: sizes['just-deep-map-values'],
+        code: ['const deepMapValues = require(\'just-deep-map-values\');\n\nconst squareFn = (number) => number * number;\ndeepMapValues({ a: 1, b: { c: 2, d: { e: 3 }}}, squareFn);']
+      },
       'just-reduce-object': {
         size: sizes['just-reduce-object'],
         code: ['const reduce = require(\'just-reduce-object\')\n\nreduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {\n  acc[value] = key;\n  return acc;\n}, {});']
@@ -793,6 +797,7 @@ module.exports = {
   "just-map-object": "53",
   "just-map-keys": "57",
   "just-map-values": "54",
+  "just-deep-map-values": "164",
   "just-reduce-object": "87",
   "just-is-empty": "112",
   "just-is-circular": "140",

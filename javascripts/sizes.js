@@ -16,6 +16,7 @@ module.exports = {
   "just-map-object": "53",
   "just-map-keys": "57",
   "just-map-values": "54",
+  "just-deep-map-values": "164",
   "just-reduce-object": "87",
   "just-is-empty": "112",
   "just-is-circular": "140",

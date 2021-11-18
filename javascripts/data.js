@@ -158,6 +158,14 @@ map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);`,
 map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);`,
         ],
       },
+      'just-deep-map-values': {
+        size: sizes['just-deep-map-values'],
+        code: [
+          `const deepMapValues = require('just-deep-map-values');\n
+const squareFn = (number) => number * number;
+deepMapValues({ a: 1, b: { c: 2, d: { e: 3 }}}, squareFn);`,
+        ],
+      },
       'just-reduce-object': {
         size: sizes['just-reduce-object'],
         code: [
