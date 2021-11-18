@@ -1000,8 +1000,6 @@ yarn add just-cartesian-product
 
 Takes an input of an array of arrays and returns their Cartesian product.
 
-Takes an input of an array of arrays and returns their Cartesian product.
-
 ```js
 import cartesianProduct from 'just-cartesian-product;
 
