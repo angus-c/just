@@ -13,7 +13,7 @@
     "rollup": "^2.58.0",
     "tap-spec": "5.0.0",
     "tape": "^4.0.0",
-    "template-mate": "^1.0.7",
+    "template-mate": "^1.1.0",
     "test": "^0.6.0",
     "typescript": "^4.2.3"
   },
