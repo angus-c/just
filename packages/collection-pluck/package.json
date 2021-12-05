@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "pluck a property from each member of a collection",
   "main": "index.js",
+  "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
