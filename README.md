@@ -2310,7 +2310,6 @@ cubedRoot(64); // 4
 
 const getRoot = partial(Math.pow, 64);
 getRoot(1/2); // 8
-```  
 ```
 
 ### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
