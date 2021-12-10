@@ -5422,9 +5422,10 @@ temp-write@^3.4.0:
     temp-dir "^1.0.0"
     uuid "^3.0.1"
 
-template-mate@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/template-mate/-/template-mate-1.0.7.tgz#da200cb1baf399a11429beab0276cc20adf80325"
+template-mate@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/template-mate/-/template-mate-1.1.0.tgz#a36916da8578bc36c569095fe4c2f5b68b110c42"
+  integrity sha512-IODz/E0MImYI0h5wEJMm3FFws24Klkk0H3R85cjIh053owxE1cc9JZDbz6hNak5pYp7/D+kacbmOtLewZ1PrEw==
   dependencies:
     yargs "^17.2.1"
 
