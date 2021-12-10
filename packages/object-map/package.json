@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "map an object, passing key and value to predicates",
   "main": "index.js",
+  "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
