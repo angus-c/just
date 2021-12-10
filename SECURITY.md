@@ -14,4 +14,4 @@
 
 ## Reporting a Vulnerability
 
-You can report suspected vulnerabilities by creating an issue
+You can report suspected vulnerabilities by DMing me on Twitter at @angustweets
