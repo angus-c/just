@@ -1206,7 +1206,6 @@ last(); // undefined
 last([]); // undefined
 last(null); // undefined
 last(undefined); // undefined
-```  
 ```
 
 ### [just-tail](https://www.npmjs.com/package/just-tail)

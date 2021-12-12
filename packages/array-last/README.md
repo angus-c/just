@@ -26,5 +26,4 @@ last(); // undefined
 last([]); // undefined
 last(null); // undefined
 last(undefined); // undefined
-```  
 ```
