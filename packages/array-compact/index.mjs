@@ -9,7 +9,7 @@ var arrayCompact = compact;
 
 function compact(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error("expected an array");
+    throw new Error('expected an array');
   }
   var result = [];
   var len = arr.length;
@@ -22,4 +22,4 @@ function compact(arr) {
   return result;
 }
 
-export { arrayCompact as default };
+export {arrayCompact as default};

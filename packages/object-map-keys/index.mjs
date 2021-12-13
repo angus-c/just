@@ -22,4 +22,4 @@ function map(obj, predicate) {
   return result;
 }
 
-export { objectMapKeys as default };
+export {objectMapKeys as default};

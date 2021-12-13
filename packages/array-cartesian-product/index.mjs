@@ -6,7 +6,7 @@ var arrayCartesianProduct = cartesianProduct;
 */
 
 function isArray(item) {
-  if (Object.prototype.toString.call(item) === "[object Array]") {
+  if (Object.prototype.toString.call(item) === '[object Array]') {
     return true;
   }
 
@@ -28,25 +28,23 @@ function baseProduct(prevProduct, arr2) {
 
 function cartesianProduct(arr) {
   if (!isArray(arr)) {
-    throw new Error("just-cartesian-product expects an array");
+    throw new Error('just-cartesian-product expects an array');
   }
 
   if (!arr.length) {
     return [];
   }
 
-  if (!isArray(arr[0])) {
-    throw new Error("set at index 0 must be an array");
+  if(!isArray(arr[0])) {
+    throw new Error('set at index 0 must be an array');
   }
 
   //initialize our product array
-  var product = arr[0].map(function (v) {
-    return [v];
-  });
+  var product = arr[0].map(function(v) { return [v]; });
 
   for (var i = 1; i < arr.length; i++) {
-    if (!isArray(product)) {
-      throw new Error("set at index " + i + " must be an array");
+    if(!isArray(product)) {
+      throw new Error('set at index ' + i + ' must be an array');
     }
     product = baseProduct(product, arr[i]);
   }
@@ -54,4 +52,4 @@ function cartesianProduct(arr) {
   return product;
 }
 
-export { arrayCartesianProduct as default };
+export {arrayCartesianProduct as default};

@@ -1,4 +1,4 @@
-var arrayStdev = stdev;
+var arrayStandardDeviation = stdev;
 
 function stdev(arr) {
   if (!Array.isArray(arr)) {
@@ -29,4 +29,4 @@ function stdev(arr) {
   return Math.sqrt(acc / (len - 1));
 }
 
-export {arrayStdev as default};
+export {arrayStandardDeviation as default};
