@@ -21,7 +21,7 @@ function index(arr, key) {
   for (var i = 0; i < len; i++) {
     var index = arr[i] && arr[i][key];
 
-    if (index) {
+    if (index !== undefined && index !== null) {
       result[index] = arr[i];
     }
   }

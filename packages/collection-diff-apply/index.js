@@ -75,11 +75,13 @@ function diffApply(obj, diff, pathConverter) {
     }
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
+    prototypeCheck(lastProp);
     if (lastProp == null) {
       return false;
     }
     var thisProp;
     while (((thisProp = pathCopy.shift())) != null) {
+      prototypeCheck(thisProp);
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
@@ -102,4 +104,10 @@ function diffApply(obj, diff, pathConverter) {
 
 function jsonPatchPathConverter(stringPath) {
   return stringPath.split('/').slice(1);
+}
+
+function prototypeCheck(prop) {
+  if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
+    throw new Error('setting of prototype values not supported');
+  }
 }

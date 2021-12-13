@@ -1,3 +1,8 @@
+var collectionDiffApply = {
+  diffApply: diffApply,
+  jsonPatchPathConverter: jsonPatchPathConverter,
+};
+
 /*
   const obj1 = {a: 3, b: 5};
   diffApply(obj1,
@@ -65,18 +70,18 @@ function diffApply(obj, diff, pathConverter) {
       }
     } else {
       if (!Array.isArray(thisPath)) {
-        throw new Error(
-          'diff path must be an array, consider supplying a path converter'
-        );
+        throw new Error('diff path must be an array, consider supplying a path converter');
       }
     }
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
+    prototypeCheck(lastProp);
     if (lastProp == null) {
       return false;
     }
     var thisProp;
-    while ((thisProp = pathCopy.shift()) != null) {
+    while (((thisProp = pathCopy.shift())) != null) {
+      prototypeCheck(thisProp);
       if (!(thisProp in subObject)) {
         subObject[thisProp] = {};
       }
@@ -84,17 +89,11 @@ function diffApply(obj, diff, pathConverter) {
     }
     if (thisOp === REMOVE || thisOp === REPLACE) {
       if (!subObject.hasOwnProperty(lastProp)) {
-        throw new Error(
-          ['expected to find property', thisDiff.path, 'in object', obj].join(
-            ' '
-          )
-        );
+        throw new Error(['expected to find property', thisDiff.path, 'in object', obj].join(' '));
       }
     }
     if (thisOp === REMOVE) {
-      Array.isArray(subObject)
-        ? subObject.splice(lastProp, 1)
-        : delete subObject[lastProp];
+      Array.isArray(subObject) ? subObject.splice(lastProp, 1) : delete subObject[lastProp];
     }
     if (thisOp === REPLACE || thisOp === ADD) {
       subObject[lastProp] = thisDiff.value;
@@ -107,4 +106,10 @@ function jsonPatchPathConverter(stringPath) {
   return stringPath.split('/').slice(1);
 }
 
-export {diffApply, jsonPatchPathConverter};
+function prototypeCheck(prop) {
+  if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
+    throw new Error('setting of prototype values not supported');
+  }
+}
+
+export {collectionDiffApply as default};
