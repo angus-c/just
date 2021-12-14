@@ -1,6 +1,7 @@
 import pluck = require('./index')
 
 // Fixtures
+const objpartial: {x?: number} = {}
 const enum E1 {
   A,
   B,
@@ -11,6 +12,7 @@ const enum E2 {
 };
 const sym1 = Symbol();
 const sym2 = Symbol();
+const xy: 'x' | 'y' = 'x'
 
 // OK
 
@@ -24,6 +26,11 @@ var af: never[] = pluck([], 'a');
 var ag: number[] = pluck([{[E1.A]: 0}, {[E1.A]: 1}], E1.A);
 var ah: number[] = pluck([{[E2.A]: 0}, {[E2.A]: 1}], E2.A);
 var ai: number[] = pluck([{[sym1]: 0}], sym1);
+var aj: unknown[] = pluck([{}], 'a');
+var ak: unknown[] = pluck([{}], 0);
+var al: (number | undefined)[] = pluck([{a: 1}, {}], 'a');
+var am: (number | undefined)[] = pluck([{x: 1}, objpartial], 'x');
+var an: (number | string)[] = pluck([{x: 1, y: 'a'}, {x: 2, y: 'b'}], xy)
 
 // Object
 var oa: {
@@ -51,33 +58,32 @@ var of: {} = pluck({}, 'a');
 var og: {a: number} = pluck({a: {[E1.A]: 0}}, E1.A);
 var oh: {a: number} = pluck({a: {[E2.A]: 0}}, E2.A);
 var oi: {a: number} = pluck({a: {[sym1]: 0}}, sym1);
+var oj: {a: unknown} = pluck({a: {}}, 'a');
+var ok: {a: unknown} = pluck({a: {}}, 0);
+var ol: {a: string, b: unknown} = pluck({a: {x: 'a'}, b: {}}, 'x');
+var om: {a: string, b?: number} = pluck({a: {x: 'a'}, b: objpartial}, 'x');
+var on: {a: string | null, b: number} = pluck({a: {x: 'a', y: null}, b: {x: 1, y: 2}}, xy)
 
 // NG
+// @ts-expect-error
+pluck()
 
 // Array
 // @ts-expect-error
-pluck([{}], 'a');
+pluck([])
 // @ts-expect-error
-pluck([{}], 0);
+pluck([], {})
 // @ts-expect-error
-pluck([{a: 1}, {b: 2}], 'a');
+pluck([], [])
 // @ts-expect-error
-pluck([{[E1.A]: 0}, {[E1.A]: 1}], E1.B);
-// @ts-expect-error
-pluck([{[E2.A]: 0}, {[E2.A]: 1}], E2.B);
-// @ts-expect-error
-pluck([{[sym1]: 0}], sym2);
+pluck([], null)
 
 // Object
 // @ts-expect-error
-pluck({a: {}}, 'a');
+pluck({})
 // @ts-expect-error
-pluck({a: {}}, 0);
+pluck({}, {})
 // @ts-expect-error
-pluck({a: {x: 1}, b: {y: 2}}, 'x');
+pluck({}, [])
 // @ts-expect-error
-pluck({a: {[E1.A]: 0}}, E1.B);
-// @ts-expect-error
-pluck({a: {[E2.A]: 0}}, E2.B);
-// @ts-expect-error
-pluck({a: {[sym1]: 0}}, sym2);
+pluck({}, null)
