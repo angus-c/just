@@ -39,7 +39,6 @@ function random(n1, n2) {
     n2 = temp;
   }
 
-  console.log('******', n1, n2);
   return ~~(Math.random() * (trunc(n2) + 1 - trunc(n1))) + trunc(n1);
 }
 
