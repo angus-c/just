@@ -125,6 +125,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-clamp](#just-clamp)
   - [just-is-prime](#just-is-prime)
   - [just-modulo](#just-modulo)
+  - [just-random-integer](#just-random-integer)
 - [Functions](#functions) =>
   - [just-compose](#just-compose)
   - [just-curry-it](#just-curry-it)
@@ -287,6 +288,8 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-is-prime" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-modulo" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-random-integer" } -->
 
 ### Functions
 

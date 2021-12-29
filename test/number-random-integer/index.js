@@ -1,57 +1,145 @@
 var test = require('../util/test')(__filename);
 var random = require('../../packages/number-random-integer');
 
-function expected(value, start, end) {
-  return value >= start && value <= end;
+var nativeRandomFn = Math.random;
+function mockRandom(n) {
+  Math.random = function() {
+    return n;
+  };
 }
 
-test('returns a number between 0 and 1', function(t) {
-  t.plan(5);
+try {
+  test('positive range', function(t) {
+    t.plan(14);
 
-  t.ok(expected(random(), 0, 1));
-  t.ok(expected(random(), 0, 1));
-  t.ok(expected(random(), 0, 1));
-  t.ok(expected(random(), 0, 1));
-  t.ok(expected(random(), 0, 1));
+    // binary
+    mockRandom(0);
+    t.equal(random(0, 1), 0);
+    mockRandom(0.49999);
+    t.equal(random(0, 1), 0);
+    mockRandom(0.5);
+    t.equal(random(0, 1), 1);
+    mockRandom(0.51);
+    t.equal(random(0, 1), 1);
 
-  t.end();
-});
+    // bigger range
+    mockRandom(0);
+    t.equal(random(0, 19), 0);
+    mockRandom(0.0499999);
+    t.equal(random(0, 19), 0);
+    mockRandom(0.05);
+    t.equal(random(0, 19), 1);
+    mockRandom(0.25);
+    t.equal(random(0, 19), 5);
+    mockRandom(0.40);
+    t.equal(random(0, 19), 8);
+    mockRandom(0.499999);
+    t.equal(random(0, 19), 9);
+    mockRandom(0.5);
+    t.equal(random(0, 19), 10);
+    mockRandom(0.94);
+    t.equal(random(0, 19), 18);
+    mockRandom(0.95);
+    t.equal(random(0, 19), 19);
+    mockRandom(0.999999);
+    t.equal(random(0, 19), 19);
+    t.end();
+  });
 
-test('returns a number between 5 and 10', function(t) {
-  t.plan(5);
+  test('negative to positive range', function(t) {
+    t.plan(4);
+    mockRandom(0);
+    t.equal(random(-6, 7), -6);
+    mockRandom(0.4999999);
+    t.equal(random(-6, 7), 0);
+    mockRandom(0.5);
+    t.equal(random(-6, 7), 1);
+    mockRandom(0.99999);
+    t.equal(random(-6, 7), 7);
+    t.end();
+  });
 
-  t.ok(expected(random(5, 10), 5, 10));
-  t.ok(expected(random(5, 10), 5, 10));
-  t.ok(expected(random(5, 10), 5, 10));
-  t.ok(expected(random(5, 10), 5, 10));
-  t.ok(expected(random(5, 10), 5, 10));
+  test('negative binary range', function(t) {
+    t.plan(4);
+    mockRandom(0);
+    t.equal(random(-1, 0), -1);
+    mockRandom(0.4999999);
+    t.equal(random(-1, 0), -1);
+    mockRandom(0.5);
+    t.equal(random(-1, 0), 0);
+    mockRandom(0.99999);
+    t.equal(random(-1, 0), 0);
+    t.end();
+  });
 
-  t.end();
-});
+  test('negative to negative range', function(t) {
+    t.plan(5);
+    mockRandom(0);
+    t.equal(random(-11, -3), -11);
+    mockRandom(0.44);
+    t.equal(random(-11, -3), -8);
+    mockRandom(0.45);
+    t.equal(random(-11, -3), -7);
+    mockRandom(0.5);
+    t.equal(random(-11, -3), -7);
+    mockRandom(0.99999);
+    t.equal(random(-11, -3), -3);
+    t.end();
+  });
 
-test('returns a number from 0 to 5', function(t) {
-  t.plan(5);
+  test('non integer range', function(t) {
+    t.plan(5);
+    mockRandom(0);
+    t.equal(random(0.7, 19.3), 0);
+    mockRandom(0);
+    t.equal(random(-1.5, 1.5), -1);
+    mockRandom(0.48);
+    t.equal(random(-1.5, 1.5), 0);
+    mockRandom(0.999999);
+    t.equal(random(-1.5, 1.5), 1);
+    mockRandom(0.999999);
+    t.equal(random(-2.8, 17.7), 17);
+    t.end();
+  });
 
-  t.ok(expected(random(5), 0, 5));
-  t.ok(expected(random(5), 0, 5));
-  t.ok(expected(random(5), 0, 5));
-  t.ok(expected(random(5), 0, 5));
-  t.ok(expected(random(5), 0, 5));
+  test('no range', function(t) {
+    t.plan(9);
+    mockRandom(0);
+    t.equal(random(0), 0);
+    mockRandom(0.99999);
+    t.equal(random(0), 0);
+    mockRandom(0);
+    t.equal(random(3, 3), 3);
+    mockRandom(0.5);
+    t.equal(random(3, 3), 3);
+    mockRandom(0.78);
+    t.equal(random(-7, -7), -7);
+    mockRandom(0.5);
+    t.equal(random(0, 0), 0);
+    mockRandom(0.9999);
+    t.equal(random(100, 100), 100);
+    mockRandom(0.34);
+    t.equal(random(-18, -18), -18);
+    mockRandom(0.11);
+    t.equal(random(4.2, 4.2), 4);
+    t.end();
+  });
 
-  t.end();
-});
-
-test('returns a number between -5 and -10', function(t) {
-  t.plan(5);
-
-  t.ok(expected(random(-5, -10), -10, -5));
-  t.ok(expected(random(-5, -10), -10, -5));
-  t.ok(expected(random(-5, -10), -10, -5));
-  t.ok(expected(random(-5, -10), -10, -5));
-  t.ok(expected(random(-5, -10), -10, -5));
-
-  t.end();
-});
+  test('switches args when higher number is first argument', function(t) {
+    t.plan(4);
+    mockRandom(0);
+    t.equal(random(15, 4), 4);
+    mockRandom(0.44);
+    t.equal(random(-3, -11), -8);
+    mockRandom(0.499999);
+    t.equal(random(19, 0), 9);
+    mockRandom(0);
+    t.equal(random(7, -6), -6);
+    t.end();
+  });
+} catch(e) {} finally {
+  Math.random = nativeRandomFn;
+}
 
 test('invalid', function(t) {
   t.plan(6);

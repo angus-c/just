@@ -15,17 +15,17 @@ npm install just-random-integer
 yarn add just-random-integer
 ```
 
-Produces an integer between two values
+Produces a random integer within a given range
 
 ```js
-import random from 'just-random';
+import random from 'just-random-integer';
 
 random();
-// Produces a random number between 0 and 1
-
+// Returns either 0 or 1
 random(5);
-// Produces a random number between 0 and 5
-
-random(5, 10);
-// Produces a random number between 5 and 10
+// Returns a random integer between 0 and 5 (inclusively)
+random(3, 10);
+// Returns a random integer between 3 and 10 (inclusively)
+random(-5.8, 10.4);
+// Returns a random integer between -5 and 10 (inclusively)
 ```
