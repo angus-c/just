@@ -25,4 +25,4 @@ function once(fn) {
   };
 }
 
-export {functionOnce as default};
+export { functionOnce as default };

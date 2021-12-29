@@ -28,4 +28,4 @@ function median(arr) {
     : (sorted[lowerMiddleRank] + sorted[lowerMiddleRank - 1]) / 2;
 }
 
-export {arrayMedian as default};
+export { arrayMedian as default };

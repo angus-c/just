@@ -35,4 +35,4 @@ function shuffle(arr, options) {
   return result;
 }
 
-export {arrayShuffle as default};
+export { arrayShuffle as default };

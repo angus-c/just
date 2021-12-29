@@ -71,4 +71,4 @@ function isUnextendable(val) {
   return !val || (typeof val != 'object' && typeof val != 'function');
 }
 
-export {objectExtend as default};
+export { objectExtend as default };

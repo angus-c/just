@@ -37,4 +37,4 @@ function mode(arr) {
     : result[0];
 }
 
-export {arrayMode as default};
+export { arrayMode as default };

@@ -13,4 +13,4 @@ function random(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export {arrayRandom as default};
+export { arrayRandom as default };

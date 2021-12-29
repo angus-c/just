@@ -1,3 +1,8 @@
+var collectionDiff = {
+  diff: diff,
+  jsonPatchPathConverter: jsonPatchPathConverter,
+};
+
 /*
   const obj1 = {a: 4, b: 5};
   const obj2 = {a: 3, b: 5};
@@ -124,7 +129,10 @@ function diff(obj1, obj2, pathConverter) {
       }
     }
 
-    return diffs.remove.reverse().concat(diffs.replace).concat(diffs.add);
+    return diffs.remove
+      .reverse()
+      .concat(diffs.replace)
+      .concat(diffs.add);
   }
   return getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
 }
@@ -143,4 +151,4 @@ function jsonPatchPathConverter(arrayPath) {
   return [''].concat(arrayPath).join('/');
 }
 
-export {diff, jsonPatchPathConverter};
+export { collectionDiff as default };

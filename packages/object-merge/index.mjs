@@ -42,4 +42,4 @@ function merge(/* obj1, obj2, [objn] */) {
   return result;
 }
 
-export {objectMerge as default};
+export { objectMerge as default };

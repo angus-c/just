@@ -63,4 +63,4 @@ function has(obj, propsArg) {
   return false;
 }
 
-export {objectHas as default};
+export { objectHas as default };

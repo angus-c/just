@@ -31,4 +31,4 @@ function isPrime(number) {
   return true;
 }
 
-export {numberIsPrime as default};
+export { numberIsPrime as default };

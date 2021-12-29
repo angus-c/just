@@ -49,4 +49,4 @@ function getRegExpFlags(regExp) {
   }
 }
 
-export {collectionClone as default};
+export { collectionClone as default };

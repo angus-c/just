@@ -15,4 +15,4 @@ function tail(arr) {
   return arr.slice(1);
 }
 
-export {arrayTail as default};
+export { arrayTail as default };

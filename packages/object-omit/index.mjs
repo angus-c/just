@@ -23,4 +23,4 @@ function omit(obj, remove) {
   return result;
 }
 
-export {objectOmit as default};
+export { objectOmit as default };

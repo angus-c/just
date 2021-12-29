@@ -65,4 +65,4 @@ function throttle(fn, interval, options) {
   return throttleWrapper;
 }
 
-export {functionThrottle as default};
+export { functionThrottle as default };

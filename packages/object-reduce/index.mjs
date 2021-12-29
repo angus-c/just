@@ -25,4 +25,4 @@ function reduce(obj, predicate /*, initialValue*/) {
   return Array.prototype.reduce.apply(Object.keys(obj), args);
 }
 
-export {objectReduce as default};
+export { objectReduce as default };

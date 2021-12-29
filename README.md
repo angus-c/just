@@ -128,6 +128,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-clamp](#just-clamp)
   - [just-is-prime](#just-is-prime)
   - [just-modulo](#just-modulo)
+  - [just-random-integer](#just-random-integer)  
 - [Functions](#functions) =>
   - [just-compose](#just-compose)
   - [just-curry-it](#just-curry-it)
@@ -2174,6 +2175,33 @@ modulo(-3, -8); // NaN
 modulo(12, 'apple'); // NaN
 modulo('bee', 9); // NaN
 modulo(null, undefined); // NaN
+```
+
+### [just-random-integer](https://www.npmjs.com/package/just-random-integer)
+[source](https://github.com/angus-c/just/tree/master/packages/number-random-integer/index.js)
+
+[`🍦 Try it`](https://anguscroll.com/just/just-random-integer)
+
+```shell
+npm install just-random-integer
+```
+```shell
+yarn add just-random-integer
+```
+
+Produces a random integer within a given range
+
+```js
+import random from 'just-random-integer';
+
+random();
+// Returns either 0 or 1
+random(5);
+// Returns a random integer between 0 and 5 (inclusively)
+random(3, 10);
+// Returns a random integer between 3 and 10 (inclusively)
+random(-5.8, 10.4);
+// Returns a random integer between -5 and 10 (inclusively)
 ```
 
 ### Functions

@@ -20,4 +20,4 @@ function prune(str, length, end) {
   return remnantPlusOne.slice(0, lastSpace) + end;
 }
 
-export {stringPrune as default};
+export { stringPrune as default };

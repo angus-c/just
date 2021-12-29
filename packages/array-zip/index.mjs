@@ -47,4 +47,4 @@ function zip() {
   return result;
 }
 
-export {arrayZip as default};
+export { arrayZip as default };

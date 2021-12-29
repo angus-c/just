@@ -27,4 +27,4 @@ function snakeCase(str) {
     .join('_');
 }
 
-export {stringSnakeCase as default};
+export { stringSnakeCase as default };

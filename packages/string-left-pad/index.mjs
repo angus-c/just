@@ -51,4 +51,4 @@ function leftPad(str, length, padStr) {
     .join('');
 }
 
-export {stringLeftPad as default};
+export { stringLeftPad as default };

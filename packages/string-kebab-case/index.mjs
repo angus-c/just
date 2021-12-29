@@ -35,4 +35,4 @@ function kebabCase(str) {
     .join('-');
 }
 
-export {stringKebabCase as default};
+export { stringKebabCase as default };

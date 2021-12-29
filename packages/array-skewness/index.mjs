@@ -46,4 +46,4 @@ function skewness(arr) {
   return (3 * (mean - median)) / standardDeviation;
 }
 
-export {arraySkewness as default};
+export { arraySkewness as default };

@@ -20,4 +20,4 @@ function mean(arr) {
   return sum / len;
 }
 
-export {arrayMean as default};
+export { arrayMean as default };

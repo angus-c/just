@@ -41,4 +41,4 @@ function memoizeLast(fn, isEqual) {
   };
 }
 
-export {functionMemoizeLast as default};
+export { functionMemoizeLast as default };

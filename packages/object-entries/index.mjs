@@ -27,4 +27,4 @@ function entries(obj) {
   return result;
 }
 
-export {objectEntries as default};
+export { objectEntries as default };

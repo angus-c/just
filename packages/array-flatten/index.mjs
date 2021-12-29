@@ -35,4 +35,4 @@ function flatten(arr, depth) {
   return flattenHelper(arr, typeof depth === 'number' ? depth : Infinity);
 }
 
-export {arrayFlatten as default};
+export { arrayFlatten as default };

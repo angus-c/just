@@ -18,4 +18,4 @@ function flip(obj) {
   return result;
 }
 
-export {objectFlip as default};
+export { objectFlip as default };

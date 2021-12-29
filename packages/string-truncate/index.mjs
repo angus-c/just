@@ -18,4 +18,4 @@ function truncate(str, length, end) {
   return str.slice(0, Math.max(0, length - end.length)) + end;
 }
 
-export {stringTruncate as default};
+export { stringTruncate as default };

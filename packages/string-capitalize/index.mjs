@@ -15,4 +15,4 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-export {stringCapitalize as default};
+export { stringCapitalize as default };

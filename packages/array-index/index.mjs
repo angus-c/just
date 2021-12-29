@@ -28,4 +28,4 @@ function index(arr, key) {
   return result;
 }
 
-export {arrayIndex as default};
+export { arrayIndex as default };

@@ -19,4 +19,4 @@ function union(arr1, arr2) {
   return result;
 }
 
-export {arrayUnion as default};
+export { arrayUnion as default };

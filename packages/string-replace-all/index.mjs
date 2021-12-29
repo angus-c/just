@@ -30,4 +30,4 @@ function replaceAll(str, subStr, newSubStr) {
   return str.split(subStr).join(newSubStr);
 }
 
-export {stringReplaceAll as default};
+export { stringReplaceAll as default };

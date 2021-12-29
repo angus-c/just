@@ -31,4 +31,4 @@ function pluck(collection, propertyName) {
   return result;
 }
 
-export {collectionPluck as default};
+export { collectionPluck as default };

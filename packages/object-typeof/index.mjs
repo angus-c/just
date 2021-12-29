@@ -30,4 +30,4 @@ function typeOf(obj) {
   return result.indexOf('function') > -1 ? 'function' : result;
 }
 
-export {objectTypeof as default};
+export { objectTypeof as default };

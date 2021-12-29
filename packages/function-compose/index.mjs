@@ -24,4 +24,4 @@ function compose(fn1, fn2 /*, fn3, etc */) {
   };
 }
 
-export {functionCompose as default};
+export { functionCompose as default };

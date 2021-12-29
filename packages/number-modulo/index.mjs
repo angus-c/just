@@ -26,4 +26,4 @@ function modulo(n, d) {
   return (n % d + d) % d;
 }
 
-export {numberModulo as default};
+export { numberModulo as default };
