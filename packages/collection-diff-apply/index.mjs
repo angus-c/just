@@ -112,4 +112,4 @@ function prototypeCheck(prop) {
   }
 }
 
-export { collectionDiffApply as default };
+export {collectionDiffApply as default};

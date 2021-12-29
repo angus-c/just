@@ -28,4 +28,4 @@ function demethodize(fn) {
   };
 }
 
-export { functionDemethodize as default };
+export {functionDemethodize as default};

@@ -47,4 +47,4 @@ function isCircular(obj) {
   return false;
 }
 
-export { objectIsCircular as default };
+export {objectIsCircular as default};

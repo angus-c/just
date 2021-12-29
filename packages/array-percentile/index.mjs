@@ -40,4 +40,4 @@ function percentile(arr, percentage) {
   return (lower + rankFrac * (upper - lower));
 }
 
-export { arrayPercentile as default };
+export {arrayPercentile as default};

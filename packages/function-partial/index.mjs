@@ -30,4 +30,4 @@ function partial(fn /*, arg1, arg2 etc */) {
   };
 }
 
-export { functionPartial as default };
+export {functionPartial as default};

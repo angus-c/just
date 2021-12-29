@@ -47,4 +47,4 @@ function trunc(n) {
   return Math.trunc ? Math.trunc(n) : Math.floor(n) + (n < 0 ? 1 : 0);
 }
 
-export { numberRandomInteger as default };
+export {numberRandomInteger as default};

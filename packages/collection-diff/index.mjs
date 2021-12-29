@@ -151,4 +151,4 @@ function jsonPatchPathConverter(arrayPath) {
   return [''].concat(arrayPath).join('/');
 }
 
-export { collectionDiff as default };
+export {collectionDiff as default};

@@ -22,4 +22,4 @@ function compact(arr) {
   return result;
 }
 
-export { arrayCompact as default };
+export {arrayCompact as default};
