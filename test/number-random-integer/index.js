@@ -1,7 +1,7 @@
 var test = require('../util/test')(__filename);
 var random = require('../../packages/number-random-integer');
 
-var nativeRandomFn = Math.random();
+var nativeRandomFn = Math.random;
 function mockRandom(n) {
   Math.random = function() {
     return n;
