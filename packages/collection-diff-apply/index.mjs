@@ -107,7 +107,8 @@ function jsonPatchPathConverter(stringPath) {
 }
 
 function prototypeCheck(prop) {
-  if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
+  // coercion is intentional to catch prop values like `['__proto__']`
+  if (prop == '__proto__' || prop == 'constructor' || prop == 'prototype') {
     throw new Error('setting of prototype values not supported');
   }
 }
