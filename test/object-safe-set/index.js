@@ -81,7 +81,7 @@ test('does not mutate path', function(t) {
 });
 
 test("doesn't support setting of prototype (and related) values", function(t) {
-  t.plan(4);
+  t.plan(5);
   t.throws(function() {
     var obj1 = {a: {}};
     set(obj1, '__proto__.x', function malice() {});
@@ -97,6 +97,11 @@ test("doesn't support setting of prototype (and related) values", function(t) {
   t.throws(function() {
     var obj3 = {a: {}};
     set(obj3, 'prototype.y', 'hahahaha');
+  });
+  // case where unsafe value is hidden in an array which will coerce to string on assignment
+  t.throws(function() {
+    var obj1 = {a: {}};
+    set(obj1, ['a', 'b', ['__proto__']], {toString: 'hehehe'});
   });
   t.end();
 });
