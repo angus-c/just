@@ -1,11 +1,19 @@
 {
   "name": "just-memoize-last",
-  "version": "1.0.0",
+  "version": "3.0.1",
   "description": "A memoize implementation that only caches the most recent evaluation",
   "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.mjs"
+    }
+  },
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [

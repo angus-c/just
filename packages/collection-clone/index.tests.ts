@@ -1,4 +1,4 @@
-import clone = require('./index');
+import clone from './index'
 
 const array: string[] = [];
 const object: object = {};
@@ -20,14 +20,14 @@ clone([{ a: '' }]);
 
 // Not OK
 // @ts-expect-error
-clone(); 
+clone();
 // @ts-expect-error
-clone(1); 
+clone(1);
 // @ts-expect-error
-clone(''); 
+clone('');
 // @ts-expect-error
-clone(true); 
+clone(true);
 // @ts-expect-error
-clone(false); 
+clone(false);
 // @ts-expect-error
-clone(); 
+clone();

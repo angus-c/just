@@ -348,3 +348,31 @@ test('replacing falsey values using js patch standard', function(t) {
   t.deepEqual(diff, originalDiff);
   t.end();
 });
+
+test('detects prototype pollution', function(t) {
+  t.plan(6);
+  var obj6 = {a: 4};
+  var originalDiff = [
+    {op: 'add', path: ['__proto__', 'extra'], value: 999},
+  ];
+  var diff = clone(originalDiff);
+  t.throws(() => diffApply(obj6, diff));
+  t.deepEqual(diff, originalDiff);
+
+  var obj7 = {c: {d: 22}};
+  originalDiff = [
+    {op: 'add', path: ['c', 'constructor'], value: a => a + 1},
+  ];
+  diff = clone(originalDiff);
+  t.throws(() => diffApply(obj7, diff));
+  t.deepEqual(diff, originalDiff);
+
+  var obj8 = {e: {f: 5}};
+  originalDiff = [
+    {op: 'remove', path: ['e', 'prototype']},
+  ];
+  diff = clone(originalDiff);
+  t.throws(() => diffApply(obj8, diff));
+  t.deepEqual(diff, originalDiff);
+  t.end();
+});

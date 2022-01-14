@@ -1,4 +1,4 @@
-import throttle = require('./index');
+import throttle from './index'
 
 //OK
 

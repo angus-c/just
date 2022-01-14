@@ -23,14 +23,21 @@ module.exports = set;
   obj5; // {a: {Symbol(): 7}}
 */
 
-function set(obj, props, value) {
-  if (typeof props == 'string') {
-    props = props.split('.');
+function set(obj, propsArg, value) {
+  var props, lastProp;
+  if (Array.isArray(propsArg)) {
+    props = propsArg.slice(0);
   }
-  if (typeof props == 'symbol') {
-    props = [props];
+  if (typeof propsArg == 'string') {
+    props = propsArg.split('.');
   }
-  var lastProp = props.pop();
+  if (typeof propsArg == 'symbol') {
+    props = [propsArg];
+  }
+  if (!Array.isArray(props)) {
+    throw new Error('props arg must be an array, a string or a symbol');
+  }
+  lastProp = props.pop();
   if (!lastProp) {
     return false;
   }
@@ -51,7 +58,8 @@ function set(obj, props, value) {
 }
 
 function prototypeCheck(prop) {
-  if (prop === '__proto__' || prop === 'constructor' || prop === 'prototype') {
+  // coercion is intentional to catch prop values like `['__proto__']`
+  if (prop == '__proto__' || prop == 'constructor' || prop == 'prototype') {
     throw new Error('setting of prototype values not supported');
   }
 }

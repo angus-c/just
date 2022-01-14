@@ -1,4 +1,4 @@
-import merge = require('./index');
+import merge from "./index";
 
 // OK
 
@@ -27,7 +27,7 @@ merge();
 // @ts-expect-error
 merge(0);
 // @ts-expect-error
-merge('');
+merge("");
 // @ts-expect-error
 merge(false);
 // @ts-expect-error
@@ -41,7 +41,7 @@ merge(Symbol());
 // @ts-expect-error
 merge({}, 0);
 // @ts-expect-error
-merge({}, '');
+merge({}, "");
 // @ts-expect-error
 merge({}, false);
 // @ts-expect-error

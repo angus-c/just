@@ -7,16 +7,22 @@
     "test": "test"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
     "eslint": "6.8.0",
     "lerna": "3.20.2",
+    "rollup": "^2.58.0",
     "tap-spec": "5.0.0",
     "tape": "^4.0.0",
+    "template-mate": "^1.1.0",
+    "test": "^0.6.0",
     "typescript": "^4.2.3"
   },
   "scripts": {
-    "lint": "eslint .",
-    "test": "npm run lint && tape ./test/**/index.js | tap-spec; npm run test-types",
-    "test-types": "tsc packages/**/*.tests.ts --noEmit --strictNullChecks"
+    "build": "lerna run build --stream $@",
+    "lint": "eslint --max-warnings=0 --ext=mjs,js .",
+    "test": "npm run lint && tape ./test/**/index.js | tap-spec && npm run test-types",
+    "test-types": "tsc",
+    "generate-readmes": "node scripts/generate-readmes.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +41,6 @@
   },
   "homepage": "https://github.com/angus-c/just#readme",
   "dependencies": {
-    "test": "^0.6.0"
+    "@changesets/cli": "^2.18.0"
   }
 }

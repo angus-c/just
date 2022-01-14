@@ -6,4 +6,4 @@ declare function filter<T>(
   obj: PlainObject<T>,
   fn: (key: keyof T, value: T[typeof key]) => any
 ): Partial<T>;
-export = filter;
+export default filter;

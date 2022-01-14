@@ -1,0 +1,19 @@
+## <!-- template-mate: { "type": "variable", "name": "packageName"} -->
+
+Part of a [library](https://anguscroll.com/just) of zero-dependency npm modules that do just do one thing.
+Guilt-free utilities for every occasion.
+
+[`🍦 Try it`](https://anguscroll.com/just/<!-- template-mate: { "type": "variable", "name": "packageName"} -->)
+
+```shell
+npm install <!-- template-mate: { "type": "variable", "name": "packageName"} -->
+```
+```shell
+yarn add <!-- template-mate: { "type": "variable", "name": "packageName"} -->
+```
+
+<!-- template-mate: { "type": "variable", "name": "description"} -->
+
+```js
+<!-- template-mate: { "type": "variable", "name": "examples"} -->
+```
