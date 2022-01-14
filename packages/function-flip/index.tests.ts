@@ -1,4 +1,4 @@
-import flip = require('./index');
+import flip from './index';
 
 const fn = (...args: never) => {
   return 21;
