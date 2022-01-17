@@ -24,6 +24,10 @@ const objOps: diffObj.DiffOps = [
     op: "add",
     path: ["e"],
     value: 15
+  },
+  {
+    op: "remove",
+    path: ["c", "d"]
   }
 ];
 
