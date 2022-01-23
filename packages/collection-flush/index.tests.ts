@@ -38,6 +38,22 @@ flush({
 // Not OK
 
 // @ts-expect-error
+flush()
+// @ts-expect-error
+flush("hello World")
+// @ts-expect-error
+flush(1)
+// @ts-expect-error
+flush(true)
+// @ts-expect-error
+flush(null)
+// @ts-expect-error
+flush(undefined)
+// @ts-expect-error
+flush(Symbol("hello"))
+// @ts-expect-error
+flush(BigInt("9007199254740991"))
+// @ts-expect-error
 flush<(number | null)[]>([1, 2, null, 'hello', 'world']);
 // @ts-expect-error
 flush<[number, number, null, string, number]>([1, 2, null, 'hello', 'world']);
