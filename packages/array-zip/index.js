@@ -32,13 +32,21 @@ function zip() {
   }
 
   var result = [];
+  var group = [];
+  var p1 = 0;
+  var p2 = 0;
 
-  for (var i = 0; i < maxLen; i++) {
-    var group = [];
-    for (var j = 0; j < argsLen; j++) {
-      group[j] = args[j][i];
+  while (p1 < maxLen) {
+    group[p2] = args[p2][p1];
+
+    if (p2 < argsLen - 1) {
+      p2++;
+    } else {
+      p2 = 0;
+      result[p1] = group;
+      group = [];
+      p1++;
     }
-    result[i] = group;
   }
 
   return result;
