@@ -1,8 +1,3 @@
-var collectionDiffApply = {
-  diffApply: diffApply,
-  jsonPatchPathConverter: jsonPatchPathConverter,
-};
-
 /*
   const obj1 = {a: 3, b: 5};
   diffApply(obj1,
@@ -113,4 +108,4 @@ function prototypeCheck(prop) {
   }
 }
 
-export {collectionDiffApply as default};
+export {diffApply, jsonPatchPathConverter};
