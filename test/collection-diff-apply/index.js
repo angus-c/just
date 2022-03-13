@@ -272,7 +272,7 @@ test('objects with array properties using js patch standard', function(t) {
 });
 
 test('nested objects using js patch standard', function(t) {
-  t.plan(4);
+  t.plan(6);
   var obj5 = {a: 4, b: {c: 3}};
   var originalDiff = [
     {op: 'remove', path: '/b/c'},
@@ -293,6 +293,16 @@ test('nested objects using js patch standard', function(t) {
   var diff = clone(originalDiff);
   diffApply(obj6, diff, jsonPatchPathConverter);
   t.deepEqual(obj6, {d: 2, b: {c: 9}});
+  t.deepEqual(diff, originalDiff);
+
+  var obj7 = {a: 4, b: {c: 3}};
+  var originalDiff = [
+    {op: 'move', from: '/b', path: '/a'},
+    {op: 'add', from: '/c', value: {k: 4}},
+  ];
+  var diff = clone(originalDiff);
+  diffApply(obj7, diff);
+  t.deepEqual(obj7, {a: {c: 3}, c: {k: 4}});
   t.deepEqual(diff, originalDiff);
   t.end();
 });
