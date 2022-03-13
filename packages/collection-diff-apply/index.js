@@ -47,6 +47,7 @@ module.exports = {
 var REMOVE = 'remove';
 var REPLACE = 'replace';
 var ADD = 'add';
+var MOVE = 'move';
 
 function diffApply(obj, diff, pathConverter) {
   if (!obj || typeof obj != 'object') {
@@ -62,17 +63,10 @@ function diffApply(obj, diff, pathConverter) {
     var thisDiff = diff[i];
     var subObject = obj;
     var thisOp = thisDiff.op;
-    var thisPath = thisDiff.path;
-    if (pathConverter) {
-      thisPath = pathConverter(thisPath);
-      if (!Array.isArray(thisPath)) {
-        throw new Error('pathConverter must return an array');
-      }
-    } else {
-      if (!Array.isArray(thisPath)) {
-        throw new Error('diff path must be an array, consider supplying a path converter');
-      }
-    }
+
+    var thisPath = transformPath(pathConverter, thisDiff.path);
+    var thisFromPath = transformPath(pathConverter, thisDiff.from); // MOVE only
+
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
     prototypeCheck(lastProp);
@@ -100,6 +94,20 @@ function diffApply(obj, diff, pathConverter) {
     }
   }
   return subObject;
+}
+
+function transformPath(pathConverter, thisPath) {
+  if(pathConverter) {
+    thisPath = pathConverter(thisPath);
+    if(!Array.isArray(thisPath)) {
+      throw new Error('pathConverter must return an array');
+    }
+  } else {
+    if(!Array.isArray(thisPath)) {
+      throw new Error('diff path must be an array, consider supplying a path converter');
+    }
+  }
+  return thisPath;
 }
 
 function jsonPatchPathConverter(stringPath) {

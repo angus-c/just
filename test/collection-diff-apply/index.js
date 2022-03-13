@@ -5,7 +5,7 @@ var diffApply = diffApplyModule.diffApply;
 var jsonPatchPathConverter = diffApplyModule.jsonPatchPathConverter;
 
 test('flat objects', function(t) {
-  t.plan(6);
+  t.plan(8);
   var obj1 = {a: 3, b: 5};
   var originalDiff = [{op: 'replace', path: ['a'], value: 'hello'}];
   var diff = clone(originalDiff);
@@ -25,10 +25,19 @@ test('flat objects', function(t) {
   t.deepEqual(diff, originalDiff);
 
   var obj3 = {a: 3, b: 5};
-  var originalDiff = [{op: 'remove', path: ['b']}, {op: 'replace', path: ['a'], value: null}];
+  var originalDiff = [
+    {op: 'move', from: ['a'], path: ['c']},
+  ];
   var diff = clone(originalDiff);
   diffApply(obj3, diff);
-  t.deepEqual(obj3, {a: null});
+  t.deepEqual(obj3, {b: 5, c: 3});
+  t.deepEqual(diff, originalDiff);
+
+  var obj4 = {a: 3, b: 5};
+  var originalDiff = [{op: 'remove', path: ['b']}, {op: 'replace', path: ['a'], value: null}];
+  var diff = clone(originalDiff);
+  diffApply(obj4, diff);
+  t.deepEqual(obj4, {a: null});
   t.deepEqual(diff, originalDiff);
   t.end();
 });
@@ -88,7 +97,7 @@ test('objects with array properties using string array keys', function(t) {
 });
 
 test('nested objects', function(t) {
-  t.plan(4);
+  t.plan(6);
   var obj5 = {a: 4, b: {c: 3}};
   var originalDiff = [
     {op: 'remove', path: ['b', 'c']},
@@ -109,6 +118,16 @@ test('nested objects', function(t) {
   var diff = clone(originalDiff);
   diffApply(obj6, diff);
   t.deepEqual(obj6, {d: 2, b: {c: 9}});
+  t.deepEqual(diff, originalDiff);
+  t.end();
+
+  var obj7 = {a: 4, b: {c: 3}};
+  var originalDiff = [
+    {op: 'move', from: ['b'], path: ['a']},
+  ];
+  var diff = clone(originalDiff);
+  diffApply(obj7, diff);
+  t.deepEqual(obj7, {a: {c: 3}});
   t.deepEqual(diff, originalDiff);
   t.end();
 });
@@ -138,6 +157,17 @@ test('arrays', function(t) {
   var diff = clone(originalDiff);
   diffApply(obj8, diff);
   t.deepEqual(obj8, [{b: 3, c: 6}, 12, 'ab']);
+  t.deepEqual(diff, originalDiff);
+  t.end();
+
+  var obj9 = ['a', {b: 3}, 'c', 'd'];
+  var originalDiff = [
+    {op: 'move', from: [0], path: [2]},
+    {op: 'add', path: [0], value: 12},
+  ];
+  var diff = clone(originalDiff);
+  diffApply(obj9, diff);
+  t.deepEqual(obj9, [12, 'a']);
   t.deepEqual(diff, originalDiff);
   t.end();
 });
