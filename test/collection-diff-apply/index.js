@@ -298,10 +298,10 @@ test('nested objects using js patch standard', function(t) {
   var obj7 = {a: 4, b: {c: 3}};
   var originalDiff = [
     {op: 'move', from: '/b', path: '/a'},
-    {op: 'add', from: '/c', value: {k: 4}},
+    {op: 'add', path: '/c', value: {k: 4}},
   ];
   var diff = clone(originalDiff);
-  diffApply(obj7, diff);
+  diffApply(obj7, diff, jsonPatchPathConverter);
   t.deepEqual(obj7, {a: {c: 3}, c: {k: 4}});
   t.deepEqual(diff, originalDiff);
   t.end();
@@ -353,30 +353,17 @@ test('arrays using js patch standard', function(t) {
 });
 
 test('object vs array using js patch standard', function(t) {
-  t.plan(7);
-  var obj9 = {a: 2};
+  var obj11 = ['a', 2];
   var originalDiff = [
-    {op: 'remove', path: '/a'},
-    {op: 'add', path: '/0', value: 'a'},
-    {op: 'add', path: '/1', value: 2},
+    {op: 'move', from: '/0', path: '/a'},
   ];
   var diff = clone(originalDiff);
-  diffApply(obj9, diff, jsonPatchPathConverter);
-  t.deepEqual(obj9, {'0': 'a', '1': 2});
-  t.deepEqual(diff, originalDiff);
-
-  var obj10 = ['a', 2];
-  var originalDiff = [
-    {op: 'remove', path: '/0'},
-    {op: 'remove', path: '/0'},
-    {op: 'add', path: '/a', value: 2},
-  ];
-  var diff = clone(originalDiff);
-  diffApply(obj10, diff, jsonPatchPathConverter);
-  t.ok(typeof obj10 == 'object');
-  t.ok(Array.isArray(obj10), true);
-  t.equal(obj10.a, 2);
-  t.equal(obj10.length, 0);
+  diffApply(obj11, diff, jsonPatchPathConverter);
+  t.ok(typeof obj11 == 'object');
+  t.ok(Array.isArray(obj11), true);
+  t.equal(obj11.a, 'a');
+  t.equal(obj11[0], 2);
+  t.equal(obj11.length, 1);
   t.deepEqual(diff, originalDiff);
   t.end();
 });
