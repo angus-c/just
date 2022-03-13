@@ -119,7 +119,6 @@ test('nested objects', function(t) {
   diffApply(obj6, diff);
   t.deepEqual(obj6, {d: 2, b: {c: 9}});
   t.deepEqual(diff, originalDiff);
-  t.end();
 
   var obj7 = {a: 4, b: {c: 3}};
   var originalDiff = [
@@ -133,7 +132,7 @@ test('nested objects', function(t) {
 });
 
 test('arrays', function(t) {
-  t.plan(4);
+  t.plan(6);
   var obj7 = ['a', {b: 3}, 'c', 'd'];
   var originalDiff = [
     {op: 'remove', path: [1, 'b']},
@@ -158,7 +157,6 @@ test('arrays', function(t) {
   diffApply(obj8, diff);
   t.deepEqual(obj8, [{b: 3, c: 6}, 12, 'ab']);
   t.deepEqual(diff, originalDiff);
-  t.end();
 
   var obj9 = ['a', {b: 3}, 'c', 'd'];
   var originalDiff = [
@@ -167,7 +165,7 @@ test('arrays', function(t) {
   ];
   var diff = clone(originalDiff);
   diffApply(obj9, diff);
-  t.deepEqual(obj9, [12, 'a']);
+  t.deepEqual(obj9, [12, 'c', 'a']);
   t.deepEqual(diff, originalDiff);
   t.end();
 });

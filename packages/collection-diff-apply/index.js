@@ -65,7 +65,30 @@ function diffApply(obj, diff, pathConverter) {
     var thisOp = thisDiff.op;
 
     var thisPath = transformPath(pathConverter, thisDiff.path);
-    var thisFromPath = transformPath(pathConverter, thisDiff.from); // MOVE only
+    var thisFromPath = thisDiff.from && transformPath(pathConverter, thisDiff.from);
+    var toPath, toPathCopy, lastToProp, subToObject, valueToMove;
+
+    if (thisFromPath) {
+      // MOVE only, "fromPath" is effectively path and "path" is toPath
+      toPath = thisPath;
+      thisPath = thisFromPath;
+
+      toPathCopy = toPath.slice();
+      lastToProp = toPathCopy.pop();
+      prototypeCheck(lastToProp);
+      if (lastToProp == null) {
+        return false;
+      }
+
+      var thisToProp;
+      while (((thisToProp = toPathCopy.shift())) != null) {
+        prototypeCheck(thisToProp);
+        if (!(thisToProp in subToObject)) {
+          subToObject[thisToProp] = {};
+        }
+        subToObject = subToObject[thisToProp];
+      }
+    }
 
     var pathCopy = thisPath.slice();
     var lastProp = pathCopy.pop();
@@ -73,6 +96,7 @@ function diffApply(obj, diff, pathConverter) {
     if (lastProp == null) {
       return false;
     }
+
     var thisProp;
     while (((thisProp = pathCopy.shift())) != null) {
       prototypeCheck(thisProp);
@@ -81,16 +105,24 @@ function diffApply(obj, diff, pathConverter) {
       }
       subObject = subObject[thisProp];
     }
-    if (thisOp === REMOVE || thisOp === REPLACE) {
+    if (thisOp === REMOVE || thisOp === REPLACE || thisOp === MOVE) {
+      var path = thisOp === MOVE ? thisDiff.from : thisDiff.path;
       if (!subObject.hasOwnProperty(lastProp)) {
-        throw new Error(['expected to find property', thisDiff.path, 'in object', obj].join(' '));
+        throw new Error(['expected to find property', path, 'in object', obj].join(' '));
       }
     }
-    if (thisOp === REMOVE) {
+    if (thisOp === REMOVE || thisOp === MOVE) {
+      if (thisOp === MOVE) {
+        valueToMove = subObject[lastProp];
+      }
       Array.isArray(subObject) ? subObject.splice(lastProp, 1) : delete subObject[lastProp];
     }
     if (thisOp === REPLACE || thisOp === ADD) {
       subObject[lastProp] = thisDiff.value;
+    }
+
+    if (thisOp === MOVE) {
+      subObject[lastToProp] = valueToMove;
     }
   }
   return subObject;
@@ -100,11 +132,18 @@ function transformPath(pathConverter, thisPath) {
   if(pathConverter) {
     thisPath = pathConverter(thisPath);
     if(!Array.isArray(thisPath)) {
-      throw new Error('pathConverter must return an array');
+      throw new Error([
+        'pathConverter must return an array, returned:',
+        thisPath,
+      ].join(' '));
     }
   } else {
     if(!Array.isArray(thisPath)) {
-      throw new Error('diff path must be an array, consider supplying a path converter');
+      throw new Error([
+        'diff path',
+        thisPath,
+        'must be an array, consider supplying a path converter']
+        .join(' '));
     }
   }
   return thisPath;
