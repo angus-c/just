@@ -215,7 +215,7 @@ test('replacing falsey values', function(t) {
 });
 
 test('flat objects using js patch standard', function(t) {
-  t.plan(4);
+  t.plan(6);
   var obj1 = {a: 3, b: 5};
   var originalDiff = [{op: 'replace', path: '/a', value: 'hello'}];
   var diff = clone(originalDiff);
@@ -232,6 +232,15 @@ test('flat objects using js patch standard', function(t) {
   var diff = clone(originalDiff);
   diffApply(obj2, diff, jsonPatchPathConverter);
   t.deepEqual(obj2, {a: 4, c: 5});
+  t.deepEqual(diff, originalDiff);
+
+  var obj3 = {a: 3, b: 5};
+  var originalDiff = [
+    {op: 'move', from: '/a', path: '/c'},
+  ];
+  var diff = clone(originalDiff);
+  diffApply(obj3, diff, jsonPatchPathConverter);
+  t.deepEqual(obj3, {b: 5, c: 3});
   t.deepEqual(diff, originalDiff);
   t.end();
 });
