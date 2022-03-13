@@ -1,5 +1,11 @@
 # just-diff-apply
 
+## 5.3.0
+
+### Minor Changes
+
+- Update .mjs module and d.ts
+
 ## 5.2.0
 
 ### Minor Changes

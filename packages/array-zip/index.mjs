@@ -13,17 +13,15 @@ var arrayZip = zip;
 */
 
 function zip() {
-  var result = [];
   var args = Array.prototype.slice.call(arguments);
   var argsLen = args.length;
   var maxLen = 0;
-  var i, j;
 
   if (!argsLen) {
     throw new Error('zip requires at least one argument');
   }
 
-  for (i = 0; i < argsLen; i++) {
+  for (var i = 0; i < argsLen; i++) {
     if (!Array.isArray(args[i])) {
       throw new Error('all arguments must be arrays');
     }
@@ -33,15 +31,22 @@ function zip() {
     }
   }
 
-  for (i = 0; i < maxLen; i++) {
-    var group = [];
-    for (j = 0; j < argsLen; j++) {
-      if (!Array.isArray(args[j])) {
-        throw new Error('all arguments must be arrays');
-      }
-      group[j] = args[j][i];
+  var result = [];
+  var group = [];
+  var p1 = 0;
+  var p2 = 0;
+
+  while (p1 < maxLen) {
+    group[p2] = args[p2][p1];
+
+    if (p2 < argsLen - 1) {
+      p2++;
+    } else {
+      p2 = 0;
+      result[p1] = group;
+      group = [];
+      p1++;
     }
-    result[i] = group;
   }
 
   return result;
