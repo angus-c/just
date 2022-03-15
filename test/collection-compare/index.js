@@ -125,7 +125,7 @@ test('alike functions return true', function(t) {
   t.end();
 });
 
-test('unalike functions return true', function(t) {
+test('unalike functions return false', function(t) {
   t.plan(3);
   t.notOk(compare(function() {}, function(a) {}));
   t.notOk(
@@ -151,7 +151,7 @@ test('alike sets return true', function(t) {
   t.end();
 });
 
-test('unalike sets return true', function(t) {
+test('unalike sets return false', function(t) {
   t.plan(3);
   t.notOk(compare(new Set([1, 2]), new Set([3, 4])));
   t.notOk(compare(new Set([1, 2]), new Set([1, 2, 3])));
@@ -165,7 +165,7 @@ test('alike regexps return true', function(t) {
   t.end();
 });
 
-test('unalike regexps return true', function(t) {
+test('unalike regexps return false', function(t) {
   t.plan(1);
   t.notOk(compare(/hello/, /hello/g));
   t.end();
@@ -177,7 +177,7 @@ test('alike dates return true', function(t) {
   t.end();
 });
 
-test('alike dates return true', function(t) {
+test('unalike dates return false', function(t) {
   t.plan(1);
   t.notOk(compare(new Date(2016, 8, 3), new Date(2016, 8, 3, 16)));
   t.end();
@@ -192,5 +192,15 @@ test('unalike complex objects do not crash when objects/arrays become null', fun
   var value3 = {a: {a: 1}, b: 3};
   var value4 = {a: null, c: 3};
   t.notOk(compare(value3, value4));
+  t.end();
+});
+
+// https://github.com/angus-c/just/issues/423
+test('primitives compared with primitive wrappers return false', function(t) {
+  t.plan(2);
+  var value1 = 42;
+  var value2 = new Number(42);
+  t.notOk(compare(value1, value2));
+  t.notOk(compare(value2, value1));
   t.end();
 });
