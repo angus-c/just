@@ -25,7 +25,10 @@ function compare(value1, value2) {
     return true;
   }
 
-  if ({}.toString.call(value1) != {}.toString.call(value2)) {
+  if (
+    typeof value1 != typeof value2 || // primitive != primitive wrapper
+    {}.toString.call(value1) != {}.toString.call(value2) // check for other (maybe nullish) objects
+  ) {
     return false;
   }
 
