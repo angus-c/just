@@ -30,32 +30,40 @@ Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com
   );
   obj1; // {a: 4, c: 5}
 
+  const obj2 = {a: 3, b: 5};
+  diffApply(obj2,
+    [
+      { "op": "move", "from": ['a'], "path": ['c']},
+    ]
+  );
+  obj2; // {b: 5, c: 3}
+
   // using converter to apply jsPatch standard paths
   // see http://jsonpatch.com
   import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'
-  const obj2 = {a: 3, b: 5};
-  diffApply(obj2, [
+  const obj3 = {a: 3, b: 5};
+  diffApply(obj3, [
     { "op": "remove", "path": '/b' },
     { "op": "replace", "path": '/a', "value": 4 }
     { "op": "add", "path": '/c', "value": 5 }
   ], jsonPatchPathConverter);
-  obj2; // {a: 4, c: 5}
+  obj3; // {a: 4, c: 5}
 
   // arrays (array key can be string or numeric)
-  const obj3 = {a: 4, b: [1, 2, 3]};
-  diffApply(obj3, [
+  const obj4 = {a: 4, b: [1, 2, 3]};
+  diffApply(obj4, [
     { "op": "replace", "path": ['a'], "value": 3 }
     { "op": "replace", "path": ['b', 2], "value": 4 }
     { "op": "add", "path": ['b', 3], "value": 9 }
   ]);
-  obj3; // {a: 3, b: [1, 2, 4, 9]}
+  obj4; // {a: 3, b: [1, 2, 4, 9]}
 
   // nested paths
-  const obj4 = {a: 4, b: {c: 3}};
-  diffApply(obj4, [
+  const obj5 = {a: 4, b: {c: 3}};
+  diffApply(obj5, [
     { "op": "replace", "path": ['a'], "value": 5 }
     { "op": "remove", "path": ['b', 'c']}
     { "op": "add", "path": ['b', 'd'], "value": 4 }
   ]);
-  obj4; // {a: 5, b: {d: 4}}
+  obj5; // {a: 5, b: {d: 4}}
 ```
