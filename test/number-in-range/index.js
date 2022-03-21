@@ -57,7 +57,7 @@ test('throws if second argument is not a number', function(t) {
   });
 });
 
-test('throws if thrid argument is not a number or undefined', function(t) {
+test('throws if third argument is not a number or undefined', function(t) {
   t.plan(5);
 
   t.throws(function() {
