@@ -2123,8 +2123,7 @@ clamp(3, n, 'h'); // throws
 clamp(3, false, 8); // throws 
 ```
 
-## just-in-range
-[just-in-range](https://www.npmjs.com/package/just-in-range)
+### [just-in-range](https://www.npmjs.com/package/just-in-range)
 [source](https://github.com/angus-c/just/tree/master/packages/number-in-range/index.js)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-in-range)
