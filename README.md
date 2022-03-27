@@ -2123,6 +2123,33 @@ clamp(3, n, 'h'); // throws
 clamp(3, false, 8); // throws 
 ```
 
+## just-in-range
+[just-in-range](https://www.npmjs.com/package/just-in-range)
+[source](https://github.com/angus-c/just/tree/master/packages/number-in-range/index.js)
+
+[`🍦 Try it`](https://anguscroll.com/just/just-in-range)
+
+```shell
+npm install just-in-range
+```
+```shell
+yarn add just-in-range
+```
+
+Check if number is within a given range
+
+```js
+  import inRange from 'just-number-in-range'
+
+  inRange(2, 1, 10); // true
+  inRange(15, 20); // true
+  inRange(20, 21, 30); // false
+  inRange(30, 21, 30); // false
+  inRange(); // throws
+  inRange(100); // throws
+  inRange("js"); // throws
+```,
+
 ### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
 [source](https://github.com/angus-c/just/tree/master/packages/number-is-prime/index.js)
 
