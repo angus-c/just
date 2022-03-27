@@ -586,7 +586,7 @@
       "    ]",
       "  );",
       "  obj2; // {b: 5, c: 3}",
-      "",      
+      "",
       "  // using converter to apply jsPatch standard paths",
       "  // see http://jsonpatch.com",
       "  import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'",
@@ -886,6 +886,24 @@
       "clamp(undefined, n, 8); // throws",
       "clamp(3, n, 'h'); // throws  ",
       "clamp(3, false, 8); // throws "
+    ]
+  },
+  "just-in-range": {
+    "packageName": "just-in-range",
+    "dir": "number-in-range",
+    "description": "Checks if number is within a given range",
+    "examples": [
+      "  import inRange from 'just-number-in-range'",
+      "",
+      "/*",
+      "  inRange(2, 1, 10); // true",
+      "  inRange(15, 20); // true",
+      "  inRange(20, 21, 30); // false",
+      "  inRange(30, 21, 30); // false",
+      "  inRange(); // throws",
+      "  inRange(100); // throws",
+      "  inRange(\"js\"); // throws",
+      "*/"
     ]
   },
   "just-is-prime": {
