@@ -2148,7 +2148,7 @@ Check if number is within a given range
   inRange(); // throws
   inRange(100); // throws
   inRange("js"); // throws
-```,
+```
 
 ### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
 [source](https://github.com/angus-c/just/tree/master/packages/number-is-prime/index.js)
