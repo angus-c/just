@@ -565,6 +565,15 @@ var n = 5;
 clamp(1, n, 3); // 3`,
         ],
       },
+      'just-in-range': {
+        size: sizes['just-in-range'],
+        code: [
+          `const inRange = require('just-in-range');\n
+inRange(2, 1, 10); // true
+inRange(2, 1, 2); // false
+inRange(2, 2, 10); // true`,
+        ],
+      },
       'just-modulo': {
         size: sizes['just-modulo'],
         code: [

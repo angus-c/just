@@ -696,6 +696,10 @@ module.exports = {
         size: sizes['just-clamp'],
         code: ['const clamp = require(\'just-clamp\');\n\nvar n = 5;\nclamp(1, n, 3); // 3']
       },
+      'just-in-range': {
+        size: sizes['just-in-range'],
+        code: ['const inRange = require(\'just-in-range\');\n\ninRange(2, 1, 10); // true\ninRange(2, 1, 2); // false\ninRange(2, 2, 10); // true']
+      },
       'just-modulo': {
         size: sizes['just-modulo'],
         code: ['const modulo = require(\'just-modulo\');\n\nmodulo(-4, 13);']
