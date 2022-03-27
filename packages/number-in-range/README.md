@@ -15,7 +15,7 @@ npm install just-in-range
 yarn add just-in-range
 ```
 
-Checks if number is within a given range
+Check if number is within a given range
 
 ```js
   import inRange from 'just-number-in-range'

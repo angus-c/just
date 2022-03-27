@@ -891,7 +891,7 @@
   "just-in-range": {
     "packageName": "just-in-range",
     "dir": "number-in-range",
-    "description": "Checks if number is within a given range",
+    "description": "Check if number is within a given range",
     "examples": [
       "  import inRange from 'just-number-in-range'",
       "",

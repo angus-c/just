@@ -126,6 +126,7 @@ Data based on [available saucelabs test browsers](https://github.com/angus-c/jus
   - [just-replace-all](#just-replace-all)
 - [Numbers](#numbers) +-
   - [just-clamp](#just-clamp)
+  - [just-in-range](#just-in-range)
   - [just-is-prime](#just-is-prime)
   - [just-modulo](#just-modulo)
   - [just-random-integer](#just-random-integer)
