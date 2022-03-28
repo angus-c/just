@@ -1078,7 +1078,10 @@
   "just-is-circular": {
     "packageName": "just-is-circular",
     "dir": "object-is-circular",
-    "description": "NOTE: not supported in IE or microsoft edge",
+    "description": [
+      "Return true if object has a circular reference",
+      "NOTE: not supported in IE or microsoft edge"
+    ],
     "examples": [
       "import isCircular from 'just-is-circular';",
       "const a = {};",
