@@ -21,6 +21,7 @@ function template(string, data) {
     var keyParts = key.split('.');
     var value = data;
     for (var i = 0; i < keyParts.length; i++) {
+      if (!value) return '';
       value = value[keyParts[i]];
     }
     return value || '';
