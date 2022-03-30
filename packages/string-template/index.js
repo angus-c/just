@@ -11,8 +11,8 @@ module.exports = template;
     },
     b: 'plum'
   };
-  template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}}s and a {{b}}. Yes 1 {{a.aa.bbb}}.', data);
-  // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear.'
+  template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}}s and a {{b}}. Yes 1 {{a.aa.bbb}}. No 0 {{a.cc}}.', data);
+  // '2 apples, a pear, 3 oranges and a plum. Yes 1 pear. No 0 .'
 */
 
 function template(string, data) {
