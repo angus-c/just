@@ -15,6 +15,7 @@ npm install just-is-circular
 yarn add just-is-circular
 ```
 
+Return true if object has a circular reference
 NOTE: not supported in IE or microsoft edge
 
 ```js
