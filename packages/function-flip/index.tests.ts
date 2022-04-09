@@ -1,35 +1,65 @@
 import flip from './index';
 
-const fn = (...args: never) => {
-  return 21;
+const getOne = (...args: never) => {
+  return 1;
+}
+const addOne = (n: number) => {
+  return n + 1
+}
+const repeat = (str: string, n: number) => {
+  return str.repeat(n)
+}
+const getFormattedPrice = (amount: number, unit: string, includeTax: boolean) => {
+  const tax = includeTax ? 1.1 : 1
+  return `${unit}${amount * tax}`
 }
 
 // OK
+flip(getOne)()
 
-flip(console.log)(1, 2, 3);
+flip(addOne)(undefined, -1)
+
+flip(repeat)(3, "hello")
+
+flip(getFormattedPrice)("$", 1000, true)
+
 flip(console.log)();
-flip<(...args: any[]) => void>(console.log)(1, 2, 3);
-flip<typeof console.log>(console.log)(1, 2, 3);
-flip(Array)(1, 2);
-flip<typeof Array>(Array)(1, 2);
-flip<(...args: string[]) => string[]>(Array)("Hello", "World");
-flip<any>(fn)(34);
+flip(console.log)(1, "a");
+flip(console.log)(1, 2, 3);
+flip(console.log)(true, "a", 3, 4, 5);
 
 // Not OK
 
 // @ts-expect-error
-flip(null)(1, 2, 3);
+flip(getOne)(1)
+
 // @ts-expect-error
-flip(1)(1, 2, 3);
+flip(addOne)()
 // @ts-expect-error
-flip('Hello World')(1, 2, 3);
+flip(addOne)(1, 2, 3)
 // @ts-expect-error
-flip()(1, 2, 3);
+
+flip(repeat)()
 // @ts-expect-error
-flip<(...args: never[]) => void>(console.log)(1, 2, 3);
+flip(repeat)(1)
 // @ts-expect-error
-flip<(...args: number[]) => string>(Array)(1, 2);
+flip(repeat)(1, "hello", true)
 // @ts-expect-error
-flip(fn)(34)
+flip(repeat)(1, 2)
 // @ts-expect-error
-flip<(...args: number[]) => number>(fn)(34)
+flip(repeat)("hello", "world")
+
+// @ts-expect-error
+flip(getFormattedPrice)()
+// @ts-expect-error
+flip(getFormattedPrice)("$")
+// @ts-expect-error
+flip(getFormattedPrice)("$", 1000)
+// @ts-expect-error
+flip(getFormattedPrice)("$", 1000, true, undefined)
+// @ts-expect-error
+flip(getFormattedPrice)(undefined, 10000, true)
+// @ts-expect-error
+flip(getFormattedPrice)("$", undefined, true)
+// @ts-expect-error
+flip(getFormattedPrice)("$", 10000, undefined)
