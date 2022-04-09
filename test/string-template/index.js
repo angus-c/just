@@ -52,3 +52,22 @@ test('unresolved variables return empty strings', function(t) {
   t.equal(template(str, data), 'a 3, b , c 4');
   t.end();
 });
+
+test('unresolved nested variables return empty strings', function(t) {
+  t.plan(1);
+  var str =
+    '2 {{a.aa.aaa}}s, a {{aa.bbb}}, 3 {{a.bb}}s and a {{b}}. Yes 1 {{a.bbb.a}}.';
+  var data = {
+    a: {
+      aa: {
+        aaa: 'apple',
+        bbb: 'pear',
+      },
+      bb: 'orange',
+    },
+    b: 'plum',
+  };
+  var result = '2 apples, a , 3 oranges and a plum. Yes 1 .';
+  t.equal(template(str, data), result);
+  t.end();
+});
