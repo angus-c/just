@@ -1,6 +1,6 @@
 {
   "name": "just-right-pad",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "add characters to the right of a string such that its total length is n",
   "main": "index.js",
   "module": "index.mjs",

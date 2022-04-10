@@ -1,5 +1,11 @@
 # just-partial-it
 
+## 3.1.1
+
+### Patch Changes
+
+- Types
+
 ## 3.1.0
 
 ### Minor Changes

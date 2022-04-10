@@ -1,6 +1,6 @@
 {
   "name": "just-pluck-it",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "pluck a property from each member of a collection",
   "main": "index.js",
   "types": "index.d.ts",
