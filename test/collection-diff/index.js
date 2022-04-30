@@ -350,8 +350,8 @@ test('arrays', function(t) {
   );
   t.ok(
     compare(diff(obj14, obj13), [
-      {op: 'remove', path: [3]},
       {op: 'remove', path: [1, 'b']},
+      {op: 'remove', path: [3]},
       {op: 'replace', path: [0], value: 'a'},
       {op: 'add', path: [1, 'a'], value: 3},
     ])
@@ -381,7 +381,7 @@ test('object vs array', function(t) {
 });
 
 test('round trip', function(t) {
-  t.plan(4);
+  t.plan(7);
 
   var obj15 = [1, 2, 3, 4, 5, 17, 18];
   var obj16 = [2];
@@ -389,6 +389,13 @@ test('round trip', function(t) {
   var thisDiff = diff(obj15, obj16);
   diffApply(obj15, thisDiff);
   t.ok(compare(obj15, obj16));
+
+  var obj15a = {numbers: [1, 2, 3, 4]};
+  var obj16a = {numbers: [5, 6]};
+
+  var thisDiff = diff(obj15a, obj16a);
+  diffApply(obj15a, thisDiff);
+  t.ok(compare(obj15a, obj16a));
 
   var obj15a = [1, 2, 3, 4, 5, 17, 18];
   var obj16a = [2];
@@ -410,6 +417,20 @@ test('round trip', function(t) {
   thisDiff = diff(obj18a, obj17a);
   diffApply(obj18a, thisDiff);
   t.ok(compare(obj17a, obj18a));
+
+  var obj17b = ['a', {a: 3}, 'd'];
+  var obj18b = ['b', {b: 3}, 'd', 'e'];
+
+  thisDiff = diff(obj17b, obj18b);
+  diffApply(obj17b, thisDiff);
+  t.ok(compare(obj17b, obj18b));
+
+  var obj17c = ['a', {a: 3}, 'd'];
+  var obj18c = ['b', {b: 3}, 'd', 'e'];
+
+  thisDiff = diff(obj18c, obj17c);
+  diffApply(obj18c, thisDiff);
+  t.ok(compare(obj17c, obj18c));
 });
 
 test('flat objects using jsPatchStandard', function(t) {
@@ -607,8 +628,8 @@ test('arrays using jsPatchStandard', function(t) {
   );
   t.ok(
     compare(diff(obj14, obj13, jsonPatchPathConverter), [
-      {op: 'remove', path: '/3'},
       {op: 'remove', path: '/1/b'},
+      {op: 'remove', path: '/3'},
       {op: 'replace', path: '/0', value: 'a'},
       {op: 'add', path: '/1/a', value: 3},
     ])
