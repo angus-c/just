@@ -24,6 +24,13 @@ test('string with mixed spaces and punctuation', function(t) {
   t.end();
 });
 
+test('string with leading or trailing punctuation', function(t) {
+  t.plan(2);
+  t.equal(kebabCase('*Rank Ordinal*'), 'rank-ordinal');
+  t.equal(kebabCase('Rank (Ordinal)'), 'rank-ordinal');
+  t.end();
+});
+
 test('string with capitalization', function(t) {
   t.plan(8);
   t.equal(kebabCase('theQuickBrownFox'), 'the-quick-brown-fox');
