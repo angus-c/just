@@ -7,6 +7,6 @@ declare function zip<T, U, V, W>(...arr: [ readonly T[], readonly U[], readonly 
 declare function zip<T, U, V, W, X>(...arr: [ readonly T[], readonly U[], readonly V[], readonly W[], readonly X[] ]): [T, U, V, W, X][]
 declare function zip<T, U, V, W, X, Y>(...arr: [ readonly T[], readonly U[], readonly V[], readonly W[], readonly X[], readonly Y[] ]): [T, U, V, W, X, Y][]
 declare function zip<T, U, V, W, X, Y, Z>(...arr: [ readonly T[], readonly U[], readonly V[], readonly W[], readonly X[], readonly Y[], readonly Z[] ]): [T, U, V, W, X, Y, Z][]
-declare function zip(...arr: readonly any[][]): any[][]
+declare function zip(...arr: ReadonlyArray<any>[]): any[][]
 
 export default zip
