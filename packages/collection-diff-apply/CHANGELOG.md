@@ -1,5 +1,11 @@
 # just-diff-apply
 
+## 5.3.1
+
+### Patch Changes
+
+- Fix README
+
 ## 5.3.0
 
 ### Minor Changes
