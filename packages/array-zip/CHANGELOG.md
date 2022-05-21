@@ -1,5 +1,11 @@
 # just-zip-it
 
+## 3.0.5
+
+### Patch Changes
+
+- Change type definition to accept readonly arrays
+
 ## 3.0.4
 
 ### Patch Changes
