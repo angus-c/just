@@ -567,7 +567,7 @@
     "dir": "collection-diff-apply",
     "description": "Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com standard patch",
     "examples": [
-      "  import diffApply from 'just-diff-apply';",
+      "  import {diffApply} from 'just-diff-apply';",
       "",
       "  const obj1 = {a: 3, b: 5};",
       "  diffApply(obj1,",

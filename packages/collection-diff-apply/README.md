@@ -18,7 +18,7 @@ yarn add just-diff-apply
 Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com standard patch
 
 ```js
-  import diffApply from 'just-diff-apply';
+  import {diffApply} from 'just-diff-apply';
 
   const obj1 = {a: 3, b: 5};
   diffApply(obj1,
