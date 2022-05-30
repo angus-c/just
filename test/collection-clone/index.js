@@ -12,6 +12,8 @@ test('copies entire tree', function(t) {
   var arr = [1, 2, ['a', 'b', {dd: [1, 2, 3]}]];
   var arrClone = clone(arr);
   t.deepEqual(arrClone, arr);
+
+  t.end();
 });
 
 test('clones child plain objects and arrays', function(t) {
@@ -24,24 +26,90 @@ test('clones child plain objects and arrays', function(t) {
   subObj.bb = 2;
   t.deepEqual(obj, {a: 3, b: 5, c: [1, 2, 3, 4], d: {aa: 1, bb: 2}});
   t.deepEqual(objClone, {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1}});
+
+  t.end();
 });
 
-test('clones Functions, Dates and RegExps', function(t) {
-  t.plan(7);
+test('clones Dates and RegExps', function(t) {
+  t.plan(14);
+  var objToString = Object.prototype.toString;
+
+  // as root objects
+  var obj1 = new Date();
+  var obj1Clone = clone(obj1);
+  t.equal(objToString.call(obj1Clone), '[object Date]');
+  obj1Clone.setTime(obj1.getTime() + 44);
+  t.equal(obj1.getTime() - obj1Clone.getTime(), -44);
+
+  var obj2 = /a(b)cde/gim;
+  var obj2Clone = clone(obj2);
+  t.equal(objToString.call(obj2Clone), '[object RegExp]');
+  obj2.compile(/a(c)brg/gi);
+  t.equal(obj2.source, 'a(c)brg');
+  t.equal(obj2.flags, 'gi');
+  t.equal(obj2Clone.source, 'a(b)cde');
+  t.equal(obj2Clone.flags, 'gim');
+
+  // as properties
   var date = new Date();
   var regexp = /a(b)c/gim;
-  var obj = {b: date, c: regexp};
-  var objClone = clone(obj);
-  var objToString = Object.prototype.toString;
-  t.equal(objToString.call(objClone.b), '[object Date]');
-  t.equal(objToString.call(objClone.c), '[object RegExp]');
-  objClone.b.setTime(date.getTime() + 87);
-  t.equal(objClone.b.getTime() - date.getTime(), 87);
-  objClone.c.compile(/a(c)/gi);
+  var obj3 = {b: date, c: regexp};
+  var obj3Clone = clone(obj3);
+  t.equal(objToString.call(obj3Clone.b), '[object Date]');
+  t.equal(objToString.call(obj3Clone.c), '[object RegExp]');
+  obj3Clone.b.setTime(date.getTime() + 87);
+  t.equal(obj3Clone.b.getTime() - date.getTime(), 87);
+  obj3Clone.c.compile(/a(c)/gi);
   t.equal(regexp.source, 'a(b)c');
-  t.equal(objClone.c.source, 'a(c)');
+  t.equal(obj3Clone.c.source, 'a(c)');
   t.equal(regexp.flags, 'gim');
-  t.equal(objClone.c.flags, 'gi');
+  t.equal(obj3Clone.c.flags, 'gi');
+
+  t.end();
+});
+
+test('clones Sets and Maps', function(t) {
+  t.plan(14);
+
+  // as root objects
+  var set = new Set(['a', 'b', 'c', 'a']);
+  var setClone = clone(set);
+  t.deepEqual(set.entries(), setClone.entries());
+  set.add('d');
+  t.deepEqual(Array.from(set.entries()).length, 4);
+  t.deepEqual(Array.from(setClone.entries()).length, 3);
+
+  var map = new Map();
+  var keys = [{a: 1}, {b: 2}, {c: 3}];
+  keys.forEach((key, i) => map.set(key, i));
+  var mapClone = clone(map);
+  t.deepEqual(map.entries(), mapClone.entries());
+  map.set({d: 4}, 3);
+  t.deepEqual(Array.from(map.entries()).length, 4);
+  t.deepEqual(Array.from(mapClone.entries()).length, 3);
+
+  // as properties
+  var objToString = Object.prototype.toString;
+  var set2 = new Set(['ant', 'bee', 'dragonfly', 'bee']);
+  var map2 = new Map();
+  var keys2 = [{a: 'red'}, {b: 'green'}, {c: 'blue'}];
+  keys2.forEach((key, i) => map2.set(key, i));
+
+  var obj = {b: set2, c: map2};
+  var objClone = clone(obj);
+  t.equal(objToString.call(objClone.b), '[object Set]');
+  t.deepEqual(objClone.b.entries(), obj.b.entries());
+  objClone.b.add('spider');
+  t.deepEqual(Array.from(objClone.b.entries()).length, 4);
+  t.deepEqual(Array.from(obj.b.entries()).length, 3);
+
+  t.equal(objToString.call(objClone.c), '[object Map]');
+  t.deepEqual(objClone.c.entries(), obj.c.entries());
+  objClone.c.set({d: 'yellow'}, 4);
+  t.deepEqual(Array.from(objClone.c.entries()).length, 4);
+  t.deepEqual(Array.from(obj.c.entries()).length, 3);
+
+  t.end();
 });
 
 test("doesn't clone functions", function(t) {
@@ -59,4 +127,6 @@ test("doesn't clone functions", function(t) {
   t.equal(fn(2, 3), 5);
   t.equal(objClone.c.x, 34);
   t.equal(fn.x, 34);
+
+  t.end();
 });
