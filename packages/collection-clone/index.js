@@ -17,10 +17,10 @@ function clone(obj) {
   let result = obj;
   var type = {}.toString.call(obj).slice(8, -1);
   if (type == 'Set') {
-    return new Set(obj);
+    return new Set([...obj].map(value => clone(value)));
   }
   if (type == 'Map') {
-    return new Map(obj);
+    return new Map([...obj].map(kv => [clone(kv[0]), clone(kv[1])]));
   }
   if (type == 'Date') {
     return new Date(obj.getTime());

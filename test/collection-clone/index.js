@@ -69,7 +69,7 @@ test('clones Dates and RegExps', function(t) {
 });
 
 test('clones Sets and Maps', function(t) {
-  t.plan(14);
+  t.plan(24);
 
   // as root objects
   var set = new Set(['a', 'b', 'c', 'a']);
@@ -87,6 +87,42 @@ test('clones Sets and Maps', function(t) {
   map.set({d: 4}, 3);
   t.deepEqual(Array.from(map.entries()).length, 4);
   t.deepEqual(Array.from(mapClone.entries()).length, 3);
+
+  // as root set object with nested set and map
+  var subset1 = new Set(['a', 'b', 'c', 'a']);
+  var submap1 = new Map();
+  var keys1 = [{a: 1}, {b: 2}, {c: 3}];
+  keys1.forEach((key, i) => submap1.set(key, i));
+
+  var set1 = new Set(['a', submap1, subset1, 'a']);
+  var set1Clone = clone(set1);
+  t.deepEqual(set1.entries(), set1Clone.entries());
+  subset1.add('d');
+  t.deepEqual(Array.from(Array.from(set1)[2].entries()).length, 4);
+  t.deepEqual(Array.from(Array.from(set1Clone)[2].entries()).length, 3);
+  submap1.set({d: 4}, 3);
+  submap1.set({e: 5}, 4);
+  t.deepEqual(Array.from(Array.from(set1)[1].entries()).length, 5);
+  t.deepEqual(Array.from(Array.from(set1Clone)[1].entries()).length, 3);
+
+  // as root map object with nested set and map
+  var subset2 = new Set(['f', 'f', 'e', 'a']);
+  var submap2 = new Map();
+  var keys2 = [{aa: 1}, {bb: 2}, {cc: 3}];
+  keys2.forEach((key, i) => submap2.set(key, i));
+
+  var map1 = new Map();
+  map1.set({map: true}, submap2);
+  map1.set({set: true}, subset2);
+  var map1Clone = clone(map1);
+  t.deepEqual(map1.entries(), map1Clone.entries());
+  subset2.add('gg');
+  subset2.add('hh');
+  t.deepEqual(Array.from(Array.from(map1.entries())[1][1]).length, 5);
+  t.deepEqual(Array.from(Array.from(map1Clone.entries())[1][1]).length, 3);
+  submap2.set({dd: 4}, 3);
+  t.deepEqual(Array.from(Array.from(map1.entries())[0][1]).length, 4);
+  t.deepEqual(Array.from(Array.from(map1Clone.entries())[0][1]).length, 3);
 
   // as properties
   var objToString = Object.prototype.toString;
