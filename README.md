@@ -38,16 +38,11 @@ const clone = require('just-clone');
 ```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
-We're in the process of adding TypeScript definitions and tests to every Just utility. You're welcome to help us get there!
-[Here's](https://github.com/angus-c/just/pull/247/files) an example PR.
-
-You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
-
-**UPDATE:** just-methodize is now the only module without TS definitions!
+We've now added TypeScript definitions and tests for every Just utility
 
 ## Browser/Platform Support :computer:
 
-Most utilities will work in older versions, but these are the earliest guaranteed versions across all utilities. For guidance any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
+Most utilities still work with any platform that supports ES5, but these are the earliest guaranteed versions across _every_ utility. For guidance any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
 
 | Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android Chrome      |
 | ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |
