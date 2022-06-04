@@ -2,7 +2,7 @@
 # Guidelines
 * Modules must not depend on any other npm modules (including other just modules)
 * Always assume Just modules will be used in hot code and code accordingly
-  * Write in ES5
+  * Write in ES5 when possible. If you have to support newer argument types (e.g. Set and Map) you may upgrade to newer syntax (within our stated [platform support levels](https://github.com/angus-c/just#browser-support-computer)) but please bump the major version to protect legacy users.
   * Favor `for` loops over high order functions
   * Don't repeatedly access the same property, assign it to a `var`
 * Brevity

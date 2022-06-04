@@ -43,13 +43,15 @@ We're in the process of adding TypeScript definitions and tests to every Just ut
 
 You can verify new TypeScript definitions by running `yarn test-types` (This also gets run as part of the `yarn test` script)
 
-## Browser Support :computer:
+**UPDATE:** just-methodize is now the only module without TS definitions!
 
-Data based on [available saucelabs test browsers](https://github.com/angus-c/just/tree/sauce). It's likely _Just_ is also fully supported by some older versions not verifiable via saucelabs.
+## Browser/Platform Support :computer:
 
-| Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android       |
+Most utilities will work in older versions, but these are the earliest guaranteed versions across all utilities. For guidance any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
+
+| Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android Chrome      |
 | ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |
-| yes    | yes    | yes     | 12   | 6+   | iOS 8+        | Android OS 5+ |
+| 46    | 8    | 16     | 12   | 6.0   | 8        | 46 |
 
 ## The Modules :package:
 
