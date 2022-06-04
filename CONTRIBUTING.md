@@ -35,6 +35,7 @@
      *  try to add examples for mainstream cases and some edge cases
      *  start with an element for the `import` statement, followed by an empty string element
      *  follow up with usage examples, one element per example 
+* Finally run `yarn generate-readmes` or `npm run generate-readmes` to update all READMEs with your changes.    
 
 # App Testing
 [Raul Melo](https://github.com/raulfdm) has written [a nice test framework](https://github.com/devraul/just-test) for testing cjs and esm imports of Just utilities in a variety of common app environments. Take advantage of this if you want to test how a module will work in the context of a given app.
