@@ -1,10 +1,8 @@
 ## Just
 
-[API](#the-modules-package) |
-[Try It](#try-icecream) |
-[Read](#read-books) |
-[Testing](#testing) |
-[Contribute!](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md) |
+[Docs](#the-modules-package) |
+[Try It](https://anguscroll.com/just) |
+[Contribute!](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md)
 
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
@@ -43,7 +41,7 @@ We've now added TypeScript definitions and tests for every Just utility
 
 ## Browser/Platform Support :computer:
 
-Most utilities still work with any platform that supports ES5, but these are the earliest guaranteed versions across _every_ utility. For guidance any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
+Most utilities still work with any platform that supports ES5, but these are the earliest versions guranteed to support _every_ utility. For guidance, any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
 
 | Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android Chrome      |
 | ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |

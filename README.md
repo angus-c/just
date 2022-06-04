@@ -3,11 +3,9 @@
 
 ## Just
 
-[API](#the-modules-package) |
-[Try It](#try-icecream) |
-[Read](#read-books) |
-[Testing](#testing) |
-[Contribute!](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md) |
+[Docs](#the-modules-package) |
+[Try It](https://anguscroll.com/just) |
+[Contribute!](https://github.com/angus-c/just/blob/master/CONTRIBUTING.md)
 
 A library of **zero-dependency** npm modules that do just one thing.
 A guilt-free alternative to those bulkier utility libraries. Ideal for PWA development or whenever bytes are precious.
@@ -46,7 +44,7 @@ We've now added TypeScript definitions and tests for every Just utility
 
 ## Browser/Platform Support :computer:
 
-Most utilities still work with any platform that supports ES5, but these are the earliest guaranteed versions across _every_ utility. For guidance any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
+Most utilities still work with any platform that supports ES5, but these are the earliest versions guranteed to support _every_ utility. For guidance, any platform that supports [spread in array literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals) will work with Just.
 
 | Chrome | Safari | Firefox | Edge | Node | Mobile Safari | Android Chrome      |
 | ------ | ------ | ------- | ---- | ---- | ------------- | ------------- |
@@ -127,7 +125,6 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-replace-all](#just-replace-all)
 - [Numbers](#numbers) +-
   - [just-clamp](#just-clamp)
-  - [just-in-range](#just-in-range)
   - [just-is-prime](#just-is-prime)
   - [just-modulo](#just-modulo)
   - [just-random-integer](#just-random-integer)
@@ -2123,32 +2120,6 @@ clamp(3, NaN, 8); // NaN
 clamp(undefined, n, 8); // throws
 clamp(3, n, 'h'); // throws  
 clamp(3, false, 8); // throws 
-```
-
-### [just-in-range](https://www.npmjs.com/package/just-in-range)
-[source](https://github.com/angus-c/just/tree/master/packages/number-in-range/index.js)
-
-[`🍦 Try it`](https://anguscroll.com/just/just-in-range)
-
-```shell
-npm install just-in-range
-```
-```shell
-yarn add just-in-range
-```
-
-Check if number is within a given range
-
-```js
-  import inRange from 'just-number-in-range'
-
-  inRange(2, 1, 10); // true
-  inRange(15, 20); // true
-  inRange(20, 21, 30); // false
-  inRange(30, 21, 30); // false
-  inRange(); // throws
-  inRange(100); // throws
-  inRange("js"); // throws
 ```
 
 ### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
