@@ -1,5 +1,11 @@
 # just-clone
 
+## 6.0.1
+
+### Patch Changes
+
+- Keep ESMs in sync with commonJS modules
+
 ## 6.0.0
 
 ### Major Changes
