@@ -450,7 +450,7 @@
   "just-clone": {
     "packageName": "just-clone",
     "dir": "collection-clone",
-    "description": "Deep copies objects and arrays",
+    "description": "Deep copies objects, arrays, maps and sets",
     "examples": [
       "// Deep copies objects and arrays, doesn't clone functions",
       "",

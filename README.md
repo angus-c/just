@@ -332,7 +332,7 @@ npm install just-clone
 yarn add just-clone
 ```
 
-Deep copies objects and arrays
+Deep copies objects, arrays, maps and sets
 
 ```js
 // Deep copies objects and arrays, doesn't clone functions
