@@ -32,7 +32,9 @@ function kebabCase(str) {
   return str
     .trim()
     .split(wordSeparators)
-    .join('-');
+    .join('-')
+    .replace(/^-/, '')
+    .replace(/-\s*$/, '');
 }
 
 export {stringKebabCase as default};

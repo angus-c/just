@@ -10,7 +10,7 @@ function inRange(number, start, end) {
   }
 
   if (end !== undefined && typeof end !== 'number') {
-    throw new Error('expected a number or undefined for thrird argument');
+    throw new Error('expected a number or undefined for third argument');
   }
 
   var _start = start;
