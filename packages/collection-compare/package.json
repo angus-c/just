@@ -6,6 +6,7 @@
   "module": "index.mjs",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "require": "./index.js",
       "default": "./index.mjs"
     }

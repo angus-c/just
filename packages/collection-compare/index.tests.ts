@@ -45,6 +45,7 @@ compare(obj1, { b: 3, a: 2 });
 compare([1, [2, { a: 4 }], 4], [1, [2, { a: 4 }]]);
 compare([1, [2, { a: 4 }], 4], [1, [2, { a: 4 }], 4]);
 compare(NaN, NaN);
+const compareIt = <T extends object>(a: T, b: T) => compare(a, b);
 
 // Not okay
 // @ts-expect-error
@@ -59,6 +60,10 @@ compare({ a: 1, b: 2 }, [{ a: 1, b: 2 }]);
 compare(obj2, obj1);
 // @ts-expect-error
 compare(obj1, obj2);
+// @ts-expect-error
+compare(obj1, num1);
+// @ts-expect-error
+compare(num1, obj1);
 // @ts-expect-error
 compare(NaN, "abc");
 // @ts-expect-error
