@@ -7,6 +7,7 @@ const test3: { [key: string]: number[][] } = groupBy([[1], [2], [1, 2]], arr => 
 const test4: {} = groupBy([], () => "a");
 const test5: { [key: string]: Array<number | string>} = groupBy([1, 2, 3, "1", "2"], (a) => a);
 const test6 = groupBy(['a', 'b', 'c'], str => Symbol(str));
+const test7: { [key: string]: number[] } = groupBy([6.1, 4.2, 6.3] as const, Math.floor);
 
 // Not OK
 // @ts-expect-error
