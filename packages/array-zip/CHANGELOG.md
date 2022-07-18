@@ -1,5 +1,11 @@
 # just-zip-it
 
+## 3.0.6
+
+### Patch Changes
+
+- TS: accpet read-only arrays
+
 ## 3.0.5
 
 ### Patch Changes
