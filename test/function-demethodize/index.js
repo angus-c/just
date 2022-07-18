@@ -16,7 +16,7 @@ demethodize({}); // undefined
 demethodize(undefined); // undefined
 */
 
-test('resulting function uses first arg as `this` value', function(t) {
+test('resulting function as higher order function', function(t) {
   t.plan(1);
   var trimFn = demethodize(''.trim);
   var mapped = ['hello ', ' goodbye', 'hello again'].map(trimFn);
@@ -24,7 +24,7 @@ test('resulting function uses first arg as `this` value', function(t) {
   t.end();
 });
 
-test('resulting function passes remaining args to new function', function(t) {
+test('resulting function uses first arg as `this` value', function(t) {
   t.plan(1);
   var circle = {
     volumeOfCylinder: function(height) {
