@@ -3,4 +3,7 @@
  * @param arr the array to group
  * @param resolver function used to resolve group key
  */
-export default function groupBy<T>(arr: readonly T[], resolver: (arg: T) => keyof any): Record<keyof any, T[]>
+export default function groupBy<T, G extends keyof any = keyof any>(
+  arr: T[],
+  resolver: (arg: T) => G
+): Record<G, T[]>;
