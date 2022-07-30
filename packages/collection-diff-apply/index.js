@@ -119,8 +119,8 @@ function diffApply(obj, diff, pathConverter) {
     }
     if (thisOp === REPLACE || thisOp === ADD) {
       if (subObject === undefined) {
-        if (typeof lastProp === "number") subObject = [];
-        else subObject = {};
+        if (isNaN(lastProp)) subObject = {};
+        else subObject = [];
       }
       subObject[lastProp] = thisDiff.value;
     }
