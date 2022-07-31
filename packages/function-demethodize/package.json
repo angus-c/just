@@ -3,6 +3,7 @@
   "version": "3.0.1",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
   "main": "index.js",
+  "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
