@@ -1,6 +1,6 @@
 {
   "name": "just-memoize",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "An implementation of the memoize technique",
   "main": "index.js",
   "module": "index.mjs",

@@ -1,6 +1,6 @@
 {
   "name": "just-compare",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "compare two collections",
   "main": "index.js",
   "module": "index.mjs",

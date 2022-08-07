@@ -1,6 +1,6 @@
 {
   "name": "just-reduce-object",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "reduce an object",
   "main": "index.js",
   "module": "index.mjs",
