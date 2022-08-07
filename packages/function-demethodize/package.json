@@ -9,7 +9,8 @@
     ".": {
       "require": "./index.js",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

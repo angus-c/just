@@ -9,9 +9,9 @@
     ".": {
       "require": "./index.js",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
-  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"
