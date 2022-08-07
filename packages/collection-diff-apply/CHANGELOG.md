@@ -1,5 +1,11 @@
 # just-diff-apply
 
+## 5.4.0
+
+### Minor Changes
+
+- package.json updates to fix #467 and #483
+
 ## 5.3.1
 
 ### Patch Changes

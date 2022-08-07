@@ -1,5 +1,11 @@
 # just-clone
 
+## 6.1.0
+
+### Minor Changes
+
+- package.json updates to fix #467 and #483
+
 ## 6.0.1
 
 ### Patch Changes

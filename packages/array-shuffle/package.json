@@ -1,6 +1,6 @@
 {
   "name": "just-shuffle",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "description": "return the elements of an array in random order",
   "main": "index.js",
   "module": "index.mjs",

@@ -1,6 +1,6 @@
 {
   "name": "just-group-by",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "return a grouped object from array",
   "main": "index.js",
   "module": "index.mjs",

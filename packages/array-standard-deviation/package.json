@@ -1,6 +1,6 @@
 {
   "name": "just-standard-deviation",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "return the standard deviation of an array or numeric argument list",
   "main": "index.js",
   "module": "index.mjs",
