@@ -1,5 +1,11 @@
 # just-compare
 
+## 2.2.1
+
+### Patch Changes
+
+- Simplify typings #480
+
 ## 2.2.0
 
 ### Minor Changes
