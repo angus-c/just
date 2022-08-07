@@ -50,27 +50,3 @@ const compareIt = <T extends object>(a: T, b: T) => compare(a, b);
 // Not okay
 // @ts-expect-error
 compare();
-// @ts-expect-error
-compare(1, "1");
-// @ts-expect-error
-compare(["abc"], "abc");
-// @ts-expect-error
-compare({ a: 1, b: 2 }, [{ a: 1, b: 2 }]);
-// @ts-expect-error
-compare(obj2, obj1);
-// @ts-expect-error
-compare(obj1, obj2);
-// @ts-expect-error
-compare(obj1, num1);
-// @ts-expect-error
-compare(num1, obj1);
-// @ts-expect-error
-compare(NaN, "abc");
-// @ts-expect-error
-compare(funcA, funcB);
-// @ts-expect-error
-compare(funcA, true);
-// @ts-expect-error
-compare(num1, num2);
-// @ts-expect-error
-compare(num2, num1);
