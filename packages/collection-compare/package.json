@@ -9,7 +9,8 @@
       "types": "./index.d.ts",
       "require": "./index.js",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "types": "index.d.ts",
   "scripts": {

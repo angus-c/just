@@ -8,8 +8,10 @@
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.mjs"
-    }
+      "default": "./index.mjs",
+      "types": "./index.d.ts"
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
