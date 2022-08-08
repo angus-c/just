@@ -8,8 +8,8 @@
   "exports": {
     ".": {
       "require": "./index.js",
-      "default": "./index.mjs",
-      "types": "./index.d.ts"
+      "types": "./index.d.ts",
+      "default": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
