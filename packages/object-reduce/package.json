@@ -2,16 +2,16 @@
   "name": "just-reduce-object",
   "version": "2.2.2",
   "description": "reduce an object",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
       "types": "./index.d.ts",
-      "default": "./index.mjs"
+      "require": "./index.cjs",
+      "import": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

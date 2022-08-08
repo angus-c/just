@@ -2,12 +2,12 @@
   "name": "just-flush",
   "version": "2.2.1",
   "description": "returns a copy of an array or object with null/undefined members removed",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
       "types": "./index.d.ts",
       "default": "./index.mjs"
     },

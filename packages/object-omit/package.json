@@ -2,16 +2,16 @@
   "name": "just-omit",
   "version": "2.1.2",
   "description": "copy an object but omit the specified keys",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
       "types": "./index.d.ts",
-      "default": "./index.mjs"
+      "require": "./index.cjs",
+      "import": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

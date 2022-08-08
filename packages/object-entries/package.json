@@ -2,16 +2,16 @@
   "name": "just-entries",
   "version": "2.2.1",
   "description": "return object entries as an array of [key, value] pairs",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
       "types": "./index.d.ts",
-      "default": "./index.mjs"
+      "require": "./index.cjs",
+      "import": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
