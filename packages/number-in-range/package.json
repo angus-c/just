@@ -1,6 +1,6 @@
 {
   "name": "just-in-range",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Checks if number is within a given range",
   "main": "index.js",
   "module": "index.mjs",

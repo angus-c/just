@@ -1,6 +1,6 @@
 {
   "name": "just-sort-by",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Produces a new array, sorted in ascending order",
   "main": "index.js",
   "module": "index.mjs",

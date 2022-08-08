@@ -1,6 +1,6 @@
 {
   "name": "just-template",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "interpolate a string with variables",
   "main": "index.js",
   "module": "index.mjs",

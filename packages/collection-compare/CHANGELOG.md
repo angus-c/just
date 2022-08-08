@@ -1,5 +1,11 @@
 # just-compare
 
+## 2.2.2
+
+### Patch Changes
+
+- fix: reorder exports to set default last #488
+
 ## 2.2.1
 
 ### Patch Changes

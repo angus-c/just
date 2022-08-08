@@ -1,6 +1,6 @@
 {
   "name": "just-flip",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "flip first two arguments of a function",
   "main": "index.js",
   "types": "index.d.ts",

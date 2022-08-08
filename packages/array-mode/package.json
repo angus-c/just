@@ -1,6 +1,6 @@
 {
   "name": "just-mode",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "return the most frequently occuring number(s)",
   "main": "index.js",
   "module": "index.mjs",

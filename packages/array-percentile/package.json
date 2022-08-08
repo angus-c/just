@@ -1,6 +1,6 @@
 {
   "name": "just-percentile",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "return the value at the given percentile (using linear interpolation)",
   "main": "index.js",
   "module": "index.mjs",

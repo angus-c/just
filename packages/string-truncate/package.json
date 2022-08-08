@@ -1,6 +1,6 @@
 {
   "name": "just-truncate",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "truncate a string with a custom suffix",
   "main": "index.js",
   "module": "index.mjs",

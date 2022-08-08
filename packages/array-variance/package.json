@@ -1,6 +1,6 @@
 {
   "name": "just-variance",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "return the standard deviation of an array or numeric argument list",
   "main": "index.js",
   "module": "index.mjs",

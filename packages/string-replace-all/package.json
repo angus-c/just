@@ -1,6 +1,6 @@
 {
   "name": "just-replace-all",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "replace all occurrences of a string within a string with another string",
   "main": "index.js",
   "module": "index.mjs",

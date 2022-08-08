@@ -1,6 +1,6 @@
 {
   "name": "just-values",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "return property values as an array",
   "main": "index.js",
   "module": "index.mjs",

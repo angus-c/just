@@ -1,6 +1,6 @@
 {
   "name": "just-compact",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "returns a copy of an array with falsey values removed",
   "main": "index.js",
   "module": "index.mjs",

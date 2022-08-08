@@ -1,6 +1,6 @@
 {
   "name": "just-mean",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "the mean (average) value in an array",
   "main": "index.js",
   "module": "index.mjs",

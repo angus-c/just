@@ -1,6 +1,6 @@
 {
   "name": "just-permutations",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Returns all permutations of the length N of the elements of the given Array",
   "main": "index.js",
   "module": "index.mjs",

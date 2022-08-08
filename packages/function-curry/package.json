@@ -1,6 +1,6 @@
 {
   "name": "just-curry-it",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "return a curried function",
   "main": "index.js",
   "module": "index.mjs",
