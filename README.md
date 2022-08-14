@@ -26,7 +26,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 ## ES and CJS modules available for every utility <img src="images/esm.png" width="22"/> <img src="images/node.jpeg" width="18"/>
 
 All packages support ES module or Common JS syntax without requiring transpilation
-```
+```js
 // esm (node / bundler)
 import clone from 'just-clone'; 
 
