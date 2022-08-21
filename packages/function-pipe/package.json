@@ -1,0 +1,29 @@
+{
+  "name": "just-pipe",
+  "version": "1.0.0",
+  "description": "Pass a value through a pipeline of functions",
+  "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "default": "./index.mjs"
+    }
+  },
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "pipe",
+    "function",
+    "just"
+  ],
+  "author": "Thomas Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
