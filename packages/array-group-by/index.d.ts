@@ -4,6 +4,6 @@
  * @param resolver function used to resolve group key
  */
 export default function groupBy<T, G extends keyof any = keyof any>(
-  arr: T[],
+  arr: readonly T[],
   resolver: (arg: T) => G
 ): Record<G, T[]>;
