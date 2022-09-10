@@ -118,6 +118,10 @@ function diffApply(obj, diff, pathConverter) {
       Array.isArray(subObject) ? subObject.splice(lastProp, 1) : delete subObject[lastProp];
     }
     if (thisOp === REPLACE || thisOp === ADD) {
+      if (subObject === undefined) {
+        if (isNaN(lastProp)) subObject = {};
+        else subObject = [];
+      }
       subObject[lastProp] = thisDiff.value;
     }
 
