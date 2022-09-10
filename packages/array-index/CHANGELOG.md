@@ -1,5 +1,11 @@
 # just-index
 
+## 4.1.2
+
+### Patch Changes
+
+- Type improvements
+
 ## 4.1.1
 
 ### Patch Changes

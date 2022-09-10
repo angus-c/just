@@ -1,6 +1,6 @@
 {
   "name": "just-flatten-it",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "return a flattened array",
   "main": "index.js",
   "module": "index.mjs",
