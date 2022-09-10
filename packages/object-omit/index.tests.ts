@@ -10,9 +10,6 @@ const obj = {
 	const test: { c: number } = omit(obj, ['a', 'b'])
 }
 {
-	const test: { a: number } = omit(obj, ['b', 'c', 'd'])
-}
-{
 	const test: { a: number, c: number } = omit(obj, ['b', 'b', 'b'])
 }
 {
@@ -47,4 +44,4 @@ omit({}, {}, 'a');
 // @ts-expect-error
 omit({ a: 1 }, { a: 1 });
 // @ts-expect-error
-omit([1, 2, 3], 0);
+omit({ a: 1}, ['a', 'b'])
