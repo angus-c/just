@@ -1,4 +1,4 @@
-type RecursiveList<T> = (T | T[] | RecursiveList<T>)[];
+type RecursiveList<T> = readonly (T | readonly T[] | RecursiveList<T>)[];
 
 /**
  * Flattens an array
@@ -11,5 +11,5 @@ type RecursiveList<T> = (T | T[] | RecursiveList<T>)[];
  * flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]], 1);
  * // => [1, [2, 3], [[4, 5], 6, 7, [8, 9]]]
  */
-declare function flatten<T>(arr: RecursiveList<T>, depth? : number): T[];
+declare function flatten<T>(arr: RecursiveList<T>, depth?: number): T[];
 export default flatten;
