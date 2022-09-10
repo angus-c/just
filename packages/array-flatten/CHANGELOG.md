@@ -1,5 +1,11 @@
 # just-flatten-it
 
+## 5.1.2
+
+### Patch Changes
+
+- Type improvements
+
 ## 5.1.1
 
 ### Patch Changes
