@@ -4,7 +4,7 @@ var camelCase = require('../../packages/string-camel-case');
 var last = require('../../packages/array-last');
 
 test('Correctly pipes value through one or more functions', function(t) {
-  t.plan(3);
+  t.plan(4);
   t.equal(pipe('hello world', camelCase), 'helloWorld');
 
   function addOne(a) {
@@ -14,6 +14,7 @@ test('Correctly pipes value through one or more functions', function(t) {
     return b * 2;
   }
   t.equal(pipe(3, addOne, double), 8);
+  t.equal(pipe(3, double, addOne), 7);
 
   function prependZero(arr) {
     return [0, ...arr];
@@ -26,13 +27,18 @@ test('Correctly pipes value through one or more functions', function(t) {
   t.end();
 });
 
-test('Throws if only give 0 or 1 parameters', function(t) {
-  t.plan(2);
+test('Throws if passed bad parameters', function(t) {
+  t.plan(3);
+
   t.throws(function() {
     pipe();
   }, Error);
   t.throws(function() {
     pipe(5);
   }, Error);
+  t.throws(function() {
+    pipe(5, 'not a function');
+  });
+
   t.end();
 });

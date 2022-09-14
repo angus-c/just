@@ -1600,7 +1600,7 @@
       "deepMapValues({ a: 1, b: { c: 2, d: { e: 3 } } }, squareFn); // => { a: 1, b: { c: 4, d: { e: 9 } } }"
     ]
   },
-  "just-flow": {
+  "just-pipe": {
     "packageName": "just-pipe",
     "dir": "function-pipe",
     "description": "Pass a value through a pipeline of functions",
