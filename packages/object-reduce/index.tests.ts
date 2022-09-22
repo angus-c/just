@@ -1,4 +1,4 @@
-import { reduce } from './index';
+import reduce from './index';
 
 const obj = { a: 3, b: 4, c: 9 };
 
