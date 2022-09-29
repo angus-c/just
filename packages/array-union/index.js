@@ -1,7 +1,7 @@
 module.exports = union;
 
 /*
-  union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]
+  union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 5, 6, 3, 4]
 */
 
 function union(arr1, arr2) {

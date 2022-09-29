@@ -25,6 +25,14 @@ test('does not mutate', function(t) {
   t.end();
 });
 
+test('respects insertion order', function(t) {
+  t.plan(1);
+  var arr1 = [1, 2, 5, 6];
+  var arr2 = [2, 3, 4, 6];
+  t.deepEqual(union(arr1, arr2), [1, 2, 5, 6, 3, 4]);
+  t.end();
+});
+
 test("throws if first two arguments aren't arrays", function(t) {
   t.plan(8);
   var arr1 = [1, 2, 3, 4, 5];
