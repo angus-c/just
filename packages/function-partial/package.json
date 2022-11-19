@@ -1,6 +1,6 @@
 {
   "name": "just-partial-it",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "return a partial function",
   "main": "index.js",
   "module": "index.mjs",
