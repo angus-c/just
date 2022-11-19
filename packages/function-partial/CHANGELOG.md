@@ -1,5 +1,11 @@
 # just-partial-it
 
+## 3.3.0
+
+### Minor Changes
+
+- Consistent export for index.ts and index.d.ts
+
 ## 3.2.1
 
 ### Patch Changes
