@@ -1,3 +1,5 @@
+var numberIsPrime = isPrime;
+
 /*
   isPrime(1); // false
   isPrime(2); // true
@@ -11,7 +13,7 @@
   isPrime([]); // throws
 */
 
-export default function isPrime(number) {
+function isPrime(number) {
   if (!Number.isInteger(number)) {
     throw new Error('just-is-prime expects an integer argument');
   }
@@ -24,7 +26,7 @@ export default function isPrime(number) {
     return (number === 2);
   }
 
-  for (let i = 3; i <= Math.sqrt(number); i += 2) {
+  for (var i = 3; i <= Math.sqrt(number); i += 2) {
     if (number % i === 0) {
       return false;
     }
@@ -32,3 +34,5 @@ export default function isPrime(number) {
 
   return true;
 }
+
+export {numberIsPrime as default};
