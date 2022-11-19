@@ -26,7 +26,7 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 ## ES and CJS modules available for every utility <img src="images/esm.png" width="22"/> <img src="images/node.jpeg" width="18"/>
 
 All packages support ES module or Common JS syntax without requiring transpilation
-```js
+```
 // esm (node / bundler)
 import clone from 'just-clone'; 
 
@@ -1652,14 +1652,14 @@ Return the value at the given percentile (using linear interpolation)
 import percentile from 'just-percentile';
 
 percentile([1, 2, 3], 0); // 1
-percentile([1, 2, 3], 50); // 2
-percentile([1, 2, 3], 100); // 3
+percentile([1, 2, 3], 0.5); // 2
+percentile([1, 2, 3], 1); // 3
 
 // See https://en.wikipedia.org/wiki/Percentile (linear interpolation method)
-percentile([15, 20, 35, 40, 50], 5); // 15
-percentile([15, 20, 35, 40, 50], 30); // 20
-percentile([15, 20, 35, 40, 50], 40); // 27.5
-percentile([15, 20, 35, 40, 50], 95); // 50
+percentile([15, 20, 35, 40, 50], 0.05); // 15
+percentile([15, 20, 35, 40, 50], 0.3); // 20
+percentile([15, 20, 35, 40, 50], 0.4); // 27.5
+percentile([15, 20, 35, 40, 50], 0.95); // 50
 
 percentile(1, 2, 3, 50); // throws
 percentile(['1', 2, 3], 50); // throws
