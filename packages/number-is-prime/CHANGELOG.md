@@ -1,5 +1,11 @@
 # just-is-prime
 
+## 2.2.0
+
+### Minor Changes
+
+- Skip even numbers when looking for primes
+
 ## 2.1.1
 
 ### Patch Changes
