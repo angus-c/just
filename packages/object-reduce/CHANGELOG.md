@@ -1,5 +1,11 @@
 # just-reduce-object
 
+## 2.2.2
+
+### Patch Changes
+
+- use default export in typings
+
 ## 2.2.1
 
 ### Patch Changes
