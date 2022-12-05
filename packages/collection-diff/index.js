@@ -114,14 +114,14 @@ function diff(obj1, obj2, pathConverter) {
           Object(obj1AtKey) !== obj1AtKey ||
           Object(obj2AtKey) !== obj2AtKey
         ) {
-          path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
+          path = pushReplace(path, basePath, key, diffs, pathConverter, obj2, obj1);
         } else {
           if (
             !Object.keys(obj1AtKey).length &&
             !Object.keys(obj2AtKey).length &&
             String(obj1AtKey) != String(obj2AtKey)
           ) {
-            path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
+            path = pushReplace(path, basePath, key, diffs, pathConverter, obj2, obj1);
           } else {
             getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);
           }
@@ -138,11 +138,12 @@ function diff(obj1, obj2, pathConverter) {
     .concat(finalDiffs.add);
 }
 
-function pushReplace(path, basePath, key, diffs, pathConverter, obj2) {
+function pushReplace(path, basePath, key, diffs, pathConverter, obj2, obj1) {
   path = basePath.concat(key);
   diffs.replace.push({
     op: 'replace',
     path: pathConverter(path),
+    oldValue: obj1[key],
     value: obj2[key],
   });
   return path;
