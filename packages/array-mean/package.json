@@ -1,6 +1,6 @@
 {
   "name": "just-mean",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "the mean (average) value in an array",
   "type": "module",
   "exports": {

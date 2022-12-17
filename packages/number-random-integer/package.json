@@ -1,6 +1,6 @@
 {
   "name": "just-random-integer",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Produces an integer between two values",
   "type": "module",
   "exports": {

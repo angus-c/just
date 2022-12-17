@@ -1,6 +1,6 @@
 {
   "name": "just-replace-all",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "replace all occurrences of a string within a string with another string",
   "type": "module",
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "just-zip-it",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "returns an array of grouped elements, taking n-th element from every given array",
   "type": "module",
   "exports": {

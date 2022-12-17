@@ -1,5 +1,11 @@
 # just-is-prime
 
+## 2.3.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 2.2.0
 
 ### Minor Changes

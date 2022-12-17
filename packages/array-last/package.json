@@ -1,6 +1,6 @@
 {
   "name": "just-last",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "return the last member of an array",
   "type": "module",
   "exports": {

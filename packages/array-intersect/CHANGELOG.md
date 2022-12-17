@@ -1,5 +1,11 @@
 # just-intersect
 
+## 4.3.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 4.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # just-group-by
 
+## 2.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 2.1.2
 
 ### Patch Changes

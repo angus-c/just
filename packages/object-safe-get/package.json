@@ -1,6 +1,6 @@
 {
   "name": "just-safe-get",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "get value at property, don't throw if parent is undefined",
   "type": "module",
   "exports": {

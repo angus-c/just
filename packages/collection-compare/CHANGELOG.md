@@ -1,5 +1,11 @@
 # just-compare
 
+## 2.3.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 2.2.2
 
 ### Patch Changes

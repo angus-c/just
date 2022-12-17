@@ -1,6 +1,6 @@
 {
   "name": "just-is-prime",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Check if number is prime",
   "type": "module",
   "exports": {

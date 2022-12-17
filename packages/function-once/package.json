@@ -1,6 +1,6 @@
 {
   "name": "just-once",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "create a function that can only be invoked once",
   "type": "module",
   "exports": {

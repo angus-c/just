@@ -1,5 +1,11 @@
 # just-partial-it
 
+## 3.4.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 3.3.0
 
 ### Minor Changes

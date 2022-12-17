@@ -1,6 +1,6 @@
 {
   "name": "just-flatten-it",
-  "version": "5.1.2",
+  "version": "5.2.0",
   "description": "return a flattened array",
   "type": "module",
   "exports": {

@@ -1,5 +1,11 @@
 # just-sort-by
 
+## 3.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 3.1.1
 
 ### Patch Changes

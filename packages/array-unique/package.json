@@ -1,6 +1,6 @@
 {
   "name": "just-unique",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "dedupes an array",
   "type": "module",
   "exports": {

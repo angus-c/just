@@ -1,6 +1,6 @@
 {
   "name": "just-partial-it",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "return a partial function",
   "type": "module",
   "exports": {

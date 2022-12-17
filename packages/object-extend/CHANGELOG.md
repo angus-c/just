@@ -1,5 +1,11 @@
 # just-extend
 
+## 6.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 6.1.1
 
 ### Patch Changes
