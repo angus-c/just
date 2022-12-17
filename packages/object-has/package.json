@@ -1,6 +1,6 @@
 {
   "name": "just-has",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "return a boolen indicating the existence of a deep property, don't throw if parent is undefined",
   "type": "module",
   "exports": {

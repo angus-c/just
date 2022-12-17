@@ -1,5 +1,11 @@
 # just-flatten-it
 
+## 5.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 5.1.2
 
 ### Patch Changes

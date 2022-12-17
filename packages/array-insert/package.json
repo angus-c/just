@@ -1,6 +1,6 @@
 {
   "name": "just-insert",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "Inserts a sub-array into an array starting at the given index. Returns a copy",
   "type": "module",
   "exports": {

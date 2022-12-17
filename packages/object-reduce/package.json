@@ -1,6 +1,6 @@
 {
   "name": "just-reduce-object",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "reduce an object",
   "type": "module",
   "exports": {

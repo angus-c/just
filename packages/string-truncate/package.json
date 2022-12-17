@@ -1,6 +1,6 @@
 {
   "name": "just-truncate",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "truncate a string with a custom suffix",
   "type": "module",
   "exports": {

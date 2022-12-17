@@ -1,5 +1,11 @@
 # just-last
 
+## 3.2.1
+
+### Patch Changes
+
+- Rename node module .js -> .cjs
+
 ## 3.2.0
 
 ### Minor Changes

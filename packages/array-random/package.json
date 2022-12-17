@@ -1,6 +1,6 @@
 {
   "name": "just-random",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "return a randomly selected element in an array",
   "type": "module",
   "exports": {

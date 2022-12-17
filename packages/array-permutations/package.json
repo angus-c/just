@@ -1,6 +1,6 @@
 {
   "name": "just-permutations",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Returns all permutations of the length N of the elements of the given Array",
   "type": "module",
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "just-map-keys",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "map an object, predicate updates keys, receives (value, key, object)",
   "main": "index.cjs",
   "types": "index.d.ts",

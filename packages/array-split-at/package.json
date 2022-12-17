@@ -1,6 +1,6 @@
 {
   "name": "just-split-at",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "splits an array into two at a given position",
   "type": "module",
   "exports": {

@@ -1,6 +1,6 @@
 {
   "name": "just-cartesian-product",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Cartesian product of arrays",
   "type": "module",
   "exports": {

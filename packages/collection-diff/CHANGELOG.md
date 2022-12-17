@@ -1,5 +1,11 @@
 # just-diff
 
+## 5.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 5.1.1
 
 ### Patch Changes

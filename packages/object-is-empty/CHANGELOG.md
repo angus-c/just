@@ -1,5 +1,11 @@
 # just-is-empty
 
+## 3.3.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 3.2.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "just-deep-map-values",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Returns an object with values at all depths mapped according to the provided function",
   "type": "module",
   "exports": {

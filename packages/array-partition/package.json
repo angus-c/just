@@ -1,6 +1,6 @@
 {
   "name": "just-partition",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Elements satisfying predicate added to first array, remainder added to second",
   "type": "module",
   "exports": {

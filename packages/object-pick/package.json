@@ -1,6 +1,6 @@
 {
   "name": "just-pick",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "copy an object but with only the specified keys",
   "type": "module",
   "exports": {

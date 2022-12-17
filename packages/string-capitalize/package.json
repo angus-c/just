@@ -1,6 +1,6 @@
 {
   "name": "just-capitalize",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "capitalize the first character of a string",
   "type": "module",
   "exports": {

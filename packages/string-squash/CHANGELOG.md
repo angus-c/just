@@ -1,5 +1,11 @@
 # just-squash
 
+## 2.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "just-clamp",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "restrict a number within a range",
   "type": "module",
   "exports": {

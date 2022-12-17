@@ -1,6 +1,6 @@
 {
   "name": "just-kebab-case",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "convert a string to kebab case",
   "type": "module",
   "exports": {

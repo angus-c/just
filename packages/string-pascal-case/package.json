@@ -1,6 +1,6 @@
 {
   "name": "just-pascal-case",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "convert a string to pascal case",
   "type": "module",
   "exports": {

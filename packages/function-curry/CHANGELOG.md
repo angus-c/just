@@ -1,5 +1,11 @@
 # just-curry-it
 
+## 5.3.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 5.2.1
 
 ### Patch Changes

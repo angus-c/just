@@ -1,5 +1,11 @@
 # just-kebab-case
 
+## 4.2.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
 ## 4.1.1
 
 ### Patch Changes
