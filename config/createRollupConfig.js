@@ -7,7 +7,7 @@ const {resolve} = require('path');
  */
 module.exports = function createRollupConfig(path) {
   return {
-    input: resolve(path, './index.js'),
+    input: resolve(path, './index.cjs'),
     output: {
       file: resolve(path, './index.mjs'),
       format: 'esm',

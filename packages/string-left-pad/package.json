@@ -7,7 +7,7 @@
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
       "types": "./index.d.ts",
       "default": "./index.mjs"
     },

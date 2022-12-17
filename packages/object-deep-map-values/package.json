@@ -2,16 +2,16 @@
   "name": "just-deep-map-values",
   "version": "1.1.1",
   "description": "Returns an object with values at all depths mapped according to the provided function",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
       "types": "./index.d.ts",
-      "default": "./index.mjs"
+      "require": "./index.cjs",
+      "import": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "build": "rollup -c"

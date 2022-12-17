@@ -2,12 +2,12 @@
   "name": "just-compare",
   "version": "2.2.2",
   "description": "compare two collections",
-  "main": "index.js",
+  "main": "index.cjs",
   "module": "index.mjs",
   "exports": {
     ".": {
       "types": "./index.d.ts",
-      "require": "./index.js",
+      "require": "./index.cjs",
       "default": "./index.mjs"
     },
     "./package.json": "./package.json"

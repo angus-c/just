@@ -2,12 +2,12 @@
   "name": "just-demethodize",
   "version": "3.1.1",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
       "types": "./index.d.ts",
       "default": "./index.mjs"
     },

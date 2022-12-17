@@ -2,16 +2,16 @@
   "name": "just-squash",
   "version": "2.1.1",
   "description": "remove all spaces from a string, optionally remove escape sequences too",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
       "types": "./index.d.ts",
-      "default": "./index.mjs"
+      "require": "./index.cjs",
+      "import": "./index.mjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
