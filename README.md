@@ -142,7 +142,7 @@ Most utilities still work with any platform that supports ES5, but these are the
 ### Collections
 
 ### [just-diff](https://www.npmjs.com/package/just-diff)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-diff/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-diff)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-diff)
 
@@ -224,7 +224,7 @@ diff(obj8, obj9);
 ```
 
 ### [just-diff-apply](https://www.npmjs.com/package/just-diff-apply)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-diff-apply/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-diff-apply)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-diff-apply)
 
@@ -289,7 +289,7 @@ Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com
 ```
 
 ### [just-compare](https://www.npmjs.com/package/just-compare)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-compare/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-compare)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-compare)
 
@@ -321,7 +321,7 @@ compare(NaN, NaN); // true
 ```
 
 ### [just-clone](https://www.npmjs.com/package/just-clone)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-clone/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-clone)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-clone)
 
@@ -350,7 +350,7 @@ objClone; // {a: 3, b: 5, c: [1, 2, 3], d: {aa: 1, bb: 2}}
 ```
 
 ### [just-pluck-it](https://www.npmjs.com/package/just-pluck-it)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-pluck/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-pluck)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-pluck-it)
 
@@ -371,7 +371,7 @@ pluck({x: {a:1, b:2}, y: {a:4, b:3}, z: {a:2, b:5}}, 'a'); // {x: 1, y: 4, z: 2}
 ```
 
 ### [just-flush](https://www.npmjs.com/package/just-flush)
-[source](https://github.com/angus-c/just/tree/master/packages/collection-flush/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/collection-flush)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-flush)
 
@@ -397,7 +397,7 @@ flush(); // undefined
 ### Objects
 
 ### [just-extend](https://www.npmjs.com/package/just-extend)
-[source](https://github.com/angus-c/just/tree/master/packages/object-extend/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-extend)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-extend)
 
@@ -441,7 +441,7 @@ extend(3, {a: 4, b: 5}); // throws
 ```
 
 ### [just-merge](https://www.npmjs.com/package/just-merge)
-[source](https://github.com/angus-c/just/tree/master/packages/object-merge/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-merge)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-merge)
 
@@ -478,7 +478,7 @@ merge({a: 4, b: 5}, {b: 4, c: 5}, 'c'); // throws
 ```
 
 ### [just-values](https://www.npmjs.com/package/just-values)
-[source](https://github.com/angus-c/just/tree/master/packages/object-values/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-values)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-values)
 
@@ -507,7 +507,7 @@ values(null); // throws exception
 ```
 
 ### [just-entries](https://www.npmjs.com/package/just-entries)
-[source](https://github.com/angus-c/just/tree/master/packages/object-entries/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-entries)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-entries)
 
@@ -536,7 +536,7 @@ entries([]); // []
 ```
 
 ### [just-pick](https://www.npmjs.com/package/just-pick)
-[source](https://github.com/angus-c/just/tree/master/packages/object-pick/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-pick)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-pick)
 
@@ -560,7 +560,7 @@ pick(obj, ['a', 'a']); // {a: 3}
 ```
 
 ### [just-omit](https://www.npmjs.com/package/just-omit)
-[source](https://github.com/angus-c/just/tree/master/packages/object-omit/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-omit)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-omit)
 
@@ -584,7 +584,7 @@ omit(obj, ['a', 'a']); // {b: 5, c: 9}
 ```
 
 ### [just-is-empty](https://www.npmjs.com/package/just-is-empty)
-[source](https://github.com/angus-c/just/tree/master/packages/object-is-empty/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-is-empty)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-is-empty)
 
@@ -622,7 +622,7 @@ import isEmpty from 'just-is-empty';
 ```
 
 ### [just-is-circular](https://www.npmjs.com/package/just-is-circular)
-[source](https://github.com/angus-c/just/tree/master/packages/object-is-circular/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-is-circular)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-is-circular)
 
@@ -664,7 +664,7 @@ isCircular(undefined); // false
 ```
 
 ### [just-is-primitive](https://www.npmjs.com/package/just-is-primitive)
-[source](https://github.com/angus-c/just/tree/master/packages/object-is-primitive/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-is-primitive)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-is-primitive)
 
@@ -694,7 +694,7 @@ isPrimitive(/a/) // false
 ```
 
 ### [just-filter-object](https://www.npmjs.com/package/just-filter-object)
-[source](https://github.com/angus-c/just/tree/master/packages/object-filter/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-filter)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-filter-object)
 
@@ -717,7 +717,7 @@ filter({a: 3, b: 5, c: null}, (key, value) => value); // {a: 3, b: 5}
 ```
 
 ### [just-map-object](https://www.npmjs.com/package/just-map-object)
-[source](https://github.com/angus-c/just/tree/master/packages/object-map/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-map)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-map-object)
 
@@ -740,7 +740,7 @@ map({a: 3, b: 5, c: 9}, (key, value) => key + value); // {a: 'a3', b: 'b5', c: '
 ```
 
 ### [just-map-values](https://www.npmjs.com/package/just-map-values)
-[source](https://github.com/angus-c/just/tree/master/packages/object-map-values/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-map-values)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-map-values)
 
@@ -763,7 +763,7 @@ map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b); // {a: 5, b: 5, c: 5}
 ```
 
 ### [just-map-keys](https://www.npmjs.com/package/just-map-keys)
-[source](https://github.com/angus-c/just/tree/master/packages/object-map-keys/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-map-keys)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-map-keys)
 
@@ -789,7 +789,7 @@ map({a: 3, b: 5, c: 9}, (value, key, obj) => obj.b + value + key);
 ```
 
 ### [just-deep-map-values](https://www.npmjs.com/package/just-deep-map-values)
-[source](https://github.com/angus-c/just/tree/master/packages/object-deep-map-values/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-deep-map-values)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-deep-map-values)
 
@@ -810,7 +810,7 @@ deepMapValues({ a: 1, b: { c: 2, d: { e: 3 } } }, squareFn); // => { a: 1, b: { 
 ```
 
 ### [just-reduce-object](https://www.npmjs.com/package/just-reduce-object)
-[source](https://github.com/angus-c/just/tree/master/packages/object-reduce/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-reduce)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-reduce-object)
 
@@ -840,7 +840,7 @@ reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
 ```
 
 ### [just-safe-get](https://www.npmjs.com/package/just-safe-get)
-[source](https://github.com/angus-c/just/tree/master/packages/object-safe-get/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-safe-get)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-safe-get)
 
@@ -886,7 +886,7 @@ get(obj.a, sym); // 4
 ```
 
 ### [just-safe-set](https://www.npmjs.com/package/just-safe-set)
-[source](https://github.com/angus-c/just/tree/master/packages/object-safe-set/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-safe-set)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-safe-set)
 
@@ -925,7 +925,7 @@ obj5; // {a: {Symbol(): 7}}
 ```
 
 ### [just-typeof](https://www.npmjs.com/package/just-typeof)
-[source](https://github.com/angus-c/just/tree/master/packages/object-typeof/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-typeof)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-typeof)
 
@@ -954,7 +954,7 @@ typeOf(true); // 'boolean'
 ```
 
 ### [just-flip-object](https://www.npmjs.com/package/just-flip-object)
-[source](https://github.com/angus-c/just/tree/master/packages/object-flip/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-flip)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-flip-object)
 
@@ -977,7 +977,7 @@ flip({a: false, b: true}); // {false: 'a', true: 'b'}
 ```
 
 ### [just-has](https://www.npmjs.com/package/just-has)
-[source](https://github.com/angus-c/just/tree/master/packages/object-has/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/object-has)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-has)
 
@@ -1019,7 +1019,7 @@ has(obj.a, sym); // true
 ### Arrays
 
 ### [just-cartesian-product](https://www.npmjs.com/package/just-cartesian-product)
-[source](https://github.com/angus-c/just/tree/master/packages/array-cartesian-product/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-cartesian-product)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-cartesian-product)
 
@@ -1042,7 +1042,7 @@ cartesianProduct(); // throws
 ```
 
 ### [just-unique](https://www.npmjs.com/package/just-unique)
-[source](https://github.com/angus-c/just/tree/master/packages/array-unique/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-unique)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-unique)
 
@@ -1075,7 +1075,7 @@ unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']
 ```
 
 ### [just-flatten-it](https://www.npmjs.com/package/just-flatten-it)
-[source](https://github.com/angus-c/just/tree/master/packages/array-flatten/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-flatten)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-flatten-it)
 
@@ -1099,7 +1099,7 @@ flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]], 1);
 ```
 
 ### [just-index](https://www.npmjs.com/package/just-index)
-[source](https://github.com/angus-c/just/tree/master/packages/array-index/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-index)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-index)
 
@@ -1124,7 +1124,7 @@ index({}, 'id'); // undefined
 ```
 
 ### [just-insert](https://www.npmjs.com/package/just-insert)
-[source](https://github.com/angus-c/just/tree/master/packages/array-insert/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-insert)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-insert)
 
@@ -1147,7 +1147,7 @@ insert([1, 2, 5, 6], ['a', 'c', 'e']); // ['a', 'c', 'e', 1, 2, 5, 6]
 ```
 
 ### [just-intersect](https://www.npmjs.com/package/just-intersect)
-[source](https://github.com/angus-c/just/tree/master/packages/array-intersect/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-intersect)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-intersect)
 
@@ -1168,7 +1168,7 @@ intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]
 ```
 
 ### [just-compact](https://www.npmjs.com/package/just-compact)
-[source](https://github.com/angus-c/just/tree/master/packages/array-compact/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-compact)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-compact)
 
@@ -1191,7 +1191,7 @@ compact({}); // throws
 ```
 
 ### [just-last](https://www.npmjs.com/package/just-last)
-[source](https://github.com/angus-c/just/tree/master/packages/array-last/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-last)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-last)
 
@@ -1217,7 +1217,7 @@ last(undefined); // undefined
 ```
 
 ### [just-tail](https://www.npmjs.com/package/just-tail)
-[source](https://github.com/angus-c/just/tree/master/packages/array-tail/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-tail)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-tail)
 
@@ -1243,7 +1243,7 @@ tail(undefined); // undefined
 ```
 
 ### [just-random](https://www.npmjs.com/package/just-random)
-[source](https://github.com/angus-c/just/tree/master/packages/array-random/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-random)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-random)
 
@@ -1264,7 +1264,7 @@ random([1, 2, 3]);
 ```
 
 ### [just-shuffle](https://www.npmjs.com/package/just-shuffle)
-[source](https://github.com/angus-c/just/tree/master/packages/array-shuffle/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-shuffle)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-shuffle)
 
@@ -1293,7 +1293,7 @@ shuffle({}); // throws
 ```
 
 ### [just-split](https://www.npmjs.com/package/just-split)
-[source](https://github.com/angus-c/just/tree/master/packages/array-split/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-split)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-split)
 
@@ -1318,7 +1318,7 @@ split([1, 2, 3, 4, 5, 6, 7, 8], 3); // [[1, 2, 3], [4, 5, 6], [7, 8]]
 ```
 
 ### [just-split-at](https://www.npmjs.com/package/just-split-at)
-[source](https://github.com/angus-c/just/tree/master/packages/array-split-at/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-split-at)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-split-at)
 
@@ -1342,7 +1342,7 @@ splitAt(undefined, 1); // throws
 ```
 
 ### [just-sort-by](https://www.npmjs.com/package/just-sort-by)
-[source](https://github.com/angus-c/just/tree/master/packages/array-sort-by/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-sort-by)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-sort-by)
 
@@ -1399,7 +1399,7 @@ sortBy([
 ```
 
 ### [just-partition](https://www.npmjs.com/package/just-partition)
-[source](https://github.com/angus-c/just/tree/master/packages/array-partition/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-partition)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-partition)
 
@@ -1426,7 +1426,7 @@ partition(undefined, n => n > 1); // throws
 ```
 
 ### [just-permutations](https://www.npmjs.com/package/just-permutations)
-[source](https://github.com/angus-c/just/tree/master/packages/array-permutations/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-permutations)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-permutations)
 
@@ -1448,7 +1448,7 @@ permutations(); // throws
 ```
 
 ### [just-range](https://www.npmjs.com/package/just-range)
-[source](https://github.com/angus-c/just/tree/master/packages/array-range/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-range)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-range)
 
@@ -1471,7 +1471,7 @@ range(0, 20, 5) // [0, 5, 10, 15]
 ```
 
 ### [just-remove](https://www.npmjs.com/package/just-remove)
-[source](https://github.com/angus-c/just/tree/master/packages/array-remove/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-remove)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-remove)
 
@@ -1491,7 +1491,7 @@ remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
 ```
 
 ### [just-union](https://www.npmjs.com/package/just-union)
-[source](https://github.com/angus-c/just/tree/master/packages/array-union/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-union)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-union)
 
@@ -1511,7 +1511,7 @@ union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 5, 6, 3, 4]
 ```
 
 ### [just-zip-it](https://www.npmjs.com/package/just-zip-it)
-[source](https://github.com/angus-c/just/tree/master/packages/array-zip/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-zip)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-zip-it)
 
@@ -1538,7 +1538,7 @@ zip([1, 2, 3], ['a', 'b'], [true]); // [[1, 'a', true], [2, 'b', undefined], [3,
 ```
 
 ### [just-group-by](https://www.npmjs.com/package/just-group-by)
-[source](https://github.com/angus-c/just/tree/master/packages/array-group-by/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-group-by)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-group-by)
 
@@ -1561,7 +1561,7 @@ groupBy([1,2,3,4,5,6,7,8], function(i) { return i % 2}); // { '0': [2, 4, 6, 8],
 ### Statistics
 
 ### [just-mean](https://www.npmjs.com/package/just-mean)
-[source](https://github.com/angus-c/just/tree/master/packages/array-mean/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-mean)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-mean)
 
@@ -1585,7 +1585,7 @@ mean(); // throws
 ```
 
 ### [just-median](https://www.npmjs.com/package/just-median)
-[source](https://github.com/angus-c/just/tree/master/packages/array-median/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-median)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-median)
 
@@ -1610,7 +1610,7 @@ median(); // throws
 ```
 
 ### [just-mode](https://www.npmjs.com/package/just-mode)
-[source](https://github.com/angus-c/just/tree/master/packages/array-mode/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-mode)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-mode)
 
@@ -1635,7 +1635,7 @@ mode(null); // throws
 ```
 
 ### [just-percentile](https://www.npmjs.com/package/just-percentile)
-[source](https://github.com/angus-c/just/tree/master/packages/array-percentile/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-percentile)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-percentile)
 
@@ -1667,7 +1667,7 @@ percentile([], 50); // throws
 ```
 
 ### [just-variance](https://www.npmjs.com/package/just-variance)
-[source](https://github.com/angus-c/just/tree/master/packages/array-variance/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-variance)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-variance)
 
@@ -1694,7 +1694,7 @@ variance(); // throws
 ```
 
 ### [just-standard-deviation](https://www.npmjs.com/package/just-standard-deviation)
-[source](https://github.com/angus-c/just/tree/master/packages/array-standard-deviation/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-standard-deviation)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-standard-deviation)
 
@@ -1721,7 +1721,7 @@ standardDeviation(); // throws
 ```
 
 ### [just-skewness](https://www.npmjs.com/package/just-skewness)
-[source](https://github.com/angus-c/just/tree/master/packages/array-skewness/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-skewness)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-skewness)
 
@@ -1751,7 +1751,7 @@ skewness(); // throws
 ### Strings
 
 ### [just-template](https://www.npmjs.com/package/just-template)
-[source](https://github.com/angus-c/just/tree/master/packages/string-template/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-template)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-template)
 
@@ -1782,7 +1782,7 @@ template('2 {{a.aa.aaa}}s, a {{a.aa.bbb}}, 3 {{a.bb}}s and a {{b}}. Yes 1 {{a.aa
 ```
 
 ### [just-truncate](https://www.npmjs.com/package/just-truncate)
-[source](https://github.com/angus-c/just/tree/master/packages/string-truncate/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-truncate)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-truncate)
 
@@ -1804,7 +1804,7 @@ Truncate a string with a custom suffix
 ```
 
 ### [just-prune](https://www.npmjs.com/package/just-prune)
-[source](https://github.com/angus-c/just/tree/master/packages/string-prune/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-prune)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-prune)
 
@@ -1826,7 +1826,7 @@ Prune a string with whole words and a custom suffix
 ```
 
 ### [just-squash](https://www.npmjs.com/package/just-squash)
-[source](https://github.com/angus-c/just/tree/master/packages/string-squash/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-squash)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-squash)
 
@@ -1849,7 +1849,7 @@ sat on the mat`, true); // thecatsatonthemat
 ```
 
 ### [just-left-pad](https://www.npmjs.com/package/just-left-pad)
-[source](https://github.com/angus-c/just/tree/master/packages/string-left-pad/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-left-pad)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-left-pad)
 
@@ -1881,7 +1881,7 @@ leftPad('hello', 2.3, true); // throws
 ```
 
 ### [just-right-pad](https://www.npmjs.com/package/just-right-pad)
-[source](https://github.com/angus-c/just/tree/master/packages/string-right-pad/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-right-pad)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-right-pad)
 
@@ -1913,7 +1913,7 @@ rightPad('hello', 2.3, true); // throws
 ```
 
 ### [just-camel-case](https://www.npmjs.com/package/just-camel-case)
-[source](https://github.com/angus-c/just/tree/master/packages/string-camel-case/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-camel-case)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-camel-case)
 
@@ -1946,7 +1946,7 @@ Convert a string to camel case
 ```
 
 ### [just-kebab-case](https://www.npmjs.com/package/just-kebab-case)
-[source](https://github.com/angus-c/just/tree/master/packages/string-kebab-case/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-kebab-case)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-kebab-case)
 
@@ -1973,7 +1973,7 @@ Convert a string to kebab case
 ```
 
 ### [just-snake-case](https://www.npmjs.com/package/just-snake-case)
-[source](https://github.com/angus-c/just/tree/master/packages/string-snake-case/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-snake-case)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-snake-case)
 
@@ -1999,7 +1999,7 @@ Convert a string to snake case
 ```
 
 ### [just-pascal-case](https://www.npmjs.com/package/just-pascal-case)
-[source](https://github.com/angus-c/just/tree/master/packages/string-pascal-case/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-pascal-case)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-pascal-case)
 
@@ -2025,7 +2025,7 @@ Convert a string to pascal case
 ```
 
 ### [just-capitalize](https://www.npmjs.com/package/just-capitalize)
-[source](https://github.com/angus-c/just/tree/master/packages/string-capitalize/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-capitalize)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-capitalize)
 
@@ -2050,7 +2050,7 @@ Capitalize the first character of a string
 ```
 
 ### [just-replace-all](https://www.npmjs.com/package/just-replace-all)
-[source](https://github.com/angus-c/just/tree/master/packages/string-replace-all/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/string-replace-all)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-replace-all)
 
@@ -2085,7 +2085,7 @@ Replace all occurrences of a string within a string with another string
 ### Numbers
 
 ### [just-clamp](https://www.npmjs.com/package/just-clamp)
-[source](https://github.com/angus-c/just/tree/master/packages/number-clamp/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/number-clamp)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-clamp)
 
@@ -2121,7 +2121,7 @@ clamp(3, false, 8); // throws
 ```
 
 ### [just-is-prime](https://www.npmjs.com/package/just-is-prime)
-[source](https://github.com/angus-c/just/tree/master/packages/number-is-prime/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/number-is-prime)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-is-prime)
 
@@ -2152,7 +2152,7 @@ Check if number is prime
 ```
 
 ### [just-modulo](https://www.npmjs.com/package/just-modulo)
-[source](https://github.com/angus-c/just/tree/master/packages/number-modulo/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/number-modulo)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-modulo)
 
@@ -2184,7 +2184,7 @@ modulo(null, undefined); // NaN
 ```
 
 ### [just-random-integer](https://www.npmjs.com/package/just-random-integer)
-[source](https://github.com/angus-c/just/tree/master/packages/number-random-integer/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/number-random-integer)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-random-integer)
 
@@ -2213,7 +2213,7 @@ random(-5.8, 10.4);
 ### Functions
 
 ### [just-compose](https://www.npmjs.com/package/just-compose)
-[source](https://github.com/angus-c/just/tree/master/packages/function-compose/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-compose)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-compose)
 
@@ -2235,7 +2235,7 @@ sqRootBiggest(7, 0, 16); // 4
 ```
 
 ### [just-curry-it](https://www.npmjs.com/package/just-curry-it)
-[source](https://github.com/angus-c/just/tree/master/packages/function-curry/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-curry)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-curry-it)
 
@@ -2274,7 +2274,7 @@ milesToKm(10); // 16.2
 ```
 
 ### [just-demethodize](https://www.npmjs.com/package/just-demethodize)
-[source](https://github.com/angus-c/just/tree/master/packages/function-demethodize/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-demethodize)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-demethodize)
 
@@ -2295,7 +2295,7 @@ const trimFn = demethodize(''.trim);
 ```
 
 ### [just-flip](https://www.npmjs.com/package/just-flip)
-[source](https://github.com/angus-c/just/tree/master/packages/function-flip/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-flip)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-flip)
 
@@ -2323,7 +2323,7 @@ double(numbers) // {x: 10, y: 20];
 ```
 
 ### [just-partial-it](https://www.npmjs.com/package/just-partial-it)
-[source](https://github.com/angus-c/just/tree/master/packages/function-partial/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-partial)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-partial-it)
 
@@ -2347,7 +2347,7 @@ getRoot(1/2); // 8
 ```
 
 ### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
-[source](https://github.com/angus-c/just/tree/master/packages/function-debounce/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-debounce)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-debounce-it)
 
@@ -2391,7 +2391,7 @@ fn4.flush();
 ```
 
 ### [just-memoize](https://www.npmjs.com/package/just-memoize)
-[source](https://github.com/angus-c/just/tree/master/packages/function-memoize/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-memoize)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-memoize)
 
@@ -2430,7 +2430,7 @@ sum(10, 20); // Cache hit!
 ```
 
 ### [just-memoize-last](https://www.npmjs.com/package/just-memoize-last)
-[source](https://github.com/angus-c/just/tree/master/packages/function-memoize-last/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-memoize-last)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-memoize-last)
 
@@ -2460,7 +2460,7 @@ maxValue([1,2,3]) // 3
 ```
 
 ### [just-random](https://www.npmjs.com/package/just-random)
-[source](https://github.com/angus-c/just/tree/master/packages/array-random/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/array-random)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-random)
 
@@ -2481,7 +2481,7 @@ random([1, 2, 3]);
 ```
 
 ### [just-throttle](https://www.npmjs.com/package/just-throttle)
-[source](https://github.com/angus-c/just/tree/master/packages/function-throttle/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-throttle)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-throttle)
 
@@ -2529,7 +2529,7 @@ fn5.flush();
 ```
 
 ### [just-once](https://www.npmjs.com/package/just-once)
-[source](https://github.com/angus-c/just/tree/master/packages/function-once/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/function-once)
 
 [`🍦 Try it`](https://anguscroll.com/just/just-once)
 
