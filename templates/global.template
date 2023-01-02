@@ -129,6 +129,7 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-demethodize](#just-demethodize)
   - [just-flip](#just-flip)
   - [just-partial-it](#just-partial-it)
+  - [just-pipe](#just-pipe)
   - [just-debounce-it](#just-debounce-it)
   - [just-memoize](#just-memoize)
   - [just-memoize-last](#just-memoize-last)
