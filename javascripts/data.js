@@ -667,6 +667,13 @@ const cubedRoot = partial(Math.pow, undefined, 1/3);
 cubedRoot(35).toFixed(1);`,
         ],
       },
+      'just-pipe': {
+        size: sizes['just-pipe'],
+        code: [
+          `const pipe = require('just-pipe')\n
+pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]);`,
+        ],
+      },
       'just-flip': {
         size: sizes['just-flip'],
         code: [

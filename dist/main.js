@@ -741,6 +741,10 @@ module.exports = {
         size: sizes['just-partial-it'],
         code: ['const partial = require(\'just-partial-it\')\n\nconst cubedRoot = partial(Math.pow, undefined, 1/3);\ncubedRoot(35).toFixed(1);']
       },
+      'just-pipe': {
+        size: sizes['just-pipe'],
+        code: ['const pipe = require(\'just-pipe\')\n\npipe(\'John Smith\', a => a.split(\' \'), b => b.reverse(), c => c[0]);']
+      },
       'just-flip': {
         size: sizes['just-flip'],
         code: ['const flip = require(\'just-flip\');\n\nflip(console.log)(1, 2, 3);']
@@ -786,8 +790,8 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 module.exports = {
   "just-clone": "225",
   "just-diff": "436",
-  "just-diff-apply": "398",
-  "just-compare": "238",
+  "just-diff-apply": "590",
+  "just-compare": "225",
   "just-pluck-it": "150",
   "just-flush": "118",
   "just-merge": "142",
@@ -814,7 +818,7 @@ module.exports = {
   "just-flatten-it": "167",
   "just-index": "139",
   "just-insert": "137",
-  "just-intersect": "122",
+  "just-intersect": "156",
   "just-compact": "84",
   "just-last": "52",
   "just-tail": "48",
@@ -828,7 +832,7 @@ module.exports = {
   "just-permutations": "166",
   "just-remove": "115",
   "just-union": "120",
-  "just-zip-it": "173",
+  "just-zip-it": "177",
   "just-group-by": "136",
   "just-cartesian-product": "221",
   "just-mean": "150",
@@ -851,9 +855,10 @@ module.exports = {
   "just-capitalize": "91",
   "just-replace-all": "96",
   "just-clamp": "111",
+  "just-in-range": "130",
   "just-modulo": "23",
   "just-is-prime": "105",
-  "just-random-integer": "119",
+  "just-random-integer": "147",
   "just-compose": "119",
   "just-curry-it": "72",
   "just-memoize": "162",
