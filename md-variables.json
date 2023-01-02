@@ -1599,5 +1599,16 @@
       "const squareFn = (number) => number * number;",
       "deepMapValues({ a: 1, b: { c: 2, d: { e: 3 } } }, squareFn); // => { a: 1, b: { c: 4, d: { e: 9 } } }"
     ]
+  },
+  "just-pipe": {
+    "packageName": "just-pipe",
+    "dir": "function-pipe",
+    "description": "Pass a value through a pipeline of functions",
+    "examples": [
+      "import pipe from 'just-pipe",
+      "",
+      "pipe(3, a => a+1, b => b*2) // 8",
+      "pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]) // 'Smith'"
+    ]
   }
 }
