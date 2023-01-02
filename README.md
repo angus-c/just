@@ -2347,6 +2347,27 @@ const getRoot = partial(Math.pow, 64);
 getRoot(1/2); // 8
 ```
 
+### [just-pipe](https://www.npmjs.com/package/just-pipe)
+[source](https://github.com/angus-c/just/tree/master/packages/function-pipe)
+
+[`🍦 Try it`](https://anguscroll.com/just/just-pipe)
+
+```shell
+npm install just-pipe
+```
+```shell
+yarn add just-pipe
+```
+
+Pass a value through a pipeline of functions
+
+```js
+import pipe from 'just-pipe
+
+pipe(3, a => a+1, b => b*2) // 8
+pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]) // 'Smith'
+```
+
 ### [just-debounce-it](https://www.npmjs.com/package/just-debounce-it)
 [source](https://github.com/angus-c/just/tree/master/packages/function-debounce)
 

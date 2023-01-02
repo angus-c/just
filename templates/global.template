@@ -301,6 +301,8 @@ Most utilities still work with any platform that supports ES5, but these are the
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-partial-it" } -->
 
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-pipe" } -->
+
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-debounce-it" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-memoize" } -->
