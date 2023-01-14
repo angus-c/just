@@ -1,0 +1,34 @@
+{
+  "name": "just-deep-omit",
+  "version": "4.2.0",
+  "description": "Omits key/value from deeply nested objects",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "object",
+    "deep",
+    "omit",
+    "delete",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Scott Rhamy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
