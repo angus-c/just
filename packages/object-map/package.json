@@ -1,15 +1,17 @@
 {
   "name": "just-map-object",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "map an object, passing key and value to predicates",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

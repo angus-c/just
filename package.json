@@ -2,12 +2,13 @@
   "name": "just",
   "version": "1.22.4",
   "description": "A library of simple dependency-free utilities that do just do one thing",
-  "main": "index.js",
+  "main": "index.cjs",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
+    "@typescript-eslint/parser": "^5.30.7",
     "eslint": "6.8.0",
     "lerna": "3.20.2",
     "rollup": "^2.58.0",
@@ -20,7 +21,7 @@
   "scripts": {
     "build": "lerna run build --stream $@",
     "lint": "eslint --max-warnings=0 --ext=mjs,js .",
-    "test": "npm run lint && tape ./test/**/index.js | tap-spec && npm run test-types",
+    "test": "npm run lint && tape ./test/**/index.cjs | tap-spec && npm run test-types",
     "test-types": "tsc",
     "generate-readmes": "node scripts/generate-readmes.js"
   },

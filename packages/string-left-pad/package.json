@@ -1,15 +1,17 @@
 {
   "name": "just-left-pad",
-  "version": "3.0.1",
+  "version": "3.2.0",
   "description": "add characters to the left of a string such that its total length is n",
   "type": "commonjs",
   "main": "index.min.js",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "types": "index.d.ts",
   "scripts": {

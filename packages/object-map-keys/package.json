@@ -1,15 +1,17 @@
 {
   "name": "just-map-keys",
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "map an object, predicate updates keys, receives (value, key, object)",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -6,8 +6,14 @@
   },
   "parserOptions": {
     "ecmaVersion": 2017,
-    "sourceType": "module"    
+    "sourceType": "module"
   },
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
   "rules": {
     "block-scoped-var": 0,
     "brace-style": [
@@ -35,34 +41,19 @@
         "after": true
       }
     ],
-    "comma-style": [
-      2,
-      "last"
-    ],
+    "comma-style": [2, "last"],
     "complexity": 0,
     "consistent-return": 0,
     "consistent-this": 0,
-    "curly": [
-      0,
-      "multi-line"
-    ],
+    "curly": [0, "multi-line"],
     "default-case": 0,
     "dot-notation": 0,
     "eol-last": 2,
     "eqeqeq": 0,
-    "generator-star-spacing": [
-      2,
-      "after"
-    ],
+    "generator-star-spacing": [2, "after"],
     "guard-for-in": 0,
-    "handle-callback-err": [
-      2,
-      "^(err|error|anySpecificError)$"
-    ],
-    "indent": [
-      2,
-      2
-    ],
+    "handle-callback-err": [2, "^(err|error|anySpecificError)$"],
+    "indent": [2, 2],
     "key-spacing": [
       2,
       {
@@ -71,11 +62,7 @@
       }
     ],
     "max-depth": 0,
-    "max-len": [
-      2,
-      100,
-      4
-    ],
+    "max-len": [2, 100, 4],
     "max-nested-callbacks": 0,
     "max-params": 0,
     "max-statements": 0,
@@ -117,10 +104,7 @@
     "no-func-assign": 2,
     "no-implied-eval": 2,
     "no-inline-comments": 0,
-    "no-inner-declarations": [
-      2,
-      "functions"
-    ],
+    "no-inner-declarations": [2, "functions"],
     "no-invalid-regexp": 2,
     "no-irregular-whitespace": 2,
     "no-iterator": 2,
@@ -129,14 +113,8 @@
     "no-lone-blocks": 0,
     "no-lonely-if": 0,
     "no-loop-func": 0,
-    "no-mixed-requires": [
-      0,
-      false
-    ],
-    "no-mixed-spaces-and-tabs": [
-      2,
-      false
-    ],
+    "no-mixed-requires": [0, false],
+    "no-mixed-spaces-and-tabs": [2, false],
     "no-multi-spaces": 2,
     "no-multi-str": 2,
     "no-multiple-empty-lines": [
@@ -190,50 +168,24 @@
     "no-warning-comments": [
       0,
       {
-        "terms": [
-          "todo",
-          "fixme",
-          "xxx"
-        ],
+        "terms": ["todo", "fixme", "xxx"],
         "location": "start"
       }
     ],
     "no-with": 0,
     "one-var": 0,
-    "operator-assignment": [
-      0,
-      "always"
-    ],
-    "padded-blocks": [
-      2,
-      "never"
-    ],
+    "operator-assignment": [0, "always"],
+    "padded-blocks": [2, "never"],
     "quote-props": 0,
-    "quotes": [
-      2,
-      "single",
-      "avoid-escape"
-    ],
+    "quotes": [2, "single", "avoid-escape"],
     "radix": 0,
     "semi": 1,
     "semi-spacing": 0,
     "sort-vars": 0,
-    "space-before-blocks": [
-      2,
-      "always"
-    ],
-    "space-before-function-paren": [
-      2,
-      "never"
-    ],
-    "object-curly-spacing": [
-      2,
-      "never"
-    ],
-    "space-in-parens": [
-      2,
-      "never"
-    ],
+    "space-before-blocks": [2, "always"],
+    "space-before-function-paren": [2, "never"],
+    "object-curly-spacing": [2, "never"],
+    "space-in-parens": [2, "never"],
     "space-infix-ops": 2,
     "space-unary-ops": [
       2,
@@ -248,10 +200,7 @@
     "valid-jsdoc": 0,
     "valid-typeof": 2,
     "vars-on-top": 0,
-    "wrap-iife": [
-      0,
-      "outside"
-    ],
+    "wrap-iife": [0, "outside"],
     "wrap-regex": 0,
     "yoda": 0
   }

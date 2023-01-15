@@ -1,15 +1,17 @@
 {
   "name": "just-is-primitive",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "determine if a value is a primitive value",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

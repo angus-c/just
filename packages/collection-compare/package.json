@@ -1,15 +1,18 @@
 {
   "name": "just-compare",
-  "version": "2.0.2",
+  "version": "2.3.0",
   "description": "compare two collections",
-  "main": "index.js",
+  "main": "index.cjs",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"

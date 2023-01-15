@@ -174,14 +174,14 @@
       "import percentile from 'just-percentile';",
       "",
       "percentile([1, 2, 3], 0); // 1",
-      "percentile([1, 2, 3], 50); // 2",
-      "percentile([1, 2, 3], 100); // 3",
+      "percentile([1, 2, 3], 0.5); // 2",
+      "percentile([1, 2, 3], 1); // 3",
       "",
       "// See https://en.wikipedia.org/wiki/Percentile (linear interpolation method)",
-      "percentile([15, 20, 35, 40, 50], 5); // 15",
-      "percentile([15, 20, 35, 40, 50], 30); // 20",
-      "percentile([15, 20, 35, 40, 50], 40); // 27.5",
-      "percentile([15, 20, 35, 40, 50], 95); // 50",
+      "percentile([15, 20, 35, 40, 50], 0.05); // 15",
+      "percentile([15, 20, 35, 40, 50], 0.3); // 20",
+      "percentile([15, 20, 35, 40, 50], 0.4); // 27.5",
+      "percentile([15, 20, 35, 40, 50], 0.95); // 50",
       "",
       "percentile(1, 2, 3, 50); // throws",
       "percentile(['1', 2, 3], 50); // throws",
@@ -198,6 +198,17 @@
       "permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]",
       "permutations([]); // []",
       "permutations(); // throws"
+    ]
+  },
+  "just-pipe": {
+    "packageName": "just-pipe",
+    "dir": "function-pipe",
+    "description": "Pass a value through a pipeline of functions",
+    "examples": [
+      "import pipe from 'just-pipe",
+      "",
+      "pipe(3, a => a+1, b => b*2) // 8",
+      "pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]) // 'Smith'"
     ]
   },
   "just-random": {
@@ -276,7 +287,7 @@
     "dir": "array-sort-by",
     "description": "Produces a new array, sorted in ascending order",
     "examples": [
-      "import sortBy from 'just-array-sort-by';",
+      "import sortBy from 'just-sort-by';",
       "",
       "sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]",
       "",
@@ -387,7 +398,7 @@
     "examples": [
       "import union from 'just-union';",
       "",
-      "union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 3, 4, 5, 6]"
+      "union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 5, 6, 3, 4]"
     ]
   },
   "just-unique": {
@@ -450,7 +461,7 @@
   "just-clone": {
     "packageName": "just-clone",
     "dir": "collection-clone",
-    "description": "Deep copies objects and arrays",
+    "description": "Deep copies objects, arrays, maps and sets",
     "examples": [
       "// Deep copies objects and arrays, doesn't clone functions",
       "",
@@ -567,7 +578,7 @@
     "dir": "collection-diff-apply",
     "description": "Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com standard patch",
     "examples": [
-      "  import diffApply from 'just-diff-apply';",
+      "  import {diffApply} from 'just-diff-apply';",
       "",
       "  const obj1 = {a: 3, b: 5};",
       "  diffApply(obj1,",
@@ -586,7 +597,7 @@
       "    ]",
       "  );",
       "  obj2; // {b: 5, c: 3}",
-      "",      
+      "",
       "  // using converter to apply jsPatch standard paths",
       "  // see http://jsonpatch.com",
       "  import {diffApply, jsonPatchPathConverter} from 'just-diff-apply'",
@@ -888,6 +899,24 @@
       "clamp(3, false, 8); // throws "
     ]
   },
+  "just-in-range": {
+    "packageName": "just-in-range",
+    "dir": "number-in-range",
+    "description": "Check if number is within a given range",
+    "examples": [
+      "  import inRange from 'just-number-in-range'",
+      "",
+      "/*",
+      "  inRange(2, 1, 10); // true",
+      "  inRange(15, 20); // true",
+      "  inRange(20, 21, 30); // false",
+      "  inRange(30, 21, 30); // false",
+      "  inRange(); // throws",
+      "  inRange(100); // throws",
+      "  inRange(\"js\"); // throws",
+      "*/"
+    ]
+  },
   "just-is-prime": {
     "packageName": "just-is-prime",
     "dir": "number-is-prime",
@@ -1060,7 +1089,10 @@
   "just-is-circular": {
     "packageName": "just-is-circular",
     "dir": "object-is-circular",
-    "description": "NOTE: not supported in IE or microsoft edge",
+    "description": [
+      "Return true if object has a circular reference",
+      "NOTE: not supported in IE or microsoft edge"
+    ],
     "examples": [
       "import isCircular from 'just-is-circular';",
       "const a = {};",
