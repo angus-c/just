@@ -3,10 +3,11 @@ module.exports = debounce;
 function debounce(fn, wait, callFirst) {
   var timeout = null;
   var debouncedFn = null;
+  var shouldUseRaf = !wait && typeof window !== 'undefined';
 
   var clear = function() {
     if (timeout) {
-      clearTimeout(timeout);
+      shouldUseRaf ? cancelAnimationFrame(timeout) : clearTimeout(timeout);
 
       debouncedFn = null;
       timeout = null;
@@ -20,6 +21,10 @@ function debounce(fn, wait, callFirst) {
     if (call) {
       call();
     }
+  };
+
+  var timer = function(fn, wait) {
+    return shouldUseRaf ? requestAnimationFrame(fn) : setTimeout(fn, wait);
   };
 
   var debounceWrapper = function() {
@@ -36,7 +41,7 @@ function debounce(fn, wait, callFirst) {
       fn.apply(context, args);
     };
 
-    timeout = setTimeout(function() {
+    timeout = timer(function() {
       timeout = null;
 
       if (!callNow) {
