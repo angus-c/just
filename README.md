@@ -1441,7 +1441,7 @@ yarn add just-permutations
 Returns all permutations of the length N of the elements of the given Array
 
 ```js
-import permutations from 'just-array-permutations;
+import permutations from 'just-permutations';
 
 permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
 permutations([]); // []
