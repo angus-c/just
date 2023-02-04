@@ -13,10 +13,6 @@ var objectSafeSet = set;
   set(obj3, 'a.aa.aaa', 3); // true
   obj3; // {a: {aa: {aaa: 3}}}
 
-  // don't clobber existing
-  var obj4 = {a: {aa: {aaa: 2}}};
-  set(obj4, 'a.aa', {bbb: 7}); // false
-
   const obj5 = {a: {}};
   const sym = Symbol();
   set(obj5.a, sym, 7); // true
