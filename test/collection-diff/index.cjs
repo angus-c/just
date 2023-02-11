@@ -120,7 +120,7 @@ test('flat null and undefined', function(t) {
   );
 });
 
-test('objects with array properties', function(t) {
+test.only('objects with array properties', function(t) {
   t.plan(6);
 
   var obj4 = {a: 4, b: [1, 2, 3]};
@@ -516,6 +516,7 @@ test('objects with array properties using jsPatchStandard', function(t) {
       {op: 'add', path: '/b/3', value: 5},
     ])
   );
+  console.log('*********', diff(obj6, obj5, jsonPatchPathConverter));
   t.ok(
     compare(diff(obj6, obj5, jsonPatchPathConverter), [
       {op: 'remove', path: '/b/3'},
