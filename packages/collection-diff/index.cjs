@@ -20,7 +20,7 @@ module.exports = {
     { "op": "add", "path": ['c'], "value": 5 }
   ]
 
-  // using converter to generate jsPatch standard paths
+  // using converter to generate jsPatch standard basePaths
   // see http://jsonpatch.com
   import {diff, jsonPatchPathConverter} from 'just-diff'
   diff(obj1, obj2, jsonPatchPathConverter);
@@ -51,7 +51,7 @@ module.exports = {
     { "op": "add", "path": ['b', 3], "value": 5 }
   ]
 
-  // nested paths
+  // nested basePaths
   const obj7 = {a: 4, b: {c: 3}};
   const obj8 = {a: 4, b: {c: 4}};
   const obj9 = {a: 5, b: {d: 4}};
@@ -79,11 +79,13 @@ function diff(obj1, obj2, pathConverter) {
       return arr;
     });
 
-  function getDiff(obj1, obj2, basePath, diffs) {
+  function getDiff(obj1, obj2, permutation) {
     var obj1Keys = Object.keys(obj1);
     var obj1KeysLength = obj1Keys.length;
     var obj2Keys = Object.keys(obj2);
     var obj2KeysLength = obj2Keys.length;
+    var basePath = permutation.basePath;
+    var diffs = permutation.diffs;
     var path;
 
     for (var i = 0; i < obj1KeysLength; i++) {
@@ -112,26 +114,28 @@ function diff(obj1, obj2, pathConverter) {
       } else if (obj1AtKey !== obj2AtKey) {
         if (
           Object(obj1AtKey) !== obj1AtKey ||
-          Object(obj2AtKey) !== obj2AtKey
+            Object(obj2AtKey) !== obj2AtKey
         ) {
           path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
         } else {
           if (
             !Object.keys(obj1AtKey).length &&
-            !Object.keys(obj2AtKey).length &&
-            String(obj1AtKey) != String(obj2AtKey)
+              !Object.keys(obj2AtKey).length &&
+              String(obj1AtKey) != String(obj2AtKey)
           ) {
             path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
           } else {
-            getDiff(obj1[key], obj2[key], basePath.concat(key), diffs);
+            getDiff(obj1[key], obj2[key], {basePath: basePath.concat(key), diffs});
           }
         }
       }
     }
-
-    return diffs;
   }
-  const finalDiffs = getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
+  // const finalDiffs = getDiff(obj1, obj2, [], {remove: [], replace: [], add: []});
+  const initialPermutation = {basePath: [], diffs: {remove: [], replace: [], add: []}};
+  var permutations = [initialPermutation];
+  getDiff(obj1, obj2, permutations[0]);
+  const finalDiffs = permutations[0].diffs;
   return finalDiffs.remove
     .reverse()
     .concat(finalDiffs.replace)
