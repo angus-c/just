@@ -120,7 +120,7 @@ test('flat null and undefined', function(t) {
   );
 });
 
-test.only('objects with array properties', function(t) {
+test('objects with array properties', function(t) {
   t.plan(6);
 
   var obj4 = {a: 4, b: [1, 2, 3]};
