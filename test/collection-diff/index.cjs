@@ -304,7 +304,7 @@ test('objects with nulls against nested objects', function(t) {
   );
 });
 
-test.only('arrays', function(t) {
+test('arrays', function(t) {
   t.plan(8);
 
   var obj12 = ['a', {a: 2}, 'c'];
@@ -352,14 +352,12 @@ test.only('arrays', function(t) {
 
   t.ok(
     compare(diff(obj14, obj13), [
-      {op: 'remove', path: [1, 'b']},
-      {op: 'remove', path: [3]},
-      {op: 'replace', path: [0], value: 'a'},
-      {op: 'add', path: [1, 'a'], value: 3},
+      {op: 'remove', path: [ 0 ]},
+      {op: 'replace', path: [ 0 ], value: 'a'},
+      {op: 'replace', path: [ 1 ], value: {a: 3}},
+      {op: 'replace', path: [ 2 ], value: 'd'},
     ])
   );
-
-  console.log('&&&', diff(obj14, obj15));
 
   t.ok(
     compare(diff(obj14, obj15), [
@@ -603,11 +601,12 @@ test('nested objects using jsPatchStandard', function(t) {
 });
 
 test('arrays using jsPatchStandard', function(t) {
-  t.plan(6);
+  t.plan(8);
 
   var obj12 = ['a', {a: 2}, 'c'];
   var obj13 = ['a', {a: 3}, 'd'];
   var obj14 = ['b', {b: 3}, 'd', 'e'];
+  var obj15 = ['a', 'b', {b: 3}, 'd', 'e'];
 
   t.ok(
     compare(diff(obj12, obj13, jsonPatchPathConverter), [
@@ -646,12 +645,29 @@ test('arrays using jsPatchStandard', function(t) {
       {op: 'add', path: '/3', value: 'e'},
     ])
   );
+
   t.ok(
     compare(diff(obj14, obj13, jsonPatchPathConverter), [
-      {op: 'remove', path: '/1/b'},
-      {op: 'remove', path: '/3'},
+      {op: 'remove', path: '/0'},
       {op: 'replace', path: '/0', value: 'a'},
-      {op: 'add', path: '/1/a', value: 3},
+      {op: 'replace', path: '/1', value: {a: 3}},
+      {op: 'replace', path: '/2', value: 'd'},
+    ])
+  );
+
+  t.ok(
+    compare(diff(obj14, obj15, jsonPatchPathConverter), [
+      {op: 'replace', path: '/0', value: 'a'},
+      {op: 'replace', path: '/1', value: 'b'},
+      {op: 'replace', path: '/2', value: {b: 3}},
+      {op: 'replace', path: '/3', value: 'd'},
+      {op: 'add', path: '/4', value: 'e'},
+    ])
+  );
+
+  t.ok(
+    compare(diff(obj15, obj14, jsonPatchPathConverter), [
+      {op: 'remove', path: '/0'},
     ])
   );
 });
