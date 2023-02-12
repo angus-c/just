@@ -89,6 +89,7 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-order-by](#just-order-by)
   - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)

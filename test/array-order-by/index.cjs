@@ -15,7 +15,7 @@ test('produces a new sorted array', function(t) {
   t.end();
 });
 
-test('sort array of objects using array of keys passed by parameter', function(t) {
+test('sort array of objects using a property with string type', function(t) {
   t.plan(3);
 
   var users = [
@@ -28,7 +28,7 @@ test('sort array of objects using array of keys passed by parameter', function(t
 
   var copied = users.slice();
 
-  t.deepEqual(orderBy(users, ['age']), [
+  t.deepEqual(orderBy(users, [{property: 'age'}]), [
     {user: 'robert', age: 28},
     {user: 'max', age: 29},
     {user: 'fabio', age: 34},
@@ -36,7 +36,7 @@ test('sort array of objects using array of keys passed by parameter', function(t
     {user: 'zacarias', age: 44},
   ]);
 
-  t.deepEqual(orderBy(users, ['user']), [
+  t.deepEqual(orderBy(users, [{property: 'user'}]), [
     {user: 'fabio', age: 34},
     {user: 'klaus', age: 38},
     {user: 'max', age: 29},
@@ -49,51 +49,7 @@ test('sort array of objects using array of keys passed by parameter', function(t
   t.end();
 });
 
-test('sort array of objects using array of callback functions passed by parameter', function(t) {
-  t.plan(3);
-
-  var users = [
-    {user: 'fabio', age: 34},
-    {user: 'max', age: 29},
-    {user: 'zacarias', age: 44},
-    {user: 'robert', age: 28},
-    {user: 'klaus', age: 38},
-  ];
-
-  var copied = users.slice();
-
-  t.deepEqual(
-    orderBy(users, [function(o) {
-      return o.age;
-    }]),
-    [
-      {user: 'robert', age: 28},
-      {user: 'max', age: 29},
-      {user: 'fabio', age: 34},
-      {user: 'klaus', age: 38},
-      {user: 'zacarias', age: 44},
-    ]
-  );
-
-  t.deepEqual(
-    orderBy(users, [function(o) {
-      return o.user;
-    }]),
-    [
-      {user: 'fabio', age: 34},
-      {user: 'klaus', age: 38},
-      {user: 'max', age: 29},
-      {user: 'robert', age: 28},
-      {user: 'zacarias', age: 44},
-    ]
-  );
-
-  t.deepEqual(users, copied);
-
-  t.end();
-});
-
-test('sort array of objects using array of objects passed by parameter', function(t) {
+test('sort array of objects using property as a callback function', function(t) {
   t.plan(3);
 
   var users = [
@@ -109,7 +65,59 @@ test('sort array of objects using array of objects passed by parameter', functio
   t.deepEqual(
     orderBy(users, [
       {
-        field: function(o) {
+        property(o) {
+          return o.age;
+        },
+      },
+    ]),
+    [
+      {user: 'robert', age: 28},
+      {user: 'max', age: 29},
+      {user: 'fabio', age: 34},
+      {user: 'klaus', age: 38},
+      {user: 'zacarias', age: 44},
+    ]
+  );
+
+  t.deepEqual(
+    orderBy(users, [
+      {
+        property(o) {
+          return o.user;
+        },
+      },
+    ]),
+    [
+      {user: 'fabio', age: 34},
+      {user: 'klaus', age: 38},
+      {user: 'max', age: 29},
+      {user: 'robert', age: 28},
+      {user: 'zacarias', age: 44},
+    ]
+  );
+
+  t.deepEqual(users, copied);
+
+  t.end();
+});
+
+test('sort array of objects in descending order', function(t) {
+  t.plan(3);
+
+  var users = [
+    {user: 'fabio', age: 34},
+    {user: 'max', age: 29},
+    {user: 'zacarias', age: 44},
+    {user: 'robert', age: 28},
+    {user: 'klaus', age: 38},
+  ];
+
+  var copied = users.slice();
+
+  t.deepEqual(
+    orderBy(users, [
+      {
+        property(o) {
           return o.age;
         },
         order: 'desc',
@@ -125,7 +133,7 @@ test('sort array of objects using array of objects passed by parameter', functio
   );
 
   t.deepEqual(
-    orderBy(users, [{field: 'user', order: 'desc'}]),
+    orderBy(users, [{property: 'user', order: 'desc'}]),
     [
       {user: 'zacarias', age: 44},
       {user: 'robert', age: 28},
@@ -141,7 +149,7 @@ test('sort array of objects using array of objects passed by parameter', functio
 });
 
 test('invalid', function(t) {
-  t.plan(6);
+  t.plan(8);
 
   t.throws(function() {
     orderBy();
@@ -157,6 +165,14 @@ test('invalid', function(t) {
 
   t.throws(function() {
     orderBy([], []);
+  });
+
+  t.throws(function() {
+    orderBy([], [null]);
+  });
+
+  t.throws(function() {
+    orderBy([], [{}]);
   });
 
   t.throws(function() {

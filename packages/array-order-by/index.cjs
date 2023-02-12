@@ -1,28 +1,36 @@
 module.exports = orderBy;
 
 function getValueFromParam(param, item) {
-  if (typeof param === 'object') {
-    if (typeof param.field === 'function') {
-      return param.field(item);
-    }
-    return item[param.field];
+  if (typeof param.property === 'function') {
+    return param.property(item);
   }
-  if (typeof param === 'function') {
-    return param(item);
+
+  if (typeof param.property === 'string') {
+    return item[param.property];
   }
-  return item[param];
+
+  throw new TypeError('Type of `property` property should be a string or a function');
 }
 
 function createSortFn(params) {
   return function(a, b) {
     for (var i = 0; i < params.length; i++) {
       var param = params[i];
+
+      if (param == null || typeof param !== 'object' || !('property' in param)) {
+        throw new TypeError('Element in params array should be an object with `property` property');
+      }
+
       var valueA = getValueFromParam(param, a);
+
       var valueB = getValueFromParam(param, b);
-      var isDesc = typeof param === 'object' && param.order === 'desc';
+
+      var isDesc = param.order === 'desc';
+
       if (valueA < valueB) {
         return isDesc ? 1 : -1;
       }
+
       if (valueA > valueB) {
         return isDesc ? -1 : 1;
       }
@@ -33,7 +41,7 @@ function createSortFn(params) {
 
 function orderBy(arr, params) {
   if (!Array.isArray(arr)) {
-    throw new Error('arr should be an array');
+    throw new TypeError('arr should be an array');
   }
 
   if (

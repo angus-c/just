@@ -31,8 +31,10 @@ orderBy(
     { user: 'max', details: { city: 'Zurich', age: 38 } },
   ],
   [
-    function (o) {
-      return o.details.age;
+    {
+      property(v) {
+        return v.details.age;
+      },
     },
   ]
 );
@@ -55,7 +57,11 @@ orderBy(
     {user: 'robert', age: 28},
     {user: 'klaus', age: 38},
   ],
-  ['user']
+  [
+    {
+      property: 'user',
+    },
+  ]
 );
 
 /*
@@ -78,11 +84,11 @@ orderBy(
   ],
   [
     {
-      field: 'user',
+      property: 'user',
       order: 'desc',
     },
     {
-      field(v) {
+      property(v) {
         return v.age;
       },
     },

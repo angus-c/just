@@ -92,6 +92,7 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-order-by](#just-order-by)
   - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
@@ -1366,8 +1367,10 @@ orderBy(
     { user: 'max', details: { city: 'Zurich', age: 38 } },
   ],
   [
-    function (o) {
-      return o.details.age;
+    {
+      property(v) {
+        return v.details.age;
+      },
     },
   ]
 );
@@ -1390,7 +1393,11 @@ orderBy(
     {user: 'robert', age: 28},
     {user: 'klaus', age: 38},
   ],
-  ['user']
+  [
+    {
+      property: 'user',
+    },
+  ]
 );
 
 /*
@@ -1413,11 +1420,11 @@ orderBy(
   ],
   [
     {
-      field: 'user',
+      property: 'user',
       order: 'desc',
     },
     {
-      field(v) {
+      property(v) {
         return v.age;
       },
     },

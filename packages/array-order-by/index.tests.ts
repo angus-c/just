@@ -4,10 +4,9 @@ import orderBy from './index';
 orderBy(['a', 'b', 'c']);
 orderBy([1, 2, 3]);
 orderBy([{name: 'claudio'}, {name: 'klaus'}]);
-orderBy([{name: 'claudio'}, {name: 'klaus'}], ['name']);
 orderBy(
   [{name: 'claudio'}, {name: 'klaus'}],
-  [{field: 'name', order: 'desc'}]
+  [{property: 'name', order: 'desc'}]
 );
 orderBy(
   [
@@ -16,11 +15,8 @@ orderBy(
     {user: 'zacarias', details: {city: 'Sao Paulo', age: 44}},
   ],
   [
-    function(v) {
-      return v.details.age;
-    },
     {
-      field(v) {
+      property(v) {
         return v.details.city;
       },
       order: 'desc',
@@ -41,5 +37,7 @@ orderBy({}, function() {});
 orderBy([1, 2, 3], 1);
 // @ts-expect-error
 orderBy([1, 2, 3], []);
+// @ts-expect-error
+orderBy([1, 2, 3], [{}]);
 // @ts-expect-error
 orderBy([1, 2, 3], {});
