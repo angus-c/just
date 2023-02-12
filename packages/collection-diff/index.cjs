@@ -116,35 +116,8 @@ function diff(obj1, obj2, pathConverter) {
 
     for (var i = 0; i < obj2KeysLength; i++) {
       var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
-      var obj1AtKey = obj1[key];
-      var obj2AtKey = obj2[key];
       path = basePath.concat(key);
-      if (!(key in obj1)) {
-        var obj2Value = obj2[key];
-        diffs.add.push({
-          op: 'add',
-          path: pathConverter(path),
-          value: obj2Value,
-        });
-      } else if (obj1AtKey !== obj2AtKey) {
-        if (
-          Object(obj1AtKey) !== obj1AtKey ||
-              Object(obj2AtKey) !== obj2AtKey
-        ) {
-          pushReplace(path, diffs, obj2[key]);
-        } else {
-          if (
-            !Object.keys(obj1AtKey).length &&
-                !Object.keys(obj2AtKey).length &&
-                String(obj1AtKey) != String(obj2AtKey)
-          ) {
-            pushReplace(path, diffs, obj2[key]);
-          } else {
-            permutation.basePath = path;
-            getDiff(obj1[key], obj2[key], permutation);
-          }
-        }
-      }
+      pushReplaces(key, obj1, obj2, diffs, path, permutation);
     }
 
     // if both objects are arrays and obj1 length > obj2 length
@@ -200,6 +173,34 @@ function diff(obj1, obj2, pathConverter) {
     .reverse()
     .concat(finalDiffs.replace)
     .concat(finalDiffs.add);
+
+  function pushReplaces(key, obj1, obj2, diffs, path, permutation) {
+    var obj1AtKey = obj1[key];
+    var obj2AtKey = obj2[key];
+
+    if(!(key in obj1)) {
+      var obj2Value = obj2AtKey;
+      diffs.add.push({
+        op: 'add',
+        path: pathConverter(path),
+        value: obj2Value,
+      });
+    } else if(obj1AtKey !== obj2AtKey) {
+      if(Object(obj1AtKey) !== obj1AtKey ||
+        Object(obj2AtKey) !== obj2AtKey) {
+        pushReplace(path, diffs, obj2AtKey);
+      } else {
+        if(!Object.keys(obj1AtKey).length &&
+          !Object.keys(obj2AtKey).length &&
+          String(obj1AtKey) != String(obj2AtKey)) {
+          pushReplace(path, diffs, obj2AtKey);
+        } else {
+          permutation.basePath = path;
+          getDiff(obj1AtKey, obj2AtKey, permutation);
+        }
+      }
+    }
+  }
 
   function pushReplace(path, diffs, newValue) {
     // path = basePath.concat(key);
