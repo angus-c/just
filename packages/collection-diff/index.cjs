@@ -169,6 +169,7 @@ function diff(obj1, obj2, pathConverter) {
   const finalDiffs = permutations.sort(
     (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
   )[0].diffs;
+  // const finalDiffs = permutations[0].diffs;
   return finalDiffs.remove
     .reverse()
     .concat(finalDiffs.replace)
