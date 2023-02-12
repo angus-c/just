@@ -304,12 +304,13 @@ test('objects with nulls against nested objects', function(t) {
   );
 });
 
-test('arrays', function(t) {
-  t.plan(6);
+test.only('arrays', function(t) {
+  t.plan(8);
 
   var obj12 = ['a', {a: 2}, 'c'];
   var obj13 = ['a', {a: 3}, 'd'];
   var obj14 = ['b', {b: 3}, 'd', 'e'];
+  var obj15 = ['a', 'b', {b: 3}, 'd', 'e'];
 
   t.ok(
     compare(diff(obj12, obj13), [
@@ -348,12 +349,31 @@ test('arrays', function(t) {
       {op: 'add', path: [3], value: 'e'},
     ])
   );
+
   t.ok(
     compare(diff(obj14, obj13), [
       {op: 'remove', path: [1, 'b']},
       {op: 'remove', path: [3]},
       {op: 'replace', path: [0], value: 'a'},
       {op: 'add', path: [1, 'a'], value: 3},
+    ])
+  );
+
+  console.log('&&&', diff(obj14, obj15));
+
+  t.ok(
+    compare(diff(obj14, obj15), [
+      {op: 'replace', path: [ 0 ], value: 'a'},
+      {op: 'replace', path: [ 1 ], value: 'b'},
+      {op: 'replace', path: [ 2 ], value: {b: 3}},
+      {op: 'replace', path: [ 3 ], value: 'd'},
+      {op: 'add', path: [ 4 ], value: 'e'},
+    ])
+  );
+
+  t.ok(
+    compare(diff(obj15, obj14), [
+      {op: 'remove', path: [0]},
     ])
   );
 });
@@ -516,7 +536,6 @@ test('objects with array properties using jsPatchStandard', function(t) {
       {op: 'add', path: '/b/3', value: 5},
     ])
   );
-  console.log('*********', diff(obj6, obj5, jsonPatchPathConverter));
   t.ok(
     compare(diff(obj6, obj5, jsonPatchPathConverter), [
       {op: 'remove', path: '/b/3'},
