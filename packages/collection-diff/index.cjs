@@ -120,7 +120,9 @@ function diff(obj1, obj2, pathConverter) {
     // if both objects are arrays and obj1 length > obj2 length
     // try trimming obj1 from left in case this creates a more efficient diff array.
     if (newPermutation) {
+      console.log('### newPermutation', JSON.stringify(newPermutation, null, 2));
       for (var i = 0; i < lengthDelta; i++) {
+        console.log('^^^^ lengthDelta', lengthDelta);
         path = newPermutation.basePath.concat(i);
         newPermutation.diffs.remove.push({
           op: 'remove',
@@ -132,7 +134,7 @@ function diff(obj1, obj2, pathConverter) {
       var obj1Trimmed = obj1.slice(lengthDelta);;
       for (var i = 0; i < obj2KeysLength; i++) {
         var basePath2 = newPermutation.basePath;
-        var key = Number(obj2Keys[i]);
+        var key = Number(obj2Keys[i]) + lengthDelta;
         path = basePath2.concat(key);
 
         pushReplaces(key, obj1Trimmed, obj2, path, newPermutation);
@@ -141,6 +143,7 @@ function diff(obj1, obj2, pathConverter) {
   }
 
   getDiff(obj1, obj2, permutations[0]);
+  console.log('^^^^ permutations', permutations);
   var finalDiffs = permutations.sort(
     (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
   )[0].diffs;
