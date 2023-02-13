@@ -365,7 +365,7 @@ test('object vs array', function(t) {
 });
 
 test('round trip', function(t) {
-  t.plan(7);
+  t.plan(8);
 
   var obj15 = [1, 2, 3, 4, 5, 17, 18];
   var obj16 = [2];
@@ -415,6 +415,13 @@ test('round trip', function(t) {
   thisDiff = diff(obj18c, obj17c);
   diffApply(obj18c, thisDiff);
   t.ok(compare(obj17c, obj18c));
+
+  var obj17d = [{a: 9, b: [1, 2, 3]}];
+  var obj18d = [{a: 9, b: [2, 3]}];
+
+  thisDiff = diff(obj18d, obj17d);
+  diffApply(obj18d, thisDiff);
+  t.ok(compare(obj17d, obj18d));
 });
 
 test('objects whose properties are objects but with no properties of their own', function(t) {
@@ -451,8 +458,8 @@ test('objects whose properties are objects but with no properties of their own',
   );
 });
 
-test.only('path optimization for array', function(t) {
-  t.plan(4);
+test('path optimization for array', function(t) {
+  t.plan(6);
 
   var obj21 = [1, 2, 3, 4];
   var obj22 = [2, 3, 4];
@@ -463,6 +470,7 @@ test.only('path optimization for array', function(t) {
     ])
   );
 
+  // TODO: can be further optimized
   t.ok(
     compare(diff(obj22, obj21), [
       {op: 'replace', path: [ 0 ], value: 1},
@@ -475,8 +483,6 @@ test.only('path optimization for array', function(t) {
   var obj23 = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
   var obj24 = [{b: 5}, {c: 9, d: 98}];
 
-  console.log(diff(obj23, obj24));
-
   t.ok(
     compare(diff(obj23, obj24), [
       {op: 'remove', path: [ 1 ]},
@@ -484,6 +490,7 @@ test.only('path optimization for array', function(t) {
     ])
   );
 
+  // TODO: can be further optimized
   t.ok(
     compare(diff(obj24, obj23), [
       {op: 'remove', path: [ 1, 'd' ]},
@@ -495,6 +502,22 @@ test.only('path optimization for array', function(t) {
       {op: 'add', path: [ 1, 'a' ], value: 4},
       {op: 'add', path: [ 2 ], value: {b: 5}},
       {op: 'add', path: [ 3 ], value: {c: 9, d: 98}},
+    ])
+  );
+
+  var obj25 = [{a: 9, b: [1, 2, 3]}];
+  var obj26 = [{a: 9, b: [2, 3]}];
+
+  t.ok(
+    compare(diff(obj25, obj26), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
+  );
+
+  // TODO: can be further optimized
+  t.ok(
+    compare(diff(obj26, obj25), [
+      {op: 'replace', path: [ 0, 'b', 0 ], value: 1},
+      {op: 'replace', path: [ 0, 'b', 1 ], value: 2},
+      {op: 'add', path: [ 0, 'b', 2 ], value: 3},
     ])
   );
 });
@@ -743,7 +766,7 @@ test('object vs array using jsPatchStandard', function(t) {
 });
 
 test('round trip using jsPatchStandard', function(t) {
-  t.plan(4);
+  t.plan(5);
 
   var obj15 = [1, 2, 3, 4, 5, 16, 17];
   var obj16 = [2, 3];
@@ -772,6 +795,13 @@ test('round trip using jsPatchStandard', function(t) {
   thisDiff = diff(obj18a, obj17a, jsonPatchPathConverter);
   diffApply(obj18a, thisDiff, jsonPatchApplier);
   t.ok(compare(obj17a, obj18a));
+
+  var obj17b = [{a: 9, b: [1, 2, 3]}];
+  var obj18b = [{a: 9, b: [2, 3]}];
+
+  thisDiff = diff(obj18b, obj17b);
+  diffApply(obj18b, thisDiff);
+  t.ok(compare(obj17b, obj18b));
 });
 
 test('nested objects using custom converter', function(t) {
