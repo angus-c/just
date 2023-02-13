@@ -1,5 +1,3 @@
-//var clone = require('../collection-clone/index.cjs');
-
 module.exports = {
   diff: diff,
   jsonPatchPathConverter: jsonPatchPathConverter,
@@ -22,7 +20,7 @@ module.exports = {
     { "op": "add", "path": ['c'], "value": 5 }
   ]
 
-  // using converter to generate jsPatch standard basePaths
+  // using converter to generate jsPatch standard paths
   // see http://jsonpatch.com
   import {diff, jsonPatchPathConverter} from 'just-diff'
   diff(obj1, obj2, jsonPatchPathConverter);
@@ -53,7 +51,7 @@ module.exports = {
     { "op": "add", "path": ['b', 3], "value": 5 }
   ]
 
-  // nested basePaths
+  // nested paths
   const obj7 = {a: 4, b: {c: 3}};
   const obj8 = {a: 4, b: {c: 4}};
   const obj9 = {a: 5, b: {d: 4}};
@@ -81,8 +79,7 @@ function diff(obj1, obj2, pathConverter) {
       return arr;
     });
 
-  const initialPermutation = {basePath: [], diffs: {remove: [], replace: [], add: []}};
-  var permutations = [initialPermutation];
+  var permutations = [{basePath: [], diffs: {remove: [], replace: [], add: []}}];
 
   function getDiff(obj1, obj2, permutation) {
     var obj1Keys = Object.keys(obj1);
@@ -96,7 +93,7 @@ function diff(obj1, obj2, pathConverter) {
     var newPermutation;
 
     // if both objects are arrays and obj1 length > obj2 length
-    // we will also run recursion in reverse direction, to get shortest path
+    // we will also try trimming obj1 from left, to see if it leads to a shorter path
     var lengthDelta = obj1.length - obj2.length;
     if (Array.isArray(obj1) && Array.isArray(obj2) && lengthDelta > 0) {
       newPermutation = clonePermutation(permutation);
@@ -117,13 +114,12 @@ function diff(obj1, obj2, pathConverter) {
     for (var i = 0; i < obj2KeysLength; i++) {
       var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
       path = basePath.concat(key);
-      pushReplaces(key, obj1, obj2, diffs, path, permutation);
+      pushReplaces(key, obj1, obj2, path, permutation);
     }
 
     // if both objects are arrays and obj1 length > obj2 length
-    // run recursion in reverse direction, to get shortest path
+    // try trimming obj1 from left in case this creates a more efficient diff array.
     if (newPermutation) {
-      // trim obj1 from left
       for (var i = 0; i < lengthDelta; i++) {
         path = newPermutation.basePath.concat(i);
         newPermutation.diffs.remove.push({
@@ -132,41 +128,20 @@ function diff(obj1, obj2, pathConverter) {
         });
       }
 
-      // now make a copy of obj1 with excess removed and see if any replaces
+      // now make a copy of obj1 with excess elements left trimmed and see if any replaces
       var obj1Trimmed = obj1.slice(lengthDelta);;
       for (var i = 0; i < obj2KeysLength; i++) {
         var basePath2 = newPermutation.basePath;
-        var diffs2 = newPermutation.diffs;
         var key = Number(obj2Keys[i]);
         path = basePath2.concat(key);
 
-        var obj1AtKey = obj1Trimmed[key];
-        var obj2AtKey = obj2[key];
-        if (obj1AtKey !== obj2AtKey) {
-          if (
-            Object(obj1AtKey) !== obj1AtKey ||
-                Object(obj2AtKey) !== obj2AtKey
-          ) {
-            pushReplace(path, diffs2, obj2[key]);
-          } else {
-            if (
-              !Object.keys(obj1AtKey).length &&
-                  !Object.keys(obj2AtKey).length &&
-                  String(obj1AtKey) != String(obj2AtKey)
-            ) {
-              pushReplace(path, diffs2, obj2[key]);
-            } else {
-              newPermutation.basePath = path;
-              getDiff(obj1Trimmed[key], obj2[key], newPermutation);
-            }
-          }
-        }
+        pushReplaces(key, obj1Trimmed, obj2, path, newPermutation);
       }
     }
   }
 
   getDiff(obj1, obj2, permutations[0]);
-  const finalDiffs = permutations.sort(
+  var finalDiffs = permutations.sort(
     (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
   )[0].diffs;
   return finalDiffs.remove
@@ -174,9 +149,10 @@ function diff(obj1, obj2, pathConverter) {
     .concat(finalDiffs.replace)
     .concat(finalDiffs.add);
 
-  function pushReplaces(key, obj1, obj2, diffs, path, permutation) {
+  function pushReplaces(key, obj1, obj2, path, permutation) {
     var obj1AtKey = obj1[key];
     var obj2AtKey = obj2[key];
+    var diffs = permutation.diffs;
 
     if(!(key in obj1)) {
       var obj2Value = obj2AtKey;
@@ -203,11 +179,9 @@ function diff(obj1, obj2, pathConverter) {
   }
 
   function pushReplace(path, diffs, newValue) {
-    // path = basePath.concat(key);
     diffs.replace.push({
       op: 'replace',
       path: pathConverter(path),
-      // value: obj2[key],
       value: newValue,
     });
   }
@@ -225,7 +199,7 @@ function clonePermutation(permutation) {
 }
 
 function diffStepCount(permutation) {
-  const diffs = permutation.diffs;
+  var diffs = permutation.diffs;
   return diffs.remove.length + diffs.replace.length + diffs.add.length;
 }
 
