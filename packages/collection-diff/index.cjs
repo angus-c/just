@@ -69,6 +69,24 @@ module.exports = {
   ]
 */
 
+function isDiffType(obj1, obj2, key) {
+  try {
+    const value1 = obj1[key];
+    const value2 = obj2[key];
+
+    // true case:
+    // case1: value1: {}, value2: []
+    // case2: value1: [], value2: {}
+    return obj1
+      && obj2
+      && value1
+      && value2
+      && Object.prototype.toString.call(value1) !== Object.prototype.toString.call(value2);
+  } catch (e) {
+    return false;
+  }
+}
+
 function diff(obj1, obj2, pathConverter) {
   if (!obj1 || typeof obj1 != 'object' || !obj2 || typeof obj2 != 'object') {
     throw new Error('both arguments must be objects or arrays');
@@ -112,14 +130,16 @@ function diff(obj1, obj2, pathConverter) {
       } else if (obj1AtKey !== obj2AtKey) {
         if (
           Object(obj1AtKey) !== obj1AtKey ||
-          Object(obj2AtKey) !== obj2AtKey
+          Object(obj2AtKey) !== obj2AtKey ||
+          isDiffType(obj1, obj2, key)
         ) {
           path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
         } else {
           if (
-            !Object.keys(obj1AtKey).length &&
+            (!Object.keys(obj1AtKey).length &&
             !Object.keys(obj2AtKey).length &&
-            String(obj1AtKey) != String(obj2AtKey)
+            String(obj1AtKey) != String(obj2AtKey))
+            || isDiffType(obj1, obj2, key)
           ) {
             path = pushReplace(path, basePath, key, diffs, pathConverter, obj2);
           } else {

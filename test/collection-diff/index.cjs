@@ -223,6 +223,33 @@ test('objects with nulls against array properties', function(t) {
   );
 });
 
+test('objects with object against array properties', function(t) {
+  t.plan(1);
+
+  var obj1 = {
+    foo: {
+      name: 1,
+    },
+  };
+
+  var obj2 = {
+    foo: [{
+      name: 1,
+    }, {
+      name: 2,
+    },
+    ],
+  };
+
+  t.ok(compare(diff(obj1, obj2), [
+    {op: 'replace', path: ['foo'], value: [{
+      name: 1,
+    }, {
+      name: 2,
+    }]},
+  ]));
+});
+
 test('nested objects', function(t) {
   t.plan(8);
 
