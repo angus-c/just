@@ -371,6 +371,7 @@ test('round trip', function(t) {
   var obj16 = [2];
 
   var thisDiff = diff(obj15, obj16);
+
   diffApply(obj15, thisDiff);
   t.ok(compare(obj15, obj16));
 
@@ -458,85 +459,103 @@ test('objects whose properties are objects but with no properties of their own',
   );
 });
 
-test.only('path optimization for array', function(t) {
-  // t.plan(8);
+test('path optimization for array', function(t) {
+  t.plan(10);
 
-  // var obj21 = [1, 2, 3, 4];
-  // var obj22 = [2, 3, 4];
-
-  // t.ok(
-  //   compare(diff(obj21, obj22), [
-  //     {op: 'remove', path: [0]},
-  //   ])
-  // );
-
-  // // TODO: can be further optimized
-  // t.ok(
-  //   compare(diff(obj22, obj21), [
-  //     {op: 'replace', path: [ 0 ], value: 1},
-  //     {op: 'replace', path: [ 1 ], value: 2},
-  //     {op: 'replace', path: [ 2 ], value: 3},
-  //     {op: 'add', path: [ 3 ], value: 4},
-  //   ])
-  // );
-
-  // var obj23 = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
-  // var obj24 = [{b: 5}, {c: 9, d: 98}];
-
-  // t.ok(
-  //   compare(diff(obj23, obj24), [
-  //     {op: 'remove', path: [ 1 ]},
-  //     {op: 'remove', path: [ 0 ]},
-  //   ])
-  // );
-
-  // // TODO: can be further optimized
-  // t.ok(
-  //   compare(diff(obj24, obj23), [
-  //     {op: 'remove', path: [ 1, 'd' ]},
-  //     {op: 'remove', path: [ 1, 'c' ]},
-  //     {op: 'remove', path: [ 0, 'b' ]},
-  //     {op: 'add', path: [ 0, 0 ], value: 5},
-  //     {op: 'add', path: [ 0, 1 ], value: 4},
-  //     {op: 'add', path: [ 0, 2 ], value: 5},
-  //     {op: 'add', path: [ 1, 'a' ], value: 4},
-  //     {op: 'add', path: [ 2 ], value: {b: 5}},
-  //     {op: 'add', path: [ 3 ], value: {c: 9, d: 98}},
-  //   ])
-  // );
-
-  // var obj25 = [{a: 9, b: [1, 2, 3]}];
-  // var obj26 = [{a: 9, b: [2, 3]}];
-
-  // t.ok(
-  //   compare(diff(obj25, obj26), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
-  // );
-
-  // // TODO: can be further optimized
-  // t.ok(
-  //   compare(diff(obj26, obj25), [
-  //     {op: 'replace', path: [ 0, 'b', 0 ], value: 1},
-  //     {op: 'replace', path: [ 0, 'b', 1 ], value: 2},
-  //     {op: 'add', path: [ 0, 'b', 2 ], value: 3},
-  //   ])
-  // );
-
-  // var objx = [['a', 'b', 'c'], 3, 4, 5];
-  // var objy = [['b', 'c'], 3, 4];
-
-  // console.log('-----', diff(objx, objy));
-
-  var obj27 = [1, ['a', 'b', 'c'], 3, 4];
-  var obj28 = [['b', 'c'], 3, 4];
-
-  console.log('**********', diff(obj27, obj28));
+  var obj21 = [1, 2, 3, 4];
+  var obj22 = [2, 3, 4];
 
   t.ok(
-    compare(diff(obj27, obj28), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
+    compare(diff(obj21, obj22), [
+      {op: 'remove', path: [0]},
+    ])
+  );
+
+  // TODO: can be further optimized
+  t.ok(
+    compare(diff(obj22, obj21), [
+      {op: 'replace', path: [ 0 ], value: 1},
+      {op: 'replace', path: [ 1 ], value: 2},
+      {op: 'replace', path: [ 2 ], value: 3},
+      {op: 'add', path: [ 3 ], value: 4},
+    ])
+  );
+
+  var obj23 = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
+  var obj24 = [{b: 5}, {c: 9, d: 98}];
+
+  t.ok(
+    compare(diff(obj23, obj24), [
+      {op: 'remove', path: [ 1 ]},
+      {op: 'remove', path: [ 0 ]},
+    ])
+  );
+
+  // TODO: can be further optimized
+  t.ok(
+    compare(diff(obj24, obj23), [
+      {op: 'remove', path: [ 1, 'd' ]},
+      {op: 'remove', path: [ 1, 'c' ]},
+      {op: 'remove', path: [ 0, 'b' ]},
+      {op: 'add', path: [ 0, 0 ], value: 5},
+      {op: 'add', path: [ 0, 1 ], value: 4},
+      {op: 'add', path: [ 0, 2 ], value: 5},
+      {op: 'add', path: [ 1, 'a' ], value: 4},
+      {op: 'add', path: [ 2 ], value: {b: 5}},
+      {op: 'add', path: [ 3 ], value: {c: 9, d: 98}},
+    ])
+  );
+
+  var obj25 = [{a: 9, b: [1, 2, 3]}];
+  var obj26 = [{a: 9, b: [2, 3]}];
+
+  t.ok(
+    compare(diff(obj25, obj26), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
+  );
+
+  // TODO: can be further optimized
+  t.ok(
+    compare(diff(obj26, obj25), [
+      {op: 'replace', path: [ 0, 'b', 0 ], value: 1},
+      {op: 'replace', path: [ 0, 'b', 1 ], value: 2},
+      {op: 'add', path: [ 0, 'b', 2 ], value: 3},
+    ])
+  );
+
+  var obj27 = [1, ['a', 'b', 'c'], 3, 4];
+  var obj28 = [['a', 'b'], 3, 4];
+
+  t.ok(
+    compare(diff(obj27, obj28), [ {op: 'remove', path: [ 1, 2 ]}, {op: 'remove', path: [ 0 ]} ])
+  );
+
+  // TODO: can be further optimized
+  t.ok(
+    compare(diff(obj28, obj27), [
+      {op: 'replace', path: [ 0 ], value: 1},
+      {op: 'replace', path: [ 1 ], value: [ 'a', 'b', 'c' ]},
+      {op: 'replace', path: [ 2 ], value: 3},
+      {op: 'add', path: [ 3 ], value: 4},
+    ])
+  );
+
+  var obj29 = [['a', 'b', 'c'], 3, 4, 5];
+  var obj30 = [['b', 'c'], 3, 4];
+
+  t.ok(
+    compare(diff(obj29, obj30), [
+      {'op': 'remove', 'path': [0, 0]},
+      {'op': 'remove', 'path': [3]},
+    ])
   );
 
   t.ok(
-    compare(diff(obj28, obj27), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
+    compare(diff(obj30, obj29), [
+      {'op': 'replace', 'path': [0, 0], 'value': 'a'},
+      {'op': 'replace', 'path': [0, 1], 'value': 'b'},
+      {'op': 'add', 'path': [0, 2], 'value': 'c'},
+      {'op': 'add', 'path': [3], 'value': 5},
+    ])
   );
 });
 
