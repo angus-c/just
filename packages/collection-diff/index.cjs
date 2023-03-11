@@ -81,12 +81,7 @@ function diff(obj1, obj2, pathConverter) {
 
   var permutations = [{remove: [], replace: [], add: []}];
 
-  function getDiff(obj1, obj2, basePath, basePathForRemove, permutation) {
-    console.log('%%% at getDiff');
-    console.log(`obj1 ${JSON.stringify(obj1)}`);
-    console.log(`obj2 ${JSON.stringify(obj2)}`);
-    console.log(`permutation ${JSON.stringify(permutation)}`);
-
+  function getDiff(obj1, obj2, basePath, basePathForRemoves, permutation) {
     var obj1Keys = Object.keys(obj1);
     var obj1KeysLength = obj1Keys.length;
     var obj2Keys = Object.keys(obj2);
@@ -106,7 +101,7 @@ function diff(obj1, obj2, pathConverter) {
     for (var i = 0; i < obj1KeysLength; i++) {
       var key = Array.isArray(obj1) ? Number(obj1Keys[i]) : obj1Keys[i];
       if (!(key in obj2)) {
-        path = basePathForRemove.concat(key);
+        path = basePathForRemoves.concat(key);
         permutation.remove.push({
           op: 'remove',
           path: pathConverter(path),
@@ -116,14 +111,21 @@ function diff(obj1, obj2, pathConverter) {
 
     for (var i = 0; i < obj2KeysLength; i++) {
       var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
-      pushReplaces(key, obj1, obj2, basePath.concat(key), basePath.concat(key), permutation);
+      pushReplaces({
+        key,
+        obj1,
+        obj2,
+        path: basePath.concat(key),
+        pathForRemoves: basePath.concat(key),
+        permutation,
+      });
     }
 
     // if both objects are arrays and obj1 length > obj2 length
     // try trimming obj1 from left in case this creates a more efficient diff array.
     if (newPermutation) {
       for (var i = 0; i < lengthDelta; i++) {
-        path = basePathForRemove.concat(i);
+        path = basePathForRemoves.concat(i);
         newPermutation.remove.push({
           op: 'remove',
           path: pathConverter(path),
@@ -133,10 +135,14 @@ function diff(obj1, obj2, pathConverter) {
       // now make a copy of obj1 with excess elements left trimmed and see if any replaces
       var obj1Trimmed = obj1.slice(lengthDelta);;
       for (var i = 0; i < obj2KeysLength; i++) {
-        // var key = Number(obj2Keys[i]) + lengthDelta;
-        // pushReplaces(key, obj1Trimmed, obj2, basePath.concat(key), newPermutation);
-        // pushReplaces(i, obj1Trimmed, obj2, basePath.concat(i + lengthDelta), newPermutation);
-        pushReplaces(i, obj1Trimmed, obj2, basePath.concat(i), basePath.concat(i + lengthDelta), newPermutation);
+        pushReplaces({
+          key: i,
+          obj1: obj1Trimmed,
+          obj2,
+          path: basePath.concat(i),
+          pathForRemoves: basePath.concat(i + lengthDelta),
+          permutation: newPermutation,
+        });
       }
     }
   }
@@ -150,7 +156,7 @@ function diff(obj1, obj2, pathConverter) {
     .concat(finalDiffs.replace)
     .concat(finalDiffs.add);
 
-  function pushReplaces(key, obj1, obj2, path, pathForRemove, permutation) {
+  function pushReplaces({key, obj1, obj2, path, pathForRemoves, permutation}) {
     var obj1AtKey = obj1[key];
     var obj2AtKey = obj2[key];
 
@@ -171,7 +177,7 @@ function diff(obj1, obj2, pathConverter) {
           String(obj1AtKey) != String(obj2AtKey)) {
           pushReplace(path, permutation, obj2AtKey);
         } else {
-          getDiff(obj1[key], obj2[key], path, pathForRemove, permutation);
+          getDiff(obj1[key], obj2[key], path, pathForRemoves, permutation);
         }
       }
     }

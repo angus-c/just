@@ -371,7 +371,6 @@ test('round trip', function(t) {
   var obj16 = [2];
 
   var thisDiff = diff(obj15, obj16);
-
   diffApply(obj15, thisDiff);
   t.ok(compare(obj15, obj16));
 
