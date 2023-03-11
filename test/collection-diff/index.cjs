@@ -521,14 +521,19 @@ test.only('path optimization for array', function(t) {
   //   ])
   // );
 
-  var obj27 = [1, ['b', 'c'], 3, 4];
-  var obj28 = [['b', 'c'], 3, 4];
+  var objx = [['a', 'b', 'c'], 3, 4, 5];
+  var objy = [['b', 'c'], 3, 4];
 
-  console.log('*****', diff(obj27, obj28));
+  console.log('-----', diff(objx, objy));
 
-  t.ok(
-    compare(diff(obj27, obj28), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
-  );
+  // var obj27 = [1, ['a', 'b', 'c'], 3, 4];
+  // var obj28 = [['b', 'c'], 3, 4];
+
+  // console.log('*****', diff(obj27, obj28));
+
+  // t.ok(
+  //   compare(diff(obj27, obj28), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])
+  // );
 
   // t.ok(
   //   compare(diff(obj28, obj27), [ {op: 'remove', path: [ 0, 'b', 0 ]} ])

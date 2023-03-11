@@ -82,6 +82,11 @@ function diff(obj1, obj2, pathConverter) {
   var permutations = [{basePath: [], diffs: {remove: [], replace: [], add: []}}];
 
   function getDiff(obj1, obj2, permutation) {
+    console.log('%%% at getDiff');
+    console.log(`obj1 ${JSON.stringify(obj1)}`);
+    console.log(`obj2 ${JSON.stringify(obj2)}`);
+    console.log(`permutation ${JSON.stringify(permutation)}`);
+
     var obj1Keys = Object.keys(obj1);
     var obj1KeysLength = obj1Keys.length;
     var obj2Keys = Object.keys(obj2);
@@ -120,9 +125,9 @@ function diff(obj1, obj2, pathConverter) {
     // if both objects are arrays and obj1 length > obj2 length
     // try trimming obj1 from left in case this creates a more efficient diff array.
     if (newPermutation) {
-      console.log('### newPermutation', JSON.stringify(newPermutation, null, 2));
+      // console.log('### newPermutation', JSON.stringify(newPermutation, null, 2));
       for (var i = 0; i < lengthDelta; i++) {
-        console.log('^^^^ lengthDelta', lengthDelta);
+        // console.log('^^^^ lengthDelta', lengthDelta);
         path = newPermutation.basePath.concat(i);
         newPermutation.diffs.remove.push({
           op: 'remove',
@@ -137,13 +142,19 @@ function diff(obj1, obj2, pathConverter) {
         var key = Number(obj2Keys[i]) + lengthDelta;
         path = basePath2.concat(key);
 
+        // console.log('&&& at pushReplaces');
+        // console.log(`obj1 ${JSON.stringify(obj1)}`);
+        // console.log(`obj2 ${JSON.stringify(obj2)}`);
+
         pushReplaces(key, obj1Trimmed, obj2, path, newPermutation);
       }
     }
   }
 
   getDiff(obj1, obj2, permutations[0]);
-  console.log('^^^^ permutations', permutations);
+  // console.log('^^^^ permutations', JSON.stringify(permutations, null, 2));
+
+  // BUG is that not all permutations are from root (`base: []`)
   var finalDiffs = permutations.sort(
     (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
   )[0].diffs;
@@ -157,7 +168,7 @@ function diff(obj1, obj2, pathConverter) {
     var obj2AtKey = obj2[key];
     var diffs = permutation.diffs;
 
-    if(!(key in obj1)) {
+    if(!(key in obj1) && obj2AtKey) {
       var obj2Value = obj2AtKey;
       diffs.add.push({
         op: 'add',
