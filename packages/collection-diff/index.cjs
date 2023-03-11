@@ -79,9 +79,10 @@ function diff(obj1, obj2, pathConverter) {
       return arr;
     });
 
+  // we will gather all permutations and return the one with the fewest diffs
   var permutations = [{remove: [], replace: [], add: []}];
 
-  function getDiff(obj1, obj2, basePath, basePathForRemoves, permutation) {
+  function getDiff({obj1, obj2, basePath, basePathForRemoves, permutation}) {
     var obj1Keys = Object.keys(obj1);
     var obj1KeysLength = obj1Keys.length;
     var obj2Keys = Object.keys(obj2);
@@ -90,14 +91,15 @@ function diff(obj1, obj2, pathConverter) {
 
     var newPermutation;
 
-    // if both objects are arrays and obj1 length > obj2 length
-    // we will also try trimming obj1 from left, to see if it leads to a shorter path
     var lengthDelta = obj1.length - obj2.length;
+    // if both objects are arrays and obj1 length > obj2 length
+    // we create an additional permutation that trims obj1 from left
     if (Array.isArray(obj1) && Array.isArray(obj2) && lengthDelta > 0) {
       newPermutation = clonePermutation(permutation);
       permutations.push(newPermutation);
     }
 
+    // trim from right
     for (var i = 0; i < obj1KeysLength; i++) {
       var key = Array.isArray(obj1) ? Number(obj1Keys[i]) : obj1Keys[i];
       if (!(key in obj2)) {
@@ -121,8 +123,7 @@ function diff(obj1, obj2, pathConverter) {
       });
     }
 
-    // if both objects are arrays and obj1 length > obj2 length
-    // try trimming obj1 from left in case this creates a more efficient diff array.
+    // if we created a new permutation above it means we should also try trimming from left
     if (newPermutation) {
       for (var i = 0; i < lengthDelta; i++) {
         path = basePathForRemoves.concat(i);
@@ -132,7 +133,7 @@ function diff(obj1, obj2, pathConverter) {
         });
       }
 
-      // now make a copy of obj1 with excess elements left trimmed and see if any replaces
+      // now make a copy of obj1 with excess elements left trimmed and see if there any replaces
       var obj1Trimmed = obj1.slice(lengthDelta);;
       for (var i = 0; i < obj2KeysLength; i++) {
         pushReplaces({
@@ -140,6 +141,8 @@ function diff(obj1, obj2, pathConverter) {
           obj1: obj1Trimmed,
           obj2,
           path: basePath.concat(i),
+          // since list of removes are reversed before presenting result,
+          // we need to ignore existing parent removes when doing nested removes
           pathForRemoves: basePath.concat(i + lengthDelta),
           permutation: newPermutation,
         });
@@ -147,10 +150,20 @@ function diff(obj1, obj2, pathConverter) {
     }
   }
 
-  getDiff(obj1, obj2, [], [], permutations[0]);
+  getDiff({
+    obj1,
+    obj2,
+    basePath: [],
+    basePathForRemoves: [],
+    permutation: permutations[0],
+  });
+
+  // find the shortest permutation
   var finalDiffs = permutations.sort(
     (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
   )[0];
+
+  // reverse removes since we want to maintain indexes
   return finalDiffs.remove
     .reverse()
     .concat(finalDiffs.replace)
@@ -177,7 +190,12 @@ function diff(obj1, obj2, pathConverter) {
           String(obj1AtKey) != String(obj2AtKey)) {
           pushReplace(path, permutation, obj2AtKey);
         } else {
-          getDiff(obj1[key], obj2[key], path, pathForRemoves, permutation);
+          getDiff({
+            obj1: obj1[key],
+            obj2: obj2[key],
+            basePath: path,
+            basePathForRemoves: pathForRemoves,
+            permutation});
         }
       }
     }
