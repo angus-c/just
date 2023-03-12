@@ -364,7 +364,7 @@ test('object vs array', function(t) {
   );
 });
 
-test.only('round trip', function(t) {
+test('round trip', function(t) {
   t.plan(18);
 
   var obj15 = [1, 2, 3, 4, 5, 17, 18];
@@ -431,16 +431,13 @@ test.only('round trip', function(t) {
   diffApply(obj17ee, thisDiff);
   t.ok(compare(obj17ee, obj18ee));
 
+  var thisDiff;
+
   var obj17f = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
   var obj18f = [{b: 5}, {c: 9, d: 98}];
 
   thisDiff = diff(obj18f, obj17f);
-  console.log('------');
-  console.log('thisDiff', thisDiff);
   diffApply(obj18f, thisDiff);
-  console.log('******');
-  console.log('obj18f', obj18f);
-  console.log('obj17f', obj17f);
   t.ok(compare(obj18f, obj17f));
 
   var obj17ff = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
@@ -559,15 +556,11 @@ test('path optimization for array', function(t) {
     ])
   );
 
-  // TODO: can be further optimized
   t.ok(
     compare(diff(obj24, obj23), [
       {op: 'remove', path: [ 1, 'd' ]},
       {op: 'remove', path: [ 1, 'c' ]},
-      {op: 'remove', path: [ 0, 'b' ]},
-      {op: 'add', path: [ 0, 0 ], value: 5},
-      {op: 'add', path: [ 0, 1 ], value: 4},
-      {op: 'add', path: [ 0, 2 ], value: 5},
+      {op: 'replace', path: [ 0 ], value: [ 5, 4, 5 ]},
       {op: 'add', path: [ 1, 'a' ], value: 4},
       {op: 'add', path: [ 2 ], value: {b: 5}},
       {op: 'add', path: [ 3 ], value: {c: 9, d: 98}},

@@ -159,10 +159,9 @@ function diff(obj1, obj2, pathConverter) {
   });
 
   // find the shortest permutation
-  // var finalDiffs = permutations.sort(
-  //   (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
-  // )[0];
-  var finalDiffs = permutations[0];
+  var finalDiffs = permutations.sort(
+    (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
+  )[0];
 
   // reverse removes since we want to maintain indexes
   return finalDiffs.remove
@@ -183,7 +182,8 @@ function diff(obj1, obj2, pathConverter) {
       });
     } else if(obj1AtKey !== obj2AtKey) {
       if(Object(obj1AtKey) !== obj1AtKey ||
-        Object(obj2AtKey) !== obj2AtKey) {
+        Object(obj2AtKey) !== obj2AtKey || differentTypes(obj1AtKey, obj2AtKey)
+      ) {
         pushReplace(path, permutation, obj2AtKey);
       } else {
         if(!Object.keys(obj1AtKey).length &&
@@ -225,4 +225,8 @@ function diffStepCount(permutation) {
 
 function jsonPatchPathConverter(arrayPath) {
   return [''].concat(arrayPath).join('/');
+}
+
+function differentTypes(a, b) {
+  return Object.prototype.toString.call(a) != Object.prototype.toString.call(b);
 }
