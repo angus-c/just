@@ -159,9 +159,10 @@ function diff(obj1, obj2, pathConverter) {
   });
 
   // find the shortest permutation
-  var finalDiffs = permutations.sort(
-    (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
-  )[0];
+  // var finalDiffs = permutations.sort(
+  //   (a, b) => diffStepCount(a) > diffStepCount(b) ? 1 : -1
+  // )[0];
+  var finalDiffs = permutations[0];
 
   // reverse removes since we want to maintain indexes
   return finalDiffs.remove

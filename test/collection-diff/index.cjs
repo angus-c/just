@@ -364,43 +364,40 @@ test('object vs array', function(t) {
   );
 });
 
-test('round trip', function(t) {
-  t.plan(8);
+test.only('round trip', function(t) {
+  t.plan(18);
 
   var obj15 = [1, 2, 3, 4, 5, 17, 18];
   var obj16 = [2];
 
   var thisDiff = diff(obj15, obj16);
-  diffApply(obj15, thisDiff);
-  t.ok(compare(obj15, obj16));
+  var obj17 = diffApply(obj15, thisDiff);
+  t.ok(compare(obj17, obj16));
 
   var obj15a = {numbers: [1, 2, 3, 4]};
   var obj16a = {numbers: [5, 6]};
 
-  var thisDiff = diff(obj15a, obj16a);
+  thisDiff = diff(obj15a, obj16a);
   diffApply(obj15a, thisDiff);
   t.ok(compare(obj15a, obj16a));
 
-  var obj15a = [1, 2, 3, 4, 5, 17, 18];
-  var obj16a = [2];
+  var obj15b = [1, 2, 3, 4, 5, 17, 18];
+  var obj16b = [2];
 
-  thisDiff = diff(obj16a, obj15a);
-  diffApply(obj16a, thisDiff);
-  t.ok(compare(obj15a, obj16a));
+  thisDiff = diff(obj15b, obj16b);
+  diffApply(obj15b, thisDiff);
+  t.ok(compare(obj15b, obj16b));
 
   var obj17 = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
   var obj18 = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
 
-  var thisDiff = diff(obj17, obj18);
+  thisDiff = diff(obj17, obj18);
   diffApply(obj17, thisDiff);
   t.ok(compare(obj17, obj18));
 
-  var obj17a = {a: [1, 2], b: {c: 3, d: 4, f: [23, 'l']}};
-  var obj18a = {c: [1, 2], e: {c: 5, e: 1, f: [23, 'l', 'x']}};
-
-  thisDiff = diff(obj18a, obj17a);
-  diffApply(obj18a, thisDiff);
-  t.ok(compare(obj17a, obj18a));
+  thisDiff = diff(obj18, obj17);
+  diffApply(obj18, thisDiff);
+  t.ok(compare(obj18, obj17));
 
   var obj17b = ['a', {a: 3}, 'd'];
   var obj18b = ['b', {b: 3}, 'd', 'e'];
@@ -409,19 +406,91 @@ test('round trip', function(t) {
   diffApply(obj17b, thisDiff);
   t.ok(compare(obj17b, obj18b));
 
-  var obj17c = ['a', {a: 3}, 'd'];
-  var obj18c = ['b', {b: 3}, 'd', 'e'];
-
-  thisDiff = diff(obj18c, obj17c);
-  diffApply(obj18c, thisDiff);
-  t.ok(compare(obj17c, obj18c));
+  thisDiff = diff(obj18b, obj17b);
+  diffApply(obj18b, thisDiff);
+  t.ok(compare(obj18b, obj17b));
 
   var obj17d = [{a: 9, b: [1, 2, 3]}];
   var obj18d = [{a: 9, b: [2, 3]}];
 
   thisDiff = diff(obj18d, obj17d);
   diffApply(obj18d, thisDiff);
-  t.ok(compare(obj17d, obj18d));
+  t.ok(compare(obj18d, obj17d));
+
+  var obj17e = [1, 2, 3, 4];
+  var obj18e = [2, 3, 4];
+
+  thisDiff = diff(obj18e, obj17e);
+  diffApply(obj18e, thisDiff);
+  t.ok(compare(obj18e, obj17e));
+
+  var obj17ee = [1, 2, 3, 4];
+  var obj18ee = [2, 3, 4];
+
+  thisDiff = diff(obj17ee, obj18ee);
+  diffApply(obj17ee, thisDiff);
+  t.ok(compare(obj17ee, obj18ee));
+
+  var obj17f = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
+  var obj18f = [{b: 5}, {c: 9, d: 98}];
+
+  thisDiff = diff(obj18f, obj17f);
+  console.log('------');
+  console.log('thisDiff', thisDiff);
+  diffApply(obj18f, thisDiff);
+  console.log('******');
+  console.log('obj18f', obj18f);
+  console.log('obj17f', obj17f);
+  t.ok(compare(obj18f, obj17f));
+
+  var obj17ff = [[5, 4, 5], {a: 4}, {b: 5}, {c: 9, d: 98}];
+  var obj18ff = [{b: 5}, {c: 9, d: 98}];
+
+  thisDiff = diff(obj17ff, obj18ff);
+  diffApply(obj17ff, thisDiff);
+  t.ok(compare(obj17ff, obj18ff));
+
+  var obj17g = [{a: 9, b: [1, 2, 3]}];
+  var obj18g = [{a: 9, b: [2, 3]}];
+
+  thisDiff = diff(obj18g, obj17g);
+  diffApply(obj18g, thisDiff);
+  t.ok(compare(obj18g, obj17g));
+
+  var obj17gg = [{a: 9, b: [1, 2, 3]}];
+  var obj18gg = [{a: 9, b: [2, 3]}];
+
+  thisDiff = diff(obj17gg, obj18gg);
+  diffApply(obj17gg, thisDiff);
+  t.ok(compare(obj17gg, obj18gg));
+
+  var obj17h = [1, ['a', 'b', 'c'], 3, 4];
+  var obj18h = [['a', 'b'], 3, 4];
+
+  thisDiff = diff(obj18h, obj17h);
+  diffApply(obj18h, thisDiff);
+  t.ok(compare(obj18h, obj17h));
+
+  var obj17hh = [1, ['a', 'b', 'c'], 3, 4];
+  var obj18hh = [['a', 'b'], 3, 4];
+
+  thisDiff = diff(obj17hh, obj18hh);
+  diffApply(obj17hh, thisDiff);
+  t.ok(compare(obj17hh, obj18hh));
+
+  var obj17i = [['a', 'b', 'c'], 3, 4, 5];
+  var obj18i = [['b', 'c'], 3, 4];
+
+  thisDiff = diff(obj18i, obj17i);
+  diffApply(obj18i, thisDiff);
+  t.ok(compare(obj18i, obj17i));
+
+  var obj17ii = [['a', 'b', 'c'], 3, 4, 5];
+  var obj18ii = [['b', 'c'], 3, 4];
+
+  thisDiff = diff(obj17ii, obj18ii);
+  diffApply(obj17ii, thisDiff);
+  t.ok(compare(obj17ii, obj18ii));
 });
 
 test('objects whose properties are objects but with no properties of their own', function(t) {
