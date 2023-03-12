@@ -322,6 +322,27 @@ sortBy([
 });`,
         ],
       },
+      'just-order-by': {
+        size: sizes['just-order-by'],
+        code: [`const orderBy = require('just-order-by')
+orderBy(
+  [
+    { user: 'fabio', details: { city: 'Milan', age: 34 } },
+    { user: 'max', details: { city: 'Munich', age: 29 } },
+    { user: 'zacarias', details: { city: 'Sao Paulo', age: 44 } },
+    { user: 'robert', details: { city: 'Manchester', age: 28 } },
+    { user: 'max', details: { city: 'Zurich', age: 38 } },
+  ],
+  [
+    {
+      property(v) {
+        return v.details.age;
+      },
+    },
+  ]
+);`,
+        ],
+      },
       'just-shuffle': {
         size: sizes['just-shuffle'],
         code: [
