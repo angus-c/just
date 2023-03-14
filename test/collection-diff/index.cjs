@@ -10,7 +10,7 @@ var {
 var compare = require('../../packages/collection-compare');
 
 test('flat objects', function(t) {
-  t.plan(8);
+  t.plan(10);
 
   var obj1 = {a: 4, b: 5};
   var obj2 = {a: 3, b: 5};
@@ -56,6 +56,20 @@ test('flat objects', function(t) {
     compare(diff(obj4, obj1), [
       {op: 'replace', path: ['a'], value: 4},
       {op: 'replace', path: ['b'], value: 5},
+    ])
+  );
+  t.ok(
+    compare(diff(obj3, obj4), [
+      { op: 'remove', path: [ 'c' ] },
+      { op: 'replace', path: [ 'a' ], value: 3 },
+      { op: 'add', path: [ 'b' ], value: null }
+    ])
+  );
+  t.ok(
+    compare(diff(obj4, obj3), [
+      { op: 'remove', path: [ 'b' ] },
+      { op: 'replace', path: [ 'a' ], value: 4 },
+      { op: 'add', path: [ 'c' ], value: 5 }
     ])
   );
 });

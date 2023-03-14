@@ -173,7 +173,7 @@ function diff(obj1, obj2, pathConverter) {
     var obj1AtKey = obj1[key];
     var obj2AtKey = obj2[key];
 
-    if(!(key in obj1) && obj2AtKey) {
+    if(!(key in obj1) && (key in obj2)) {
       var obj2Value = obj2AtKey;
       permutation.add.push({
         op: 'add',
