@@ -89,45 +89,40 @@ function diff(obj1, obj2, pathConverter) {
     var obj2KeysLength = obj2Keys.length;
     var path;
 
-    var newPermutation;
-
     var lengthDelta = obj1.length - obj2.length;
     // if both objects are arrays and obj1 length > obj2 length
     // we create an additional permutation that trims obj1 from left
-    if (Array.isArray(obj1) && Array.isArray(obj2) && lengthDelta > 0) {
-      newPermutation = clonePermutation(permutation);
-      permutations.push(newPermutation);
-    }
+    var checkArrayTrimDirection = (Array.isArray(obj1) && Array.isArray(obj2) && lengthDelta > 0);
 
-    // trim from right
-    for (var i = 0; i < obj1KeysLength; i++) {
-      var key = Array.isArray(obj1) ? Number(obj1Keys[i]) : obj1Keys[i];
-      if (!(key in obj2)) {
-        path = basePathForRemoves.concat(key);
-        permutation.remove.push({
-          op: 'remove',
-          path: pathConverter(path),
+    if (!checkArrayTrimDirection || shouldTrimArrayFromRight(obj1, obj2)) {
+      // trim from right
+      for (var i = 0; i < obj1KeysLength; i++) {
+        var key = Array.isArray(obj1) ? Number(obj1Keys[i]) : obj1Keys[i];
+        if (!(key in obj2)) {
+          path = basePathForRemoves.concat(key);
+          permutation.remove.push({
+            op: 'remove',
+            path: pathConverter(path),
+          });
+        }
+      }
+
+      for (var i = 0; i < obj2KeysLength; i++) {
+        var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
+        pushReplaces({
+          key,
+          obj1,
+          obj2,
+          path: basePath.concat(key),
+          pathForRemoves: basePath.concat(key),
+          permutation,
         });
       }
-    }
-
-    for (var i = 0; i < obj2KeysLength; i++) {
-      var key = Array.isArray(obj2) ? Number(obj2Keys[i]) : obj2Keys[i];
-      pushReplaces({
-        key,
-        obj1,
-        obj2,
-        path: basePath.concat(key),
-        pathForRemoves: basePath.concat(key),
-        permutation,
-      });
-    }
-
-    // if we created a new permutation above it means we should also try trimming from left
-    if (newPermutation) {
+    } else {
+      // trim from left
       for (var i = 0; i < lengthDelta; i++) {
         path = basePathForRemoves.concat(i);
-        newPermutation.remove.push({
+        permutation.remove.push({
           op: 'remove',
           path: pathConverter(path),
         });
@@ -144,7 +139,7 @@ function diff(obj1, obj2, pathConverter) {
           // since list of removes are reversed before presenting result,
           // we need to ignore existing parent removes when doing nested removes
           pathForRemoves: basePath.concat(i + lengthDelta),
-          permutation: newPermutation,
+          permutation,
         });
       }
     }
@@ -211,14 +206,6 @@ function diff(obj1, obj2, pathConverter) {
   }
 }
 
-function clonePermutation(permutation) {
-  return {
-    remove: permutation.remove.slice(0),
-    replace: permutation.replace.slice(0),
-    add: permutation.add.slice(0),
-  };
-}
-
 function diffStepCount(permutation) {
   return permutation.remove.length + permutation.replace.length + permutation.add.length;
 }
@@ -229,4 +216,9 @@ function jsonPatchPathConverter(arrayPath) {
 
 function differentTypes(a, b) {
   return Object.prototype.toString.call(a) != Object.prototype.toString.call(b);
+}
+
+function shouldTrimArrayFromRight(arr1, arr2) {
+  // TODO make this more robust
+  return String(arr1[0]) === String(arr2[0]);
 }

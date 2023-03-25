@@ -60,16 +60,16 @@ test('flat objects', function(t) {
   );
   t.ok(
     compare(diff(obj3, obj4), [
-      { op: 'remove', path: [ 'c' ] },
-      { op: 'replace', path: [ 'a' ], value: 3 },
-      { op: 'add', path: [ 'b' ], value: null }
+      {op: 'remove', path: [ 'c' ]},
+      {op: 'replace', path: [ 'a' ], value: 3},
+      {op: 'add', path: [ 'b' ], value: null},
     ])
   );
   t.ok(
     compare(diff(obj4, obj3), [
-      { op: 'remove', path: [ 'b' ] },
-      { op: 'replace', path: [ 'a' ], value: 4 },
-      { op: 'add', path: [ 'c' ], value: 5 }
+      {op: 'remove', path: [ 'b' ]},
+      {op: 'replace', path: [ 'a' ], value: 4},
+      {op: 'add', path: [ 'c' ], value: 5},
     ])
   );
 });
@@ -539,7 +539,7 @@ test('objects whose properties are objects but with no properties of their own',
 });
 
 test('path optimization for array', function(t) {
-  t.plan(10);
+  t.plan(11);
 
   var obj21 = [1, 2, 3, 4];
   var obj22 = [2, 3, 4];
@@ -619,8 +619,10 @@ test('path optimization for array', function(t) {
 
   t.ok(
     compare(diff(obj29, obj30), [
-      {'op': 'remove', 'path': [0, 0]},
-      {'op': 'remove', 'path': [3]},
+      {op: 'remove', path: [ 0 ]},
+      {op: 'replace', path: [ 0 ], value: [ 'b', 'c' ]},
+      {op: 'replace', path: [ 1 ], value: 3},
+      {op: 'replace', path: [ 2 ], value: 4},
     ])
   );
 
@@ -630,6 +632,23 @@ test('path optimization for array', function(t) {
       {'op': 'replace', 'path': [0, 1], 'value': 'b'},
       {'op': 'add', 'path': [0, 2], 'value': 'c'},
       {'op': 'add', 'path': [3], 'value': 5},
+    ])
+  );
+
+  var obj31 = [[0, 1, 2, 4, 5, 6], 1, {a: 4, b: 3} ];
+  var obj32 = [[1, 2, 4, 5], 1, {a: 4, b: 3}, 3];
+
+  console.log('*******', diff(obj31, obj32));
+
+  t.ok(
+    compare(diff(obj31, obj32), [
+      {op: 'remove', path: [ 0, 1 ]},
+      {op: 'remove', path: [ 0, 0 ]},
+      {op: 'replace', path: [ 0, 0 ], value: 1},
+      {op: 'replace', path: [ 0, 1 ], value: 2},
+      {op: 'replace', path: [ 0, 2 ], value: 4},
+      {op: 'replace', path: [ 0, 3 ], value: 5},
+      {op: 'add', path: [ 3 ], value: 3},
     ])
   );
 });
