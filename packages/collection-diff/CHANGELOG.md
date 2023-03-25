@@ -1,5 +1,11 @@
 # just-diff
 
+## 6.0.1
+
+### Patch Changes
+
+- issue #544 Fix case that should be 'add' not 'replace'
+
 ## 6.0.0
 
 ### Major Changes
