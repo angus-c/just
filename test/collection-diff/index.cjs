@@ -638,8 +638,6 @@ test('path optimization for array', function(t) {
   var obj31 = [[0, 1, 2, 4, 5, 6], 1, {a: 4, b: 3} ];
   var obj32 = [[1, 2, 4, 5], 1, {a: 4, b: 3}, 3];
 
-  console.log('*******', diff(obj31, obj32));
-
   t.ok(
     compare(diff(obj31, obj32), [
       {op: 'remove', path: [ 0, 1 ]},
