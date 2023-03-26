@@ -1,5 +1,11 @@
 # just-diff
 
+## 6.0.2
+
+### Patch Changes
+
+- Fixes #543. Remove recursing multiple permutations in favor of deciding upfront whether left or right trim is the most efficient.
+
 ## 6.0.1
 
 ### Patch Changes
