@@ -168,11 +168,11 @@ test('invalid', function(t) {
   });
 
   t.throws(function() {
-    orderBy([], [null]);
+    orderBy([{user: 'zacarias'}, {user: 'klaus'}], [null]);
   });
 
   t.throws(function() {
-    orderBy([], [{}]);
+    orderBy([{user: 'zacarias'}, {user: 'klaus'}], [{}]);
   });
 
   t.throws(function() {
