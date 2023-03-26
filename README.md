@@ -28,13 +28,13 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 All packages support ES module or Common JS syntax without requiring transpilation
 ```
 // esm (node / bundler)
-import clone from 'just-clone'; 
+import clone from 'just-clone';
 
 // esm (native browser code)
-import clone from './node_modules/just-clone/index.mjs'; 
+import clone from './node_modules/just-clone/index.mjs';
 
 // cjs
-const clone = require('just-clone'); 
+const clone = require('just-clone');
 ```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
@@ -92,6 +92,7 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-order-by](#just-order-by)
   - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
@@ -1336,6 +1337,124 @@ splitAt([{a: 1}, {b: 1}, {c: 1}], -1); // [[{a: 1}, {b: 1}], [{c: 1}]]
 splitAt([], 2); // [[], []]
 splitAt(null, 1); // throws
 splitAt(undefined, 1); // throws
+```
+
+### [just-order-by](https://www.npmjs.com/package/just-order-by)
+[source](https://github.com/angus-c/just/tree/master/packages/array-order-by)
+
+[`🍦 Try it`](https://anguscroll.com/just/just-order-by)
+
+```shell
+npm install just-order-by
+```
+```shell
+yarn add just-order-by
+```
+
+Produces a new array, sorted in given order
+
+```js
+import orderBy from 'just-order-by';
+
+orderBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
+
+orderBy(
+  [
+    { user: 'fabio', details: { city: 'Milan', age: 34 } },
+    { user: 'max', details: { city: 'Munich', age: 29 } },
+    { user: 'zacarias', details: { city: 'Sao Paulo', age: 44 } },
+    { user: 'robert', details: { city: 'Manchester', age: 28 } },
+    { user: 'max', details: { city: 'Zurich', age: 38 } },
+  ],
+  [
+    {
+      property(v) {
+        return v.details.age;
+      },
+    },
+  ]
+);
+
+/*
+[
+  {user: 'robert', age: 28},
+  {user: 'max', age: 29},
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'zacarias', age: 44},
+]
+*/
+
+orderBy(
+  [
+    {user: 'fabio', age: 34},
+    {user: 'max', age: 29},
+    {user: 'zacarias', age: 44},
+    {user: 'robert', age: 28},
+    {user: 'klaus', age: 38},
+  ],
+  [
+    {
+      property: 'user',
+    },
+  ]
+);
+
+/*
+[
+  {user: 'fabio', age: 34},
+  {user: 'klaus', age: 38},
+  {user: 'max', age: 29},
+  {user: 'robert', age: 28},
+  {user: 'zacarias', age: 44},
+]
+*/
+
+orderBy(
+  [
+    { user: 'fabio', age: 34 },
+    { user: 'max', age: 29 },
+    { user: 'zacarias', age: 44 },
+    { user: 'moris', age: 28 },
+    { user: 'max', age: 38 },
+  ],
+  [
+    {
+      property: 'user',
+      order: 'desc',
+    },
+    {
+      property(v) {
+        return v.age;
+      },
+    },
+  ]
+);
+
+/*
+[
+  {
+    user: 'zacarias',
+    age: 44
+  },
+  {
+    user: 'moris',
+    age: 28
+  },
+  {
+    user: 'max',
+    age: 29
+  },
+  {
+    user: 'max',
+    age: 38
+  },
+  {
+    user: 'fabio',
+    age: 34
+  }
+]
+*/
 ```
 
 ### [just-sort-by](https://www.npmjs.com/package/just-sort-by)

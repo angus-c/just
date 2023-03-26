@@ -1,0 +1,31 @@
+{
+  "name": "just-order-by",
+  "version": "1.0.0",
+  "description": "Produces a new array, sorted in given order",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "sort",
+    "just"
+  ],
+  "author": "Maxim Molochkov (https://github.com/klaseca)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
