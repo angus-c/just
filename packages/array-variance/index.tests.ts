@@ -8,6 +8,11 @@ variance([1, 2, 3, 4, 9]);
 
 variance([4]);
 
+const readonlyArr: readonly number[] = [1, 2, 3];
+variance(readonlyArr);
+variance(...readonlyArr);
+
+// NG
 // @ts-expect-error
 variance(["3", 2]); // throws
 // @ts-expect-error
