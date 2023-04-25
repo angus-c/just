@@ -11,4 +11,8 @@
  * insert([1, 2, 5, 6], ['a', 'c', 'e'], 2);
  * // => [1, 2, 'a', 'c', 'e', 5, 6]
  */
-export default function insert<T, U>(arr: T[], val: U[] | U, index?: number): (T | U)[]
+export default function insert<T, U>(
+  arr: readonly T[],
+  val: readonly U[] | U,
+  index?: number
+): (T | U)[]
