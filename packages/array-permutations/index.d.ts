@@ -1,1 +1,1 @@
-export default function permutations<T>(arr: T[]): T[][]; // for empty arrays
+export default function permutations<T>(arr: readonly T[]): T[][]; // for empty arrays

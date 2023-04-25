@@ -6,7 +6,7 @@ const test2: number[][] = permutations([1, 2, 3, 4, 5]);
 const test3: (string | boolean)[][] = permutations(['a', true])
 const test4: (string | boolean | number)[][] = permutations([true, 'a', 1, false])
 
-const numbers: number[] = []
+const numbers: readonly number[] = []
 let test5: number[][] = permutations(numbers)
 
 // Not OK
