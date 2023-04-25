@@ -9,7 +9,11 @@ skewness([1, 2, 3, 4, 9]);
 
 skewness([4]);
 
+const readonlyArr: readonly number[] = [1, 2, 3]
+skewness(readonlyArr)
+skewness(...readonlyArr)
 
+// NG
 // @ts-expect-error
 skewness(["3", 2]); // throws
 // @ts-expect-error
