@@ -7,11 +7,12 @@ percentile([1, 2, 3, 4, 5], 0.44)
 percentile([100, 101, 92, 4, 102, 66, 66], 0.65)
 percentile([100, 101, 92, 4, 102, 32], 0.50)
 
+const readonlyArr: readonly number[] = [1, 2, 2]
+percentile(readonlyArr, 0.5)
 
 //Ok but throws errors
 percentile([], 0.50)
 percentile([], 1.5)
-
 
 // @ts-expect-error
 percentile(1, 2, 3, 4, 5, 0.50);
