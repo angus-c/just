@@ -9,4 +9,4 @@ type Falsy = false | null | undefined | '' | 0 | 0n;
  * compact([1, 2, [], 4, {}]);
  * // => [1, 2, [], 4, {}]
  */
-export default function compact<T>(arr: (Falsy | T)[]): T[];
+export default function compact<T>(arr: readonly (Falsy | T)[]): T[];
