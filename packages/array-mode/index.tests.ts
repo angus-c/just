@@ -8,6 +8,10 @@ mode(1)
 mode(1, 2)
 mode(1, 2, 3)
 
+const readonlyArr: readonly number[] = [1, 2, 2]
+mode(readonlyArr)
+mode(...readonlyArr)
+
 // Kinda OK
 //Note: these will cause runtime errors, accepting the tradeoff to keep typings readable
 mode([])

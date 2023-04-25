@@ -8,5 +8,5 @@
  * mode(1, 2, 1, 2, 3)
  * // => [1, 2]
  */
-export default function mode(arr: number[]): number | number[];
-export default function mode(...arr: number[]): number | number[];
+export default function mode(arr: readonly number[]): number | number[];
+export default function mode(...arr: readonly number[]): number | number[];
