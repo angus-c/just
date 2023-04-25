@@ -4,8 +4,6 @@ import extend from './index'
 
 // Pass single `object`.
 extend({});
-extend([]);
-extend(() => {});
 
 // Pass single `object`, then `any`.
 extend({}, 0);
@@ -22,8 +20,6 @@ extend({}, 0, "", false, null, undefined, {}, [], () => {});
 
 // Pass `boolean`, then single `object`.
 extend(true, {});
-extend(true, []);
-extend(true, () => {});
 
 // Pass `boolean`, single `object`, then `any`.
 extend(true, {}, 0);
@@ -51,6 +47,10 @@ extend("");
 extend(false);
 // @ts-expect-error
 extend();
+// @ts-expect-error
+extend([]);
+// @ts-expect-error
+extend(() => {});
 
 // @ts-expect-error
 extend(true, 0);
@@ -60,3 +60,7 @@ extend(true, "");
 extend(true, false);
 // @ts-expect-error
 extend(true);
+// @ts-expect-error
+extend(true, []);
+// @ts-expect-error
+extend(true, () => {});
