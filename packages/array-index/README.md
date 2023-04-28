@@ -24,6 +24,6 @@ index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');
 // {first: {id: 'first', val: 1}, second: {id: 'second', val: 2}}
 index([{id: 'first', val: 1}, null], 'id'); // {first: {id: 'first', val: 1}}
 index([], 'id'); // {}
-index([], null); // undefined
-index({}, 'id'); // undefined
+index([], null); // throws error
+index({}, 'id'); // throws error
 ```
