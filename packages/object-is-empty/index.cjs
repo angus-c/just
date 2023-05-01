@@ -39,7 +39,7 @@ function isEmpty(obj) {
   var type = {}.toString.call(obj);
 
   if (type == '[object Object]') {
-    return !Object.keys(obj).length;
+    return !Object.keys(obj).length && !Object.getOwnPropertySymbols(obj).length;
   }
 
   if (type == '[object Map]' || type == '[object Set]') {
