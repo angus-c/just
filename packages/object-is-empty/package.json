@@ -1,6 +1,6 @@
 {
   "name": "just-is-empty",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "return true if object has no enumerable key values",
   "type": "module",
   "exports": {
