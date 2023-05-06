@@ -13,8 +13,9 @@ test('empty object, array, map or set', function(t) {
 });
 
 test('non-empty object, array, map or set', function(t) {
-  t.plan(6);
+  t.plan(7);
   t.notOk(isEmpty({a: 3, b: 5}));
+  t.notOk(isEmpty({[Symbol('a')]: "some-value"}));
   t.notOk(isEmpty([1, 2]));
   t.notOk(isEmpty(['a', 'b']));
   t.notOk(isEmpty(new Array(4)));
