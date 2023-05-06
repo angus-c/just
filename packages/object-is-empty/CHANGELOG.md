@@ -1,5 +1,11 @@
 # just-is-empty
 
+## 3.4.0
+
+### Minor Changes
+
+- Check objects for symbols too
+
 ## 3.3.0
 
 ### Minor Changes
