@@ -1,5 +1,11 @@
 # just-is-empty
 
+## 3.4.1
+
+### Patch Changes
+
+- Fix is-empty return type
+
 ## 3.4.0
 
 ### Minor Changes
