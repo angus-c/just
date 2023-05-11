@@ -6,6 +6,10 @@ standardDeviation([1, 2, 3, 2, 4, 1]);
 standardDeviation(1, 2, 3, 4, 5, -6);
 standardDeviation([1, 2, 3, 4, 9]);
 
+const readonlyArr: readonly number[] = [1, 2, 3]
+standardDeviation(readonlyArr)
+standardDeviation(...readonlyArr)
+
 //OK But throws
 standardDeviation([4]);
 standardDeviation([]);

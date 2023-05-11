@@ -7,6 +7,9 @@ shuffle([true, false, 1])
 shuffle([1, 2, 3], { shuffleAll: true })
 shuffle([1, 2, 3], { shuffleAll: false })
 
+const readonlyArr: readonly number[] = [1, 2, 3]
+shuffle(readonlyArr)
+
 // Not OK
 // @ts-expect-error
 shuffle()

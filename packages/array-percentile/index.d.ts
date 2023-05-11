@@ -11,4 +11,4 @@
  * percentile([1, 2, 3], 1.0); // => 3
  * percentile([15, 20, 35, 40, 50], .40); // => 26
  */
-export default function percentile(arr: number[], percentage: number): number
+export default function percentile(arr: readonly number[], percentage: number): number

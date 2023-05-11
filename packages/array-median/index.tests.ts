@@ -8,6 +8,9 @@ median(1)
 median(1, 2)
 median(1, 2, 3)
 
+const readonlyArr: readonly number[] = [1, 2, 3]
+median(readonlyArr)
+
 //OK but throws
 median()
 median([])

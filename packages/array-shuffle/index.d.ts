@@ -2,4 +2,4 @@ type Options = {
   shuffleAll: boolean
 }
 
-export default function shuffle<T>(arr: T[], options?: Options): T[]
+export default function shuffle<T>(arr: readonly T[], options?: Options): T[]

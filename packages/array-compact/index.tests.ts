@@ -9,6 +9,9 @@ const test4: bigint[] = compact([-0, null, '', BigInt(0), BigInt(1)]) // [BigInt
 // Inferred as (string | number)[] because of NaN
 const test5: (string | number)[] = compact(['a', 'b', 'c', NaN]) // ['a', 'b', 'c']
 
+const readOnlyArr: readonly (number | boolean)[] = [1, true, false]
+compact(readOnlyArr)
+
 // Not OK
 // @ts-expect-error
 compact()

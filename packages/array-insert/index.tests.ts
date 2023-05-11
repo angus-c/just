@@ -14,6 +14,9 @@ test1 = insert(arr1, arr2, undefined); // throw
 const test2: (number | null)[] = insert(arr1, null, 1);
 const test3: unknown[] = insert([], []);
 
+const readOnlyArr: readonly unknown[] = []
+insert(readOnlyArr, readOnlyArr)
+
 // Not OK
 // @ts-expect-error
 insert(undefined, arr2, 4);

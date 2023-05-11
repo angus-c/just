@@ -11,6 +11,10 @@ test1 = mean(4);
 mean([])
 mean()
 
+const readOnlyArr: readonly number[] = [1, 2, 3]
+mean(readOnlyArr)
+mean(...readOnlyArr)
+
 // Not OK
 
 // @ts-expect-error

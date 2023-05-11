@@ -1,1 +1,1 @@
-export default function remove<T, U, V extends T>(arr1: T[], arr2: U[]): (V | Exclude<T, U>)[];
+export default function remove<T, U, V extends T>(arr1: readonly T[], arr2: readonly U[]): (V | Exclude<T, U>)[];

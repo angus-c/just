@@ -9,6 +9,9 @@ const test5: (number | true)[] = remove([1, 'a', true, false], [2, 'a', false])
 remove([], [])
 remove([], [1, 2, 3])
 
+const readonlyArr: readonly number[] = [1, 2, 3]
+remove(readonlyArr, readonlyArr)
+
 // Not OK
 // @ts-expect-error
 remove()
