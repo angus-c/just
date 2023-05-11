@@ -1454,6 +1454,19 @@
       "obj5; // {a: {Symbol(): 7}}"
     ]
   },
+  "just-deep-omit": {
+    "packageName": "just-deep-omit",
+    "dir": "object-deep-omit",
+    "description": "Omits deeply nested key/values from an object",
+    "examples": [
+      "import deepOmit from 'just-deep-omit';",
+      "",
+      "let obj = {a:3, b:{c:5, d:7}, e:[1,2,3]};",
+      "omit(obj, 'b.c'); // {a:3, b:{d:7}, e:[1,2,3]};",
+      "omit(obj, ['b','c']); // {a:3, b:{d:7}, e:[1,2,3]};",
+      "omit(obj, 'e.1'); // {a: 3, b:{c:5, d:7}, e:[1,3]};"
+    ]
+  },
   "just-typeof": {
     "packageName": "just-typeof",
     "dir": "object-typeof",
