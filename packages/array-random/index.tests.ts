@@ -7,6 +7,8 @@ const test3: number = random([1, 2, 3]);
 const test4: number | string = random([1, 2, "a"]);
 const numbers: number[] = [];
 const test5: number | undefined = random(numbers);
+const readonlyNumbers: readonly number[] = [1, 2, 3];
+const test6: number | undefined = random(readonlyNumbers);
 
 // Not OK
 // @ts-expect-error
