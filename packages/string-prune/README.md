@@ -19,7 +19,7 @@ Prune a string with whole words and a custom suffix
 
 ```js
   prune('when shall we three meet again', 7); // 'when...'
-  prune('when shall we three meet again', 7, ' (more)'; // 'when (more)'
+  prune('when shall we three meet again', 11, ' (more)'); // 'when (more)'
   prune('when shall we', 15,); // 'when shall we'
   prune('when shall we', 15, ' (etc)'); // 'when shall we'
   prune('when shall we', 7, ' (more)'); // ' (more)'
