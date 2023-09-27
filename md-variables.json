@@ -313,7 +313,7 @@
     "dir": "function-pipe",
     "description": "Pass a value through a pipeline of functions",
     "examples": [
-      "import pipe from 'just-pipe",
+      "import pipe from 'just-pipe';",
       "",
       "pipe(3, a => a+1, b => b*2) // 8",
       "pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]) // 'Smith'"
@@ -377,7 +377,7 @@
     "dir": "array-skewness",
     "description": "Return the skewness of an array or numeric argument list using Pearson's second skewness coefficient",
     "examples": [
-      "import skewness from \"just-skewness\";",
+      "import skewness from 'just-skewness';",
       "",
       "// Using Pearson's second skewness coefficient",
       "skewness(3, 2, 1); // 0",
@@ -471,7 +471,7 @@
     "dir": "array-standard-deviation",
     "description": "Return the standard deviation of an array or numeric argument list",
     "examples": [
-      "import standardDeviation from \"just-standard-deviation\";",
+      "import standardDeviation from 'just-standard-deviation';",
       "",
       "standardDeviation([1, 2, 3, 2, 4, 1]); // 1.16904519",
       "standardDeviation(3, 2, 1); // 1",
@@ -807,7 +807,7 @@
     "dir": "function-debounce",
     "description": "Return a debounced function",
     "examples": [
-      "import debounce from \"just-debounce-it\";",
+      "import debounce from 'just-debounce-it';",
       "",
       "const fn1 = debounce(() => console.log(\"Hello\"), 500);",
       "fn1();",
@@ -899,8 +899,8 @@
     "dir": "function-memoize-last",
     "description": "A memoize implementation that only caches the most recent evaluation",
     "examples": [
-      "const memoizeLast = require('just-memoize-last')",
-      "const compare = require('just-compare')",
+      "import memoizeLast from 'just-memoize-last';",
+      "import compare from 'just-compare';",
       "",
       "const maxValue = memoizeLast(function(arr) {",
       "  return Math.max(...arr)",
@@ -1012,17 +1012,15 @@
     "dir": "number-in-range",
     "description": "Check if number is within a given range",
     "examples": [
-      "  import inRange from 'just-number-in-range'",
+      "import inRange from 'just-number-in-range'",
       "",
-      "/*",
-      "  inRange(2, 1, 10); // true",
-      "  inRange(15, 20); // true",
-      "  inRange(20, 21, 30); // false",
-      "  inRange(30, 21, 30); // false",
-      "  inRange(); // throws",
-      "  inRange(100); // throws",
-      "  inRange(\"js\"); // throws",
-      "*/"
+      "inRange(2, 1, 10); // true",
+      "inRange(15, 20); // true",
+      "inRange(20, 21, 30); // false",
+      "inRange(30, 21, 30); // false",
+      "inRange(); // throws",
+      "inRange(100); // throws",
+      "inRange(\"js\"); // throws"
     ]
   },
   "just-is-prime": {
@@ -1030,20 +1028,18 @@
     "dir": "number-is-prime",
     "description": "Check if number is prime",
     "examples": [
-      "  import isPrime from 'just-is-prime;",
+      "import isPrime from 'just-is-prime';",
       "",
-      "/*",
-      "  isPrime(1); // false",
-      "  isPrime(2); // true",
-      "  isPrime(17); // true",
-      "  isPrime(10); // false",
-      "  isPrime(); // throws",
-      "  isPrime(null); // throws",
-      "  isPrime(\"js\"); // throws",
-      "  isPrime({}); // throws",
-      "  isPrime(function() {}); // throws",
-      "  isPrime([]); // throws",
-      "*/"
+      "isPrime(1); // false",
+      "isPrime(2); // true",
+      "isPrime(17); // true",
+      "isPrime(10); // false",
+      "isPrime(); // throws",
+      "isPrime(null); // throws",
+      "isPrime(\"js\"); // throws",
+      "isPrime({}); // throws",
+      "isPrime(function() {}); // throws",
+      "isPrime([]); // throws"
     ]
   },
   "just-modulo": {
@@ -1203,6 +1199,7 @@
     ],
     "examples": [
       "import isCircular from 'just-is-circular';",
+      "",
       "const a = {};",
       "a.b = a;",
       "isCircular(a); // true",
@@ -1234,26 +1231,27 @@
     "description": "Return true if object has no enumerable key values",
     "examples": [
       "import isEmpty from 'just-is-empty';",
-      " isEmpty({a: 3, b: 5}) // false",
-      " isEmpty([1, 2]) // false",
-      " isEmpty(new Set([1, 2, 2])) // false",
-      " isEmpty((new Map()).set('a', 2)) // false",
-      " isEmpty({}) // true",
-      " isEmpty([]) // true",
-      " isEmpty(new Set()) // true",
-      " isEmpty(new Map()) // true",
-      " isEmpty('abc') // false",
-      " isEmpty('') // true",
-      " isEmpty(0) // true",
-      " isEmpty(1) // true",
-      " isEmpty(true) // true",
-      " isEmpty(Symbol('abc')); // true",
-      " isEmpty(//); // true",
-      " isEmpty(new String('abc')); // false",
-      " isEmpty(new String('')); // true",
-      " isEmpty(new Boolean(true)); // true",
-      " isEmpty(null) // true",
-      " isEmpty(undefined) // true"
+      "",
+      "isEmpty({a: 3, b: 5}) // false",
+      "isEmpty([1, 2]) // false",
+      "isEmpty(new Set([1, 2, 2])) // false",
+      "isEmpty((new Map()).set('a', 2)) // false",
+      "isEmpty({}) // true",
+      "isEmpty([]) // true",
+      "isEmpty(new Set()) // true",
+      "isEmpty(new Map()) // true",
+      "isEmpty('abc') // false",
+      "isEmpty('') // true",
+      "isEmpty(0) // true",
+      "isEmpty(1) // true",
+      "isEmpty(true) // true",
+      "isEmpty(Symbol('abc')); // true",
+      "isEmpty(//); // true",
+      "isEmpty(new String('abc')); // false",
+      "isEmpty(new String('')); // true",
+      "isEmpty(new Boolean(true)); // true",
+      "isEmpty(null) // true",
+      "isEmpty(undefined) // true"
     ]
   },
   "just-is-primitive": {
@@ -1262,6 +1260,7 @@
     "description": "Determine if a value is a primitive value",
     "examples": [
       "import isPrimitive from 'just-is-primitive';",
+      "",
       "isPrimitive('hi') // true",
       "isPrimitive(3) // true",
       "isPrimitive(true) // true",
@@ -1478,7 +1477,7 @@
     "dir": "object-values",
     "description": "Return property values as an array",
     "examples": [
-      "const values = require('just-values');",
+      "import values from 'just-values';",
       "",
       "values({a: 4, c: 8}); // [4, 8]",
       "values({a: {aa: 2}, b: {bb: 4}}); // [{aa: 2}, {bb: 4}]",
@@ -1497,22 +1496,22 @@
     "dir": "string-camel-case",
     "description": "Convert a string to camel case",
     "examples": [
-      "  import camelCase from 'just-camel-case';",
+      "import camelCase from 'just-camel-case';",
       "",
-      "  camelCase('the quick brown fox'); // 'theQuickBrownFox'",
-      "  camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'",
-      "  camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'",
-      "  camelCase('theQuickBrownFox'); // 'theQuickBrownFox'",
-      "  camelCase('thequickbrownfox'); // 'thequickbrownfox'",
-      "  camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'",
-      "  camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'",
-      "  camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'",
-      "  // all caps words are camel-cased",
-      "  camelCase('The quick brown FOX'), 'theQuickBrownFox');",
-      "  // all caps substrings >= 4 chars are camel-cased",
-      "  camelCase('theQUickBrownFox'); // 'theQUickBrownFox'",
-      "  camelCase('theQUIckBrownFox'); // 'theQUIckBrownFox'",
-      "  camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'"
+      "camelCase('the quick brown fox'); // 'theQuickBrownFox'",
+      "camelCase('the_quick_brown_fox'); // 'theQuickBrownFox'",
+      "camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'",
+      "camelCase('theQuickBrownFox'); // 'theQuickBrownFox'",
+      "camelCase('thequickbrownfox'); // 'thequickbrownfox'",
+      "camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'",
+      "camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'",
+      "camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'",
+      "// all caps words are camel-cased",
+      "camelCase('The quick brown FOX'), 'theQuickBrownFox');",
+      "// all caps substrings >= 4 chars are camel-cased",
+      "camelCase('theQUickBrownFox'); // 'theQUickBrownFox'",
+      "camelCase('theQUIckBrownFox'); // 'theQUIckBrownFox'",
+      "camelCase('theQUICKBrownFox'); // 'theQuickBrownFox'"
     ]
   },
   "just-capitalize": {
@@ -1520,14 +1519,12 @@
     "dir": "string-capitalize",
     "description": "Capitalize the first character of a string",
     "examples": [
-      "  import capitalize from 'just-capitalize';",
+      "import capitalize from 'just-capitalize';",
       "",
-      "/*",
-      "  capitalize('capitals'); // 'Capitals'",
-      "  capitalize('Capitals'); // 'Capitals'",
-      "  capitalize('many words'); // 'Many words'",
-      "  capitalize('!exclaim'); // '!exclaim'",
-      "*/"
+      "capitalize('capitals'); // 'Capitals'",
+      "capitalize('Capitals'); // 'Capitals'",
+      "capitalize('many words'); // 'Many words'",
+      "capitalize('!exclaim'); // '!exclaim'"
     ]
   },
   "just-kebab-case": {
@@ -1535,16 +1532,16 @@
     "dir": "string-kebab-case",
     "description": "Convert a string to kebab case",
     "examples": [
-      "  import kebabCase from 'just-kebab-case';",
+      "import kebabCase from 'just-kebab-case';",
       "",
-      "  kebabCase('the quick brown fox'); // 'the-quick-brown-fox'",
-      "  kebabCase('the-quick-brown-fox'); // 'the-quick-brown-fox'",
-      "  kebabCase('the_quick_brown_fox'); // 'the-quick-brown-fox'",
-      "  kebabCase('theQuickBrownFox'); // 'the-quick-brown-fox'",
-      "  kebabCase('theQuickBrown Fox'); // 'the-quick-brown-fox'",
-      "  kebabCase('thequickbrownfox'); // 'thequickbrownfox'",
-      "  kebabCase('the - quick * brown# fox'); // 'the-quick-brown-fox'",
-      "  kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'"
+      "kebabCase('the quick brown fox'); // 'the-quick-brown-fox'",
+      "kebabCase('the-quick-brown-fox'); // 'the-quick-brown-fox'",
+      "kebabCase('the_quick_brown_fox'); // 'the-quick-brown-fox'",
+      "kebabCase('theQuickBrownFox'); // 'the-quick-brown-fox'",
+      "kebabCase('theQuickBrown Fox'); // 'the-quick-brown-fox'",
+      "kebabCase('thequickbrownfox'); // 'thequickbrownfox'",
+      "kebabCase('the - quick * brown# fox'); // 'the-quick-brown-fox'",
+      "kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'"
     ]
   },
   "just-left-pad": {
@@ -1574,15 +1571,15 @@
     "dir": "string-pascal-case",
     "description": "Convert a string to pascal case",
     "examples": [
-      "  import pascalCase from 'just-pascal-case';",
+      "import pascalCase from 'just-pascal-case';",
       "",
-      "  pascalCase('the quick brown fox'); // 'TheQuickBrownFox'",
-      "  pascalCase('the_quick_brown_fox'); // 'TheQuickBrownFox'",
-      "  pascalCase('the-quick-brown-fox'); // 'TheQuickBrownFox'",
-      "  pascalCase('theQuickBrownFox'); // 'TheQuickBrownFox'",
-      "  pascalCase('thequickbrownfox'); // 'Thequickbrownfox'",
-      "  pascalCase('the - quick * brown# fox'); // 'TheQuickBrownFox'",
-      "  pascalCase('theQUICKBrownFox'); // 'TheQUICKBrownFox'"
+      "pascalCase('the quick brown fox'); // 'TheQuickBrownFox'",
+      "pascalCase('the_quick_brown_fox'); // 'TheQuickBrownFox'",
+      "pascalCase('the-quick-brown-fox'); // 'TheQuickBrownFox'",
+      "pascalCase('theQuickBrownFox'); // 'TheQuickBrownFox'",
+      "pascalCase('thequickbrownfox'); // 'Thequickbrownfox'",
+      "pascalCase('the - quick * brown# fox'); // 'TheQuickBrownFox'",
+      "pascalCase('theQUICKBrownFox'); // 'TheQUICKBrownFox'"
     ]
   },
   "just-prune": {
@@ -1590,11 +1587,13 @@
     "dir": "string-prune",
     "description": "Prune a string with whole words and a custom suffix",
     "examples": [
-      "  prune('when shall we three meet again', 7); // 'when...'",
-      "  prune('when shall we three meet again', 7, ' (more)'; // 'when (more)'",
-      "  prune('when shall we', 15,); // 'when shall we'",
-      "  prune('when shall we', 15, ' (etc)'); // 'when shall we'",
-      "  prune('when shall we', 7, ' (more)'); // ' (more)'"
+      "import prune from 'just-prune';",
+      "",
+      "prune('when shall we three meet again', 7); // 'when...'",
+      "prune('when shall we three meet again', 7, ' (more)'); // 'when (more)'",
+      "prune('when shall we', 15,); // 'when shall we'",
+      "prune('when shall we', 15, ' (etc)'); // 'when shall we'",
+      "prune('when shall we', 7, ' (more)'); // ' (more)'"
     ]
   },
   "just-replace-all": {
@@ -1602,22 +1601,20 @@
     "dir": "string-replace-all",
     "description": "Replace all occurrences of a string within a string with another string",
     "examples": [
-      "  import replaceAll from 'just-replace-all';",
+      "import replaceAll from 'just-replace-all';",
       "",
-      "/*",
-      "  replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'",
-      "  replaceAll('hello, world', 'l', 'qq'); // 'heqqqqo, worqqd'",
-      "  replaceAll('hello, world', 'll', 'q'); // 'heqo, world'",
-      "  replaceAll('hello, world', '', 'q'); // 'hello, world'",
-      "  replaceAll('hello, world', 'l', ''); // 'heo, word'",
-      "  replaceAll('hello, world', null, 'q'); // 'hello, world'",
-      "  replaceAll('hello, world', 'l'); // throw",
-      "  replaceAll('hello, world'); // throw",
-      "  replaceAll(); // throw",
-      "  replaceAll(null, 'l', 'q'); // throw",
-      "  replaceAll('hello, world', null, 'q'); // throw",
-      "  replaceAll('hello, world', 'l', null); // throw",
-      "*/"
+      "replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'",
+      "replaceAll('hello, world', 'l', 'qq'); // 'heqqqqo, worqqd'",
+      "replaceAll('hello, world', 'll', 'q'); // 'heqo, world'",
+      "replaceAll('hello, world', '', 'q'); // 'hello, world'",
+      "replaceAll('hello, world', 'l', ''); // 'heo, word'",
+      "replaceAll('hello, world', null, 'q'); // 'hello, world'",
+      "replaceAll('hello, world', 'l'); // throw",
+      "replaceAll('hello, world'); // throw",
+      "replaceAll(); // throw",
+      "replaceAll(null, 'l', 'q'); // throw",
+      "replaceAll('hello, world', null, 'q'); // throw",
+      "replaceAll('hello, world', 'l', null); // throw"
     ]
   },
   "just-right-pad": {
@@ -1647,15 +1644,15 @@
     "dir": "string-snake-case",
     "description": "Convert a string to snake case",
     "examples": [
-      "  import snakeCase from 'just-snake-case';",
+      "import snakeCase from 'just-snake-case';",
       "",
-      "  snakeCase('the quick brown fox'); // 'the_quick_brown_fox'",
-      "  snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'",
-      "  snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'",
-      "  snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'",
-      "  snakeCase('thequickbrownfox'); // 'thequickbrownfox'",
-      "  snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'",
-      "  snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'"
+      "snakeCase('the quick brown fox'); // 'the_quick_brown_fox'",
+      "snakeCase('the-quick-brown-fox'); // 'the_quick_brown_fox'",
+      "snakeCase('the_quick_brown_fox'); // 'the_quick_brown_fox'",
+      "snakeCase('theQuickBrownFox'); // 'the_quick_brown_fox'",
+      "snakeCase('thequickbrownfox'); // 'thequickbrownfox'",
+      "snakeCase('the - quick * brown# fox'); // 'the_quick_brown_fox'",
+      "snakeCase('theQUICKBrownFox'); // 'the_q_u_i_c_k_brown_fox'"
     ]
   },
   "just-squash": {
@@ -1663,11 +1660,13 @@
     "dir": "string-squash",
     "description": "Remove all spaces from a string, optionally remove escape sequences too",
     "examples": [
-      "  squash('the cat sat on the mat'); // 'thecatsatonthemat'",
-      "  squash(' the cat sat on the mat '); // 'thecatsatonthemat'",
-      "  squash('\\tthe cat\\n sat \\fon \\vthe \\rmat '); // '\\tthecat\\nsat\\fon\\vthe\\rmat'",
-      "  squash('\\tthe cat\\n sat \\fon \\vthe \\rmat ', true); // 'thecatsatonthemat'",
-      "  squash(`the cat",
+      "import squash from 'just-squash';",
+      "",
+      "squash('the cat sat on the mat'); // 'thecatsatonthemat'",
+      "squash(' the cat sat on the mat '); // 'thecatsatonthemat'",
+      "squash('\\tthe cat\\n sat \\fon \\vthe \\rmat '); // '\\tthecat\\nsat\\fon\\vthe\\rmat'",
+      "squash('\\tthe cat\\n sat \\fon \\vthe \\rmat ', true); // 'thecatsatonthemat'",
+      "squash(`the cat",
       "sat on the mat`, true); // thecatsatonthemat"
     ]
   },
@@ -1697,11 +1696,13 @@
     "dir": "string-truncate",
     "description": "Truncate a string with a custom suffix",
     "examples": [
-      "  truncate('when shall we three meet again', 9); // 'when s...'",
-      "  truncate('when shall we three meet again', 10, ' (etc)'); // 'when (etc)'",
-      "  truncate('when shall we', 15,); // 'when shall we'",
-      "  truncate('when shall we', 15, '(more)'); // 'when shall we'",
-      "  truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'"
+      "import truncate from 'just-truncate';",
+      "",
+      "truncate('when shall we three meet again', 9); // 'when s...'",
+      "truncate('when shall we three meet again', 10, ' (etc)'); // 'when (etc)'",
+      "truncate('when shall we', 15,); // 'when shall we'",
+      "truncate('when shall we', 15, '(more)'); // 'when shall we'",
+      "truncate('when shall we', 10, ' (etc etc etc)'); // ' (etc etc etc)'"
     ]
   },
   "just-deep-map-values": {
