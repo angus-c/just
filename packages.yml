@@ -285,8 +285,8 @@ just-pipe:
   examples: |
     import pipe from 'just-pipe';
 
-    pipe(3, a => a+1, b => b*2) // 8
-    pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]) // 'Smith'
+    pipe(3, a => a+1, b => b*2); // 8
+    pipe('John Smith', a => a.split(' '), b => b.reverse(), c => c[0]); // 'Smith'
 just-random:
   packageName: just-random
   dir: array-random
@@ -778,7 +778,7 @@ just-flip:
   examples: |
     import flip from 'just-flip';
 
-    flip(console.log)(1, 2, 3) // 2, 1, 3
+    flip(console.log)(1, 2, 3); // 2, 1, 3
 
     import map from 'just-map-object';
     import partial from 'just-partial';
@@ -786,7 +786,7 @@ just-flip:
     const numbers = {x: 5, y: 10};
     const flippedMap = flip(map);
     const double = partial(flippedMap, (undefined, number) => number * 2);
-    double(numbers) // {x: 10, y: 20];
+    double(numbers); // {x: 10, y: 20];
 just-memoize:
   packageName: just-memoize
   dir: function-memoize
@@ -1117,26 +1117,26 @@ just-is-empty:
   examples: |
     import isEmpty from 'just-is-empty';
 
-    isEmpty({a: 3, b: 5}) // false
-    isEmpty([1, 2]) // false
-    isEmpty(new Set([1, 2, 2])) // false
-    isEmpty((new Map()).set('a', 2)) // false
-    isEmpty({}) // true
-    isEmpty([]) // true
-    isEmpty(new Set()) // true
-    isEmpty(new Map()) // true
-    isEmpty('abc') // false
-    isEmpty('') // true
-    isEmpty(0) // true
-    isEmpty(1) // true
-    isEmpty(true) // true
+    isEmpty({a: 3, b: 5}); // false
+    isEmpty([1, 2]); // false
+    isEmpty(new Set([1, 2, 2])); // false
+    isEmpty((new Map()).set('a', 2)); // false
+    isEmpty({}); // true
+    isEmpty([]); // true
+    isEmpty(new Set()); // true
+    isEmpty(new Map()); // true
+    isEmpty('abc'); // false
+    isEmpty(''); // true
+    isEmpty(0); // true
+    isEmpty(1); // true
+    isEmpty(true); // true
     isEmpty(Symbol('abc')); // true
     isEmpty(//); // true
     isEmpty(new String('abc')); // false
     isEmpty(new String('')); // true
     isEmpty(new Boolean(true)); // true
-    isEmpty(null) // true
-    isEmpty(undefined) // true
+    isEmpty(null); // true
+    isEmpty(undefined); // true
 just-is-primitive:
   packageName: just-is-primitive
   dir: object-is-primitive
@@ -1144,18 +1144,18 @@ just-is-primitive:
   examples: |
     import isPrimitive from 'just-is-primitive';
 
-    isPrimitive('hi') // true
-    isPrimitive(3) // true
-    isPrimitive(true) // true
-    isPrimitive(false) // true
-    isPrimitive(null) // true
-    isPrimitive(undefined) // true
-    isPrimitive(Symbol()) // true
-    isPrimitive({}) // false
-    isPrimitive([]) // false
-    isPrimitive(function() {}) // false
-    isPrimitive(new Date()) // false
-    isPrimitive(/a/) // false
+    isPrimitive('hi'); // true
+    isPrimitive(3); // true
+    isPrimitive(true); // true
+    isPrimitive(false); // true
+    isPrimitive(null); // true
+    isPrimitive(undefined); // true
+    isPrimitive(Symbol()); // true
+    isPrimitive({}); // false
+    isPrimitive([]); // false
+    isPrimitive(function() {}); // false
+    isPrimitive(new Date()); // false
+    isPrimitive(/a/); // false
 just-map-object:
   packageName: just-map-object
   dir: object-map
@@ -1410,8 +1410,8 @@ just-left-pad:
     leftPad('hello', 9, '..'); // '....hello'
     leftPad('hello', 10, 'ab'); // 'bababhello'
     leftPad('hello', 9, '\uD83D\uDC04'); // '🐄🐄🐄🐄hello'
-    leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '🐄🐑🐄🐑🐄hello'
-    leftPad('hello', 7, '\uD83D\uDC04'), // '🐄🐄hello'
+    leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'); // '🐄🐑🐄🐑🐄hello'
+    leftPad('hello', 7, '\uD83D\uDC04'); // '🐄🐄hello'
     leftPad(null, 7); // throws
     leftPad([], 4, '*'); // throws
     leftPad('hello', 4, true); // throws
@@ -1475,8 +1475,8 @@ just-right-pad:
     rightPad('hello', 9, '..'); // 'hello....'
     rightPad('hello', 10, 'ab'); // 'helloababa'
     rightPad('hello', 9, '\uD83D\uDC04'); // 'hello🐄🐄🐄🐄'
-    rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // 'hello🐑🐄🐑🐄🐑'
-    rightPad('hello', 7, '\uD83D\uDC04'), // 'hello🐄🐄'
+    rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'); // 'hello🐑🐄🐑🐄🐑'
+    rightPad('hello', 7, '\uD83D\uDC04'); // 'hello🐄🐄'
     rightPad(null, 7); // throws
     rightPad([], 4, '*'); // throws
     rightPad('hello', 4, true); // throws
