@@ -1248,8 +1248,7 @@ just-reduce-object:
   examples: |
     import reduce from 'just-reduce-object';
 
-    // applies a function against an accumulator and each key-value pairs of the
-      object
+    // applies a function against an accumulator and each key-value pairs of the object
     // to reduce it to a single value
     reduce({a: 3, b: 5, c: 9}, (acc, key, value, index, keys) => {
       acc[value] = key;
@@ -1363,7 +1362,7 @@ just-camel-case:
     camelCase('the-quick-brown-fox'); // 'theQuickBrownFox'
     camelCase('theQuickBrownFox'); // 'theQuickBrownFox'
     camelCase('thequickbrownfox'); // 'thequickbrownfox'
-    camelCase('the quick * brown# fox'); // 'theQuickBrownFox'
+    camelCase('the - quick * brown# fox'); // 'theQuickBrownFox'
     camelCase('behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
     camelCase('Behold theQuickBrownFox'); // 'beholdTheQuickBrownFox'
     // all caps words are camel-cased
@@ -1396,7 +1395,7 @@ just-kebab-case:
     kebabCase('theQuickBrownFox'); // 'the-quick-brown-fox'
     kebabCase('theQuickBrown Fox'); // 'the-quick-brown-fox'
     kebabCase('thequickbrownfox'); // 'thequickbrownfox'
-    kebabCase('the quick * brown# fox'); // 'the-quick-brown-fox'
+    kebabCase('the - quick * brown# fox'); // 'the-quick-brown-fox'
     kebabCase('theQUICKBrownFox'); // 'the-q-u-i-c-k-brown-fox'
 just-left-pad:
   packageName: just-left-pad
@@ -1410,9 +1409,9 @@ just-left-pad:
     leftPad('hello', 9, '.'); // '....hello'
     leftPad('hello', 9, '..'); // '....hello'
     leftPad('hello', 10, 'ab'); // 'bababhello'
-    leftPad('hello', 9, '\uD83D\uDC04'); // '\U0001F404\U0001F404\U0001F404\U0001F404hello'
-    leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '\U0001F404\U0001F411\U0001F404\U0001F411\U0001F404hello'
-    leftPad('hello', 7, '\U0001F404'), // '\U0001F404\U0001F404hello'
+    leftPad('hello', 9, '\uD83D\uDC04'); // '🐄🐄🐄🐄hello'
+    leftPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // '🐄🐑🐄🐑🐄hello'
+    leftPad('hello', 7, '\uD83D\uDC04'), // '🐄🐄hello'
     leftPad(null, 7); // throws
     leftPad([], 4, '*'); // throws
     leftPad('hello', 4, true); // throws
@@ -1475,9 +1474,9 @@ just-right-pad:
     rightPad('hello', 9, '.'); // 'hello....'
     rightPad('hello', 9, '..'); // 'hello....'
     rightPad('hello', 10, 'ab'); // 'helloababa'
-    rightPad('hello', 9, '\uD83D\uDC04'); // 'hello\U0001F404\U0001F404\U0001F404\U0001F404'
-    rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // 'hello\U0001F411\U0001F404\U0001F411\U0001F404\U0001F411'
-    rightPad('hello', 7, '\U0001F404'), // 'hello\U0001F404\U0001F404'
+    rightPad('hello', 9, '\uD83D\uDC04'); // 'hello🐄🐄🐄🐄'
+    rightPad('hello', 10, '\uD83D\uDC11\uD83D\uDC04'), // 'hello🐑🐄🐑🐄🐑'
+    rightPad('hello', 7, '\uD83D\uDC04'), // 'hello🐄🐄'
     rightPad(null, 7); // throws
     rightPad([], 4, '*'); // throws
     rightPad('hello', 4, true); // throws
