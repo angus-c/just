@@ -2,7 +2,7 @@ just-cartesian-product:
   packageName: just-cartesian-product
   dir: array-cartesian-product
   description: Takes an input of an array of arrays and returns their Cartesian product
-  examples: |
+  examples: |-
     import cartesianProduct from 'just-cartesian-product';
 
     cartesianProduct([[1, 2], ['a', 'b']]); // [[1, 'a'], [1, 'b'], [2, 'a'], [2, 'b']]
@@ -13,7 +13,7 @@ just-compact:
   packageName: just-compact
   dir: array-compact
   description: Returns a copy of an array with falsey values removed
-  examples: |
+  examples: |-
     import compact from 'just-compact';
 
     compact([1, null, 2, undefined, null, NaN, 3, 4, false, 5]); // [1, 2, 3, 4, 5]
@@ -24,7 +24,7 @@ just-flatten-it:
   packageName: just-flatten-it
   dir: array-flatten
   description: Return a flattened array
-  examples: |
+  examples: |-
     import flatten from 'just-flatten-it';
 
     flatten([[1, [2, 3]], [[4, 5], 6, 7, [8, 9]]]);
@@ -36,7 +36,7 @@ just-group-by:
   packageName: just-group-by
   dir: array-group-by
   description: Return a grouped object from array
-  examples: |
+  examples: |-
     import groupBy from 'just-group-by';
 
     groupBy([6.1, 4.2, 6.3], Math.floor); // { '4': [4.2], '6': [6.1, 6.3] }
@@ -45,7 +45,7 @@ just-index:
   packageName: just-index
   dir: array-index
   description: Return an object from an array, keyed by the value at the given id
-  examples: |
+  examples: |-
     import index from 'just-index';
 
     index([{id: 'first', val: 1}, {id: 'second', val: 2}], 'id');
@@ -59,7 +59,7 @@ just-insert:
   packageName: just-insert
   dir: array-insert
   description: Inserts a sub-array into an array starting at the given index. Returns a copy
-  examples: |
+  examples: |-
     import insert from 'just-insert';
 
     insert([1, 2, 5, 6], ['a', 'c', 'e'], 2); // [1, 2, 'a', 'c', 'e', 5, 6]
@@ -70,7 +70,7 @@ just-intersect:
   packageName: just-intersect
   dir: array-intersect
   description: Return the intersect of two arrays
-  examples: |
+  examples: |-
     import intersect from 'just-intersect';
 
     intersect([1, 2, 5, 6], [2, 3, 5, 6]); // [2, 5, 6]
@@ -79,7 +79,7 @@ just-last:
   packageName: just-last
   dir: array-last
   description: Return the last member of an array
-  examples: |
+  examples: |-
     import last from 'just-last';
 
     last([1, 2, 3, 4, 5]); // 5
@@ -93,7 +93,7 @@ just-mean:
   packageName: just-mean
   dir: array-mean
   description: The mean (average) value in an array
-  examples: |
+  examples: |-
     import mean from 'just-mean';
 
     mean([1, 2, 3, 2, 4, 1]); // 2.1666666667
@@ -105,7 +105,7 @@ just-median:
   packageName: just-median
   dir: array-median
   description: Return the median value of an array of numbers
-  examples: |
+  examples: |-
     import median from 'just-median';
 
     median([1, 2, 3, 4, 5]); // 3
@@ -118,7 +118,7 @@ just-mode:
   packageName: just-mode
   dir: array-mode
   description: Return the most frequently occuring number(s)
-  examples: |
+  examples: |-
     import mode from 'just-mode';
 
     mode([1, 2, 3, 2]); // 2
@@ -131,7 +131,7 @@ just-order-by:
   packageName: just-order-by
   dir: array-order-by
   description: Produces a new array, sorted in given order
-  examples: |
+  examples: |-
     import orderBy from 'just-order-by';
 
     orderBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
@@ -237,7 +237,7 @@ just-partition:
   packageName: just-partition
   dir: array-partition
   description: Elements satisfying predicate added to first array, remainder added to second
-  examples: |
+  examples: |-
     import partition from 'just-partition';
 
     partition([1, 5, 2, 4, 3], n => n > 3); // [[5, 4],[1, 2, 3]]
@@ -252,7 +252,7 @@ just-percentile:
   packageName: just-percentile
   dir: array-percentile
   description: Return the value at the given percentile (using linear interpolation)
-  examples: |
+  examples: |-
     import percentile from 'just-percentile';
 
     percentile([1, 2, 3], 0); // 1
@@ -272,7 +272,7 @@ just-permutations:
   packageName: just-permutations
   dir: array-permutations
   description: Returns all permutations of the length N of the elements of the given array
-  examples: |
+  examples: |-
     import permutations from 'just-permutations';
 
     permutations([1, 2, 3]); // [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
@@ -282,7 +282,7 @@ just-pipe:
   packageName: just-pipe
   dir: function-pipe
   description: Pass a value through a pipeline of functions
-  examples: |
+  examples: |-
     import pipe from 'just-pipe';
 
     pipe(3, a => a+1, b => b*2); // 8
@@ -291,7 +291,7 @@ just-random:
   packageName: just-random
   dir: array-random
   description: Return a randomly selected element in an array
-  examples: |
+  examples: |-
     import random from 'just-random';
 
     random([1, 2, 3]); // one of [1, 2, 3], at random
@@ -299,7 +299,7 @@ just-range:
   packageName: just-range
   dir: array-range
   description: Generate a range array for numbers
-  examples: |
+  examples: |-
     import range from 'just-range';
 
     range(1, 5); // [1, 2, 3, 4]
@@ -310,7 +310,7 @@ just-remove:
   packageName: just-remove
   dir: array-remove
   description: Removes one array from another
-  examples: |
+  examples: |-
     import remove from 'just-remove';
 
     remove([1, 2, 3, 4, 5, 6], [1, 3, 6]); // [2, 4, 5]
@@ -318,7 +318,7 @@ just-shuffle:
   packageName: just-shuffle
   dir: array-shuffle
   description: Return the elements of an array in random order
-  examples: |
+  examples: |-
     import shuffle from 'just-shuffle';
 
     shuffle([1, 2, 3]);
@@ -337,7 +337,7 @@ just-skewness:
   packageName: just-skewness
   dir: array-skewness
   description: Return the skewness of an array or numeric argument list using Pearson's second skewness coefficient
-  examples: |
+  examples: |-
     import skewness from 'just-skewness';
 
     // Using Pearson's second skewness coefficient
@@ -353,7 +353,7 @@ just-sort-by:
   packageName: just-sort-by
   dir: array-sort-by
   description: Produces a new array, sorted in ascending order
-  examples: |
+  examples: |-
     import sortBy from 'just-sort-by';
 
     sortBy([10, 1, 5, 20, 15, 35, 30, 6, 8]); // [1, 5, 6, 8, 10, 15, 20, 30, 35]
@@ -398,7 +398,7 @@ just-split:
   packageName: just-split
   dir: array-split
   description: Splits array into groups of n items each
-  examples: |
+  examples: |-
     import split from 'just-split';
 
     split([]); // []
@@ -411,7 +411,7 @@ just-split-at:
   packageName: just-split-at
   dir: array-split-at
   description: Splits an array into two at a given position
-  examples: |
+  examples: |-
     import splitAt from 'just-split-at';
 
     splitAt([1, 2, 3, 4, 5], 2); // [[1, 2], [3, 4, 5]]
@@ -423,7 +423,7 @@ just-standard-deviation:
   packageName: just-standard-deviation
   dir: array-standard-deviation
   description: Return the standard deviation of an array or numeric argument list
-  examples: |
+  examples: |-
     import standardDeviation from 'just-standard-deviation';
 
     standardDeviation([1, 2, 3, 2, 4, 1]); // 1.16904519
@@ -438,7 +438,7 @@ just-tail:
   packageName: just-tail
   dir: array-tail
   description: Return all but the first element of an array
-  examples: |
+  examples: |-
     import tail from 'just-tail';
 
     tail([1, 2, 3, 4, 5]); // [2, 3, 4, 5]
@@ -452,7 +452,7 @@ just-union:
   packageName: just-union
   dir: array-union
   description: Returns the union of two arrays
-  examples: |
+  examples: |-
     import union from 'just-union';
 
     union([1, 2, 5, 6], [2, 3, 4, 6]); // [1, 2, 5, 6, 3, 4]
@@ -460,7 +460,7 @@ just-unique:
   packageName: just-unique
   dir: array-unique
   description: Dedupes an array
-  examples: |
+  examples: |-
     import unique from 'just-unique';
 
     unique([1, 2, 3, 2, 3, 4, 3, 2, 1, 3]); // [1, 2, 3, 4]
@@ -481,7 +481,7 @@ just-variance:
   packageName: just-variance
   dir: array-variance
   description: Return the standard deviation of an array or numeric argument list
-  examples: |
+  examples: |-
     import variance from 'just-variance';
 
     variance([1, 2, 3, 2, 4, 1]); // 1.3666666667
@@ -498,7 +498,7 @@ just-zip-it:
   description:
     Returns an array of grouped elements, taking n-th element from every
     given array
-  examples: |
+  examples: |-
     import zip from 'just-zip-it';
 
     zip([1, 2, 3]); // [[1], [2], [3]]
@@ -513,7 +513,7 @@ just-clone:
   packageName: just-clone
   dir: collection-clone
   description: Deep copies objects, arrays, maps and sets
-  examples: |
+  examples: |-
     // Deep copies objects and arrays, doesn't clone functions
 
     import clone from 'just-clone';
@@ -530,7 +530,7 @@ just-compare:
   packageName: just-compare
   dir: collection-compare
   description: Compare two collections
-  examples: |
+  examples: |-
     import compare from 'just-compare';
 
     // primitives: value1 === value2
@@ -549,10 +549,10 @@ just-compare:
 just-diff:
   packageName: just-diff
   dir: collection-diff
-  description: |
+  description: |-
     Return an object representing the difference between two other objects
     Pass converter to format as http://jsonpatch.com
-  examples: |
+  examples: |-
     import {diff} from 'just-diff';
 
     const obj1 = {a: 4, b: 5};
@@ -623,7 +623,7 @@ just-diff-apply:
   description:
     Apply a diff object to an object. Pass converter to apply a http://jsonpatch.com
     standard patch
-  examples: |
+  examples: |-
     import {diffApply} from 'just-diff-apply';
 
     const obj1 = {a: 3, b: 5};
@@ -676,7 +676,7 @@ just-flush:
   packageName: just-flush
   dir: collection-flush
   description: Returns a copy of an array or object with null/undefined members removed
-  examples: |
+  examples: |-
     import flush from 'just-flush';
 
     flush([1, undefined, 2, null, 3, NaN, 0]); // [1, 2, 3, NaN, 0]
@@ -688,7 +688,7 @@ just-pluck-it:
   packageName: just-pluck-it
   dir: collection-pluck
   description: Pluck a property from each member of a collection
-  examples: |
+  examples: |-
     import pluck from 'just-pluck-it';
 
     pluck([{a:1, b:2}, {a:4, b:3}, {a:2, b:5}], 'a'); // [1, 4, 2]
@@ -697,7 +697,7 @@ just-compose:
   packageName: just-compose
   dir: function-compose
   description: Return a function composed of 2 or more functions
-  examples: |
+  examples: |-
     import compose from 'just-compose';
 
     const sqRootBiggest = compose(Math.max, Math.sqrt, Math.trunc);
@@ -707,7 +707,7 @@ just-curry-it:
   packageName: just-curry-it
   dir: function-curry
   description: Return a curried function
-  examples: |
+  examples: |-
     import curry from 'just-curry-it';
 
     function add(a, b, c) {
@@ -734,7 +734,7 @@ just-debounce-it:
   packageName: just-debounce-it
   dir: function-debounce
   description: Return a debounced function
-  examples: |
+  examples: |-
     import debounce from 'just-debounce-it';
 
     const fn1 = debounce(() => console.log("Hello"), 500);
@@ -766,7 +766,7 @@ just-demethodize:
   packageName: just-demethodize
   dir: function-demethodize
   description: Turn a method into a standalone function; the first arg becomes `this`
-  examples: |
+  examples: |-
     import demethodize from 'just-demethodize';
 
     const trimFn = demethodize(''.trim);
@@ -775,7 +775,7 @@ just-flip:
   packageName: just-flip
   dir: function-flip
   description: Flip first two arguments of a function
-  examples: |
+  examples: |-
     import flip from 'just-flip';
 
     flip(console.log)(1, 2, 3); // 2, 1, 3
@@ -791,7 +791,7 @@ just-memoize:
   packageName: just-memoize
   dir: function-memoize
   description: An implementation of the memoize technique
-  examples: |
+  examples: |-
     import memoize from 'just-memoize';
 
     const sumByOne = memoize(function(value) {
@@ -818,7 +818,7 @@ just-memoize-last:
   packageName: just-memoize-last
   dir: function-memoize-last
   description: A memoize implementation that only caches the most recent evaluation
-  examples: |
+  examples: |-
     import memoizeLast from 'just-memoize-last';
     import compare from 'just-compare';
 
@@ -836,7 +836,7 @@ just-once:
   packageName: just-once
   dir: function-once
   description: Create a function that can only be invoked once
-  examples: |
+  examples: |-
     import once from 'just-once';
 
     const fn = once(() => console.log('hello'));
@@ -849,7 +849,7 @@ just-partial-it:
   packageName: just-partial-it
   dir: function-partial
   description: Return a partial function
-  examples: |
+  examples: |-
     import partial from 'just-partial-it';
 
     const cubedRoot = partial(Math.pow, _, 1/3);
@@ -861,7 +861,7 @@ just-throttle:
   packageName: just-throttle
   dir: function-throttle
   description: Return a throttled function
-  examples: |
+  examples: |-
     import throttle from 'just-throttle';
 
     // no matter how many times the function is called, only invoke once within the given interval
@@ -897,7 +897,7 @@ just-clamp:
   packageName: just-clamp
   dir: number-clamp
   description: Restrict a number within a range
-  examples: |
+  examples: |-
     import clamp from 'just-clamp';
 
     var n = 5;
@@ -921,7 +921,7 @@ just-in-range:
   packageName: just-in-range
   dir: number-in-range
   description: Check if number is within a given range
-  examples: |
+  examples: |-
     import inRange from 'just-number-in-range';
 
     inRange(2, 1, 10); // true
@@ -935,7 +935,7 @@ just-is-prime:
   packageName: just-is-prime
   dir: number-is-prime
   description: Check if number is prime
-  examples: |
+  examples: |-
     import isPrime from 'just-is-prime';
 
     isPrime(1); // false
@@ -952,7 +952,7 @@ just-modulo:
   packageName: just-modulo
   dir: number-modulo
   description: Modulo of a number and a divisor
-  examples: |
+  examples: |-
     import modulo from 'just-modulo';
 
     modulo(7, 5); // 2
@@ -972,7 +972,7 @@ just-random-integer:
   packageName: just-random-integer
   dir: number-random-integer
   description: Produces a random integer within a given range
-  examples: |
+  examples: |-
     import random from 'just-random-integer';
 
     random(); // Returns either 0 or 1
@@ -983,7 +983,7 @@ just-entries:
   packageName: just-entries
   dir: object-entries
   description: Return object entries as an array of [key, value] pairs
-  examples: |
+  examples: |-
     import entries from 'just-entries';
 
     // Object:
@@ -1000,7 +1000,7 @@ just-extend:
   packageName: just-extend
   dir: object-extend
   description: Extend an object
-  examples: |
+  examples: |-
     import extend from 'just-extend';
 
     var obj = {a: 3, b: 5};
@@ -1032,7 +1032,7 @@ just-filter-object:
   packageName: just-filter-object
   dir: object-filter
   description: Filter an object
-  examples: |
+  examples: |-
     import filter from 'just-filter';
 
     // returns a new object containing those original properties for which the predicate returns truthy
@@ -1043,7 +1043,7 @@ just-flip-object:
   packageName: just-flip-object
   dir: object-flip
   description: Flip the keys and values
-  examples: |
+  examples: |-
     import flip from 'just-flip-object';
 
     // flip the key and value
@@ -1054,7 +1054,7 @@ just-has:
   packageName: just-has
   dir: object-has
   description: Return a boolen indicating the existence of a deep property, don't throw if parent is undefined
-  examples: |
+  examples: |-
     import has from 'just-has';
 
     const obj = {a: {aa: {aaa: 2}}, b: 4};
@@ -1081,10 +1081,10 @@ just-has:
 just-is-circular:
   packageName: just-is-circular
   dir: object-is-circular
-  description: |
+  description: |-
     Return true if object has a circular reference
     NOTE: not supported in IE or microsoft edge
-  examples: |
+  examples: |-
     import isCircular from 'just-is-circular';
 
     const a = {};
@@ -1114,7 +1114,7 @@ just-is-empty:
   packageName: just-is-empty
   dir: object-is-empty
   description: Return true if object has no enumerable key values
-  examples: |
+  examples: |-
     import isEmpty from 'just-is-empty';
 
     isEmpty({a: 3, b: 5}); // false
@@ -1141,7 +1141,7 @@ just-is-primitive:
   packageName: just-is-primitive
   dir: object-is-primitive
   description: Determine if a value is a primitive value
-  examples: |
+  examples: |-
     import isPrimitive from 'just-is-primitive';
 
     isPrimitive('hi'); // true
@@ -1160,7 +1160,7 @@ just-map-object:
   packageName: just-map-object
   dir: object-map
   description: Map an object, passing key and value to predicates
-  examples: |
+  examples: |-
     import map from 'just-map-object';
 
     // DEPRECATED: use just-map-values
@@ -1171,7 +1171,7 @@ just-map-keys:
   packageName: just-map-keys
   dir: object-map-keys
   description: Map an object, predicate updates keys, receives (value, key, object)
-  examples: |
+  examples: |-
     import map from 'just-map-keys';
 
     // predicate updates keys, receives (value, key, object)
@@ -1185,7 +1185,7 @@ just-map-values:
   packageName: just-map-values
   dir: object-map-values
   description: Map an object, predicate updates values, receives (value, key, object)
-  examples: |
+  examples: |-
     import map from 'just-map-values';
 
     // predicate updates values, receives (value, key, obj)
@@ -1196,7 +1196,7 @@ just-merge:
   packageName: just-merge
   dir: object-merge
   description: Shallow assign. Like just-extend but without deep copy option.
-  examples: |
+  examples: |-
     import merge from 'just-merge';
 
     let obj = {a: 3, b: 5};
@@ -1221,7 +1221,7 @@ just-omit:
   packageName: just-omit
   dir: object-omit
   description: Copy an object but omit the specified keys
-  examples: |
+  examples: |-
     import omit from 'just-omit';
 
     var obj = {a: 3, b: 5, c: 9};
@@ -1233,7 +1233,7 @@ just-pick:
   packageName: just-pick
   dir: object-pick
   description: Copy an object but with only the specified keys
-  examples: |
+  examples: |-
     import pick from 'just-pick';
 
     var obj = { a: 3, b: 5, c: 9 };
@@ -1245,7 +1245,7 @@ just-reduce-object:
   packageName: just-reduce-object
   dir: object-reduce
   description: Reduce an object
-  examples: |
+  examples: |-
     import reduce from 'just-reduce-object';
 
     // applies a function against an accumulator and each key-value pairs of the object
@@ -1263,7 +1263,7 @@ just-safe-get:
   packageName: just-safe-get
   dir: object-safe-get
   description: Get value at property, don't throw if parent is undefined
-  examples: |
+  examples: |-
     import get from 'just-safe-get';
 
     const obj = {a: {aa: {aaa: 2}}, b: 4};
@@ -1297,7 +1297,7 @@ just-safe-set:
   packageName: just-safe-set
   dir: object-safe-set
   description: Set value at property, create intermediate properties if necessary
-  examples: |
+  examples: |-
     import set from 'just-safe-set';
 
     const obj1 = {};
@@ -1320,7 +1320,7 @@ just-typeof:
   packageName: just-typeof
   dir: object-typeof
   description: Type inferer
-  examples: |
+  examples: |-
     import typeOf from 'just-typeof';
 
     typeOf({}); // 'object'
@@ -1337,7 +1337,7 @@ just-values:
   packageName: just-values
   dir: object-values
   description: Return property values as an array
-  examples: |
+  examples: |-
     import values from 'just-values';
 
     values({a: 4, c: 8}); // [4, 8]
@@ -1354,7 +1354,7 @@ just-camel-case:
   packageName: just-camel-case
   dir: string-camel-case
   description: Convert a string to camel case
-  examples: |
+  examples: |-
     import camelCase from 'just-camel-case';
 
     camelCase('the quick brown fox'); // 'theQuickBrownFox'
@@ -1375,7 +1375,7 @@ just-capitalize:
   packageName: just-capitalize
   dir: string-capitalize
   description: Capitalize the first character of a string
-  examples: |
+  examples: |-
     import capitalize from 'just-capitalize';
 
     capitalize('capitals'); // 'Capitals'
@@ -1386,7 +1386,7 @@ just-kebab-case:
   packageName: just-kebab-case
   dir: string-kebab-case
   description: Convert a string to kebab case
-  examples: |
+  examples: |-
     import kebabCase from 'just-kebab-case';
 
     kebabCase('the quick brown fox'); // 'the-quick-brown-fox'
@@ -1401,7 +1401,7 @@ just-left-pad:
   packageName: just-left-pad
   dir: string-left-pad
   description: Add characters to the left of a string such that its total length is n
-  examples: |
+  examples: |-
     import leftPad from 'just-left-pad';
 
     leftPad('hello', 9); // '    hello'
@@ -1421,7 +1421,7 @@ just-pascal-case:
   packageName: just-pascal-case
   dir: string-pascal-case
   description: Convert a string to pascal case
-  examples: |
+  examples: |-
     import pascalCase from 'just-pascal-case';
 
     pascalCase('the quick brown fox'); // 'TheQuickBrownFox'
@@ -1435,7 +1435,7 @@ just-prune:
   packageName: just-prune
   dir: string-prune
   description: Prune a string with whole words and a custom suffix
-  examples: |
+  examples: |-
     import prune from 'just-prune';
 
     prune('when shall we three meet again', 7); // 'when...'
@@ -1447,7 +1447,7 @@ just-replace-all:
   packageName: just-replace-all
   dir: string-replace-all
   description: Replace all occurrences of a string within a string with another string
-  examples: |
+  examples: |-
     import replaceAll from 'just-replace-all';
 
     replaceAll('hello, world', 'l', 'q'); // 'heqqo, worqd'
@@ -1466,7 +1466,7 @@ just-right-pad:
   packageName: just-right-pad
   dir: string-right-pad
   description: Add characters to the right of a string such that its total length is n
-  examples: |
+  examples: |-
     import rightPad from 'just-right-pad';
 
     rightPad('hello', 9); // 'hello    '
@@ -1486,7 +1486,7 @@ just-snake-case:
   packageName: just-snake-case
   dir: string-snake-case
   description: Convert a string to snake case
-  examples: |
+  examples: |-
     import snakeCase from 'just-snake-case';
 
     snakeCase('the quick brown fox'); // 'the_quick_brown_fox'
@@ -1500,7 +1500,7 @@ just-squash:
   packageName: just-squash
   dir: string-squash
   description: Remove all spaces from a string, optionally remove escape sequences too
-  examples: |
+  examples: |-
     import squash from 'just-squash';
 
     squash('the cat sat on the mat'); // 'thecatsatonthemat'
@@ -1512,7 +1512,7 @@ just-template:
   packageName: just-template
   dir: string-template
   description: Interpolate a string with variables
-  examples: |
+  examples: |-
     import template from 'just-template';
 
     var data = {
@@ -1531,7 +1531,7 @@ just-truncate:
   packageName: just-truncate
   dir: string-truncate
   description: Truncate a string with a custom suffix
-  examples: |
+  examples: |-
     import truncate from 'just-truncate';
 
     truncate('when shall we three meet again', 9); // 'when s...'
@@ -1543,7 +1543,7 @@ just-deep-map-values:
   packageName: just-deep-map-values
   dir: object-deep-map-values
   description: Returns an object with values at all depths mapped according to the provided function
-  examples: |
+  examples: |-
     import deepMapValues from 'just-deep-map-values';
 
     const squareFn = (number) => number * number;

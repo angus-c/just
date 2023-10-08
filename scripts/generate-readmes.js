@@ -9,11 +9,6 @@ const packageVariables = YAML.parse(
   readFileSync('./packages.yml', 'utf8')
 );
 
-Object.entries(packageVariables).forEach(([name, data]) => {
-  packageVariables[name].examples = data.examples.trim();
-  packageVariables[name].description = data.description.trim();
-});
-
 const templates = {
   local: 'templates/local.template.md',
   global: 'templates/global.template.md',
