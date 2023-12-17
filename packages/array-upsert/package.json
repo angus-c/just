@@ -2,14 +2,16 @@
   "name": "just-upsert",
   "version": "1.0.0",
   "description": "Upsert (update or insert) a value into an array at a target index",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "default": "./index.mjs"
-    }
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,10 +21,10 @@
   "keywords": [
     "array",
     "upsert",
+    "update",
     "insert",
     "no-dependencies",
-    "just",
-    "push"
+    "just"
   ],
   "author": "Thomas Clark",
   "license": "MIT",
