@@ -316,7 +316,6 @@ test('deep extend cannot extend native prototypes', function(t) {
 
   var attackObj2 = JSON.parse('{"__proto__": {"isAdmin": true}}');
   var obj2 = extend(true, {}, attackObj2);
-  console.log(JSON.stringify(obj2, null, 2));
   t.equal({}.isAdmin, undefined);
   t.equal({}.__proto__.isAdmin, undefined);
   t.ok(typeof {}.constructor === 'function');

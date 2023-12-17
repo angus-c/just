@@ -1,15 +1,17 @@
 {
   "name": "just-flip-object",
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "flip the keys and values",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "default": "./index.mjs"
-    }
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

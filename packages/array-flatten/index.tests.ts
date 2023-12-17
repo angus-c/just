@@ -1,10 +1,11 @@
 import flatten from './index'
 
 // OK
-flatten([1, 2, 3]);
-flatten([1, [2, 3], 4]);
-flatten([1, [2, [3]], 4]);
-flatten([1, [2, [3]], [[[[[4]]]]]]);
+const numbers: readonly number[] = [1, 2, 3]
+flatten(numbers);
+flatten([1, numbers, 4]);
+flatten([1, [2, numbers], 4]);
+flatten([1, [2, [3]], [[[[numbers]]]]]);
 flatten([1, [2, [3]], [[[[[4]]]]]], 2);
 flatten([1, [2, [3]], [[[[[4]]]]]], undefined);
 
@@ -16,7 +17,7 @@ flatten(true);
 // @ts-expect-error
 flatten(null);
 // @ts-expect-error
-flatten({a: 5});
+flatten({ a: 5 });
 // @ts-expect-error
 flatten([1], true);
 // @ts-expect-error

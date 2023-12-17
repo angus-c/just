@@ -14,5 +14,5 @@
  * index([{id: 0, val: 0}, {id: 0, val: 1}], 'id');
  * // => {first: {id: 0, val: 1}}
  */
-declare function index<T>(arr: Array<T|null|undefined>, key: string): Record<string, T>;
+declare function index<T>(arr: readonly (T | null | undefined)[], key: string): Record<string, T>;
 export default index;

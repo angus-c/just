@@ -22,7 +22,11 @@ function isPrime(number) {
     return false;
   }
 
-  for (var i = 2; i <= Math.sqrt(number); i++) {
+  if (number % 2 === 0) {
+    return (number === 2);
+  }
+
+  for (var i = 3; i <= Math.sqrt(number); i += 2) {
     if (number % i === 0) {
       return false;
     }

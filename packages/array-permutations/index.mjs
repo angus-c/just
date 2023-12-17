@@ -28,7 +28,7 @@ function permutations(arr) {
     for (var j = 0, len2 = partial.length; j <= len2; j++) {
       var start = partial.slice(0, j);
       var end = partial.slice(j);
-      var merged = start.concat(first, end);
+      var merged = start.concat([first], end);
 
       output.push(merged);
     }

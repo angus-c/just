@@ -1,17 +1,18 @@
 {
   "name": "just-flip",
-  "version": "2.0.2",
+  "version": "2.2.0",
   "description": "flip first two arguments of a function",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
-  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"

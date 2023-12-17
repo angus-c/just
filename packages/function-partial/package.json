@@ -1,15 +1,17 @@
 {
   "name": "just-partial-it",
-  "version": "3.1.1",
+  "version": "3.4.0",
   "description": "return a partial function",
-  "main": "index.js",
-  "module": "index.mjs",
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./index.js",
-      "default": "./index.mjs"
-    }
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
   },
+  "main": "index.cjs",
   "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

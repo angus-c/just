@@ -1,5 +1,5 @@
 ### [<!-- template-mate: { "type": "variable", "name": "packageName"} -->](https://www.npmjs.com/package/<!-- template-mate: { "type": "variable", "name": "packageName"} -->)
-[source](https://github.com/angus-c/just/tree/master/packages/<!-- template-mate: { "type": "variable", "name": "dir"} -->/index.js)
+[source](https://github.com/angus-c/just/tree/master/packages/<!-- template-mate: { "type": "variable", "name": "dir"} -->)
 
 [`🍦 Try it`](https://anguscroll.com/just/<!-- template-mate: { "type": "variable", "name": "packageName"} -->)
 

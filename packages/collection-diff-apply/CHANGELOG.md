@@ -1,5 +1,23 @@
 # just-diff-apply
 
+## 5.5.0
+
+### Minor Changes
+
+- Rename node module .js -> .cjs
+
+## 5.4.1
+
+### Patch Changes
+
+- fix: reorder exports to set default last #488
+
+## 5.4.0
+
+### Minor Changes
+
+- package.json updates to fix #467 and #483
+
 ## 5.3.1
 
 ### Patch Changes

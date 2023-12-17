@@ -1,15 +1,17 @@
 {
   "name": "just-demethodize",
-  "version": "3.0.1",
+  "version": "3.2.0",
   "description": "turn a method into a standalone function; the first arg becomes `this`",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

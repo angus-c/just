@@ -1,7 +1,8 @@
 import groupBy from './index';
 
 // OK
-const test1: { [key: string]: number[] } = groupBy([6.1, 4.2, 6.3], Math.floor);
+const numbers: readonly number[] = [6.1, 4.2, 6.3]
+const test1: { [key: string]: number[] } = groupBy(numbers, Math.floor);
 const test2: { [key: string]: string[] } = groupBy(
   ['a', 'b', 'c', 'aa', 'bb', 'cc'],
   str => str.charAt(0)

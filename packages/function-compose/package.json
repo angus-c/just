@@ -1,17 +1,18 @@
 {
   "name": "just-compose",
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "return a function composed of 2 or more functions",
-  "main": "index.js",
+  "main": "index.cjs",
   "types": "index.d.ts",
   "module": "index.mjs",
   "exports": {
     ".": {
-      "require": "./index.js",
+      "require": "./index.cjs",
+      "types": "./index.d.ts",
       "default": "./index.mjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
-  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c"

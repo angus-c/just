@@ -1,13 +1,10 @@
 type ReturnTrueValues = null | undefined | "" | [] | number | boolean | Symbol;
-type ReturnFalseValues = string | any[];
-type CheckValue = ReturnTrueValues | ReturnFalseValues | object;
+type CheckValue = ReturnTrueValues | object | string | any[];
 
 declare function isEmpty<T extends CheckValue>(
   obj: T
 ): T extends ReturnTrueValues
   ? true
-  : T extends ReturnFalseValues
-  ? false
   : boolean;
 
 export default isEmpty;
