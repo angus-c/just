@@ -1,0 +1,34 @@
+{
+  "name": "just-upsert",
+  "version": "1.0.0",
+  "description": "Upsert (update or insert) a value into an array at a target index",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "array",
+    "upsert",
+    "update",
+    "insert",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "Thomas Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}

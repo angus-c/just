@@ -532,6 +532,17 @@
       "unique(['a', 'c', 'b', 'c', 'a'], false, true); // ['a', 'b', 'c']"
     ]
   },
+  "just-upsert": {
+    "packageName": "just-upsert",
+    "dir": "array-upsert",
+    "description": "Upsert (update or insert) a value into an array at a target index",
+    "examples": [
+      "import upsert from 'just-upsert';",
+      "",
+      "upsert([1,2,3,4],-1,2) // [1,2,-1,4]",
+      "upsert(['a','b','c'],'d',6) // ['a','b','c','d']"
+    ]
+  },
   "just-variance": {
     "packageName": "just-variance",
     "dir": "array-variance",
