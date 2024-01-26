@@ -204,3 +204,24 @@ test('primitives compared with primitive wrappers return false', function(t) {
   t.notOk(compare(value2, value1));
   t.end();
 });
+
+test('objects with keys shadowing hasOwnProperty do not crash', function(t) {
+  t.plan(2);
+  var value1 = {hasOwnProperty: 1};
+  var value2 = {hasOwnProperty: 1};
+  t.ok(compare(value1, value2));
+  var value3 = {hasOwnProperty: 2};
+  t.notOk(compare(value1, value3));
+  t.end();
+});
+
+test('objects with no prototypes do not crash', function(t) {
+  t.plan(2);
+  var value1 = {foo: 'bar'};
+  var value2 = Object.create(null);
+  value2.foo = 'bar';
+  t.ok(compare(value1, value2));
+  var value3 = {foo: 'baz'};
+  t.notOk(compare(value3, value2));
+  t.end();
+});
