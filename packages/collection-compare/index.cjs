@@ -88,7 +88,7 @@ function compareObjects(value1, value2) {
   for (var i = 0; i < len; i++) {
     var key1 = keys1[i];
 
-    if (!(value2.hasOwnProperty(key1) && compare(value1[key1], value2[key1]))) {
+    if (!({}.hasOwnProperty.call(value2, key1) && compare(value1[key1], value2[key1]))) {
       return false;
     }
   }
