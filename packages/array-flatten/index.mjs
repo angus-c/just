@@ -7,20 +7,32 @@ var arrayFlatten = flatten;
 
 function flattenHelper(arr, depth) {
   var stack = arr.slice();
-  var result = [];
+  var stackContainsArray = false;
 
-  while (stack.length) {
-    var item = stack.pop();
-
-    if (Array.isArray(item) && depth > 0) {
-      stack.push.apply(stack, item);
-      depth--;
-    } else {
-      result.push(item);
+  for (var i=0; i<stack.length; i++) {
+    if (Array.isArray(stack[i])) {
+      stackContainsArray = true;
     }
   }
 
-  return result.reverse();
+  for (; depth > 0 && stackContainsArray; depth--) {
+    stackContainsArray = false;
+    var nextStack = [];
+
+    while (stack.length) {
+      var item = stack.shift();
+      if (Array.isArray(item)) {
+        stackContainsArray = true;
+        nextStack.push.apply(nextStack, item);
+      } else {
+        nextStack.push(item);
+      }
+    }
+
+    stack = nextStack;
+  }
+
+  return stack;
 }
 
 function flatten(arr, depth) {
