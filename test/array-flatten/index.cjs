@@ -40,12 +40,12 @@ test('returns a new array with all sub-arrays items concatenated into it up to t
   function(t) {
     t.plan(5);
 
-    var arr = [1, [2, [3, [4, [5]]]]];
+    var arr = [[1, [2, 3], 4], [5, [6, [7, [8]]]]];
     t.deepEqual(flatten(arr, 0), arr);
-    t.deepEqual(flatten(arr, 1), [1, 2, [3, [4, [5]]]]);
-    t.deepEqual(flatten(arr, 2), [1, 2, 3, [4, [5]]]);
-    t.deepEqual(flatten(arr, 3), [1, 2, 3, 4, [5]]);
-    t.deepEqual(flatten(arr, 4), [1, 2, 3, 4, 5]);
+    t.deepEqual(flatten(arr, 1), [1, [2, 3], 4, 5, [6, [7, [8]]]]);
+    t.deepEqual(flatten(arr, 2), [1, 2, 3, 4, 5, 6, [7, [8]]]);
+    t.deepEqual(flatten(arr, 3), [1, 2, 3, 4, 5, 6, 7, [8]]);
+    t.deepEqual(flatten(arr, 4), [1, 2, 3, 4, 5, 6, 7, 8]);
 
     t.end();
   });
