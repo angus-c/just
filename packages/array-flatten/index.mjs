@@ -9,9 +9,10 @@ function flattenHelper(arr, depth) {
   var stack = arr.slice();
   var stackContainsArray = false;
 
-  for (var i=0; i<stack.length; i++) {
+  for (var i = 0; i < stack.length; i++) {
     if (Array.isArray(stack[i])) {
       stackContainsArray = true;
+      break;
     }
   }
 
