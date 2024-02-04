@@ -7,20 +7,26 @@ module.exports = flatten;
 
 function flattenHelper(arr, depth) {
   var stack = arr.slice();
-  var result = [];
+  var stackContainsArray = true;
 
-  while (stack.length) {
-    var item = stack.pop();
+  for (; depth > 0 && stackContainsArray; depth--) {
+    stackContainsArray = false;
+    var nextStack = []
 
-    if (Array.isArray(item) && depth > 0) {
-      stack.push.apply(stack, item);
-      depth--;
-    } else {
-      result.push(item);
+    while (stack.length) {
+      var item = stack.shift();
+      if (Array.isArray(item)) {
+        stackContainsArray = true;
+        nextStack.push.apply(nextStack, item);
+      } else {
+        nextStack.push(item);
+      }
     }
+
+    stack = nextStack;
   }
 
-  return result.reverse();
+  return stack;
 }
 
 function flatten(arr, depth) {
