@@ -89,6 +89,21 @@
       "intersect([1, 2, 2, 4, 5], [3, 2, 2, 5, 7]); // [2, 5]  "
     ]
   },
+  "just-is-numeric": {
+    "packageName": "just-is-numeric",
+    "dir": "string-is-numeric",
+    "description": "Checks whether a value is numeric",
+    "examples": [
+      "import isNumeric from 'just-is-numeric';",
+      "",
+      "isNumeric(3); // true",
+      "isNumeric('3'); // true",
+      "isNumeric(3.4); // true",
+      "isNumeric('3.4'); // true",
+      "isNumeric('3.4.5'); // false",
+      "isNumeric('3a'); // false"
+    ]
+  },
   "just-last": {
     "packageName": "just-last",
     "dir": "array-last",
