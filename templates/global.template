@@ -25,13 +25,13 @@ A [REPL](https://anguscroll.com/just) for every utility (powered by [RunKit](htt
 All packages support ES module or Common JS syntax without requiring transpilation
 ```
 // esm (node / bundler)
-import clone from 'just-clone'; 
+import clone from 'just-clone';
 
 // esm (native browser code)
-import clone from './node_modules/just-clone/index.mjs'; 
+import clone from './node_modules/just-clone/index.mjs';
 
 // cjs
-const clone = require('just-clone'); 
+const clone = require('just-clone');
 ```
 ## TypeScript <img src="images/ts.png" width="18"/>
 
@@ -89,6 +89,7 @@ Most utilities still work with any platform that supports ES5, but these are the
   - [just-shuffle](#just-shuffle)
   - [just-split](#just-split)
   - [just-split-at](#just-split-at)
+  - [just-order-by](#just-order-by)
   - [just-sort-by](#just-sort-by)
   - [just-partition](#just-partition)
   - [just-permutations](#just-permutations)
@@ -220,6 +221,8 @@ Most utilities still work with any platform that supports ES5, but these are the
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-split" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-split-at" } -->
+
+<!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-order-by" } -->
 
 <!-- template-mate: { "type": "template", "template": "globalPackage", "variablesPath": "just-sort-by" } -->
 

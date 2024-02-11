@@ -1,7 +1,7 @@
 {
-  "name": "just-diff",
-  "version": "6.0.2",
-  "description": "Return an object representing the diffs between two objects. Supports jsonPatch protocol",
+  "name": "just-order-by",
+  "version": "1.0.0",
+  "description": "Produces a new array, sorted in given order",
   "type": "module",
   "exports": {
     ".": {
@@ -19,13 +19,11 @@
   },
   "repository": "https://github.com/angus-c/just",
   "keywords": [
-    "object",
-    "diff",
-    "jsonPatch",
-    "no-dependencies",
+    "array",
+    "sort",
     "just"
   ],
-  "author": "Angus Croll",
+  "author": "Maxim Molochkov (https://github.com/klaseca)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angus-c/just/issues"

@@ -1,5 +1,11 @@
 # just-safe-set
 
+## 4.2.1
+
+### Patch Changes
+
+- Fixed README to remove suggestion it does not clobber
+
 ## 4.2.0
 
 ### Minor Changes

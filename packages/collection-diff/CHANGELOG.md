@@ -1,5 +1,23 @@
 # just-diff
 
+## 6.0.2
+
+### Patch Changes
+
+- Fixes #543. Remove recursing multiple permutations in favor of deciding upfront whether left or right trim is the most efficient.
+
+## 6.0.1
+
+### Patch Changes
+
+- issue #544 Fix case that should be 'add' not 'replace'
+
+## 6.0.0
+
+### Major Changes
+
+- 1669fd90: optimize diff path: trim from left and right (recursviely) and use shortest path, replace at root level if values are of different type. Addresses https://github.com/angus-c/just/issues/505
+
 ## 5.2.0
 
 ### Minor Changes
