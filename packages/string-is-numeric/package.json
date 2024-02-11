@@ -1,0 +1,34 @@
+{
+  "name": "is-numeric",
+  "version": "1.0.0",
+  "description": "Checks whether a value is numeric",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": "https://github.com/angus-c/just",
+  "keywords": [
+    "number",
+    "string",
+    "float",
+    "integer",
+    "no-dependencies",
+    "just"
+  ],
+  "author": "evandrolg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angus-c/just/issues"
+  }
+}
