@@ -11,4 +11,6 @@
  * partition(['a', 1, 2, 'b'], x => typeof x == 'string');
  * // => [['a', 'b'], [1, 2]]
  */
-export default function partition<T>(arr: T[], resolver: (arg: T) => boolean): [T[], T[]]
+declare function partition<T, S extends T>(arr: T[], resolver: (arg: T) => arg is S): [S[], Exclude<T, S>[]];
+declare function partition<T>(arr: T[], resolver: (arg: T) => boolean): [T[], T[]]
+export default partition;
