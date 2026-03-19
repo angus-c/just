@@ -44,6 +44,10 @@ function extend(/* [deep], obj1, obj2, [objn] */) {
     var extender = extenders[i];
     for (var key in extender) {
       if (Object.prototype.hasOwnProperty.call(extender, key)) {
+        // Prevent prototype pollution
+        if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+          continue;
+        }
         var value = extender[key];
         if (deep && isCloneable(value)) {
           var base = Array.isArray(value) ? [] : {};

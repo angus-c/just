@@ -301,27 +301,96 @@ test('deep extend does not copy prototype values', function(t) {
   t.end();
 });
 
-test('deep extend cannot extend native prototypes', function(t) {
-  t.plan(14);
-  var attackObj1 = {constructor: {prototype: {isAdmin: true}}};
-  var obj1 = extend(true, {}, attackObj1);
-  t.equal({}.isAdmin, undefined);
-  t.equal({}.__proto__.isAdmin, undefined);
-  t.ok(typeof {}.constructor === 'function');
-  t.ok(obj1.constructor);
-  t.ok(typeof obj1.constructor === 'object');
-  t.ok(obj1.constructor.prototype);
-  t.ok(typeof obj1.constructor.prototype === 'object');
-  t.equal(obj1.constructor.prototype.isAdmin, true);
+test('deep extend blocks prototype pollution via __proto__', function(t) {
+  t.plan(6);
+  // Verify clean state before attack
+  t.equal({}.polluted, undefined, 'Object.prototype clean before test');
 
-  var attackObj2 = JSON.parse('{"__proto__": {"isAdmin": true}}');
-  var obj2 = extend(true, {}, attackObj2);
-  t.equal({}.isAdmin, undefined);
-  t.equal({}.__proto__.isAdmin, undefined);
-  t.ok(typeof {}.constructor === 'function');
-  t.ok(obj2.__proto__);
-  t.equal(obj2.isAdmin, true);
-  t.equal(obj2.__proto__.isAdmin, true);
+  // Attempt prototype pollution via JSON.parse (creates true own __proto__ property)
+  var malicious = JSON.parse('{"__proto__": {"polluted": "yes"}}');
+  var result = extend(true, {}, malicious);
+
+  // Verify Object.prototype was NOT polluted
+  t.equal({}.polluted, undefined, 'Object.prototype not polluted');
+  t.equal(Object.prototype.polluted, undefined, 'Object.prototype.polluted is undefined');
+
+  // Verify __proto__ key was skipped entirely (not copied to result)
+  t.equal(Object.prototype.hasOwnProperty.call(result, '__proto__'), false, '__proto__ key not copied');
+  t.equal(result.polluted, undefined, 'result does not inherit polluted property');
+
+  // Verify new objects are clean
+  var newObj = {};
+  t.equal(newObj.polluted, undefined, 'new objects not polluted');
+  t.end();
+});
+
+test('deep extend blocks prototype pollution via constructor.prototype', function(t) {
+  t.plan(5);
+  // Verify clean state before attack
+  t.equal({}.isAdmin, undefined, 'Object.prototype clean before test');
+
+  // Attempt prototype pollution via constructor.prototype
+  var attackObj = {constructor: {prototype: {isAdmin: true}}};
+  var result = extend(true, {}, attackObj);
+
+  // Verify Object.prototype was NOT polluted
+  t.equal({}.isAdmin, undefined, 'Object.prototype not polluted');
+  t.equal(Object.prototype.isAdmin, undefined, 'Object.prototype.isAdmin is undefined');
+
+  // Verify constructor key was skipped
+  t.equal(Object.prototype.hasOwnProperty.call(result, 'constructor'), false, 'constructor key not copied');
+
+  // Verify Function.prototype.constructor was not modified
+  t.ok(typeof {}.constructor === 'function', 'constructor is still a function');
+  t.end();
+});
+
+test('shallow extend blocks prototype pollution', function(t) {
+  t.plan(4);
+  // Attempt prototype pollution in shallow mode
+  var malicious = JSON.parse('{"__proto__": {"polluted": "shallow"}}');
+  var result = extend({}, malicious);
+
+  // Verify Object.prototype was NOT polluted
+  t.equal({}.polluted, undefined, 'Object.prototype not polluted in shallow mode');
+  t.equal(Object.prototype.hasOwnProperty.call(result, '__proto__'), false, '__proto__ key not copied');
+
+  // Also test constructor
+  var attackObj = {constructor: {evil: true}};
+  var result2 = extend({}, attackObj);
+  t.equal(Object.prototype.hasOwnProperty.call(result2, 'constructor'), false, 'constructor key not copied');
+  t.ok(typeof {}.constructor === 'function', 'constructor is still a function');
+  t.end();
+});
+
+test('extend still works normally for non-dangerous keys', function(t) {
+  t.plan(6);
+  // Ensure regular functionality is not broken
+  var src = {a: 1, b: {c: 2}};
+  var ext = {a: 10, b: {d: 3}, e: 'new'};
+
+  // Shallow extend
+  var shallow = extend({}, src, ext);
+  t.deepEqual(shallow, {a: 10, b: {d: 3}, e: 'new'}, 'shallow extend works');
+
+  // Deep extend
+  var deep = extend(true, {}, src, ext);
+  t.deepEqual(deep, {a: 10, b: {c: 2, d: 3}, e: 'new'}, 'deep extend works');
+
+  // Test with various valid keys that should still work
+  var objWithSpecialKeys = {
+    proto: 'valid', // Note: 'proto' without underscores is valid
+    _constructor: 'valid',
+    prototypeName: 'valid'
+  };
+  var result = extend({}, objWithSpecialKeys);
+  t.equal(result.proto, 'valid', 'proto (without underscores) works');
+  t.equal(result._constructor, 'valid', '_constructor works');
+  t.equal(result.prototypeName, 'valid', 'prototypeName works');
+
+  // Nested objects with normal keys
+  var nested = extend(true, {}, {level1: {level2: {level3: 'deep'}}});
+  t.equal(nested.level1.level2.level3, 'deep', 'nested extend works');
   t.end();
 });
 
