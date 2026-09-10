@@ -69,6 +69,42 @@ test('objects with array properties', function(t) {
   t.end();
 });
 
+test('returns the original object after nested updates', function(t) {
+  t.plan(8);
+  var obj1 = {a: [1, 2, 3, 4, 5]};
+  var originalDiff = [
+    {op: 'remove', path: ['a', 4]},
+    {op: 'remove', path: ['a', 3]},
+    {op: 'replace', path: ['a', 2], value: 5},
+  ];
+  var diff = clone(originalDiff);
+  var result1 = diffApply(obj1, diff);
+  t.deepEqual(result1, {a: [1, 2, 5]});
+  t.equal(result1, obj1);
+  t.deepEqual(obj1, {a: [1, 2, 5]});
+  t.deepEqual(diff, originalDiff);
+
+  var obj2 = {a: {b: 1, c: 2}};
+  originalDiff = [{op: 'replace', path: ['a', 'b'], value: 9}];
+  diff = clone(originalDiff);
+  var result2 = diffApply(obj2, diff);
+  t.deepEqual(result2, {a: {b: 9, c: 2}});
+  t.equal(result2, obj2);
+  t.deepEqual(obj2, {a: {b: 9, c: 2}});
+  t.deepEqual(diff, originalDiff);
+  t.end();
+});
+
+test('returns the original object when diff is empty', function(t) {
+  t.plan(3);
+  var obj = {a: 1};
+  var result = diffApply(obj, []);
+  t.deepEqual(result, {a: 1});
+  t.equal(result, obj);
+  t.deepEqual(obj, {a: 1});
+  t.end();
+});
+
 test('objects with array properties using string array keys', function(t) {
   t.plan(4);
   var obj3 = {a: 4, b: [1, 2, 3]};

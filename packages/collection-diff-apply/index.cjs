@@ -125,7 +125,7 @@ function diffApply(obj, diff, pathConverter) {
       subObject[lastToProp] = valueToMove;
     }
   }
-  return subObject;
+  return obj;
 }
 
 function transformPath(pathConverter, thisPath) {
