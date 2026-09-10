@@ -167,7 +167,7 @@ function diff(obj1, obj2, pathConverter) {
       } else {
         if(!Object.keys(obj1AtKey).length &&
           !Object.keys(obj2AtKey).length &&
-          String(obj1AtKey) != String(obj2AtKey)) {
+          valueToString(obj1AtKey) != valueToString(obj2AtKey)) {
           pushReplace(path, diffs, obj2AtKey);
         } else {
           getDiff({
@@ -198,20 +198,26 @@ function differentTypes(a, b) {
   return Object.prototype.toString.call(a) != Object.prototype.toString.call(b);
 }
 
+function valueToString(obj) {
+  return obj == null || typeof obj.toString == 'function'
+    ? String(obj)
+    : Object.prototype.toString.call(obj);
+}
+
 function trimFromRight(obj1, obj2) {
   var lengthDelta = obj1.length - obj2.length;
   if (Array.isArray(obj1) && Array.isArray(obj2) && lengthDelta > 0) {
     var leftMatches = 0;
     var rightMatches = 0;
     for (var i = 0; i < obj2.length; i++) {
-      if (String(obj1[i]) === String(obj2[i])) {
+      if (valueToString(obj1[i]) === valueToString(obj2[i])) {
         leftMatches++;
       } else {
         break;
       }
     }
     for (var j = obj2.length; j > 0; j--) {
-      if (String(obj1[j + lengthDelta]) === String(obj2[j])) {
+      if (valueToString(obj1[j + lengthDelta]) === valueToString(obj2[j])) {
         rightMatches++;
       } else {
         break;

@@ -538,6 +538,40 @@ test('objects whose properties are objects but with no properties of their own',
   );
 });
 
+test('objects with no prototype', function(t) {
+  t.plan(5);
+
+  t.ok(
+    compare(
+      diff({a: Object.create(null)}, {a: Object.create(null)}),
+      []
+    )
+  );
+  t.ok(
+    compare(
+      diff({a: Object.create(null)}, {a: {}}),
+      []
+    )
+  );
+
+  var obj1 = Object.create(null);
+  obj1.x = 1;
+  var obj2 = Object.create(null);
+  obj2.x = 2;
+  t.ok(
+    compare(diff({a: obj1}, {a: obj2}), [
+      {op: 'replace', path: ['a', 'x'], value: 2},
+    ])
+  );
+
+  t.ok(compare(diff([Object.create(null)], [{}]), []));
+  t.ok(
+    compare(diff([Object.create(null), 1], [Object.create(null)]), [
+      {op: 'remove', path: [1]},
+    ])
+  );
+});
+
 test('path optimization for array', function(t) {
   t.plan(11);
 
