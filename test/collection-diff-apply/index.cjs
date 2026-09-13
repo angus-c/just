@@ -383,6 +383,28 @@ test('replacing falsey values using js patch standard', function(t) {
   t.end();
 });
 
+test('move into a nested destination path', function(t) {
+  t.plan(2);
+  var obj1 = {a: 1, b: {c: 0}};
+  var originalDiff = [{op: 'move', from: ['a'], path: ['b', 'c']}];
+  var diff = clone(originalDiff);
+  diffApply(obj1, diff);
+  t.deepEqual(obj1, {b: {c: 1}});
+  t.deepEqual(diff, originalDiff);
+  t.end();
+});
+
+test('move from a nested source to a different top level destination', function(t) {
+  t.plan(2);
+  var obj1 = {a: {x: 42}, b: 0};
+  var originalDiff = [{op: 'move', from: ['a', 'x'], path: ['b']}];
+  var diff = clone(originalDiff);
+  diffApply(obj1, diff);
+  t.deepEqual(obj1, {a: {}, b: 42});
+  t.deepEqual(diff, originalDiff);
+  t.end();
+});
+
 test('detects prototype pollution', function(t) {
   t.plan(6);
   var obj6 = {a: 4};

@@ -67,6 +67,7 @@ function diffApply(obj, diff, pathConverter) {
       // MOVE only, "fromPath" is effectively path and "path" is toPath
       toPath = thisPath;
       thisPath = thisFromPath;
+      subToObject = obj;
 
       toPathCopy = toPath.slice();
       lastToProp = toPathCopy.pop();
@@ -117,7 +118,7 @@ function diffApply(obj, diff, pathConverter) {
     }
 
     if (thisOp === MOVE) {
-      subObject[lastToProp] = valueToMove;
+      subToObject[lastToProp] = valueToMove;
     }
   }
   return subObject;
