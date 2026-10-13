@@ -1,6 +1,17 @@
 var test = require('../util/test')(__filename);
 var template = require('../../packages/string-template');
 
+test('preserves zero and false values', function(t) {
+  t.equal(template('{{count}} {{enabled}}', {count: 0, enabled: false}), '0 false');
+  t.equal(template('{{item.count}}', {item: {count: 0}}), '0');
+  t.end();
+});
+
+test('null and undefined values remain empty', function(t) {
+  t.equal(template('{{a}} {{b}} {{missing}}', {a: null, b: undefined}), '  ');
+  t.end();
+});
+
 test('variables replaced by simple data', function(t) {
   t.plan(1);
   var data = {a: 3, b: 4};

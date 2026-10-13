@@ -27,8 +27,8 @@ function template(string, data) {
       if (!value) return '';
       value = value[keyParts[i]];
     }
-    return value || '';
+    return value == null ? '' : value;
   });
 }
 
-export {stringTemplate as default};
+export { stringTemplate as default };
