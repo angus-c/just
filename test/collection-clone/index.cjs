@@ -68,6 +68,31 @@ test('clones Dates and RegExps', function(t) {
   t.end();
 });
 
+test('preserves supported RegExp flags', function(t) {
+  var flags = ['gimuy', 's', 'd', 'v'];
+  for (var i = 0; i < flags.length; i++) {
+    var pattern;
+    try {
+      pattern = new RegExp('a.b', flags[i]);
+    } catch (error) {
+      t.comment('runtime does not support RegExp flag ' + flags[i]);
+      continue;
+    }
+    var result = clone({pattern: pattern}).pattern;
+    t.notEqual(result, pattern);
+    t.equal(result.flags, pattern.flags);
+    t.equal(result.test('a\nb'), pattern.test('a\nb'));
+  }
+  t.end();
+});
+
+test('clones RegExps without a flags property', function(t) {
+  var pattern = /a/gim;
+  Object.defineProperty(pattern, 'flags', {value: undefined});
+  t.equal(clone(pattern).flags, 'gim');
+  t.end();
+});
+
 test('clones Sets and Maps', function(t) {
   t.plan(24);
 

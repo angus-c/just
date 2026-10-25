@@ -40,10 +40,11 @@ function clone(obj) {
 }
 
 function getRegExpFlags(regExp) {
-  if (typeof regExp.source.flags == 'string') {
-    return regExp.source.flags;
+  var flags = regExp.flags;
+  if (typeof flags == 'string') {
+    return flags;
   } else {
-    var flags = [];
+    flags = [];
     regExp.global && flags.push('g');
     regExp.ignoreCase && flags.push('i');
     regExp.multiline && flags.push('m');
