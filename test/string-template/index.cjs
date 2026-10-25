@@ -9,6 +9,16 @@ test('variables replaced by simple data', function(t) {
   t.end();
 });
 
+test('ignores whitespace around variable paths', function(t) {
+  var data = {count: 3, setting: {count: 4}, 'full name': 'Ada'};
+  t.equal(template('{{ count }}', data), '3');
+  t.equal(template('{{ setting.count }}', data), '4');
+  t.equal(template('count: {{\tsetting.count\n}}', data), 'count: 4');
+  t.equal(template('{{ full name }}', data), 'Ada');
+  t.equal(template('{{ missing.value }}', data), '');
+  t.end();
+});
+
 test('variable used more than once', function(t) {
   t.plan(1);
   var data = {a: 3, b: 4};
