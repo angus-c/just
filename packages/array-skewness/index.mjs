@@ -5,7 +5,7 @@ function skewness(arr) {
     arr = [].slice.call(arguments);
   }
   if (!arr.length || arr.length < 2) {
-    throw new Error('less than one value was passed to `skewness`');
+    throw new Error('fewer than two values were passed to `skewness`');
   }
 
   var standardDeviation, mean, median;
