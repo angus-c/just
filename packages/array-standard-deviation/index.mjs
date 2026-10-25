@@ -5,7 +5,7 @@ function stdev(arr) {
     arr = [].slice.call(arguments);
   }
   if (!arr.length || arr.length < 2) {
-    throw new Error('less than one value was passed to `standard deviation`');
+    throw new Error('fewer than two values were passed to `standard deviation`');
   }
 
   var sum = 0;
