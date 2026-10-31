@@ -16,7 +16,16 @@ function groupBy(arr, cb) {
     var bucket = result[bucketCategory];
 
     if (!Array.isArray(bucket)) {
-      result[bucketCategory] = [item];
+      if (bucketCategory === '__proto__') {
+        Object.defineProperty(result, bucketCategory, {
+          value: [item],
+          enumerable: true,
+          writable: true,
+          configurable: true,
+        });
+      } else {
+        result[bucketCategory] = [item];
+      }
     } else {
       result[bucketCategory].push(item);
     }

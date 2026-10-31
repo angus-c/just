@@ -55,3 +55,15 @@ test('should return grouped objects', function(t) {
   t.deepEqual(result2, {'0': [2, 4, 6, 8], '1': [1, 3, 5, 7]});
   t.end();
 });
+
+test('preserves __proto__ as an own group without changing the result prototype', function(t) {
+  t.plan(4);
+  var values = [{group: '__proto__', id: 1}, {group: '__proto__', id: 2}];
+  var result = groupBy(values, function(item) { return item.group; });
+  t.deepEqual(Object.keys(result), ['__proto__']);
+  t.deepEqual(result['__proto__'], values);
+  t.equal(Object.getPrototypeOf(result), Object.prototype);
+  t.equal(JSON.stringify(result), '{"__proto__":[{"group":"__proto__","id":1},' +
+    '{"group":"__proto__","id":2}]}');
+  t.end();
+});
