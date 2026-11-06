@@ -204,3 +204,59 @@ test('throws an error when `isEqual` is defined but it is not a function', funct
 
   t.end();
 });
+
+test('does not cache a thrown evaluation', function(t) {
+  var calls = 0;
+  var fail = true;
+  var memoized = memoizeLast(function(value) {
+    calls++;
+    if (fail) throw new Error('failure');
+    return value;
+  });
+  t.throws(function() { memoized('first'); }, /failure/);
+  t.throws(function() { memoized('first'); }, /failure/);
+  t.equal(calls, 2);
+  fail = false;
+  t.equal(memoized('first'), 'first');
+  t.equal(memoized('first'), 'first');
+  t.equal(calls, 3);
+  t.end();
+});
+
+test('keeps the last successful result after an exception', function(t) {
+  var calls = 0;
+  var memoized = memoizeLast(function(value) {
+    calls++;
+    if (value === 'bad') throw new Error('failure');
+    return value;
+  });
+  t.equal(memoized('good'), 'good');
+  t.throws(function() { memoized('bad'); }, /failure/);
+  t.throws(function() { memoized('bad'); }, /failure/);
+  t.equal(memoized('good'), 'good');
+  t.equal(calls, 3);
+  t.end();
+});
+
+test('keeps the successful receiver and custom comparison after an exception', function(t) {
+  var calls = 0;
+  var first = {fail: false};
+  var second = {fail: true};
+  var memoized = memoizeLast(function(value) {
+    calls++;
+    if (this.fail || value.id === 'bad') throw new Error('failure');
+    return value.id;
+  }, function(previous, next) {
+    return previous[0].id === next[0].id;
+  });
+  t.equal(memoized.call(first, {id: 'good'}), 'good');
+  t.throws(function() { memoized.call(second, {id: 'good'}); }, /failure/);
+  t.throws(function() { memoized.call(second, {id: 'good'}); }, /failure/);
+  t.equal(memoized.call(first, {id: 'good'}), 'good');
+  t.equal(calls, 3);
+  t.throws(function() { memoized.call(first, {id: 'bad'}); }, /failure/);
+  t.throws(function() { memoized.call(first, {id: 'bad'}); }, /failure/);
+  t.equal(memoized.call(first, {id: 'good'}), 'good');
+  t.equal(calls, 5);
+  t.end();
+});
