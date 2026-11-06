@@ -16,7 +16,7 @@ function random(n1, n2) {
     n2 = temp;
   }
 
-  return ~~(Math.random() * (trunc(n2) + 1 - trunc(n1))) + trunc(n1);
+  return Math.floor(Math.random() * (trunc(n2) + 1 - trunc(n1))) + trunc(n1);
 }
 
 function trunc(n) {
