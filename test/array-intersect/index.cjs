@@ -55,3 +55,20 @@ test("throws if first two arguments aren't arrays", function(t) {
   });
   t.end();
 });
+
+test('reserved string keys intersect without collisions', function(t) {
+  t.plan(6);
+  t.deepEqual(intersect(['hasOwnProperty'], ['hasOwnProperty']), ['hasOwnProperty']);
+  t.deepEqual(intersect(['x'], ['hasOwnProperty', 'x']), ['x']);
+  t.deepEqual(
+    intersect(['hasOwnProperty', 'hasOwnProperty', 'x'], ['x', 'hasOwnProperty']),
+    ['hasOwnProperty', 'x']
+  );
+  t.deepEqual(intersect(['__proto__'], ['__proto__']), ['__proto__']);
+  t.deepEqual(
+    intersect(['__proto__', '__proto__', 'constructor'], ['constructor', '__proto__']),
+    ['__proto__', 'constructor']
+  );
+  t.deepEqual(intersect(['__proto__', 'hasOwnProperty'], ['x']), []);
+  t.end();
+});
