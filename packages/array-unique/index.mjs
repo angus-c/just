@@ -37,7 +37,7 @@ function unique(arr, sorted, strings) {
       duplicate = seenNaN;
       seenNaN = true;
     }
-    duplicate = duplicate || (lastAdded && lastAdded === elem);
+    duplicate = duplicate || (i > 0 && lastAdded === elem);
     if (!duplicate && !sorted) {
       duplicate = result.indexOf(elem) > -1;
     }

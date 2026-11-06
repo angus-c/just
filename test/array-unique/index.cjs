@@ -101,3 +101,19 @@ test('throws if third argument is not a boolean', function(t) {
   });
   t.end();
 });
+
+test('presorted arrays deduplicate falsy values', function(t) {
+  t.plan(10);
+  t.deepEqual(unique([0, 0, 1, 1], true), [0, 1]);
+  t.deepEqual(unique([false, false, true, true], true), [false, true]);
+  t.deepEqual(unique(['', '', 'a', 'a'], true), ['', 'a']);
+  t.deepEqual(unique([null, null], true), [null]);
+  t.deepEqual(unique([undefined, undefined], true), [undefined]);
+  t.deepEqual(unique([undefined], true), [undefined]);
+  t.deepEqual(unique([0, 0, 0], true), [0]);
+  t.deepEqual(unique([NaN, NaN, 0, 0], true), [NaN, 0]);
+  t.deepEqual(unique(['', '', 'a', 'a'], true, true), ['', 'a']);
+  t.deepEqual(unique([false, false, 0, 0, '', '', null, null, undefined, undefined], true),
+    [false, 0, '', null, undefined]);
+  t.end();
+});
