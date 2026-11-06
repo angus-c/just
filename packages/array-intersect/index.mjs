@@ -12,12 +12,12 @@ function intersect(arr1, arr2) {
 
   var result = [];
   var set = convertArrayToSet(arr2);
-  var memo = {};
+  var memo = Object.create(null);
 
   for (var i = 0; i < arr1.length; i++) {
     var item = arr1[i];
 
-    if (set.hasOwnProperty(item) && !memo.hasOwnProperty(item)) {
+    if (set[item] && !memo[item]) {
       result.push(item);
       memo[item] = true;
     }
@@ -27,11 +27,11 @@ function intersect(arr1, arr2) {
 }
 
 function convertArrayToSet(arr) {
-  var output = {};
+  var output = Object.create(null);
 
   for (var i = 0; i < arr.length; i++) {
     var item = arr[i];
-    if (!output.hasOwnProperty(item)) {
+    if (!output[item]) {
       output[item] = true;
     }
   }
