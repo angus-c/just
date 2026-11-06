@@ -23,6 +23,7 @@ function throttle(fn, interval, options) {
       clearTimeout(timeoutId);
       timeoutId = null;
     }
+    throttledFn = null;
   };
 
   var flush = function() {
