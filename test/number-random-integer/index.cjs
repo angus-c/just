@@ -46,6 +46,31 @@ try {
     t.end();
   });
 
+  test('ranges wider than signed 32-bit integers', function(t) {
+    t.plan(12);
+
+    mockRandom(0);
+    t.equal(random(0, 4294967295), 0);
+    mockRandom(0.5);
+    t.equal(random(0, 4294967295), 2147483648);
+    mockRandom(0.75);
+    t.equal(random(0, 4294967295), 3221225472);
+    t.equal(random(4294967295), 3221225472);
+    t.equal(random(4294967295, 0), 3221225472);
+    mockRandom(1 - Math.pow(2, -53));
+    t.equal(random(0, 4294967295), 4294967295);
+
+    mockRandom(0.75);
+    t.equal(random(-2147483648, 2147483647), 1073741824);
+    t.equal(random(-4294967296, -1), -1073741824);
+    t.equal(random(0, 10000000000), 7500000000);
+    t.equal(random(-10000000000, 0), -2500000000);
+    t.equal(random(-2147483648.5, 2147483647.5), 1073741824);
+    mockRandom(0.5);
+    t.equal(random(0, 8589934591), 4294967296);
+    t.end();
+  });
+
   test('negative to positive range', function(t) {
     t.plan(4);
     mockRandom(0);
