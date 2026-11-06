@@ -167,7 +167,7 @@ function diff(obj1, obj2, pathConverter) {
       } else {
         if(!Object.keys(obj1AtKey).length &&
           !Object.keys(obj2AtKey).length &&
-          String(obj1AtKey) != String(obj2AtKey)) {
+          safeString(obj1AtKey) != safeString(obj2AtKey)) {
           pushReplace(path, diffs, obj2AtKey);
         } else {
           getDiff({
@@ -190,6 +190,15 @@ function diff(obj1, obj2, pathConverter) {
   }
 }
 
+
+function safeString(val) {
+  try {
+    return String(val);
+  } catch (e) {
+    return Object.prototype.toString.call(val);
+  }
+}
+
 function jsonPatchPathConverter(arrayPath) {
   return [''].concat(arrayPath).join('/');
 }
@@ -204,14 +213,14 @@ function trimFromRight(obj1, obj2) {
     var leftMatches = 0;
     var rightMatches = 0;
     for (var i = 0; i < obj2.length; i++) {
-      if (String(obj1[i]) === String(obj2[i])) {
+      if (safeString(obj1[i]) === safeString(obj2[i])) {
         leftMatches++;
       } else {
         break;
       }
     }
     for (var j = obj2.length; j > 0; j--) {
-      if (String(obj1[j + lengthDelta]) === String(obj2[j])) {
+      if (safeString(obj1[j + lengthDelta]) === safeString(obj2[j])) {
         rightMatches++;
       } else {
         break;
