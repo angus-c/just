@@ -1017,3 +1017,30 @@ test('invalid inputs', function(t) {
     );
   });
 });
+
+test('objects with null prototype', function(t) {
+  t.plan(4);
+
+  var a = Object.create(null);
+  var b = Object.create(null);
+  t.ok(compare(diff({x: a}, {x: b}), []));
+  t.ok(compare(diff({x: a}, {x: {}}), []));
+
+  t.ok(
+    compare(
+      diff([Object.create(null), 1, 2], [Object.create(null), 1]),
+      [{op: 'remove', path: [2]}]
+    )
+  );
+
+  var obj1 = Object.create(null);
+  obj1.foo = 'bar';
+  var obj2 = Object.create(null);
+  obj2.foo = 'baz';
+  t.ok(
+    compare(
+      diff({x: obj1}, {x: obj2}),
+      [{op: 'replace', path: ['x', 'foo'], value: 'baz'}]
+    )
+  );
+});
