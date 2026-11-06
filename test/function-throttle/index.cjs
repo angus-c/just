@@ -527,3 +527,60 @@ test('flush invokes immediately the callback function when {leading: false, trai
     t.equal(callCounter, 1);
   }, 400);
 });
+
+test('cancel prevents later flush and allows reuse', function(t) {
+  var modes = [
+    undefined,
+    {leading: true, trailing: false},
+    {leading: true, trailing: true},
+    {leading: false, trailing: true},
+    {leading: false, trailing: false},
+  ];
+  modes.forEach(function(options) {
+    var calls = 0;
+    var fn = throttle(function() { calls++; }, 200, options);
+    var leading = !options || options.leading;
+    fn();
+    fn();
+    fn.cancel();
+    fn.cancel();
+    fn.flush();
+    t.equal(calls, leading ? 1 : 0, 'canceled callback stays canceled');
+    fn();
+    fn.flush();
+    t.equal(calls, leading ? 3 : 1, 'a new call can be flushed');
+    fn.flush();
+    t.equal(calls, leading ? 3 : 1, 'flush consumes the retained callback');
+  });
+  t.end();
+});
+
+test('flush uses latest arguments and context only once', function(t) {
+  var seen = [];
+  var first = {name: 'first'};
+  var last = {name: 'last'};
+  var fn = throttle(function(value) { seen.push([this, value]); }, 200, {leading: false});
+  fn.call(first, 1);
+  fn.call(last, 2);
+  fn.flush();
+  fn.flush();
+  t.deepEqual(seen, [[last, 2]]);
+  fn.cancel();
+  t.end();
+});
+
+test('flush preserves a new call scheduled by its callback', function(t) {
+  var seen = [];
+  var fn = throttle(function(value) {
+    seen.push(value);
+    if (value === 1) fn(2);
+  }, 200, {leading: false});
+  fn(1);
+  fn.flush();
+  t.deepEqual(seen, [1]);
+  fn.flush();
+  t.deepEqual(seen, [1, 2]);
+  fn.flush();
+  t.deepEqual(seen, [1, 2]);
+  t.end();
+});
