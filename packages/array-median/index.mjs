@@ -9,17 +9,15 @@ function median(arr) {
   if (!arr.length) {
     throw new Error('no values were passed to `median`');
   }
-  if (arr.length == 1) {
-    if (Number.isFinite(arr[0])) {
-      return arr[0];
-    } else {
+  for (var i = 0; i < arr.length; i++) {
+    if (!Number.isFinite(arr[i])) {
       throw new Error(nonNumericMsg);
     }
   }
+  if (arr.length == 1) {
+    return arr[0];
+  }
   var sorted = arr.sort(function(a, b) {
-    if (!Number.isFinite(a)) {
-      throw new Error(nonNumericMsg);
-    }
     return a >= b ? 1 : -1;
   });
   var lowerMiddleRank = Math.floor(arr.length / 2);

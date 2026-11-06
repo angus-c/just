@@ -73,3 +73,30 @@ test('non numeric values throw', function(t) {
   });
   t.end();
 });
+
+test('rejects every non-numeric value before sorting', function(t) {
+  var invalid = [NaN, Infinity, -Infinity, '2', null, undefined, {}, true];
+  t.plan(invalid.length * 2 + 3);
+
+  for (var i = 0; i < invalid.length; i++) {
+    var values = [invalid[i], 1];
+    t.throws(function() {
+      percentile(values, 0.5);
+    });
+    values = [1, invalid[i]];
+    t.throws(function() {
+      percentile(values, 0.5);
+    });
+  }
+
+  var values = new Array(2);
+  t.throws(function() {
+    percentile(values, 0.5);
+  });
+  values = [3, 1, undefined];
+  t.throws(function() {
+    percentile(values, 0.5);
+  });
+  t.deepEqual(values, [3, 1, undefined]);
+  t.end();
+});
