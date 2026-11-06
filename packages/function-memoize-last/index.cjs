@@ -32,9 +32,10 @@ function memoizeLast(fn, isEqual) {
     var args = [].slice.call(arguments);
 
     if (!lastArgs || this !== lastThis || !_isEqual(lastArgs, args)) {
+      var result = fn.apply(this, args);
       lastThis = this;
       lastArgs = args;
-      lastResult = fn.apply(this, args);
+      lastResult = result;
     }
 
     return lastResult;
