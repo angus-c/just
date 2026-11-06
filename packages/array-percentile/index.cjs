@@ -13,14 +13,12 @@ function percentile(arr, percentage) {
   if (!arr.length) {
     throw new Error('no values were passed to percentile');
   }
-  //sort doesnt call if length is one. need to check explicitly.
-  if (arr.length === 1 && !Number.isFinite(arr[0])) {
-    throw new Error(numericError);
-  }
-  var sorted = arr.sort(function(a, b) {
-    if (!Number.isFinite(a)) {
+  for (var i = 0; i < arr.length; i++) {
+    if (!Number.isFinite(arr[i])) {
       throw new Error(numericError);
     }
+  }
+  var sorted = arr.sort(function(a, b) {
     return a - b;
   });
 
