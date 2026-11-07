@@ -23,9 +23,15 @@ function median(arr) {
     return a >= b ? 1 : -1;
   });
   var lowerMiddleRank = Math.floor(arr.length / 2);
-  return arr.length / 2 != lowerMiddleRank
-    ? sorted[lowerMiddleRank]
-    : (sorted[lowerMiddleRank] + sorted[lowerMiddleRank - 1]) / 2;
+  if (arr.length / 2 != lowerMiddleRank) {
+    return sorted[lowerMiddleRank];
+  }
+  var upper = sorted[lowerMiddleRank];
+  var lower = sorted[lowerMiddleRank - 1];
+  var sum = upper + lower;
+  return !Number.isFinite(sum) && Number.isFinite(upper) && Number.isFinite(lower)
+    ? upper / 2 + lower / 2
+    : sum / 2;
 }
 
 export {arrayMedian as default};
