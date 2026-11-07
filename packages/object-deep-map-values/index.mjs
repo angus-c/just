@@ -4,7 +4,7 @@ function deepMapValues(obj, fn) {
   if (!isObject(obj)) {
     throw new Error('First argument must be an object');
   }
-  if (!(fn instanceof Function)) {
+  if (typeof fn !== 'function') {
     throw new Error('Second argument must be a function');
   }
 
