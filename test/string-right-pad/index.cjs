@@ -150,3 +150,13 @@ test('left pad with multiple custom pad characters', function(t3) {
   });
   t3.end();
 });
+
+test('multi-pair padding counts characters before repeating', function(t) {
+  t.plan(5);
+  t.equal(rightPad('hello', 8, '🐑🐄'), 'hello🐑🐄🐑');
+  t.equal(rightPad('hello', 10, '🐑🐄🐖'), 'hello🐑🐄🐖🐑🐄');
+  t.equal(rightPad('', 3, '🐑🐄'), '🐑🐄🐑');
+  t.equal(rightPad('🐈a', 5, '🐑🐄'), '🐈a🐑🐄🐑');
+  t.equal(rightPad('hello', 5, '🐑🐄'), 'hello');
+  t.end();
+});
