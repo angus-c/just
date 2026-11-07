@@ -76,3 +76,22 @@ test('invalid', function(t) {
 
   t.end();
 });
+
+test('reject invalid sets after the first set', function(t) {
+  var invalidSets = ['abc', '', {length: 0}, {0: 'x', length: 1}, null,
+    undefined, 0, false, function() {}];
+  t.plan(invalidSets.length * 3);
+  for (var i = 0; i < invalidSets.length; i++) {
+    var invalidSet = invalidSets[i];
+    t.throws(function() {
+      cartesianProduct([[1], invalidSet]);
+    }, /set at index 1 must be an array/);
+    t.throws(function() {
+      cartesianProduct([[1], [2], invalidSet]);
+    }, /set at index 2 must be an array/);
+    t.throws(function() {
+      cartesianProduct([[], invalidSet]);
+    }, /set at index 1 must be an array/);
+  }
+  t.end();
+});

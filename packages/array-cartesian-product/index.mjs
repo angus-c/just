@@ -43,7 +43,7 @@ function cartesianProduct(arr) {
   var product = arr[0].map(function(v) { return [v]; });
 
   for (var i = 1; i < arr.length; i++) {
-    if(!isArray(product)) {
+    if(!isArray(arr[i])) {
       throw new Error('set at index ' + i + ' must be an array');
     }
     product = baseProduct(product, arr[i]);
