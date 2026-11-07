@@ -22,7 +22,11 @@ function reduce(obj, predicate /*, initialValue*/) {
     );
   }
 
-  return Array.prototype.reduce.apply(Object.keys(obj), args);
+  var keys = Object.keys(obj);
+  if (!hasInitialValue && keys.length == 1) {
+    return obj[keys[0]];
+  }
+  return Array.prototype.reduce.apply(keys, args);
 }
 
 export {objectReduce as default};
