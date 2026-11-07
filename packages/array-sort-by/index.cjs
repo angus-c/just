@@ -39,7 +39,7 @@ function sortBy(arr, iteratee) {
 
   var copied = arr.slice();
 
-  if (!iteratee) {
+  if (iteratee === undefined) {
     return copied.sort(function(a, b) {
       return a - b;
     });
