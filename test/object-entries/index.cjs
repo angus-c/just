@@ -75,3 +75,22 @@ test('primitives throw exceptions', function(t) {
     'null'
   );
 });
+
+test('supports null-prototype objects and shadowed hasOwnProperty', function(t) {
+  t.plan(7);
+  var bare = Object.create(null);
+  bare.a = 1;
+  bare.b = {c: 2};
+  t.deepEqual(entries(bare), [['a', 1], ['b', bare.b]]);
+  t.equal(entries(bare)[1][1], bare.b);
+  t.deepEqual(entries({hasOwnProperty: false, a: 2}), [['hasOwnProperty', false], ['a', 2]]);
+  var calls = 0;
+  var shadow = function() { calls++; return false; };
+  t.deepEqual(entries({hasOwnProperty: shadow, a: 3}), [['hasOwnProperty', shadow], ['a', 3]]);
+  t.equal(calls, 0);
+  var inherited = Object.create({ignored: 1, hasOwnProperty: shadow});
+  inherited.a = 4;
+  t.deepEqual(entries(inherited), [['a', 4]]);
+  t.deepEqual(entries(Object.create(null)), []);
+  t.end();
+});
