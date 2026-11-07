@@ -141,3 +141,42 @@ test('invalid usage', function(t) {
   });
   t.end();
 });
+
+test('single property without initialValue returns its value, not its key', function(t) {
+  t.plan(12);
+  var values = [3, 0, false, '', null, undefined, {n: 2}, [1, 2], noop, NaN];
+  var calls = 0;
+  for (var i = 0; i < values.length; i++) {
+    var result = reduce({only: values[i]}, function() {
+      calls++;
+    });
+    t.ok(Object.is(result, values[i]));
+  }
+  t.isEqual(calls, 0);
+  var obj = Object.create({inherited: 4});
+  obj[''] = 7;
+  t.isEqual(reduce(obj, noop), 7);
+  t.end();
+});
+
+test('single property with explicit initialValue still calls the reducer', function(t) {
+  t.plan(6);
+  var obj = {only: 3};
+  var calls = [];
+  var result = reduce(obj, function(acc, key, value, index, keys) {
+    calls.push([acc, key, value, index, keys]);
+    return value;
+  }, undefined);
+  t.isEqual(result, 3);
+  t.deepEqual(calls, [[undefined, 'only', 3, 0, ['only']]]);
+  t.isEqual(reduce(obj, function(acc, key, value) {
+    return acc + value;
+  }, 0), 3);
+  var seed = {};
+  t.isEqual(reduce({}, noop, seed), seed);
+  t.throws(function() {
+    reduce({}, noop);
+  });
+  t.deepEqual(obj, {only: 3});
+  t.end();
+});
