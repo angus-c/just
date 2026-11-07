@@ -61,3 +61,29 @@ test('throws if second argument is not null/undefined or a number', function(t) 
   });
   t.end();
 });
+
+test('throws for an explicitly nonpositive group size', function(t) {
+  t.plan(10);
+  var sizes = [0, -0, -1, -0.5, -Infinity];
+  for (var i = 0; i < sizes.length; i++) {
+    var size = sizes[i];
+    t.throws(function() {
+      split([1, 2, 3], size);
+    }, /expected a positive number/);
+    t.throws(function() {
+      split([], size);
+    }, /expected a positive number/);
+  }
+  t.end();
+});
+
+test('keeps default and positive group sizes unchanged', function(t) {
+  t.plan(5);
+  var values = [1, 2, 3];
+  t.deepEqual(split(values, 1), [[1], [2], [3]]);
+  t.deepEqual(split(values, Infinity), [[1, 2, 3]]);
+  t.deepEqual(split(values, undefined), [[1, 2, 3]]);
+  t.deepEqual(split([], undefined), []);
+  t.deepEqual(values, [1, 2, 3]);
+  t.end();
+});

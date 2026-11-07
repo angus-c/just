@@ -19,6 +19,9 @@ function split(arr, n) {
   if (n != null && typeof n != 'number') {
     throw new Error('expected a number or null/undefined for the second argument');
   }
+  if (n != null && n <= 0) {
+    throw new Error('expected a positive number for the second argument');
+  }
   n = n != null ? n : arr.length;
   var len = arr.length;
   var groups = [];
