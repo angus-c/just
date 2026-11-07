@@ -20,7 +20,7 @@ function entries(obj) {
 
   var result = [];
   for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       result.push([key, obj[key]]);
     }
   }
