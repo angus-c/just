@@ -102,7 +102,7 @@ function diff(obj1, obj2, pathConverter) {
           obj1,
           obj2,
           path: basePath.concat(key),
-          pathForRemoves: basePath.concat(key),
+          pathForRemoves: basePathForRemoves.concat(key),
           diffs,
         });
       }
@@ -126,7 +126,7 @@ function diff(obj1, obj2, pathConverter) {
           path: basePath.concat(i),
           // since list of removes are reversed before presenting result,
           // we need to ignore existing parent removes when doing nested removes
-          pathForRemoves: basePath.concat(i + lengthDelta),
+          pathForRemoves: basePathForRemoves.concat(i + lengthDelta),
           diffs,
         });
       }
