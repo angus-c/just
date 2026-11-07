@@ -39,3 +39,15 @@ test('non-numeric values throw', function(t) {
   });
   t.end();
 });
+
+test('avoids overflow when averaging finite middle values', function(t) {
+  t.plan(6);
+  var max = Number.MAX_VALUE;
+  t.equal(median([max, max]), max);
+  t.equal(median([-max, -max]), -max);
+  t.equal(median([1e308, 1.2e308]), 1.1e308);
+  t.equal(median([-1.2e308, -1e308]), -1.1e308);
+  t.equal(median([0, max, max, max]), max);
+  t.equal(median([-max, -max, -max, 0]), -max);
+  t.end();
+});
