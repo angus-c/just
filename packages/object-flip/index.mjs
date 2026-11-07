@@ -13,7 +13,17 @@ function flip(obj) {
   var len = keys.length;
   for (var i = 0; i < len; i++) {
     var key = keys[i];
-    result[obj[key]] = key;
+    var value = obj[key];
+    if (value === '__proto__') {
+      Object.defineProperty(result, value, {
+        value: key,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      });
+    } else {
+      result[value] = key;
+    }
   }
   return result;
 }
