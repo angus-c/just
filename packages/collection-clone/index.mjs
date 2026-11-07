@@ -29,7 +29,7 @@ function clone(obj) {
     return RegExp(obj.source, getRegExpFlags(obj));
   }
   if (type == 'Array' || type == 'Object') {
-    result = Array.isArray(obj) ? [] : {};
+    result = Array.isArray(obj) ? new Array(obj.length) : {};
     for (var key in obj) {
       // include prototype properties
       result[key] = clone(obj[key]);

@@ -166,3 +166,53 @@ test("doesn't clone functions", function(t) {
 
   t.end();
 });
+
+test('preserves sparse array length and holes', function(t) {
+  t.plan(9);
+  var empty = new Array(3);
+  var emptyClone = clone(empty);
+  t.equal(emptyClone.length, 3);
+  t.deepEqual(Object.keys(emptyClone), []);
+  t.notEqual(emptyClone, empty);
+  var sparse = new Array(5);
+  sparse[1] = {value: 2};
+  sparse[2] = undefined;
+  var result = clone(sparse);
+  t.equal(result.length, 5);
+  t.deepEqual(Object.keys(result), ['1', '2']);
+  t.notEqual(result[1], sparse[1]);
+  t.deepEqual(result[1], {value: 2});
+  t.equal(0 in result, false);
+  t.equal(4 in result, false);
+  t.end();
+});
+
+test('preserves sparse arrays nested in objects, maps and sets', function(t) {
+  t.plan(6);
+  var sparse = new Array(4);
+  sparse[1] = {value: 3};
+  var input = {array: sparse, map: new Map([['key', sparse]]), set: new Set([sparse])};
+  var result = clone(input);
+  var arrays = [result.array, result.map.get('key'), Array.from(result.set)[0]];
+  for (var i = 0; i < arrays.length; i++) {
+    t.equal(arrays[i].length, 4);
+    t.deepEqual(Object.keys(arrays[i]), ['1']);
+  }
+  t.end();
+});
+
+test('keeps copying enumerable inherited array properties', function(t) {
+  t.plan(5);
+  var prototype = Object.create(Array.prototype);
+  prototype[2] = {value: 3};
+  prototype.extra = {value: 4};
+  var sparse = new Array(5);
+  Object.setPrototypeOf(sparse, prototype);
+  var result = clone(sparse);
+  t.equal(result.length, 5);
+  t.deepEqual(Object.keys(result), ['2', 'extra']);
+  t.deepEqual(result[2], {value: 3});
+  t.notEqual(result[2], prototype[2]);
+  t.notEqual(result.extra, prototype.extra);
+  t.end();
+});
