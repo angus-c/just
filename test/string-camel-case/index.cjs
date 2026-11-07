@@ -42,3 +42,27 @@ test('string with existing capitalization', function(t) {
   t.equal(camelCase('THE_QUICK/BROWN_FOX'), 'theQuickBrownFox');
   t.end();
 });
+
+test('leading separators do not capitalize the first word', function(t) {
+  var inputs = [
+    'the quick brown fox', 'TheQuickBrownFox', 'THE_QUICK_BROWN_FOX',
+    'theQUICKBrownFOXES', 'a', '3 apples', 'Éclair au chocolat',
+  ];
+  var prefixes = [' ', '  ', '_', '--', '* /_', '\t\n', '\u2003', '\u2014', '\u2e00'];
+  t.plan(inputs.length * prefixes.length);
+  for (var i = 0; i < inputs.length; i++) {
+    for (var j = 0; j < prefixes.length; j++) {
+      t.equal(camelCase(prefixes[j] + inputs[i]), camelCase(inputs[i]));
+    }
+  }
+  t.end();
+});
+
+test('empty and separator-only inputs remain empty', function(t) {
+  var inputs = ['', ' ', '__--', '\t\n\u2003', '* /_\u2014\u2e00'];
+  t.plan(inputs.length);
+  for (var i = 0; i < inputs.length; i++) {
+    t.equal(camelCase(inputs[i]), '');
+  }
+  t.end();
+});
