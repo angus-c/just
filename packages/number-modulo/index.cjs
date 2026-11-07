@@ -23,5 +23,9 @@ function modulo(n, d) {
   if (d < 0) {
     return NaN;
   }
-  return (n % d + d) % d;
+  var remainder = n % d;
+  if (typeof n == 'number' && typeof d == 'number' && isFinite(d) && remainder > 0) {
+    return remainder;
+  }
+  return (remainder + d) % d;
 }
