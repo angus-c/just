@@ -39,10 +39,10 @@ function rightPad(str, length, padStr) {
   if (!length || length <= strLen) {
     return str;
   }
+  padStrLen -= surrPairsInPad;
   var padCount = Math.floor((length - strLen) / padStrLen);
   var padRemainder = (length - strLen) % padStrLen;
   if (surrPairsInPad) {
-    padCount = 2 * padCount;
     padRemainder = 2 * padRemainder;
   }
   return [str]
