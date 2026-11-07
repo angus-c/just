@@ -17,5 +17,16 @@ function mean(arr) {
     }
     sum += n;
   }
+  if (!Number.isFinite(sum)) {
+    var scale = 0;
+    for (var i = 0; i < len; i++) {
+      scale = Math.max(scale, Math.abs(arr[i]));
+    }
+    sum = 0;
+    for (var i = 0; i < len; i++) {
+      sum += arr[i] / scale;
+    }
+    return (sum / len) * scale;
+  }
   return sum / len;
 }
