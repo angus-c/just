@@ -14,7 +14,7 @@ function omit(obj, remove) {
     remove = [].slice.call(arguments, 1);
   }
   for (var prop in obj) {
-    if (!obj.hasOwnProperty || obj.hasOwnProperty(prop)) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       if (remove.indexOf(prop) === -1) {
         result[prop] = obj[prop];
       }
