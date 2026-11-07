@@ -52,7 +52,7 @@ function unique(arr, sorted, strings) {
 }
 
 function stringUnique(arr) {
-  var lookup = {};
+  var lookup = Object.create(null);
   var len = arr.length;
   for (var i = 0; i < len; i++) {
     lookup[arr[i]] = true;

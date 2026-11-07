@@ -101,3 +101,21 @@ test('throws if third argument is not a boolean', function(t) {
   });
   t.end();
 });
+
+test('string option preserves __proto__ as a string key', function(t) {
+  t.plan(10);
+  t.deepEqual(unique(['__proto__'], false, true), ['__proto__']);
+  t.deepEqual(unique(['__proto__', '__proto__'], false, true), ['__proto__']);
+  t.deepEqual(unique(['__proto__', 'a', '__proto__'], false, true), ['__proto__', 'a']);
+  t.deepEqual(unique(['a', '__proto__', 'a'], null, true), ['a', '__proto__']);
+  t.deepEqual(unique(['__proto__', 'constructor', 'toString', 'hasOwnProperty'], false, true),
+    ['__proto__', 'constructor', 'toString', 'hasOwnProperty']);
+  t.deepEqual(unique(['__proto__', '', '__proto__', ''], false, true), ['__proto__', '']);
+  t.deepEqual(unique(['__proto__', '10', '2', '10', 'a'], false, true),
+    ['2', '10', '__proto__', 'a']);
+  t.deepEqual(unique(['__proto__', '__proto__', 'a'], true, true), ['__proto__', 'a']);
+  var input = ['__proto__', 'a', '__proto__'];
+  t.notEqual(unique(input, false, true), input);
+  t.deepEqual(input, ['__proto__', 'a', '__proto__']);
+  t.end();
+});
