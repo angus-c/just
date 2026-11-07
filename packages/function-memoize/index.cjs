@@ -32,7 +32,7 @@ function memoize(callback, resolver) {
     throw new Error('`resolver` should be a function');
   }
 
-  var cache = {};
+  var cache = Object.create(null);
 
   var memoized = function() {
     var args = Array.prototype.slice.call(arguments); // to simplify JSON.stringify
