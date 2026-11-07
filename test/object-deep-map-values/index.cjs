@@ -49,3 +49,31 @@ test('throws error when provided with invalid arguments', (t) => {
   );
   t.end();
 });
+
+test('accepts callback functions from another realm', (t) => {
+  t.plan(4);
+  const vm = require('vm');
+  const callback = vm.runInNewContext('(function(value, key) { return key + value; })');
+  const input = {a: 1, b: {c: 2}};
+  t.deepEqual(deepMapValues(input, callback), {a: 'a1', b: {c: 'c2'}});
+  t.deepEqual(input, {a: 1, b: {c: 2}});
+  t.deepEqual(deepMapValues({}, callback), {});
+  t.deepEqual(deepMapValues(input, callback.bind(null)), {a: 'a1', b: {c: 'c2'}});
+  t.end();
+});
+
+test('accepts a callable without Function.prototype', (t) => {
+  t.plan(1);
+  const callback = Object.setPrototypeOf((value) => value * 2, null);
+  t.deepEqual(deepMapValues({a: 2, b: {c: 3}}, callback), {a: 4, b: {c: 6}});
+  t.end();
+});
+
+test('rejects noncallable objects with Function.prototype', (t) => {
+  t.plan(1);
+  t.throws(
+    () => deepMapValues({}, Object.create(Function.prototype)),
+    new RegExp('Second argument must be a function')
+  );
+  t.end();
+});
