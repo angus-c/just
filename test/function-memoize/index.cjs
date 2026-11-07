@@ -194,3 +194,48 @@ test('throws an error when `callback` is not a function', function(t) {
 
   t.end();
 });
+
+test('custom resolver keys do not collide with inherited object properties', function(t) {
+  var keys = ['__proto__', 'constructor', 'toString', 'hasOwnProperty', 'valueOf'];
+  t.plan(keys.length * 5);
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var calls = 0;
+    var value = {key: key};
+    var calc = memoize(function() {
+      calls++;
+      return value;
+    }, function() {
+      return key;
+    });
+    t.equal(calc(), value);
+    t.equal(calc(), value);
+    t.equal(calls, 1);
+    t.ok(Object.prototype.hasOwnProperty.call(calc.cache, key));
+    t.equal(calc.cache[key], value);
+  }
+  t.end();
+});
+
+test('reserved keys cache falsy values and remain independently removable', function(t) {
+  t.plan(10);
+  var calls = 0;
+  var calc = memoize(function(key, value) {
+    calls++;
+    return value;
+  }, function(key) {
+    return key;
+  });
+  t.equal(calc('__proto__', undefined), undefined);
+  t.equal(calc('__proto__', 1), undefined);
+  t.equal(calc('toString', false), false);
+  t.equal(calc('constructor', 0), 0);
+  t.equal(calc('hasOwnProperty', null), null);
+  t.equal(calls, 4);
+  t.equal(Object.keys(calc.cache).length, 4);
+  delete calc.cache.__proto__;
+  t.equal(calc('__proto__', 7), 7);
+  t.equal(calc('toString', true), false);
+  t.equal(calls, 5);
+  t.end();
+});
