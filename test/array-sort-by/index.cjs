@@ -126,3 +126,17 @@ test('invalid', function(t) {
 
   t.end();
 });
+
+test('sort by an empty string property name', function(t) {
+  t.plan(4);
+
+  var numbers = [{'': 3}, {'': 1}, {'': 2}];
+  var strings = [{'': 'beta'}, {'': 'Alpha'}, {'': 'gamma'}];
+
+  t.deepEqual(sortBy(numbers, ''), [numbers[1], numbers[2], numbers[0]]);
+  t.deepEqual(sortBy(strings, ''), [strings[1], strings[0], strings[2]]);
+  t.deepEqual(numbers, [{'': 3}, {'': 1}, {'': 2}]);
+  t.deepEqual(strings, [{'': 'beta'}, {'': 'Alpha'}, {'': 'gamma'}]);
+
+  t.end();
+});
