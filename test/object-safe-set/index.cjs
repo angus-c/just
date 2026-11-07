@@ -117,3 +117,50 @@ if (typeof Symbol === 'function') {
     t.end();
   });
 }
+
+test('sets empty string property names without truncating the path', function(t) {
+  t.plan(12);
+  var paths = [
+    '', [''], '.a', ['', 'a'], 'a.', ['a', ''],
+    'a..b', ['a', '', 'b'], '..', ['', '', ''], '.a.', ['', 'a', ''],
+  ];
+  var expected = [
+    {'': 7}, {'': 7}, {'': {a: 7}}, {'': {a: 7}},
+    {a: {'': 7}}, {a: {'': 7}}, {a: {'': {b: 7}}}, {a: {'': {b: 7}}},
+    {'': {'': {'': 7}}}, {'': {'': {'': 7}}}, {'': {a: {'': 7}}}, {'': {a: {'': 7}}},
+  ];
+  for (var i = 0; i < paths.length; i++) {
+    var obj = {};
+    set(obj, paths[i], 7);
+    t.deepEqual(obj, expected[i]);
+  }
+  t.end();
+});
+
+test('preserves existing values and paths around empty segments', function(t) {
+  t.plan(9);
+  var path = ['a', '', 'b'];
+  var obj = {a: {'': {sibling: 3}, b: 5}};
+  t.isEqual(set(obj, path, 7), true);
+  t.deepEqual(obj, {a: {'': {sibling: 3, b: 7}, b: 5}});
+  t.deepEqual(path, ['a', '', 'b']);
+  t.isEqual(set(obj, [], 9), false);
+  t.deepEqual(obj, {a: {'': {sibling: 3, b: 7}, b: 5}});
+  var blocked = {a: {'': null}};
+  t.isEqual(set(blocked, path, 7), false);
+  t.deepEqual(blocked, {a: {'': null}});
+  t.isEqual(set(obj, ['a', ''], 4), true);
+  t.deepEqual(obj, {a: {'': 4, b: 5}});
+  t.end();
+});
+
+test('continues rejecting reserved keys after empty segments', function(t) {
+  t.plan(3);
+  var keys = ['__proto__', 'constructor', 'prototype'];
+  for (var i = 0; i < keys.length; i++) {
+    t.throws(function() {
+      set({}, ['', keys[i], 'x'], 7);
+    }, /setting of prototype values not supported/);
+  }
+  t.end();
+});

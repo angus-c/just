@@ -33,13 +33,14 @@ function set(obj, propsArg, value) {
   if (!Array.isArray(props)) {
     throw new Error('props arg must be an array, a string or a symbol');
   }
-  lastProp = props.pop();
-  if (!lastProp) {
+  if (!props.length) {
     return false;
   }
+  lastProp = props.pop();
   prototypeCheck(lastProp);
   var thisProp;
-  while ((thisProp = props.shift())) {
+  while (props.length) {
+    thisProp = props.shift();
     prototypeCheck(thisProp);
     if (typeof obj[thisProp] == 'undefined') {
       obj[thisProp] = {};
