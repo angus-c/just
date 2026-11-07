@@ -15,7 +15,7 @@ test('empty object, array, map or set', function(t) {
 test('non-empty object, array, map or set', function(t) {
   t.plan(7);
   t.notOk(isEmpty({a: 3, b: 5}));
-  t.notOk(isEmpty({[Symbol('a')]: "some-value"}));
+  t.notOk(isEmpty({[Symbol('a')]: 'some-value'}));
   t.notOk(isEmpty([1, 2]));
   t.notOk(isEmpty(['a', 'b']));
   t.notOk(isEmpty(new Array(4)));
@@ -55,5 +55,38 @@ test('other object types', function(t) {
   t.notOk(isEmpty('abc'));
   t.ok(isEmpty(0));
   t.ok(isEmpty(35));
+  t.end();
+});
+
+test('plain objects ignore non-enumerable symbol keys', function(t) {
+  t.plan(8);
+  var hidden = Symbol('hidden');
+  var visible = Symbol('visible');
+  var obj = {};
+  Object.defineProperty(obj, hidden, {value: 1});
+  t.ok(isEmpty(obj));
+  Object.defineProperty(obj, visible, {value: 2, enumerable: true});
+  t.notOk(isEmpty(obj));
+
+  var nullProto = Object.create(null);
+  Object.defineProperty(nullProto, hidden, {value: 1});
+  t.ok(isEmpty(nullProto));
+  nullProto.a = 2;
+  t.notOk(isEmpty(nullProto));
+
+  var shadowed = {};
+  Object.defineProperty(shadowed, 'propertyIsEnumerable', {value: null});
+  Object.defineProperty(shadowed, hidden, {value: 1});
+  t.ok(isEmpty(shadowed));
+
+  var inherited = Object.create({[visible]: 2});
+  Object.defineProperty(inherited, hidden, {value: 1});
+  t.ok(isEmpty(inherited));
+
+  var nonEnumString = {};
+  Object.defineProperty(nonEnumString, 'hidden', {value: 1});
+  t.ok(isEmpty(nonEnumString));
+  var frozen = Object.freeze(Object.defineProperty({}, hidden, {value: 1}));
+  t.ok(isEmpty(frozen));
   t.end();
 });
