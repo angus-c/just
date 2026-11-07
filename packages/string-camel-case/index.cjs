@@ -12,6 +12,7 @@ function camelCase(str) {
   var words = str.split(wordSeparatorsRegEx);
   var len = words.length;
   var mappedWords = new Array(len);
+  var firstWord = true;
   for (var i = 0; i < len; i++) {
     var word = words[i];
     if (word === '') {
@@ -24,7 +25,8 @@ function camelCase(str) {
       });
     }
     var firstLetter = word[0];
-    firstLetter = i > 0 ? firstLetter.toUpperCase() : firstLetter.toLowerCase();
+    firstLetter = firstWord ? firstLetter.toLowerCase() : firstLetter.toUpperCase();
+    firstWord = false;
     mappedWords[i] = firstLetter + (!isCamelCase ? word.slice(1).toLowerCase() : word.slice(1));
   }
   return mappedWords.join('');
