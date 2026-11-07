@@ -196,7 +196,9 @@ function diff(obj1, obj2, pathConverter) {
 }
 
 function jsonPatchPathConverter(arrayPath) {
-  return [''].concat(arrayPath).join('/');
+  return [''].concat(arrayPath.map(function(key) {
+    return String(key).replace(/~/g, '~0').replace(/\//g, '~1');
+  })).join('/');
 }
 
 function differentTypes(a, b) {

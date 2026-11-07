@@ -1017,3 +1017,84 @@ test('invalid inputs', function(t) {
     );
   });
 });
+
+test('JSON Pointer escapes object keys for remove, replace and add', function(t) {
+  var cases = [
+    ['a/b', '/a~1b'],
+    ['m~n', '/m~0n'],
+    ['~1', '/~01'],
+    ['~0', '/~00'],
+    ['~/', '/~0~1'],
+    ['/', '/~1'],
+    ['~', '/~0'],
+    ['', '/'],
+  ];
+  t.plan(cases.length * 9);
+
+  cases.forEach(function(entry) {
+    ['remove', 'replace', 'add'].forEach(function(op) {
+      var before = {};
+      var after = {};
+      if (op !== 'add') {
+        before[entry[0]] = 1;
+      }
+      if (op !== 'remove') {
+        after[entry[0]] = 2;
+      }
+      var expected = {op: op, path: entry[1]};
+      if (op !== 'remove') {
+        expected.value = 2;
+      }
+      var patch = diff(before, after, jsonPatchPathConverter);
+      t.deepEqual(patch, [expected], op + ' key ' + JSON.stringify(entry[0]));
+      t.doesNotThrow(function() {
+        diffApply(before, patch, decodeJsonPointer);
+      }, 'RFC 6901 application for ' + op + ' ' + entry[1]);
+      t.deepEqual(before, after, 'RFC 6901 round trip for ' + op + ' ' + entry[1]);
+    });
+  });
+});
+
+test('JSON Pointer escapes nested paths when arrays are trimmed from the left', function(t) {
+  t.plan(4);
+  var before = {'a/b': [0, {'~keep': 1, 'a/b': 2, 'old~1': 3}, 'end']};
+  var after = {'a/b': [{'~keep': 4, 'new/~': 5}, 'end']};
+
+  t.deepEqual(diff(before, after), [
+    {op: 'remove', path: ['a/b', 1, 'old~1']},
+    {op: 'remove', path: ['a/b', 1, 'a/b']},
+    {op: 'remove', path: ['a/b', 0]},
+    {op: 'replace', path: ['a/b', 0, '~keep'], value: 4},
+    {op: 'add', path: ['a/b', 0, 'new/~'], value: 5},
+  ], 'array paths retain raw keys and original indexes for removes');
+
+  var patch = diff(before, after, jsonPatchPathConverter);
+  t.deepEqual(patch, [
+    {op: 'remove', path: '/a~1b/1/old~01'},
+    {op: 'remove', path: '/a~1b/1/a~1b'},
+    {op: 'remove', path: '/a~1b/0'},
+    {op: 'replace', path: '/a~1b/0/~0keep', value: 4},
+    {op: 'add', path: '/a~1b/0/new~1~0', value: 5},
+  ], 'escaping preserves pre-removal and post-removal array indexes');
+  t.doesNotThrow(function() {
+    diffApply(before, patch, decodeJsonPointer);
+  }, 'RFC 6901 application after left trimming');
+  t.deepEqual(before, after, 'RFC 6901 round trip after left trimming');
+});
+
+test('JSON Pointer converter preserves token boundaries and does not mutate paths', function(t) {
+  t.plan(5);
+  var path = ['a/b', '~1', 0, '', '雪'];
+  t.equal(jsonPatchPathConverter(path), '/a~1b/~01/0//雪');
+  t.deepEqual(path, ['a/b', '~1', 0, '', '雪']);
+  t.equal(jsonPatchPathConverter(['a', 'b']), '/a/b');
+  t.notEqual(jsonPatchPathConverter(['a/b']), jsonPatchPathConverter(['a', 'b']));
+  t.notEqual(jsonPatchPathConverter(['~1']), jsonPatchPathConverter(['/']));
+});
+
+// RFC 6901 section 4: decode each token after splitting, with ~1 before ~0.
+function decodeJsonPointer(path) {
+  return path.split('/').slice(1).map(function(token) {
+    return token.replace(/~1/g, '/').replace(/~0/g, '~');
+  });
+}
