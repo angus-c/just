@@ -1017,3 +1017,41 @@ test('invalid inputs', function(t) {
     );
   });
 });
+
+test('nested removes keep ancestor indexes when earlier siblings are removed', function(t) {
+  t.plan(4);
+
+  // the nested remove runs before the outer remove, so its target still
+  // sits at its original index
+  var result1 = diff([0, {inner: [1, 2]}], [{inner: [2]}]);
+  t.ok(
+    compare(result1, [
+      {op: 'remove', path: [1, 'inner', 0]},
+      {op: 'remove', path: [0]},
+    ])
+  );
+
+  // multiple trimmed leading elements shift the ancestor by the full delta
+  var result2 = diff([0, 0, {inner: [1, 2]}], [{inner: [2]}]);
+  t.ok(
+    compare(result2, [
+      {op: 'remove', path: [2, 'inner', 0]},
+      {op: 'remove', path: [1]},
+      {op: 'remove', path: [0]},
+    ])
+  );
+
+  // nested arrays under a trimmed prefix
+  var result3 = diff([[1, 2], [3, 4]], [[4]]);
+  t.ok(
+    compare(result3, [
+      {op: 'remove', path: [1, 0]},
+      {op: 'remove', path: [0]},
+    ])
+  );
+
+  // object values under a trimmed prefix are unaffected
+  var result4 = diff({a: [0, {x: 1}]}, {a: [{x: 1}]});
+  t.ok(compare(result4, [{op: 'remove', path: ['a', 0]}]));
+  t.end();
+});
