@@ -30,3 +30,17 @@ test('non-numeric values throw', function(t) {
   });
   t.end();
 });
+
+test('finite means survive overflowing sums', function(t) {
+  t.plan(8);
+  var max = Number.MAX_VALUE;
+  t.equal(mean([max, max]), max);
+  t.equal(mean([-max, -max]), -max);
+  t.equal(mean([max, max, max]), max);
+  t.equal(mean([-max, -max, -max]), -max);
+  t.equal(mean([max, max, -max, -max]), 0);
+  t.equal(mean([max, max, 0, 0]), max / 2);
+  t.equal(mean(max, max), max);
+  t.equal(mean(-max, -max), -max);
+  t.end();
+});
